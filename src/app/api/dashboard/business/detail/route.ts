@@ -37,34 +37,34 @@ export async function GET() {
       await Promise.all([
         sql<QuarterlyRow[]>`
           SELECT date_trunc('quarter', registry_date)::date::text as quarter,
-            count(*)::int as total,
-            count(*) FILTER (WHERE entity_type ILIKE '%limited liability%')::int as llcs,
-            count(*) FILTER (WHERE entity_type ILIKE '%business corporation%')::int as corps,
-            count(*) FILTER (WHERE entity_type ILIKE '%nonprofit%')::int as nonprofits,
-            count(*) FILTER (WHERE entity_type ILIKE '%assumed%')::int as assumed_names
+            count(DISTINCT registry_number)::int as total,
+            count(DISTINCT registry_number) FILTER (WHERE entity_type ILIKE '%limited liability%')::int as llcs,
+            count(DISTINCT registry_number) FILTER (WHERE entity_type ILIKE '%business corporation%')::int as corps,
+            count(DISTINCT registry_number) FILTER (WHERE entity_type ILIKE '%nonprofit%')::int as nonprofits,
+            count(DISTINCT registry_number) FILTER (WHERE entity_type ILIKE '%assumed%')::int as assumed_names
           FROM business.oregon_sos_all_active
           WHERE registry_date >= '2016-01-01' AND registry_date < '2026-04-01'
           GROUP BY 1 ORDER BY 1
         `,
         sql<EntityRow[]>`
-          SELECT entity_type, count(*)::int as cnt
+          SELECT entity_type, count(DISTINCT registry_number)::int as cnt
           FROM business.oregon_sos_all_active
           GROUP BY 1 ORDER BY cnt DESC
         `,
         sql<ZipRow[]>`
-          SELECT zip, count(*)::int as cnt
+          SELECT zip, count(DISTINCT registry_number)::int as cnt
           FROM business.oregon_sos_all_active
           WHERE zip IS NOT NULL AND zip != ''
           GROUP BY 1 ORDER BY cnt DESC LIMIT 10
         `,
         sql<YearlyRow[]>`
-          SELECT EXTRACT(YEAR FROM registry_date)::int as yr, count(*)::int as cnt
+          SELECT EXTRACT(YEAR FROM registry_date)::int as yr, count(DISTINCT registry_number)::int as cnt
           FROM business.oregon_sos_all_active
           WHERE registry_date >= '2016-01-01'
           GROUP BY 1 ORDER BY 1
         `,
         sql<TotalRow[]>`
-          SELECT count(*)::int as total FROM business.oregon_sos_all_active
+          SELECT count(DISTINCT registry_number)::int as total FROM business.oregon_sos_all_active
         `,
       ]);
 

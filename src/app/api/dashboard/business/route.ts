@@ -30,22 +30,22 @@ export async function GET(): Promise<
     const [totalRows, yearlyRows, quarterlyRows, topEntityRows] =
       await Promise.all([
         sql<TotalRow[]>`
-          SELECT count(*)::int as total FROM business.oregon_sos_all_active
+          SELECT count(DISTINCT registry_number)::int as total FROM business.oregon_sos_all_active
         `,
         sql<YearlyRow[]>`
-          SELECT EXTRACT(YEAR FROM registry_date)::int as yr, count(*)::int as cnt
+          SELECT EXTRACT(YEAR FROM registry_date)::int as yr, count(DISTINCT registry_number)::int as cnt
           FROM business.oregon_sos_all_active
           WHERE registry_date >= '2016-01-01'
           GROUP BY 1 ORDER BY 1
         `,
         sql<QuarterlyRow[]>`
-          SELECT date_trunc('quarter', registry_date)::date::text as quarter, count(*)::int as cnt
+          SELECT date_trunc('quarter', registry_date)::date::text as quarter, count(DISTINCT registry_number)::int as cnt
           FROM business.oregon_sos_all_active
           WHERE registry_date >= '2016-01-01' AND registry_date < '2026-04-01'
           GROUP BY 1 ORDER BY 1
         `,
         sql<TopEntityRow[]>`
-          SELECT entity_type, count(*)::int as cnt
+          SELECT entity_type, count(DISTINCT registry_number)::int as cnt
           FROM business.oregon_sos_all_active
           GROUP BY 1 ORDER BY cnt DESC LIMIT 1
         `,

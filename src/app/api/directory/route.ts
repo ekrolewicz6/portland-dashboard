@@ -73,7 +73,7 @@ export async function GET(request: NextRequest) {
         [...values, limit, offset] as (string | number)[]
       ),
       sql<EntityTypeRow[]>`
-        SELECT entity_type, count(*)::int as count
+        SELECT entity_type, count(DISTINCT registry_number)::int as count
         FROM business.oregon_sos_all_active
         GROUP BY entity_type
         ORDER BY count DESC

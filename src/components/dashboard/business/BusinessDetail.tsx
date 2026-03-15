@@ -367,12 +367,40 @@ export default function BusinessDetail() {
             color="#1a3a2a"
           />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Total new business registrations per year. The acceleration from
-              ~10,000 in 2016 to 60,000+ in 2025 reflects both genuine growth
-              and the increasing ease of online LLC formation.
+            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
+              Unique new business registrations per year (deduplicated by registry number).
             </p>
-            <BarChart data={yearlyBarData} color="#3d7a5a" height={320} />
+            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-5 font-mono">
+              Note: The Oregon SOS dataset has multiple rows per business (registered agent, principal address, etc.). These counts are deduplicated.
+            </p>
+            <div className="space-y-2.5">
+              {yearlyBarData.map((y, i) => {
+                const maxVal = Math.max(...yearlyBarData.map((x) => x.value));
+                const pct = maxVal > 0 ? Math.round((y.value / maxVal) * 100) : 0;
+                const isPartial = y.name === String(new Date().getFullYear());
+                return (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className={`text-[15px] font-mono font-semibold w-[50px] text-right ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
+                      {y.name}
+                    </span>
+                    <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                      <div
+                        className="h-full rounded-sm transition-all duration-700"
+                        style={{ width: `${pct}%`, backgroundColor: isPartial ? "#a8c5b2" : "#3d7a5a" }}
+                      />
+                    </div>
+                    <span className={`text-[15px] font-mono font-bold w-[70px] text-right ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
+                      {y.value.toLocaleString()}
+                    </span>
+                    {isPartial && (
+                      <span className="text-[10px] font-mono text-[var(--color-ink-muted)] bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm flex-shrink-0">
+                        partial
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
       )}
