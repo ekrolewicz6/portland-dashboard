@@ -163,6 +163,20 @@ function entityBadgeColor(entityType: string): {
 
 /* ── Data fetching ── */
 
+interface AssociatedEntry {
+  id: number;
+  associated_name_type: string | null;
+  first_name: string | null;
+  middle_name: string | null;
+  last_name: string | null;
+  suffix: string | null;
+  not_of_record_entity: string | null;
+  entity_of_record_name: string | null;
+  entity_of_record_reg_number: string | null;
+  address: string | null;
+  address_continued: string | null;
+}
+
 async function getBusiness(id: number) {
   const rows = await sql<BusinessRow[]>`
     SELECT id, registry_number, business_name, entity_type,
@@ -174,6 +188,24 @@ async function getBusiness(id: number) {
     LIMIT 1
   `;
   return rows[0] ?? null;
+}
+
+async function getAllAssociatedEntries(registryNumber: string) {
+  return sql<AssociatedEntry[]>`
+    SELECT id, associated_name_type, first_name, middle_name, last_name, suffix,
+           not_of_record_entity, entity_of_record_name, entity_of_record_reg_number,
+           address, address_continued
+    FROM business.oregon_sos_all_active
+    WHERE registry_number = ${registryNumber}
+    ORDER BY
+      CASE associated_name_type
+        WHEN 'AUTHORIZED REPRESENTATIVE' THEN 1
+        WHEN 'PRINCIPAL PLACE OF BUSINESS' THEN 2
+        WHEN 'MAILING ADDRESS' THEN 3
+        WHEN 'REGISTERED AGENT' THEN 4
+        ELSE 5
+      END
+  `;
 }
 
 async function getSimilarBusinesses(businessName: string, entityType: string, excludeId: number) {
@@ -249,7 +281,10 @@ export default async function BusinessProfilePage({
   const business = await getBusiness(id);
   if (!business) notFound();
 
-  const similar = await getSimilarBusinesses(business.business_name, business.entity_type, id);
+  const [similar, associatedEntries] = await Promise.all([
+    getSimilarBusinesses(business.business_name, business.entity_type, id),
+    business.registry_number ? getAllAssociatedEntries(business.registry_number) : Promise.resolve([]),
+  ]);
 
   const name = titleCase(business.business_name);
   const humanEntityType = formatEntityType(business.entity_type);
@@ -500,6 +535,79 @@ export default async function BusinessProfilePage({
             )}
           </div>
         </div>
+
+        {/* ── All Associated People & Addresses ── */}
+        {associatedEntries.length > 1 && (
+          <div className="mt-10">
+            <div className="section-divider mb-6">
+              <h2>People & Addresses on File</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {associatedEntries.map((entry, i) => {
+                const personName = [entry.first_name, entry.middle_name, entry.last_name, entry.suffix]
+                  .filter(Boolean)
+                  .join(" ");
+                const entryAddress = [entry.address, entry.address_continued].filter(Boolean).join(", ");
+                const typeLabel = entry.associated_name_type ? titleCase(entry.associated_name_type) : "Unknown";
+                const isOwner = entry.associated_name_type?.toUpperCase().includes("AUTHORIZED") ||
+                  entry.associated_name_type?.toUpperCase().includes("INDIVIDUAL");
+                const isAgent = entry.associated_name_type?.toUpperCase().includes("REGISTERED AGENT");
+
+                return (
+                  <div
+                    key={i}
+                    className="detail-panel p-5"
+                    style={{ "--accent-color": isOwner ? "var(--color-ember)" : isAgent ? "var(--color-river)" : "var(--color-sage)" } as React.CSSProperties}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className={`text-[10px] font-semibold uppercase tracking-[0.1em] px-2 py-0.5 rounded-sm ${
+                        isOwner
+                          ? "bg-[var(--color-ember)]/10 text-[var(--color-clay)]"
+                          : isAgent
+                            ? "bg-[var(--color-river)]/10 text-[var(--color-river-deep)]"
+                            : "bg-[var(--color-parchment)] text-[var(--color-ink-muted)]"
+                      }`}>
+                        {typeLabel}
+                      </span>
+                    </div>
+
+                    {personName && (
+                      <p className="text-[16px] font-semibold text-[var(--color-ink)] mb-1">
+                        <User className="w-4 h-4 inline mr-2 text-[var(--color-sage)]" />
+                        {titleCase(personName)}
+                      </p>
+                    )}
+
+                    {entry.entity_of_record_name && (
+                      <p className="text-[14px] text-[var(--color-ink-light)] mb-1">
+                        <Building2 className="w-4 h-4 inline mr-2 text-[var(--color-sage)]" />
+                        {titleCase(entry.entity_of_record_name)}
+                        {entry.entity_of_record_reg_number && (
+                          <span className="text-[12px] font-mono text-[var(--color-ink-muted)] ml-2">
+                            #{entry.entity_of_record_reg_number}
+                          </span>
+                        )}
+                      </p>
+                    )}
+
+                    {entry.not_of_record_entity && (
+                      <p className="text-[13px] text-[var(--color-ink-muted)]">
+                        {titleCase(entry.not_of_record_entity)}
+                      </p>
+                    )}
+
+                    {entryAddress && (
+                      <p className="text-[13px] text-[var(--color-ink-muted)] mt-2">
+                        <MapPin className="w-3.5 h-3.5 inline mr-1.5 text-[var(--color-sage)]" />
+                        {titleCase(entryAddress)}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* ── Similar Businesses ── */}
         {similar.length > 0 && (
