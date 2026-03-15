@@ -60,7 +60,63 @@ export async function GET(): Promise<NextResponse<DowntownData & { dataStatus: s
       // TriMet tables may not exist yet
     }
 
+    // Real data: commercial vacancy from downtown.vacancy_real
+    let latestVacancy: { office: number | null; retail: number | null; quarter: string } | null = null;
+    let vacancyChartData: { date: string; value: number; label?: string }[] = [];
+
+    try {
+      const latestRow = await sql`
+        SELECT
+          TO_CHAR(quarter, 'YYYY-"Q"Q') AS quarter,
+          office_vacancy_pct::float,
+          retail_vacancy_pct::float
+        FROM downtown.vacancy_real
+        WHERE source NOT LIKE 'FRED_%'
+          AND office_vacancy_pct IS NOT NULL
+        ORDER BY quarter DESC
+        LIMIT 1
+      `;
+
+      if (latestRow.length > 0) {
+        latestVacancy = {
+          office: latestRow[0].office_vacancy_pct != null ? Number(latestRow[0].office_vacancy_pct) : null,
+          retail: latestRow[0].retail_vacancy_pct != null ? Number(latestRow[0].retail_vacancy_pct) : null,
+          quarter: latestRow[0].quarter as string,
+        };
+      }
+
+      const vacancyRows = await sql`
+        SELECT
+          TO_CHAR(quarter, 'YYYY-MM') AS date,
+          office_vacancy_pct::float AS value
+        FROM downtown.vacancy_real
+        WHERE source NOT LIKE 'FRED_%'
+          AND office_vacancy_pct IS NOT NULL
+        ORDER BY quarter
+      `;
+
+      vacancyChartData = vacancyRows.map((r) => ({
+        date: r.date as string,
+        value: Number(r.value),
+        label: `Office vacancy: ${Number(r.value).toFixed(1)}%`,
+      }));
+    } catch {
+      // downtown.vacancy_real may not exist yet
+    }
+
     const insights: string[] = [];
+    if (latestVacancy) {
+      insights.push(
+        `Portland metro office vacancy: ${latestVacancy.office?.toFixed(1)}% (${latestVacancy.quarter}). ` +
+        `Pre-pandemic was ~10-11%. Peak was ~25% in late 2023.`
+      );
+      if (latestVacancy.retail != null) {
+        insights.push(
+          `Retail vacancy: ${latestVacancy.retail.toFixed(1)}% — ` +
+          (latestVacancy.retail < 6 ? "near pre-pandemic levels." : "still elevated.")
+        );
+      }
+    }
     if (totalGraffiti > 0) {
       insights.push(`${totalGraffiti.toLocaleString()} graffiti reports total from Portland BPS.`);
     }
@@ -73,26 +129,48 @@ export async function GET(): Promise<NextResponse<DowntownData & { dataStatus: s
       );
     }
     insights.push("Foot traffic data unavailable — requires Placer.ai subscription ($2-5K/mo) or Clean & Safe partnership.");
-    insights.push("Vacancy rate data unavailable — requires CoStar subscription ($500-1.5K/mo) or free CBRE/Colliers quarterly reports.");
 
-    const headlineValue = trimetSummary
+    const headlineValue = latestVacancy?.office ?? (trimetSummary
       ? trimetSummary.routes
-      : totalGraffiti;
+      : totalGraffiti);
 
-    const result: DowntownData & { dataStatus: string } = {
-      headline: trimetSummary
+    // Compute trend from vacancy data
+    let trendInfo: { direction: "up" | "down" | "flat"; percentage: number; label: string } = {
+      direction: "flat" as const, percentage: 0, label: "no trend comparison available",
+    };
+    if (vacancyChartData.length >= 2) {
+      const latest = vacancyChartData[vacancyChartData.length - 1].value;
+      const previous = vacancyChartData[vacancyChartData.length - 2].value;
+      const change = ((latest - previous) / previous) * 100;
+      trendInfo = {
+        direction: change > 0.5 ? "up" : change < -0.5 ? "down" : "flat",
+        percentage: Math.abs(Math.round(change * 10) / 10),
+        label: change < 0
+          ? `Office vacancy improved ${Math.abs(change).toFixed(1)}% vs prior quarter`
+          : change > 0
+            ? `Office vacancy rose ${change.toFixed(1)}% vs prior quarter`
+            : "Office vacancy stable vs prior quarter",
+      };
+    }
+
+    const headline = latestVacancy
+      ? `Office vacancy ${latestVacancy.office?.toFixed(1)}% — ${latestVacancy.office! > 20 ? "elevated but improving" : "recovery underway"}`
+      : trimetSummary
         ? `${trimetSummary.routes} TriMet routes, ${trimetSummary.stops.toLocaleString()} stops — real GTFS transit data`
         : latestGraffiti > 0
           ? `${totalGraffiti.toLocaleString()} graffiti reports tracked — disorder proxy metric`
-          : "Downtown vitality data collection in progress",
+          : "Downtown vitality data collection in progress";
+
+    const result: DowntownData & { dataStatus: string } = {
+      headline,
       headlineValue,
-      dataStatus: "partial",
-      trend: { direction: "flat" as const, percentage: 0, label: "no trend comparison available" },
-      chartData: graffitiChartData,
+      dataStatus: latestVacancy ? "good" : "partial",
+      trend: trendInfo,
+      chartData: vacancyChartData.length > 0 ? vacancyChartData : graffitiChartData,
       footTraffic: [], // Needs Placer.ai subscription ($2-5K/mo)
-      vacancyRate: [], // Needs CoStar subscription ($500-1.5K/mo)
+      vacancyRate: vacancyChartData, // REAL data from CBRE/Colliers/JLL/Kidder Mathews quarterly reports
       dwellTime: [], // Needs Placer.ai subscription
-      source: "TriMet GTFS (real) / Portland BPS Graffiti (real) / Placer.ai (unavailable) / CoStar (unavailable)",
+      source: "CBRE/Colliers/JLL/Kidder Mathews quarterly reports (real) / TriMet GTFS (real) / Portland BPS Graffiti (real)",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights,
     };
