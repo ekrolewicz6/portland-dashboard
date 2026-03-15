@@ -114,7 +114,7 @@ export default async function QuestionPage({ params }: PageProps) {
         <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-12 sm:py-16">
           {/* Back link */}
           <Link
-            href="/"
+            href="/dashboard"
             className="inline-flex items-center gap-2 text-[13px] font-medium text-white/60 hover:text-white transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />

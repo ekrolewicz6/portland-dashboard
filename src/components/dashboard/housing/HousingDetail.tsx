@@ -225,8 +225,11 @@ export default function HousingDetail() {
         <section>
           <SectionHeader icon={Clock} title="Processing Time by Permit Type (Real Data)" color="#7c6f9e" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Median processing days by permit type per quarter. Shows which permit processes are getting faster or slower over time.
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
+              Median processing days by permit type per quarter. The steep rise in late 2023+ reflects survivor bias — easy permits were cleared first during the 2023 backlog processing, leaving only complex/slow permits in later quarters.
+            </p>
+            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
+              Note: Data ends Q4 2024 due to low permit volume in 2025-2026 (insufficient sample size for reliable medians).
             </p>
             <MultiLineChart
               data={processingByType}
