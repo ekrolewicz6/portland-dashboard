@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #2d5016;
+  --color-forest-light: #3a6b1e;
+  --color-forest-dark: #1e3a0e;
+  --color-moss: #4a7c2e;
+  --color-sage: #87a96b;
+  --color-cream: #faf8f5;
+  --color-warm-white: #fefdfb;
+  --color-slate-warm: #3d3d3d;
+  --color-rose-accent: #c44536;
+  --color-gold-accent: #d4a843;
+  --color-sky-accent: #4a90d9;
+  --color-teal-accent: #2d8a7e;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-slate-warm);
+  }
+}
+
+@layer components {
+  .headline-card {
+    background: white;
+    border: 1px solid #e8e5e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .headline-card:hover {
+    border-color: var(--color-sage);
+    box-shadow: 0 4px 24px rgba(45, 80, 22, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .trend-up {
+    color: #16a34a;
+  }
+
+  .trend-down-good {
+    color: #16a34a;
+  }
+
+  .trend-down-bad {
+    color: #dc2626;
+  }
+
+  .trend-flat {
+    color: #9ca3af;
+  }
+
+  .sparkline-container {
+    height: 48px;
+    width: 100%;
+  }
+
+  .traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .traffic-green {
+    background-color: #16a34a;
+    box-shadow: 0 0 6px rgba(22, 163, 74, 0.4);
+  }
+
+  .traffic-yellow {
+    background-color: #eab308;
+    box-shadow: 0 0 6px rgba(234, 179, 8, 0.4);
+  }
+
+  .traffic-red {
+    background-color: #dc2626;
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.4);
+  }
+}
