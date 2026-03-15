@@ -1,0 +1,26 @@
+{
+  "detail_id": 5166543,
+  "metadata": {
+    "ivr_number": "5166543",
+    "permit_type": "Tree CodeOtherCity",
+    "work_description": "Urban Forestry NPUP Review",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code",
+      "activity_type": "Utility Review - All",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": "2025-07-03",
+      "staff_contact": "Wilson,Courtney Inactive"
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "detail_id": 5141418,
+  "metadata": {
+    "ivr_number": "5141418",
+    "permit_type": "Plumbing PermitCommercial or Multi-Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "Alteration to Fir Ridge Campus. Relocate Qty. 2 Sinks, addition of Qty. 2 Roof Drains, and addition of Qty. 1 RPBF.",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-04-08",
+    "final_date": "2025-08-12",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Correction Notice",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "300 Post and Beam - Plumbing",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "305 Ground Work - Plumbing",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "310 Rough-In/Top Out - Plumbing",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Part Appr",
+      "last_activity_date": "2025-07-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "James,McKenzie   503-823-6754"
+    },
+    {
+      "activity_name": "312 Hydronic Piping - Open loop only",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "315 Shower Pan/Bathtub Test",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "320 Fire Sprinklers",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "325 Fixture Cap",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "330 Drain Reversal",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "335 Backflow Device (H20 Supply)",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "337 Backwater Valve (Drainage)",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "340 Water Heater",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "345 Water Service",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "350 Sanitary Sewer",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "355 Storm Sewer",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "360 Sewer Cap",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "365 Rain Drains",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-29",
+      "goal_date": null,
+      "completed_date": "2025-07-29",
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "370 Catch Basin",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "375 Manhole",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "380 Detention Facility",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "390 Dry Well",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "395 Soakage Trench",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "396 Medical Gas/Vacuum System",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "397 Other/Consultation - Plumbing",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Sewer Break Found",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "399 Final - Plumbing",
+      "activity_type": "Plumbing Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "James,McKenzie   503-823-6754"
+    },
+    {
+      "activity_name": "Expire Permit - PT, UC, UR",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": "2025-10-06",
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "detail_id": 5166632,
+  "metadata": {
+    "ivr_number": "5166632",
+    "permit_type": "Early AssistanceEA-Zoning Only - w/mtg",
+    "work_description": "Residential Infill/MHLD EA",
+    "address": null,
+    "setup_date": "2025-07-03",
+    "under_review_date": "2025-07-03",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-07",
+      "goal_date": null,
+      "completed_date": "2025-07-07",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-21",
+      "goal_date": null,
+      "completed_date": "2025-08-21",
+      "staff_contact": "Fuchs,Clare   503-865-6423"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-08-22",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

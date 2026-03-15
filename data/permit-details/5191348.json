@@ -1,0 +1,56 @@
+{
+  "detail_id": 5191348,
+  "metadata": {
+    "ivr_number": "5191348",
+    "permit_type": "BES - Sewer Connection Plumbing PermitMulti-family DwellingsNew Connection",
+    "work_description": "San Conn:43 LF of 8\" PVC Main, (approx. d=15'), in SW 18th Dr. Contractor connect to existing branch per std P-262 (approx. l=21', d=UKN') located approx. 9' from DS SMH ASL576. Contractor must verify depth/location and downstream connection point to public system in the field. Contact x31026",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Castillo,Fernando   503-823-4863"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - UC",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Castillo,Fernando   503-823-4863"
+    },
+    {
+      "activity_name": "BES - Sewer Connection Review",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-16",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Process Abandonment Waiver Request",
+      "activity_type": "Issuance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-16",
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

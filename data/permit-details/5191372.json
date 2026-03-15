@@ -1,0 +1,66 @@
+{
+  "detail_id": 5191372,
+  "metadata": {
+    "ivr_number": "5191372",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "recon shared P-526 total 144 sq-ft (20-LF throat) Match Existing",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2025-09-17",
+    "final_date": null,
+    "status": "Under Inspection-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-27",
+      "staff_contact": "Evans,Levi"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Evans,Levi"
+    }
+  ]
+}

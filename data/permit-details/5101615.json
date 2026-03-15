@@ -1,0 +1,46 @@
+{
+  "detail_id": 5101615,
+  "metadata": {
+    "ivr_number": "5101615",
+    "permit_type": "Tree CodeCode CompliancePrivate",
+    "work_description": "Investigate possible tree code violation",
+    "address": null,
+    "setup_date": "2024-11-14",
+    "under_review_date": "2024-11-14",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Closed - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Code Compliance Inspection",
+      "activity_type": "E - Code Compliance",
+      "must_check": "Y",
+      "activity_status": "Violation Found/Correction Required",
+      "last_activity_date": "2024-12-18",
+      "goal_date": "2024-12-18",
+      "completed_date": "2024-12-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Enforcement",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Waiting On Customer",
+      "last_activity_date": "2025-08-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Liston,Amanda"
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Correction Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2025-09-17",
+      "completed_date": "2025-09-17",
+      "staff_contact": ""
+    }
+  ]
+}

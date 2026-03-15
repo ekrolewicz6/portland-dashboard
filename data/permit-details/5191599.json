@@ -1,0 +1,46 @@
+{
+  "detail_id": 5191599,
+  "metadata": {
+    "ivr_number": "5191599",
+    "permit_type": "BES - Sewer Repair PermitSingle Family Dwelling",
+    "work_description": "CONTRACTOR TO CIPP (LINING) EXISTING LATERAL FROM PROPERTY LINE TO CURB/EDGE OF PAVEMENT PER COP ENB ¿ 4.33. LMK TECHNOLOGIES / PERMALINER TECHNOLOGIES/HAMMERHEAD BLUELIGHT",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2025-09-17",
+    "final_date": "2025-10-29",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Castillo,Fernando   503-823-4863"
+    },
+    {
+      "activity_name": "Expire Permit - PT, UC, UR",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2026-03-16",
+      "completed_date": null,
+      "staff_contact": "PBOT SSM"
+    },
+    {
+      "activity_name": "Final - ROW Restoration",
+      "activity_type": "Transportation Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-29",
+      "goal_date": null,
+      "completed_date": "2025-10-29",
+      "staff_contact": "Castillo,Fernando   503-823-4863"
+    }
+  ]
+}

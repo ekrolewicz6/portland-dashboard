@@ -1,0 +1,286 @@
+{
+  "detail_id": 5141509,
+  "metadata": {
+    "ivr_number": "5141509",
+    "permit_type": "Mechanical PermitCommercial or Multi-Family Dwelling/StructureNew Construction",
+    "work_description": "SINGLEPDF - INSTALL VENTILATION FOR HOOD, BATHROOMS, AND DRYERS. INSTALL MINI SPLITS IN HALLWAYS AND PTACS FOR APARTMENTS",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-07-23",
+    "final_date": null,
+    "status": "Expired"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Mechanical",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": "2025-04-08",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-05-16",
+      "goal_date": null,
+      "completed_date": "2025-05-16",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-05-28",
+      "goal_date": null,
+      "completed_date": "2025-05-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": "2025-07-23",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Assign Reviews - MT",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": "2025-04-08",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Corrections Received - MT",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-28",
+      "goal_date": null,
+      "completed_date": "2025-05-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Received - MT",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-16",
+      "goal_date": null,
+      "completed_date": "2025-05-16",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": "2025-07-15",
+      "staff_contact": "PikeSalas,Breah   503-865-6419"
+    },
+    {
+      "activity_name": "Mechanical Review",
+      "activity_type": "Mechanical Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-03",
+      "goal_date": null,
+      "completed_date": "2025-06-03",
+      "staff_contact": "Duffy,John   503-865-6966"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "600 Underfloor/Post&Beam-Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "605 New Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "610 Extend Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "615 Gas Line Tag",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "617 Hydronic Piping (Closed/Open Loop)",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "620 Rough-in Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Part Appr",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Buckholt,Robert   503-865-6135"
+    },
+    {
+      "activity_name": "625 Woodstove/Pellet Stove/Deco Appl",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "630 AC/Furnace/Heat Pump/HVAC Eqt",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "635 Kitchen Exhaust/Commercial Hood",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "645 Vent/Chimney Liner",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "650 Other/Consultation - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "670 Oil Tank Pad",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "699 Final - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "Y",
+      "activity_status": "Not Approved",
+      "last_activity_date": "2026-01-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Vanderjagt,Sean   503-823-2710"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "detail_id": 5166649,
+  "metadata": {
+    "ivr_number": "5166649",
+    "permit_type": "Noise VarianceOther ApplicationsMinor Event in Park",
+    "work_description": "07/09/25, 07/10/25, 08/06/25, 08/07/25, 8/27/25, 08/28/25. 8.30am-2.30pm. Ambient music and announcements during PSU Fall orientations. Activities including lunch, vendor fairs and check-in. South Parks Blocks",
+    "address": null,
+    "setup_date": "2025-06-24",
+    "under_review_date": "2025-07-01",
+    "issue_date": "2025-07-03",
+    "final_date": null,
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": "2025-07-03",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": "2025-07-03",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

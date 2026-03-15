@@ -292,23 +292,26 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       ...data,
     }));
 
-    // 6. Valuation by year — exclude current incomplete year
+    // 6. Valuation by year — include ALL years, mark partial ones
     const valuationRows = await sql`
       SELECT
         EXTRACT(YEAR FROM issued_date)::int AS yr,
         SUM(valuation)::bigint AS total,
-        count(*)::int AS permit_count
+        count(*)::int AS permit_count,
+        MIN(issued_date)::text AS first_permit,
+        MAX(issued_date)::text AS last_permit
       FROM housing.permits
-      WHERE issued_date IS NOT NULL
-        AND valuation > 0
-        AND EXTRACT(YEAR FROM issued_date) <= 2024
+      WHERE issued_date IS NOT NULL AND valuation > 0
       GROUP BY EXTRACT(YEAR FROM issued_date)
       ORDER BY yr
     `;
 
+    const currentYear = new Date().getFullYear();
     const valuationByYear = valuationRows.map((r) => ({
       name: String(r.yr),
       value: Number(r.total),
+      permits: Number(r.permit_count),
+      partial: Number(r.yr) >= currentYear,
     }));
 
     // 7. Hero stats — building permits only for pipeline

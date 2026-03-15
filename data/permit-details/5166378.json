@@ -1,0 +1,26 @@
+{
+  "detail_id": 5166378,
+  "metadata": {
+    "ivr_number": "5166378",
+    "permit_type": "Tree CodeCIPRight-of-Way",
+    "work_description": "Urban Forestry CIP Permitting",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code",
+      "activity_type": "Utility Review - All",
+      "must_check": "N",
+      "activity_status": "Third Review",
+      "last_activity_date": "2026-01-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gallahan,Andrew   503-679-0318"
+    }
+  ]
+}

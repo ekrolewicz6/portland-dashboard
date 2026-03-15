@@ -1,0 +1,246 @@
+{
+  "detail_id": 5166548,
+  "metadata": {
+    "ivr_number": "5166548",
+    "permit_type": "Public Works, Transportation BureauPDOT",
+    "work_description": "PUBLIC STREET IMPROVEMENTS ASSOCIATED WITH A TENANT IMPROVEMENT",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review - PW"
+  },
+  "activities": [
+    {
+      "activity_name": "BES Permit Manager",
+      "activity_type": "Intake PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": "2025-07-15",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PDOT Permit Manager",
+      "activity_type": "Intake PW",
+      "must_check": "N",
+      "activity_status": "Assigned",
+      "last_activity_date": "2025-10-24",
+      "goal_date": "2025-07-08",
+      "completed_date": "2025-10-24",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Project Cancelled",
+      "activity_type": "Project Management PW",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "TRAFFIC Concept Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "TRAFFIC Design Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "TRAFFIC Final Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PBOT Concept Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PBOT Design Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PBOT Final Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "WATER Concept Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "WATER Design Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "WATER Final Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Tree Code Concept Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Tree Code Design Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Tree Code Final Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Concept Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Design Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plan Approval",
+      "activity_type": "Plan Review PW",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Signals & Street Lighting Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PBOT Structural Review",
+      "activity_type": "Plan Review PW",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Performance Guarantee",
+      "activity_type": "Bond/Insurance PW",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-10",
+      "goal_date": null,
+      "completed_date": "2025-11-10",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Recv. Insurance Requirements",
+      "activity_type": "Bond/Insurance PW",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Recv. Copy of Signed Permit",
+      "activity_type": "Pre-Issuance PW",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-14",
+      "goal_date": null,
+      "completed_date": "2025-11-14",
+      "staff_contact": ""
+    }
+  ]
+}

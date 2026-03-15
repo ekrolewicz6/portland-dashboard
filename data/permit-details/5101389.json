@@ -1,0 +1,56 @@
+{
+  "detail_id": 5101389,
+  "metadata": {
+    "ivr_number": "5101389",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "NE BROADWAY ST recon P-551 72 sq-ft (0-12-0)",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-13",
+    "issue_date": "2024-11-18",
+    "final_date": null,
+    "status": "Issued-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": "2024-11-22",
+      "staff_contact": "Small,Brice   503-823-7002"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

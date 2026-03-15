@@ -1,0 +1,66 @@
+{
+  "detail_id": 5141583,
+  "metadata": {
+    "ivr_number": "5141583",
+    "permit_type": "Minor Improvement PermitRequired MIP",
+    "work_description": "NE BEECH ST recon P-526 187 sq-ft (17-ft throat) 4-6-1",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2026-01-15",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM Northeast"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-03",
+      "goal_date": null,
+      "completed_date": "2026-01-30",
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-03",
+      "goal_date": null,
+      "completed_date": "2026-02-03",
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    }
+  ]
+}

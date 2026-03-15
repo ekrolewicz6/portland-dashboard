@@ -1,0 +1,166 @@
+{
+  "detail_id": 5141349,
+  "metadata": {
+    "ivr_number": "5141349",
+    "permit_type": "Mechanical PermitOne or Two Family Dwelling/StructureNew Construction",
+    "work_description": "radiant floor heat and boiler installation",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-04-08",
+    "final_date": "2026-03-09",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Re-activate Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-03",
+      "goal_date": null,
+      "completed_date": "2026-03-03",
+      "staff_contact": "Simkovic,Tom   503-823-8722"
+    },
+    {
+      "activity_name": "600 Underfloor/Post&Beam-Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "605 New Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "610 Extend Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "615 Gas Line Tag",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "617 Hydronic Piping (Closed/Open Loop)",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Approved w/Corr",
+      "last_activity_date": "2025-04-14",
+      "goal_date": null,
+      "completed_date": "2025-04-14",
+      "staff_contact": "Kelsaw,Lamar   503-823-8278"
+    },
+    {
+      "activity_name": "620 Rough-in Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "625 Woodstove/Pellet Stove/Deco Appl",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "630 AC/Furnace/Heat Pump/HVAC Eqt",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "635 Kitchen Exhaust/Commercial Hood",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "640 Oil Tank",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "645 Vent/Chimney Liner",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "650 Other/Consultation - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "670 Oil Tank Pad",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "699 Final - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-03-09",
+      "goal_date": null,
+      "completed_date": "2026-03-09",
+      "staff_contact": "Kelsaw,Lamar   503-823-8278"
+    }
+  ]
+}

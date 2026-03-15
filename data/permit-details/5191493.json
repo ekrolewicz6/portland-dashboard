@@ -1,0 +1,66 @@
+{
+  "detail_id": 5191493,
+  "metadata": {
+    "ivr_number": "5191493",
+    "permit_type": "Code ComplianceZoningOverlay Zone",
+    "work_description": "Complaint Received: turbid water in stream area coming from this property",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": null,
+    "final_date": "2025-12-26",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-10-08",
+      "goal_date": "2025-10-20",
+      "completed_date": null,
+      "staff_contact": "Seward,Michelle   503-823-8167"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": "2025-12-26",
+      "staff_contact": "Seward,Michelle   503-823-8167"
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Seward,Michelle   503-823-8167"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    }
+  ]
+}

@@ -562,33 +562,50 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 7. Valuation by Year (REAL) — HTML bars for reliability */}
+      {/* 7. Valuation by Year (REAL) — bars with permit counts and partial year markers */}
       {valuationByYear.length > 0 && (
         <section>
-          <SectionHeader icon={DollarSign} title="Total Construction Valuation by Year" color="#c8956c" />
+          <SectionHeader icon={DollarSign} title="Construction Valuation by Year (Real Data)" color="#c8956c" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Total dollar value of all building permits issued each year. Based on declared project valuations from Portland BDS.
+            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
+              Total dollar value of building permits issued each year. Our ArcGIS data currently covers 2023-present.
+            </p>
+            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-5 font-mono">
+              To see 10+ years, run: npm run scrape:permits -- 4900000 5000000 (fetches older permits from Portland Maps API)
             </p>
             <div className="space-y-3">
-              {valuationByYear.map((v, i) => {
-                const maxVal = Math.max(...valuationByYear.map((x) => x.value));
+              {valuationByYear.map((v: { name: string; value: number; permits?: number; partial?: boolean }, i: number) => {
+                const maxVal = Math.max(...valuationByYear.map((x: { value: number }) => x.value));
                 const valM = Math.round(v.value / 1_000_000);
                 const pct = maxVal > 0 ? Math.round((v.value / maxVal) * 100) : 0;
+                const isPartial = v.partial;
                 return (
-                  <div key={i} className="flex items-center gap-4">
-                    <span className="text-[14px] font-mono font-semibold text-[var(--color-ink)] w-[50px] text-right">
+                  <div key={i} className="flex items-center gap-3">
+                    <span className={`text-[15px] font-mono font-semibold w-[55px] text-right ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
                       {v.name}
                     </span>
-                    <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                    <div className="flex-1 h-9 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
                       <div
                         className="h-full rounded-sm transition-all duration-700"
-                        style={{ width: `${pct}%`, backgroundColor: "#c8956c" }}
+                        style={{
+                          width: `${pct}%`,
+                          backgroundColor: isPartial ? "#a8c5b2" : "#c8956c",
+                        }}
                       />
                     </div>
-                    <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[80px] text-right">
-                      ${valM}M
-                    </span>
+                    <div className="text-right w-[130px] flex-shrink-0">
+                      <span className={`text-[15px] font-mono font-bold ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
+                        ${valM}M
+                      </span>
+                      <span className="text-[12px] font-mono text-[var(--color-ink-muted)] ml-2">
+                        {(v.permits || 0).toLocaleString()} permits
+                      </span>
+                    </div>
+                    {isPartial && (
+                      <span className="text-[10px] font-mono text-[var(--color-ink-muted)] bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm flex-shrink-0">
+                        partial
+                      </span>
+                    )}
                   </div>
                 );
               })}

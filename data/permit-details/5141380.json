@@ -1,0 +1,46 @@
+{
+  "detail_id": 5141380,
+  "metadata": {
+    "ivr_number": "5141380",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "PPS Duniway ES; install security system",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-04-08",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": "2025-04-08",
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

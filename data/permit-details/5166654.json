@@ -1,0 +1,66 @@
+{
+  "detail_id": 5166654,
+  "metadata": {
+    "ivr_number": "5166654",
+    "permit_type": "Noise VarianceHigh Noise Impact EventBlock Party",
+    "work_description": "07/17/25 4pm-9pm. Night on the Block 2025. Block party, live music, professional PA system. 1131 NW Couch St, Portland",
+    "address": null,
+    "setup_date": "2025-06-24",
+    "under_review_date": "2025-07-02",
+    "issue_date": "2025-07-16",
+    "final_date": "2025-07-17",
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2025-07-16",
+      "goal_date": null,
+      "completed_date": "2025-07-16",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

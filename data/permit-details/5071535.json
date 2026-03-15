@@ -1,0 +1,276 @@
+{
+  "detail_id": 5071535,
+  "metadata": {
+    "ivr_number": "5071535",
+    "permit_type": "Commercial Building PermitUtilityNew Construction",
+    "work_description": "SINGLE PDF - REVISION TO ADD ADDITIONAL DETAILS REQUESTED BY PWB FOR IRRIGATION METER PREVIOUSLY SHOWN/APPROVED. ADJUST LOCATIONS AND ADD DETAILS. INCLUDES OPTION FOR WEST TAP IF PREFERRED BY PWB",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2024-08-08",
+    "issue_date": "2025-06-05",
+    "final_date": "2025-09-16",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-31",
+      "goal_date": null,
+      "completed_date": "2025-01-31",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-31",
+      "goal_date": null,
+      "completed_date": "2025-01-31",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-01",
+      "goal_date": null,
+      "completed_date": "2025-02-01",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Re-activate Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-05",
+      "goal_date": null,
+      "completed_date": "2025-06-05",
+      "staff_contact": "Morris,Tim   503-823-6664"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-09-09",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-31",
+      "goal_date": null,
+      "completed_date": "2025-01-31",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-31",
+      "goal_date": null,
+      "completed_date": "2025-01-31",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-09",
+      "goal_date": null,
+      "completed_date": "2024-09-09",
+      "staff_contact": "Poisner,Suzan Inactive"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-09",
+      "goal_date": null,
+      "completed_date": "2024-09-09",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Shelton,Sloan   503-865-6549"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Shelton,Sloan   503-865-6549"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Flood Safety Review",
+      "activity_type": "Urban Flood Safety and Water Quality Dis",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Baker,Jim   503-823-7480"
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-02-26",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Devenney,Lance"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-31",
+      "goal_date": null,
+      "completed_date": "2025-01-31",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Gessner,Eric   503-823-6532"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "detail_id": 5141590,
+  "metadata": {
+    "ivr_number": "5141590",
+    "permit_type": "Tree CodeEmergencyRight-of-Way",
+    "work_description": "Emergency response to tree failure",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Emergency Resolved"
+  },
+  "activities": [
+    {
+      "activity_name": "Emergency Response",
+      "activity_type": "C - Emergency",
+      "must_check": "Y",
+      "activity_status": "Emergency Resolved",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-09",
+      "completed_date": "2025-04-09",
+      "staff_contact": ""
+    }
+  ]
+}

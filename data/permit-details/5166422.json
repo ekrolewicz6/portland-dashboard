@@ -1,0 +1,46 @@
+{
+  "detail_id": 5166422,
+  "metadata": {
+    "ivr_number": "5166422",
+    "permit_type": "BES - Sewer Repair PermitSingle Family Dwelling",
+    "work_description": "CONTRACTOR TO REPLACE EXISTING LATERAL and INSTALL 6\" clean-out either tight to FOC or at PL per DTL P-257. Replacement lateral to be perpendicular to curb from new CO to property line. Contr. to verify depth/location/proper slope/positive connection to public system in the field. REF BES DETAIL P-257 & P-262. Contact x31026. Contractor must verify depth/location and downstream connection point to public system in the field.",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": "2025-06-27",
+    "final_date": "2025-08-27",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": "2025-06-27",
+      "staff_contact": "Akerill,Toni 503"
+    },
+    {
+      "activity_name": "Expire Permit - PT, UC, UR",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": "2025-12-24",
+      "completed_date": null,
+      "staff_contact": "PBOT SSM"
+    },
+    {
+      "activity_name": "Final - ROW Restoration",
+      "activity_type": "Transportation Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-27",
+      "goal_date": null,
+      "completed_date": "2025-08-27",
+      "staff_contact": "Dale,James"
+    }
+  ]
+}

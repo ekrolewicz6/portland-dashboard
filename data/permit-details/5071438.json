@@ -1,0 +1,36 @@
+{
+  "detail_id": 5071438,
+  "metadata": {
+    "ivr_number": "5071438",
+    "permit_type": "Tree CodeCode ComplianceRight-of-Way",
+    "work_description": "",
+    "address": null,
+    "setup_date": "2024-08-07",
+    "under_review_date": "2024-08-07",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Enforcement - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Code Compliance Inspection",
+      "activity_type": "E - Code Compliance",
+      "must_check": "Y",
+      "activity_status": "Violation Found/Correction Required",
+      "last_activity_date": "2025-01-06",
+      "goal_date": "2024-08-08",
+      "completed_date": "2024-08-07",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Not Corrected/Enforcement Initiated",
+      "last_activity_date": "2025-08-18",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-18",
+      "staff_contact": ""
+    }
+  ]
+}

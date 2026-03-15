@@ -1,0 +1,86 @@
+{
+  "detail_id": 5141597,
+  "metadata": {
+    "ivr_number": "5141597",
+    "permit_type": "Zoning PermitLand Use Review Condition ComplianceCommercial",
+    "work_description": "BES 33rd DR PUMP STATION - Landscape Mitigation related to 23-110150-LU *** w/25-023718-CO & 25-027416-CO & 25-023843-MT & 25-023913-ZP *** DO NOT ISSUE. NEED CCB# ***",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-05-01",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Check Building Permit Reqd",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "INTAKE"
+    },
+    {
+      "activity_name": "Completeness Check - ZP",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-01",
+      "goal_date": null,
+      "completed_date": "2025-05-01",
+      "staff_contact": "Hulstrom,Brett Inactive"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-08-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Zoning Code Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-08-22",
+      "staff_contact": "Messa,Gina   503-865-6425"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-19",
+      "goal_date": null,
+      "completed_date": "2025-11-19",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    }
+  ]
+}

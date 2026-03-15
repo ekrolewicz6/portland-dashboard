@@ -1,0 +1,46 @@
+{
+  "detail_id": 5071617,
+  "metadata": {
+    "ivr_number": "5071617",
+    "permit_type": "Tree CodeCode ComplianceRight-of-Way",
+    "work_description": "Investigate possible tree code violation",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2024-08-08",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Closed - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Code Compliance Inspection",
+      "activity_type": "E - Code Compliance",
+      "must_check": "Y",
+      "activity_status": "Violation Found/Correction Required",
+      "last_activity_date": "2024-08-13",
+      "goal_date": "2024-08-09",
+      "completed_date": "2024-08-09",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Not Corrected/Enforcement Initiated",
+      "last_activity_date": "2025-08-18",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Enforcement",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Enforcement Completed",
+      "last_activity_date": "2025-11-03",
+      "goal_date": "2025-11-03",
+      "completed_date": "2025-11-03",
+      "staff_contact": ""
+    }
+  ]
+}

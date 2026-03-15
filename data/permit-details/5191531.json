@@ -1,0 +1,156 @@
+{
+  "detail_id": 5191531,
+  "metadata": {
+    "ivr_number": "5191531",
+    "permit_type": "Mechanical PermitOne or Two Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "TANKLESS WATER HEATER:-Provide & Install Navien NNPE240A2NG condensing tankless water heater with built-in recirculation pump at designated location.-Supply and install backing lumber for tankless if needed.-Run dedicated gas line from meter to water heater to accommodate 200,000 BTU load.-Provide & install neutralizer on condensate drain line.-Provide & install required condensate pump & run drain to utility sink.-Extend potable water lines and insulate if needed to new heater location.-Run approved venting from heater to exterior of dwelling.-Remove and recycle existing water heater tank. FURNACE VENTING:-Rework existing ABS venting & install flush termination kit.",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2025-09-16",
+    "final_date": "2025-10-09",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "600 Underfloor/Post&Beam-Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "605 New Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": "2025-10-07",
+      "staff_contact": "Dorsey,Peter   503-823-8965"
+    },
+    {
+      "activity_name": "610 Extend Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "615 Gas Line Tag",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "617 Hydronic Piping (Closed/Open Loop)",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "620 Rough-in Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "625 Woodstove/Pellet Stove/Deco Appl",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "630 AC/Furnace/Heat Pump/HVAC Eqt",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "635 Kitchen Exhaust/Commercial Hood",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "640 Oil Tank",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "645 Vent/Chimney Liner",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": "Dorsey,Peter   503-823-8965"
+    },
+    {
+      "activity_name": "650 Other/Consultation - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "670 Oil Tank Pad",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "699 Final - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": "Dorsey,Peter   503-823-8965"
+    }
+  ]
+}

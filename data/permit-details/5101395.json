@@ -1,0 +1,136 @@
+{
+  "detail_id": 5101395,
+  "metadata": {
+    "ivr_number": "5101395",
+    "permit_type": "Sign PermitProjecting SignNew Sign/Awning",
+    "work_description": "NEW 19.13 SQ FT ILLUMINATED PROJECTING SIGN ON CANOPY FOR AT&T ON EAST ELEVATION (SIGN E). **ET SEPARATE. W/24-097186 SG",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-14",
+    "issue_date": "2024-12-10",
+    "final_date": "2025-01-21",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Sign",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-14",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Technician Plan Review",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Determine if Zoning Review required",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-04",
+      "goal_date": null,
+      "completed_date": "2024-12-04",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-09",
+      "goal_date": null,
+      "completed_date": "2024-12-09",
+      "staff_contact": "Pickett,BrianneCraig   503-865-6505"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": "2024-12-10",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "400 Sign Footings",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "405 Electrical Service - Sign",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "410 Sign Structure",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Expire Permit - SG",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": "2025-06-09",
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-21",
+      "goal_date": null,
+      "completed_date": "2025-01-21",
+      "staff_contact": "Gessner,Eric   503-823-6532"
+    }
+  ]
+}

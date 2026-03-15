@@ -1,0 +1,56 @@
+{
+  "detail_id": 5166326,
+  "metadata": {
+    "ivr_number": "5166326",
+    "permit_type": "NuisanceCity Bureau RequestInspector Initiated",
+    "work_description": "Complaint received. PBOT: Sewer Break",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": null,
+    "final_date": "2025-07-30",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-06-28",
+      "goal_date": "2025-07-07",
+      "completed_date": null,
+      "staff_contact": "Davis,Mark   503-823-6523"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Davis,Mark   503-823-6523"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Davis,Mark   503-823-6523"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

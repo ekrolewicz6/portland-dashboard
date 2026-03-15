@@ -1,0 +1,86 @@
+{
+  "detail_id": 5166603,
+  "metadata": {
+    "ivr_number": "5166603",
+    "permit_type": "Fire Systems PermitFire AlarmsAlteration",
+    "work_description": "ALARM - REPLACE HORN STROBE IN FREEZER & ADD (2)",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-07-02",
+    "issue_date": "2025-07-01",
+    "final_date": "2025-08-12",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Alarm/Supervision",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "Silva,R. Michael Inactive"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "Silva,R. Michael Inactive"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-08-22",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

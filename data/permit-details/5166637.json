@@ -1,0 +1,186 @@
+{
+  "detail_id": 5166637,
+  "metadata": {
+    "ivr_number": "5166637",
+    "permit_type": "Early AssistanceEA-Zoning & Inf. Bur.- w/mtg",
+    "work_description": "New building for daycare uses on same site as existing building for daycare use.",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-17",
+      "goal_date": null,
+      "completed_date": "2025-07-17",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "PikeSalas,Breah   503-865-6419"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Zhuang,Ye   503-823-7901"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Zhuang,Ye   503-823-7901"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-17",
+      "goal_date": null,
+      "completed_date": "2025-07-17",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-16",
+      "goal_date": null,
+      "completed_date": "2025-07-14",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-09",
+      "goal_date": null,
+      "completed_date": "2025-07-09",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-21",
+      "goal_date": null,
+      "completed_date": "2025-07-21",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": "2025-07-14",
+      "completed_date": null,
+      "staff_contact": "PDOT PW Plan Reviewer"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-17",
+      "goal_date": null,
+      "completed_date": "2025-07-17",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

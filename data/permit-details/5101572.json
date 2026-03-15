@@ -1,0 +1,56 @@
+{
+  "detail_id": 5101572,
+  "metadata": {
+    "ivr_number": "5101572",
+    "permit_type": "NuisanceResidential RentalComplaint",
+    "work_description": "Complaint received. Tree roots destroying foundation.",
+    "address": null,
+    "setup_date": "2024-11-14",
+    "under_review_date": "2024-11-14",
+    "issue_date": null,
+    "final_date": "2024-12-16",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": "2024-12-16",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

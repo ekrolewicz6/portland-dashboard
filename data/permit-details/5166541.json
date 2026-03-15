@@ -1,0 +1,246 @@
+{
+  "detail_id": 5166541,
+  "metadata": {
+    "ivr_number": "5166541",
+    "permit_type": "Electrical PermitCommercial or Multi-Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "PDOX ELECTRICAL FOR EGSE PHASE II INFASTRUCTURE INSTALL",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-07-11",
+    "issue_date": "2025-08-05",
+    "final_date": null,
+    "status": "Under Inspection"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB&BCD Elect licenses OR Check LC",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-11",
+      "goal_date": null,
+      "completed_date": "2025-07-11",
+      "staff_contact": "Palchey,Viktor   503-823-3862"
+    },
+    {
+      "activity_name": "Check Supv/Owner Signature",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-11",
+      "goal_date": null,
+      "completed_date": "2025-07-11",
+      "staff_contact": "Palchey,Viktor   503-823-3862"
+    },
+    {
+      "activity_name": "Corrections Received - ET",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Electrical Plan Review",
+      "activity_type": "Electrical Plan Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": "2025-08-05",
+      "staff_contact": "Ebbert,Cari   503-823-8993"
+    },
+    {
+      "activity_name": "Notify Applicant",
+      "activity_type": "Electrical Plan Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMMERCIAL ELECTRICAL"
+    },
+    {
+      "activity_name": "Expire Application",
+      "activity_type": "Electrical Plan Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-11",
+      "goal_date": "2026-01-07",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": "2025-08-05",
+      "staff_contact": "Ebbert,Cari   503-823-8993"
+    },
+    {
+      "activity_name": "Correction Notice",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "105 Cover - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "107 Cover-Elec Infloor Heat",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "110 Underground - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "111 Elec Svc Reconnect",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "115 Temporary Electrical Service",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "120 Permanent Elec Svc/Reconnect",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "125 Low Voltage/Alarm",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "135 Hot Tub/Spa/Swimming Pool",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "140 Industrial Plant",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "145 Circuits/Feeders",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Part Appr",
+      "last_activity_date": "2026-03-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Botkin,Joe   503-823-5915"
+    },
+    {
+      "activity_name": "150 Generator/Transfer Switch",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "155 Other/Consultation - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "160 Renewable Energy Solar/Wind",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "199 Final - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "ELECTRICAL INSPECTIONS"
+    },
+    {
+      "activity_name": "Letter of Intent to Expire",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-05",
+      "goal_date": "2026-02-02",
+      "completed_date": null,
+      "staff_contact": "ELECTRICAL INSPECTIONS"
+    }
+  ]
+}

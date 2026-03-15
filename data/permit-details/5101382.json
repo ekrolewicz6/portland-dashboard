@@ -1,0 +1,156 @@
+{
+  "detail_id": 5101382,
+  "metadata": {
+    "ivr_number": "5101382",
+    "permit_type": "Sign PermitProjecting SignNew Sign/Awning",
+    "work_description": "NEW 19.23 SQ FT ILLUMINATED SIGN FOR WELLS FARGO ON SOUTH ELEVATION. APPROVED VIA LU 24-070801 HR. **ET SEPARATE",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-14",
+    "issue_date": "2024-11-21",
+    "final_date": "2024-12-06",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Sign",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-14",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Technician Plan Review",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Determine if Zoning Review required",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": "2024-11-19",
+      "staff_contact": "Pickett,BrianneCraig   503-865-6505"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": "2024-11-20",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "400 Sign Footings",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "405 Electrical Service - Sign",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "410 Sign Structure",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Expire Permit - SG",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-20",
+      "goal_date": "2025-05-19",
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-06",
+      "goal_date": null,
+      "completed_date": "2024-12-06",
+      "staff_contact": "Barsukoff,Fredd Inactive"
+    }
+  ]
+}

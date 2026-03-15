@@ -1,0 +1,256 @@
+{
+  "detail_id": 5191486,
+  "metadata": {
+    "ivr_number": "5191486",
+    "permit_type": "Facility PermitMechanicalAlteration",
+    "work_description": "SINGLE PDF PROCESS/ WTC3 LANDLORD WORK COMMON AREA REMODEL 1ST FLR TI; INSTALL DUCTWORK AND GRILLES",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2025-09-26",
+    "final_date": "2025-12-12",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Review Project Scope",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Completeness Check - FA",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": "2025-09-26",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": "2025-09-26",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Assign Reviews - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-16",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Corrections Received - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Administration - Mechanical",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Mechanical Review",
+      "activity_type": "Facilities Mechanical Plan Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "Fire Plan Review - FA",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Pena,Geoffrey   503-209-1833"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2026-02-13",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Issue FA",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "600 Underfloor/Post&Beam-Mechanical",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "605 New Gas Piping/Pressure Test",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "610 Extend Gas Piping/Pressure Test",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "615 Gas Line Tag",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "620 Rough-in Mechanical",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "625 Woodstove/Pellet Stove/Deco Appl",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "630 AC/Furnace/Heat Pump/HVAC Eqt",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "635 Kitchen Exhaust/Commercial Hood",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "645 Vent/Chimney Liner",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "699 Final - Mechanical",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Consultation - Mechanical",
+      "activity_type": "Facilities Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-26",
+      "goal_date": "2026-03-25",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-12",
+      "goal_date": null,
+      "completed_date": "2025-12-12",
+      "staff_contact": "Donnelly,Jeff   503-823-6381"
+    }
+  ]
+}

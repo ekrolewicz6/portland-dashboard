@@ -1,0 +1,196 @@
+{
+  "detail_id": 5166575,
+  "metadata": {
+    "ivr_number": "5166575",
+    "permit_type": "Land Use ReviewType 2 procedureCU: Conditional Use",
+    "work_description": "Approval of a Type B accessory short-term rental (ASTR) facility on this property, subject to the following conditions: A.Prior to the start of operation of the initial, three-bedroom ASTR facility, the ASTR operator must complete the following conditions: 1.Obtain fee-paid inspection approval from PP&D confirming that the requirements in Zoning Code Section 33.207.050.B.4 are met for each of the three upstairs bedrooms. 2.Provide residents of the following properties with contact information (name, phone number, and email address) for the ASTR operator: ¿116 N Russet St.¿106 N Russet St.¿26 N Russet St.¿107 N Lombard St.¿25 N Lombard St.¿40 N Lombard St.¿42 N Lombard St.¿44 N Lombard St.¿26 N Lombard St. The applicant must maintain copies of these notifications, including the list of who was notified and when, for inspection by City staff upon request. B.Prior to the start of operation of the four-bedroom ASTR facility, the ASTR operator must complete the following condition: 1.Obtain final inspection approval of a building permit to create an additional bedroom in the house, increasing the total number of bedrooms in the house from four to five. This building permit must be issued within five years of the date this Conditional Use Review decision becomes final (Zoning Code Section 33.730.130.B.1.a). The building permit plans must include a reference to this land use review (case file # LU 25-051317 CU) and must show that the smoke detector and carbon monoxide alarm requirements in Zoning Code Section 33.207.050.B.4 are met for the new bedroom. C.For the duration of the ASTR facility¿s operation, the ASTR facility must comply with the following conditions: *FULL DECISION AVAILABLE IN ATTACHMENTS",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": "2025-10-22",
+    "final_date": "2025-11-13",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": "2025-06-27",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-24",
+      "goal_date": null,
+      "completed_date": "2025-07-24",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-25",
+      "goal_date": null,
+      "completed_date": "2025-07-28",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-23",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": "2025-11-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": "2025-11-13",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-25",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-07-25",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-07-30",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-07-30",
+      "staff_contact": "Mortensen,Steven Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-08-14",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-14",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Police Bureau - LU",
+      "activity_type": "Police Bureau",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-31",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-07-31",
+      "staff_contact": "Miller,Jonathan   971-277-0678"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-02",
+      "goal_date": "2025-07-09",
+      "completed_date": "2025-07-02",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-07",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-07",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-07",
+      "goal_date": "2025-07-09",
+      "completed_date": "2025-07-07",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-14",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-14",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-11",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-11",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-18",
+      "goal_date": "2025-08-18",
+      "completed_date": "2025-08-18",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    }
+  ]
+}

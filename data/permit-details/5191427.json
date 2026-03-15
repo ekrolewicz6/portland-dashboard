@@ -1,0 +1,186 @@
+{
+  "detail_id": 5191427,
+  "metadata": {
+    "ivr_number": "5191427",
+    "permit_type": "Land Use ReviewELD - Expedited Land DivisionMLDS - Middle Housing Subdivision",
+    "work_description": "Approval of a Preliminary Plan for a Middle Housing Land Division to divide a site with an approved fourplex into 4 lots, as illustrated with Exhibits C1 ¿ C2, subject to the following conditions: A.As-built survey. An as-built survey shall be submitted with the final plat survey for Land Use Services, Life Safety, Fire Bureau, Environmental Services, and Water for review and approval. That plan must show that structures and underground services are constructed in conformance with the preliminary land division plan and meet requirements in relation to property lines and any easements or tracts. B.The final plat must show the following: 1.The final plat survey shall include a note with the following statement: ¿This plat was approved as a Middle Housing Land Division under ORS 92.031.¿ 2.A private access easement shall be shown over the relevant portions of Lots 1 through 4. 3.A private sanitary sewer easement, for the benefit of Lots 1 through 4, shall be shown and labeled over the relevant portions of Lots 1 through 4. 4.A private water easement, for the benefit of Lots 2 through 4 shall be shown and labeled over the relevant portions of Lots 1 through 3. 5.A private storm drain easement, for the benefit of Parcels Lots 1 through 3 shall be shown and labeled over the relevant portions of Lot 1 through 4. The storm drain easement must extend from the public street to the drywell. 6.One or more emergency access easements (EAE), providing emergency access and egress, for the benefit of Lots 2 through 4 shall be shown and labeled over the relevant portions of Lots 1 through 3. The EAE must be on the north side of the building along the pedestrian path and on the south side of the building to provide access to the rear of the units. 7.A common area easement, providing use of the proposed shared recycling area, for the benefit of Lots 1 through 3 shall be shown and labeled over the relevant portion of Lot 4. 8.The easements noted above may be mo",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2025-12-16",
+    "final_date": null,
+    "status": "Decision Rendered"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-12",
+      "goal_date": null,
+      "completed_date": "2025-12-12",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-21",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "Fuchs,Clare   503-865-6423"
+    },
+    {
+      "activity_name": "Tentative Decision",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-16",
+      "goal_date": null,
+      "completed_date": "2025-12-16",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Butenschoen,Mary   503-823-7695"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-15",
+      "goal_date": null,
+      "completed_date": "2026-01-15",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-10-30",
+      "goal_date": "2025-11-04",
+      "completed_date": "2025-10-30",
+      "staff_contact": "Zhuang,Ye   503-823-7901"
+    },
+    {
+      "activity_name": "Site Dev Review - RFC",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-09-30",
+      "goal_date": "2025-09-30",
+      "completed_date": "2025-09-30",
+      "staff_contact": "Zhuang,Ye   503-823-7901"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-28",
+      "goal_date": "2025-11-04",
+      "completed_date": "2025-10-28",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Life Safety Review - RFC",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-30",
+      "goal_date": "2025-09-30",
+      "completed_date": "2025-09-30",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-11-15",
+      "goal_date": "2025-11-04",
+      "completed_date": "2025-11-15",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-28",
+      "goal_date": "2025-11-04",
+      "completed_date": "2025-10-28",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-30",
+      "goal_date": "2025-09-30",
+      "completed_date": "2025-09-30",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-30",
+      "goal_date": "2025-11-04",
+      "completed_date": "2025-10-30",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-25",
+      "goal_date": "2025-09-30",
+      "completed_date": "2025-09-25",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-28",
+      "goal_date": "2025-11-04",
+      "completed_date": "2025-10-28",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Water Review - RFC",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-25",
+      "goal_date": "2025-09-30",
+      "completed_date": "2025-09-25",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}
