@@ -48,11 +48,11 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
         }))
       : null;
 
-    // 2. Current totals by category for bar chart
+    // 2. Most recent month totals by category for bar chart
     const currentCatRows = await sql`
-      SELECT category, SUM(count)::int AS total
+      SELECT category, count::int AS total
       FROM safety.crime_monthly
-      GROUP BY category
+      WHERE month = (SELECT MAX(month) FROM safety.crime_monthly)
       ORDER BY total DESC
     `;
 
@@ -70,14 +70,29 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
         }))
       : null;
 
-    // 3. Total crimes for hero stats
-    const totalCrimesThisYear = currentYearByCategory
+    // 3. Latest month total for hero stats
+    const latestMonthTotal = currentYearByCategory
       ? currentYearByCategory.reduce((s, c) => s + c.value, 0)
       : 0;
 
-    const ratePer1000 = totalCrimesThisYear > 0
-      ? Number(((totalCrimesThisYear / PORTLAND_POPULATION) * 1000).toFixed(1))
+    // Annualized rate: latest month × 12 / population × 1000
+    const annualizedTotal = latestMonthTotal * 12;
+    const ratePer1000 = latestMonthTotal > 0
+      ? Number(((annualizedTotal / PORTLAND_POPULATION) * 1000).toFixed(1))
       : 0;
+
+    // Year-over-year: compare latest month to same month last year
+    let yoyChange = 0;
+    let priorYearTotal = 0;
+    if (crimeByCategory && crimeByCategory.length >= 13) {
+      const latest = crimeByCategory[crimeByCategory.length - 1];
+      const priorYear = crimeByCategory[crimeByCategory.length - 13];
+      const latestTotal = latest.property + latest.person + latest.society;
+      priorYearTotal = priorYear.property + priorYear.person + priorYear.society;
+      if (priorYearTotal > 0) {
+        yoyChange = Number((((latestTotal - priorYearTotal) / priorYearTotal) * 100).toFixed(1));
+      }
+    }
 
     // 4. Graffiti trend from REAL safety.graffiti_monthly
     const graffitiRows = await sql`
@@ -96,16 +111,22 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
     // 5. Generate insights from REAL data only
     const topInsights: string[] = [];
 
-    if (totalCrimesThisYear > 0) {
+    if (latestMonthTotal > 0) {
       topInsights.push(
-        `${totalCrimesThisYear.toLocaleString()} total reported crimes in current ArcGIS snapshot — ${ratePer1000} per 1,000 residents.`
+        `${latestMonthTotal.toLocaleString()} reported crimes in the most recent month (${ratePer1000} per 1,000 residents annualized).`
+      );
+    }
+
+    if (yoyChange !== 0) {
+      topInsights.push(
+        `Crime is ${yoyChange < 0 ? "down" : "up"} ${Math.abs(yoyChange)}% compared to the same month last year.`
       );
     }
 
     const propCurrent = currentYearByCategory?.find((c) => c.name === "Property");
-    if (propCurrent && totalCrimesThisYear > 0) {
+    if (propCurrent && latestMonthTotal > 0) {
       topInsights.push(
-        `Property crime accounts for ${Math.round((propCurrent.value / totalCrimesThisYear) * 100)}% of all reported crimes (${propCurrent.value.toLocaleString()} incidents).`
+        `Property crime accounts for ${Math.round((propCurrent.value / latestMonthTotal) * 100)}% of all reported crimes (${propCurrent.value.toLocaleString()} incidents this month).`
       );
     }
 
@@ -128,9 +149,9 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       currentYearByCategory,
       yearOverYear: null, // No historical comparison data
       heroStats: {
-        totalCrimesThisYear,
+        totalCrimesThisYear: latestMonthTotal,
         ratePer1000,
-        yoyChange: 0,
+        yoyChange,
         avgResponseP1: null, // No BOEC data
       },
       graffitiTrend,

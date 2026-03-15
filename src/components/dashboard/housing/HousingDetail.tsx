@@ -169,15 +169,29 @@ export default function HousingDetail() {
         />
       </section>
 
-      {/* 2. Housing Pipeline (REAL) */}
-      {pipelineChartData.length > 0 && (
+      {/* 2. Housing Pipeline by Type (REAL) */}
+      {pipelineTrend.length > 0 && (
         <section>
-          <SectionHeader icon={TrendingUp} title="Housing Pipeline (Real Permit Data)" color="#3d7a5a" />
+          <SectionHeader icon={TrendingUp} title="Housing Pipeline by Type (Real Permit Data)" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Monthly building permits issued (residential + commercial + facility). Excludes trade permits (electrical, plumbing, mechanical). Source: Portland BDS PermitsNow.
+              Monthly building permits issued, broken down by Residential, Commercial, and Facility. Excludes trade permits. Source: Portland BDS PermitsNow.
             </p>
-            <TrendChart data={pipelineChartData} color="#3d7a5a" height={320} />
+            <MultiLineChart
+              data={pipelineTrend.map((r) => ({
+                month: r.month,
+                Residential: (r as Record<string, unknown>).residential as number ?? 0,
+                Commercial: (r as Record<string, unknown>).commercial as number ?? 0,
+                Total: r.units,
+              }))}
+              xKey="month"
+              height={360}
+              lines={[
+                { key: "Total", label: "Total Building Permits", color: "#1a3a2a" },
+                { key: "Residential", label: "Residential", color: "#3d7a5a" },
+                { key: "Commercial", label: "Commercial / Facility", color: "#c8956c" },
+              ]}
+            />
           </div>
         </section>
       )}
