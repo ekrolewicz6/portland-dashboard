@@ -1,0 +1,36 @@
+{
+  "detail_id": 5192108,
+  "metadata": {
+    "ivr_number": "5192108",
+    "permit_type": "Public RegistryTier 2Land Use Compatibility Statement",
+    "work_description": "LUCS for Joint Permit ApplicationMacadam Bay Marina is proposing to conduct maintenance dredging to maintain safe access to the existing marina located on the western bank of the Willamette River adjacent to the Willamette River Federal Navigation Channel. The marina is utilized for the mooring of houseboats. The marina was previously dredged in 2016. The applicant is seeking to dredge approximately 3600 cubic yards (cy) of material over a 5-yearperiod.",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-22",
+    "issue_date": "2025-09-19",
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-10-27",
+      "goal_date": "2025-10-10",
+      "completed_date": "2025-10-27",
+      "staff_contact": "Caron,Marisol   503-865-6436"
+    }
+  ]
+}

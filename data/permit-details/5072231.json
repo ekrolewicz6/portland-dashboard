@@ -1,0 +1,36 @@
+{
+  "detail_id": 5072231,
+  "metadata": {
+    "ivr_number": "5072231",
+    "permit_type": "Public RegistryTier 2Land Use Compatibility Statement",
+    "work_description": "LUCS for DEQ water quality NPDES stormwater general permit.New 4-story, 124-unit apartment building with associated parking lot and courtyard area. This affordable housing development is being constructed on the PCC SE campus.",
+    "address": null,
+    "setup_date": "2024-08-12",
+    "under_review_date": "2024-08-13",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2024-09-18",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-09-18",
+      "staff_contact": "Moore,Katie   503-865-6429"
+    }
+  ]
+}

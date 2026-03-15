@@ -1,0 +1,186 @@
+{
+  "detail_id": 5142461,
+  "metadata": {
+    "ivr_number": "5142461",
+    "permit_type": "Commercial Building PermitApartments/Condos (3 or more units)New Construction",
+    "work_description": "PEACEFUL VILLA - WEST BLDG #2 - DFS-01 - Tie downs",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-11",
+    "issue_date": "2025-05-09",
+    "final_date": null,
+    "status": "Under Inspection"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": "2025-04-11",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": "2025-04-11",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-09",
+      "goal_date": null,
+      "completed_date": "2025-09-09",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-09",
+      "goal_date": null,
+      "completed_date": "2025-09-09",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-08",
+      "goal_date": null,
+      "completed_date": "2025-05-08",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-08",
+      "goal_date": null,
+      "completed_date": "2025-05-08",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-08",
+      "goal_date": null,
+      "completed_date": "2025-05-08",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-02",
+      "goal_date": null,
+      "completed_date": "2025-05-02",
+      "staff_contact": "Buellesbach,Lisa   503-865-6497"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "STRUCTURAL  503-823-7540"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": "2025-09-08",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-08",
+      "goal_date": null,
+      "completed_date": "2025-05-08",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Not Approved",
+      "last_activity_date": "2026-02-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rowland,Elgin   503-823-8171"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "detail_id": 5142185,
+  "metadata": {
+    "ivr_number": "5142185",
+    "permit_type": "Fire Systems PermitFire SprinklersNew",
+    "work_description": "SPRINKLER - INSTALLATION OF NEW FIRE SPRINKLER SYSTEM.",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-15",
+    "issue_date": "2025-04-28",
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-17",
+      "goal_date": null,
+      "completed_date": "2025-04-17",
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Underground Fire Main Cross-Reference",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Underground Fire Main Cross-Reference",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Flush Inspection",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Confirm Water Supply",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Hydrostatic Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Cover",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Signage",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    },
+    {
+      "activity_name": "Trip Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    }
+  ]
+}

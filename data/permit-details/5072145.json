@@ -1,0 +1,146 @@
+{
+  "detail_id": 5072145,
+  "metadata": {
+    "ivr_number": "5072145",
+    "permit_type": "Land Use ReviewType 2 procedureAD: Adjustment",
+    "work_description": "Approval of an Adjustment to Zoning Code Section 33.110.225.B to increase the maximum building coverage on this site by 353 square feet, from 2,587 square feet to 2,940 square feet, per the approved plans, Exhibits C-1 and C-2, signed and dated September 20, 2024, subject to the following conditions: A.As part of the building permit application submittal, each of the required site plans and any additional drawings must reflect the information and design approved by this land use review as indicated in Exhibits C-1 and C-2. The sheets on which this information appears must be labeled, \"Proposal and design as approved in Case File # LU 24-069070 AD.¿ B.Prior to issuance of a building permit for the new garage/ADU building, the applicant must do one of the following: 1.Obtain an approved Driveway Design Exception from the Portland Bureau of Transportation for the new driveway on N Newman Avenue; or 2.Obtain final inspection approval of a permit to construct a new curb in front of the existing driveway on N Dwight Avenue.",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-09",
+    "issue_date": "2024-09-24",
+    "final_date": "2024-10-14",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": "2024-08-22",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-24",
+      "goal_date": null,
+      "completed_date": "2024-09-24",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": "2024-08-28",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-24",
+      "goal_date": null,
+      "completed_date": "2024-09-25",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-14",
+      "goal_date": null,
+      "completed_date": "2024-10-14",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-14",
+      "goal_date": null,
+      "completed_date": "2024-10-14",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-09-14",
+      "goal_date": "2024-09-18",
+      "completed_date": "2024-09-14",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-09-04",
+      "goal_date": "2024-09-18",
+      "completed_date": "2024-09-04",
+      "staff_contact": "Altman,Guy Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-09-18",
+      "goal_date": "2024-09-18",
+      "completed_date": "2024-09-18",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-09-10",
+      "goal_date": "2024-09-18",
+      "completed_date": "2024-09-10",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-09-11",
+      "goal_date": "2024-09-18",
+      "completed_date": "2024-09-11",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-09-16",
+      "goal_date": "2024-09-18",
+      "completed_date": "2024-09-16",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

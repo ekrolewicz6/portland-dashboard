@@ -1,0 +1,436 @@
+{
+  "detail_id": 5167415,
+  "metadata": {
+    "ivr_number": "5167415",
+    "permit_type": "Facility PermitBuildingAlteration",
+    "work_description": "SINGLE PDF PROCESS/ ADIDAS ROME/YELLOW BUILDING 2ND FLR TI; DEMO WALLS, NEW WALLS TO CREATE COMMAND STATIONS, BATTING CAGE AREA, 3 CONE AREA, 40 YARD DASH AREA, REMODEL TEST LAB, LAB RM, PANTRY, ATHLETE WARMUP/LOUNGE, WOMENS PERFORMANCE RM, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": "2025-08-01",
+    "final_date": "2026-02-19",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Review Project Scope",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Completeness Check - FA",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-01",
+      "goal_date": null,
+      "completed_date": "2025-08-01",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-01",
+      "goal_date": null,
+      "completed_date": "2025-08-01",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-01",
+      "goal_date": null,
+      "completed_date": "2025-08-01",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Assign Reviews - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Corrections Received - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Administration - Building",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    },
+    {
+      "activity_name": "Building Plan Review",
+      "activity_type": "Facilities Life Safety Plan Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-07-07",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Facilities Plumbing Plan Review",
+      "must_check": "N",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "Electrical Plan Review",
+      "activity_type": "Facilities Electrical Plan Review",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Barnhart,Dave   503-823-8490"
+    },
+    {
+      "activity_name": "Mechanical Review",
+      "activity_type": "Facilities Mechanical Plan Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-07-01",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Fire Plan Review - FA",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Final Fire Marshal",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Livengood,Kyle   503-823-3370"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-12-01",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Issue FA",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "215 Setbacks",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "220 Footings",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "225 Foundation",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "235 Slab/Flatwork",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "240 Underfloor/Post & Beam",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "245 Waterproofing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "250 Masonry/Reinforcing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "260 Shearwalls",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "265 Firewall Nailing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "270 Framing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Part Appr",
+      "last_activity_date": "2025-10-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "275 Wallboard Attachment",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "277 Ceiling Grid",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "280 Insulation/Vapor Barrier",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "285 Roofing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "290 Temporary Occupancy",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "299 Final - Structural",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-02-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Consultation - Building",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-01",
+      "goal_date": "2026-01-28",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-02-19",
+      "goal_date": null,
+      "completed_date": "2026-02-19",
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "FPP - Not-Final Letter",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Parke,Diane   503-823-7298"
+    },
+    {
+      "activity_name": "FPP - Final Letter",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Parke,Diane   503-823-7298"
+    }
+  ]
+}

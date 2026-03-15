@@ -1,0 +1,256 @@
+{
+  "detail_id": 5142251,
+  "metadata": {
+    "ivr_number": "5142251",
+    "permit_type": "Site Development PermitExisting Residential SiteMultiple Dwellings/Single Lot Improvemen",
+    "work_description": "FULL PDOX - SITE IMPROVEMENTS TO INCLUDE GRADING, UTILITIES, AND LANDSCAPING",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-23",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - SD",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": "2025-04-23",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "Assign Reviews - SD",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Corrections Received - SD",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    },
+    {
+      "activity_name": "Corrections Received - SD",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    },
+    {
+      "activity_name": "Assign Address",
+      "activity_type": "Addressing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-05-01",
+      "goal_date": null,
+      "completed_date": "2025-05-01",
+      "staff_contact": "Palchey,Viktor   503-823-3862"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Cooper,Kristin   503-865-6395"
+    },
+    {
+      "activity_name": "Erosion Control Plan Review",
+      "activity_type": "Erosion Control",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-13",
+      "goal_date": null,
+      "completed_date": "2025-05-13",
+      "staff_contact": "Zhuang,Ye   503-823-7901"
+    },
+    {
+      "activity_name": "Site Development Review - SD",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-13",
+      "goal_date": null,
+      "completed_date": "2025-05-13",
+      "staff_contact": "Zhuang,Ye   503-823-7901"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Subsurface Review",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-23",
+      "goal_date": "2025-05-14",
+      "completed_date": null,
+      "staff_contact": "COMMERCIAL/RESIDENTIAL PLUMB"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-25",
+      "goal_date": null,
+      "completed_date": "2025-07-25",
+      "staff_contact": "Bigelow,Robert   503-865-6530"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Commercial Plumbing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-05-02",
+      "goal_date": null,
+      "completed_date": "2025-05-02",
+      "staff_contact": "James,McKenzie   503-823-6754"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2025-07-31",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2025-07-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Knapp,Kevin   503-823-7807"
+    },
+    {
+      "activity_name": "Source Control Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-13",
+      "goal_date": null,
+      "completed_date": "2025-05-13",
+      "staff_contact": "Bans,Alex   503-823-2585"
+    },
+    {
+      "activity_name": "Street Systems - Assign Reviews",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-16",
+      "goal_date": null,
+      "completed_date": "2025-05-16",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2025-07-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-05-14",
+      "goal_date": null,
+      "completed_date": "2025-05-14",
+      "staff_contact": "Baker,Jim   503-823-7480"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "First,Will Inactive"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-23",
+      "goal_date": "2025-09-08",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    }
+  ]
+}

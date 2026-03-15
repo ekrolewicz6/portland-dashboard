@@ -1,0 +1,166 @@
+{
+  "detail_id": 5192216,
+  "metadata": {
+    "ivr_number": "5192216",
+    "permit_type": "Mechanical PermitCommercial or Multi-Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "SINGLEPDF - INSTALL HEAT PUMP FOR BUILDING H",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Mechanical",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Palchey,Viktor   503-823-3862"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-10-13",
+      "goal_date": null,
+      "completed_date": "2025-10-13",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-21",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-21",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Assign Reviews - MT",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Palchey,Viktor   503-823-3862"
+    },
+    {
+      "activity_name": "Assign Reviews - MT",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Harker,Geoffrey   503-865-6536"
+    },
+    {
+      "activity_name": "Corrections Received - MT",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-13",
+      "goal_date": null,
+      "completed_date": "2025-10-13",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Ng,Thomas   503-865-6552"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mechanical Review",
+      "activity_type": "Mechanical Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Ng,Thomas   503-865-6552"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-30",
+      "goal_date": null,
+      "completed_date": "2025-09-30",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-21",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    }
+  ]
+}

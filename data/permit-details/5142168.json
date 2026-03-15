@@ -1,0 +1,26 @@
+{
+  "detail_id": 5142168,
+  "metadata": {
+    "ivr_number": "5142168",
+    "permit_type": "Public RegistryTier 1DMV",
+    "work_description": "Office only, no vehicle lot or sales at site.",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-10",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "DMV P & Z",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    }
+  ]
+}

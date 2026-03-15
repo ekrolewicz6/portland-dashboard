@@ -1,0 +1,66 @@
+{
+  "detail_id": 5102131,
+  "metadata": {
+    "ivr_number": "5102131",
+    "permit_type": "Noise ComplaintResidentialStereo",
+    "work_description": "Stereo music playing in afternoon",
+    "address": null,
+    "setup_date": "2024-11-15",
+    "under_review_date": "2024-11-15",
+    "issue_date": "2024-11-15",
+    "final_date": "2024-11-15",
+    "status": "Priority 3- On Hold"
+  },
+  "activities": [
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection - NC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": "2024-11-15",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Close - NC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Carroll,Nicholas   503-823-7350"
+    },
+    {
+      "activity_name": "Mailed Notices - NC",
+      "activity_type": "Notified",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Citation - Noise",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

@@ -36,7 +36,7 @@ export async function GET(
       SELECT id, registry_number, business_name, entity_type,
              registry_date::text, address, city, state, zip,
              raw_data, created_at::text
-      FROM business.oregon_sos_new_monthly
+      FROM business.oregon_sos_all_active
       WHERE id = ${businessId}
       LIMIT 1
     `;
@@ -53,7 +53,7 @@ export async function GET(
     // Find other businesses of the same type for "similar businesses"
     const similar = await sql<{ id: number; business_name: string; entity_type: string; registry_date: string }[]>`
       SELECT id, business_name, entity_type, registry_date::text
-      FROM business.oregon_sos_new_monthly
+      FROM business.oregon_sos_all_active
       WHERE entity_type = ${b.entity_type}
         AND id != ${businessId}
       ORDER BY registry_date DESC

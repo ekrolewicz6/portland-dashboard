@@ -1,0 +1,206 @@
+{
+  "detail_id": 5102484,
+  "metadata": {
+    "ivr_number": "5102484",
+    "permit_type": "Public Works, Environmental Services PDOT (Joint) Storm",
+    "work_description": "",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Pre-Issuance"
+  },
+  "activities": [
+    {
+      "activity_name": "Assign BES Project Manager -we",
+      "activity_type": "Intake -we",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Design Conference -we",
+      "activity_type": "Intake -we",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Receive Application Package -we",
+      "activity_type": "Intake -we",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Public Stormwater Facility",
+      "activity_type": "Intake -we",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Bond Requirements -we",
+      "activity_type": "Bond/Insurance -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Insurance Requirements -w",
+      "activity_type": "Bond/Insurance -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Re-Vegetation -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Maintenance -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BDS Plan Review (299/500) -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "ROW Plan Review (B106/R802) -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Material Testing Lab -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Construction/Inspection -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PDOT Plan Review -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Water Plan Review -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Project Manager Plan Review -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Project Manager Plan Review -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Issuance -we",
+      "activity_type": "Issuance -we",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "BES Project Manager Plan Review -we",
+      "activity_type": "Plan Review -we",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Staff Time Tracking",
+      "activity_type": "PW Expense Tracking",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

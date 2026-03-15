@@ -1,0 +1,96 @@
+{
+  "detail_id": 5072042,
+  "metadata": {
+    "ivr_number": "5072042",
+    "permit_type": "ViolationCommercialElectrical",
+    "work_description": "Complaint received. Expired CO and Electrical Permits in commercial building.",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-09",
+    "issue_date": "2025-01-07",
+    "final_date": "2025-04-28",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Stop Work Order",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2024-08-09",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-01-06",
+      "goal_date": "2025-02-05",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Close - VI",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Inspection - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-01-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Mailed Compliance Requests - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Mailed",
+      "last_activity_date": "2025-01-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Monitor for Compliance",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-01-06",
+      "goal_date": "2025-02-20",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Extension of Time Granted- VI",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

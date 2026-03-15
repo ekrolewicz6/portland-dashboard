@@ -1,0 +1,26 @@
+{
+  "detail_id": 5192253,
+  "metadata": {
+    "ivr_number": "5192253",
+    "permit_type": "Tree CodeRoot PruningRight-of-Way",
+    "work_description": "",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-18",
+    "issue_date": "2025-09-18",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": ""
+    }
+  ]
+}

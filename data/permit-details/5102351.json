@@ -1,0 +1,216 @@
+{
+  "detail_id": 5102351,
+  "metadata": {
+    "ivr_number": "5102351",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingAlteration",
+    "work_description": "SINGLEPDF - SOLAR INSTALLATION OF 6.88KW ROOF MOUNTED PV SYSTEM ¿ PRESCRIPTIVE",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Allow Upload",
+      "last_activity_date": "2024-11-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": "2024-11-27",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Messa,Gina   503-865-6425"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2024-11-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "McCall,Brian   503-865-6543"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2024-11-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "McCall,Brian   503-865-6543"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": "2025-04-17",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    }
+  ]
+}

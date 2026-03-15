@@ -1,0 +1,26 @@
+{
+  "detail_id": 5142397,
+  "metadata": {
+    "ivr_number": "5142397",
+    "permit_type": "Transportation ReviewEncroachment",
+    "work_description": "ENCROACHMENT -Block Retaining Wall-",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-10",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Denied - TR"
+  },
+  "activities": [
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PBOT DR Encroachments"
+    }
+  ]
+}

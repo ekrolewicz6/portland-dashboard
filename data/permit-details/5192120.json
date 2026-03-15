@@ -1,0 +1,26 @@
+{
+  "detail_id": 5192120,
+  "metadata": {
+    "ivr_number": "5192120",
+    "permit_type": "Public RegistryTier 1DMV",
+    "work_description": "Supplemental Dealer DMV form",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "DMV P & Z",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    }
+  ]
+}

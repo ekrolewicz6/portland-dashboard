@@ -1,0 +1,186 @@
+{
+  "detail_id": 5102067,
+  "metadata": {
+    "ivr_number": "5102067",
+    "permit_type": "Early AssistanceEA-Zoning & Inf. Bur.- w/mtg",
+    "work_description": "New Cottage Cluster Development w/ (3) Dwelling Units (Combined 4,200 SF), Detached Storage Structure, Common Outdoor Area, and (2) Off-Street Parking Pads on vacant lot in R-5 Zone, with intent to apply for MHLD.",
+    "address": null,
+    "setup_date": "2024-12-05",
+    "under_review_date": "2024-12-05",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-14",
+      "goal_date": null,
+      "completed_date": "2025-01-14",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-11",
+      "goal_date": null,
+      "completed_date": "2024-12-11",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-14",
+      "goal_date": null,
+      "completed_date": "2025-02-14",
+      "staff_contact": "Dawkins,Leah   503-865-6734"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-18",
+      "goal_date": null,
+      "completed_date": "2025-02-18",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-24",
+      "goal_date": null,
+      "completed_date": "2025-01-24",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-14",
+      "goal_date": null,
+      "completed_date": "2025-01-14",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-14",
+      "goal_date": null,
+      "completed_date": "2025-01-14",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-22",
+      "goal_date": null,
+      "completed_date": "2025-01-22",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Krauter,Rodney   503-823-7064"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-22",
+      "goal_date": null,
+      "completed_date": "2025-01-22",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-07",
+      "goal_date": null,
+      "completed_date": "2025-01-07",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-27",
+      "goal_date": null,
+      "completed_date": "2025-01-27",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-11",
+      "goal_date": "2025-01-09",
+      "completed_date": null,
+      "staff_contact": "Youngberg,Kelly   503-823-7677"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-14",
+      "goal_date": null,
+      "completed_date": "2025-01-14",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

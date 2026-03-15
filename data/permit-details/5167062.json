@@ -1,0 +1,36 @@
+{
+  "detail_id": 5167062,
+  "metadata": {
+    "ivr_number": "5167062",
+    "permit_type": "Public RegistryTier 2Bank Letter",
+    "work_description": "Zoning confirmation request - bank letter",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-02",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-07-24",
+      "goal_date": "2025-07-23",
+      "completed_date": "2025-07-24",
+      "staff_contact": "Green,Brando   503-823-6539"
+    }
+  ]
+}

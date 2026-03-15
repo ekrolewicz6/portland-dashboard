@@ -1,0 +1,186 @@
+{
+  "detail_id": 5167027,
+  "metadata": {
+    "ivr_number": "5167027",
+    "permit_type": "Early AssistanceEA-Zoning & Inf. Bur.- w/mtg",
+    "work_description": "Both R560023 and R651773 are listed under Buildable Lands Inventory (BLI) 2023 as \"Underutilized\" lots. Herein is an initial development proposal of lots R560023 and R651773 to support a 17-unit multifamily property consisting of approximately 18,254 square feet of net rentable space within the Goose Hollow neighborhood.",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Collyer,Casey"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-09",
+      "goal_date": null,
+      "completed_date": "2025-07-09",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-20",
+      "goal_date": null,
+      "completed_date": "2025-08-20",
+      "staff_contact": "Besley,David   503-865-6715"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-08-22",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-13",
+      "goal_date": null,
+      "completed_date": "2025-08-13",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-25",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-09",
+      "goal_date": "2025-07-25",
+      "completed_date": null,
+      "staff_contact": "PDOT PW Plan Reviewer"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

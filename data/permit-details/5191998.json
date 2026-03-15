@@ -1,0 +1,26 @@
+{
+  "detail_id": 5191998,
+  "metadata": {
+    "ivr_number": "5191998",
+    "permit_type": "Tree CodeOtherPP&R",
+    "work_description": "Urban Forestry NPUP Review",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code",
+      "activity_type": "Utility Review - All",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Masolo,Mariano   971-277-0799"
+    }
+  ]
+}

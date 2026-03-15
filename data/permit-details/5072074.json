@@ -1,0 +1,66 @@
+{
+  "detail_id": 5072074,
+  "metadata": {
+    "ivr_number": "5072074",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "NW 23rd AVE recon sidewalk P-551 1100sq-ft and curb P-540 100-ft (0-12-0)",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-09",
+    "issue_date": "2024-08-12",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-18",
+      "goal_date": null,
+      "completed_date": "2024-10-18",
+      "staff_contact": "Riche,John 503823XXXX"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-20",
+      "goal_date": null,
+      "completed_date": "2026-02-20",
+      "staff_contact": "Oliver,Bill 823XXXXXXX"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Riche,John 503823XXXX"
+    }
+  ]
+}

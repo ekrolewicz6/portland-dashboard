@@ -1,0 +1,36 @@
+{
+  "detail_id": 5167399,
+  "metadata": {
+    "ivr_number": "5167399",
+    "permit_type": "Tree CodeOtherPP&R",
+    "work_description": "Monitor tree for Dutch elm disease",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": null,
+    "final_date": null,
+    "status": "No Permit Required"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "No Permit Required",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-07-01",
+      "completed_date": "2025-07-01",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "No Permit Required",
+      "last_activity_date": "2025-08-14",
+      "goal_date": "2025-08-14",
+      "completed_date": "2025-08-14",
+      "staff_contact": ""
+    }
+  ]
+}

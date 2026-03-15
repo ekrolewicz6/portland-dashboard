@@ -1,0 +1,36 @@
+{
+  "detail_id": 5192481,
+  "metadata": {
+    "ivr_number": "5192481",
+    "permit_type": "Tree CodeCode ComplianceRight-of-Way",
+    "work_description": "Investigate possible tree code violation",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Violation Not Corrected"
+  },
+  "activities": [
+    {
+      "activity_name": "Code Compliance Inspection",
+      "activity_type": "E - Code Compliance",
+      "must_check": "Y",
+      "activity_status": "Violation Found/Correction Required",
+      "last_activity_date": "2025-10-06",
+      "goal_date": "2025-10-06",
+      "completed_date": "2025-10-06",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Not Corrected/No Enforcement",
+      "last_activity_date": "2026-02-18",
+      "goal_date": "2026-02-18",
+      "completed_date": "2026-02-18",
+      "staff_contact": ""
+    }
+  ]
+}

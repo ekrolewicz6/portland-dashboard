@@ -38,8 +38,16 @@ export async function GET(request: NextRequest) {
     const values: unknown[] = [];
 
     if (search) {
-      conditions.push(`business_name ILIKE $${values.length + 1}`);
-      values.push(`%${search}%`);
+      // Split search into words and match each independently
+      // Strip trailing 's' to handle possessives ("elephants" matches "ELEPHANT'S")
+      // Also search address field
+      const words = search.split(/\s+/).filter(Boolean);
+      for (const word of words) {
+        // Remove trailing 's' for possessive matching
+        const stem = word.replace(/s$/i, "");
+        conditions.push(`(business_name ILIKE $${values.length + 1} OR address ILIKE $${values.length + 1})`);
+        values.push(`%${stem}%`);
+      }
     }
 
     if (entityType) {
@@ -52,20 +60,22 @@ export async function GET(request: NextRequest) {
     // Get total count + page of results in parallel
     const [countResult, businesses, entityTypes] = await Promise.all([
       sql.unsafe<CountRow[]>(
-        `SELECT count(*)::int as total FROM business.oregon_sos_new_monthly ${whereClause}`,
+        `SELECT count(*)::int as total FROM business.oregon_sos_all_active ${whereClause}`,
         values as (string | number)[]
       ),
       sql.unsafe<BusinessRow[]>(
         `SELECT id, registry_number, business_name, entity_type,
                 registry_date::text, address, city, state, zip
-         FROM business.oregon_sos_new_monthly
+         FROM business.oregon_sos_all_active
          ${whereClause}
          ORDER BY registry_date DESC NULLS LAST, business_name ASC
          LIMIT $${values.length + 1} OFFSET $${values.length + 2}`,
         [...values, limit, offset] as (string | number)[]
       ),
       sql<EntityTypeRow[]>`
-        SELECT entity_type, count FROM business.oregon_sos_entity_types
+        SELECT entity_type, count(*)::int as count
+        FROM business.oregon_sos_all_active
+        GROUP BY entity_type
         ORDER BY count DESC
       `.catch(() => [] as EntityTypeRow[]),
     ]);

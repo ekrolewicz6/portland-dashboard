@@ -1,0 +1,186 @@
+{
+  "detail_id": 5142023,
+  "metadata": {
+    "ivr_number": "5142023",
+    "permit_type": "Early AssistanceEA-Zoning & Inf. Bur.- w/mtg",
+    "work_description": "New multi-family residential building, four stories in height. There will be on-site surface parking, 1- & 2-bedroom units along a double loaded corridor (60 units total), and a ground floor community space and amenity along SE 82nd Ave.",
+    "address": null,
+    "setup_date": "2025-04-11",
+    "under_review_date": "2025-04-11",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": "2025-05-07",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    },
+    {
+      "activity_name": "Inclusionary Housing Review",
+      "activity_type": "Housing Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": "2025-05-07",
+      "staff_contact": "Eisenbrown,Brett"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-22",
+      "goal_date": null,
+      "completed_date": "2025-04-22",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-19",
+      "goal_date": null,
+      "completed_date": "2025-05-19",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-20",
+      "goal_date": null,
+      "completed_date": "2025-05-20",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-19",
+      "goal_date": null,
+      "completed_date": "2025-05-19",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-08",
+      "goal_date": null,
+      "completed_date": "2025-05-08",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": "2025-05-07",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-19",
+      "goal_date": null,
+      "completed_date": "2025-05-19",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-19",
+      "goal_date": null,
+      "completed_date": "2025-05-19",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-05",
+      "goal_date": null,
+      "completed_date": "2025-05-05",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": "2025-05-07",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": "2025-05-07",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

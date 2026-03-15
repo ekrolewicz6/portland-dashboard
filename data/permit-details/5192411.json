@@ -1,0 +1,26 @@
+{
+  "detail_id": 5192411,
+  "metadata": {
+    "ivr_number": "5192411",
+    "permit_type": "Transportation ReviewEncroachment",
+    "work_description": "ENCROACHMENT -Fencing in the Furnishing Zone-",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application"
+  },
+  "activities": [
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Lim,Alexandra   503-823-5411"
+    }
+  ]
+}

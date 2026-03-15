@@ -1,0 +1,356 @@
+{
+  "detail_id": 5102436,
+  "metadata": {
+    "ivr_number": "5102436",
+    "permit_type": "Early AssistancePC - PreApplication Conference",
+    "work_description": "A Pre-Application Conference to discuss removal of the Future Urban Zone (¿f¿) overlay zone from the property. The removal of an overlay zone requires approval through a Zoning Map Amendment Review using approval criteria found in PZC 33.855.060.",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-26",
+      "goal_date": null,
+      "completed_date": "2024-11-26",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Mail Pre-app Notice",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Facilitate Conference",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-10",
+      "goal_date": null,
+      "completed_date": "2025-03-10",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Planner Pre-app Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-06",
+      "goal_date": null,
+      "completed_date": "2025-03-06",
+      "staff_contact": "Rhoads,Amanda   503-865-6514"
+    },
+    {
+      "activity_name": "Mail Pre-app Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-10",
+      "goal_date": null,
+      "completed_date": "2025-03-10",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-07",
+      "goal_date": null,
+      "completed_date": "2025-01-07",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-07",
+      "goal_date": null,
+      "completed_date": "2025-01-07",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Fire Review - EA Mtg",
+      "activity_type": "Fire Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Fire Review - EA Mtg",
+      "activity_type": "Fire Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-07",
+      "goal_date": null,
+      "completed_date": "2025-01-07",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Fire Review - EA Response",
+      "activity_type": "Fire Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-07",
+      "goal_date": null,
+      "completed_date": "2025-01-07",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Fire Review - EA Response",
+      "activity_type": "Fire Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-17",
+      "goal_date": null,
+      "completed_date": "2025-01-17",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-02",
+      "goal_date": null,
+      "completed_date": "2025-01-02",
+      "staff_contact": "Krauter,Rodney   503-823-7064"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-03-10",
+      "goal_date": "2025-01-15",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-18",
+      "goal_date": null,
+      "completed_date": "2024-12-18",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-17",
+      "goal_date": null,
+      "completed_date": "2025-01-17",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-18",
+      "goal_date": null,
+      "completed_date": "2024-12-18",
+      "staff_contact": "Wier,Christopher   971-469-6833"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-11",
+      "goal_date": null,
+      "completed_date": "2025-03-11",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-08",
+      "goal_date": null,
+      "completed_date": "2025-01-08",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

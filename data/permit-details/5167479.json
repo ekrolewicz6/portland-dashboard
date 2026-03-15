@@ -1,0 +1,296 @@
+{
+  "detail_id": 5167479,
+  "metadata": {
+    "ivr_number": "5167479",
+    "permit_type": "Commercial Building PermitApartments/Condos (3 or more units)Alteration",
+    "work_description": "SINGLE PDF: REVISION TO THE LOCATION OF THE FIRE LINE.",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-07-02",
+    "issue_date": "2026-01-26",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Gurung,Alina   503-823-5096"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Shelton,Sloan   503-865-6549"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-08-27",
+      "goal_date": null,
+      "completed_date": "2025-08-27",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": "2025-09-24",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-29",
+      "goal_date": null,
+      "completed_date": "2025-10-29",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": "2025-09-24",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-27",
+      "goal_date": null,
+      "completed_date": "2025-08-27",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-28",
+      "goal_date": null,
+      "completed_date": "2025-10-28",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-28",
+      "goal_date": null,
+      "completed_date": "2025-10-28",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Water Review",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": "Wood,Andrea"
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-05",
+      "goal_date": null,
+      "completed_date": "2025-09-25",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-23",
+      "goal_date": null,
+      "completed_date": "2025-10-23",
+      "staff_contact": "Baker,Jim   503-823-7480"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-12-01",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-28",
+      "goal_date": null,
+      "completed_date": "2025-10-28",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMMERCIAL INSPECTIONS"
+    }
+  ]
+}

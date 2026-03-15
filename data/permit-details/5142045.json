@@ -1,0 +1,686 @@
+{
+  "detail_id": 5142045,
+  "metadata": {
+    "ivr_number": "5142045",
+    "permit_type": "Residential Bldg/Trade PermitAccessory StructureAlteration",
+    "work_description": "SINGLEPDF - SOLAR INSTALLATION OF 4.30KW ROOF MOUNTED PV SYSTEM SHED - ENGINEERED W/25-027835-RS HOUSE*PERMIT EXEMPT STRUCTURE LESS THAN 200 SQFT*",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": "2025-04-29",
+    "final_date": "2025-05-30",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-04-22",
+      "goal_date": null,
+      "completed_date": "2025-04-22",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Link permit to TRIM document",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Link permit to TRIM document",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Link permit to TRIM document",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-18",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-22",
+      "goal_date": null,
+      "completed_date": "2025-04-22",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-18",
+      "goal_date": null,
+      "completed_date": "2025-04-18",
+      "staff_contact": "Richling,Jason   503-865-6393"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "Cooley,John   503-865-6533"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Cooley,John   503-865-6533"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Donahue,Brady"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-09-08",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Adjust Maximum Inspections",
+      "activity_type": "BDS Inspection Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Temporary Certificate Time Tracking - RS",
+      "activity_type": "BDS Inspection Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "487 BES On-Site Stormwater Facility Eval",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "842 Decommission System(Pumped & Filled)",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SANITATIONINSPECTIONS  503-823-6892"
+    },
+    {
+      "activity_name": "215 Setbacks",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "220 Footings",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "225 Foundation",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "226 Foundation Drain",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "227 Grounding Electrode",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "230 Concrete/Reinforcing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "235 Slab/Flatwork",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "238 Radon Mitigation",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "240 Underfloor/Post & Beam",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "245 Waterproofing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "250 Masonry/Reinforcing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "255 Masonry Fireplace",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "260 Shearwalls",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "265 Firewall Nailing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "270 Framing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "275 Wallboard Attachment",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "277 Ceiling Grid",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "280 Insulation/Vapor Barrier",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "285 Roofing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "288 Demolition",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "290 Temporary Occupancy",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "295 Other/Consultation",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "299 Final - Structural",
+      "activity_type": "Building Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-30",
+      "goal_date": null,
+      "completed_date": "2025-05-30",
+      "staff_contact": "Marshall,Scott   503-823-6569"
+    },
+    {
+      "activity_name": "105 Cover - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "107 Cover-Elec Infloor Heat",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "110 Underground - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-29",
+      "goal_date": null,
+      "completed_date": "2025-05-29",
+      "staff_contact": "Marshall,Scott   503-823-6569"
+    },
+    {
+      "activity_name": "115 Temporary Electrical Service",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "120 Permanent Elec Svc/Reconnect",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "125 Low Voltage/Alarm",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "130 Adult Foster Care",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "135 Hot Tub/Spa/Swimming Pool",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "145 Circuits/Feeders",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "150 Generator/Transfer Switch",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "155 Other/Consultation - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "160 Renewable Energy Solar/Wind",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "199 Final - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-30",
+      "goal_date": null,
+      "completed_date": "2025-05-30",
+      "staff_contact": "Marshall,Scott   503-823-6569"
+    },
+    {
+      "activity_name": "992 Final - Subsurface",
+      "activity_type": "Other Final Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "994 Final - Zoning",
+      "activity_type": "Other Final Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "996 Issue Certificate of Final Inspect",
+      "activity_type": "Final Permit",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-30",
+      "goal_date": null,
+      "completed_date": "2025-05-30",
+      "staff_contact": "Marshall,Scott   503-823-6569"
+    }
+  ]
+}

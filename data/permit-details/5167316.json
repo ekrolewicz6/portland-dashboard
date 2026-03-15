@@ -1,0 +1,26 @@
+{
+  "detail_id": 5167316,
+  "metadata": {
+    "ivr_number": "5167316",
+    "permit_type": "Tree CodeEmergencyPP&R",
+    "work_description": "Emergency response to tree failure",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Emergency Resolved"
+  },
+  "activities": [
+    {
+      "activity_name": "Emergency Response",
+      "activity_type": "C - Emergency",
+      "must_check": "Y",
+      "activity_status": "Emergency Resolved",
+      "last_activity_date": "2025-07-07",
+      "goal_date": "2025-07-07",
+      "completed_date": "2025-07-07",
+      "staff_contact": ""
+    }
+  ]
+}

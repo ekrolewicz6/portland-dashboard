@@ -1,0 +1,56 @@
+{
+  "detail_id": 5072310,
+  "metadata": {
+    "ivr_number": "5072310",
+    "permit_type": "Tree CodeRemoval/ReplantPrivate",
+    "work_description": "Private property tree removal permit",
+    "address": null,
+    "setup_date": "2024-08-11",
+    "under_review_date": "2024-08-11",
+    "issue_date": "2024-08-29",
+    "final_date": null,
+    "status": "Final - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2024-08-21",
+      "goal_date": "2024-08-21",
+      "completed_date": "2024-08-21",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Waiting On Customer",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Parks Tree Inspector"
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2024-08-29",
+      "goal_date": null,
+      "completed_date": "2024-08-29",
+      "staff_contact": "Nguyen,Justin   503-348-6784"
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-14",
+      "goal_date": null,
+      "completed_date": "2025-07-14",
+      "staff_contact": "Garcia,John   503-823-4018"
+    }
+  ]
+}

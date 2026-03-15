@@ -1,0 +1,86 @@
+{
+  "detail_id": 5101996,
+  "metadata": {
+    "ivr_number": "5101996",
+    "permit_type": "Code ComplianceZoningAccessory Short Term Rental",
+    "work_description": "Complaint Received: ASTR advertisement violation",
+    "address": null,
+    "setup_date": "2024-11-15",
+    "under_review_date": "2024-11-15",
+    "issue_date": "2024-11-22",
+    "final_date": "2024-12-10",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": "2024-11-20",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": "2024-12-10",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "CODE COMPLIANCE"
+    },
+    {
+      "activity_name": "Reinspection - CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Violations Corrected",
+      "last_activity_date": "2024-12-10",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-10",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-21",
+      "goal_date": "2025-01-20",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Extension of Time Granted",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

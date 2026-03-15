@@ -1,0 +1,46 @@
+{
+  "detail_id": 5167414,
+  "metadata": {
+    "ivr_number": "5167414",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ ADIDAS ROME/YELLOW BUILDING 2ND FLR TI; DEMO WALLS, NEW WALLS TO CREATE COMMAND STATIONS, BATTING CAGE AREA, 3 CONE AREA, 40 YARD DASH AREA, REMODEL TEST LAB, LAB RM, PANTRY, ATHLETE WARMUP/LOUNGE, WOMENS PERFORMANCE RM, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": "2025-07-01",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

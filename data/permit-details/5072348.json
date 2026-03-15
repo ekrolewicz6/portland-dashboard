@@ -1,0 +1,166 @@
+{
+  "detail_id": 5072348,
+  "metadata": {
+    "ivr_number": "5072348",
+    "permit_type": "HousingGeneralComplaint",
+    "work_description": "Complaint received. Digging out basement without.",
+    "address": null,
+    "setup_date": "2024-08-12",
+    "under_review_date": "2024-08-12",
+    "issue_date": "2025-02-20",
+    "final_date": "2025-05-21",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Receivership",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-02-19",
+      "goal_date": "2024-08-19",
+      "completed_date": null,
+      "staff_contact": "Sokolowsky,Amanda   503-823-8511"
+    },
+    {
+      "activity_name": "Reinspection - HS",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "30 Day Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "60 Day Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Sokolowsky,Amanda   503-823-8511"
+    },
+    {
+      "activity_name": "3 Month Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-02-20",
+      "goal_date": "2025-05-27",
+      "completed_date": null,
+      "staff_contact": "Sokolowsky,Amanda   503-823-8511"
+    },
+    {
+      "activity_name": "Close - HS/AC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-21",
+      "goal_date": null,
+      "completed_date": "2025-05-21",
+      "staff_contact": "Sokolowsky,Amanda   503-823-8511"
+    },
+    {
+      "activity_name": "Notice of Possible Lien",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-08",
+      "goal_date": "2025-09-30",
+      "completed_date": null,
+      "staff_contact": "Nicholson,Bill Inactive"
+    },
+    {
+      "activity_name": "Mailed Notices - HS",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Sokolowsky,Amanda   503-823-8511"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - HS, DB",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "APW- Active Permit Waiver",
+      "last_activity_date": "2025-05-08",
+      "goal_date": "2025-09-30",
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Fee Admin Review",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Fee Adjustment",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Dangerous Building Referral",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

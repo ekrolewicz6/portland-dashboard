@@ -1,0 +1,76 @@
+{
+  "detail_id": 5142290,
+  "metadata": {
+    "ivr_number": "5142290",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "revision - NE KLICKITAT recon P-526 162 sq-ft (9-ft throat); P-551 360 sq-ft (10-6-2)NE 61st : Adding recon of 54sq ft of sidewalk. Same location.",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-10",
+    "issue_date": "2025-05-29",
+    "final_date": null,
+    "status": "Issued-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Riley,Christian   503-823-4845"
+    },
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Riley,Christian   503-823-4845"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-05",
+      "goal_date": null,
+      "completed_date": "2025-06-05",
+      "staff_contact": "Small,Brice   503-823-7002"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

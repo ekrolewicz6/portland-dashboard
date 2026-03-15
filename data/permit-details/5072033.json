@@ -1,0 +1,86 @@
+{
+  "detail_id": 5072033,
+  "metadata": {
+    "ivr_number": "5072033",
+    "permit_type": "Fire Systems PermitFire AlarmsNew",
+    "work_description": "ALARM - INSTALL NEW FIRE ALARM SYSTEM FOR FIRE SPRINKLER MONITORING; INSTALL NECESSARY SMOKE AND DUCT DETECTORS FOR HVAC CONTROL.",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-13",
+    "issue_date": "2024-08-14",
+    "final_date": "2024-08-29",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Alarm/Supervision",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-29",
+      "goal_date": null,
+      "completed_date": "2024-08-29",
+      "staff_contact": "Silva,R. Michael Inactive"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-29",
+      "goal_date": null,
+      "completed_date": "2024-08-29",
+      "staff_contact": "Silva,R. Michael Inactive"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-20",
+      "goal_date": null,
+      "completed_date": "2024-09-20",
+      "staff_contact": "De Haas,Kendall"
+    }
+  ]
+}

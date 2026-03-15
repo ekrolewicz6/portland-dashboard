@@ -1,0 +1,86 @@
+{
+  "detail_id": 5102076,
+  "metadata": {
+    "ivr_number": "5102076",
+    "permit_type": "Fire Systems PermitFixed Extinguishing SystemsRepair",
+    "work_description": "FIXED SYSTEM - COVER HOOD, DUCT, PLENUM, AND ALL APPLIANCES AS REQUIRED BY THE MFG (RANGE GUARD).",
+    "address": null,
+    "setup_date": "2024-11-15",
+    "under_review_date": "2024-11-18",
+    "issue_date": "2024-12-02",
+    "final_date": "2025-02-24",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": "2024-12-02",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": "2024-12-02",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Trip Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-02-25",
+      "goal_date": null,
+      "completed_date": "2025-02-25",
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-28",
+      "goal_date": null,
+      "completed_date": "2025-02-28",
+      "staff_contact": "De Haas,Kendall"
+    }
+  ]
+}

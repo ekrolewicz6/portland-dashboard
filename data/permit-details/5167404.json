@@ -1,0 +1,66 @@
+{
+  "detail_id": 5167404,
+  "metadata": {
+    "ivr_number": "5167404",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "NW IRVING ST recon P-551 104 sq-ft; P-540 6-LF (0-10-2) match existing",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": "2025-07-02",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-24",
+      "goal_date": null,
+      "completed_date": "2025-07-24",
+      "staff_contact": "Riche,John 503823XXXX"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-31",
+      "goal_date": null,
+      "completed_date": "2025-07-31",
+      "staff_contact": "Dale,James"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-31",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Riche,John 503823XXXX"
+    }
+  ]
+}

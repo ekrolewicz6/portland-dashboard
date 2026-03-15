@@ -1,0 +1,216 @@
+{
+  "detail_id": 5102106,
+  "metadata": {
+    "ivr_number": "5102106",
+    "permit_type": "Commercial Building PermitHotel/MotelNew Construction",
+    "work_description": "REV 03 - revise details for the attachment of the building closure element between the proposed building and the adjacent property on Davis and Couch Street",
+    "address": null,
+    "setup_date": "2024-11-15",
+    "under_review_date": "2024-11-18",
+    "issue_date": "2025-01-27",
+    "final_date": "2026-01-23",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-27",
+      "goal_date": null,
+      "completed_date": "2025-01-27",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-27",
+      "goal_date": null,
+      "completed_date": "2025-01-27",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-23",
+      "goal_date": null,
+      "completed_date": "2025-01-23",
+      "staff_contact": "Messa,Gina   503-865-6425"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-13",
+      "goal_date": null,
+      "completed_date": "2024-12-13",
+      "staff_contact": "Freeh,Steven   503-865-6535"
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-18",
+      "goal_date": null,
+      "completed_date": "2024-12-18",
+      "staff_contact": "Wilken,Gregory   503-865-6507"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": "2025-04-14",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-27",
+      "goal_date": null,
+      "completed_date": "2025-01-27",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-01-23",
+      "goal_date": null,
+      "completed_date": "2026-01-23",
+      "staff_contact": "Vanderjagt,Sean   503-823-2710"
+    }
+  ]
+}

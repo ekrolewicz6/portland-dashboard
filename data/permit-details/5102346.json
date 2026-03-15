@@ -1,0 +1,136 @@
+{
+  "detail_id": 5102346,
+  "metadata": {
+    "ivr_number": "5102346",
+    "permit_type": "Sign PermitWall/Fascia SignNew Sign/Awning",
+    "work_description": "NEW ILLUMINATED FLUSH MOUNTED CHANNEL LETTERS ON THE SOUTHWEST ELEVATION 44SF",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-12-04",
+    "issue_date": "2024-12-10",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Sign",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-04",
+      "goal_date": null,
+      "completed_date": "2024-12-04",
+      "staff_contact": "HunterJames,Rochelle   503-823-0678"
+    },
+    {
+      "activity_name": "Technician Plan Review",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-05",
+      "goal_date": null,
+      "completed_date": "2024-12-05",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "Determine if Zoning Review required",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-12-05",
+      "goal_date": null,
+      "completed_date": "2024-12-05",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-09",
+      "goal_date": null,
+      "completed_date": "2024-12-09",
+      "staff_contact": "Pickett,BrianneCraig   503-865-6505"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": "2024-12-10",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "400 Sign Footings",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "405 Electrical Service - Sign",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "410 Sign Structure",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Expire Permit - SG",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": "2025-06-09",
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    }
+  ]
+}

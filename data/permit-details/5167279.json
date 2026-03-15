@@ -1,0 +1,46 @@
+{
+  "detail_id": 5167279,
+  "metadata": {
+    "ivr_number": "5167279",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ ROSELINE COFFEE STE 102 1ST FLR TI; CHANGE OF USE FROM OFFICE TO COFFEE SHOP, DEMO WALLS, NEW WALLS TO CREATE ORDERING AREA, NEW STAIR W/ HANDRAILS, SEATING AREA, SERVICE AREA, DISH PIT RM, BATHRMS, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": "2025-07-01",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

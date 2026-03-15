@@ -1,0 +1,26 @@
+{
+  "detail_id": 5102031,
+  "metadata": {
+    "ivr_number": "5102031",
+    "permit_type": "Tree CodePlantingRight-of-Way",
+    "work_description": "Street tree planting permit",
+    "address": null,
+    "setup_date": "2024-11-15",
+    "under_review_date": "2024-11-15",
+    "issue_date": "2024-11-27",
+    "final_date": null,
+    "status": "Expired - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2024-11-27",
+      "goal_date": null,
+      "completed_date": "2024-11-27",
+      "staff_contact": ""
+    }
+  ]
+}

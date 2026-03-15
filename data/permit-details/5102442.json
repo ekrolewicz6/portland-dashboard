@@ -1,0 +1,66 @@
+{
+  "detail_id": 5102442,
+  "metadata": {
+    "ivr_number": "5102442",
+    "permit_type": "On-Site Sewage Evaluations & ServicesCommercial/2 or More Family Res/OtherDecommission Sewage Disposal System",
+    "work_description": "Cesspool decommissioning in I-205 Path Right-of-Way North of Burnside and West of NE 97th related to PBOT project T00903.",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-18",
+    "issue_date": "2024-11-18",
+    "final_date": "2024-11-21",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Decommissioning Req'd?",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Required",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "842 Decommission System(Pumped & Filled)",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "Recorded Waiver Rec'd",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    }
+  ]
+}

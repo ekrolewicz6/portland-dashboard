@@ -1,0 +1,56 @@
+{
+  "detail_id": 5167250,
+  "metadata": {
+    "ivr_number": "5167250",
+    "permit_type": "Tree CodeCode CompliancePrivate",
+    "work_description": "Investigate possible tree code violation",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-01",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Correction"
+  },
+  "activities": [
+    {
+      "activity_name": "Code Compliance Inspection",
+      "activity_type": "E - Code Compliance",
+      "must_check": "Y",
+      "activity_status": "Violation Found/Correction Required",
+      "last_activity_date": "2025-08-12",
+      "goal_date": "2025-08-12",
+      "completed_date": "2025-08-12",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Not Corrected/Enforcement Initiated",
+      "last_activity_date": "2025-12-19",
+      "goal_date": "2025-12-19",
+      "completed_date": "2025-12-19",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Enforcement",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Referred To Auditor'S Office",
+      "last_activity_date": "2025-12-19",
+      "goal_date": "2025-12-19",
+      "completed_date": "2025-12-19",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Waiting On Customer",
+      "last_activity_date": "2026-03-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FORESTRY CC PLANTING"
+    }
+  ]
+}

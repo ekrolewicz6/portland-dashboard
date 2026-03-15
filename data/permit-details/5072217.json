@@ -1,0 +1,36 @@
+{
+  "detail_id": 5072217,
+  "metadata": {
+    "ivr_number": "5072217",
+    "permit_type": "Public RegistryTier 2Land Use Compatibility Statement",
+    "work_description": "LUCS for Joint Permit Application.The proposed project is a geotechnical investigation that will evaluate subsurface conditions at the Port of Portland¿s Terminal 6 Berth 601 for design and construction of proposed improvements to the existing facility. Berth 601 is a floating auto carrier dock on the northwest part of Terminal 6 (see Figure 1). Prior to commencing design for the project, a geotechnical investigation is necessary to evaluate subsurface conditions which will support the design of the proposed improvements. The geotechnical investigation will consist of one geotechnical exploration completed from a truck mounted drill rig operated from a spudded barge over the Columbia River in Portland.",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-09",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2024-08-15",
+      "goal_date": "2024-08-30",
+      "completed_date": "2024-08-15",
+      "staff_contact": "Caron,Marisol   503-865-6436"
+    }
+  ]
+}

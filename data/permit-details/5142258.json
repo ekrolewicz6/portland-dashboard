@@ -1,0 +1,46 @@
+{
+  "detail_id": 5142258,
+  "metadata": {
+    "ivr_number": "5142258",
+    "permit_type": "Transportation ReviewEncroachment",
+    "work_description": "ENCROACHMENT -Non-Conforming Sewer-",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-10",
+    "issue_date": "2025-05-21",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "BES - Sewer Connection Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "Gualotunia,Melanie   503-823-7189"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-21",
+      "goal_date": null,
+      "completed_date": "2025-05-21",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    }
+  ]
+}

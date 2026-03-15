@@ -1,0 +1,76 @@
+{
+  "detail_id": 5102414,
+  "metadata": {
+    "ivr_number": "5102414",
+    "permit_type": "Minor Improvement PermitRequired MIP",
+    "work_description": "SE 50TH AVE close approach P-540 50-LF; P-551 250sq-ft (5-5-10); SE RURAL ST new P-528 180 sq-ft (12-throat)",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-18",
+    "issue_date": "2025-05-12",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM Southeast"
+    },
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-12",
+      "goal_date": null,
+      "completed_date": "2025-05-12",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-29",
+      "goal_date": null,
+      "completed_date": "2025-05-29",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-17",
+      "goal_date": null,
+      "completed_date": "2025-07-17",
+      "staff_contact": "Wright,Steve"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Patten,Evan   503-830-9067"
+    }
+  ]
+}

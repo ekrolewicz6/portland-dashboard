@@ -1,0 +1,46 @@
+{
+  "detail_id": 5072425,
+  "metadata": {
+    "ivr_number": "5072425",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ OHSU MACADAM WAREHOUSE GENERATOR TI; EXTERIOR - INSTALL NEW HOUSEKEEPING PAD AND NEW GENERATOR, INTERIOR - REMODEL ELECTRICAL RM, FINISHES AND ELEC",
+    "address": null,
+    "setup_date": "2024-08-12",
+    "under_review_date": "2024-08-12",
+    "issue_date": "2024-08-12",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "detail_id": 5142378,
+  "metadata": {
+    "ivr_number": "5142378",
+    "permit_type": "Tree CodeCIPPP&R",
+    "work_description": "Urban Forestry CIP Permitting",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-10",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Closed - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code",
+      "activity_type": "Utility Review - All",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-20",
+      "goal_date": null,
+      "completed_date": "2026-02-20",
+      "staff_contact": "Thaete,Jason   971-277-0799"
+    },
+    {
+      "activity_name": "Health Inspection",
+      "activity_type": "G - Inspect & Advise",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-20",
+      "goal_date": "2026-02-20",
+      "completed_date": "2026-02-20",
+      "staff_contact": ""
+    }
+  ]
+}

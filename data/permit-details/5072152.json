@@ -1,0 +1,136 @@
+{
+  "detail_id": 5072152,
+  "metadata": {
+    "ivr_number": "5072152",
+    "permit_type": "Sign PermitWall/Fascia SignNew Sign/Awning",
+    "work_description": "NEW 19.04SF ILLUMINATED SIGN FLUSH MOUNTED ON THE EAST ELEVATION",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-13",
+    "issue_date": "2024-08-27",
+    "final_date": "2024-11-13",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Sign",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "HunterJames,Rochelle   503-823-0678"
+    },
+    {
+      "activity_name": "Technician Plan Review",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": "2024-08-27",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Determine if Zoning Review required",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "HunterJames,Rochelle   503-823-0678"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-28",
+      "goal_date": null,
+      "completed_date": "2024-08-28",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": "2024-08-27",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "400 Sign Footings",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "405 Electrical Service - Sign",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "410 Sign Structure",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Expire Permit - SG",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-27",
+      "goal_date": "2025-02-23",
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": "2024-11-13",
+      "staff_contact": "Brougham,Tom   503-823-8924"
+    }
+  ]
+}

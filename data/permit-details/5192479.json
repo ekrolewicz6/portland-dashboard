@@ -1,0 +1,216 @@
+{
+  "detail_id": 5192479,
+  "metadata": {
+    "ivr_number": "5192479",
+    "permit_type": "Commercial Building PermitHotel/MotelAlteration",
+    "work_description": "CITY TEAM - REV-02 - Delete reference to Knox Box and hazardous tanks; delete 2 shafts *** w/24-052865-REV-02-MT *** SEE REVISION NARRATIVE IN DOCUMENTS IN PDOX ***",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-22",
+    "issue_date": "2025-11-12",
+    "final_date": "2025-11-13",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cowen,Crystle   503-865-6642"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cowen,Crystle   503-865-6642"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cowen,Crystle   503-865-6642"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cowen,Crystle   503-865-6642"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cowen,Crystle   503-865-6642"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-30",
+      "goal_date": null,
+      "completed_date": "2025-09-30",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-30",
+      "goal_date": null,
+      "completed_date": "2025-09-30",
+      "staff_contact": "Bartley,David   503-865-6529"
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-06",
+      "staff_contact": "Duquette,Shelly   503-865-6498"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-06",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-18",
+      "goal_date": "2026-02-17",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": "2025-11-13",
+      "staff_contact": "Vanderjagt,Sean   503-823-2710"
+    }
+  ]
+}

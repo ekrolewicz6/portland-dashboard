@@ -1,0 +1,376 @@
+{
+  "detail_id": 5072353,
+  "metadata": {
+    "ivr_number": "5072353",
+    "permit_type": "Facility PermitBuildingAlteration",
+    "work_description": "SINGLE PDF PROCESS/ PPS MARKHAM ES STORM DAMAGE REPAIR; DFS FOR GYM FLOOR ASSEMBLY",
+    "address": null,
+    "setup_date": "2024-08-12",
+    "under_review_date": "2024-08-12",
+    "issue_date": "2024-08-29",
+    "final_date": "2024-11-21",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Review Project Scope",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Completeness Check - FA",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-27",
+      "goal_date": null,
+      "completed_date": "2026-02-27",
+      "staff_contact": "Moore,Elizabeth   503-823-7135"
+    },
+    {
+      "activity_name": "Assign Reviews - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": "2024-08-12",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Corrections Received - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Administration - Building",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Building Plan Review",
+      "activity_type": "Facilities Life Safety Plan Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": "2024-08-19",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Facilities Plumbing Plan Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Electrical Plan Review",
+      "activity_type": "Facilities Electrical Plan Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Mechanical Review",
+      "activity_type": "Facilities Mechanical Plan Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": "2024-08-12",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Fire Plan Review - FA",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Final Fire Marshal",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": "2025-01-09",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Issue FA",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "215 Setbacks",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "220 Footings",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "225 Foundation",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "235 Slab/Flatwork",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "240 Underfloor/Post & Beam",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "245 Waterproofing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "250 Masonry/Reinforcing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "260 Shearwalls",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "265 Firewall Nailing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "270 Framing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "275 Wallboard Attachment",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "277 Ceiling Grid",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "280 Insulation/Vapor Barrier",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "285 Roofing",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "290 Temporary Occupancy",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "299 Final - Structural",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Consultation - Building",
+      "activity_type": "Facilities Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-29",
+      "goal_date": "2025-02-25",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": "Rago,Jeffrey   503-823-8049"
+    }
+  ]
+}

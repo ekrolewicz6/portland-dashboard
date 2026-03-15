@@ -1,0 +1,76 @@
+{
+  "detail_id": 5192482,
+  "metadata": {
+    "ivr_number": "5192482",
+    "permit_type": "On-Site Sewage Evaluations & ServicesCommercial/2 or More Family Res/OtherSeptic Review Certification",
+    "work_description": "Install a drinking water pump station for the City of Sandy at PWB's Filtration Facility site. No bathrooms or septic connections are proposed, pump station is more than 200 ft from sanitary area.",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-18",
+    "issue_date": "2025-10-20",
+    "final_date": "2025-10-20",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Subsurface Plan Review",
+      "activity_type": "Plan Review",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-20",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Corrections Received - SE",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "846 Septic System Staked",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "Certify On-Site Sewage Disposal",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-20",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    }
+  ]
+}

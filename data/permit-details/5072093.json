@@ -1,0 +1,226 @@
+{
+  "detail_id": 5072093,
+  "metadata": {
+    "ivr_number": "5072093",
+    "permit_type": "Early AssistancePC - PreApplication Conference",
+    "work_description": "A Pre-Application Conference to discuss a Zoning Map Amendment Review to change the current campus zoning from CI1 (Campus Institutional 1) to CI2 (Campus Institutional 2). No Comprehensive Plan Map Amendment is required.",
+    "address": null,
+    "setup_date": "2024-08-13",
+    "under_review_date": "2024-08-13",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-17",
+      "goal_date": null,
+      "completed_date": "2024-09-17",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-16",
+      "goal_date": null,
+      "completed_date": "2024-08-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Mail Pre-app Notice",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-16",
+      "goal_date": null,
+      "completed_date": "2024-08-16",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Facilitate Conference",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-30",
+      "goal_date": null,
+      "completed_date": "2024-09-30",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Planner Pre-app Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-24",
+      "goal_date": null,
+      "completed_date": "2024-09-24",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Mail Pre-app Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-02",
+      "goal_date": null,
+      "completed_date": "2024-10-02",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-17",
+      "goal_date": null,
+      "completed_date": "2024-09-17",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-30",
+      "goal_date": null,
+      "completed_date": "2024-09-30",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Fire Review - EA Mtg",
+      "activity_type": "Fire Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-12",
+      "goal_date": null,
+      "completed_date": "2024-09-12",
+      "staff_contact": "Parrish,Zach   503-991-2764"
+    },
+    {
+      "activity_name": "Fire Review - EA Response",
+      "activity_type": "Fire Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-12",
+      "goal_date": null,
+      "completed_date": "2024-09-12",
+      "staff_contact": "Parrish,Zach   503-991-2764"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-17",
+      "goal_date": null,
+      "completed_date": "2024-09-17",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-26",
+      "goal_date": null,
+      "completed_date": "2024-09-26",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-11",
+      "goal_date": null,
+      "completed_date": "2024-09-11",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-26",
+      "goal_date": null,
+      "completed_date": "2024-09-26",
+      "staff_contact": "Duval,Andre   503-823-7214"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-04",
+      "goal_date": null,
+      "completed_date": "2024-09-04",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-17",
+      "goal_date": null,
+      "completed_date": "2024-09-17",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-20",
+      "goal_date": null,
+      "completed_date": "2024-09-20",
+      "staff_contact": "Youngberg,Kelly   503-823-7677"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-17",
+      "goal_date": null,
+      "completed_date": "2024-09-17",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "detail_id": 5192341,
+  "metadata": {
+    "ivr_number": "5192341",
+    "permit_type": "BES - Sewer Repair PermitSingle Family Dwelling",
+    "work_description": "CONTRACTOR TO CIPP (LINING) EXISTING LATERAL FROM PROPERTY LINE TO CURB/EDGE OF PAVEMENT PER COP ENB ¿ 4.33. LMK TECHNOLOGIES / PERMALINER TECHNOLOGIES.",
+    "address": null,
+    "setup_date": "2025-09-18",
+    "under_review_date": "2025-09-18",
+    "issue_date": "2025-09-18",
+    "final_date": "2025-09-19",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Meekins,Perry   503-865-6375"
+    },
+    {
+      "activity_name": "Expire Permit - PT, UC, UR",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-18",
+      "goal_date": "2026-03-17",
+      "completed_date": null,
+      "staff_contact": "PBOT SSM"
+    },
+    {
+      "activity_name": "Final - ROW Restoration",
+      "activity_type": "Transportation Final Inspection",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Akerill,Toni 503"
+    }
+  ]
+}

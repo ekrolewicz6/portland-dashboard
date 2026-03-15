@@ -1,0 +1,86 @@
+{
+  "detail_id": 5167046,
+  "metadata": {
+    "ivr_number": "5167046",
+    "permit_type": "Land Use ReviewType 1 procedure newHRM - Historic Resource Review w/Modific",
+    "work_description": "Approval of a Historic Resource Review for two 49.5 SF freestanding signs. Approval of Two Modifications:¿To allow more than 1 freestanding sign on the site (1 is allowed for the site since no arterial street frontage per Section 32.32.020.A, Table 2, footnote [3].¿To allow a freestanding sign and a projecting sign on the same street frontage per Section 32.32.020.A, Table 2. Per the approved site plans, Exhibits C-1 through C-3, signed and dated 8/5/25 subject to the following conditions: A.As part of the building permit application submittal, the following development-related conditions (B through C) must be noted on each of the four required site plans or included as a sheet in the numbered set of plans. The sheet on which this information appears must be labeled \"ZONING COMPLIANCE PAGE- Case File LU 25-051782 HRM.\" All requirements must be graphically represented on the site plan, landscape, or other required plan and must be labeled \"REQUIRED.\" B.At the time of building permit submittal, a signed Certificate of Compliance form (https://www.portland.gov/ppd/documents/design-and-historic-resource-review-approvals-certificate-compliance) must be submitted to ensure the permit plans comply with the Design/Historic Resource Review decision and approved exhibits. C. No field changes allowed.",
+    "address": null,
+    "setup_date": "2025-06-27",
+    "under_review_date": "2025-06-27",
+    "issue_date": "2025-08-06",
+    "final_date": "2025-08-08",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-27",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-06",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-11",
+      "goal_date": null,
+      "completed_date": "2025-07-11",
+      "staff_contact": "Monroe,Staci   503-865-6516"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": "2025-07-16",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-07",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": "2025-09-02",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-08",
+      "goal_date": null,
+      "completed_date": "2025-08-08",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "detail_id": 5142315,
+  "metadata": {
+    "ivr_number": "5142315",
+    "permit_type": "NuisanceVacantComplaint",
+    "work_description": "Complaint Rcvd: T/D, non trash item, T/G/W, open to entry.",
+    "address": null,
+    "setup_date": "2025-04-10",
+    "under_review_date": "2025-04-10",
+    "issue_date": "2025-05-07",
+    "final_date": "2025-07-15",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-06",
+      "goal_date": null,
+      "completed_date": "2025-06-06",
+      "staff_contact": "Greer,Kelly   503-823-8513"
+    },
+    {
+      "activity_name": "Work Order Inspection",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-12",
+      "goal_date": null,
+      "completed_date": "2025-06-12",
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": "2025-05-07",
+      "staff_contact": "Meltzer,David   503-823-8111"
+    },
+    {
+      "activity_name": "Search Warrant",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": "2025-07-15",
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Work Order",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-13",
+      "goal_date": null,
+      "completed_date": "2025-06-13",
+      "staff_contact": "Kuhn,Melissa   503-823-7324"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

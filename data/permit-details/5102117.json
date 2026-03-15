@@ -1,0 +1,116 @@
+{
+  "detail_id": 5102117,
+  "metadata": {
+    "ivr_number": "5102117",
+    "permit_type": "Early AssistanceDA - Design Advice Request",
+    "work_description": "DZ HEARING - The renovation and expansion of a 2,000 square foot building situated north of the Walk of Heroines on the Portland State University (PSU) Campus, within the PSU Oak Savanna area. This project includes an 800 square foot addition, a new deck, and landscape improvements. The program includes new classrooms, office areas, and storage space, with outdoor deck, salmon bake, and amphitheater areas. The project will be pursuing the full Living Building Challenge Certification.",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-25",
+      "goal_date": null,
+      "completed_date": "2024-11-25",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Schedule Hearing Date",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-08",
+      "goal_date": null,
+      "completed_date": "2024-12-05",
+      "staff_contact": "Jeffreys,Grace   503-865-6521"
+    },
+    {
+      "activity_name": "Memo to Commission",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-02",
+      "goal_date": null,
+      "completed_date": "2025-01-02",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Hearing",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-15",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Mail DA Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-03",
+      "goal_date": null,
+      "completed_date": "2025-01-31",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-30",
+      "goal_date": null,
+      "completed_date": "2024-12-30",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": "2024-12-17",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}
