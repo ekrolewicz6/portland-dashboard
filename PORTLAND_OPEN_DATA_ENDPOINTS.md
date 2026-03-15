@@ -882,3 +882,46 @@ ORPCPI — Per Capita Personal Income: Portland MSA (if available)
 | TriMet Ridership | Monthly boardings by line | Published in quarterly performance reports (scrape or request) | LOW |
 | School Enrollment | PPS enrollment by school | Published annually by Oregon Dept of Education | LOW |
 
+
+---
+
+## Portland Maps Detail API (CONFIRMED WORKING 2026-03-15)
+
+### API Key
+`7D700138A0EA40349E799EA216BF82F9` (found in public portlandmaps.com JavaScript)
+
+### Required Headers
+```
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
+Referer: https://www.portlandmaps.com/detail/permit/{detail_id}/
+```
+
+### Permit Detail (WORKING — 35KB+ response)
+```
+GET https://www.portlandmaps.com/api/detail.cfm?format=html&detail_type=permit&sections=*&expand=1&expand_tables=1&detail_id={id}&api_key={key}
+```
+Returns: IVR number, permit type, address, setup/review/issue/final dates, status, work description, AND full activity log with 30-124 review steps per permit (activity name, type, must_check, status, dates, staff contact with phone number).
+
+### Property Detail (WORKING — 9KB response)
+```
+GET https://www.portlandmaps.com/api/detail.cfm?format=html&detail_type=property&detail_id={property_id}&api_key={key}
+```
+Returns: Owner name, owner address, building area (sq ft), description (OFFICE/RESIDENTIAL/etc), year built, neighborhood, zoning, jurisdiction, council district, elevation, related accounts.
+
+### Key Fields for Bottleneck Analysis
+The activity log shows exactly WHERE each permit gets stuck:
+- Planning and Zoning Review (often the slowest — 192 days in sample)
+- Structural Review
+- Life Safety Review
+- Fire Plan Review
+- Erosion Control
+- Transportation SDC Review
+- Pre-Issuance Check
+- Corrections Received (multiple rounds = delays)
+
+### Permit ID Range
+detail_id is sequential integer. IDs ~5166000-5200000 = permits from mid-2025 to early 2026.
+Roughly 8,000-10,000 IDs per month across all permit types.
+
+### Rate Limiting
+Use 1-second delay between requests. No documented rate limit, but be polite — this is public civic infrastructure.
