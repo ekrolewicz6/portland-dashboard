@@ -1,0 +1,116 @@
+{
+  "detail_id": 5166194,
+  "metadata": {
+    "ivr_number": "5166194",
+    "permit_type": "Land Use ReviewType 1 procedure newHRM - Historic Resource Review w/Modific",
+    "work_description": "Approval of a new painted black steel canopy structure for a new solar array addition on previously approved spiral stairs and balconies in the rear yard (LU 23-0079768 HRM) of an existing Contributing Resource in the Alphabet Historic District. Approval of a Modification request through Historic Resource Review [33.846.060]:¿Setbacks [PZC 33.120.220.B.1]: Reduce the east-side property line setback for the new solar array support structure 5¿ to 3¿4¿ and allow the solar panels to project 24¿ from the property line. Approval per Exhibits C-1 through C-3, signed and dated July 22, 2025, subject to the following conditions: A.As part of the building permit application submittal, the following development-related conditions (B through C) must be noted on each of the four required site plans or included as a sheet in the numbered set of plans. The sheet on which this information appears must be labeled \"ZONING COMPLIANCE PAGE- Case File LU 25-050951 HRM.\" All requirements must be graphically represented on the site plan, landscape, or other required plan and must be labeled \"REQUIRED.\" B.At the time of building permit submittal, a signed Certificate of Compliance form (https://www.portland.gov/ppd/documents/design-and-historic-resource-review-approvals-certificate-compliance) must be submitted to ensure the permit plans comply with the Design/Historic Resource Review decision and approved exhibits. C. No field changes allowed.",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": "2025-07-22",
+    "final_date": "2025-08-06",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-22",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "Heron,Tim   503-823-7726"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": "2025-07-24",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-19",
+      "goal_date": null,
+      "completed_date": "2025-08-19",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-06",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-07-16",
+      "completed_date": "2025-07-01",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-07-02",
+      "goal_date": "2025-07-16",
+      "completed_date": "2025-07-02",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-15",
+      "goal_date": "2025-07-16",
+      "completed_date": "2025-07-15",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    }
+  ]
+}

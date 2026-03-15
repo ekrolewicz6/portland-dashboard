@@ -1,0 +1,86 @@
+{
+  "detail_id": 5166154,
+  "metadata": {
+    "ivr_number": "5166154",
+    "permit_type": "Fire Systems PermitFire AlarmsAlteration",
+    "work_description": "ALARM - REMOVAL AND REPLACEMENT OF ALARM PANEL.",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-30",
+    "issue_date": "2025-07-02",
+    "final_date": null,
+    "status": "Under Inspection"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Alarm/Supervision",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Part Appr",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Part Appr",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    }
+  ]
+}

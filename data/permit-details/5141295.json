@@ -1,0 +1,36 @@
+{
+  "detail_id": 5141295,
+  "metadata": {
+    "ivr_number": "5141295",
+    "permit_type": "Tree CodeRoot PruningRight-of-Way",
+    "work_description": "Street tree root cutting permit",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-04-11",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2025-04-08",
+      "goal_date": "2025-04-08",
+      "completed_date": "2025-04-08",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-04-11",
+      "goal_date": null,
+      "completed_date": "2025-04-11",
+      "staff_contact": ""
+    }
+  ]
+}

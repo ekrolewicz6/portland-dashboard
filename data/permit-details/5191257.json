@@ -1,0 +1,46 @@
+{
+  "detail_id": 5191257,
+  "metadata": {
+    "ivr_number": "5191257",
+    "permit_type": "On-Site Sewage Evaluations & ServicesSingle Family DwellingSeptic Review Certification",
+    "work_description": "Construction of new ag tractor parking building in the same location as an existing structure to be demolished",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Subsurface Plan Review",
+      "activity_type": "Plan Review",
+      "must_check": "N",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2026-02-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "Corrections Received - SE",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

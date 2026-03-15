@@ -1,0 +1,86 @@
+{
+  "detail_id": 5141250,
+  "metadata": {
+    "ivr_number": "5141250",
+    "permit_type": "Code ComplianceZoningVehicle on Unpaved Surface",
+    "work_description": "Complaint received. Automobile parked on unpaved surface.",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-04-09",
+    "final_date": "2025-06-13",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": "2025-04-08",
+      "staff_contact": "Meltzer,David   503-823-8111"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-13",
+      "goal_date": null,
+      "completed_date": "2025-06-13",
+      "staff_contact": "Meltzer,David   503-823-8111"
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Meltzer,David   503-823-8111"
+    },
+    {
+      "activity_name": "Reinspection - CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Violations Corrected",
+      "last_activity_date": "2025-06-13",
+      "goal_date": "2025-06-10",
+      "completed_date": "2025-06-13",
+      "staff_contact": "Meltzer,David   503-823-8111"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": "2025-05-20",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Extension of Time Granted",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

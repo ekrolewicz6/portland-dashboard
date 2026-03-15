@@ -1,0 +1,46 @@
+{
+  "detail_id": 5101219,
+  "metadata": {
+    "ivr_number": "5101219",
+    "permit_type": "Tree CodeRemoval/ReplantPrivate",
+    "work_description": "Private property tree removal permit",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-13",
+    "issue_date": "2024-12-12",
+    "final_date": null,
+    "status": "Expired - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2024-11-14",
+      "goal_date": "2024-11-14",
+      "completed_date": "2024-11-14",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2024-12-12",
+      "goal_date": null,
+      "completed_date": "2024-12-12",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-27",
+      "goal_date": "2026-01-27",
+      "completed_date": "2026-01-27",
+      "staff_contact": ""
+    }
+  ]
+}

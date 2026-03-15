@@ -1,0 +1,36 @@
+{
+  "detail_id": 5141130,
+  "metadata": {
+    "ivr_number": "5141130",
+    "permit_type": "Public RegistryTier 2Land Use Compatibility Statement",
+    "work_description": "DMV LUCS for renewal of dismantler's license at 2719 N Hayden Island Dr",
+    "address": null,
+    "setup_date": "2025-04-17",
+    "under_review_date": "2025-04-22",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-22",
+      "goal_date": null,
+      "completed_date": "2025-04-22",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-05-05",
+      "goal_date": "2025-05-08",
+      "completed_date": "2025-05-05",
+      "staff_contact": "Cooper,Kristin   503-865-6395"
+    }
+  ]
+}

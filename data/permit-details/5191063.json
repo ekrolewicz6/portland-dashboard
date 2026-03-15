@@ -1,0 +1,186 @@
+{
+  "detail_id": 5191063,
+  "metadata": {
+    "ivr_number": "5191063",
+    "permit_type": "Land Use ReviewType 1x procedureLDP - Land Division Review (Partition)",
+    "work_description": "Approval of a Preliminary Plan for a 2-parcel partition, that will result in 2 lots, as illustrated with Exhibits C.1 and C.2, subject to the following conditions: A.Supplemental Plan. An additional supplemental plan shall be submitted with the final plat survey for Land Use Services and Environmental Services review and approval. That plan must portray how the conditions of approval listed below are met. In addition, the supplemental plan must show the following:¿The surveyed location of any buildings or accessory structures on the site at the time of the final plat application; ¿The surveyed location of any driveways and off-street vehicle parking areas on the site at the time of the final plat application; ¿The location of stormwater facilities for the existing house retained on Parcel 1, per Condition C.5 below. ¿Any other information specifically noted in the conditions listed below. B.The final plat must show the following: 1.The applicant shall meet the street dedication requirements of the City Engineer for SE Holgate Blvd. The required right-of-way dedication must be shown on the final plat. 2.A private access easement, for the benefit of Parcel 1, shall be shown and labeled over the relevant portions of Parcel 2. 3.A recording block for each of the legal documents such as maintenance agreements and acknowledgements of special land use conditions, as required by Conditions C.6 and C.7 below. The recording block(s) shall, at a minimum, include language substantially similar to the following example: ¿A (name of document) has been recorded as document no. ___________, Multnomah County Deed Records.¿ C.The following must occur prior to Final Plat approval: Existing Development 1.The applicant must obtain a finalized demolition permit for removing the accessory structure on Parcel 2. Alternately, the applicant can execute a covenant with the City stating that the structures will be removed if a primary structure has not received",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2026-02-25",
+    "final_date": null,
+    "status": "Decision Rendered"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-25",
+      "goal_date": null,
+      "completed_date": "2026-02-25",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-24",
+      "goal_date": null,
+      "completed_date": "2025-11-24",
+      "staff_contact": "Dawkins,Leah   503-865-6734"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-26",
+      "goal_date": null,
+      "completed_date": "2025-12-01",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Tentative Decision",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-25",
+      "goal_date": null,
+      "completed_date": "2026-02-26",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-31",
+      "goal_date": "2025-12-31",
+      "completed_date": "2025-12-31",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Site Dev Review - RFC",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-24",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-24",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-01",
+      "goal_date": "2025-12-31",
+      "completed_date": "2025-12-01",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2026-02-05",
+      "goal_date": "2025-12-31",
+      "completed_date": "2026-02-05",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-30",
+      "goal_date": "2025-12-31",
+      "completed_date": "2025-12-30",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-29",
+      "goal_date": "2025-12-31",
+      "completed_date": "2025-12-29",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-24",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-24",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-30",
+      "goal_date": "2025-12-31",
+      "completed_date": "2025-12-30",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-29",
+      "goal_date": "2025-12-31",
+      "completed_date": "2025-12-29",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    }
+  ]
+}

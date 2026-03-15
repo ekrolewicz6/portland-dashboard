@@ -1,0 +1,336 @@
+{
+  "detail_id": 5191210,
+  "metadata": {
+    "ivr_number": "5191210",
+    "permit_type": "Facility PermitPlumbingAlteration",
+    "work_description": "SINGLE PDF PROCESS/ OLD REPUBLIC TITLE STE 1030 10TH FLR TI; DEMO WALLS, NEW WALLS TO CREATE RECEPTION AREA, SIGNING RMS, OFFICES, IT/STORAGE RM, WORK RM, BREAKRM, OPEN OFFICE AREA, CEILING, FLOORING, FINISHES, PLUMB AND ELEC, 1-INSTA HOT, 1-DISHWASHER, 2-SUPPPLY BOXES, 1-SINK",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2026-01-26",
+    "final_date": "2026-01-26",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Review Project Scope",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Completeness Check - FA",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "Assign Reviews - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-16",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Corrections Received - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Administration - Plumbing",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Facilities Plumbing Plan Review",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2026-02-13",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Issue FA",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-01-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "300 Post and Beam - Plumbing",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "305 Ground Work - Plumbing",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "310 Rough-In/Top Out - Plumbing",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "315 Shower Pan/Bathtub Test",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "320 Fire Sprinklers",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "325 Fixture Cap",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "330 Drain Reversal",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "335 Backflow Device (H20 Supply)",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "340 Water Heater",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "345 Water Service",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "350 Sanitary Sewer",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "355 Storm Sewer",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "360 Sewer Cap",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "365 Rain Drains",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "370 Catch Basin",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "375 Manhole",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "380 Detention Facility",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "385 Foundation Drain",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "390 Dry Well",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "395 Soakage Trench",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "399 Final - Plumbing",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-01-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Consultation - Plumbing",
+      "activity_type": "Facilities Plumbing Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-26",
+      "goal_date": "2026-07-27",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-01-26",
+      "goal_date": null,
+      "completed_date": "2026-01-26",
+      "staff_contact": "Kane,Michael   503-823-1850"
+    }
+  ]
+}

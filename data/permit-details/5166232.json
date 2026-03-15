@@ -1,0 +1,46 @@
+{
+  "detail_id": 5166232,
+  "metadata": {
+    "ivr_number": "5166232",
+    "permit_type": "Transportation ReviewEncroachment",
+    "work_description": "Paris Theater - Outdoor Dining Area with Perimeter Fencing",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-26",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application"
+  },
+  "activities": [
+    {
+      "activity_name": "Structures Review - Trans",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-11",
+      "goal_date": null,
+      "completed_date": "2025-07-11",
+      "staff_contact": "Lai,Manchi   503-823-4417"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Armenta,Ismael"
+    },
+    {
+      "activity_name": "Structures Review - Trans",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-26",
+      "goal_date": null,
+      "completed_date": "2025-08-26",
+      "staff_contact": "Lai,Manchi   503-823-4417"
+    }
+  ]
+}

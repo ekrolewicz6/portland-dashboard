@@ -1,0 +1,86 @@
+{
+  "detail_id": 5141211,
+  "metadata": {
+    "ivr_number": "5141211",
+    "permit_type": "On-Site Sewage Evaluations & ServicesSingle Family DwellingSite Evaluation (LFS)",
+    "work_description": "Repair",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": "2025-04-14",
+    "final_date": "2025-04-24",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": "2025-04-08",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Subsurface Plan Review",
+      "activity_type": "Plan Review",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-14",
+      "goal_date": null,
+      "completed_date": "2025-04-14",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-30",
+      "goal_date": null,
+      "completed_date": "2025-04-30",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Corrections Received - SE",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "848 Test Pits Dug & Flagged",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-14",
+      "goal_date": null,
+      "completed_date": "2025-04-14",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    },
+    {
+      "activity_name": "Soils Evaluation",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-14",
+      "goal_date": null,
+      "completed_date": "2025-04-14",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    },
+    {
+      "activity_name": "Prepare & Send Evaluation Report",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    }
+  ]
+}

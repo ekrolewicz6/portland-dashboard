@@ -1,0 +1,176 @@
+{
+  "detail_id": 5191083,
+  "metadata": {
+    "ivr_number": "5191083",
+    "permit_type": "Land Use ReviewType 2 procedureAD: Adjustment",
+    "work_description": "Approval of one Adjustment to increase the maximum distance of the main entrance to the longest street-facing wall of the home from 8 feet to 10 feet (PZC 33.110.230.C.1), per the approved site plan, Exhibits C.1 through C.2, signed and dated October 17, 2025, subject to the following condition: A.A finalized building permit must be obtained to document the approved project. As part of the permit application submittal, each of the site plans and any additional drawings must reflect the information and design approved by this land use review as indicated in Exhibits C.1-C.2. The sheets on which this information appears must be labeled, \"Proposal and design as approved in Case File # LU 25-074923 AD.¿",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2025-10-20",
+    "final_date": "2025-11-18",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-20",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-18",
+      "goal_date": null,
+      "completed_date": "2025-11-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-24",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-18",
+      "goal_date": null,
+      "completed_date": "2025-11-18",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-09-25",
+      "goal_date": "2025-10-15",
+      "completed_date": "2025-09-25",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-26",
+      "goal_date": "2025-10-15",
+      "completed_date": "2025-09-26",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-09-24",
+      "goal_date": "2025-10-15",
+      "completed_date": "2025-09-24",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-10-13",
+      "goal_date": "2025-10-15",
+      "completed_date": "2025-10-13",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-24",
+      "goal_date": "2025-10-15",
+      "completed_date": "2025-09-24",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-18",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-18",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-10",
+      "goal_date": "2025-10-15",
+      "completed_date": "2025-10-10",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

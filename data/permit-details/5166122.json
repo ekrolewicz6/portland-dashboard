@@ -1,0 +1,86 @@
+{
+  "detail_id": 5166122,
+  "metadata": {
+    "ivr_number": "5166122",
+    "permit_type": "NuisanceVacant LotComplaint",
+    "work_description": "COMPLT RCVD: TG&W, OVERGROWN VEGETATION CREATING HARBORAGE",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-26",
+    "issue_date": "2025-07-16",
+    "final_date": "2025-09-04",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-05",
+      "goal_date": null,
+      "completed_date": "2025-09-04",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": "2025-07-15",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-05",
+      "goal_date": null,
+      "completed_date": "2025-09-04",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-07-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

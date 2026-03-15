@@ -1,0 +1,46 @@
+{
+  "detail_id": 5191107,
+  "metadata": {
+    "ivr_number": "5191107",
+    "permit_type": "BES - Sewer Repair PermitMulti-family Dwellings",
+    "work_description": "in SW Vermont st. /CONTRACTOR TO REPLACE EXISTING LATERAL FROM PROPERTY LINE TO FACE OF CURB PER CITY STD P-262; PBOT NOTE LOCATION, open trench. Contractor must verify depth/location and downstream connection point to public system in the field.",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-15",
+    "issue_date": "2025-09-16",
+    "final_date": "2025-09-25",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Akerill,Toni 503"
+    },
+    {
+      "activity_name": "Expire Permit - PT, UC, UR",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2026-03-16",
+      "completed_date": null,
+      "staff_contact": "PBOT SSM"
+    },
+    {
+      "activity_name": "Final - ROW Restoration",
+      "activity_type": "Transportation Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-25",
+      "goal_date": null,
+      "completed_date": "2025-09-25",
+      "staff_contact": "Riche,John 503823XXXX"
+    }
+  ]
+}

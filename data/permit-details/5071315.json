@@ -1,0 +1,146 @@
+{
+  "detail_id": 5071315,
+  "metadata": {
+    "ivr_number": "5071315",
+    "permit_type": "Land Use ReviewType 2 procedureAD: Adjustment",
+    "work_description": "Approval of an Adjustment to reduce the minimum setback for off-street parking space on the existing driveway from 10 feet to 3 feet (Zoning Code Section 33.266.120.C.2.a), per the approved site plan, Exhibit C-1, subject to the following condition: A.The building permit plans must reflect the information and design approved by this land use review as indicated in Exhibit C-1. The building permit site plan must be labeled, \"Proposal and design as approved in Case File # LU 24-068278 AD.¿",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-09-06",
+    "final_date": "2024-09-24",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-06",
+      "goal_date": null,
+      "completed_date": "2024-09-06",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-06",
+      "goal_date": null,
+      "completed_date": "2024-09-09",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-24",
+      "goal_date": null,
+      "completed_date": "2024-09-24",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-24",
+      "goal_date": null,
+      "completed_date": "2024-09-24",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-08-12",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-08-12",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-08-21",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-08-21",
+      "staff_contact": "Altman,Guy Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-08-27",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-08-27",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-08-30",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-08-30",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-08-13",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-08-13",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-08-30",
+      "goal_date": "2024-09-03",
+      "completed_date": "2024-08-30",
+      "staff_contact": "Calvert,Kris Inactive"
+    }
+  ]
+}

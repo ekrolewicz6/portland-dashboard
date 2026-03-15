@@ -1,0 +1,46 @@
+{
+  "detail_id": 5191296,
+  "metadata": {
+    "ivr_number": "5191296",
+    "permit_type": "Minor Improvement PermitRequired MIP",
+    "work_description": "SE Market St: Inspection of Retaining Wall location.",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2025-09-29",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": "2025-09-29",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-23",
+      "goal_date": null,
+      "completed_date": "2026-01-23",
+      "staff_contact": "Evans,Levi"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Evans,Levi"
+    }
+  ]
+}

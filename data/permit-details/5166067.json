@@ -1,0 +1,56 @@
+{
+  "detail_id": 5166067,
+  "metadata": {
+    "ivr_number": "5166067",
+    "permit_type": "NuisanceCity Bureau RequestInspector Initiated",
+    "work_description": "Complaint received. Urban Forestry: The private tree (approximately 30 inches in diameter) in the rear yard is long dead and it is impossible to determine the species. The tree has failed and is resting on the privacy fence with adjacent property at 4917 N MINNESOTA AVE. The tree is dangerous and must be removed and replaced ASAP.",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-26",
+    "issue_date": null,
+    "final_date": "2025-08-05",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": "2025-07-03",
+      "completed_date": null,
+      "staff_contact": "Davis,Mark   503-823-6523"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-05",
+      "goal_date": null,
+      "completed_date": "2025-08-05",
+      "staff_contact": "Davis,Mark   503-823-6523"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Davis,Mark   503-823-6523"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

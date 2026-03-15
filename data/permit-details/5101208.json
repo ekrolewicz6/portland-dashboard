@@ -1,0 +1,176 @@
+{
+  "detail_id": 5101208,
+  "metadata": {
+    "ivr_number": "5101208",
+    "permit_type": "Electrical PermitOne or Two Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "Current violation/s on property:-An occupied tiny home on wheels lacks a dedicated outlet on a service pedestal or a dedicated 20 amp circuit from the primary dwelling with an approved extension cord. 29.30.190, 29.50.010, 29.50.020, 29.50.050-A permit issued for a 200amp service expired 9/15/2004 without receiving a required final inspection. Permit 2003 112350 000 00 ET is now VOID. The permit was issued to C. Michael Cullinan. The 120 Permanent Electrical Service was approved w/ corrections requested on 4/5/2004. 29.30.190, 29.50.010, 29.50.020, 29.50.050-A permit issued to RELOCATE SERVICE PANEL IN HOUSE AND UPDATE METER BASE expired 4/24/2012 without receiving a required final inspection. Permit 2011 188984 000 00 ET is now VOID. The permit was issued to Nicholas P Cullinan. The 120 Permanent Electrical Service received was approved w/ corrections requested on 10.27.2011. 29.30.190, 29.50.010, 29.50.020, 29.50.050 A new permit is required. 29.30.190, 29.50.010, 29.50.020, 29.50.050 I am looking to reopen these permits so I can have the final inspections done. All of the work was perviously completed and is all in need of final inspections. I have spoke with Tom Simkovic, Cynthia Kotaniemi, Janell M. Piercy, and Anastasia Howard all via email about reopening the previous permits which I have been told is not possible so Id like to open up new permits. Anastasia Howard is my contact for the current violations.",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-13",
+    "issue_date": "2024-12-17",
+    "final_date": "2025-02-11",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Correction Notice",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "105 Cover - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "107 Cover-Elec Infloor Heat",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "110 Underground - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "111 Elec Svc Reconnect",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "115 Temporary Electrical Service",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "120 Permanent Elec Svc/Reconnect",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "125 Low Voltage/Alarm",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "130 Adult Foster Care",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "135 Hot Tub/Spa/Swimming Pool",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "145 Circuits/Feeders",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "150 Generator/Transfer Switch",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "155 Other/Consultation - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "160 Renewable Energy Solar/Wind",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "199 Final - Electrical",
+      "activity_type": "Electrical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-02-11",
+      "goal_date": null,
+      "completed_date": "2025-02-11",
+      "staff_contact": "Maynard,Jack   503-823-8481"
+    },
+    {
+      "activity_name": "Letter of Intent to Expire",
+      "activity_type": "Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-17",
+      "goal_date": "2025-06-16",
+      "completed_date": null,
+      "staff_contact": "ELECTRICAL INSPECTIONS"
+    }
+  ]
+}

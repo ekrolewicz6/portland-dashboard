@@ -1,0 +1,56 @@
+{
+  "detail_id": 5166099,
+  "metadata": {
+    "ivr_number": "5166099",
+    "permit_type": "NuisanceOther- NUComplaint",
+    "work_description": "complaint received: yard debris at corner of NE 51st and NE Beech",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-26",
+    "issue_date": null,
+    "final_date": "2025-07-21",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": "2025-07-21",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": "2025-07-21",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

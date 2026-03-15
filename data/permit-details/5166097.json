@@ -1,0 +1,156 @@
+{
+  "detail_id": 5166097,
+  "metadata": {
+    "ivr_number": "5166097",
+    "permit_type": "Mechanical PermitOne or Two Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "replace heat pump",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-26",
+    "issue_date": "2025-06-26",
+    "final_date": "2025-08-22",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "600 Underfloor/Post&Beam-Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "605 New Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "610 Extend Gas Piping/Pressure Test",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "615 Gas Line Tag",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "617 Hydronic Piping (Closed/Open Loop)",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "620 Rough-in Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "625 Woodstove/Pellet Stove/Deco Appl",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "630 AC/Furnace/Heat Pump/HVAC Eqt",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "635 Kitchen Exhaust/Commercial Hood",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "640 Oil Tank",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "645 Vent/Chimney Liner",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "650 Other/Consultation - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "670 Oil Tank Pad",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "699 Final - Mechanical",
+      "activity_type": "Mechanical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-08-22",
+      "staff_contact": "Luttrell,Natalie   503-865-6021"
+    }
+  ]
+}

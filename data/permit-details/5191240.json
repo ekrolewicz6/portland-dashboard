@@ -1,0 +1,46 @@
+{
+  "detail_id": 5191240,
+  "metadata": {
+    "ivr_number": "5191240",
+    "permit_type": "Plumbing PermitCommercial or Multi-Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "INSTALL NEW SEWER LINE AND PROPERTY",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Rosell,Michael   503-823-7343"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - PT",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Rosell,Michael   503-823-7343"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Rosell,Michael   503-823-7343"
+    }
+  ]
+}

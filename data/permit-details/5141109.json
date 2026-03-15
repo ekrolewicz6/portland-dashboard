@@ -1,0 +1,36 @@
+{
+  "detail_id": 5141109,
+  "metadata": {
+    "ivr_number": "5141109",
+    "permit_type": "Public RegistryTier 3Complex Zoning Analysis",
+    "work_description": "Zoning confirmation request - complex zoning analysis.",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-08",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": "2025-04-08",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-06-06",
+      "goal_date": null,
+      "completed_date": "2025-06-06",
+      "staff_contact": "Kienholz,Don   503-865-6716"
+    }
+  ]
+}

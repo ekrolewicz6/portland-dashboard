@@ -1,0 +1,66 @@
+{
+  "detail_id": 5101323,
+  "metadata": {
+    "ivr_number": "5101323",
+    "permit_type": "Public RegistrySites with House(s) or Duplex(es)Lot Confirmation",
+    "work_description": "Confirm Lots 7 & 8 of PIEDMONT, BLOCK 25. The existing structure will be demolished.",
+    "address": null,
+    "setup_date": "2024-11-18",
+    "under_review_date": "2024-11-20",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": "2024-11-20",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2024-12-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Life Safety Review - PR",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LIFE SAFETY LU"
+    },
+    {
+      "activity_name": "BES Development Srv - PR",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-03",
+      "goal_date": "2024-12-04",
+      "completed_date": "2024-12-03",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "Water Review - PR",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-02",
+      "goal_date": "2024-12-04",
+      "completed_date": "2024-12-02",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

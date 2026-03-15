@@ -1,0 +1,366 @@
+{
+  "detail_id": 5166162,
+  "metadata": {
+    "ivr_number": "5166162",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingAddition",
+    "work_description": "SINGLE PDF ENCLOSING PORCH TO EXPAND KITCHEN AND ADD BATHROOM. FRAMING, BEAM AND POSTS. SIDING, INSULATION. NEW POCKET DOOR AND WINDOWS. *ET PT MT SEPERATE*",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-07-22",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": "2025-06-26",
+      "staff_contact": "Dubanski,Robert 503823"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": "2025-06-27",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": "2025-06-26",
+      "staff_contact": "Bigelow,Robert   503-865-6530"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": "2025-06-27",
+      "staff_contact": "Dubanski,Robert 503823"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": "2025-11-13",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-25",
+      "goal_date": null,
+      "completed_date": "2025-11-25",
+      "staff_contact": "Dubanski,Robert 503823"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-26",
+      "goal_date": null,
+      "completed_date": "2025-11-26",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-22",
+      "goal_date": "2025-08-12",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": "2025-11-13",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": "2025-06-26",
+      "staff_contact": "Dubanski,Robert 503823"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-21",
+      "goal_date": null,
+      "completed_date": "2025-11-21",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Erosion Control Plan Review",
+      "activity_type": "Erosion Control",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-11-14",
+      "goal_date": null,
+      "completed_date": "2025-11-14",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Erosion Control Plan Review",
+      "activity_type": "Erosion Control",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-29",
+      "goal_date": null,
+      "completed_date": "2025-07-29",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-29",
+      "goal_date": null,
+      "completed_date": "2025-07-29",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-11-14",
+      "goal_date": null,
+      "completed_date": "2025-11-14",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-19",
+      "goal_date": null,
+      "completed_date": "2025-11-19",
+      "staff_contact": "Pagnotta,Christopher   503-823-6540"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-19",
+      "goal_date": null,
+      "completed_date": "2025-11-19",
+      "staff_contact": "Pagnotta,Christopher   503-823-6540"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Residential Subsurface Site Evaluation",
+      "activity_type": "Plumbing/Subsurface Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-29",
+      "goal_date": null,
+      "completed_date": "2025-07-29",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Residential Subsurface Site Evaluation",
+      "activity_type": "Plumbing/Subsurface Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-11-14",
+      "goal_date": null,
+      "completed_date": "2025-11-14",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-11-19",
+      "goal_date": null,
+      "completed_date": "2025-11-19",
+      "staff_contact": "Meekins,Perry   503-865-6375"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-08-01",
+      "goal_date": null,
+      "completed_date": "2025-08-01",
+      "staff_contact": "Meekins,Perry   503-865-6375"
+    },
+    {
+      "activity_name": "Transportation SDC Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-31",
+      "goal_date": null,
+      "completed_date": "2025-07-31",
+      "staff_contact": "Nassif,David   503-823-8312"
+    },
+    {
+      "activity_name": "Transportation SDC Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-14",
+      "goal_date": null,
+      "completed_date": "2025-11-14",
+      "staff_contact": "Nassif,David   503-823-8312"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-11-14",
+      "goal_date": null,
+      "completed_date": "2025-11-14",
+      "staff_contact": "Livengood,Kyle   503-823-3370"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-07-30",
+      "goal_date": null,
+      "completed_date": "2025-07-30",
+      "staff_contact": "Partch,Priscilla"
+    },
+    {
+      "activity_name": "Street Systems - Assign Reviews",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PDOT  503-823-7002"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Parks SDC Review",
+      "activity_type": "Parks Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-19",
+      "goal_date": null,
+      "completed_date": "2025-11-19",
+      "staff_contact": "Crawford,William   503-823-2576"
+    },
+    {
+      "activity_name": "Parks SDC Review",
+      "activity_type": "Parks Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-11",
+      "goal_date": null,
+      "completed_date": "2025-08-11",
+      "staff_contact": "Crawford,William   503-823-2576"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-20",
+      "goal_date": null,
+      "completed_date": "2025-11-20",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-08-08",
+      "goal_date": null,
+      "completed_date": "2025-08-08",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-22",
+      "goal_date": "2025-12-19",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-25",
+      "goal_date": null,
+      "completed_date": "2025-11-25",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    }
+  ]
+}

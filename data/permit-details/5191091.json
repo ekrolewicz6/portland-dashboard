@@ -1,0 +1,196 @@
+{
+  "detail_id": 5191091,
+  "metadata": {
+    "ivr_number": "5191091",
+    "permit_type": "Land Use ReviewType 2 procedureCU: Conditional Use",
+    "work_description": "Approval of Conditional Use Review to reduce the number of striped parking spaces in the Holgate Library parking lot from 34 to 30 (Zoning Code Section 33.815.040.B.2.a.3), subject to the following condition: A.An approved and issued building permit is required for the proposed change to the parking lot striping (Exhibit E-6). The building permit site plan must reflect the information and design approved by this land use review as indicated in Exhibit C-1. The building permit site plan must be labeled, ¿Proposal and design as approved in Case File # LU 25-074930 CU.¿",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2025-11-04",
+    "final_date": "2025-12-18",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-31",
+      "goal_date": null,
+      "completed_date": "2025-10-31",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-02",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-18",
+      "goal_date": null,
+      "completed_date": "2025-12-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": "2025-10-08",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-18",
+      "goal_date": null,
+      "completed_date": "2025-11-03",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-18",
+      "goal_date": null,
+      "completed_date": "2025-12-18",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-10-09",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-09",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-08",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-08",
+      "staff_contact": "Mortensen,Steven Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-11-08",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-11-08",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Police Bureau - LU",
+      "activity_type": "Police Bureau",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-10-08",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-08",
+      "staff_contact": "Miller,Jonathan   971-277-0678"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-27",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-27",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-24",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-24",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-24",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-24",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-24",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-24",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-28",
+      "goal_date": "2025-10-29",
+      "completed_date": "2025-10-28",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    }
+  ]
+}

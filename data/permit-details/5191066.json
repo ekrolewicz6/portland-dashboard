@@ -1,0 +1,36 @@
+{
+  "detail_id": 5191066,
+  "metadata": {
+    "ivr_number": "5191066",
+    "permit_type": "Public RegistryTier 2Bank Letter",
+    "work_description": "Zoning confirmation request - bank letter",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-10-17",
+      "goal_date": "2025-10-09",
+      "completed_date": "2025-10-17",
+      "staff_contact": "Green,Brando   503-823-6539"
+    }
+  ]
+}

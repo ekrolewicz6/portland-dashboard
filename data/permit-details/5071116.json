@@ -1,0 +1,66 @@
+{
+  "detail_id": 5071116,
+  "metadata": {
+    "ivr_number": "5071116",
+    "permit_type": "Sanitation InspectionsHolding TankAnnual Inspection",
+    "work_description": "2024 Annual HT Inspection",
+    "address": null,
+    "setup_date": "2024-08-07",
+    "under_review_date": "2024-08-07",
+    "issue_date": "2024-12-12",
+    "final_date": null,
+    "status": "Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - SI",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-12",
+      "goal_date": null,
+      "completed_date": "2024-12-12",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Contact Applicant for Inspection",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-06",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-16",
+      "goal_date": null,
+      "completed_date": "2025-01-16",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "852 Holding Tank",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-12",
+      "goal_date": null,
+      "completed_date": "2024-12-12",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Send Renewal Notice & Bill",
+      "activity_type": "Renewal",
+      "must_check": "Y",
+      "activity_status": "Received",
+      "last_activity_date": "2024-12-12",
+      "goal_date": null,
+      "completed_date": "2024-12-12",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    }
+  ]
+}

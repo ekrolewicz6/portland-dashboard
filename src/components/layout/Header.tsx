@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Download, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,45 +49,43 @@ export default function Header() {
 
           {/* Nav */}
           <nav className="hidden md:flex items-center gap-0.5">
-            <a
-              href="#dashboard"
-              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+            <Link
+              href="/dashboard"
+              className="px-3 py-1.5 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
             >
               Dashboard
-            </a>
+            </Link>
+            <Link
+              href="/directory"
+              className="px-3 py-1.5 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+            >
+              Directory
+            </Link>
             <Link
               href="/spaces"
-              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+              className="px-3 py-1.5 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
             >
               Spaces
             </Link>
-            <a
-              href="#methodology"
-              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+            <Link
+              href="/concierge"
+              className="px-3 py-1.5 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
             >
-              Methodology
-            </a>
+              Concierge
+            </Link>
             <Link
               href="/progress-report"
-              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+              className="px-3 py-1.5 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
             >
-              Progress Report
+              Reports
             </Link>
-            <a
-              href="#export"
-              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
-            >
-              <Download className="w-3.5 h-3.5 inline mr-1 -mt-[1px]" />
-              Export
-            </a>
             <div className="w-px h-5 bg-white/15 mx-2" />
-            <a
-              href="#pulse"
-              className="px-3.5 py-1.5 text-[13px] font-medium text-[var(--color-canopy)] bg-[var(--color-ember)] hover:bg-[var(--color-ember-bright)] rounded transition-all duration-200"
+            <Link
+              href="/apply"
+              className="px-3.5 py-1.5 text-[14px] font-medium text-[var(--color-canopy)] bg-[var(--color-ember)] hover:bg-[var(--color-ember-bright)] rounded transition-all duration-200"
             >
-              <Mail className="w-3.5 h-3.5 inline mr-1 -mt-[1px]" />
-              Portland Pulse
-            </a>
+              Apply for PCB
+            </Link>
           </nav>
 
           {/* Mobile menu */}
@@ -106,43 +104,31 @@ export default function Header() {
 
       {menuOpen && (
         <div className="md:hidden border-t border-white/10 bg-[var(--color-canopy-mid)] px-5 py-4 space-y-1 animate-slide-down">
-          <a
-            href="#dashboard"
-            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
-          >
+          <Link href="/dashboard" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
             Dashboard
-          </a>
-          <Link
-            href="/spaces"
-            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
-          >
+          </Link>
+          <Link href="/directory" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
+            Directory
+          </Link>
+          <Link href="/spaces" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
             Spaces
           </Link>
-          <a
-            href="#methodology"
-            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
-          >
-            Methodology
-          </a>
-          <Link
-            href="/progress-report"
-            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
-          >
-            Progress Report
+          <Link href="/concierge" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
+            Concierge
           </Link>
-          <a
-            href="#export"
-            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
-          >
-            Export Data
-          </a>
+          <Link href="/progress-report" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
+            Reports
+          </Link>
+          <Link href="/calculator" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
+            Benefits Calculator
+          </Link>
           <div className="pt-2">
-            <a
-              href="#pulse"
-              className="block px-3 py-2.5 text-[13px] font-medium text-center text-[var(--color-canopy)] bg-[var(--color-ember)] rounded"
+            <Link
+              href="/apply"
+              className="block px-3 py-2.5 text-[14px] font-medium text-center text-[var(--color-canopy)] bg-[var(--color-ember)] rounded"
             >
-              Subscribe to Portland Pulse
-            </a>
+              Apply for PCB Certification
+            </Link>
           </div>
         </div>
       )}

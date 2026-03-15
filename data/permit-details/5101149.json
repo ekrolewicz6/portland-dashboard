@@ -1,0 +1,226 @@
+{
+  "detail_id": 5101149,
+  "metadata": {
+    "ivr_number": "5101149",
+    "permit_type": "Land Use ReviewELD - Expedited Land DivisionMLDP - Middle Housing Partition",
+    "work_description": "Approval of a Preliminary Plan for a Middle Housing Land Division to divide a site with an approved cottage cluster development into 3 parcels, as illustrated with Exhibits C.1 and C.2, subject to the following conditions: A.As-built survey. An as-built survey shall be submitted with the final plat survey for Land Use Services and Water for review and approval. That plan must show that structures and underground services are constructed in conformance with the preliminary land division plan and meet requirements in relation to property lines and any easements or tracts. B.The final plat must show the following: 1.The final plat survey shall include a note with the following statement: ¿This plat was approved as a Middle Housing Land Division under ORS 92.031.¿ 2.One or more private access, emergency access, common area, services and utility easements, providing pedestrian access, emergency access and egress, use of the common outdoor area, sanitary sewer service, stormwater service, and water service, for the benefit of Parcels 1-3 shall be shown and labeled over the relevant portions of Parcels 1-3. 3.The easements noted above may be modified from what is shown on the preliminary plan by more than the allowances in 33.663.200.A, provided the change is approved by City review groups and all access and service requirements continue to be met. 4.A recording block for each of the legal documents, required by Condition C.1 and C.2 below. The recording block(s) shall, at a minimum, include language substantially similar to the following example: ¿A [Name of Document] has been recorded as document no. ___________, Multnomah County Deed Records.¿ C.The following must occur prior to final plat approval: 1.Prior to final plat approval, the applicant must modify the stormwater disposal system serving the existing structure on Parcel 1 according to BES and SWMM requirements and obtain finalized permits as necessary prior to final plat approval. 2.A Mai",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": "2025-01-28",
+    "final_date": null,
+    "status": "Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": "2024-12-02",
+      "staff_contact": "Dawkins,Leah   503-865-6734"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": "2024-11-08",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-28",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-04",
+      "goal_date": null,
+      "completed_date": "2024-12-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Tentative Decision",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": "2025-01-29",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": "2025-04-16",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-14",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-19",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-19",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Site Dev Review - RFC",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-11-22",
+      "goal_date": "2024-11-27",
+      "completed_date": "2024-11-22",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-19",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-19",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Life Safety Review - RFC",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-11-26",
+      "goal_date": "2024-11-27",
+      "completed_date": "2024-11-26",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-12",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-12",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-19",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-19",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-27",
+      "goal_date": "2024-11-27",
+      "completed_date": "2024-11-27",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-16",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-16",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-26",
+      "goal_date": "2024-11-27",
+      "completed_date": "2024-11-26",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-12",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-12",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Water Review - RFC",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-19",
+      "goal_date": "2024-11-27",
+      "completed_date": "2024-11-19",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - RFC",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-25",
+      "goal_date": "2024-11-27",
+      "completed_date": "2024-11-25",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-16",
+      "goal_date": "2024-12-19",
+      "completed_date": "2024-12-16",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Folder Status Change",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-07",
+      "goal_date": "2025-12-24",
+      "completed_date": null,
+      "staff_contact": "LAND USE REVIEW"
+    }
+  ]
+}

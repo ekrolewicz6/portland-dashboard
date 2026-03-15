@@ -1,0 +1,66 @@
+{
+  "detail_id": 5191189,
+  "metadata": {
+    "ivr_number": "5191189",
+    "permit_type": "Minor Improvement PermitSidewalk Posting",
+    "work_description": "Mandated Sidewalk Repair Permit",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2025-09-17",
+    "final_date": null,
+    "status": "Issued-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}
