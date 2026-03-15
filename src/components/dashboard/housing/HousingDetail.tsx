@@ -265,7 +265,7 @@ export default function HousingDetail() {
               data={neighborhoodBarData}
               layout="vertical"
               color="#3d7a5a"
-              height={400}
+              height={480}
             />
           </div>
         </section>

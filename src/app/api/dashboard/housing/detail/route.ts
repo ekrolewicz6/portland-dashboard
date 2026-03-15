@@ -100,10 +100,18 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       LIMIT 10
     `;
 
-    const permitsByNeighborhood = neighborhoodRows.map((r) => ({
-      name: (r.name as string).replace(/\b\w/g, (c) => c.toUpperCase()).replace(/\b(Of|The|And)\b/g, (c) => c.toLowerCase()),
-      value: Number(r.cnt),
-    }));
+    const permitsByNeighborhood = neighborhoodRows.map((r) => {
+      // Title-case neighborhood names (come in ALL CAPS from DB)
+      const raw = r.name as string;
+      const titleCased = raw
+        .toLowerCase()
+        .replace(/\b\w/g, (c) => c.toUpperCase())
+        .replace(/\b(Of|The|And|In)\b/g, (c) => c.toLowerCase());
+      return {
+        name: titleCased,
+        value: Number(r.cnt),
+      };
+    });
 
     // 3. Pipeline trend — building permits only, by month
     const pipelineRows = await sql`

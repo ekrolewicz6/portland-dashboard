@@ -38,7 +38,7 @@ export default function BarChart({
           layout={isVertical ? "vertical" : "horizontal"}
           margin={
             isVertical
-              ? { top: 4, right: 24, left: 8, bottom: 4 }
+              ? { top: 4, right: 32, left: 0, bottom: 4 }
               : { top: 8, right: 8, left: -8, bottom: 0 }
           }
         >
@@ -67,9 +67,9 @@ export default function BarChart({
               <YAxis
                 type="category"
                 dataKey="name"
-                width={120}
+                width={180}
                 tick={{
-                  fontSize: 11,
+                  fontSize: 12,
                   fill: "#44403c",
                   fontFamily: "var(--font-body)",
                 }}
