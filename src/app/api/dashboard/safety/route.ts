@@ -13,51 +13,15 @@ export async function GET(): Promise<NextResponse<SafetyData & { dataStatus: str
     const cached = await getCachedData<SafetyData & { dataStatus: string }>(CACHE_KEY);
     if (cached) return NextResponse.json(cached);
 
-    // Query crime categories from real data (current snapshot from ArcGIS Crime MapServer)
-    const categoryRows = await sql`
-      SELECT category, SUM(count) as count
-      FROM safety.crime_monthly
-      ORDER BY category
-    `;
-
-    if (!categoryRows || categoryRows.length === 0) {
-      // No real data available at all
-      return NextResponse.json({
-        headline: "Crime data temporarily unavailable",
-        headlineValue: 0,
-        dataStatus: "unavailable",
-        dataAvailable: false,
-        dataSources: [
-          { name: "Crime Grid Data", status: "offline", provider: "Portland Police Bureau via ArcGIS" },
-          { name: "911 Response Times", status: "needs_prr", provider: "BOEC" },
-        ],
-        trend: { direction: "flat" as const, percentage: 0, label: "no data" },
-        chartData: [],
-        crimeByCategory: [],
-        responseTime: null,
-        source: "Portland Police Bureau / BOEC 911",
-        lastUpdated: new Date().toISOString().slice(0, 10),
-        insights: ["Crime grid data is not currently available from the database."],
-      } as unknown as SafetyData & { dataStatus: string });
-    }
-
-    const crimeByCategory = categoryRows.map((row) => ({
-      category: row.category as string,
-      count: Number(row.count),
-      change: 0, // No prior-year comparison data yet
-    }));
-
-    const totalCrimes = crimeByCategory.reduce((s, c) => s + c.count, 0);
-    const ratePer1000 = parseFloat(
-      ((totalCrimes / PORTLAND_POPULATION) * 1000).toFixed(1),
-    );
-
-    // Build chart data from crime_monthly (limited — only current snapshot)
+    // Monthly totals from real PPB offenses (613K records)
     const monthlyRows = await sql`
-      SELECT TO_CHAR(month, 'YYYY-MM') as date, SUM(count) as value
-      FROM safety.crime_monthly
-      GROUP BY month
-      ORDER BY month
+      SELECT
+        TO_CHAR(date_trunc('month', occur_date), 'YYYY-MM') AS date,
+        count(*)::int AS value
+      FROM safety.ppb_offenses
+      WHERE occur_date >= '2016-01-01' AND occur_date < '2026-02-01'
+      GROUP BY 1
+      ORDER BY 1
     `;
 
     const chartData = monthlyRows.map((row) => ({
@@ -65,30 +29,86 @@ export async function GET(): Promise<NextResponse<SafetyData & { dataStatus: str
       value: Number(row.value),
     }));
 
-    // Query graffiti count
-    const graffitiRows = await sql`
-      SELECT count FROM safety.graffiti_monthly ORDER BY month DESC LIMIT 1
+    // Crime by category totals (last 12 months)
+    const categoryRows = await sql`
+      SELECT
+        crime_against AS category,
+        count(*)::int AS count
+      FROM safety.ppb_offenses
+      WHERE occur_date >= CURRENT_DATE - interval '12 months'
+      GROUP BY 1
+      ORDER BY count DESC
     `;
-    const graffitiCount = graffitiRows.length > 0 ? Number(graffitiRows[0].count) : null;
+
+    const crimeByCategory = categoryRows.map((row) => ({
+      category: row.category as string,
+      count: Number(row.count),
+      change: 0,
+    }));
+
+    // Latest complete month total
+    const latestMonth = chartData.length > 0 ? chartData[chartData.length - 1] : null;
+    const latestMonthTotal = latestMonth ? latestMonth.value : 0;
+
+    // Year-over-year: compare last complete year to year before
+    const yoyRows = await sql`
+      WITH current_yr AS (
+        SELECT count(*)::int AS cnt
+        FROM safety.ppb_offenses
+        WHERE occur_date >= date_trunc('year', CURRENT_DATE) - interval '1 year'
+          AND occur_date < date_trunc('year', CURRENT_DATE)
+      ),
+      prior_yr AS (
+        SELECT count(*)::int AS cnt
+        FROM safety.ppb_offenses
+        WHERE occur_date >= date_trunc('year', CURRENT_DATE) - interval '2 years'
+          AND occur_date < date_trunc('year', CURRENT_DATE) - interval '1 year'
+      )
+      SELECT current_yr.cnt AS current_count, prior_yr.cnt AS prior_count
+      FROM current_yr, prior_yr
+    `;
+
+    let yoyChange = 0;
+    let yoyLabel = "year-over-year";
+    if (yoyRows.length > 0) {
+      const cur = Number(yoyRows[0].current_count);
+      const prior = Number(yoyRows[0].prior_count);
+      if (prior > 0) {
+        yoyChange = Number((((cur - prior) / prior) * 100).toFixed(1));
+        yoyLabel = `${yoyChange > 0 ? "+" : ""}${yoyChange}% year-over-year`;
+      }
+    }
+
+    const annualized = latestMonthTotal * 12;
+    const ratePer1000 = parseFloat(
+      ((annualized / PORTLAND_POPULATION) * 1000).toFixed(1),
+    );
+
+    const trendDirection: "up" | "down" | "flat" =
+      yoyChange > 1 ? "up" : yoyChange < -1 ? "down" : "flat";
+
+    const headline = `${latestMonthTotal.toLocaleString()} crimes reported (${latestMonth?.date ?? "latest month"}) — ${ratePer1000} per 1K residents`;
 
     const result: SafetyData & { dataStatus: string } = {
-      headline: `${totalCrimes.toLocaleString()} total reported crimes — ${ratePer1000} per 1,000 residents (current snapshot)`,
-      headlineValue: totalCrimes,
-      dataStatus: "partial",
-      trend: { direction: "flat" as const, percentage: 0, label: "no historical comparison available" },
+      headline,
+      headlineValue: latestMonthTotal,
+      dataStatus: "live",
+      trend: {
+        direction: trendDirection,
+        percentage: Math.abs(yoyChange),
+        label: yoyLabel,
+      },
       chartData,
       crimeByCategory,
-      responseTime: [], // No BOEC data — needs public records request
-      source: "Portland Police Bureau ArcGIS Crime MapServer (real) / BOEC 911 (unavailable)",
+      responseTime: [],
+      source: "Portland Police Bureau — 613,003 offense records (2016-2026)",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
+        `${latestMonthTotal.toLocaleString()} reported crimes in ${latestMonth?.date ?? "latest month"} (${ratePer1000} per 1,000 annualized).`,
         ...crimeByCategory
           .slice(0, 3)
-          .map((c) => `${c.category}: ${c.count.toLocaleString()} incidents (current snapshot from ArcGIS grid).`),
-        ...(graffitiCount ? [`${graffitiCount.toLocaleString()} graffiti reports from Portland BPS.`] : []),
-        "FBI UCR Oregon statewide crime estimates available (2016-2022) — see detail view for trends.",
-        "Historical monthly crime trends unavailable — need PPB CSV downloads from portland.gov/police/open-data.",
-        "911 response times unavailable — requires public records request to BOEC.",
+          .map((c) => `${c.category}: ${c.count.toLocaleString()} offenses (last 12 months).`),
+        `Year-over-year trend: ${yoyLabel}.`,
       ],
     };
 

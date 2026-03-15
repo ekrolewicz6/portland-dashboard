@@ -813,7 +813,7 @@ export default function HousingDetail() {
         const tempEntry = hm.marketHealth.find((m) => m.metric === "market_temp");
         const temp = tempEntry?.value ?? 0;
         const tempLabel = temp < 40 ? "cold" : temp < 60 ? "cool" : temp < 80 ? "neutral" : "hot";
-        const tempColor = temp < 40 ? "#4a7f9e" : temp < 60 ? "#3d7a5a" : temp < 80 ? "#c8956c" : "#b85c3a";
+        const tempColor: string = temp < 40 ? "#4a7f9e" : temp < 60 ? "#3d7a5a" : temp < 80 ? "#c8956c" : "#b85c3a";
 
         // Helper for metric labels
         const bedroomLabel = (metric: string) => {
