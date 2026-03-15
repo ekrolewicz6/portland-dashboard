@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp, TrendingDown, Minus, ExternalLink } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, ArrowRight } from "lucide-react";
 import Sparkline from "@/components/charts/Sparkline";
 
 export interface HeadlineCardProps {
@@ -33,10 +33,17 @@ export default function HeadlineCard({
   color,
   onClick,
 }: HeadlineCardProps) {
-  const trendColor = trend.isPositive ? "#16a34a" : "#dc2626";
-  const trendBg = trend.isPositive
-    ? "bg-green-50 text-green-700"
-    : "bg-red-50 text-red-700";
+  const trendClass = trend.isPositive
+    ? "trend-pill trend-positive"
+    : trend.direction === "flat"
+      ? "trend-pill trend-neutral"
+      : "trend-pill trend-negative";
+
+  const signalColor = trend.isPositive
+    ? "#059669"
+    : trend.direction === "flat"
+      ? "#78716c"
+      : "#dc2626";
 
   const TrendIcon =
     trend.direction === "up"
@@ -48,55 +55,64 @@ export default function HeadlineCard({
   return (
     <button
       onClick={onClick}
-      className="headline-card text-left w-full group"
+      className="metric-card text-left w-full group"
+      style={{ "--accent-color": color } as React.CSSProperties}
     >
-      <div className="flex items-start justify-between mb-3">
-        <h2 className="text-sm font-semibold text-[var(--color-forest)] uppercase tracking-wide leading-tight pr-4">
+      {/* Question header */}
+      <div className="flex items-start justify-between mb-4">
+        <h2 className="font-editorial text-[17px] text-[var(--color-ink)] leading-snug pr-6">
           {question}
         </h2>
-        <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-[var(--color-forest)] transition-colors flex-shrink-0 mt-0.5" />
+        <ArrowRight className="w-4 h-4 text-[var(--color-ink-muted)]/30 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
       </div>
 
-      <div className="flex items-end justify-between mb-1">
+      {/* Headline metric + trend */}
+      <div className="flex items-end justify-between mb-1.5">
         <div>
-          <p className="text-3xl font-extrabold text-[var(--color-slate-warm)] tracking-tight">
+          <p className="text-[32px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
             {headline.value}
           </p>
-          <p className="text-sm text-gray-500 mt-0.5">{headline.label}</p>
+          <p className="text-[13px] text-[var(--color-ink-muted)] mt-1.5">
+            {headline.label}
+          </p>
         </div>
-        <div className="flex flex-col items-end">
-          <span
-            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold ${trendBg}`}
-          >
+        <div className="flex flex-col items-end gap-2">
+          <span className={trendClass}>
             <TrendIcon className="w-3 h-3" />
             {trend.value}
           </span>
           <span
-            className="w-2.5 h-2.5 rounded-full mt-2"
-            style={{
-              backgroundColor: trendColor,
-              boxShadow: `0 0 6px ${trendColor}40`,
-            }}
+            className="signal-dot"
+            style={{ backgroundColor: signalColor, color: signalColor }}
           />
         </div>
       </div>
 
+      {/* Sub-metric */}
       {headline.subValue && (
-        <p className="text-lg font-semibold text-gray-600 mt-1">
-          {headline.subValue}{" "}
-          <span className="text-sm font-normal text-gray-400">
+        <div className="flex items-baseline gap-1.5 mt-2 mb-1">
+          <span className="text-[20px] font-semibold text-[var(--color-ink-light)]">
+            {headline.subValue}
+          </span>
+          <span className="text-[12px] text-[var(--color-ink-muted)]">
             {headline.subLabel}
           </span>
-        </p>
+        </div>
       )}
 
-      <div className="mt-3 mb-3">
+      {/* Sparkline */}
+      <div className="mt-4 mb-4">
         <Sparkline data={sparklineData} color={color} />
       </div>
 
-      <div className="flex items-center justify-between text-xs text-gray-400 pt-2 border-t border-gray-100">
-        <span>Source: {source}</span>
-        <span>Updated {lastUpdated}</span>
+      {/* Footer */}
+      <div className="flex items-center justify-between pt-3 border-t border-[var(--color-parchment)]">
+        <span className="text-[11px] text-[var(--color-ink-muted)] font-medium tracking-wide uppercase">
+          {source}
+        </span>
+        <span className="text-[11px] text-[var(--color-ink-muted)]/60 font-mono">
+          {lastUpdated}
+        </span>
       </div>
     </button>
   );

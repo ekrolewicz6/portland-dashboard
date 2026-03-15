@@ -7,11 +7,11 @@ Tier: A (Fully Automated)
 Schedule: Weekly
 
 Pulls rolling 12 months of new business license data. No authentication
-required. Paginated via `page` parameter.
+required. Paginated via `page` parameter (100 results per page).
 
 Limitation: This API provides new registrations only, not closures.
-For net business formation, BLT registration data (Source 8, via public
-records request) is also needed.
+For net business formation, BLT registration data (via public records
+request) is also needed.
 """
 
 from __future__ import annotations
@@ -20,21 +20,22 @@ from typing import Any
 
 import pandas as pd
 import requests
+import structlog
 
 from base_worker import BaseWorker, EtlError
 
-# TODO: Verify this base URL is still active. CivicApps is a community
-# project and endpoints may change.
-_API_BASE = "http://api.civicapps.org/business-licenses/"
+logger = structlog.get_logger()
 
+_API_BASE = "http://api.civicapps.org/business-licenses/"
 _TIMEOUT = 30
-_MAX_PAGES = 100  # Safety limit
+_MAX_PAGES = 500  # Safety limit
+_PAGE_SIZE = 100  # Expected results per page
 
 
 class BusinessLicenseWorker(BaseWorker):
     name = "business_licenses"
-    staging_table = "staging.business_licenses"
-    production_table = "public.business_licenses"
+    staging_table = "business.civicapps_licenses_staging"
+    production_table = "business.civicapps_licenses"
     schedule = "weekly"
 
     def fetch(self) -> list[dict[str, Any]]:
@@ -43,6 +44,7 @@ class BusinessLicenseWorker(BaseWorker):
         page = 1
 
         while page <= _MAX_PAGES:
+            logger.debug("business_licenses.fetch_page", page=page)
             resp = requests.get(
                 _API_BASE,
                 params={"page": page},
@@ -64,9 +66,16 @@ class BusinessLicenseWorker(BaseWorker):
             if total is not None and len(all_records) >= total:
                 break
 
+            logger.info(
+                "business_licenses.progress",
+                fetched=len(all_records),
+                total=total,
+            )
+
         if not all_records:
             raise EtlError("CivicApps returned zero business license records")
 
+        logger.info("business_licenses.fetched", count=len(all_records))
         return all_records
 
     def validate(self, raw: list[dict[str, Any]]) -> None:
@@ -74,7 +83,6 @@ class BusinessLicenseWorker(BaseWorker):
             raise EtlError("Empty business license result set")
 
         sample = raw[0]
-        # TODO: Confirm exact field names from the live API response
         expected = {"business_name", "address"}
         actual = set(sample.keys())
         missing = expected - actual
@@ -112,5 +120,11 @@ class BusinessLicenseWorker(BaseWorker):
                 .astype(str)
                 .str.extract(r"(\d{5})(?:-\d{4})?$", expand=False)
             )
+
+        # Ensure key output columns exist (fill with None if API doesn't provide)
+        for col in ("business_name", "address", "naics_code", "date_added",
+                     "lat", "lon", "zip_code"):
+            if col not in df.columns:
+                df[col] = None
 
         return df

@@ -1,93 +1,243 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #2d5016;
-  --color-forest-light: #3a6b1e;
-  --color-forest-dark: #1e3a0e;
-  --color-moss: #4a7c2e;
-  --color-sage: #87a96b;
-  --color-cream: #faf8f5;
-  --color-warm-white: #fefdfb;
-  --color-slate-warm: #3d3d3d;
-  --color-rose-accent: #c44536;
-  --color-gold-accent: #d4a843;
-  --color-sky-accent: #4a90d9;
-  --color-teal-accent: #2d8a7e;
+  --color-canopy: #0f2419;
+  --color-canopy-mid: #1a3a2a;
+  --color-canopy-light: #24503a;
+  --color-fern: #3d7a5a;
+  --color-sage: #7fa88e;
+  --color-lichen: #a8c5b2;
+  --color-paper: #f7f3ed;
+  --color-paper-warm: #faf6f0;
+  --color-parchment: #ebe5da;
+  --color-ink: #1c1917;
+  --color-ink-light: #44403c;
+  --color-ink-muted: #78716c;
+  --color-ember: #c8956c;
+  --color-ember-bright: #e0a870;
+  --color-clay: #b85c3a;
+  --color-river: #4a7f9e;
+  --color-river-deep: #2d5f7e;
+  --color-storm: #64748b;
+  --color-violet-mist: #7c6f9e;
+  --color-rose-hip: #b85c6a;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", "Georgia", serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
   html {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-cream);
-    color: var(--color-slate-warm);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background-color: var(--color-canopy-light);
+    color: white;
   }
 }
 
+/* ── Keyframes (outside @layer — unaffected by cascade layers) ── */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Component classes (in @layer components for proper cascade) ── */
+
 @layer components {
-  .headline-card {
-    background: white;
-    border: 1px solid #e8e5e0;
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.2s ease;
+  /* Noise texture for atmospheric depth */
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  /* Card system */
+  .metric-card {
+    position: relative;
+    background: var(--color-paper-warm);
+    border: 1px solid var(--color-parchment);
+    border-radius: 2px;
+    padding: 1.75rem;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
+    overflow: hidden;
   }
 
-  .headline-card:hover {
+  .metric-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent-color, var(--color-canopy));
+    transition: width 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .metric-card:hover {
     border-color: var(--color-sage);
-    box-shadow: 0 4px 24px rgba(45, 80, 22, 0.08);
-    transform: translateY(-2px);
+    box-shadow:
+      0 1px 2px rgba(15, 36, 25, 0.04),
+      0 8px 32px rgba(15, 36, 25, 0.06);
+    transform: translateY(-3px);
   }
 
-  .trend-up {
-    color: #16a34a;
+  .metric-card:hover::before {
+    width: 6px;
   }
 
-  .trend-down-good {
-    color: #16a34a;
+  /* Animation utilities */
+  .animate-fade-up {
+    animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
   }
 
-  .trend-down-bad {
-    color: #dc2626;
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease both;
   }
 
-  .trend-flat {
-    color: #9ca3af;
+  .animate-slide-down {
+    animation: slideDown 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
   }
 
-  .sparkline-container {
-    height: 48px;
-    width: 100%;
+  /* Trend pill */
+  .trend-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
   }
 
-  .traffic-light {
-    width: 12px;
-    height: 12px;
+  .trend-positive {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+
+  .trend-negative {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  .trend-neutral {
+    background-color: #f5f5f4;
+    color: #57534e;
+    border: 1px solid #d6d3d1;
+  }
+
+  /* Signal dot (traffic light) */
+  .signal-dot {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     display: inline-block;
+    position: relative;
   }
 
-  .traffic-green {
-    background-color: #16a34a;
-    box-shadow: 0 0 6px rgba(22, 163, 74, 0.4);
+  .signal-dot::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    opacity: 0.2;
   }
 
-  .traffic-yellow {
-    background-color: #eab308;
-    box-shadow: 0 0 6px rgba(234, 179, 8, 0.4);
+  /* Detail panel */
+  .detail-panel {
+    background: var(--color-paper-warm);
+    border: 1px solid var(--color-parchment);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .traffic-red {
-    background-color: #dc2626;
-    box-shadow: 0 0 6px rgba(220, 38, 38, 0.4);
+  .detail-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color, var(--color-canopy));
   }
+
+  /* Typography overrides */
+  .font-editorial {
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .font-editorial-normal {
+    font-family: var(--font-display);
+    font-style: normal;
+  }
+}
+
+/* ── Scrollbar styling (outside layers — browser-specific) ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-parchment);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
 }

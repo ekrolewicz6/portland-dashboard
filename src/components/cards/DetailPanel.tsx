@@ -1,6 +1,6 @@
 "use client";
 
-import { X, Download, Code, CheckCircle2 } from "lucide-react";
+import { X, Download, Code2, CheckCircle2, BookOpen } from "lucide-react";
 import TrendChart from "@/components/charts/TrendChart";
 
 interface DetailPanelProps {
@@ -25,28 +25,38 @@ export default function DetailPanel({
   onClose,
 }: DetailPanelProps) {
   return (
-    <div className="bg-white border border-[#e8e5e0] rounded-xl p-6 mb-8 shadow-sm animate-in slide-in-from-top-2 duration-300">
-      <div className="flex items-start justify-between mb-6">
+    <div
+      className="detail-panel p-6 sm:p-8 mb-8 animate-slide-down"
+      style={{ "--accent-color": color } as React.CSSProperties}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between mb-8">
         <div>
-          <h2 className="text-xl font-bold text-[var(--color-forest-dark)]">
+          <h2 className="font-editorial-normal text-2xl sm:text-3xl text-[var(--color-ink)]">
             {question}
           </h2>
-          <p className="text-sm text-gray-400 mt-1">
-            Source: {source} &middot; Updated {lastUpdated}
-          </p>
+          <div className="flex items-center gap-3 mt-2">
+            <span className="text-[12px] text-[var(--color-ink-muted)] font-medium uppercase tracking-wide">
+              {source}
+            </span>
+            <span className="w-1 h-1 rounded-full bg-[var(--color-parchment)]" />
+            <span className="text-[12px] text-[var(--color-ink-muted)]/60 font-mono">
+              Updated {lastUpdated}
+            </span>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <button className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+        <div className="flex items-center gap-1.5">
+          <button className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-wide text-[var(--color-ink-muted)] bg-[var(--color-parchment)]/50 hover:bg-[var(--color-parchment)] rounded-sm transition-colors">
             <Download className="w-3.5 h-3.5" />
             CSV
           </button>
-          <button className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-            <Code className="w-3.5 h-3.5" />
+          <button className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-wide text-[var(--color-ink-muted)] bg-[var(--color-parchment)]/50 hover:bg-[var(--color-parchment)] rounded-sm transition-colors">
+            <Code2 className="w-3.5 h-3.5" />
             Embed
           </button>
           <button
             onClick={onClose}
-            className="p-1.5 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
+            className="p-1.5 text-[var(--color-ink-muted)]/50 hover:text-[var(--color-ink)] rounded-sm hover:bg-[var(--color-parchment)]/50 transition-colors ml-1"
           >
             <X className="w-5 h-5" />
           </button>
@@ -54,37 +64,58 @@ export default function DetailPanel({
       </div>
 
       {/* Chart */}
-      <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-          12-Month Trend
-        </h3>
-        <TrendChart data={chartData} color={color} />
+      <div className="mb-8">
+        <div className="flex items-center gap-2.5 mb-4">
+          <h3 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+            12-Month Trend
+          </h3>
+          <div className="flex-1 h-px bg-[var(--color-parchment)]" />
+        </div>
+        <div className="bg-white/60 rounded-sm p-4 border border-[var(--color-parchment)]/60">
+          <TrendChart data={chartData} color={color} />
+        </div>
       </div>
 
-      {/* Key Facts */}
-      <div className="mb-6">
-        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-          Key Findings
-        </h3>
-        <ul className="space-y-2">
-          {keyFacts.map((fact, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700">
-              <CheckCircle2
-                className="w-4 h-4 mt-0.5 flex-shrink-0"
-                style={{ color }}
-              />
-              {fact}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Two-column: Key Facts + Methodology */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Key Facts */}
+        <div>
+          <div className="flex items-center gap-2.5 mb-4">
+            <CheckCircle2 className="w-4 h-4" style={{ color }} />
+            <h3 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+              Key Findings
+            </h3>
+          </div>
+          <ul className="space-y-3">
+            {keyFacts.map((fact, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
+              >
+                <span
+                  className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: color }}
+                />
+                {fact}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      {/* Methodology */}
-      <div className="bg-gray-50 rounded-lg p-4">
-        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-          Methodology
-        </h3>
-        <p className="text-sm text-gray-600 leading-relaxed">{methodology}</p>
+        {/* Methodology */}
+        <div>
+          <div className="flex items-center gap-2.5 mb-4">
+            <BookOpen className="w-4 h-4 text-[var(--color-ink-muted)]" />
+            <h3 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+              Methodology
+            </h3>
+          </div>
+          <div className="bg-[var(--color-parchment)]/40 border border-[var(--color-parchment)]/60 rounded-sm p-4">
+            <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed">
+              {methodology}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

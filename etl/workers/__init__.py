@@ -3,8 +3,10 @@
 from workers.bls_employment import BlsEmploymentWorker
 from workers.business_licenses import BusinessLicenseWorker
 from workers.census import CensusWorker
+from workers.graffiti import GraffitiWorker
 from workers.hud_vacancy import HudVacancyWorker
 from workers.irs_migration import IrsMigrationWorker
+from workers.pbot_requests import PbotRequestsWorker
 from workers.permits import PermitsWorker
 from workers.placer_traffic import PlacerTrafficWorker
 from workers.ppb_crime import PpbCrimeWorker
@@ -15,6 +17,8 @@ ALL_WORKERS = [
     PpbCrimeWorker,
     PermitsWorker,
     BusinessLicenseWorker,
+    GraffitiWorker,
+    PbotRequestsWorker,
     HudVacancyWorker,
     ZillowRentsWorker,
     CensusWorker,
@@ -29,6 +33,8 @@ __all__ = [
     "PpbCrimeWorker",
     "PermitsWorker",
     "BusinessLicenseWorker",
+    "GraffitiWorker",
+    "PbotRequestsWorker",
     "HudVacancyWorker",
     "ZillowRentsWorker",
     "CensusWorker",

@@ -1,33 +1,48 @@
 """
 PPB Crime Data Worker
 
-Source: Portland Police Bureau open data — Tableau dashboard CSV exports.
-URL: https://www.portland.gov/police/open-data/reported-crime-data
-Tier: B (Semi-Automated)
-Schedule: Monthly (~30 days after month end)
+Sources:
+  1. Portland Maps ArcGIS REST API — Crime MapServer grid layers
+     URL: https://www.portlandmaps.com/arcgis/rest/services/Public/Crime/MapServer
+     Layers: 2 (Property), 41 (Person), 60 (Society)
+  2. PPB Open Data Portal — CSV download (fallback / historical backfill)
+     URL: https://www.portland.gov/police/open-data/reported-crime-data
 
-The PPB publishes yearly CSV files via Tableau Public. This worker downloads
-the current-year file, parses it, and loads offense-level records into the
-database. Historical years are backfilled on first run.
+Tier: B (Semi-Automated — ArcGIS grids are automated; CSV is manual fallback)
+Schedule: Monthly
+
+The ArcGIS Crime MapServer provides grid-aggregated crime data. The CSV
+from PPB's open data portal provides offense-level detail. This worker
+supports both sources.
 """
 
 from __future__ import annotations
 
 import io
 from datetime import datetime, timezone
+from typing import Any
 
 import pandas as pd
 import requests
+import structlog
 
 from base_worker import BaseWorker, EtlError
+from lib.arcgis_client import ArcGISClient
 
-# TODO: Verify these URLs against the current Tableau Public embed.
-# The download links change when PPB republishes; inspect the page's
-# network requests to find the latest CSV export URL.
-_BASE_URL = "https://www.portland.gov/police/open-data/reported-crime-data"
+logger = structlog.get_logger()
 
-# Known Tableau CSV export pattern (inspect page to confirm):
-# TODO: Replace with actual Tableau CSV download URL pattern
+# ArcGIS Crime MapServer
+_CRIME_MAPSERVER_URL = (
+    "https://www.portlandmaps.com/arcgis/rest/services/Public/Crime/MapServer"
+)
+
+# Crime grid layer IDs
+_PROPERTY_CRIME_LAYER = 2   # All Property Crimes Grid
+_PERSON_CRIME_LAYER = 41    # All Person Crimes Grid
+_SOCIETY_CRIME_LAYER = 60   # All Society Crime Grids
+
+# PPB open data CSV fallback
+_PPB_CSV_PAGE = "https://www.portland.gov/police/open-data/reported-crime-data"
 _CSV_URL_TEMPLATE = (
     "https://public.tableau.com/views/PPBOpenDataCrimeStatistics/"
     "CrimeData.csv?:showVizHome=no"
@@ -36,24 +51,63 @@ _CSV_URL_TEMPLATE = (
 
 class PpbCrimeWorker(BaseWorker):
     name = "ppb_crime"
-    staging_table = "staging.ppb_crime"
-    production_table = "public.ppb_crime"
+    staging_table = "safety.ppb_offenses_staging"
+    production_table = "safety.ppb_offenses"
     schedule = "monthly"
 
-    def fetch(self) -> str:
-        """Download the current-year crime CSV from Tableau Public."""
-        # TODO: The actual download mechanism may require:
-        # 1. Hitting the portland.gov page to find the embedded Tableau viz URL
-        # 2. Constructing the CSV download URL from the viz path
-        # 3. Handling any anti-bot measures (User-Agent, cookies)
+    def __init__(self, source: str = "arcgis") -> None:
+        """Initialize with source preference.
 
-        current_year = datetime.now(timezone.utc).year
-        url = _CSV_URL_TEMPLATE
+        Args:
+            source: "arcgis" to query Crime MapServer grid layers,
+                    "csv" to download from PPB open data portal.
+        """
+        self.source = source
+        self._client = ArcGISClient()
+
+    def fetch(self) -> Any:
+        """Fetch crime data from the configured source."""
+        if self.source == "arcgis":
+            return self._fetch_arcgis()
+        return self._fetch_csv()
+
+    def _fetch_arcgis(self) -> dict[str, list[dict[str, Any]]]:
+        """Query all three Crime MapServer grid layers."""
+        results: dict[str, list[dict[str, Any]]] = {}
+
+        layers = {
+            "property": _PROPERTY_CRIME_LAYER,
+            "person": _PERSON_CRIME_LAYER,
+            "society": _SOCIETY_CRIME_LAYER,
+        }
+
+        for crime_type, layer_id in layers.items():
+            logger.info("ppb_crime.fetch_layer", layer=crime_type, layer_id=layer_id)
+            features = self._client.query_map_server(
+                url=_CRIME_MAPSERVER_URL,
+                layer_id=layer_id,
+                where="1=1",
+                out_fields="*",
+            )
+            results[crime_type] = features
+            logger.info(
+                "ppb_crime.layer_fetched",
+                layer=crime_type,
+                count=len(features),
+            )
+
+        total = sum(len(v) for v in results.values())
+        if total == 0:
+            raise EtlError("ArcGIS Crime MapServer returned zero features across all layers")
+
+        return results
+
+    def _fetch_csv(self) -> str:
+        """Download crime CSV from PPB open data portal."""
         headers = {
             "User-Agent": "PortlandCommonsDashboard/1.0 (civic data project)",
         }
-
-        response = requests.get(url, headers=headers, timeout=120)
+        response = requests.get(_CSV_URL_TEMPLATE, headers=headers, timeout=120)
         response.raise_for_status()
 
         if len(response.content) < 500:
@@ -64,11 +118,27 @@ class PpbCrimeWorker(BaseWorker):
 
         return response.text
 
-    def validate(self, raw: str) -> None:
+    def validate(self, raw: Any) -> None:
+        """Validate the fetched data based on source type."""
+        if self.source == "arcgis":
+            self._validate_arcgis(raw)
+        else:
+            self._validate_csv(raw)
+
+    def _validate_arcgis(self, raw: dict[str, list[dict[str, Any]]]) -> None:
+        """Check that at least one layer returned data."""
+        for crime_type, features in raw.items():
+            if features:
+                sample = features[0].get("attributes", {})
+                logger.info(
+                    "ppb_crime.validate_sample",
+                    layer=crime_type,
+                    fields=sorted(sample.keys())[:10],
+                )
+
+    def _validate_csv(self, raw: str) -> None:
         """Check that the CSV has expected columns."""
         df = pd.read_csv(io.StringIO(raw), nrows=5)
-
-        # TODO: Confirm exact column names from the actual CSV download
         expected_cols = {"Offense Type", "Neighborhood", "Report Date"}
         actual_cols = set(df.columns)
         missing = expected_cols - actual_cols
@@ -78,8 +148,45 @@ class PpbCrimeWorker(BaseWorker):
                 f"Found: {sorted(actual_cols)}"
             )
 
-    def transform(self, raw: str) -> pd.DataFrame:
-        """Parse CSV into cleaned DataFrame."""
+    def transform(self, raw: Any) -> pd.DataFrame:
+        """Transform data based on source type."""
+        if self.source == "arcgis":
+            return self._transform_arcgis(raw)
+        return self._transform_csv(raw)
+
+    def _transform_arcgis(self, raw: dict[str, list[dict[str, Any]]]) -> pd.DataFrame:
+        """Flatten ArcGIS grid features into a single DataFrame."""
+        frames = []
+        for crime_type, features in raw.items():
+            if not features:
+                continue
+            rows = ArcGISClient.extract_attributes(features)
+            df = pd.DataFrame(rows)
+            df["crime_category"] = crime_type
+            frames.append(df)
+
+        if not frames:
+            raise EtlError("No crime data to transform")
+
+        combined = pd.concat(frames, ignore_index=True)
+
+        # Normalize column names
+        combined.columns = [
+            c.strip().lower().replace(" ", "_")
+            for c in combined.columns
+        ]
+
+        # Parse ArcGIS epoch date columns
+        date_cols = [c for c in combined.columns if "date" in c or "time" in c]
+        for col in date_cols:
+            if combined[col].dtype in ("int64", "float64"):
+                combined[col] = combined[col].apply(ArcGISClient.parse_epoch_ms)
+                combined[col] = pd.to_datetime(combined[col], utc=True, errors="coerce")
+
+        return combined
+
+    def _transform_csv(self, raw: str) -> pd.DataFrame:
+        """Parse PPB CSV into cleaned DataFrame."""
         df = pd.read_csv(io.StringIO(raw))
 
         # Normalize column names to snake_case
@@ -88,7 +195,6 @@ class PpbCrimeWorker(BaseWorker):
             for c in df.columns
         ]
 
-        # TODO: Adjust column names once actual CSV structure is confirmed
         rename_map = {
             "report_date": "report_date",
             "offense_type": "offense_type",
@@ -97,19 +203,15 @@ class PpbCrimeWorker(BaseWorker):
             "case_number": "case_number",
             "address": "block_address",
         }
-        # Only rename columns that exist
         rename_map = {k: v for k, v in rename_map.items() if k in df.columns}
         df = df.rename(columns=rename_map)
 
-        # Parse dates
         if "report_date" in df.columns:
             df["report_date"] = pd.to_datetime(df["report_date"], errors="coerce")
 
-        # Derive month key for aggregation
         if "report_date" in df.columns:
             df["report_month"] = df["report_date"].dt.to_period("M").astype(str)
 
-        # Drop fully-null rows
         df = df.dropna(how="all")
 
         return df
@@ -118,10 +220,11 @@ class PpbCrimeWorker(BaseWorker):
         """PPB-specific quality assertions."""
         super().quality_check(df)
 
-        if "report_date" in df.columns:
-            null_dates = df["report_date"].isna().sum()
+        date_col = "report_date" if "report_date" in df.columns else None
+        if date_col:
+            null_dates = df[date_col].isna().sum()
             null_pct = null_dates / len(df)
             if null_pct > 0.05:
                 raise EtlError(
-                    f"PPB crime data has {null_pct:.0%} null report_dates"
+                    f"PPB crime data has {null_pct:.0%} null dates in '{date_col}'"
                 )

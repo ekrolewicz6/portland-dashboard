@@ -1,14 +1,13 @@
 """
-PP&D Permit Data Worker
+BDS Permit Data Worker
 
-Source: City of Portland GIS Open Data Portal — ArcGIS REST API
-URL: https://gis-pdx.opendata.arcgis.com/
+Source: Portland Maps ArcGIS REST API — BDS_Permit FeatureServer
+URL: https://www.portlandmaps.com/arcgis/rest/services/Public/BDS_Permit/FeatureServer/22
 Tier: A (Fully Automated)
 Schedule: Weekly
 
-Queries the ArcGIS Feature Service for building permits. Paginates through
-all records (API max ~2000 per request), computes processing-time metrics,
-and loads into the database.
+Queries the BDS All Permits layer (layer 22, max 4000 records/query),
+computes permit processing-time metrics, and loads into the database.
 """
 
 from __future__ import annotations
@@ -16,72 +15,56 @@ from __future__ import annotations
 from typing import Any
 
 import pandas as pd
-import requests
+import structlog
 
 from base_worker import BaseWorker, EtlError
+from lib.arcgis_client import ArcGISClient
 
-# TODO: Replace with the actual dataset feature service URL.
-# Find it by searching "permits" on https://gis-pdx.opendata.arcgis.com/
-# and clicking "API Explorer" on the dataset page.
-_FEATURE_SERVICE_URL = (
-    "https://gis-pdx.opendata.arcgis.com/datasets/"
-    "DATASET_ID_HERE/FeatureServer/0/query"
+logger = structlog.get_logger()
+
+_FEATURE_URL = (
+    "https://www.portlandmaps.com/arcgis/rest/services"
+    "/Public/BDS_Permit/FeatureServer/22/query"
 )
 
-_PAGE_SIZE = 2000  # ArcGIS max record count per request
+_OUT_FIELDS = (
+    "PermitNum,PermitType,PermitTypeMapped,ProjectAddress,"
+    "Valuation,ApplicationDate,IssuedDate,FinalDate,StatusCurrent"
+)
+
+_WHERE = "IssuedDate IS NOT NULL"
 
 
 class PermitsWorker(BaseWorker):
     name = "permits"
-    staging_table = "staging.permits"
-    production_table = "public.permits"
+    staging_table = "housing.permits_staging"
+    production_table = "housing.permits"
     schedule = "weekly"
 
+    def __init__(self) -> None:
+        self._client = ArcGISClient()
+
     def fetch(self) -> list[dict[str, Any]]:
-        """Paginate through the ArcGIS REST API and collect all records."""
-        all_features: list[dict[str, Any]] = []
-        offset = 0
+        """Paginate through BDS_Permit FeatureServer layer 22."""
+        features = self._client.query_all(
+            url=_FEATURE_URL,
+            where=_WHERE,
+            out_fields=_OUT_FIELDS,
+        )
 
-        while True:
-            params = {
-                "where": "1=1",
-                "outFields": "*",
-                "resultOffset": offset,
-                "resultRecordCount": _PAGE_SIZE,
-                "f": "json",
-                "orderByFields": "OBJECTID ASC",
-            }
-            resp = requests.get(_FEATURE_SERVICE_URL, params=params, timeout=60)
-            resp.raise_for_status()
-            data = resp.json()
-
-            if "error" in data:
-                raise EtlError(f"ArcGIS API error: {data['error']}")
-
-            features = data.get("features", [])
-            if not features:
-                break
-
-            all_features.extend(features)
-            offset += len(features)
-
-            # ArcGIS signals end-of-data when exceededTransferLimit is False
-            if not data.get("exceededTransferLimit", False):
-                break
-
-        if not all_features:
+        if not features:
             raise EtlError("ArcGIS returned zero permit features")
 
-        return all_features
+        logger.info("permits.fetched", count=len(features))
+        return features
 
     def validate(self, raw: list[dict[str, Any]]) -> None:
-        """Check for expected attribute fields."""
+        """Check that the response contains expected BDS attribute fields."""
         if not raw:
             raise EtlError("Empty feature list")
 
         sample_attrs = raw[0].get("attributes", {})
-        # TODO: Confirm exact field names from the live feature service
-        expected = {"PERMIT_NUM", "PERMIT_TYPE", "STATUS"}
+        expected = {"PermitNum", "PermitType", "StatusCurrent"}
         actual = set(sample_attrs.keys())
         missing = expected - actual
         if missing:
@@ -91,30 +74,44 @@ class PermitsWorker(BaseWorker):
             )
 
     def transform(self, raw: list[dict[str, Any]]) -> pd.DataFrame:
-        """Flatten ArcGIS features into a clean DataFrame."""
-        rows = [f["attributes"] for f in raw]
+        """Flatten ArcGIS features and compute processing metrics."""
+        rows = ArcGISClient.extract_attributes(raw)
         df = pd.DataFrame(rows)
 
-        # Normalize column names
+        # Normalize column names to snake_case
         df.columns = [c.strip().lower() for c in df.columns]
 
-        # TODO: Adjust column names to match actual feature service schema
-        date_cols = [c for c in df.columns if "date" in c]
+        # Parse ArcGIS epoch-ms date columns
+        date_cols = ["applicationdate", "issueddate", "finaldate"]
         for col in date_cols:
-            # ArcGIS returns dates as epoch milliseconds
-            df[col] = pd.to_datetime(df[col], unit="ms", errors="coerce")
+            if col in df.columns:
+                df[col] = df[col].apply(ArcGISClient.parse_epoch_ms)
+                df[col] = pd.to_datetime(df[col], utc=True, errors="coerce")
 
         # Compute permit processing time (calendar days)
-        if "issued_date" in df.columns and "application_date" in df.columns:
+        if "issueddate" in df.columns and "applicationdate" in df.columns:
             df["processing_days"] = (
-                df["issued_date"] - df["application_date"]
+                df["issueddate"] - df["applicationdate"]
             ).dt.days
 
-        # Derive month for aggregation
-        if "application_date" in df.columns:
+        # Derive month key for aggregation
+        if "applicationdate" in df.columns:
             df["application_month"] = (
-                df["application_date"].dt.to_period("M").astype(str)
+                df["applicationdate"].dt.to_period("M").astype(str)
             )
+
+        # Rename for clarity
+        rename_map = {
+            "permitnum": "permit_num",
+            "permittype": "permit_type",
+            "permittypemapped": "permit_type_mapped",
+            "projectaddress": "project_address",
+            "applicationdate": "application_date",
+            "issueddate": "issued_date",
+            "finaldate": "final_date",
+            "statuscurrent": "status_current",
+        }
+        df = df.rename(columns={k: v for k, v in rename_map.items() if k in df.columns})
 
         return df
 
@@ -122,8 +119,7 @@ class PermitsWorker(BaseWorker):
         super().quality_check(df)
 
         if "processing_days" in df.columns:
-            # Flag if >20% of issued permits have negative processing time
-            issued = df[df.get("processing_days", pd.Series()).notna()]
+            issued = df[df["processing_days"].notna()]
             if not issued.empty:
                 bad = (issued["processing_days"] < 0).sum()
                 if bad / len(issued) > 0.20:
