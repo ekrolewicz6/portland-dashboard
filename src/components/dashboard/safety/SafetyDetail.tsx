@@ -118,32 +118,27 @@ export default function SafetyDetail() {
         />
       </section>
 
-      {/* 3. Crime by Category Over Time — 10-YEAR MULTI-LINE CHART */}
-      {crimeByCategory && crimeByCategory.length > 0 && (
-        <section>
-          <SectionHeader icon={Shield} title="Crime by Category Over Time (10 Years)" color="#c8956c" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Monthly reported crimes by type: Property (theft, burglary, vandalism), Person (assault, robbery), and Society (drugs, weapons). Source: Portland ArcGIS Crime MapServer.
-            </p>
-            <MultiLineChart
-              data={crimeByCategory.map((r) => ({
-                month: r.month,
-                Property: r.property,
-                Person: r.person,
-                Society: r.society,
-              }))}
-              xKey="month"
-              height={400}
-              lines={[
-                { key: "Property", label: "Property Crime", color: "#c8956c" },
-                { key: "Person", label: "Person Crime", color: "#b85c3a" },
-                { key: "Society", label: "Society Crime", color: "#7c6f9e" },
-              ]}
-            />
-          </div>
-        </section>
-      )}
+      {/* 3. Historical Crime Trend — DATA NEEDED */}
+      <section>
+        <SectionHeader icon={AlertTriangle} title="Crime by Category Over Time" color="#c8956c" />
+        <DataNeeded
+          title="Historical Monthly Crime Trend Data Needed"
+          description="We have a current-month snapshot from the ArcGIS Crime MapServer (see breakdown below), but historical monthly trends require the PPB CSV downloads from Tableau Public. The data is available but locked behind a Tableau dashboard that requires manual download or a headless browser scraper."
+          color="#c8956c"
+          actions={[
+            {
+              label: "Download PPB crime CSVs from Tableau Public",
+              href: "https://public.tableau.com/app/profile/portlandpolicebureau/viz/MonthlyReportedCrimeStatistics/MonthlyStatistics",
+              type: "download",
+            },
+            {
+              label: "Contact PPB Open Data for bulk CSV access",
+              href: "mailto:ppbopendata@police.portlandoregon.gov",
+              type: "prr",
+            },
+          ]}
+        />
+      </section>
 
       {/* 4. Latest Month Breakdown — simple HTML bars */}
       {data.currentYearByCategory && data.currentYearByCategory.length > 0 && (
