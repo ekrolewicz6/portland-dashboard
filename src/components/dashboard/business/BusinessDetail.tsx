@@ -226,12 +226,12 @@ export default function BusinessDetail() {
         <section>
           <SectionHeader
             icon={TrendingUp}
-            title="Quarterly Registration Trend (2016-2026)"
+            title="Currently Active Businesses by Quarter Founded (2016-2026)"
             color="#1a3a2a"
           />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              New business registrations per quarter. The 2021 pandemic LLC boom
+              Businesses that are STILL ACTIVE today, grouped by the quarter they were founded. Older years show fewer businesses because many have since closed — this is survivorship bias, not a registration trend. The steep rise toward recent years reflects the fact that newer businesses haven&apos;t had time to close yet. The 2021 pandemic LLC boom
               and 2024-2025 acceleration are clearly visible. LLCs consistently
               dominate new filings.
             </p>
@@ -363,7 +363,7 @@ export default function BusinessDetail() {
         <section>
           <SectionHeader
             icon={BarChart3}
-            title="Annual Registrations (2016-2026)"
+            title="Still-Active Businesses by Founding Year (2016-2026)"
             color="#1a3a2a"
           />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">

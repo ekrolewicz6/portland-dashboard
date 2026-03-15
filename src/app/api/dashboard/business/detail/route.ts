@@ -68,6 +68,28 @@ export async function GET() {
         `,
       ]);
 
+    // Compute survival rate analysis
+    // Method: use the most recent full year (2025) as ~100% baseline
+    // Then calculate what fraction of each older year's businesses are still active
+    const survivalInsight = (() => {
+      const y2025 = yearlyRows.find(y => y.yr === 2025);
+      const y2020 = yearlyRows.find(y => y.yr === 2020);
+      const y2016 = yearlyRows.find(y => y.yr === 2016);
+      if (!y2025) return null;
+
+      // Estimated survival: if we assume each year had roughly similar registration volume
+      // to 2025, the ratio still_active/2025_active gives implied survival
+      // But this is misleading because registration volumes DID change
+
+      // Better: just state the facts
+      return {
+        note: "This dataset only contains CURRENTLY ACTIVE businesses. Businesses that were registered but have since dissolved, cancelled, or expired are NOT included. Older years appear to have fewer registrations because many businesses from those years have since closed.",
+        y2016_active: y2016?.cnt ?? 0,
+        y2020_active: y2020?.cnt ?? 0,
+        y2025_active: y2025?.cnt ?? 0,
+      };
+    })();
+
     const totalActive = totalRows[0]?.total ?? 0;
 
     // Current quarter registrations (Q1 2026 = Jan-Mar 2026)
@@ -153,6 +175,7 @@ export async function GET() {
       entityBreakdown,
       topZipCodes,
       yearlyTotals,
+      survivalInsight,
       heroStats: {
         totalActive,
         newThisQuarter,
