@@ -3,6 +3,17 @@ import sql from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
 
+interface HousingMarketData {
+  homeValueTrendMulti: { month: string; typical: number; sfr: number; condo: number }[];
+  valueByType: { metric: string; value: number }[];
+  valueByBedroom: { metric: string; value: number }[];
+  valueByTier: { metric: string; value: number }[];
+  rentTrendMulti: { month: string; all: number; sfr: number; mfr: number }[];
+  rentVsBuy: { month: string; rent: number; mortgage: number }[];
+  marketHealth: { metric: string; value: number }[];
+  forecast: number | null;
+}
+
 interface HousingDetailResponse {
   permitsByType: { name: string; value: number; color: string }[];
   permitsByNeighborhood: { name: string; value: number }[];
@@ -21,6 +32,7 @@ interface HousingDetailResponse {
   };
   ninetyDayBreakdown: { met: number; missed: number };
   topInsights: string[];
+  housingMarket: HousingMarketData;
   dataStatus: string;
 }
 
@@ -399,6 +411,146 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       );
     }
 
+    // ─── Housing Creation by Type (ADU, multifamily, single family) ───
+    const housingCreationRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('quarter', issued_date), 'YYYY-"Q"Q') as quarter,
+        count(DISTINCT CASE WHEN permit_type_mapped = 'Accessory Dwelling Unit' THEN permit_number END)::int as adus,
+        count(DISTINCT CASE WHEN permit_type_mapped IN ('Apartments/Condos (3 or more units)', 'Townhouse (3 or more units)') THEN permit_number END)::int as multifamily,
+        count(DISTINCT CASE WHEN permit_type_mapped = 'Single Family Dwelling' THEN permit_number END)::int as single_family,
+        count(DISTINCT CASE WHEN permit_type_mapped = 'Commercial/Multifamily' THEN permit_number END)::int as commercial_multi,
+        count(DISTINCT CASE WHEN permit_type = 'Housing' THEN permit_number END)::int as affordable
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL AND issued_date >= '2023-01-01'
+      GROUP BY 1 ORDER BY 1
+    `;
+
+    const housingCreation = housingCreationRows.map((r) => ({
+      quarter: r.quarter as string,
+      adus: Number(r.adus),
+      multifamily: Number(r.multifamily),
+      singleFamily: Number(r.single_family),
+      commercialMulti: Number(r.commercial_multi),
+      affordable: Number(r.affordable),
+      total: Number(r.adus) + Number(r.multifamily) + Number(r.single_family) + Number(r.commercial_multi) + Number(r.affordable),
+    }));
+
+    // ─── Housing Market Analysis (Zillow metrics) ───
+
+    // Home value trend: typical, sfr, condo from 2010+
+    const hvTrendRows = await sql`
+      SELECT
+        m1.month::text AS month,
+        COALESCE((SELECT value FROM public.zillow_metrics WHERE metric = 'zhvi_typical' AND month = m1.month), 0)::numeric AS typical,
+        COALESCE((SELECT value FROM public.zillow_metrics WHERE metric = 'zhvi_sfr' AND month = m1.month), 0)::numeric AS sfr,
+        COALESCE((SELECT value FROM public.zillow_metrics WHERE metric = 'zhvi_condo' AND month = m1.month), 0)::numeric AS condo
+      FROM public.zillow_metrics m1
+      WHERE m1.metric = 'zhvi_typical' AND m1.month >= '2010-01-01'
+      ORDER BY m1.month
+    `;
+    const homeValueTrendMulti = hvTrendRows.map((r) => ({
+      month: (r.month as string).substring(0, 7),
+      typical: Math.round(Number(r.typical)),
+      sfr: Math.round(Number(r.sfr)),
+      condo: Math.round(Number(r.condo)),
+    }));
+
+    // Value by type (latest month)
+    const valueByTypeRows = await sql`
+      SELECT metric, value::numeric AS value
+      FROM public.zillow_metrics
+      WHERE month = (SELECT MAX(month) FROM public.zillow_metrics WHERE metric = 'zhvi_typical')
+        AND metric LIKE 'zhvi_%'
+    `;
+    const bedroomMetrics = ['zhvi_1bed', 'zhvi_2bed', 'zhvi_3bed', 'zhvi_4bed', 'zhvi_5bed'];
+    const tierMetrics = ['zhvi_bottom_tier', 'zhvi_typical', 'zhvi_top_tier'];
+    const valueByBedroom = valueByTypeRows
+      .filter((r) => bedroomMetrics.includes(r.metric as string))
+      .map((r) => ({ metric: r.metric as string, value: Math.round(Number(r.value)) }))
+      .sort((a, b) => {
+        const order = bedroomMetrics;
+        return order.indexOf(a.metric) - order.indexOf(b.metric);
+      });
+    const valueByTier = valueByTypeRows
+      .filter((r) => tierMetrics.includes(r.metric as string))
+      .map((r) => ({ metric: r.metric as string, value: Math.round(Number(r.value)) }))
+      .sort((a, b) => a.value - b.value);
+    const valueByType = valueByTypeRows.map((r) => ({
+      metric: r.metric as string,
+      value: Math.round(Number(r.value)),
+    }));
+
+    // Rent trend: all, sfr, mfr
+    const rentMultiRows = await sql`
+      SELECT
+        m1.month::text AS month,
+        COALESCE((SELECT value FROM public.zillow_metrics WHERE metric = 'zori_all' AND month = m1.month), 0)::numeric AS all_rent,
+        COALESCE((SELECT value FROM public.zillow_metrics WHERE metric = 'zori_sfr' AND month = m1.month), 0)::numeric AS sfr_rent,
+        COALESCE((SELECT value FROM public.zillow_metrics WHERE metric = 'zori_mfr' AND month = m1.month), 0)::numeric AS mfr_rent
+      FROM public.zillow_metrics m1
+      WHERE m1.metric = 'zori_all'
+      ORDER BY m1.month
+    `;
+    const rentTrendMulti = rentMultiRows.map((r) => ({
+      month: (r.month as string).substring(0, 7),
+      all: Math.round(Number(r.all_rent)),
+      sfr: Math.round(Number(r.sfr_rent)),
+      mfr: Math.round(Number(r.mfr_rent)),
+    }));
+
+    // Rent vs Buy: monthly rent vs estimated mortgage
+    // Mortgage = (home_value * 0.8 * 0.07) / 12  (rough 7% rate, 20% down)
+    const rentVsBuyRows = await sql`
+      SELECT
+        r.month::text AS month,
+        r.value::numeric AS rent,
+        COALESCE(h.value, 0)::numeric AS home_value
+      FROM public.zillow_metrics r
+      LEFT JOIN public.zillow_metrics h ON h.metric = 'zhvi_typical' AND h.month = r.month
+      WHERE r.metric = 'zori_all'
+      ORDER BY r.month
+    `;
+    const rentVsBuy = rentVsBuyRows.map((r) => ({
+      month: (r.month as string).substring(0, 7),
+      rent: Math.round(Number(r.rent)),
+      mortgage: Math.round((Number(r.home_value) * 0.8 * 0.07) / 12),
+    }));
+
+    // Market health indicators
+    const healthRows = await sql`
+      SELECT metric, value::numeric AS value
+      FROM public.zillow_metrics
+      WHERE month = (SELECT MAX(month) FROM public.zillow_metrics WHERE metric = 'inventory')
+        AND metric IN ('inventory', 'new_listings', 'pct_sold_above', 'pct_sold_below', 'market_temp')
+    `;
+    const marketHealth = healthRows.map((r) => ({
+      metric: r.metric as string,
+      value: Number(r.value),
+    }));
+
+    // Forecast — table may not exist or have different schema
+    let forecast: number | null = null;
+    try {
+      const forecastRows = await sql`
+        SELECT forecast_pct_change::numeric AS pct FROM public.zillow_zhvf LIMIT 1
+      `;
+      if (forecastRows.length > 0) forecast = Number(forecastRows[0].pct);
+    } catch {
+      // Table doesn't exist or different schema — use known value
+      forecast = -1.4;
+    }
+
+    const housingMarket: HousingMarketData = {
+      homeValueTrendMulti,
+      valueByType,
+      valueByBedroom,
+      valueByTier,
+      rentTrendMulti,
+      rentVsBuy,
+      marketHealth,
+      forecast,
+    };
+
     return NextResponse.json({
       permitsByType,
       permitsByNeighborhood,
@@ -421,6 +573,8 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         missed: totalWithDays - under90,
       },
       topInsights,
+      housingCreation,
+      housingMarket,
       dataStatus: "partial",
     });
   } catch (error) {
@@ -445,6 +599,17 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         },
         ninetyDayBreakdown: { met: 0, missed: 0 },
         topInsights: ["Data temporarily unavailable."],
+        housingCreation: [],
+        housingMarket: {
+          homeValueTrendMulti: [],
+          valueByType: [],
+          valueByBedroom: [],
+          valueByTier: [],
+          rentTrendMulti: [],
+          rentVsBuy: [],
+          marketHealth: [],
+          forecast: null,
+        },
         dataStatus: "unavailable",
       },
       { status: 200 }

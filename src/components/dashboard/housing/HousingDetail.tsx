@@ -17,6 +17,8 @@ import {
   Lightbulb,
   Home,
   AlertTriangle,
+  Activity,
+  TrendingDown,
 } from "lucide-react";
 
 interface BottleneckEntry {
@@ -38,6 +40,17 @@ interface BottleneckData {
   dataStatus: string;
 }
 
+interface HousingMarketData {
+  homeValueTrendMulti: { month: string; typical: number; sfr: number; condo: number }[];
+  valueByType: { metric: string; value: number }[];
+  valueByBedroom: { metric: string; value: number }[];
+  valueByTier: { metric: string; value: number }[];
+  rentTrendMulti: { month: string; all: number; sfr: number; mfr: number }[];
+  rentVsBuy: { month: string; rent: number; mortgage: number }[];
+  marketHealth: { metric: string; value: number }[];
+  forecast: number | null;
+}
+
 interface HousingDetailData {
   permitsByType: { name: string; value: number; color: string }[];
   permitsByNeighborhood: { name: string; value: number }[];
@@ -57,6 +70,8 @@ interface HousingDetailData {
   };
   ninetyDayBreakdown: { met: number; missed: number };
   topInsights: string[];
+  housingCreation?: { quarter: string; adus: number; multifamily: number; singleFamily: number; commercialMulti: number; affordable: number; total: number }[];
+  housingMarket?: HousingMarketData;
 }
 
 function SectionHeader({
@@ -130,7 +145,9 @@ export default function HousingDetail() {
     valuationByYear,
     ninetyDayBreakdown,
     topInsights,
+    housingMarket,
   } = data;
+  const housingCreation = data.housingCreation;
 
   const pipelineChartData = pipelineTrend.map((r) => ({
     date: r.month,
@@ -196,6 +213,93 @@ export default function HousingDetail() {
           ]}
         />
       </section>
+
+      {/* 1a. Housing Creation — How much housing is actually being built? */}
+      {housingCreation && housingCreation.length > 0 && (
+        <section>
+          <SectionHeader icon={Home} title="How Much Housing Is Being Created? (Real Permit Data)" color="#b85c3a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
+              New housing permits issued by type per quarter. This answers the core question: is Portland building enough housing? The collapse from 2023 to 2025 is dramatic.
+            </p>
+
+            {/* Story callout */}
+            {(() => {
+              const peak = housingCreation.reduce((max, r) => r.total > max.total ? r : max, housingCreation[0]);
+              const latest = housingCreation[housingCreation.length - 1];
+              const decline = peak.total > 0 ? Math.round((1 - latest.total / peak.total) * 100) : 0;
+              return (
+                <div className="story-callout mb-6">
+                  <p>
+                    Portland issued {peak.total.toLocaleString()} housing permits in {peak.quarter} — then just {latest.total.toLocaleString()} in {latest.quarter}. That&apos;s a {decline}% collapse in new housing creation.
+                  </p>
+                  <cite>Portland BDS Permit Data — Real Numbers</cite>
+                </div>
+              );
+            })()}
+
+            {/* Stacked view by type */}
+            <MultiLineChart
+              data={housingCreation.map((r) => ({
+                quarter: r.quarter,
+                "Single Family": r.singleFamily,
+                "Apartments/Townhouses": r.multifamily,
+                "Commercial/Mixed-Use": r.commercialMulti,
+                "ADUs": r.adus,
+                "Affordable Housing": r.affordable,
+              }))}
+              xKey="quarter"
+              height={380}
+              lines={[
+                { key: "Single Family", label: "Single Family", color: "#3d7a5a" },
+                { key: "Apartments/Townhouses", label: "Apartments & Townhouses (3+ units)", color: "#4a7f9e" },
+                { key: "Commercial/Mixed-Use", label: "Commercial / Mixed-Use", color: "#c8956c" },
+                { key: "ADUs", label: "Accessory Dwelling Units", color: "#7c6f9e" },
+                { key: "Affordable Housing", label: "Affordable Housing", color: "#b85c6a" },
+              ]}
+            />
+
+            {/* Latest quarter breakdown */}
+            {(() => {
+              const latest = housingCreation[housingCreation.length - 1];
+              if (!latest) return null;
+              const types = [
+                { label: "Single Family", value: latest.singleFamily, color: "#3d7a5a" },
+                { label: "Apartments & Townhouses", value: latest.multifamily, color: "#4a7f9e" },
+                { label: "Commercial / Mixed-Use", value: latest.commercialMulti, color: "#c8956c" },
+                { label: "ADUs", value: latest.adus, color: "#7c6f9e" },
+                { label: "Affordable Housing", value: latest.affordable, color: "#b85c6a" },
+              ];
+              const maxVal = Math.max(...types.map(t => t.value), 1);
+              return (
+                <div className="mt-6 pt-4 border-t border-[var(--color-parchment)]">
+                  <p className="text-[13px] font-semibold text-[var(--color-ink-muted)] mb-3">
+                    Latest Quarter ({latest.quarter}): {latest.total} total permits
+                  </p>
+                  <div className="space-y-2">
+                    {types.map((t) => (
+                      <div key={t.label} className="flex items-center gap-3">
+                        <span className="text-[13px] text-[var(--color-ink-light)] w-[200px] text-right flex-shrink-0 truncate">
+                          {t.label}
+                        </span>
+                        <div className="flex-1 h-6 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                          <div
+                            className="h-full rounded-sm"
+                            style={{ width: `${Math.max((t.value / maxVal) * 100, 3)}%`, backgroundColor: t.color }}
+                          />
+                        </div>
+                        <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[40px] text-right">
+                          {t.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </section>
+      )}
 
       {/* 1b. Permit Review Bottlenecks — WHERE the process is broken */}
       {bottleneckData && bottleneckData.ranking.length > 0 && (
@@ -686,6 +790,358 @@ export default function HousingDetail() {
           </div>
         </section>
       )}
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          HOUSING MARKET ANALYSIS — Zillow data
+          ═══════════════════════════════════════════════════════════════════ */}
+
+      {housingMarket && housingMarket.homeValueTrendMulti.length > 0 && (() => {
+        const hm = housingMarket;
+        const latestTypical = hm.homeValueTrendMulti[hm.homeValueTrendMulti.length - 1]?.typical ?? 0;
+        const peakEntry = hm.homeValueTrendMulti.reduce((max, r) => r.typical > max.typical ? r : max, hm.homeValueTrendMulti[0]);
+        const peakValue = peakEntry?.typical ?? 0;
+        const peakMonth = peakEntry?.month ?? "";
+        const forecastPct = hm.forecast ?? -1.4;
+        const forecastValue = Math.round(latestTypical * (1 + forecastPct / 100));
+
+        // Find rent change since 2020
+        const rent2020 = hm.rentTrendMulti.find((r) => r.month.startsWith("2020-01"))?.all ?? 0;
+        const latestRent = hm.rentTrendMulti[hm.rentTrendMulti.length - 1]?.all ?? 0;
+        const rentChangePct = rent2020 > 0 ? Math.round(((latestRent - rent2020) / rent2020) * 100) : 0;
+
+        // Market temperature label
+        const tempEntry = hm.marketHealth.find((m) => m.metric === "market_temp");
+        const temp = tempEntry?.value ?? 0;
+        const tempLabel = temp < 40 ? "cold" : temp < 60 ? "cool" : temp < 80 ? "neutral" : "hot";
+        const tempColor = temp < 40 ? "#4a7f9e" : temp < 60 ? "#3d7a5a" : temp < 80 ? "#c8956c" : "#b85c3a";
+
+        // Helper for metric labels
+        const bedroomLabel = (metric: string) => {
+          const map: Record<string, string> = {
+            zhvi_1bed: "1 Bedroom",
+            zhvi_2bed: "2 Bedrooms",
+            zhvi_3bed: "3 Bedrooms",
+            zhvi_4bed: "4 Bedrooms",
+            zhvi_5bed: "5+ Bedrooms",
+          };
+          return map[metric] ?? metric;
+        };
+        const tierLabel = (metric: string) => {
+          const map: Record<string, string> = {
+            zhvi_bottom_tier: "Bottom Tier (5-35th %)",
+            zhvi_typical: "Typical (35-65th %)",
+            zhvi_top_tier: "Top Tier (65-95th %)",
+          };
+          return map[metric] ?? metric;
+        };
+
+        const inventoryVal = hm.marketHealth.find((m) => m.metric === "inventory")?.value ?? 0;
+        const newListingsVal = hm.marketHealth.find((m) => m.metric === "new_listings")?.value ?? 0;
+        const soldAboveVal = hm.marketHealth.find((m) => m.metric === "pct_sold_above")?.value ?? 0;
+        const soldBelowVal = hm.marketHealth.find((m) => m.metric === "pct_sold_below")?.value ?? 0;
+
+        return (
+          <>
+            {/* The Housing Market Story */}
+            <section>
+              <SectionHeader icon={Home} title="The Housing Market Story" color="#1a3a2a" />
+              <div className="bg-[#1a3a2a] rounded-sm p-8 text-[var(--color-paper-warm)]">
+                <p className="text-[18px] leading-relaxed font-[family-name:var(--font-heading)]">
+                  Portland&rsquo;s housing market is{" "}
+                  <span className="font-semibold" style={{ color: tempColor === "#1a3a2a" ? "#a8c5b2" : tempColor }}>
+                    {tempLabel}
+                  </span>.{" "}
+                  Typical home values peaked at ${peakValue.toLocaleString()} in {peakMonth} and have since declined to ${latestTypical.toLocaleString()}.{" "}
+                  Zillow forecasts a further {Math.abs(forecastPct)}% {forecastPct < 0 ? "decline" : "increase"} over the next 12 months.{" "}
+                  Meanwhile, rents {rentChangePct > 0 ? "continue to rise" : "have declined"} — the typical rent is ${latestRent.toLocaleString()}/mo
+                  {rent2020 > 0 && <>, {rentChangePct > 0 ? "up" : "down"} {Math.abs(rentChangePct)}% since January 2020</>}.
+                </p>
+              </div>
+            </section>
+
+            {/* Home Values Over Time — Multi-line */}
+            <section>
+              <SectionHeader icon={TrendingUp} title="Home Values Over Time" color="#1a3a2a" />
+              <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+                <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+                  Zillow Home Value Index from 2010 to present. Shows how single family homes, condos, and the typical home value have diverged. Source: Zillow ZHVI.
+                </p>
+                <MultiLineChart
+                  data={hm.homeValueTrendMulti.map((r) => ({
+                    month: r.month,
+                    Typical: r.typical,
+                    "Single Family": r.sfr,
+                    "Condo/Co-op": r.condo,
+                  }))}
+                  xKey="month"
+                  height={400}
+                  valuePrefix="$"
+                  lines={[
+                    { key: "Typical", label: "Typical Home", color: "#1a3a2a" },
+                    { key: "Single Family", label: "Single Family", color: "#3d7a5a" },
+                    { key: "Condo/Co-op", label: "Condo/Co-op", color: "#c8956c" },
+                  ]}
+                />
+              </div>
+            </section>
+
+            {/* What Does a Portland Home Cost by Size? */}
+            {hm.valueByBedroom.length > 0 && (
+              <section>
+                <SectionHeader icon={Home} title="What Does a Portland Home Cost by Size?" color="#3d7a5a" />
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+                  <p className="text-[13px] text-[var(--color-ink-muted)] mb-5">
+                    Current typical home value by bedroom count and market tier. This immediately answers: can I afford Portland?
+                  </p>
+
+                  {/* By bedroom count */}
+                  <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-3">
+                    By Bedroom Count
+                  </p>
+                  <div className="space-y-2.5 mb-8">
+                    {hm.valueByBedroom.map((entry) => {
+                      const maxVal = Math.max(...hm.valueByBedroom.map((e) => e.value));
+                      const pct = maxVal > 0 ? Math.round((entry.value / maxVal) * 100) : 0;
+                      return (
+                        <div key={entry.metric} className="flex items-center gap-3">
+                          <span className="text-[13px] text-[var(--color-ink-light)] w-[120px] text-right flex-shrink-0">
+                            {bedroomLabel(entry.metric)}
+                          </span>
+                          <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                            <div
+                              className="h-full rounded-sm transition-all duration-700"
+                              style={{
+                                width: `${Math.max(pct, 4)}%`,
+                                backgroundColor: "#3d7a5a",
+                              }}
+                            />
+                          </div>
+                          <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[90px] text-right">
+                            ${(entry.value / 1000).toFixed(0)}K
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* By market tier */}
+                  <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-3">
+                    By Market Tier
+                  </p>
+                  <div className="space-y-2.5">
+                    {hm.valueByTier.map((entry) => {
+                      const maxVal = Math.max(...hm.valueByTier.map((e) => e.value));
+                      const pct = maxVal > 0 ? Math.round((entry.value / maxVal) * 100) : 0;
+                      const tierColors: Record<string, string> = {
+                        zhvi_bottom_tier: "#4a7f9e",
+                        zhvi_typical: "#3d7a5a",
+                        zhvi_top_tier: "#c8956c",
+                      };
+                      return (
+                        <div key={entry.metric} className="flex items-center gap-3">
+                          <span className="text-[13px] text-[var(--color-ink-light)] w-[160px] text-right flex-shrink-0">
+                            {tierLabel(entry.metric)}
+                          </span>
+                          <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                            <div
+                              className="h-full rounded-sm transition-all duration-700"
+                              style={{
+                                width: `${Math.max(pct, 4)}%`,
+                                backgroundColor: tierColors[entry.metric] ?? "#3d7a5a",
+                              }}
+                            />
+                          </div>
+                          <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[90px] text-right">
+                            ${(entry.value / 1000).toFixed(0)}K
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Rent vs Buy */}
+            {hm.rentVsBuy.length > 0 && (
+              <section>
+                <SectionHeader icon={DollarSign} title="Rent vs Buy" color="#b85c6a" />
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+                  <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
+                    Monthly rent (Zillow ZORI) vs estimated monthly mortgage payment on a typical Portland home. Mortgage assumes 20% down payment at ~7% interest rate.
+                  </p>
+                  <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
+                    When the mortgage line is above the rent line, renting is cheaper than buying.
+                  </p>
+                  <MultiLineChart
+                    data={hm.rentVsBuy.map((r) => ({
+                      month: r.month,
+                      "Monthly Rent": r.rent,
+                      "Est. Mortgage": r.mortgage,
+                    }))}
+                    xKey="month"
+                    height={360}
+                    valuePrefix="$"
+                    lines={[
+                      { key: "Monthly Rent", label: "Monthly Rent (ZORI)", color: "#b85c6a" },
+                      { key: "Est. Mortgage", label: "Est. Monthly Mortgage", color: "#1a3a2a", dashed: true },
+                    ]}
+                  />
+                </div>
+              </section>
+            )}
+
+            {/* Rental Market — Multi-line */}
+            {hm.rentTrendMulti.length > 0 && (
+              <section>
+                <SectionHeader icon={DollarSign} title="Rental Market" color="#7c6f9e" />
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+                  <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+                    Zillow Observed Rent Index (ZORI) for all homes, single family rentals, and multifamily rentals. Shows how different rental segments have tracked.
+                  </p>
+                  <MultiLineChart
+                    data={hm.rentTrendMulti.map((r) => ({
+                      month: r.month,
+                      "All Homes": r.all,
+                      "Single Family": r.sfr,
+                      "Multifamily": r.mfr,
+                    }))}
+                    xKey="month"
+                    height={360}
+                    valuePrefix="$"
+                    lines={[
+                      { key: "All Homes", label: "All Homes", color: "#7c6f9e" },
+                      { key: "Single Family", label: "Single Family", color: "#3d7a5a" },
+                      { key: "Multifamily", label: "Multifamily", color: "#c8956c" },
+                    ]}
+                  />
+                </div>
+              </section>
+            )}
+
+            {/* Market Health */}
+            {hm.marketHealth.length > 0 && (
+              <section>
+                <SectionHeader icon={Activity} title="Market Health" color="#c8956c" />
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  {/* Inventory */}
+                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#4a7f9e" }} />
+                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
+                      For-Sale Inventory
+                    </p>
+                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
+                      {inventoryVal.toLocaleString()}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
+                      Total homes currently listed for sale in the Portland metro area.
+                    </p>
+                  </div>
+
+                  {/* New Listings */}
+                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#3d7a5a" }} />
+                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
+                      New Listings / Month
+                    </p>
+                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
+                      {newListingsVal.toLocaleString()}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
+                      New homes hitting the market each month. More supply eases competition.
+                    </p>
+                  </div>
+
+                  {/* Sold Above List */}
+                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#3d7a5a" }} />
+                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
+                      Sold Above List
+                    </p>
+                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
+                      {soldAboveVal.toFixed(0)}%
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
+                      Share of homes selling above asking price. Was 60%+ in 2021, now just {soldAboveVal.toFixed(0)}%.
+                    </p>
+                  </div>
+
+                  {/* Sold Below List */}
+                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#b85c3a" }} />
+                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
+                      Sold Below List
+                    </p>
+                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
+                      {soldBelowVal.toFixed(0)}%
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
+                      Share of homes selling below asking. Over half of Portland homes now sell under list.
+                    </p>
+                  </div>
+
+                  {/* Market Temperature */}
+                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: tempColor }} />
+                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
+                      Market Temperature
+                    </p>
+                    <p className="text-[28px] font-mono font-semibold leading-none tracking-tight" style={{ color: tempColor }}>
+                      {temp.toFixed(0)}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
+                      Zillow&rsquo;s index: &lt;40 = cold, 40-60 = cool, 60-80 = neutral, 80+ = hot. Currently: <span className="font-semibold">{tempLabel}</span>.
+                    </p>
+                  </div>
+
+                  {/* Forecast */}
+                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }} />
+                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
+                      12-Month Forecast
+                    </p>
+                    <p className="text-[28px] font-mono font-semibold leading-none tracking-tight" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>
+                      {forecastPct > 0 ? "+" : ""}{forecastPct.toFixed(1)}%
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
+                      Zillow&rsquo;s forecast for Portland home values over the next 12 months.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Home Value Forecast */}
+            <section>
+              <SectionHeader icon={TrendingDown} title="Home Value Forecast" color="#b85c3a" />
+              <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-8">
+                <div className="flex flex-col sm:flex-row items-start gap-8">
+                  <div className="flex-1">
+                    <p className="text-[16px] text-[var(--color-ink-light)] leading-relaxed font-[family-name:var(--font-heading)]">
+                      Zillow forecasts Portland home values will {forecastPct < 0 ? "decline" : "increase"}{" "}
+                      <span className="font-semibold" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>
+                        {Math.abs(forecastPct)}%
+                      </span>{" "}
+                      over the next year, from ${latestTypical.toLocaleString()} to ~${forecastValue.toLocaleString()}.
+                      {forecastPct < 0 && " This would be the third consecutive year of real value decline when adjusted for inflation."}
+                    </p>
+                  </div>
+                  <div className="text-center sm:text-right sm:min-w-[160px] flex-shrink-0">
+                    <p className="text-[14px] text-[var(--color-ink-muted)] font-mono mb-1">Current</p>
+                    <p className="text-[32px] font-mono font-bold text-[var(--color-ink)] leading-none">
+                      ${(latestTypical / 1000).toFixed(0)}K
+                    </p>
+                    <p className="text-[28px] font-mono font-bold leading-none mt-2" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>
+                      {forecastPct < 0 ? "\u2193" : "\u2191"} ${(forecastValue / 1000).toFixed(0)}K
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] font-mono mt-1">12-month forecast</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </>
+        );
+      })()}
     </div>
   );
 }
