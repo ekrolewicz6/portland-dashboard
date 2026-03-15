@@ -1,0 +1,196 @@
+{
+  "detail_id": 5070612,
+  "metadata": {
+    "ivr_number": "5070612",
+    "permit_type": "Commercial Building PermitApartments/Condos (3 or more units)New Construction",
+    "work_description": "DEKUM COURT - BUILDING D - REV-03 - Revision to delete standpipe design *** w/21-023908/12/15-REV-03-CO ***",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-12",
+    "issue_date": "2025-04-24",
+    "final_date": "2025-04-28",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Commercial Plumbing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-28",
+      "goal_date": null,
+      "completed_date": "2024-08-28",
+      "staff_contact": "James,McKenzie   503-823-6754"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Thornton,Joe Inactive"
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": "2025-01-02",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Gessner,Eric   503-823-6532"
+    }
+  ]
+}

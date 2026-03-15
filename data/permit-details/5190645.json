@@ -1,0 +1,156 @@
+{
+  "detail_id": 5190645,
+  "metadata": {
+    "ivr_number": "5190645",
+    "permit_type": "Site Development PermitExisting Residential SiteMultiple Dwellings/Single Lot Improvemen",
+    "work_description": "SINGLE PDF - REVISION TO SHOW SINGLE WATER LATERAL TO 3-METER BOX AND SINGLE SEWER LATERAL TO SERVE ALL (3) UNITS WITH A 6\" TRUNK LINE ON PROPERTY - THIS PROPERTY TO GO THROUGH MHLD W/ 2022-127011/059/104 REV 01 RS AND 22-127112 REV 01 SD",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - SD",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Assign Reviews - SD",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Corrections Received - SD",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Assign Address",
+      "activity_type": "Addressing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    },
+    {
+      "activity_name": "Site Development Review - SD",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Buerkle,Jason   503-865-6531"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Commercial Plumbing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Hyatt,James   503-823-7979"
+    },
+    {
+      "activity_name": "Source Control Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": "2025-09-29",
+      "staff_contact": "Baker,Jim   503-823-7480"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-10-02",
+      "goal_date": null,
+      "completed_date": "2025-10-02",
+      "staff_contact": "Collyer,Casey"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    }
+  ]
+}

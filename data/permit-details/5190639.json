@@ -1,0 +1,176 @@
+{
+  "detail_id": 5190639,
+  "metadata": {
+    "ivr_number": "5190639",
+    "permit_type": "Residential Bldg/Trade PermitTownhouse (3 or more units)New Construction",
+    "work_description": "SINGLE PDF - REVISION TO SHOW SINGLE WATER LATERAL TO 3-METER BOX AND SINGLE SEWER LATERAL TO SERVE ALL (3) UNITS WITH A 6\" TRUNK LINE ON PROPERTY - THIS PROPERTY TO GO THROUGH MHLD W/ 2022-127011/059/104 REV 01 RS AND 22-127112 REV 01 SD",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": "2025-10-03",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Buerkle,Jason   503-865-6531"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Hyatt,James   503-823-7979"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Livengood,Kyle   503-823-3370"
+    },
+    {
+      "activity_name": "Street Systems - Assign Reviews",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Livengood,Kyle   503-823-3370"
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Checksheet",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Parks SDC Review",
+      "activity_type": "Parks Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Crawford,William   503-823-2576"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070614,
+  "metadata": {
+    "ivr_number": "5070614",
+    "permit_type": "Noise VarianceHigh Noise Impact EventBlock Party",
+    "work_description": "09/20/24 5:30am - 9:00pm. Neighborhood block party. live music, amplified between 5:30-9:00pm. ROW E Skidmore St between 34th and 37th.",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-09-19",
+    "issue_date": "2024-09-20",
+    "final_date": "2024-09-20",
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2024-09-19",
+      "goal_date": null,
+      "completed_date": "2024-09-19",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2024-09-20",
+      "goal_date": null,
+      "completed_date": "2024-09-20",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2024-09-20",
+      "goal_date": null,
+      "completed_date": "2024-09-20",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

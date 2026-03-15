@@ -143,6 +143,37 @@ export default function TaxDetail() {
             height={360}
             valueSuffix="%"
           />
+
+          {/* Dollar amount summary */}
+          <div className="mt-6 pt-4 border-t border-[var(--color-parchment)]">
+            <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.1em] mb-3">
+              What that means in real dollars at ${(Math.max(...incomeLevels) / 1000).toFixed(0)}K income:
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {highIncome
+                .sort((a, b) => b.effective_rate - a.effective_rate)
+                .map((r) => {
+                  const totalDollars = Math.round(r.income_level * r.effective_rate / 100);
+                  const isPortland = r.city.startsWith("Portland");
+                  return (
+                    <div
+                      key={r.city}
+                      className={`rounded-sm p-3 ${isPortland ? "bg-[var(--color-canopy)] text-white" : "bg-[var(--color-parchment)]/40"}`}
+                    >
+                      <p className={`text-[11px] font-medium truncate ${isPortland ? "text-[var(--color-ember)]" : "text-[var(--color-ink-muted)]"}`}>
+                        {r.city.replace(/, [A-Z]{2}$/, "")}
+                      </p>
+                      <p className={`text-[20px] font-mono font-bold mt-0.5 ${isPortland ? "text-white" : "text-[var(--color-ink)]"}`}>
+                        ${totalDollars.toLocaleString()}
+                      </p>
+                      <p className={`text-[11px] font-mono ${isPortland ? "text-white/50" : "text-[var(--color-ink-muted)]"}`}>
+                        {r.effective_rate}% effective
+                      </p>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -165,6 +196,35 @@ export default function TaxDetail() {
             height={320}
             valueSuffix="%"
           />
+
+          {/* Dollar breakdown per income level */}
+          <div className="mt-6 pt-4 border-t border-[var(--color-parchment)]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {portlandBreakdown.map((r) => {
+                const totalDollars = Math.round(r.income_level * r.effective_rate / 100);
+                const localDollars = Math.round(r.income_level * r.local / 100);
+                return (
+                  <div key={r.income_level} className="bg-[var(--color-parchment)]/30 rounded-sm p-4">
+                    <p className="text-[12px] font-mono font-semibold text-[var(--color-ink-muted)]">
+                      At ${(r.income_level / 1000).toFixed(0)}K income
+                    </p>
+                    <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] mt-1">
+                      ${totalDollars.toLocaleString()}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-0.5">
+                      total tax ({r.effective_rate}% effective)
+                    </p>
+                    <p className="text-[13px] font-mono font-semibold text-[var(--color-clay)] mt-2">
+                      ${localDollars.toLocaleString()} in local taxes alone
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)]">
+                      BLT + MultCo BIT + Metro SHS + PFA ({r.local}%)
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 

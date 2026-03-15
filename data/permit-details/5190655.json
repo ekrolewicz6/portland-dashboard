@@ -1,0 +1,46 @@
+{
+  "detail_id": 5190655,
+  "metadata": {
+    "ivr_number": "5190655",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ LANDLORD WORK SPEC SUITE STE 14310 1ST FLR; DEMO WALLS, NEW WALLS TO CREATE BREAKRM, JANITOR RM, RESTRMS, WAREHOUSE AREA, REMODEL CONFERENCE RM, OFFICES, OPEN OFFICE AREA, VESTIBULE, RESTRMS, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2025-09-12",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

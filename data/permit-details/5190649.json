@@ -1,0 +1,86 @@
+{
+  "detail_id": 5190649,
+  "metadata": {
+    "ivr_number": "5190649",
+    "permit_type": "Fire Systems PermitFire AlarmsAddition",
+    "work_description": "ALARM - INSTALL CELLULAR COMMUNICATOR FOR FIRE ALARM MONITORING",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-15",
+    "issue_date": "2025-09-15",
+    "final_date": "2025-10-30",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Alarm/Supervision",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": "2025-10-30",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": "2025-10-30",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-07",
+      "goal_date": null,
+      "completed_date": "2025-11-07",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

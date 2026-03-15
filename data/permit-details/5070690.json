@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070690,
+  "metadata": {
+    "ivr_number": "5070690",
+    "permit_type": "Code ComplianceZoningElectrical",
+    "work_description": "Complaint received. Light FI15 has been burned out for a few weeks and creating a safety hazard.",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": null,
+    "final_date": "2024-12-11",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2024-12-11",
+      "goal_date": "2024-12-23",
+      "completed_date": null,
+      "staff_contact": "CODE COMPLIANCE"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-11",
+      "goal_date": null,
+      "completed_date": "2024-12-11",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "CODE COMPLIANCE"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    }
+  ]
+}

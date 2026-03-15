@@ -1,0 +1,36 @@
+{
+  "detail_id": 5070695,
+  "metadata": {
+    "ivr_number": "5070695",
+    "permit_type": "Public RegistryTier 3Complex Zoning Analysis",
+    "work_description": "Zoning confirmation request - complex zoning analysis",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2024-08-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Besley,David   503-865-6715"
+    }
+  ]
+}

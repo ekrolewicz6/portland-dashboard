@@ -1,0 +1,66 @@
+{
+  "detail_id": 5100660,
+  "metadata": {
+    "ivr_number": "5100660",
+    "permit_type": "Noise ComplaintResidential",
+    "work_description": "Loud music playing in afternoon hours",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-12",
+    "issue_date": "2024-11-12",
+    "final_date": null,
+    "status": "Warned"
+  },
+  "activities": [
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": "2024-11-12",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Inspection - NC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close - NC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": "2024-11-12",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Notices - NC",
+      "activity_type": "Notified",
+      "must_check": "N",
+      "activity_status": "Mailed",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Carroll,Nicholas   503-823-7350"
+    },
+    {
+      "activity_name": "Citation - Noise",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

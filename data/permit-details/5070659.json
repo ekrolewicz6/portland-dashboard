@@ -1,0 +1,46 @@
+{
+  "detail_id": 5070659,
+  "metadata": {
+    "ivr_number": "5070659",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ LEGACY GOOD SAMARITAN LOBBY WALL 1ST FLR; MINOR DEMO, INFILL DOORWAY, CEILING, FLOORING AND FINISHES",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-08-06",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

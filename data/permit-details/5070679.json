@@ -1,0 +1,196 @@
+{
+  "detail_id": 5070679,
+  "metadata": {
+    "ivr_number": "5070679",
+    "permit_type": "Commercial Building PermitAssemblyAddition",
+    "work_description": "T CORE - DFS-33 (DFS 231 for 20-124057-MG) - Table lift install in MIT maintenance room in Sector 21 deplaning",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-09",
+    "issue_date": "2024-08-13",
+    "final_date": "2025-10-15",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-24",
+      "goal_date": null,
+      "completed_date": "2025-02-24",
+      "staff_contact": "Siquina,Antonia   503-823-4683"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2024-09-10",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2024-09-10",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2024-09-10",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2024-09-10",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Bartley,David   503-865-6529"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Walkiewicz,Mike Inactive"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Required",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Walkiewicz,Mike Inactive"
+    },
+    {
+      "activity_name": "Struct Spec. Insp. Form Reqd",
+      "activity_type": "Special Inspections Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Walkiewicz,Mike Inactive"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2025-01-03",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Final Summary Report Received",
+      "activity_type": "Special Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Zarr,Jim   503-823-8856"
+    },
+    {
+      "activity_name": "S. I. Audit",
+      "activity_type": "Special Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Zarr,Jim   503-823-8856"
+    }
+  ]
+}

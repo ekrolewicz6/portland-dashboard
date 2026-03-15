@@ -1,0 +1,36 @@
+{
+  "detail_id": 5100645,
+  "metadata": {
+    "ivr_number": "5100645",
+    "permit_type": "Mechanical PermitCommercial or Multi-Family Dwelling/StructureAddition/Alteration/Replacement",
+    "work_description": "SINGLEPDF - INSTALL DRYER VENTS",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "VOID"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Mechanical",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": "2024-11-12",
+      "completed_date": null,
+      "staff_contact": "INTAKE"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PREISSUANCEMT;SG  503-823-7300"
+    }
+  ]
+}

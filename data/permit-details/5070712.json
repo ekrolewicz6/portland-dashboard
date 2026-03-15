@@ -1,0 +1,156 @@
+{
+  "detail_id": 5070712,
+  "metadata": {
+    "ivr_number": "5070712",
+    "permit_type": "Early AssistanceEA-Zoning & Inf. Bur.- no mtg",
+    "work_description": "Adaptive reuse of five-story, 25,000 gross square foot building, known as the Oregon Casket Building. Existing permitted use includes B, M and S-1 occupancy. Proposed use includes 34 residential units, including two live-work units at the ground floor, and one retail unit. Exterior scope of work limited to rehabilitation of existing windows and doors, reconstruction of storefront along NW 5th and addition of screening for rooftop mechanical equipment and elevator over-run. Existing stormwater conveyance and disposal preserved. Existing utility vault under the sidewalk along NW Flanders and access to vault preserved.",
+    "address": null,
+    "setup_date": "2024-08-13",
+    "under_review_date": "2024-08-13",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-03",
+      "goal_date": null,
+      "completed_date": "2024-09-03",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    },
+    {
+      "activity_name": "Inclusionary Housing Review",
+      "activity_type": "Housing Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-18",
+      "goal_date": null,
+      "completed_date": "2024-09-18",
+      "staff_contact": "Eisenbrown,Brett"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-16",
+      "goal_date": null,
+      "completed_date": "2024-08-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-11",
+      "goal_date": null,
+      "completed_date": "2024-09-11",
+      "staff_contact": "Jeffreys,Grace   503-865-6521"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-18",
+      "goal_date": null,
+      "completed_date": "2024-09-18",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-04",
+      "goal_date": null,
+      "completed_date": "2024-09-04",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-03",
+      "goal_date": null,
+      "completed_date": "2024-09-03",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-28",
+      "goal_date": null,
+      "completed_date": "2024-08-28",
+      "staff_contact": "Krauter,Rodney   503-823-7064"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-03",
+      "goal_date": null,
+      "completed_date": "2024-09-03",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "PBOT PW - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-16",
+      "goal_date": "2024-08-30",
+      "completed_date": null,
+      "staff_contact": "Youngberg,Kelly   503-823-7677"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-03",
+      "goal_date": null,
+      "completed_date": "2024-09-03",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "detail_id": 5070713,
+  "metadata": {
+    "ivr_number": "5070713",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingAddition",
+    "work_description": "SINGLE PDF - REVISION FOR REMOVAL OF TREE",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-11-04",
+    "final_date": "2025-04-10",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-28",
+      "goal_date": null,
+      "completed_date": "2024-08-28",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Re-activate Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-11",
+      "goal_date": null,
+      "completed_date": "2024-10-11",
+      "staff_contact": "Cook,Janette  503-823-7018"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2024-10-30",
+      "goal_date": null,
+      "completed_date": "2024-10-30",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2024-10-16",
+      "goal_date": null,
+      "completed_date": "2024-10-16",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-05",
+      "goal_date": null,
+      "completed_date": "2024-11-05",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": "2025-04-16",
+      "staff_contact": "Moore,Elizabeth   503-823-7135"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": "2024-08-27",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-16",
+      "goal_date": null,
+      "completed_date": "2024-10-16",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-30",
+      "goal_date": null,
+      "completed_date": "2024-10-30",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-10-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-04",
+      "goal_date": null,
+      "completed_date": "2024-11-04",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-01",
+      "goal_date": null,
+      "completed_date": "2024-11-01",
+      "staff_contact": "Messa,Gina   503-865-6425"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-10-11",
+      "goal_date": "2025-03-10",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-04",
+      "goal_date": null,
+      "completed_date": "2024-11-04",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Trenaman,Todd   503-823-8798"
+    }
+  ]
+}

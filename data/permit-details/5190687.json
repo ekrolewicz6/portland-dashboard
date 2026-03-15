@@ -1,0 +1,76 @@
+{
+  "detail_id": 5190687,
+  "metadata": {
+    "ivr_number": "5190687",
+    "permit_type": "Public RegistryLandscape Monitoring",
+    "work_description": "Landscape monitoring - 5 years",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": null,
+    "final_date": null,
+    "status": "1st Review Pending"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake PR - Landscape",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Monitoring Report Review 1",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2026-10-08",
+      "completed_date": null,
+      "staff_contact": "DSCPLANNING  503-823-7526"
+    },
+    {
+      "activity_name": "Monitoring Report Review 2",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DSCPLANNING  503-823-7526"
+    },
+    {
+      "activity_name": "Monitoring Report Review 3",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DSCPLANNING  503-823-7526"
+    },
+    {
+      "activity_name": "Monitoring Report Review 4",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DSCPLANNING  503-823-7526"
+    },
+    {
+      "activity_name": "Monitoring Report Review 5",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DSCPLANNING  503-823-7526"
+    }
+  ]
+}

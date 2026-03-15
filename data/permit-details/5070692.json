@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070692,
+  "metadata": {
+    "ivr_number": "5070692",
+    "permit_type": "Minor Improvement PermitRequired MIP",
+    "work_description": "SE LIEBE construct new second driveway approach P-528 120sq-ft (12-ft throat); approximately 15-LF centerline of new driveway from east PL",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2025-10-02",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM Southeast"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-29",
+      "goal_date": null,
+      "completed_date": "2025-10-29",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-18",
+      "goal_date": null,
+      "completed_date": "2025-11-18",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

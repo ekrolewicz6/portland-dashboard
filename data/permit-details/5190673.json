@@ -1,0 +1,206 @@
+{
+  "detail_id": 5190673,
+  "metadata": {
+    "ivr_number": "5190673",
+    "permit_type": "Final PlatFP_MHS - Middle Housing Subdivision",
+    "work_description": "Approval of the final plat to create 4 lots",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-19",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Plat Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - FP",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Assign Planner",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Assign Reviewers - FP",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Corrections Received - FP",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Routed",
+      "last_activity_date": "2025-12-05",
+      "goal_date": null,
+      "completed_date": "2025-12-05",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Status Report",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Sent",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Survey Review",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Sent",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Lien Review",
+      "activity_type": "Auditor",
+      "must_check": "Y",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-10-01",
+      "goal_date": "2025-10-03",
+      "completed_date": "2025-10-01",
+      "staff_contact": "Pieper,Fritz   503-823-3574"
+    },
+    {
+      "activity_name": "Preliminary Addressing",
+      "activity_type": "Addressing",
+      "must_check": "Y",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-10-03",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "BDS LUS Conditions",
+      "activity_type": "BDS Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Life Safety Conditions",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-10-02",
+      "goal_date": "2025-10-03",
+      "completed_date": "2025-10-02",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Fire Conditions",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2026-01-31",
+      "goal_date": "2025-12-19",
+      "completed_date": "2026-01-31",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Conditions",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-12-19",
+      "goal_date": "2025-12-19",
+      "completed_date": "2025-12-19",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Conditions",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-09-30",
+      "goal_date": "2025-10-07",
+      "completed_date": "2025-09-30",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Maintenance Agreement",
+      "activity_type": "City Attorney",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Mylar Signature - City Engineer",
+      "activity_type": "Plat Issuance",
+      "must_check": "N",
+      "activity_status": "Signed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Mylar Signature - BDS",
+      "activity_type": "Plat Issuance",
+      "must_check": "N",
+      "activity_status": "Signed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Approval Letter",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Plat Issuance",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-05",
+      "goal_date": null,
+      "completed_date": "2026-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "County Recording",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-09",
+      "goal_date": null,
+      "completed_date": "2026-02-12",
+      "staff_contact": "LAND USE REVIEW"
+    }
+  ]
+}
