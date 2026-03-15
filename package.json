@@ -9,7 +9,12 @@
     "lint": "next lint",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "seed": "npx tsx scripts/seed-real-data.ts"
+    "seed": "npx tsx scripts/seed-real-data.ts",
+    "fetch:external": "npx tsx scripts/fetch-external-sources.ts",
+    "fetch:trimet": "npx tsx scripts/fetch-trimet-gtfs.ts",
+    "fetch:fbi": "npx tsx scripts/fetch-fbi-crime.ts",
+    "fetch:housing": "npx tsx scripts/fetch-housing-data.ts",
+    "fetch:employment": "npx tsx scripts/fetch-oregon-employment.ts"
   },
   "dependencies": {
     "@auth/pg-adapter": "^1.11.1",
