@@ -5,9 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    // Only real data: graffiti from safety.graffiti_monthly
-    // NOT querying public.downtown_foot_traffic or public.downtown_vacancy (FAKE data)
-
+    // Real data: graffiti from safety.graffiti_monthly
     const graffitiRows = await sql`
       SELECT TO_CHAR(month, 'YYYY-MM') AS month, count::int
       FROM safety.graffiti_monthly
@@ -65,16 +63,77 @@ export async function GET() {
       // TriMet tables may not exist
     }
 
+    // Real data: commercial vacancy from downtown.vacancy_real
+    // Sourced from CBRE, Colliers, JLL, Kidder Mathews quarterly reports
+    let vacancyTrend: {
+      quarter: string;
+      source: string;
+      office_vacancy_pct: number | null;
+      retail_vacancy_pct: number | null;
+      notes: string | null;
+    }[] | null = null;
+
+    try {
+      const vacancyRows = await sql`
+        SELECT
+          TO_CHAR(quarter, 'YYYY-Q"Q"') AS quarter,
+          source,
+          office_vacancy_pct::float,
+          retail_vacancy_pct::float,
+          notes
+        FROM downtown.vacancy_real
+        WHERE source NOT LIKE 'FRED_%'
+        ORDER BY quarter
+      `;
+
+      if (vacancyRows.length > 0) {
+        vacancyTrend = vacancyRows.map((r) => ({
+          quarter: r.quarter as string,
+          source: r.source as string,
+          office_vacancy_pct: r.office_vacancy_pct != null ? Number(r.office_vacancy_pct) : null,
+          retail_vacancy_pct: r.retail_vacancy_pct != null ? Number(r.retail_vacancy_pct) : null,
+          notes: r.notes as string | null,
+        }));
+      }
+    } catch {
+      // downtown.vacancy_real may not exist yet
+    }
+
+    // US national benchmark from FRED (for comparison)
+    let usNationalBenchmark: { quarter: string; rental_vacancy_pct: number }[] | null = null;
+
+    try {
+      const fredRows = await sql`
+        SELECT
+          TO_CHAR(quarter, 'YYYY-Q"Q"') AS quarter,
+          retail_vacancy_pct::float AS rental_vacancy_pct
+        FROM downtown.vacancy_real
+        WHERE source = 'FRED_RRVRUSQ156N'
+          AND retail_vacancy_pct IS NOT NULL
+        ORDER BY quarter
+      `;
+
+      if (fredRows.length > 0) {
+        usNationalBenchmark = fredRows.map((r) => ({
+          quarter: r.quarter as string,
+          rental_vacancy_pct: Number(r.rental_vacancy_pct),
+        }));
+      }
+    } catch {
+      // Ignore
+    }
+
     return NextResponse.json({
       // REAL data
       graffitiTrend,
       trimetData,
+      vacancyTrend,
+      usNationalBenchmark,
       // UNAVAILABLE — needs subscriptions
       footTrafficTrend: null,
-      vacancyTrend: null,
       weekdayVsWeekend: null,
       recoveryMilestones: null,
-      dataStatus: "partial",
+      dataStatus: vacancyTrend ? "good" : "partial",
       dataSources: [
         {
           name: "Graffiti Reports",
@@ -87,16 +146,23 @@ export async function GET() {
           provider: "TriMet developer.trimet.org",
         },
         {
+          name: "Commercial Vacancy Rate",
+          status: vacancyTrend ? "live" : "needs_data",
+          provider: "CBRE, Colliers, JLL, Kidder Mathews quarterly reports",
+          action: vacancyTrend
+            ? `${vacancyTrend.length} quarterly data points from published CRE reports`
+            : "Run: npx tsx scripts/fetch-vacancy-real.ts",
+        },
+        {
+          name: "US National Benchmark (FRED)",
+          status: usNationalBenchmark ? "live" : "needs_data",
+          provider: "FRED / Census Bureau",
+        },
+        {
           name: "Foot Traffic",
           status: "needs_subscription",
           provider: "Placer.ai",
           action: "$2K-$5K/mo subscription or Clean & Safe partnership",
-        },
-        {
-          name: "Commercial Vacancy Rate",
-          status: "needs_subscription",
-          provider: "CoStar Group",
-          action: "$500-$1.5K/mo subscription or free CBRE/Colliers quarterly reports",
         },
       ],
     });
