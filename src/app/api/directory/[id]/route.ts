@@ -3,20 +3,6 @@ import sql from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
 
-interface BusinessRow {
-  id: number;
-  registry_number: string;
-  business_name: string;
-  entity_type: string;
-  registry_date: string;
-  address: string | null;
-  city: string | null;
-  state: string | null;
-  zip: string | null;
-  raw_data: Record<string, unknown> | null;
-  created_at: string;
-}
-
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -26,33 +12,30 @@ export async function GET(
     const businessId = parseInt(id, 10);
 
     if (isNaN(businessId)) {
-      return NextResponse.json(
-        { error: "Invalid business ID" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid business ID" }, { status: 400 });
     }
 
-    const rows = await sql<BusinessRow[]>`
+    const rows = await sql`
       SELECT id, registry_number, business_name, entity_type,
-             registry_date::text, address, city, state, zip,
-             raw_data, created_at::text
+             registry_date::text, associated_name_type,
+             first_name, middle_name, last_name, suffix,
+             entity_of_record_name, entity_of_record_reg_number,
+             address, address_continued, city, state, zip,
+             jurisdiction, business_details
       FROM business.oregon_sos_all_active
       WHERE id = ${businessId}
       LIMIT 1
     `;
 
     if (rows.length === 0) {
-      return NextResponse.json(
-        { error: "Business not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Business not found" }, { status: 404 });
     }
 
     const b = rows[0];
 
-    // Find other businesses of the same type for "similar businesses"
-    const similar = await sql<{ id: number; business_name: string; entity_type: string; registry_date: string }[]>`
-      SELECT id, business_name, entity_type, registry_date::text
+    // Find similar businesses of the same type (recently registered)
+    const similar = await sql`
+      SELECT id, business_name, entity_type, registry_date::text, address
       FROM business.oregon_sos_all_active
       WHERE entity_type = ${b.entity_type}
         AND id != ${businessId}
@@ -67,18 +50,24 @@ export async function GET(
         name: b.business_name,
         entityType: b.entity_type,
         registryDate: b.registry_date,
-        address: b.address,
+        associatedNameType: b.associated_name_type,
+        contactName: [b.first_name, b.middle_name, b.last_name, b.suffix]
+          .filter(Boolean)
+          .join(" ") || null,
+        entityOfRecord: b.entity_of_record_name,
+        address: [b.address, b.address_continued].filter(Boolean).join(", "),
         city: b.city,
         state: b.state,
         zip: b.zip,
-        rawData: b.raw_data,
-        createdAt: b.created_at,
+        jurisdiction: b.jurisdiction,
+        sosUrl: b.business_details,
       },
       similarBusinesses: similar.map((s) => ({
         id: s.id,
         name: s.business_name,
         entityType: s.entity_type,
         registryDate: s.registry_date,
+        address: s.address,
       })),
     });
   } catch (err) {

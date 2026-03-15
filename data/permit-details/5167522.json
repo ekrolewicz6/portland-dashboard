@@ -1,0 +1,146 @@
+{
+  "detail_id": 5167522,
+  "metadata": {
+    "ivr_number": "5167522",
+    "permit_type": "Sign PermitWall/Fascia SignNew Sign/Awning",
+    "work_description": "NEW 2 OF 2 SIGNS. 30.6 SQ FT ILLUMINATED WALL SIGN ON RACEWAY FOR T-MOBILE ON WEST ELEVATIONS (SIGN B). **ET SEPARATE. W/25-052238/246 SG",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-07-02",
+    "issue_date": "2025-09-29",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Sign",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Technician Plan Review",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": "2025-09-29",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Determine if Zoning Review required",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-09",
+      "goal_date": null,
+      "completed_date": "2025-07-09",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": "2025-09-26",
+      "staff_contact": "Olsen,Whitney   503-865-6510"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": "2025-09-29",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "400 Sign Footings",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "405 Electrical Service - Sign",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "410 Sign Structure",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Expire Permit - SG",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-29",
+      "goal_date": "2026-03-30",
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    }
+  ]
+}

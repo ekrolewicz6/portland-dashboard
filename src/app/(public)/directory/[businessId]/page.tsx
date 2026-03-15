@@ -19,11 +19,15 @@ interface BusinessRow {
   entity_type: string;
   registry_date: string;
   address: string | null;
+  address_continued: string | null;
   city: string | null;
   state: string | null;
   zip: string | null;
-  raw_data: Record<string, unknown> | null;
-  created_at: string;
+  jurisdiction: string | null;
+  business_details: string | null;
+  associated_name_type: string | null;
+  first_name: string | null;
+  last_name: string | null;
 }
 
 interface SimilarRow {
@@ -63,9 +67,10 @@ function formatDate(dateStr: string | null): string {
 async function getBusiness(id: number) {
   const rows = await sql<BusinessRow[]>`
     SELECT id, registry_number, business_name, entity_type,
-           registry_date::text, address, city, state, zip,
-           raw_data, created_at::text
-    FROM business.oregon_sos_new_monthly
+           registry_date::text, address, address_continued, city, state, zip,
+           jurisdiction, business_details, associated_name_type,
+           first_name, last_name
+    FROM business.oregon_sos_all_active
     WHERE id = ${id}
     LIMIT 1
   `;
@@ -75,7 +80,7 @@ async function getBusiness(id: number) {
 async function getSimilarBusinesses(entityType: string, excludeId: number) {
   return sql<SimilarRow[]>`
     SELECT id, business_name, entity_type, registry_date::text
-    FROM business.oregon_sos_new_monthly
+    FROM business.oregon_sos_all_active
     WHERE entity_type = ${entityType}
       AND id != ${excludeId}
     ORDER BY registry_date DESC
@@ -142,14 +147,10 @@ export default async function BusinessProfilePage({
     .filter(Boolean)
     .join(" ");
 
-  // Extract raw data fields of interest
-  const rawData = business.raw_data ?? {};
-  const sosUrl =
-    typeof rawData.business_details === "object" &&
-    rawData.business_details !== null &&
-    "url" in rawData.business_details
-      ? (rawData.business_details as { url: string }).url
-      : null;
+  // Oregon SOS detail URL
+  const sosUrl = business.business_details || null;
+  const combinedAddress = [business.address, business.address_continued].filter(Boolean).join(", ");
+  const registeredAgent = [business.first_name, business.last_name].filter(Boolean).join(" ") || null;
 
   return (
     <div className="min-h-screen bg-[var(--color-paper)]">

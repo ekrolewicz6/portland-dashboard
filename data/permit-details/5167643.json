@@ -1,0 +1,46 @@
+{
+  "detail_id": 5167643,
+  "metadata": {
+    "ivr_number": "5167643",
+    "permit_type": "Noise VarianceOther ApplicationsOther Events",
+    "work_description": "07/04/25 11am - 2pm. Hillside Neighborhood Association July 4th Picnic. 653 NW CULPEPPER",
+    "address": null,
+    "setup_date": "2025-06-05",
+    "under_review_date": "2025-06-05",
+    "issue_date": null,
+    "final_date": "2025-07-04",
+    "status": "Incomplete Application"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

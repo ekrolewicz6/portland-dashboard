@@ -54,3 +54,4 @@ etl/data/raw/*
 !etl/data/raw/.gitkeep
 etl/data/processed/*
 !etl/data/processed/.gitkeep
+data/oregon-all-active-businesses.csv
