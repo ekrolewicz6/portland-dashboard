@@ -84,18 +84,20 @@ export default function DashboardClient({ questions }: DashboardClientProps) {
   const liveQuestions = questions.filter(hasData);
   const unavailableQuestions = questions.filter((q) => !hasData(q));
 
-  // Build insights from all questions with real data
-  const insights = liveQuestions
-    .flatMap((q) => {
-      if (!q.apiData?.insights) return [];
-      return q.apiData.insights.slice(0, 2).map((text, i) => ({
-        id: `${q.id}-${i}`,
-        text,
-        question: q.id,
-        severity: (i === 0 ? "high" : "medium") as "high" | "medium" | "low",
-      }));
-    })
-    .slice(0, 6); // Cap at 6 insights total
+  // Build curated insights — pick the single most interesting finding from each question
+  const insights: { id: string; text: string; question: string; severity: "high" | "medium" | "low" }[] = [];
+
+  for (const q of liveQuestions) {
+    if (!q.apiData?.insights || q.apiData.insights.length === 0) continue;
+    // Pick only the first (most important) insight per question
+    insights.push({
+      id: q.id,
+      text: q.apiData.insights[0],
+      question: q.id,
+      severity: insights.length < 2 ? "high" : "medium",
+    });
+    if (insights.length >= 4) break; // Max 4 stories
+  }
 
   return (
     <div>

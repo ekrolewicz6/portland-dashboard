@@ -23,7 +23,7 @@ export default function InsightBanner({ insights }: InsightBannerProps) {
         <div className="flex items-center gap-2.5 mb-5">
           <Sparkles className="w-4 h-4 text-[var(--color-ember)]" />
           <h3 className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
-            This Week&apos;s Stories
+            Key Findings
           </h3>
           <div className="flex-1 h-px bg-white/10 ml-2" />
         </div>
