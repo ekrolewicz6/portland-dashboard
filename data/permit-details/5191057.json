@@ -1,0 +1,66 @@
+{
+  "detail_id": 5191057,
+  "metadata": {
+    "ivr_number": "5191057",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "recon P-551 230 sq-ft (8-6-4)",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-15",
+    "issue_date": "2025-09-16",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-29",
+      "goal_date": null,
+      "completed_date": "2025-09-29",
+      "staff_contact": "Dale,James"
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-08",
+      "goal_date": null,
+      "completed_date": "2025-10-08",
+      "staff_contact": "Dale,James"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Dale,James"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Dale,James"
+    }
+  ]
+}

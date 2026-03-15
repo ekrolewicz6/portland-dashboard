@@ -1,0 +1,36 @@
+{
+  "detail_id": 5140890,
+  "metadata": {
+    "ivr_number": "5140890",
+    "permit_type": "Tree CodeRemoval/ReplantRight-of-Way",
+    "work_description": "Street tree removal /replant permit",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-07",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Denied - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2025-05-14",
+      "goal_date": "2025-04-15",
+      "completed_date": "2025-04-15",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Denied",
+      "last_activity_date": "2025-05-06",
+      "goal_date": null,
+      "completed_date": "2025-05-06",
+      "staff_contact": ""
+    }
+  ]
+}

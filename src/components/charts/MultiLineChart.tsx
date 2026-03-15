@@ -54,7 +54,7 @@ export default function MultiLineChart({
           <XAxis
             dataKey={xKey}
             tick={{
-              fontSize: 11,
+              fontSize: 15,
               fill: "#78716c",
               fontFamily: "var(--font-mono)",
             }}
@@ -64,13 +64,13 @@ export default function MultiLineChart({
           />
           <YAxis
             tick={{
-              fontSize: 11,
+              fontSize: 15,
               fill: "#78716c",
               fontFamily: "var(--font-mono)",
             }}
             tickLine={false}
             axisLine={false}
-            width={52}
+            width={64}
             tickFormatter={(v: number) =>
               `${valuePrefix}${v.toLocaleString()}${valueSuffix}`
             }
@@ -80,7 +80,7 @@ export default function MultiLineChart({
               backgroundColor: "#faf6f0",
               border: "1px solid #ebe5da",
               borderRadius: "2px",
-              fontSize: "12px",
+              fontSize: "16px",
               fontFamily: "var(--font-mono)",
               boxShadow: "0 4px 16px rgba(15,36,25,0.1)",
               padding: "8px 12px",
@@ -104,7 +104,7 @@ export default function MultiLineChart({
             }}
           />
           <Legend
-            wrapperStyle={{ fontSize: "11px", fontFamily: "var(--font-mono)" }}
+            wrapperStyle={{ fontSize: "15px", fontFamily: "var(--font-mono)" }}
             formatter={(value: string) => {
               const line = lines.find((l) => l.key === value);
               return line?.label ?? value;
@@ -120,7 +120,7 @@ export default function MultiLineChart({
               label={{
                 value: ref.label,
                 position: "insideTopRight",
-                fontSize: 10,
+                fontSize: 14,
                 fill: ref.color ?? "#b85c3a",
                 fontFamily: "var(--font-mono)",
               }}

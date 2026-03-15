@@ -50,22 +50,22 @@ export default function TrendChart({
           )}
           <XAxis
             dataKey="date"
-            tick={{ fontSize: 11, fill: "#78716c", fontFamily: "var(--font-mono)" }}
+            tick={{ fontSize: 15, fill: "#78716c", fontFamily: "var(--font-mono)" }}
             tickLine={false}
             axisLine={{ stroke: "#d6d3d1", strokeOpacity: 0.5 }}
           />
           <YAxis
-            tick={{ fontSize: 11, fill: "#78716c", fontFamily: "var(--font-mono)" }}
+            tick={{ fontSize: 15, fill: "#78716c", fontFamily: "var(--font-mono)" }}
             tickLine={false}
             axisLine={false}
-            width={44}
+            width={56}
           />
           <Tooltip
             contentStyle={{
               backgroundColor: "#faf6f0",
               border: "1px solid #ebe5da",
               borderRadius: "2px",
-              fontSize: "12px",
+              fontSize: "16px",
               fontFamily: "var(--font-mono)",
               boxShadow: "0 4px 16px rgba(15,36,25,0.1)",
               padding: "8px 12px",

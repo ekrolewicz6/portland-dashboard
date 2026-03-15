@@ -1,0 +1,36 @@
+{
+  "detail_id": 5070970,
+  "metadata": {
+    "ivr_number": "5070970",
+    "permit_type": "Tree CodeOtherRight-of-Way",
+    "work_description": "Monitor tree for Dutch elm disease",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-08",
+    "issue_date": null,
+    "final_date": null,
+    "status": "No Permit Required"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-08-08",
+      "completed_date": "2024-08-08",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Additional Inspection Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-08-28",
+      "completed_date": null,
+      "staff_contact": "Steill,Aislin"
+    }
+  ]
+}

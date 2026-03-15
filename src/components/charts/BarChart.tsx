@@ -54,7 +54,7 @@ export default function BarChart({
               <XAxis
                 type="number"
                 tick={{
-                  fontSize: 11,
+                  fontSize: 15,
                   fill: "#78716c",
                   fontFamily: "var(--font-mono)",
                 }}
@@ -69,7 +69,7 @@ export default function BarChart({
                 dataKey="name"
                 width={180}
                 tick={{
-                  fontSize: 12,
+                  fontSize: 16,
                   fill: "#44403c",
                   fontFamily: "var(--font-body)",
                 }}
@@ -82,7 +82,7 @@ export default function BarChart({
               <XAxis
                 dataKey="name"
                 tick={{
-                  fontSize: 11,
+                  fontSize: 15,
                   fill: "#44403c",
                   fontFamily: "var(--font-body)",
                 }}
@@ -91,13 +91,13 @@ export default function BarChart({
               />
               <YAxis
                 tick={{
-                  fontSize: 11,
+                  fontSize: 15,
                   fill: "#78716c",
                   fontFamily: "var(--font-mono)",
                 }}
                 tickLine={false}
                 axisLine={false}
-                width={52}
+                width={64}
                 tickFormatter={(v: number) =>
                   `${valuePrefix}${v.toLocaleString()}${valueSuffix}`
                 }
@@ -109,7 +109,7 @@ export default function BarChart({
               backgroundColor: "#faf6f0",
               border: "1px solid #ebe5da",
               borderRadius: "2px",
-              fontSize: "12px",
+              fontSize: "16px",
               fontFamily: "var(--font-mono)",
               boxShadow: "0 4px 16px rgba(15,36,25,0.1)",
               padding: "8px 12px",

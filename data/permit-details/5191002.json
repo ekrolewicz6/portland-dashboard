@@ -1,0 +1,66 @@
+{
+  "detail_id": 5191002,
+  "metadata": {
+    "ivr_number": "5191002",
+    "permit_type": "Noise VarianceHigh Noise Impact EventOther Events",
+    "work_description": "09/25/25 1pm-5pm. Adidas employee oktoberfest celebration. On-campus event using live music. 5055 N GREELEY",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-22",
+    "issue_date": "2025-09-25",
+    "final_date": "2025-09-25",
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2025-09-25",
+      "goal_date": null,
+      "completed_date": "2025-09-25",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-09-25",
+      "goal_date": null,
+      "completed_date": "2025-09-25",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

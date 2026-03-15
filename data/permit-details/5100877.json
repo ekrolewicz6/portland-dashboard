@@ -1,0 +1,256 @@
+{
+  "detail_id": 5100877,
+  "metadata": {
+    "ivr_number": "5100877",
+    "permit_type": "Land Use ReviewType 2x procedureLDS - Land Division Review (Subdivision)",
+    "work_description": "Approval of an Adjustment to allow a through street to be private instead of dedicated to the public (33.654.150.B.1). Approval of a Preliminary Plan for a 7-lot subdivision, that will result in 7-lots, a private street tract, and a public pedestrian connection, as illustrated with Exhibits A.3 and C.1 ¿ C.7, subject to the following conditions: A.Supplemental Plan. An additional supplemental plan shall be submitted with the final plat survey for Land Use Services & Fire review and approval. That plan must portray how the conditions of approval listed below are met. In addition, the supplemental plan must show the following:¿The fire access lane with a turning radius of 28 feet inside, 48 feet outside, from both directions.¿Any other information specifically noted in the conditions listed below. B.The final plat must show the following: 1.The applicant shall meet the street dedication requirements of the City Engineer for NE Klickitat Street and the public pedestrian connection. The required right-of-way dedication must be shown on the final plat. 2.The private street tract shall be named, with approval from the City Engineer, and noted on the plat as \"Tract A: [Name of Street] (Private Street)\". 3.A private access easement must be shown over the relevant portions of Lot 3 for the benefit of property addressed 10627 NE Fargo Street. The easement shall allow use of this area for all of the purposes that a driveway would be typically used for. 4.A Public Access Easement must be shown over the sidewalk portion(s) of the street tract. 5.A public sanitary sewer easement, granted to the City of Portland, shall be shown over the relevant portions of the private street, to the satisfaction of the Bureau of Environmental Services. 6.An Emergency Vehicle Access Easement, granted to the City of Portland, shall be shown over the relevant portions of the private street to the satisfaction of the Fire Bureau. 7.A recording block for each of the legal",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-12",
+    "issue_date": "2026-03-12",
+    "final_date": null,
+    "status": "Decision Rendered"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-21",
+      "goal_date": null,
+      "completed_date": "2025-04-01",
+      "staff_contact": "Williams,Sean   503-865-6441"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": "2024-11-12",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-12",
+      "goal_date": null,
+      "completed_date": "2026-03-12",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": "2024-11-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-03-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Tentative Decision",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-12",
+      "goal_date": null,
+      "completed_date": "2026-03-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-12",
+      "goal_date": null,
+      "completed_date": "2026-03-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-23",
+      "goal_date": "2025-10-30",
+      "completed_date": "2025-10-23",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-23",
+      "goal_date": "2025-05-24",
+      "completed_date": "2025-05-23",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-23",
+      "goal_date": "2025-09-23",
+      "completed_date": "2025-09-23",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Site Dev Review - RFC",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-26",
+      "goal_date": "2024-11-26",
+      "completed_date": "2024-11-26",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-12",
+      "goal_date": "2025-05-24",
+      "completed_date": "2025-05-12",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-06",
+      "goal_date": "2024-12-06",
+      "completed_date": "2024-12-06",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-20",
+      "goal_date": "2025-09-23",
+      "completed_date": "2025-10-20",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-09-23",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-23",
+      "goal_date": "2025-05-24",
+      "completed_date": "2025-05-23",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-20",
+      "goal_date": "2024-11-22",
+      "completed_date": "2024-11-20",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-23",
+      "completed_date": "2025-09-16",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-15",
+      "goal_date": "2025-05-24",
+      "completed_date": "2025-05-15",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-11-19",
+      "goal_date": "2024-11-22",
+      "completed_date": "2024-11-19",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-23",
+      "goal_date": "2025-05-24",
+      "completed_date": "2025-05-23",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-23",
+      "goal_date": "2025-09-23",
+      "completed_date": "2025-09-23",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-23",
+      "goal_date": "2025-05-24",
+      "completed_date": "2025-05-23",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    }
+  ]
+}

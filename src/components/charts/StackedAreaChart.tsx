@@ -54,16 +54,16 @@ export default function StackedAreaChart({
           />
           <XAxis
             dataKey={xKey}
-            tick={{ fontSize: 11, fill: "#78716c", fontFamily: "var(--font-mono)" }}
+            tick={{ fontSize: 15, fill: "#78716c", fontFamily: "var(--font-mono)" }}
             tickLine={false}
             axisLine={{ stroke: "#d6d3d1", strokeOpacity: 0.5 }}
             interval="preserveStartEnd"
           />
           <YAxis
-            tick={{ fontSize: 11, fill: "#78716c", fontFamily: "var(--font-mono)" }}
+            tick={{ fontSize: 15, fill: "#78716c", fontFamily: "var(--font-mono)" }}
             tickLine={false}
             axisLine={false}
-            width={52}
+            width={64}
             tickFormatter={(v: number) => v.toLocaleString()}
           />
           <Tooltip
@@ -71,7 +71,7 @@ export default function StackedAreaChart({
               backgroundColor: "#faf6f0",
               border: "1px solid #ebe5da",
               borderRadius: "2px",
-              fontSize: "12px",
+              fontSize: "16px",
               fontFamily: "var(--font-mono)",
               boxShadow: "0 4px 16px rgba(15,36,25,0.1)",
               padding: "8px 12px",
@@ -87,7 +87,7 @@ export default function StackedAreaChart({
             }}
           />
           <Legend
-            wrapperStyle={{ fontSize: "11px", fontFamily: "var(--font-mono)" }}
+            wrapperStyle={{ fontSize: "15px", fontFamily: "var(--font-mono)" }}
             formatter={(value: string) => {
               const area = areas.find((a) => a.key === value);
               return area?.label ?? value;

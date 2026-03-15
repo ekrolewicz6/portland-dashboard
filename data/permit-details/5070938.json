@@ -1,0 +1,26 @@
+{
+  "detail_id": 5070938,
+  "metadata": {
+    "ivr_number": "5070938",
+    "permit_type": "Transportation ReviewEncroachment",
+    "work_description": "ENCROACHMENT -Private, Storm Drainage Pipe-",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Notified"
+  },
+  "activities": [
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PBOT DR Encroachments"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "detail_id": 5070859,
+  "metadata": {
+    "ivr_number": "5070859",
+    "permit_type": "Fire Systems PermitFixed Extinguishing SystemsAddition",
+    "work_description": "FIXED SYSTEM - ADDITION OF TANK AND NOZZLES TO COVER A TILT SKILLET",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-07",
+    "issue_date": "2024-08-14",
+    "final_date": "2025-11-07",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-07",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-07",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Trip Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-05",
+      "goal_date": null,
+      "completed_date": "2025-11-05",
+      "staff_contact": "Welch,Marc   503-793-0033"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-05",
+      "goal_date": null,
+      "completed_date": "2025-11-05",
+      "staff_contact": "Welch,Marc   503-793-0033"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-07",
+      "goal_date": null,
+      "completed_date": "2025-11-07",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

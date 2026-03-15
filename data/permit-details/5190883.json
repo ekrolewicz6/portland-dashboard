@@ -1,0 +1,66 @@
+{
+  "detail_id": 5190883,
+  "metadata": {
+    "ivr_number": "5190883",
+    "permit_type": "Tree CodeOtherRight-of-Way",
+    "work_description": "Street Tree Non-Seasonal Lighting Permit",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-15",
+    "issue_date": "2025-11-04",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-16",
+      "completed_date": "2025-09-16",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-04",
+      "goal_date": "2026-11-18",
+      "completed_date": null,
+      "staff_contact": "Knoblauch,Cory   503-260-2081"
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-04",
+      "goal_date": "2027-11-28",
+      "completed_date": null,
+      "staff_contact": "Knoblauch,Cory   503-260-2081"
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-04",
+      "goal_date": "2028-11-04",
+      "completed_date": null,
+      "staff_contact": "Knoblauch,Cory   503-260-2081"
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-11-04",
+      "goal_date": null,
+      "completed_date": "2025-11-04",
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "detail_id": 5190881,
+  "metadata": {
+    "ivr_number": "5190881",
+    "permit_type": "Land Use ReviewType 1 procedure newDZ: Design Review",
+    "work_description": "Approval for the removal of an existing storefront window system and replace with a new sectional overhead door and a transom window above. The proposed new configuration will match the existing black storefront system and window proportions. Approval per the approved site plans, Exhibits C-1 through C-5, signed and dated October 13, 2025, subject to the following conditions: A.A finalized [zoning or building] permit must be obtained to document the approved project. As part of the application submittal, the following development-related conditions (B through C) must be noted on each of the site plans or included as a separate sheet. The sheet on which this information appears must be labeled \"ZONING COMPLIANCE PAGE - Case File LU 25-074731 DZ.\" All requirements must be graphically represented on the site plan, landscape, or other required plan and must be labeled \"REQUIRED.\" B.At the time of permit submittal, a signed Certificate of Compliance form (https://www.portland.gov/ppd/documents/design-and-historic-resource-review-approvals-certificate-compliance) must be submitted to ensure the permit plans comply with the Design/Historic Resource Review decision and approved exhibits. C.No field changes allowed.",
+    "address": null,
+    "setup_date": "2025-09-11",
+    "under_review_date": "2025-09-11",
+    "issue_date": "2025-10-14",
+    "final_date": "2025-10-22",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-14",
+      "goal_date": null,
+      "completed_date": "2025-10-14",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": "2025-09-25",
+      "staff_contact": "Heron,Tim   503-823-7726"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": "2025-09-29",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-14",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-08",
+      "goal_date": null,
+      "completed_date": "2026-01-08",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-26",
+      "goal_date": "2025-10-13",
+      "completed_date": "2025-09-26",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-07",
+      "goal_date": "2025-10-13",
+      "completed_date": "2025-10-07",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    }
+  ]
+}

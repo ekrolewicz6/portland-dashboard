@@ -1,0 +1,56 @@
+{
+  "detail_id": 5070948,
+  "metadata": {
+    "ivr_number": "5070948",
+    "permit_type": "On-Site Sewage Evaluations & ServicesCommercial/2 or More Family Res/OtherDecommission Sewage Disposal System",
+    "work_description": "Decommission cesspool(s)",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-08-12",
+    "final_date": null,
+    "status": "Under Inspection"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Decommissioning Req'd?",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "842 Decommission System(Pumped & Filled)",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Not Approved",
+      "last_activity_date": "2024-08-20",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "Recorded Waiver Rec'd",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    }
+  ]
+}

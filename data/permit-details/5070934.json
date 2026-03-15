@@ -1,0 +1,86 @@
+{
+  "detail_id": 5070934,
+  "metadata": {
+    "ivr_number": "5070934",
+    "permit_type": "Fire Systems PermitFire AlarmsNew",
+    "work_description": "ALARM - FIRE ALARM SPRINKLER MONITORING",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-07",
+    "issue_date": "2024-08-14",
+    "final_date": "2024-09-25",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-07",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-07",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Alarm/Supervision",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-28",
+      "goal_date": null,
+      "completed_date": "2024-08-28",
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-26",
+      "goal_date": null,
+      "completed_date": "2024-09-26",
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-07",
+      "goal_date": null,
+      "completed_date": "2024-11-07",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

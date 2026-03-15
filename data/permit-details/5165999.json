@@ -1,0 +1,166 @@
+{
+  "detail_id": 5165999,
+  "metadata": {
+    "ivr_number": "5165999",
+    "permit_type": "HousingGeneralComplaint",
+    "work_description": "Complaint Rcvd: trackit #2906779 w/ photos and more info for possible WWOP/ occupancy in non habitable space",
+    "address": null,
+    "setup_date": "2025-06-26",
+    "under_review_date": "2025-06-26",
+    "issue_date": "2025-07-03",
+    "final_date": null,
+    "status": "Notified"
+  },
+  "activities": [
+    {
+      "activity_name": "Receivership",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2026-01-22",
+      "goal_date": "2026-01-29",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Reinspection - HS",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-22",
+      "goal_date": "2026-01-29",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "30 Day Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Mendez,Edgar   503-823-8438"
+    },
+    {
+      "activity_name": "60 Day Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Mendez,Edgar   503-823-8438"
+    },
+    {
+      "activity_name": "3 Month Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": "2026-06-03",
+      "completed_date": null,
+      "staff_contact": "Mendez,Edgar   503-823-8438"
+    },
+    {
+      "activity_name": "Close - HS/AC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Notice of Possible Lien",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": "2026-06-03",
+      "completed_date": null,
+      "staff_contact": "Nicholson,Bill Inactive"
+    },
+    {
+      "activity_name": "Mailed Notices - HS",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Mendez,Edgar   503-823-8438"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - HS, DB",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "APW- Active Permit Waiver",
+      "last_activity_date": "2025-12-26",
+      "goal_date": "2026-06-03",
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Fee Admin Review",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Fee Adjustment",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Dangerous Building Referral",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

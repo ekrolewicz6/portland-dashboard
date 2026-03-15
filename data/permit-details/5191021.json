@@ -1,0 +1,146 @@
+{
+  "detail_id": 5191021,
+  "metadata": {
+    "ivr_number": "5191021",
+    "permit_type": "Land Use ReviewType 2 procedureEN: Environmental Review",
+    "work_description": "The purpose of the proposal is to retroactively address unpermitted development within the resource area of the environmental conservation overlay. The unpermitted development includes: ¿Installation of two segments of a floating dock measuring 656 square feet (sq ft) total, a 131-foot long by 4-foot-wide aluminum gangway, two 12-inch diameter steel pilings, and installation of plastic sleeves around four existing 12-inch pilings to support the floating dock segments, as well as construction of a gangway landing;¿Construction of a 1,000 sq ft deck on the back (river) side of the house;¿Development of a 413 sq ft west of the deck for fire pit area;¿Clearing of native vegetation and construction of a 1,785 sq ft gravel driveway. The proposed conditions include the following: ¿Retaining the eight-foot by 34-foot (272 sq ft) dock segment, the pilings, the gangway, and the gangway landing. The six-foot by 64-foot (384 sq ft) segment of dock will be removed via barge or work vessel; the removed segment of dock will be floated away and placed at an upland location;¿Reduction in the size of the deck by 179 sq ft by removing 3.2 feet of decking from the riverward portion of the deck so that no portion extends beyond top of bank. The area below the removed decking will be planted with native shrubs;¿Removal of the fire pit and sand that was placed in the fire pit area. The area will be planted with native trees and shrubs;¿The gravel driveway has since been removed and reseeded and replanted with native groundcovers and shrubs. Nuisance species removal on the bank and in the trees on the west side of the property is also proposed as part of the remediation plan. Non-native ornamental plantings will be removed and replaced with native species. The request includes retroactive approval of development within the environmental conservation overlay zone. In order to occur by right, certain standards must be met. In this case, at least 3 standards were no",
+    "address": null,
+    "setup_date": "2025-09-11",
+    "under_review_date": "2025-09-11",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Pending"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Novak,Timothy   503-823-5395"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-27",
+      "goal_date": null,
+      "completed_date": "2026-02-27",
+      "staff_contact": "Novak,Timothy   503-823-5395"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-27",
+      "goal_date": null,
+      "completed_date": "2026-03-03",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-03-05",
+      "goal_date": "2026-03-24",
+      "completed_date": null,
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-27",
+      "goal_date": "2026-03-24",
+      "completed_date": null,
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-03-04",
+      "goal_date": "2026-03-24",
+      "completed_date": null,
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-03-04",
+      "goal_date": "2026-03-24",
+      "completed_date": null,
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-22",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-22",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-03-03",
+      "goal_date": "2026-03-24",
+      "completed_date": null,
+      "staff_contact": "Olson,Neil   971-480-0805"
+    }
+  ]
+}

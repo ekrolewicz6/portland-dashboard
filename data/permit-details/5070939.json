@@ -1,0 +1,26 @@
+{
+  "detail_id": 5070939,
+  "metadata": {
+    "ivr_number": "5070939",
+    "permit_type": "Public RegistryTier 1DMV",
+    "work_description": "DMV location approval for auto sales",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "DMV P & Z",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Richling,Jason   503-865-6393"
+    }
+  ]
+}

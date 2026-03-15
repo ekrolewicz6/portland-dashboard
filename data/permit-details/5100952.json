@@ -1,0 +1,66 @@
+{
+  "detail_id": 5100952,
+  "metadata": {
+    "ivr_number": "5100952",
+    "permit_type": "Tree CodeOtherRight-of-Way",
+    "work_description": "PEMO Ornamental Lighting application",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-12",
+    "issue_date": "2024-11-21",
+    "final_date": null,
+    "status": "Expired - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2024-11-14",
+      "goal_date": "2024-11-14",
+      "completed_date": "2024-11-14",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": "2024-11-21",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Derrick,DrewJ.   503-313-9630"
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Conditions Met",
+      "last_activity_date": "2026-01-13",
+      "goal_date": "2026-01-13",
+      "completed_date": "2026-01-13",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-01-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Derrick,DrewJ.   503-313-9630"
+    }
+  ]
+}

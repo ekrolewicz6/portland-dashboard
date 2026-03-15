@@ -1,0 +1,176 @@
+{
+  "detail_id": 5070957,
+  "metadata": {
+    "ivr_number": "5070957",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingAlteration",
+    "work_description": "SINGLEPDF - REVISION FOR ELECTRICAL UPGRADE CHANGES",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-08-09",
+    "final_date": null,
+    "status": "Expired"
+  },
+  "activities": [
+    {
+      "activity_name": "EXTENSION",
+      "activity_type": "CONVERSION",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-01-28",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-21",
+      "goal_date": null,
+      "completed_date": "2025-03-21",
+      "staff_contact": "Moore,Elizabeth   503-823-7135"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": "2024-08-15",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Moore,Katie   503-865-6429"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Cooley,John   503-865-6533"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Not Approved",
+      "last_activity_date": "2025-02-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION N/NW TEAM"
+    }
+  ]
+}

@@ -75,7 +75,7 @@ export default function PieChart({
               backgroundColor: "#faf6f0",
               border: "1px solid #ebe5da",
               borderRadius: "2px",
-              fontSize: "12px",
+              fontSize: "16px",
               fontFamily: "var(--font-mono)",
               boxShadow: "0 4px 16px rgba(15,36,25,0.1)",
             }}
@@ -86,7 +86,7 @@ export default function PieChart({
           />
           <Legend
             wrapperStyle={{
-              fontSize: "12px",
+              fontSize: "16px",
               fontFamily: "var(--font-body)",
               paddingTop: "8px",
             }}

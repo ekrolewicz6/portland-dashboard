@@ -1,0 +1,46 @@
+{
+  "detail_id": 5101038,
+  "metadata": {
+    "ivr_number": "5101038",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ PAPERCUT SOFTWARE STE 700 7TH FLR TI; MINOR DEMO; NEW WALL TO CREATE LOBBY, OFFICE SPACE, QUIET RM, VIDEO EDIT RM, PRINTER NURSERY, PHONE RMS, LISTENING LOUNGES, FLEX RM, CAFE AREA, REMODEL CONF RMS, ALL HANDS RM, PHONE RM, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-13",
+    "issue_date": "2024-11-13",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": "2024-11-13",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}
