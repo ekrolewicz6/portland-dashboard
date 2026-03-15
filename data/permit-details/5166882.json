@@ -1,0 +1,36 @@
+{
+  "detail_id": 5166882,
+  "metadata": {
+    "ivr_number": "5166882",
+    "permit_type": "Public RegistryTier 2Land Use Compatibility Statement",
+    "work_description": "LUCS for DEQ - Water quality NPDES stormwater general permit.The site is zoned EG2 industrial and is considered vacant land. There is an existing shared asphalt access drive that has easement to the adjacent property to the east. No work will occur withing the paved shared access drive. The current scope includes importing approve fill material for grading work only to fill the site above it's current grades because the site as it exists is too flat and has been a deterrent for developers to purchase the land to develop. The fill process will be documented by a Professional Geo-technical Engineer licensed in Oregon. No other infrastructure or development is proposed with this work, only importing the fill to be placed, graded and compacted and then covered with approved erosion control vegetation until such time a developer decides to move forward with a development project.",
+    "address": null,
+    "setup_date": "2025-07-01",
+    "under_review_date": "2025-07-02",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-02",
+      "goal_date": null,
+      "completed_date": "2025-07-02",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-08-04",
+      "goal_date": "2025-07-22",
+      "completed_date": "2025-08-04",
+      "staff_contact": "Moore,Katie   503-865-6429"
+    }
+  ]
+}

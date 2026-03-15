@@ -1,0 +1,96 @@
+{
+  "detail_id": 5191806,
+  "metadata": {
+    "ivr_number": "5191806",
+    "permit_type": "Public RegistrySites with House(s) or Duplex(es)PLA with Lot Confirmation",
+    "work_description": "The subject property has a property line between two existing lots. This proposal is to relocate the existing property line from south of the existing house to north of the house at an existing fence line.",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Decision Rendered"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-14",
+      "goal_date": null,
+      "completed_date": "2025-10-14",
+      "staff_contact": "Williams,Sean   503-865-6441"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Site Development Review - PR",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-10-02",
+      "goal_date": "2025-10-02",
+      "completed_date": "2025-10-02",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Life Safety Review - PR",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-19",
+      "goal_date": "2025-10-02",
+      "completed_date": "2025-09-19",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "BES Development Srv - PR",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-02",
+      "goal_date": "2025-10-02",
+      "completed_date": "2025-10-02",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Water Review - PR",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-10-01",
+      "goal_date": "2025-10-02",
+      "completed_date": "2025-10-01",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

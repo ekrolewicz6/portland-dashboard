@@ -1,0 +1,56 @@
+{
+  "detail_id": 5191985,
+  "metadata": {
+    "ivr_number": "5191985",
+    "permit_type": "Land Use ReviewType 2 procedureCU: Conditional Use",
+    "work_description": "Short term rental of 4 bedrooms",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Pending"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    }
+  ]
+}

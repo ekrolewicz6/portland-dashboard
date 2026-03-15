@@ -1,0 +1,56 @@
+{
+  "detail_id": 5191867,
+  "metadata": {
+    "ivr_number": "5191867",
+    "permit_type": "NuisanceOther- NUComplaint",
+    "work_description": "Complaint Received: Garbage chute in clogged all the way up to the third floor creating a foul odor.",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": "2025-10-21",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2025-09-24",
+      "completed_date": null,
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-21",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

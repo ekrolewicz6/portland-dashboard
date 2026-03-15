@@ -1,0 +1,46 @@
+{
+  "detail_id": 5166935,
+  "metadata": {
+    "ivr_number": "5166935",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "FULL PDOX PROCESS/ OHSU HOSPITAL EMERGENCY DEPARTMENT REMODEL 8TH FLR; EXTERIOR - NEW WALLS TO CREATE UNCONDITIONED ENTRY VESTIBULE, ENTRY CANOPY, SIDEWALKS, RAMPS W/ HANDRAILS, BOLLARDS, SEAT WALLS, RETAINING WALLS, PARKING LOT UPDATES, INTERIOR - DEMO WALLS, NEW WALLS TO CREATE OHSU POLICE RM, PEDS ED WAITING AREA, BATHRMS, CT RMS, CONTROL RM, TRIAGE RMS, CHECK IN RM, NURSES STATIONS, TREATMENT RMS, CLEAN SUPPLY/MED RMS, SOILED WORKRMS, HOLDING AREAS, ELEC RMS, MECHANICAL SHAFT, STAFF LOCKER RMS, MEDICATION RM, TELECOM RM, PEDS ED FLEX RMS, EVS RM, CLEAN SUPPLY STORAGE RM, STAFF BREAK RM, OFFICES, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": "2025-06-30",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

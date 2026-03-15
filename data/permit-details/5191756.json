@@ -1,0 +1,36 @@
+{
+  "detail_id": 5191756,
+  "metadata": {
+    "ivr_number": "5191756",
+    "permit_type": "Tree CodeOtherRight-of-Way",
+    "work_description": "Street Tree Chemical Treatment Permit",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": "2025-10-09",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2025-09-18",
+      "goal_date": "2025-09-18",
+      "completed_date": "2025-09-18",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "detail_id": 5166901,
+  "metadata": {
+    "ivr_number": "5166901",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ KILLIAN PACIFIC TI LL; FIRST TIME TENANT, OCCUPANCY B, EXT - INSTALL NEW WINDOWS, INT - MINOR DEMO, NEW WALLS TO CREATE VESTIBULE, LIVING AREA, ENTRY LOBBY, BREAKRM, UPPER LOUNGE AREA, CONFERENCE RMS, OPEN OFFICE AREA, LOWER LOUNGE AREA, COPY/PRINT AREA, COAT CLOSET, RESTRMS, WELLNESS RM, STORAGE/SERVER RM, OFFICES, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": "2025-06-30",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": "2025-06-30",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

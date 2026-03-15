@@ -1,0 +1,36 @@
+{
+  "detail_id": 5141913,
+  "metadata": {
+    "ivr_number": "5141913",
+    "permit_type": "Tree CodePruningRight-of-Way",
+    "work_description": "Applicant requested street trees need to be pruned for new pylons.",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": "2025-04-22",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit Required",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-09",
+      "completed_date": "2025-04-09",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-04-22",
+      "goal_date": null,
+      "completed_date": "2025-04-22",
+      "staff_contact": ""
+    }
+  ]
+}

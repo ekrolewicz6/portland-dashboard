@@ -1,0 +1,166 @@
+{
+  "detail_id": 5071784,
+  "metadata": {
+    "ivr_number": "5071784",
+    "permit_type": "Early AssistanceDA - Design Advice Request",
+    "work_description": "HLC HEARING - The Jefferson High School Modernization will be designed for an average student capacity of 1,700 students. As a focus school, additional space will be necessary to support dance and theater programs, as well as expanded Community Partner programs supporting JHS¿s Middle College focus. Total anticipated gross square footage for the new facility will be approximately 320,000 GSF. We are requesting time at the September 9 Historic Landmarks Commission meeting to update commissioners on the project and to seek feedback on the design approach.",
+    "address": null,
+    "setup_date": "2024-08-09",
+    "under_review_date": "2024-08-09",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "BES Source Ctrl - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": "2024-08-19",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Watershed Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": "2024-08-19",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": "2024-08-19",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Schedule Hearing Date",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-14",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Memo to Commission",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-16",
+      "goal_date": null,
+      "completed_date": "2024-09-04",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Hearing",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-16",
+      "goal_date": null,
+      "completed_date": "2024-09-09",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Mail DA Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-16",
+      "goal_date": null,
+      "completed_date": "2024-10-11",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": "2024-08-19",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": "2024-08-23",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

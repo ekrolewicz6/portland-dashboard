@@ -1,0 +1,186 @@
+{
+  "detail_id": 5071727,
+  "metadata": {
+    "ivr_number": "5071727",
+    "permit_type": "Commercial Building PermitMercantileAlteration",
+    "work_description": "SINGLE PDF - NON-VALUE ADDED REVISION FOR PLUMBING PLAN REVIEW - NO CHANGES TO FLOOR PLAN LAYOUT",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2024-08-08",
+    "issue_date": "2024-10-24",
+    "final_date": "2025-03-20",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-22",
+      "goal_date": null,
+      "completed_date": "2024-08-22",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-03-27",
+      "goal_date": null,
+      "completed_date": "2025-03-27",
+      "staff_contact": "Moore,Elizabeth   503-823-7135"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-08-23",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-08-23",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Nistler,Tracy   503-823-3622"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-21",
+      "goal_date": null,
+      "completed_date": "2024-08-21",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-21",
+      "goal_date": null,
+      "completed_date": "2024-08-21",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Nistler,Tracy   503-823-3622"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Nistler,Tracy   503-823-3622"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Commercial Plumbing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-13",
+      "goal_date": null,
+      "completed_date": "2024-08-13",
+      "staff_contact": "James,McKenzie   503-823-6754"
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Nistler,Tracy   503-823-3622"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-21",
+      "goal_date": null,
+      "completed_date": "2024-08-21",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-03-20",
+      "goal_date": null,
+      "completed_date": "2025-03-20",
+      "staff_contact": "Rowland,Elgin   503-823-8171"
+    }
+  ]
+}

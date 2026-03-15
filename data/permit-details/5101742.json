@@ -1,0 +1,126 @@
+{
+  "detail_id": 5101742,
+  "metadata": {
+    "ivr_number": "5101742",
+    "permit_type": "Land Use ReviewType 2 procedureTV - Tree Preservation Plan Violation",
+    "work_description": "Approval of a Tree Violation Review to correct a violation resulting from the removal of an 18-inch Big Leaf Maple tree required to be preserved as part of LU 15-277518 LDS, as illustrated on Exhibit C.1, signed and dated January 10, 2025, subject to the following conditions: A.The applicant shall obtain a revision to permit 22-178209 RS to plant 5 Western Flowering Dogwoods or other native trees selected from the Portland Plant List that grow to a small size. These trees will replace the Japanese Maples previously approved for the site. Should this permit expire or no longer be pursued, one native trees shall be planted, in addition to trees planted to meet tree density, with any future building permit on Lot 6 (Spring Landing). B.The applicant must pay into the City Tree Preservation and Planting Fund the amount equivalent to 3 trees. Payment must be made to Portland Permitting & Development, who administers the fund for the Parks Bureau, and must be made prior to approval of the permit revision identified in condition A above, or within 45 days of this decision, whichever is sooner.",
+    "address": null,
+    "setup_date": "2024-11-13",
+    "under_review_date": "2024-11-13",
+    "issue_date": "2025-01-13",
+    "final_date": "2025-02-18",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-04",
+      "goal_date": null,
+      "completed_date": "2024-11-27",
+      "staff_contact": "Wickstrom,Matt   503-865-6513"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-13",
+      "goal_date": null,
+      "completed_date": "2025-01-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-05",
+      "goal_date": null,
+      "completed_date": "2024-12-09",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-13",
+      "goal_date": null,
+      "completed_date": "2025-01-14",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-18",
+      "goal_date": null,
+      "completed_date": "2025-02-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-18",
+      "goal_date": null,
+      "completed_date": "2025-02-18",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-20",
+      "goal_date": "2024-12-30",
+      "completed_date": "2024-12-20",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-18",
+      "goal_date": "2024-12-30",
+      "completed_date": "2024-12-18",
+      "staff_contact": "Altman,Guy Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-27",
+      "goal_date": "2024-12-30",
+      "completed_date": "2024-12-27",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-26",
+      "goal_date": "2024-12-30",
+      "completed_date": "2024-12-26",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    }
+  ]
+}

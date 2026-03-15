@@ -1,0 +1,46 @@
+{
+  "detail_id": 5141725,
+  "metadata": {
+    "ivr_number": "5141725",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ TERWILLIGER HEIGHTS STE 282 2ND FLR TI; MINOR REMODEL OF SUITE, FLOORING, FINISHES AND ELEC",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": "2025-04-09",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "detail_id": 5191750,
+  "metadata": {
+    "ivr_number": "5191750",
+    "permit_type": "Commercial Building PermitAssemblyAlteration",
+    "work_description": "PDOX PS - REVISION TO REDUCE THE SCOPE. 1ST FLOOR- RELOCATE BIKE STORAGE AND BREAK ROOM, KEEP OFFICE ROOMS, REMOVE CAFÉ FROM SCOPE. 3RD FLOOR REMOVE DWELLING UNIT FROM SCOPE. NO WORK ON SECOND AND THIRD FLOOR -MAINTAIN EXISTING B OCCUPACY AND EXISTING LAYOUT. w/25-081254-MT",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-10-07",
+    "issue_date": "2025-12-15",
+    "final_date": "2026-02-12",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-06",
+      "staff_contact": "Nasmyth,Eric   503-823-7313"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-06",
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-06",
+      "staff_contact": "Freeh,Steven   503-865-6535"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": "2025-10-07",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-24",
+      "goal_date": null,
+      "completed_date": "2025-11-24",
+      "staff_contact": "Nasmyth,Eric   503-823-7313"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-11",
+      "goal_date": null,
+      "completed_date": "2025-12-11",
+      "staff_contact": "Nasmyth,Eric   503-823-7313"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": "2025-10-07",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-15",
+      "goal_date": null,
+      "completed_date": "2025-12-15",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-15",
+      "goal_date": null,
+      "completed_date": "2025-12-15",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-02",
+      "goal_date": null,
+      "completed_date": "2025-12-02",
+      "staff_contact": "Messa,Gina   503-865-6425"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-21",
+      "goal_date": null,
+      "completed_date": "2025-10-21",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-03",
+      "goal_date": null,
+      "completed_date": "2025-12-03",
+      "staff_contact": "RadtkeButts,Renay   503-865-6548"
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-10-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-11",
+      "goal_date": null,
+      "completed_date": "2025-12-11",
+      "staff_contact": "Minakami,Lisa   503-865-6588"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Commercial Plumbing",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-10-14",
+      "goal_date": null,
+      "completed_date": "2025-10-14",
+      "staff_contact": "James,McKenzie   503-823-6754"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-23",
+      "goal_date": null,
+      "completed_date": "2025-10-23",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Source Control Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-10-17",
+      "goal_date": null,
+      "completed_date": "2025-10-17",
+      "staff_contact": "Bans,Alex   503-823-2585"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-12-22",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": "Hittle,Nicole   503-823-5609"
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-16",
+      "goal_date": null,
+      "completed_date": "2025-11-25",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2026-02-17",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-15",
+      "goal_date": null,
+      "completed_date": "2025-12-15",
+      "staff_contact": "Nasmyth,Eric   503-823-7313"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-02-12",
+      "goal_date": null,
+      "completed_date": "2026-02-12",
+      "staff_contact": "Brougham,Tom   503-823-8924"
+    }
+  ]
+}

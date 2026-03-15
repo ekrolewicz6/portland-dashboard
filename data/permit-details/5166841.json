@@ -1,0 +1,56 @@
+{
+  "detail_id": 5166841,
+  "metadata": {
+    "ivr_number": "5166841",
+    "permit_type": "Dangerous BuildingGeneral",
+    "work_description": "Excavated basement to be reused for new house. See 24-055592-RS for demo permit. Fee paid on demo RS revision.",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Request"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - DB",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": "2025-07-07",
+      "completed_date": null,
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Close - DB",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - DB",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Waiver - HS, DB",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

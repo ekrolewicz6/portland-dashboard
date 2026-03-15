@@ -1,0 +1,46 @@
+{
+  "detail_id": 5191909,
+  "metadata": {
+    "ivr_number": "5191909",
+    "permit_type": "Disabled VehicleComplaint",
+    "work_description": "Complaint Received: Disabled vehicle that has been on property for 10+ years. Engine oil leaking onto neighboring property.",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": "2025-09-18",
+    "status": "Priority 3- No Action"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - DV",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Close - DV",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-12",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

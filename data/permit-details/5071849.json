@@ -1,0 +1,66 @@
+{
+  "detail_id": 5071849,
+  "metadata": {
+    "ivr_number": "5071849",
+    "permit_type": "Noise VarianceOther ApplicationsConcert",
+    "work_description": "AUTO APPROVAL 08/18/24 6pm-8pm Band Concert. Wind Ensemble. 3 flutes2 oboes, 2 bassoons, 8 clarinets, 4 saxophones, 5 french horns, 5 trumpets, 3 trombones, 2 euphonium2 tuba, 5 percussion: bass drum, snare drum, xylophone , small hand held items.Cathedral Park Amphitheater",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2025-07-08",
+    "issue_date": "2025-08-12",
+    "final_date": "2024-08-18",
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-07-08",
+      "goal_date": null,
+      "completed_date": "2025-07-08",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-08-12",
+      "goal_date": null,
+      "completed_date": "2025-08-12",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

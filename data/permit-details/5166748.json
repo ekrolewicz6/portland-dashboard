@@ -1,0 +1,96 @@
+{
+  "detail_id": 5166748,
+  "metadata": {
+    "ivr_number": "5166748",
+    "permit_type": "NuisanceOwner OccupiedComplaint",
+    "work_description": "Complaint received. Trash, Debris, and non-trash items littering property. CAOK",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": "2025-09-02",
+    "final_date": "2025-10-20",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-20",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": "2025-08-27",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-20",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Sewer Video",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

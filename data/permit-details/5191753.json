@@ -1,0 +1,96 @@
+{
+  "detail_id": 5191753,
+  "metadata": {
+    "ivr_number": "5191753",
+    "permit_type": "Facility PermitMasterMaster",
+    "work_description": "",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": "2025-09-17",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Master Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Heimann,Carrie   503-823-0652"
+    },
+    {
+      "activity_name": "Orient. Inspect - Building",
+      "activity_type": "Reviews",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "Orient. Inspect - Mechanical",
+      "activity_type": "Reviews",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Quattlebaum,Brian   503-823-8131"
+    },
+    {
+      "activity_name": "Orient. Inspect - Plumbing",
+      "activity_type": "Reviews",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Kane,Michael   503-823-1850"
+    },
+    {
+      "activity_name": "Orient. Inspect - Electrical",
+      "activity_type": "Reviews",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "Orient. Inspect - Fire",
+      "activity_type": "Reviews",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Pena,Geoffrey   503-209-1833"
+    },
+    {
+      "activity_name": "Master Pre-Issuance Check - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2026-03-16",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

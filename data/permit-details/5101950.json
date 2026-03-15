@@ -1,0 +1,76 @@
+{
+  "detail_id": 5101950,
+  "metadata": {
+    "ivr_number": "5101950",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingInterior Alteration Only",
+    "work_description": "MASTER / MISC (Contractor Questions , Research , Phone Calls , etc)",
+    "address": null,
+    "setup_date": "2024-11-15",
+    "under_review_date": "2024-11-15",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application"
+  },
+  "activities": [
+    {
+      "activity_name": "FIR Plan Review Time Tracking",
+      "activity_type": "FIR Time Tracking",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "FIR Inspection Time Tracking",
+      "activity_type": "FIR Time Tracking",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": "2024-11-15",
+      "staff_contact": "Parke,Diane   503-823-7298"
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

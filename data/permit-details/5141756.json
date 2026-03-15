@@ -1,0 +1,26 @@
+{
+  "detail_id": 5141756,
+  "metadata": {
+    "ivr_number": "5141756",
+    "permit_type": "Clean River Rewards ProgramResidential & Duplex",
+    "work_description": "This property is partnering with BES to install a voluntary Private Property Stormwater Retrofit Facility as per BDS Program Guide standards. For more information, please refer to the attached Operations and Maintenance plan. BES contact is (503)823-5858 or drainage.inquiries@portlandoregon.gov",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": null,
+    "final_date": "2025-04-11",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Received Case",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

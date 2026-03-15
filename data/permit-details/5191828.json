@@ -1,0 +1,136 @@
+{
+  "detail_id": 5191828,
+  "metadata": {
+    "ivr_number": "5191828",
+    "permit_type": "Land Use ReviewType 1x procedureHR - Historic Resource Review",
+    "work_description": "Approval of alterations are to the one-story non-original addition facing NW 10th Street to the Ballou & Wright Warehouse, an Individually listed Landmark. These include: ¿New internally-illuminated sign comprised of face lit pan channel letters, measuring approximately 26 SF, mounted over the storefront.¿New internally-illuminated blade sign, measuring 6 SF, mounted over the garage door. ¿New storefront system, infill at side door transom, and roll-up garage door. Approval per approved plans, Exhibits C-1 through C-18, signed and dated January 8, 2026, subject to the following conditions: A.A finalized [building or signage] permit must be obtained to document the approved project. As part of the application submittal, the following development-related conditions (B through C) must be noted on each of the site plans or included as a separate sheet. The sheet on which this information appears must be labeled \"ZONING COMPLIANCE PAGE - Case File LU 25-075640 HR.\" All requirements must be graphically represented on the site plan, landscape, or other required plan and must be labeled \"REQUIRED.\" B.At the time of permit submittal, a signed Certificate of Compliance form (https://www.portland.gov/ppd/documents/design-and-historic-resource-review-approvals-certificate-compliance) must be submitted to ensure the permit plans comply with the Design/Historic Resource Review decision and approved exhibits. C.No field changes allowed.",
+    "address": null,
+    "setup_date": "2025-09-16",
+    "under_review_date": "2025-09-16",
+    "issue_date": "2026-01-12",
+    "final_date": "2026-01-23",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-12",
+      "goal_date": null,
+      "completed_date": "2026-01-12",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-18",
+      "goal_date": null,
+      "completed_date": "2025-11-17",
+      "staff_contact": "Jeffreys,Grace   503-865-6521"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-21",
+      "goal_date": null,
+      "completed_date": "2025-11-24",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-12",
+      "goal_date": null,
+      "completed_date": "2026-01-13",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-11",
+      "goal_date": null,
+      "completed_date": "2026-02-11",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-23",
+      "goal_date": null,
+      "completed_date": "2026-01-23",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-11-21",
+      "goal_date": "2025-12-24",
+      "completed_date": "2025-11-21",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-03",
+      "goal_date": "2025-12-24",
+      "completed_date": "2025-12-03",
+      "staff_contact": "Mortensen,Steven Inactive"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-12-22",
+      "goal_date": "2025-12-24",
+      "completed_date": "2025-12-22",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-12-17",
+      "goal_date": "2025-12-24",
+      "completed_date": "2025-12-17",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-12-17",
+      "goal_date": "2025-12-24",
+      "completed_date": "2025-12-17",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

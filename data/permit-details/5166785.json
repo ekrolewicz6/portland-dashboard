@@ -1,0 +1,166 @@
+{
+  "detail_id": 5166785,
+  "metadata": {
+    "ivr_number": "5166785",
+    "permit_type": "Zoning PermitCode Compliance RequirementsCommercial",
+    "work_description": "TREE PRESERVATION Construct new parking curb and 5' landscape buffer. Modify existing parking area and landscaping. Conformance requirements for 25-035516-PR",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-07-01",
+    "issue_date": "2025-09-24",
+    "final_date": "2025-11-20",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check Building Permit Reqd",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "INTAKE"
+    },
+    {
+      "activity_name": "Completeness Check - ZP",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": "2025-07-01",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-27",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-27",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-08-22",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "Zoning Code Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Moore,Katie   503-865-6429"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Flatt,Abbot   503-865-6643"
+    },
+    {
+      "activity_name": "555 Code Compliance Inspection",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-20",
+      "goal_date": null,
+      "completed_date": "2025-11-20",
+      "staff_contact": "Lindley,Justin   503-823-8253"
+    },
+    {
+      "activity_name": "507 Tree Preservation Inspection",
+      "activity_type": "Tree Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-27",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    }
+  ]
+}

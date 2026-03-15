@@ -1,0 +1,36 @@
+{
+  "detail_id": 5166891,
+  "metadata": {
+    "ivr_number": "5166891",
+    "permit_type": "Public RegistryTier 2Land Use Compatibility Statement",
+    "work_description": "LUCS for OHCS - affordable housing",
+    "address": null,
+    "setup_date": "2025-07-02",
+    "under_review_date": "2025-07-03",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-03",
+      "goal_date": null,
+      "completed_date": "2025-07-03",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Letter Sent",
+      "last_activity_date": "2025-07-16",
+      "goal_date": "2025-07-07",
+      "completed_date": "2025-07-16",
+      "staff_contact": "Cooper,Kristin   503-865-6395"
+    }
+  ]
+}

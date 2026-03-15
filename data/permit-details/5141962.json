@@ -1,0 +1,66 @@
+{
+  "detail_id": 5141962,
+  "metadata": {
+    "ivr_number": "5141962",
+    "permit_type": "Noise ComplaintIndustrial/CommercialBand",
+    "work_description": "DJ playing loud music every Wednesday",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": "2025-04-09",
+    "final_date": null,
+    "status": "Warned"
+  },
+  "activities": [
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Inspection - NC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close - NC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-09",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Notices - NC",
+      "activity_type": "Notified",
+      "must_check": "N",
+      "activity_status": "Mailed",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Carroll,Nicholas   503-823-7350"
+    },
+    {
+      "activity_name": "Citation - Noise",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

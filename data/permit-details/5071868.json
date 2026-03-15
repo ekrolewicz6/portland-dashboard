@@ -1,0 +1,106 @@
+{
+  "detail_id": 5071868,
+  "metadata": {
+    "ivr_number": "5071868",
+    "permit_type": "ViolationCommercialSite Development",
+    "work_description": "Complaint received. Cannabis company operating in a building without proper building permits.",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2024-08-08",
+    "issue_date": "2025-01-17",
+    "final_date": null,
+    "status": "Enforcement"
+  },
+  "activities": [
+    {
+      "activity_name": "Stop Work Order",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-08-08",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-01",
+      "goal_date": "2025-02-18",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Close - VI",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": "2024-08-08",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-05-01",
+      "goal_date": "2025-04-16",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Compliance Requests - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Send Fee Doubling Letter",
+      "last_activity_date": "2025-04-07",
+      "goal_date": "2025-06-10",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Monitor for Compliance",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-15",
+      "goal_date": null,
+      "completed_date": "2025-10-29",
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-25",
+      "goal_date": "2026-08-20",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Extension of Time Granted- VI",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2026-02-25",
+      "goal_date": "2026-07-16",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "detail_id": 5166857,
+  "metadata": {
+    "ivr_number": "5166857",
+    "permit_type": "Home Occupation Permit",
+    "work_description": "Hair Salon",
+    "address": null,
+    "setup_date": "2025-06-30",
+    "under_review_date": "2025-06-30",
+    "issue_date": "2025-07-15",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - HO",
+      "activity_type": "Home Occupation Permit Issuance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": "2025-06-30",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Issue Permit",
+      "activity_type": "Home Occupation Permit Issuance",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-15",
+      "goal_date": null,
+      "completed_date": "2025-07-15",
+      "staff_contact": "Kaneshige,Joonie   503-823-2703"
+    },
+    {
+      "activity_name": "Close - HO",
+      "activity_type": "Home Occupation Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-30",
+      "goal_date": "2025-06-30",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Renewal Notice",
+      "activity_type": "Renewal",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-15",
+      "goal_date": "2027-05-31",
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

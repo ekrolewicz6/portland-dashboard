@@ -1,0 +1,36 @@
+{
+  "detail_id": 5141800,
+  "metadata": {
+    "ivr_number": "5141800",
+    "permit_type": "Tree CodeCode CompliancePrivate",
+    "work_description": "Investigate possible tree code violation",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Correction"
+  },
+  "activities": [
+    {
+      "activity_name": "Code Compliance Inspection",
+      "activity_type": "E - Code Compliance",
+      "must_check": "Y",
+      "activity_status": "Violation Found/Correction Required",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-07-01",
+      "completed_date": "2025-07-01",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Correction",
+      "activity_type": "E - Code Compliance",
+      "must_check": "N",
+      "activity_status": "Waiting On Customer",
+      "last_activity_date": "2025-07-01",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Hedges,Roger   503-318-0458"
+    }
+  ]
+}

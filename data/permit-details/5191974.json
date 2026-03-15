@@ -1,0 +1,86 @@
+{
+  "detail_id": 5191974,
+  "metadata": {
+    "ivr_number": "5191974",
+    "permit_type": "Fire Systems PermitFire SprinklersAlteration",
+    "work_description": "SPRINKLER - ADD AND RELOCATE FIRE SPRINKLER HEADS FOR TI",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": "2025-11-13",
+    "final_date": "2026-02-10",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-02",
+      "goal_date": null,
+      "completed_date": "2025-10-02",
+      "staff_contact": "Colmone,Wendi   503-823-3795"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": "2025-11-13",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Cover",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-02-10",
+      "goal_date": null,
+      "completed_date": "2026-02-10",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-02-10",
+      "goal_date": null,
+      "completed_date": "2026-02-10",
+      "staff_contact": "Wilks,Joel 503823XXXX"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-20",
+      "goal_date": null,
+      "completed_date": "2026-02-20",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "detail_id": 5141926,
+  "metadata": {
+    "ivr_number": "5141926",
+    "permit_type": "Tree CodeOtherCity",
+    "work_description": "Urban Forestry NPUP Review",
+    "address": null,
+    "setup_date": "2025-04-09",
+    "under_review_date": "2025-04-09",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code",
+      "activity_type": "Utility Review - All",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-12",
+      "goal_date": null,
+      "completed_date": "2026-01-12",
+      "staff_contact": "Thaete,Jason   971-277-0799"
+    }
+  ]
+}

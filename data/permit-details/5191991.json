@@ -1,0 +1,66 @@
+{
+  "detail_id": 5191991,
+  "metadata": {
+    "ivr_number": "5191991",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "recon P-551 150 sq-ft (10-6-2)",
+    "address": null,
+    "setup_date": "2025-09-17",
+    "under_review_date": "2025-09-17",
+    "issue_date": "2025-09-18",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-10",
+      "goal_date": null,
+      "completed_date": "2025-11-06",
+      "staff_contact": "Riche,John 503823XXXX"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-12",
+      "goal_date": null,
+      "completed_date": "2025-11-12",
+      "staff_contact": "Riche,John 503823XXXX"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Riche,John 503823XXXX"
+    }
+  ]
+}

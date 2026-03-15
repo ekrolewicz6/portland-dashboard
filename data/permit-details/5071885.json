@@ -1,0 +1,286 @@
+{
+  "detail_id": 5071885,
+  "metadata": {
+    "ivr_number": "5071885",
+    "permit_type": "Land Use ReviewType 3 procedureDZM: Design Review with Modifications",
+    "work_description": "It is the decision of the Design Commission to approve Design Review for: Approval of Design Review for a three-building mixed-use development above a shared basement parking level with approximately 272 residential units, four ground-floor retail spaces, two live/work units, and 173 below-grade parking stalls. Proposal includes extension of the Willamette River Greenway and Greenway Trail along the river frontage and provision of three public connections from Naito Parkway to the river. Approval for two Modification requests:1.Reduce the width of parking stalls by 8¿ at the columns (33.266.130.F Parking Area Layouts).2.Allow non ¿river-dependent¿ exterior lights at ground floor residential patios located within and riverward of the river setback, and within 25 feet landward of the river setback (33.475.230.B and C Exterior Lighting). Approval of the Adjustment request to allow motor vehicular access along Naito, a Major City Bikeway (33.510.263.B.1). Approval of a River Review for:¿Installation of mixed-use buildings and associated development;¿Installation of ramp and stair river access;¿Installation of a major public trail and two overlooks;¿Installation of four stormwater outfalls;¿Removal of four trees;¿Removal of seawalls and installation of fish habitat structures and native plantings; and¿Removal of a minimum of 75 piles.All within the River Environmental overlay zone and in substantial conformance with Exhibits C.99 to C.107. Approvals per Exhibits C.1-C.108, signed, stamped, and dated October 23, 2025, subject to the following conditions A-I: A. A Portland Permitting & Development (PP&D) Site Development Permit is required for inspection of the required Mitigation Plan in the River Environmental overlay zone. Separate permit(s) will be required for the proposed development. The Conditions of Approval listed below, shall be noted on appropriate plan sheets submitted for permits (building, Zoning, grading, erosion control, etc.). P",
+    "address": null,
+    "setup_date": "2024-08-08",
+    "under_review_date": "2024-08-08",
+    "issue_date": "2025-10-27",
+    "final_date": "2025-11-18",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-30",
+      "goal_date": null,
+      "completed_date": "2025-01-30",
+      "staff_contact": "Jeffreys,Grace   503-865-6521"
+    },
+    {
+      "activity_name": "Prepare \"RFR\"",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-07",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-27",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-27",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-18",
+      "goal_date": null,
+      "completed_date": "2025-11-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Schedule Hearing Date",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-06",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-21",
+      "goal_date": null,
+      "completed_date": "2025-08-25",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Posting Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-11",
+      "goal_date": null,
+      "completed_date": "2025-08-11",
+      "staff_contact": "Jeffreys,Grace   503-865-6521"
+    },
+    {
+      "activity_name": "Staff Recommendation",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-08",
+      "goal_date": null,
+      "completed_date": "2025-09-08",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Hearing",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-20",
+      "goal_date": null,
+      "completed_date": "2025-10-20",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-27",
+      "goal_date": null,
+      "completed_date": "2025-10-28",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": "2025-10-31",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-11-18",
+      "goal_date": null,
+      "completed_date": "2025-11-18",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-04",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-09-04",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Site Dev Review - RFC",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-08-21",
+      "goal_date": "2024-08-21",
+      "completed_date": "2024-08-21",
+      "staff_contact": "Wells,Kevin   503-823-5618"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-25",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-08-25",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-04",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-09-04",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Watershed Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-08-12",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-08-12",
+      "staff_contact": "Weatherly,Rachel   503-823-3086"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-08",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-09-08",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Source Ctrl - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-08-12",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-08-12",
+      "staff_contact": "Weatherly,Rachel   503-823-3086"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-08-21",
+      "goal_date": "2024-08-21",
+      "completed_date": "2024-08-21",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-25",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-08-25",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-08-13",
+      "goal_date": "2024-08-21",
+      "completed_date": "2024-08-13",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-08-26",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-08-26",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-09-05",
+      "goal_date": "2025-09-04",
+      "completed_date": "2025-09-05",
+      "staff_contact": "Collyer,Casey"
+    }
+  ]
+}

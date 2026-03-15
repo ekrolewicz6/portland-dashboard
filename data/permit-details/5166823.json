@@ -1,0 +1,26 @@
+{
+  "detail_id": 5166823,
+  "metadata": {
+    "ivr_number": "5166823",
+    "permit_type": "Tree CodeEmergencyRight-of-Way",
+    "work_description": "Emergency response to tree failure",
+    "address": null,
+    "setup_date": "2025-06-29",
+    "under_review_date": "2025-06-30",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Emergency Resolved"
+  },
+  "activities": [
+    {
+      "activity_name": "Emergency Response",
+      "activity_type": "C - Emergency",
+      "must_check": "Y",
+      "activity_status": "Emergency Resolved",
+      "last_activity_date": "2025-07-17",
+      "goal_date": "2025-07-17",
+      "completed_date": "2025-07-17",
+      "staff_contact": ""
+    }
+  ]
+}
