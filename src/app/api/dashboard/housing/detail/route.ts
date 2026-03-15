@@ -11,6 +11,7 @@ interface HousingDetailResponse {
   processingTimeTrend: { month: string; avgDays: number; count: number }[];
   processingByType: Record<string, string | number>[];
   clearanceData: Record<string, string | number>[];
+  cohortData: Record<string, string | number>[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
     unitsInPipeline: number;
@@ -249,6 +250,48 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       ...data,
     }));
 
+    // 5d. COHORT analysis: for permits APPLIED in each month, how long to clear?
+    // This eliminates survivorship bias — groups by APPLICATION date, not issued date
+    const cohortRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('month', application_date), 'YYYY-MM') as applied_month,
+        CASE
+          WHEN permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%' THEN 'Residential'
+          WHEN permit_type ILIKE '%commercial%' THEN 'Commercial'
+          WHEN permit_type ILIKE '%facility%' THEN 'Facility'
+          WHEN permit_type ILIKE '%electrical%' THEN 'Electrical'
+          WHEN permit_type ILIKE '%plumbing%' THEN 'Plumbing'
+          ELSE 'Other'
+        END as ptype,
+        count(*)::int as applied,
+        count(*) FILTER (WHERE status = 'finaled')::int as cleared,
+        ROUND(100.0 * count(*) FILTER (WHERE status = 'finaled') / NULLIF(count(*), 0))::int as clearance_pct,
+        ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days)
+          FILTER (WHERE processing_days > 0 AND processing_days <= 730))::int as median_days
+      FROM housing.permits
+      WHERE application_date IS NOT NULL
+        AND application_date >= '2023-01-01'
+      GROUP BY 1, 2
+      HAVING count(*) >= 10
+      ORDER BY 1, 2
+    `;
+
+    // Pivot into {month, Residential, Commercial, Facility, Electrical, Plumbing} rows
+    const cohortMap = new Map<string, Record<string, number>>();
+    for (const r of cohortRows) {
+      const m = r.applied_month as string;
+      if (!cohortMap.has(m)) cohortMap.set(m, {});
+      const entry = cohortMap.get(m)!;
+      const ptype = r.ptype as string;
+      entry[ptype] = Number(r.median_days) || 0;
+      entry[`${ptype}_clearance`] = Number(r.clearance_pct) || 0;
+      entry[`${ptype}_applied`] = Number(r.applied) || 0;
+    }
+    const cohortData = [...cohortMap.entries()].map(([month, data]) => ({
+      month,
+      ...data,
+    }));
+
     // 6. Valuation by year — exclude current incomplete year
     const valuationRows = await sql`
       SELECT
@@ -350,6 +393,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       processingTimeTrend,
       processingByType,
       clearanceData,
+      cohortData,
       valuationByYear,
       heroStats: {
         unitsInPipeline,
@@ -375,6 +419,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         processingTimeTrend: [],
         processingByType: [],
         clearanceData: [],
+        cohortData: [],
         valuationByYear: [],
         heroStats: {
           unitsInPipeline: 0,

@@ -26,6 +26,7 @@ interface HousingDetailData {
   processingTimeTrend: { month: string; avgDays: number }[];
   processingByType: Record<string, string | number>[];
   clearanceData: Record<string, string | number>[];
+  cohortData: Record<string, string | number>[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
     unitsInPipeline: number;
@@ -101,6 +102,7 @@ export default function HousingDetail() {
     processingTimeTrend,
     processingByType,
     clearanceData,
+    cohortData,
     valuationByYear,
     ninetyDayBreakdown,
     topInsights,
@@ -171,7 +173,82 @@ export default function HousingDetail() {
         />
       </section>
 
-      {/* 2. Housing Pipeline by Type (REAL) */}
+      {/* 2. COHORT VIEW: Median days to clear by permit type and application month */}
+      {cohortData && cohortData.length > 0 && (
+        <section>
+          <SectionHeader icon={Clock} title="How Long Does Each Permit Type Take? (Cohort View)" color="#b85c3a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
+              For every permit <strong>applied for</strong> in each month, this shows the median number of days it took to get cleared. This is the honest view — no survivorship bias.
+            </p>
+            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
+              Grouped by application date, not clearance date. If you applied in May 2023, how long did you wait?
+            </p>
+            <MultiLineChart
+              data={cohortData.map((r) => ({
+                month: r.month,
+                Residential: (r as Record<string, unknown>).Residential as number ?? 0,
+                Commercial: (r as Record<string, unknown>).Commercial as number ?? 0,
+                Facility: (r as Record<string, unknown>).Facility as number ?? 0,
+                Electrical: (r as Record<string, unknown>).Electrical as number ?? 0,
+                Plumbing: (r as Record<string, unknown>).Plumbing as number ?? 0,
+              }))}
+              xKey="month"
+              height={400}
+              valueSuffix=" days"
+              lines={[
+                { key: "Commercial", label: "Commercial", color: "#c8956c" },
+                { key: "Residential", label: "Residential", color: "#3d7a5a" },
+                { key: "Facility", label: "Facility", color: "#4a7f9e" },
+                { key: "Electrical", label: "Electrical", color: "#64748b" },
+                { key: "Plumbing", label: "Plumbing", color: "#7c6f9e" },
+              ]}
+              referenceLines={[
+                { y: 90, label: "90-day target", color: "#b85c3a" },
+              ]}
+            />
+
+            {/* Clearance rate by type for same cohort */}
+            <div className="mt-6 pt-6 border-t border-[var(--color-parchment)]">
+              <p className="text-[13px] text-[var(--color-ink-muted)] mb-4 font-semibold">
+                Clearance Rate: What % of permits filed each month have been fully cleared?
+              </p>
+              <div className="space-y-2">
+                {(() => {
+                  // Get the latest month's data
+                  const latest = cohortData[cohortData.length - 1] as Record<string, unknown> | undefined;
+                  if (!latest) return null;
+                  const types = ["Residential", "Commercial", "Facility", "Electrical", "Plumbing"];
+                  return types.map((t) => {
+                    const clearance = (latest[`${t}_clearance`] as number) ?? 0;
+                    const applied = (latest[`${t}_applied`] as number) ?? 0;
+                    const days = (latest[t] as number) ?? 0;
+                    if (applied === 0) return null;
+                    return (
+                      <div key={t} className="flex items-center gap-3">
+                        <span className="text-[12px] text-[var(--color-ink-light)] w-[100px] text-right">{t}</span>
+                        <div className="flex-1 h-6 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                          <div
+                            className="h-full rounded-sm transition-all duration-700"
+                            style={{
+                              width: `${clearance}%`,
+                              backgroundColor: clearance >= 90 ? "#3d7a5a" : clearance >= 70 ? "#c8956c" : "#b85c3a",
+                            }}
+                          />
+                        </div>
+                        <span className="text-[12px] font-mono font-semibold w-[50px] text-right">{clearance}%</span>
+                        <span className="text-[11px] text-[var(--color-ink-muted)] w-[80px]">{days}d median</span>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 2b. Housing Pipeline by Type (REAL) */}
       {pipelineTrend.length > 0 && (
         <section>
           <SectionHeader icon={TrendingUp} title="Housing Pipeline by Type (Real Permit Data)" color="#3d7a5a" />
