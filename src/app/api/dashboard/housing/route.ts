@@ -1,109 +1,100 @@
 import { NextResponse } from "next/server";
 import { housingData } from "@/lib/mock-data";
-import { queryFeatureService } from "@/lib/arcgis";
+import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { HousingData, ChartPoint } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-/**
- * Real data sources:
- *   - Public/BDS_Permit/FeatureServer/22  (All Permits)
- *     Fields: APPLICATION_DATE, ISSUED_DATE, TYPE, STATUS, WORK_DESCRIPTION, etc.
- *   - Public/BDS_Metric/FeatureServer     (Permit processing metrics — supplementary)
- *
- * We filter for residential construction + addition/alteration permits,
- * compute average processing time, and build a monthly trend.
- */
-
-interface PermitRow {
-  APPLICATION_DATE: number | null; // epoch ms
-  ISSUED_DATE: number | null;      // epoch ms
-  STATUS: string;
-  TYPE: string;
-  WORK_DESCRIPTION: string | null;
-  [key: string]: unknown;
-}
-
-function epochToYearMonth(epoch: number): string {
-  const d = new Date(epoch);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-}
+const CACHE_KEY = "housing";
 
 export async function GET(): Promise<NextResponse<HousingData>> {
   try {
-    const twelveMonthsAgo = Date.now() - 365 * 24 * 60 * 60 * 1000;
+    // Check cache first
+    const cached = await getCachedData<HousingData>(CACHE_KEY);
+    if (cached) return NextResponse.json(cached);
 
-    // Query residential permits from the last 12 months
-    const permits = await queryFeatureService<PermitRow>(
-      "Public/BDS_Permit/FeatureServer/22",
-      {
-        where: `APPLICATION_DATE >= ${twelveMonthsAgo} AND (TYPE LIKE '%RESIDENTIAL%' OR TYPE LIKE '%ADDITION%' OR TYPE LIKE '%ALTERATION%' OR TYPE LIKE '%NEW CONSTRUCTION%')`,
-        outFields: "APPLICATION_DATE,ISSUED_DATE,STATUS,TYPE,WORK_DESCRIPTION",
-        returnGeometry: false,
-        orderByFields: "APPLICATION_DATE ASC",
-      },
-    );
+    // Query total permits and average processing days
+    const summaryRows = await sql`
+      SELECT
+        count(*) as total,
+        avg(processing_days) as avg_days
+      FROM housing.permits
+      WHERE status IN ('Final', 'Issued')
+    `;
 
-    // Calculate processing times and monthly pipeline
-    const monthlyMap = new Map<string, { count: number; totalDays: number; issuedCount: number }>();
-
-    for (const p of permits) {
-      if (!p.APPLICATION_DATE) continue;
-      const month = epochToYearMonth(p.APPLICATION_DATE);
-      const entry = monthlyMap.get(month) ?? { count: 0, totalDays: 0, issuedCount: 0 };
-      entry.count++;
-
-      if (p.APPLICATION_DATE && p.ISSUED_DATE && p.ISSUED_DATE > p.APPLICATION_DATE) {
-        const days = Math.round(
-          (p.ISSUED_DATE - p.APPLICATION_DATE) / (1000 * 60 * 60 * 24),
-        );
-        entry.totalDays += days;
-        entry.issuedCount++;
-      }
-
-      monthlyMap.set(month, entry);
+    if (!summaryRows || summaryRows.length === 0 || Number(summaryRows[0].total) === 0) {
+      console.warn("[housing] No permit data in DB, returning mock data");
+      return NextResponse.json(housingData);
     }
 
-    const sortedMonths = [...monthlyMap.keys()].sort();
+    const totalPermits = Number(summaryRows[0].total);
+    const avgDays = Math.round(Number(summaryRows[0].avg_days) || 0);
 
-    const permitPipeline: ChartPoint[] = sortedMonths.map((date) => ({
-      date,
-      value: monthlyMap.get(date)!.count,
+    // Build monthly pipeline
+    const monthlyRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') as date,
+        count(*) as count
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL
+      GROUP BY date_trunc('month', issued_date)
+      ORDER BY date_trunc('month', issued_date)
+    `;
+
+    const permitPipeline: ChartPoint[] = monthlyRows.map((row) => ({
+      date: row.date as string,
+      value: Number(row.count),
       label: "Permits filed",
     }));
 
-    const processingDays: ChartPoint[] = sortedMonths.map((date) => {
-      const entry = monthlyMap.get(date)!;
-      const avg = entry.issuedCount > 0 ? Math.round(entry.totalDays / entry.issuedCount) : 0;
-      return { date, value: avg, label: "Avg days to issue" };
-    });
+    // Build monthly processing days
+    const processingRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') as date,
+        avg(processing_days) as avg_days
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL AND processing_days IS NOT NULL
+      GROUP BY date_trunc('month', issued_date)
+      ORDER BY date_trunc('month', issued_date)
+    `;
 
-    const totalPermits = permits.length;
-    const totalDays = [...monthlyMap.values()].reduce((s, e) => s + e.totalDays, 0);
-    const totalIssued = [...monthlyMap.values()].reduce((s, e) => s + e.issuedCount, 0);
-    const avgDays = totalIssued > 0 ? Math.round(totalDays / totalIssued) : 0;
+    const processingDays: ChartPoint[] = processingRows.map((row) => ({
+      date: row.date as string,
+      value: Math.round(Number(row.avg_days)),
+      label: "Avg days to issue",
+    }));
+
+    const chartData = permitPipeline.map(({ date, value }) => ({
+      date,
+      value,
+    }));
 
     const result: HousingData = {
-      headline: `${totalPermits.toLocaleString()} residential permits filed (TTM), avg ${avgDays} days to issue`,
+      headline: `${totalPermits.toLocaleString()} permits issued/finalized, avg ${avgDays} days to process`,
       headlineValue: totalPermits,
-      trend: housingData.trend, // keep mock trend until we have prior-year comparison
-      chartData: permitPipeline.map(({ date, value }) => ({ date, value })),
-      permitPipeline,
-      processingDays,
-      medianRent: housingData.medianRent, // rent data not available from ArcGIS
-      source: "BDS PermitsNow ArcGIS / Zillow ZORI (mock)",
+      trend: housingData.trend, // keep mock trend until prior-year comparison
+      chartData: chartData.length > 0 ? chartData : housingData.chartData,
+      permitPipeline:
+        permitPipeline.length > 0 ? permitPipeline : housingData.permitPipeline,
+      processingDays:
+        processingDays.length > 0
+          ? processingDays
+          : housingData.processingDays,
+      medianRent: housingData.medianRent, // rent data not in local DB
+      source: "BDS PermitsNow (local DB) / Zillow ZORI (mock)",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        `${totalPermits} residential permits filed in the trailing 12 months.`,
+        `${totalPermits} permits with status Issued or Final in the database.`,
         `Average processing time: ${avgDays} days from application to issuance.`,
         "Median rent data still uses mock values — Zillow ZORI integration pending.",
-        `${totalIssued} of ${totalPermits} permits have been issued.`,
+        `Monthly pipeline covers ${permitPipeline.length} months of data.`,
       ],
     };
 
+    await setCachedData(CACHE_KEY, result);
     return NextResponse.json(result);
   } catch (error) {
-    console.error("[housing] ArcGIS query failed, returning mock data:", error);
+    console.error("[housing] DB query failed, returning mock data:", error);
     return NextResponse.json(housingData);
   }
 }

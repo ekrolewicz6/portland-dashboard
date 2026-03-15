@@ -1,92 +1,82 @@
 import { NextResponse } from "next/server";
 import { safetyData } from "@/lib/mock-data";
-import { queryMapServer } from "@/lib/arcgis";
+import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { SafetyData } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-/**
- * Crime grid layers in Public/Crime/MapServer:
- *   Layer  2: All Property Crimes Grid (pre-aggregated polygon)
- *   Layer 41: All Person Crimes Grid (pre-aggregated polygon)
- *   Layer 60: All Society Crime Grids (pre-aggregated polygon)
- *
- * Each grid polygon has a count field we sum for the category total.
- */
-
-interface CrimeGridRow {
-  COUNT_: number;
-  [key: string]: unknown;
-}
-
-async function fetchCrimeCategory(
-  layerId: number,
-  label: string,
-): Promise<{ category: string; count: number }> {
-  const rows = await queryMapServer<CrimeGridRow>("Public/Crime/MapServer", layerId, {
-    where: "1=1",
-    outFields: "*",
-    returnGeometry: false,
-    outStatistics: JSON.stringify([
-      { statisticType: "sum", onStatisticField: "COUNT_", outStatisticFieldName: "TOTAL" },
-    ]),
-  });
-
-  const total = (rows[0] as Record<string, unknown>)?.TOTAL as number ?? 0;
-  return { category: label, count: total };
-}
-
-function months(startYear = 2025, startMonth = 3, count = 12) {
-  return Array.from({ length: count }, (_, i) => {
-    const m = ((startMonth - 1 + i) % 12) + 1;
-    const y = startYear + Math.floor((startMonth - 1 + i) / 12);
-    return `${y}-${String(m).padStart(2, "0")}`;
-  });
-}
+const CACHE_KEY = "safety";
+const PORTLAND_POPULATION = 650_000;
 
 export async function GET(): Promise<NextResponse<SafetyData>> {
   try {
-    const [property, person, society] = await Promise.all([
-      fetchCrimeCategory(2, "Property Crime"),
-      fetchCrimeCategory(41, "Person Crime"),
-      fetchCrimeCategory(60, "Society Crime"),
-    ]);
+    // Check cache first
+    const cached = await getCachedData<SafetyData>(CACHE_KEY);
+    if (cached) return NextResponse.json(cached);
 
-    const crimeByCategory = [property, person, society].map((c) => ({
-      ...c,
-      change: 0, // Grid layers don't contain prior-year data for YoY comparison
+    // Query recent crime categories (last 3 months aggregated)
+    const categoryRows = await sql`
+      SELECT category, SUM(count) as count
+      FROM safety.crime_monthly
+      ORDER BY category
+    `;
+
+    if (!categoryRows || categoryRows.length === 0) {
+      console.warn("[safety] No crime data in DB, returning mock data");
+      return NextResponse.json(safetyData);
+    }
+
+    const crimeByCategory = categoryRows.map((row) => ({
+      category: row.category as string,
+      count: Number(row.count),
+      change: 0, // No prior-year comparison data yet
     }));
 
     const totalCrimes = crimeByCategory.reduce((s, c) => s + c.count, 0);
+    const ratePer1000 = parseFloat(
+      ((totalCrimes / PORTLAND_POPULATION) * 1000).toFixed(1),
+    );
 
-    // Portland population ~641,000 — rate per 1,000
-    const ratePer1000 = parseFloat((totalCrimes / 641).toFixed(1));
+    // Build 12-month chart data from crime_monthly
+    const monthlyRows = await sql`
+      SELECT TO_CHAR(month, 'YYYY-MM') as date, SUM(count) as value
+      FROM safety.crime_monthly
+      GROUP BY month
+      ORDER BY month
+    `;
 
-    const MONTHS = months();
+    let chartData = safetyData.chartData; // fallback
+    if (monthlyRows && monthlyRows.length >= 6) {
+      chartData = monthlyRows.slice(-12).map((row) => ({
+        date: row.date as string,
+        value: Number(row.value),
+      }));
+    }
 
     const result: SafetyData = {
-      headline: `${totalCrimes.toLocaleString()} total reported crimes (TTM) — ${ratePer1000} per 1,000 residents`,
+      headline: `${totalCrimes.toLocaleString()} total reported crimes — ${ratePer1000} per 1,000 residents`,
       headlineValue: totalCrimes,
-      trend: safetyData.trend, // keep mock trend until we have prior-year grid data
-      chartData: MONTHS.map((date, i) => ({
-        date,
-        value: parseFloat((8.1 - i * 0.08).toFixed(1)),
-      })),
+      trend: safetyData.trend, // keep mock trend until prior-year data available
+      chartData,
       crimeByCategory,
-      responseTime: safetyData.responseTime,
-      source: "Portland Police Bureau ArcGIS Crime Grids / BOEC 911",
+      responseTime: safetyData.responseTime, // keep mock until BOEC API integration
+      source: "Portland Police Bureau / BOEC 911 (local DB)",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        `Property crimes: ${property.count.toLocaleString()} incidents from grid aggregation.`,
-        `Person crimes: ${person.count.toLocaleString()} incidents from grid aggregation.`,
-        `Society crimes: ${society.count.toLocaleString()} incidents from grid aggregation.`,
+        ...crimeByCategory
+          .slice(0, 3)
+          .map(
+            (c) =>
+              `${c.category}: ${c.count.toLocaleString()} incidents.`,
+          ),
         "Response-time data still uses mock values — BOEC API integration pending.",
       ],
     };
 
+    await setCachedData(CACHE_KEY, result);
     return NextResponse.json(result);
   } catch (error) {
-    console.error("[safety] ArcGIS query failed, returning mock data:", error);
+    console.error("[safety] DB query failed, returning mock data:", error);
     return NextResponse.json(safetyData);
   }
 }
