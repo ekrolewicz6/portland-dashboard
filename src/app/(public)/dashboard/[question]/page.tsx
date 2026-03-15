@@ -8,6 +8,11 @@ import ExportButton from "@/components/dashboard/ExportButton";
 import EmbedButton from "@/components/dashboard/EmbedButton";
 import SafetyDetail from "@/components/dashboard/safety/SafetyDetail";
 import HousingDetail from "@/components/dashboard/housing/HousingDetail";
+import MigrationDetail from "@/components/dashboard/migration/MigrationDetail";
+import BusinessDetail from "@/components/dashboard/business/BusinessDetail";
+import DowntownDetail from "@/components/dashboard/downtown/DowntownDetail";
+import TaxDetail from "@/components/dashboard/tax/TaxDetail";
+import ProgramDetail from "@/components/dashboard/program/ProgramDetail";
 
 interface PageProps {
   params: Promise<{ question: string }>;
@@ -56,7 +61,25 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 /** Questions that have dedicated detail views */
-const DETAIL_QUESTIONS = new Set(["safety", "housing"]);
+const DETAIL_QUESTIONS = new Set([
+  "safety",
+  "housing",
+  "migration",
+  "business",
+  "downtown",
+  "tax",
+  "program",
+]);
+
+const detailComponents: Record<string, React.ComponentType> = {
+  safety: SafetyDetail,
+  housing: HousingDetail,
+  migration: MigrationDetail,
+  business: BusinessDetail,
+  downtown: DowntownDetail,
+  tax: TaxDetail,
+  program: ProgramDetail,
+};
 
 export default async function QuestionPage({ params }: PageProps) {
   const { question } = await params;
@@ -70,36 +93,24 @@ export default async function QuestionPage({ params }: PageProps) {
 
   let data: DashboardResponse | null = null;
 
-  // For questions without a dedicated detail view, fetch the generic data
-  if (!hasDetailView) {
-    try {
-      data = await fetchQuestionData(question);
-    } catch {
-      const mockModule = await import("@/lib/mock-data");
-      const dataMap: Record<string, DashboardResponse> = {
-        migration: mockModule.migrationData,
-        business: mockModule.businessData,
-        downtown: mockModule.downtownData,
-        safety: mockModule.safetyData,
-        tax: mockModule.taxData,
-        housing: mockModule.housingData,
-        program: mockModule.programData,
-      };
-      data = dataMap[question];
-    }
-  } else {
-    // For detail views we still need basic data for the hero section
-    try {
-      data = await fetchQuestionData(question);
-    } catch {
-      const mockModule = await import("@/lib/mock-data");
-      const dataMap: Record<string, DashboardResponse> = {
-        safety: mockModule.safetyData,
-        housing: mockModule.housingData,
-      };
-      data = dataMap[question] ?? null;
-    }
+  // Always fetch data for hero section
+  try {
+    data = await fetchQuestionData(question);
+  } catch {
+    const mockModule = await import("@/lib/mock-data");
+    const dataMap: Record<string, DashboardResponse> = {
+      migration: mockModule.migrationData,
+      business: mockModule.businessData,
+      downtown: mockModule.downtownData,
+      safety: mockModule.safetyData,
+      tax: mockModule.taxData,
+      housing: mockModule.housingData,
+      program: mockModule.programData,
+    };
+    data = dataMap[question] ?? null;
   }
+
+  const DetailComponent = detailComponents[question];
 
   return (
     <div className="bg-[var(--color-paper)] min-h-screen">
@@ -163,8 +174,7 @@ export default async function QuestionPage({ params }: PageProps) {
         </div>
 
         {/* Question-specific detail view or generic layout */}
-        {question === "safety" && <SafetyDetail />}
-        {question === "housing" && <HousingDetail />}
+        {hasDetailView && DetailComponent && <DetailComponent />}
 
         {!hasDetailView && data && (
           <>
@@ -249,7 +259,7 @@ export default async function QuestionPage({ params }: PageProps) {
           </>
         )}
 
-        {/* Data Source Citation — always show */}
+        {/* Data Source Citation -- always show */}
         <section className="mb-10 mt-10">
           <div className="bg-[var(--color-canopy)] rounded-sm p-6 text-white/70">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

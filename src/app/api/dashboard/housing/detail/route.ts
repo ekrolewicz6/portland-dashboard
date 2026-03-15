@@ -22,22 +22,21 @@ interface HousingDetailResponse {
 
 export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
   try {
-    // 1. Permits by type
+    // 1. Permits by type — use actual permit_type names, top 8 + other
     const typeRows = await sql`
+      WITH ranked AS (
+        SELECT permit_type AS category, count(*)::int AS cnt,
+          ROW_NUMBER() OVER (ORDER BY count(*) DESC) AS rn
+        FROM housing.permits
+        WHERE permit_type IS NOT NULL
+        GROUP BY permit_type
+      )
       SELECT
-        CASE
-          WHEN permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%'
-            THEN 'Residential'
-          WHEN permit_type ILIKE '%commercial%'
-            THEN 'Commercial'
-          WHEN permit_type ILIKE '%facility%'
-            THEN 'Facility'
-          ELSE 'Trade/Other'
-        END AS category,
-        count(*)::int AS cnt
-      FROM housing.permits
-      GROUP BY 1
-      ORDER BY cnt DESC
+        CASE WHEN rn <= 8 THEN category ELSE 'Other' END AS category,
+        SUM(cnt)::int AS cnt
+      FROM ranked
+      GROUP BY CASE WHEN rn <= 8 THEN category ELSE 'Other' END
+      ORDER BY SUM(cnt) DESC
     `;
 
     const typeColors: Record<string, string> = {
@@ -92,16 +91,22 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       rent: Number(Number(r.rent).toFixed(0)),
     }));
 
-    // 5. Processing time trend from housing.permits (monthly avg)
+    // 5. Processing time trend — MEDIAN per month, excluding outliers
+    // Only include permits with reasonable processing times (1-365 days)
+    // and from the last 3 years for a meaningful trend
     const processingRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') AS month,
-        AVG(processing_days)::int AS avg_days
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days)::int AS avg_days,
+        count(*)::int AS permit_count
       FROM housing.permits
       WHERE issued_date IS NOT NULL
+        AND issued_date >= NOW() - INTERVAL '36 months'
         AND processing_days IS NOT NULL
-        AND processing_days >= 0
+        AND processing_days > 0
+        AND processing_days <= 365
       GROUP BY date_trunc('month', issued_date)
+      HAVING count(*) >= 5
       ORDER BY date_trunc('month', issued_date)
     `;
 
@@ -130,7 +135,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     const heroRows = await sql`
       SELECT
         count(*) FILTER (WHERE status = 'issued')::int AS pipeline,
-        AVG(processing_days) FILTER (WHERE processing_days IS NOT NULL AND processing_days >= 0)::int AS avg_days,
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days) FILTER (WHERE processing_days IS NOT NULL AND processing_days > 0 AND processing_days <= 365)::int AS avg_days,
         SUM(valuation) FILTER (WHERE valuation > 0)::bigint AS total_val,
         count(*) FILTER (WHERE processing_days IS NOT NULL AND processing_days >= 0)::int AS total_with_days,
         count(*) FILTER (WHERE processing_days IS NOT NULL AND processing_days >= 0 AND processing_days <= 90)::int AS under_90

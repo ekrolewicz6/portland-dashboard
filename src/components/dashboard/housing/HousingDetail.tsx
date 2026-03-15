@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import StatGrid from "@/components/charts/StatGrid";
 import BarChart from "@/components/charts/BarChart";
+import PieChart from "@/components/charts/PieChart";
 import MultiLineChart from "@/components/charts/MultiLineChart";
 import TrendChart from "@/components/charts/TrendChart";
 import {
@@ -125,6 +126,24 @@ export default function HousingDetail() {
 
   return (
     <div className="space-y-10">
+      {/* 0. Key Insights (always first) */}
+      <section>
+        <SectionHeader icon={Lightbulb} title="Key Insights" color="#3d7a5a" />
+        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+          <ul className="space-y-3">
+            {topInsights.map((insight, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
+              >
+                <span className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[var(--color-rose-hip)]" />
+                {insight}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* 1. Hero Stat Grid */}
       <section>
         <SectionHeader icon={Building2} title="Key Metrics" />
@@ -185,11 +204,11 @@ export default function HousingDetail() {
         </div>
       </section>
 
-      {/* 4. Permits by Type */}
+      {/* 4. Permits by Type (Pie Chart) */}
       <section>
         <SectionHeader icon={Home} title="Permits by Type" color="#c8956c" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <BarChart data={permitsByType} height={280} />
+          <PieChart data={permitsByType} height={380} />
         </div>
       </section>
 
@@ -288,23 +307,7 @@ export default function HousingDetail() {
         </div>
       </section>
 
-      {/* 9. Key Insights */}
-      <section>
-        <SectionHeader icon={Lightbulb} title="Key Insights" color="#3d7a5a" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <ul className="space-y-3">
-            {topInsights.map((insight, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
-              >
-                <span className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[var(--color-rose-hip)]" />
-                {insight}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* Insights already shown at top */}
     </div>
   );
 }

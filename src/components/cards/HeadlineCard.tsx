@@ -62,7 +62,7 @@ export default function HeadlineCard({
         : Minus;
 
   return (
-    <button
+    <div
       onClick={onClick}
       className="metric-card text-left w-full group"
       style={{ "--accent-color": color } as React.CSSProperties}
@@ -132,6 +132,6 @@ export default function HeadlineCard({
           {lastUpdated}
         </span>
       </div>
-    </button>
+    </div>
   );
 }

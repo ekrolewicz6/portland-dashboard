@@ -1,20 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 import HeadlineCard from "@/components/cards/HeadlineCard";
 import InsightBanner from "@/components/cards/InsightBanner";
-import DetailPanel from "@/components/cards/DetailPanel";
 import { QUESTION_DATA_STATUS } from "@/data/source-status";
 import type { QuestionId } from "@/types/dashboard";
-import {
-  Users,
-  Building2,
-  MapPin,
-  Shield,
-  Receipt,
-  Home,
-  Award,
-} from "lucide-react";
 
 const headlines = [
   {
@@ -29,26 +19,7 @@ const headlines = [
     ],
     source: "Portland Water Bureau",
     lastUpdated: "Mar 1, 2026",
-    color: "#4a90d9",
-    icon: Users,
-    detailData: {
-      chartData: [
-        { date: "Apr", value: -45 }, { date: "May", value: -32 },
-        { date: "Jun", value: -18 }, { date: "Jul", value: -5 },
-        { date: "Aug", value: 12 }, { date: "Sep", value: 28 },
-        { date: "Oct", value: 35 }, { date: "Nov", value: 54 },
-        { date: "Dec", value: 72 }, { date: "Jan", value: 89 },
-        { date: "Feb", value: 108 }, { date: "Mar", value: 127 },
-      ],
-      methodology:
-        "Net migration is derived from Portland Water Bureau new residential account activations minus deactivations. This is the most real-time proxy for household migration available — every new water activation represents a household that just moved in.",
-      keyFacts: [
-        "Portland gained 127 net households in March 2026",
-        "Positive trend since August 2025 after 18 months of net outflow",
-        "ZIP 97209 (Pearl District) saw the highest net inflow: +34 households",
-        "ZIP 97233 (East Portland) saw the largest net outflow: -12 households",
-      ],
-    },
+    color: "#4a7f9e",
   },
   {
     id: "business",
@@ -62,26 +33,7 @@ const headlines = [
     ],
     source: "Portland Revenue Division",
     lastUpdated: "Mar 1, 2026",
-    color: "#2d8a7e",
-    icon: Building2,
-    detailData: {
-      chartData: [
-        { date: "Apr", value: -12 }, { date: "May", value: -5 },
-        { date: "Jun", value: 8 }, { date: "Jul", value: 15 },
-        { date: "Aug", value: 22 }, { date: "Sep", value: 31 },
-        { date: "Oct", value: 38 }, { date: "Nov", value: 45 },
-        { date: "Dec", value: 52 }, { date: "Jan", value: 64 },
-        { date: "Feb", value: 71 }, { date: "Mar", value: 83 },
-      ],
-      methodology:
-        "Net business formation = new Portland Business License Tax registrations minus cancellations/expirations in the same period. Data sourced from quarterly public records requests to the Portland Revenue Division.",
-      keyFacts: [
-        "83 net new businesses registered in March 2026",
-        "Food & beverage sector leading with 24 new registrations",
-        "Professional services second with 18 new registrations",
-        "Central Eastside saw the most new business activity",
-      ],
-    },
+    color: "#3d7a5a",
   },
   {
     id: "downtown",
@@ -100,26 +52,7 @@ const headlines = [
     ],
     source: "Placer.ai via Clean & Safe",
     lastUpdated: "Mar 7, 2026",
-    color: "#d4a843",
-    icon: MapPin,
-    detailData: {
-      chartData: [
-        { date: "Apr", value: 62 }, { date: "May", value: 65 },
-        { date: "Jun", value: 68 }, { date: "Jul", value: 71 },
-        { date: "Aug", value: 73 }, { date: "Sep", value: 74 },
-        { date: "Oct", value: 76 }, { date: "Nov", value: 79 },
-        { date: "Dec", value: 80 }, { date: "Jan", value: 82 },
-        { date: "Feb", value: 84 }, { date: "Mar", value: 86 },
-      ],
-      methodology:
-        "Foot traffic is measured by Placer.ai using anonymized mobile device signals, indexed to the same-week 2019 baseline. Ground floor occupancy is measured by quarterly ground-truthing walks along priority corridors plus BLT registration cross-reference.",
-      keyFacts: [
-        "Saturday foot traffic is now 94% of 2019 — the highest recovery of any day of the week",
-        "Weekday lunch-hour traffic still lagging at 72% of 2019",
-        "Pioneer Place corridor saw 8% month-over-month increase",
-        "Average dwell time increased to 47 minutes (up from 38 min in Q1 2025)",
-      ],
-    },
+    color: "#c8956c",
   },
   {
     id: "safety",
@@ -138,26 +71,7 @@ const headlines = [
     ],
     source: "Portland Police Bureau",
     lastUpdated: "Feb 28, 2026",
-    color: "#c44536",
-    icon: Shield,
-    detailData: {
-      chartData: [
-        { date: "Apr", value: 6.1 }, { date: "May", value: 5.8 },
-        { date: "Jun", value: 5.5 }, { date: "Jul", value: 5.4 },
-        { date: "Aug", value: 5.2 }, { date: "Sep", value: 5.0 },
-        { date: "Oct", value: 4.9 }, { date: "Nov", value: 4.7 },
-        { date: "Dec", value: 4.6 }, { date: "Jan", value: 4.5 },
-        { date: "Feb", value: 4.3 }, { date: "Mar", value: 4.2 },
-      ],
-      methodology:
-        "Property crime rate is calculated from Portland Police Bureau reported offense data (NIBRS), normalized per 1,000 residents using Census population estimates. 911 response time is the median time from dispatch to on-scene arrival for Priority 1 calls.",
-      keyFacts: [
-        "Property crime down 8% from 12-month average",
-        "Vehicle theft down 22% year-over-year — the largest improvement of any category",
-        "Old Town/Chinatown saw a 15% reduction in person crimes",
-        "Priority 1 response time improved from 9.2 to 8.4 minutes",
-      ],
-    },
+    color: "#b85c3a",
   },
   {
     id: "tax",
@@ -165,10 +79,10 @@ const headlines = [
     headline: {
       value: "12.4%",
       label: "effective rate at $200K income",
-      subValue: "vs. 7.1%",
+      subValue: "vs 7.1%",
       subLabel: "Vancouver, WA",
     },
-    trend: { direction: "flat" as const, value: "no change", isPositive: false },
+    trend: { direction: "flat" as const, value: "flat", isPositive: false },
     sparklineData: [
       { value: 12.4 }, { value: 12.4 }, { value: 12.4 }, { value: 12.4 },
       { value: 12.4 }, { value: 12.4 }, { value: 12.4 }, { value: 12.4 },
@@ -176,24 +90,7 @@ const headlines = [
     ],
     source: "Portland Commons analysis",
     lastUpdated: "Jan 2026",
-    color: "#9333ea",
-    icon: Receipt,
-    detailData: {
-      chartData: [
-        { date: "2020", value: 10.8 }, { date: "2021", value: 11.2 },
-        { date: "2022", value: 11.9 }, { date: "2023", value: 12.1 },
-        { date: "2024", value: 12.3 }, { date: "2025", value: 12.4 },
-        { date: "2026", value: 12.4 },
-      ],
-      methodology:
-        "Effective tax rate includes: federal income tax, Oregon state income tax, Multnomah County income tax (Preschool for All), Metro Supportive Housing Services tax, Portland Arts Tax, and TriMet payroll tax. Compared at identical income levels across peer cities.",
-      keyFacts: [
-        "Portland's effective rate is 5.3 percentage points higher than Vancouver, WA at $200K income",
-        "The gap is primarily driven by Oregon income tax (no sales tax offset) and local income taxes",
-        "Portland's marginal rate for the next dollar at $200K: 14.7% (vs. 8.2% in Vancouver, WA)",
-        "The Preschool for All tax added 1.5% for incomes above $125K ($200K+ jointly)",
-      ],
-    },
+    color: "#7c6f9e",
   },
   {
     id: "housing",
@@ -212,26 +109,7 @@ const headlines = [
     ],
     source: "PP&D permit data",
     lastUpdated: "Mar 10, 2026",
-    color: "#ea580c",
-    icon: Home,
-    detailData: {
-      chartData: [
-        { date: "Apr", value: 420 }, { date: "May", value: 445 },
-        { date: "Jun", value: 480 }, { date: "Jul", value: 510 },
-        { date: "Aug", value: 548 }, { date: "Sep", value: 590 },
-        { date: "Oct", value: 620 }, { date: "Nov", value: 656 },
-        { date: "Dec", value: 700 }, { date: "Jan", value: 745 },
-        { date: "Feb", value: 790 }, { date: "Mar", value: 824 },
-      ],
-      methodology:
-        "Housing pipeline counts all active residential building permits (new construction and conversion) from Portland Permitting & Development ArcGIS data. Average permit processing time is calculated as calendar days from application to issuance.",
-      keyFacts: [
-        "824 units currently in the permit pipeline (target: 10,000/year)",
-        "Average permit processing time: 14.2 months (90-day guarantee not being met for most permit types)",
-        "34% of pipeline units are in the Central City",
-        "ADU permits up 28% year-over-year",
-      ],
-    },
+    color: "#b85c6a",
   },
   {
     id: "program",
@@ -240,9 +118,9 @@ const headlines = [
       value: "347",
       label: "certified businesses",
       subValue: "89%",
-      subLabel: "1-year survival (vs. 80% national avg)",
+      subLabel: "1-year survival (vs 80% national avg)",
     },
-    trend: { direction: "up" as const, value: "+23 this month", isPositive: true },
+    trend: { direction: "up" as const, value: "+23 this mo", isPositive: true },
     sparklineData: [
       { value: 180 }, { value: 200 }, { value: 218 }, { value: 235 },
       { value: 248 }, { value: 262 }, { value: 278 }, { value: 295 },
@@ -250,26 +128,7 @@ const headlines = [
     ],
     source: "Portland Commons Registry",
     lastUpdated: "real-time",
-    color: "#2d5016",
-    icon: Award,
-    detailData: {
-      chartData: [
-        { date: "Apr", value: 180 }, { date: "May", value: 200 },
-        { date: "Jun", value: 218 }, { date: "Jul", value: 235 },
-        { date: "Aug", value: 248 }, { date: "Sep", value: 262 },
-        { date: "Oct", value: 278 }, { date: "Nov", value: 295 },
-        { date: "Dec", value: 310 }, { date: "Jan", value: 324 },
-        { date: "Feb", value: 336 }, { date: "Mar", value: 347 },
-      ],
-      methodology:
-        "Portland Commons Business (PCB) certifications tracked through the PCB registry. Survival rate measured as the percentage of certified businesses still operating 12 months after certification. Jobs created are self-reported by certified businesses during quarterly check-ins.",
-      keyFacts: [
-        "347 businesses have earned Portland Commons certification",
-        "89% one-year survival rate (vs. 80% national average for new businesses)",
-        "1,240 jobs created by PCB-certified businesses",
-        "Average Commons Credit utilization: $3,200 per business",
-      ],
-    },
+    color: "#1a3a2a",
   },
 ];
 
@@ -301,78 +160,89 @@ const insights = [
 ];
 
 export default function DashboardPage() {
-  const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
-  const selectedData = headlines.find((h) => h.id === selectedQuestion);
-
   return (
     <div>
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero */}
-        <div className="mb-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-forest-dark)] tracking-tight">
-            How is Portland doing?
-          </h1>
-          <p className="mt-2 text-lg text-gray-500 max-w-2xl">
-            Seven questions that drive Portland&apos;s story, answered with real
-            data. Updated automatically from public records and government APIs.
-          </p>
-        </div>
+      {/* ── Hero ── */}
+      <section className="relative bg-[var(--color-canopy)] overflow-hidden noise-overlay">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-canopy-light)] rounded-full blur-[180px] opacity-30 -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--color-ember)] rounded-full blur-[160px] opacity-[0.06] translate-y-1/2 -translate-x-1/3" />
 
-        {/* Insight Banner */}
-        <div className="mb-8">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-14 sm:py-18">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-5 animate-fade-up">
+              <div className="w-8 h-px bg-[var(--color-ember)]" />
+              <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
+                Portland Commons Civic Dashboard
+              </span>
+            </div>
+            <h1
+              className="font-editorial-normal text-[38px] sm:text-[50px] lg:text-[60px] text-white leading-[1.08] tracking-tight animate-fade-up"
+              style={{ animationDelay: "80ms" }}
+            >
+              How is Portland{" "}
+              <span className="font-editorial text-[var(--color-ember-bright)]">
+                actually
+              </span>{" "}
+              doing?
+            </h1>
+            <p
+              className="mt-4 text-[16px] text-white/50 leading-relaxed max-w-xl animate-fade-up"
+              style={{ animationDelay: "160ms" }}
+            >
+              Seven questions that drive Portland&apos;s story, answered with
+              real data. Click any card to explore the full analysis.
+            </p>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[var(--color-paper)] to-transparent" />
+      </section>
+
+      {/* ── Insights ── */}
+      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 -mt-6 relative z-20">
+        <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
           <InsightBanner insights={insights} />
         </div>
+      </section>
 
-        {/* Headline Grid */}
-        <div
-          id="dashboard"
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8"
-        >
-          {headlines.map((h) => {
+      {/* ── Seven Questions Grid ── */}
+      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mt-10 pb-16">
+        <div className="section-divider">
+          <h2>The Seven Questions</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {headlines.map((h, i) => {
             const status = QUESTION_DATA_STATUS[h.id as QuestionId];
             return (
-              <HeadlineCard
+              <Link
                 key={h.id}
-                question={h.question}
-                headline={h.headline}
-                trend={h.trend}
-                sparklineData={h.sparklineData}
-                source={h.source}
-                lastUpdated={h.lastUpdated}
-                color={h.color}
-                onClick={() =>
-                  setSelectedQuestion(
-                    selectedQuestion === h.id ? null : h.id
-                  )
-                }
-                dataStatus={
-                  status
-                    ? {
-                        status: status.overallStatus,
-                        label: status.badgeLabel,
-                        tooltip: status.badgeTooltip,
-                      }
-                    : undefined
-                }
-              />
+                href={`/dashboard/${h.id}`}
+                className="block animate-fade-up"
+                style={{ animationDelay: `${400 + i * 60}ms` }}
+              >
+                <HeadlineCard
+                  question={h.question}
+                  headline={h.headline}
+                  trend={h.trend}
+                  sparklineData={h.sparklineData}
+                  source={h.source}
+                  lastUpdated={h.lastUpdated}
+                  color={h.color}
+                  dataStatus={
+                    status
+                      ? {
+                          status: status.overallStatus,
+                          label: status.badgeLabel,
+                          tooltip: status.badgeTooltip,
+                        }
+                      : undefined
+                  }
+                />
+              </Link>
             );
           })}
         </div>
-
-        {/* Detail Panel */}
-        {selectedData && (
-          <DetailPanel
-            question={selectedData.question}
-            chartData={selectedData.detailData.chartData}
-            methodology={selectedData.detailData.methodology}
-            keyFacts={selectedData.detailData.keyFacts}
-            color={selectedData.color}
-            source={selectedData.source}
-            lastUpdated={selectedData.lastUpdated}
-            onClose={() => setSelectedQuestion(null)}
-          />
-        )}
-      </div>
+      </section>
     </div>
   );
 }
