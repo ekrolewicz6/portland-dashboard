@@ -124,7 +124,7 @@ export default function BusinessDetail() {
   );
   if (heroStats.firstYear > 0 && heroStats.lastYear > 0) {
     insights.push(
-      `New business registrations grew ${heroStats.yoyGrowthMultiple}x from 2016 (${heroStats.firstYear.toLocaleString()}) to 2025 (${heroStats.lastYear.toLocaleString()}).`
+      `${heroStats.lastYear.toLocaleString()} businesses founded in 2025 are still active today, vs ${heroStats.firstYear.toLocaleString()} from 2016 — older cohorts show fewer because many have since closed (survivorship bias).`
     );
   }
   if (heroStats.topEntityPct > 0) {
