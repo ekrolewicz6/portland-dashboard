@@ -67,16 +67,26 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       value: Number(r.cnt),
     }));
 
-    // 3. Pipeline trend from housing_pipeline_monthly (10-year)
+    // 3. Pipeline trend — REAL permit issuance data from housing.permits
     const pipelineRows = await sql`
-      SELECT TO_CHAR(month, 'YYYY-MM') AS month, units_in_pipeline::int AS units
-      FROM housing_pipeline_monthly
-      ORDER BY month
+      SELECT
+        TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') AS month,
+        count(*)::int AS total_permits,
+        count(*) FILTER (WHERE permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%')::int AS residential,
+        count(*) FILTER (WHERE permit_type ILIKE '%commercial%')::int AS commercial,
+        ROUND(COALESCE(SUM(valuation) FILTER (WHERE valuation > 0), 0) / 1000000, 1) AS valuation_millions
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL AND issued_date >= '2023-01-01' AND issued_date <= '2026-12-31'
+      GROUP BY date_trunc('month', issued_date)
+      ORDER BY date_trunc('month', issued_date)
     `;
 
     const pipelineTrend = pipelineRows.map((r) => ({
       month: r.month as string,
-      units: Number(r.units),
+      units: Number(r.total_permits),
+      residential: Number(r.residential),
+      commercial: Number(r.commercial),
+      valuationM: Number(r.valuation_millions),
     }));
 
     // 4. Rent trend from housing_rents (10-year)
