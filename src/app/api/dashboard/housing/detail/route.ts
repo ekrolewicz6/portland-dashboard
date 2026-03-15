@@ -371,7 +371,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         permitsByType: [],
         permitsByNeighborhood: [],
         pipelineTrend: [],
-        rentTrend: rentTrendData,
+        rentTrend: null,
         processingTimeTrend: [],
         processingByType: [],
         clearanceData: [],

@@ -842,3 +842,43 @@ ORPCPI — Per Capita Personal Income: Portland MSA (if available)
 1. **Placer.ai** — Best foot traffic data; ~$1-5K/mo. Worth a trial for downtown recovery question.
 2. **CoStar** — Gold standard commercial RE; ~$500-2K/mo. May be redundant with free brokerage reports.
 3. **Lightcast** — Best labor market data; expensive but valuable.
+
+---
+
+## Current Data Status (Updated 2026-03-15 3:00 AM)
+
+### REAL DATA IN DATABASE (32 tables)
+
+| Source | Table | Rows | Status |
+|--------|-------|------|--------|
+| Portland ArcGIS BDS_Permit | housing.permits | 34,307 | LIVE |
+| Portland ArcGIS Crime MapServer | safety.crime_monthly | 369 | LIVE (snapshot) |
+| Portland ArcGIS BPS_Graffiti | safety.graffiti_monthly | 1 | LIVE (22K reports) |
+| Portland ArcGIS Boundaries | reference.neighborhoods | 120 | LIVE |
+| Oregon SOS (data.oregon.gov) | business.oregon_sos_* | 5,191 | LIVE |
+| BLS Employment API | business.bls_employment* | 2,254 | LIVE |
+| Census CBP | business.census_cbp | 59 | LIVE |
+| Zillow ZORI (CSV) | public.housing_rents | 133 | LIVE |
+| FRED House Prices | housing.fred_house_price_index + public | 243 | LIVE |
+| FHFA HPI | housing.fhfa_hpi | 36 | LIVE |
+| Redfin Market | housing.redfin_market | 21 | LIVE |
+| FBI Crime (state-level) | safety.fbi_crime_estimates | 7 | LIVE |
+| Census Population | migration.census_population | 7 | LIVE |
+| TriMet GTFS | downtown.trimet_routes + stops | 6,488 | LIVE |
+| Tax Analysis | public.tax_comparison | 15 | STATIC |
+| PBOT Requests | downtown.pbot_requests | 2 | LIVE |
+
+### STILL NEEDS DATA
+
+| Source | What's Missing | How to Get It | Priority |
+|--------|---------------|---------------|----------|
+| PPB Crime CSVs | Historical monthly crime by type | Download from Tableau Public dashboard or email ppbopendata@police.portlandoregon.gov | HIGH |
+| BOEC 911 Response | Response time data | Public records request to Bureau of Emergency Communications | HIGH |
+| Water Bureau Activations | Monthly water account activations/deactivations by ZIP | Public records request (template in DATA_SOURCES_TODO.md) | HIGH |
+| Revenue Division BLT | Business license tax registrations | Public records request (template in DATA_SOURCES_TODO.md) | HIGH |
+| Placer.ai Foot Traffic | Downtown foot traffic, dwell time, visitor origin | Partnership with Clean & Safe or subscription ($2-5K/mo) | MEDIUM |
+| CoStar Vacancy | Commercial vacancy by submarket | Subscription ($500-1.5K/mo) or use free CBRE/Colliers quarterly PDFs | MEDIUM |
+| Multnomah County Assessor | Property ownership and valuation | Annual public records request | MEDIUM |
+| TriMet Ridership | Monthly boardings by line | Published in quarterly performance reports (scrape or request) | LOW |
+| School Enrollment | PPS enrollment by school | Published annually by Oregon Dept of Education | LOW |
+

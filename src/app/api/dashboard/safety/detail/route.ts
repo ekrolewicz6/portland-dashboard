@@ -20,7 +20,7 @@ interface SafetyDetailResponse {
   graffitiTrend: { month: string; count: number }[] | null;
   // UNAVAILABLE — needs data
   responseTimesTrend: null;
-  historicalCrimeTrend: null;
+  historicalCrimeTrend: { year: number; violent_crime: number; property_crime: number; population: number }[] | null;
   topInsights: string[];
   dataStatus: string;
 }
