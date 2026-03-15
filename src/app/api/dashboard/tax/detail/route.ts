@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const rows = await sql`
-      SELECT city, income_level, effective_rate, federal, state_tax, local_tax, other_tax
+      SELECT city, income_level, effective_rate, federal, state, local, other
       FROM public.tax_comparison
       ORDER BY income_level, city
     `;
@@ -17,14 +17,14 @@ export async function GET() {
       effective_rate: Number(r.effective_rate),
       breakdown: {
         federal: Number(r.federal),
-        state: Number(r.state_tax),
-        local: Number(r.local_tax),
-        other: Number(r.other_tax),
+        state: Number(r.state),
+        local: Number(r.local),
+        other: Number(r.other),
       },
     }));
 
     // Portland breakdown at each income level
-    const portlandRows = comparison.filter((r) => r.city === "Portland");
+    const portlandRows = comparison.filter((r) => r.city.startsWith("Portland"));
     const portlandBreakdown = portlandRows.map((r) => ({
       income_level: r.income_level,
       effective_rate: r.effective_rate,
