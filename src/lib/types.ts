@@ -59,10 +59,30 @@ export interface TaxData extends DashboardResponse {
   jurisdictions: TaxJurisdiction[];
 }
 
+export interface PermitBreakdown {
+  category: string;
+  count: number;
+  active: number;
+  totalValuation: number;
+  avgProcessingDays: number;
+}
+
 export interface HousingData extends DashboardResponse {
   permitPipeline: ChartPoint[];
   processingDays: ChartPoint[];
   medianRent: ChartPoint[];
+  /** Count of permits with status 'issued' (active, not yet finaled) */
+  unitsInPipeline?: number;
+  /** Average processing days for recently issued permits */
+  avgProcessingTime?: number;
+  /** Total construction valuation for recent permits */
+  totalConstructionValuation?: number;
+  /** Percentage of permits processed within 90 days */
+  pctUnder90Days?: number;
+  /** Commercial vs residential permit breakdown */
+  permitBreakdown?: PermitBreakdown[];
+  /** Monthly permit issuance for last 24 months */
+  monthlyTrend?: ChartPoint[];
 }
 
 export interface ProgramData extends DashboardResponse {

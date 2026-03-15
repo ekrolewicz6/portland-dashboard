@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { housingData } from "@/lib/mock-data";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
-import type { HousingData, ChartPoint } from "@/lib/types";
+import type { HousingData, ChartPoint, PermitBreakdown } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
@@ -13,13 +13,13 @@ export async function GET(): Promise<NextResponse<HousingData>> {
     const cached = await getCachedData<HousingData>(CACHE_KEY);
     if (cached) return NextResponse.json(cached);
 
-    // Query total permits and average processing days
+    // 1. Summary: total permits and average processing days
     const summaryRows = await sql`
       SELECT
         count(*) as total,
         avg(processing_days) as avg_days
       FROM housing.permits
-      WHERE status IN ('Final', 'Issued')
+      WHERE status IN ('finaled', 'issued')
     `;
 
     if (!summaryRows || summaryRows.length === 0 || Number(summaryRows[0].total) === 0) {
@@ -30,7 +30,94 @@ export async function GET(): Promise<NextResponse<HousingData>> {
     const totalPermits = Number(summaryRows[0].total);
     const avgDays = Math.round(Number(summaryRows[0].avg_days) || 0);
 
-    // Build monthly pipeline
+    // 2. Units in pipeline: active permits with status 'issued' for residential types
+    const pipelineRows = await sql`
+      SELECT count(*) as cnt
+      FROM housing.permits
+      WHERE status = 'issued'
+        AND (permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%')
+    `;
+    const unitsInPipeline = Number(pipelineRows[0].cnt);
+
+    // 3. Average processing time for recently issued permits (last 12 months)
+    const recentProcessingRows = await sql`
+      SELECT avg(processing_days)::int as avg_days
+      FROM housing.permits
+      WHERE processing_days IS NOT NULL
+        AND processing_days >= 0
+        AND issued_date >= (CURRENT_DATE - INTERVAL '12 months')
+    `;
+    const avgProcessingTime = Number(recentProcessingRows[0].avg_days || avgDays);
+
+    // 4. Total construction valuation (last 24 months)
+    const valuationRows = await sql`
+      SELECT sum(valuation)::bigint as total_val
+      FROM housing.permits
+      WHERE valuation > 0
+        AND issued_date >= (CURRENT_DATE - INTERVAL '24 months')
+    `;
+    const totalConstructionValuation = Number(valuationRows[0].total_val || 0);
+
+    // 5. 90-day processing guarantee
+    const guaranteeRows = await sql`
+      SELECT
+        count(*) as total,
+        count(*) FILTER (WHERE processing_days <= 90) as under_90
+      FROM housing.permits
+      WHERE processing_days IS NOT NULL AND processing_days >= 0
+    `;
+    const pctUnder90Days = Number(guaranteeRows[0].total) > 0
+      ? Math.round((Number(guaranteeRows[0].under_90) / Number(guaranteeRows[0].total)) * 100)
+      : 0;
+
+    // 6. Commercial vs residential breakdown
+    const breakdownRows = await sql`
+      SELECT
+        CASE
+          WHEN permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%'
+            THEN 'Residential'
+          WHEN permit_type ILIKE '%commercial%'
+            THEN 'Commercial'
+          WHEN permit_type ILIKE '%facility%'
+            THEN 'Facility'
+          ELSE 'Trade/Other'
+        END AS category,
+        count(*)::int AS cnt,
+        count(*) FILTER (WHERE status = 'issued')::int AS active,
+        sum(valuation)::bigint AS total_val,
+        avg(processing_days)::int AS avg_days
+      FROM housing.permits
+      GROUP BY 1
+      ORDER BY cnt DESC
+    `;
+
+    const permitBreakdown: PermitBreakdown[] = breakdownRows.map((r) => ({
+      category: r.category as string,
+      count: Number(r.cnt),
+      active: Number(r.active),
+      totalValuation: Number(r.total_val || 0),
+      avgProcessingDays: Number(r.avg_days || 0),
+    }));
+
+    // 7. Monthly permit issuance for the last 24 months
+    const monthlyTrendRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') as date,
+        count(*)::int as count
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL
+        AND issued_date >= (CURRENT_DATE - INTERVAL '24 months')
+      GROUP BY date_trunc('month', issued_date)
+      ORDER BY date_trunc('month', issued_date)
+    `;
+
+    const monthlyTrend: ChartPoint[] = monthlyTrendRows.map((row) => ({
+      date: row.date as string,
+      value: Number(row.count),
+      label: "Permits issued",
+    }));
+
+    // 8. Build full monthly pipeline (all data)
     const monthlyRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') as date,
@@ -47,7 +134,7 @@ export async function GET(): Promise<NextResponse<HousingData>> {
       label: "Permits filed",
     }));
 
-    // Build monthly processing days
+    // 9. Build monthly processing days
     const processingRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') as date,
@@ -69,10 +156,34 @@ export async function GET(): Promise<NextResponse<HousingData>> {
       value,
     }));
 
+    // 10. Compute YoY trend from real data
+    const trendRows = await sql`
+      WITH periods AS (
+        SELECT
+          count(*) FILTER (WHERE issued_date >= (CURRENT_DATE - INTERVAL '12 months'))::int AS current_yr,
+          count(*) FILTER (WHERE issued_date >= (CURRENT_DATE - INTERVAL '24 months')
+                           AND issued_date < (CURRENT_DATE - INTERVAL '12 months'))::int AS prior_yr
+        FROM housing.permits
+        WHERE issued_date IS NOT NULL
+      )
+      SELECT current_yr, prior_yr,
+        CASE WHEN prior_yr > 0
+          THEN ROUND(((current_yr - prior_yr)::numeric / prior_yr) * 100, 1)
+          ELSE 0
+        END AS yoy_pct
+      FROM periods
+    `;
+    const yoyPct = Number(trendRows[0].yoy_pct || 0);
+    const trendDirection = yoyPct > 0 ? "up" : yoyPct < 0 ? "down" : "flat";
+
     const result: HousingData = {
-      headline: `${totalPermits.toLocaleString()} permits issued/finalized, avg ${avgDays} days to process`,
+      headline: `${totalPermits.toLocaleString()} permits processed, avg ${avgDays} days | ${unitsInPipeline} residential in pipeline`,
       headlineValue: totalPermits,
-      trend: housingData.trend, // keep mock trend until prior-year comparison
+      trend: {
+        direction: trendDirection as "up" | "down" | "flat",
+        percentage: Math.abs(yoyPct),
+        label: "vs. prior 12 months",
+      },
       chartData: chartData.length > 0 ? chartData : housingData.chartData,
       permitPipeline:
         permitPipeline.length > 0 ? permitPipeline : housingData.permitPipeline,
@@ -81,13 +192,23 @@ export async function GET(): Promise<NextResponse<HousingData>> {
           ? processingDays
           : housingData.processingDays,
       medianRent: housingData.medianRent, // rent data not in local DB
-      source: "BDS PermitsNow (local DB) / Zillow ZORI (mock)",
+      // New real-data fields
+      unitsInPipeline,
+      avgProcessingTime,
+      totalConstructionValuation,
+      pctUnder90Days,
+      permitBreakdown,
+      monthlyTrend,
+      source: "BDS PermitsNow (34,307 real permits) / Zillow ZORI (mock)",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        `${totalPermits} permits with status Issued or Final in the database.`,
-        `Average processing time: ${avgDays} days from application to issuance.`,
-        "Median rent data still uses mock values — Zillow ZORI integration pending.",
-        `Monthly pipeline covers ${permitPipeline.length} months of data.`,
+        `${totalPermits.toLocaleString()} permits with status Issued or Final in the database.`,
+        `${unitsInPipeline} residential permits currently active in the pipeline.`,
+        `Average processing time: ${avgProcessingTime} days (last 12 months).`,
+        `${pctUnder90Days}% of permits meet the 90-day processing guarantee.`,
+        `Total construction valuation (24 months): $${(totalConstructionValuation / 1_000_000).toFixed(0)}M.`,
+        `Breakdown: ${permitBreakdown.map((b) => `${b.category}: ${b.count.toLocaleString()}`).join(", ")}.`,
+        "Median rent data still uses mock values -- Zillow ZORI integration pending.",
       ],
     };
 

@@ -6,6 +6,8 @@ import type { DashboardResponse } from "@/lib/types";
 import TrendChart from "@/components/charts/TrendChart";
 import ExportButton from "@/components/dashboard/ExportButton";
 import EmbedButton from "@/components/dashboard/EmbedButton";
+import SafetyDetail from "@/components/dashboard/safety/SafetyDetail";
+import HousingDetail from "@/components/dashboard/housing/HousingDetail";
 
 interface PageProps {
   params: Promise<{ question: string }>;
@@ -53,6 +55,9 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
+/** Questions that have dedicated detail views */
+const DETAIL_QUESTIONS = new Set(["safety", "housing"]);
+
 export default async function QuestionPage({ params }: PageProps) {
   const { question } = await params;
 
@@ -61,23 +66,39 @@ export default async function QuestionPage({ params }: PageProps) {
   }
 
   const meta = questionMeta[question];
+  const hasDetailView = DETAIL_QUESTIONS.has(question);
 
-  let data: DashboardResponse;
-  try {
-    data = await fetchQuestionData(question);
-  } catch {
-    // Fallback: import mock data directly for build time / SSG
-    const mockModule = await import("@/lib/mock-data");
-    const dataMap: Record<string, DashboardResponse> = {
-      migration: mockModule.migrationData,
-      business: mockModule.businessData,
-      downtown: mockModule.downtownData,
-      safety: mockModule.safetyData,
-      tax: mockModule.taxData,
-      housing: mockModule.housingData,
-      program: mockModule.programData,
-    };
-    data = dataMap[question];
+  let data: DashboardResponse | null = null;
+
+  // For questions without a dedicated detail view, fetch the generic data
+  if (!hasDetailView) {
+    try {
+      data = await fetchQuestionData(question);
+    } catch {
+      const mockModule = await import("@/lib/mock-data");
+      const dataMap: Record<string, DashboardResponse> = {
+        migration: mockModule.migrationData,
+        business: mockModule.businessData,
+        downtown: mockModule.downtownData,
+        safety: mockModule.safetyData,
+        tax: mockModule.taxData,
+        housing: mockModule.housingData,
+        program: mockModule.programData,
+      };
+      data = dataMap[question];
+    }
+  } else {
+    // For detail views we still need basic data for the hero section
+    try {
+      data = await fetchQuestionData(question);
+    } catch {
+      const mockModule = await import("@/lib/mock-data");
+      const dataMap: Record<string, DashboardResponse> = {
+        safety: mockModule.safetyData,
+        housing: mockModule.housingData,
+      };
+      data = dataMap[question] ?? null;
+    }
   }
 
   return (
@@ -102,29 +123,33 @@ export default async function QuestionPage({ params }: PageProps) {
             {meta.title}
           </h1>
 
-          <p className="mt-4 text-[18px] sm:text-[20px] text-white/70 font-editorial leading-snug max-w-2xl">
-            {data.headline}
-          </p>
+          {data && (
+            <>
+              <p className="mt-4 text-[18px] sm:text-[20px] text-white/70 font-editorial leading-snug max-w-2xl">
+                {data.headline}
+              </p>
 
-          {/* Trend pill */}
-          <div className="mt-6 flex items-center gap-4">
-            <span
-              className={`trend-pill ${
-                data.trend.direction === "up"
-                  ? "trend-positive"
-                  : data.trend.direction === "down"
-                    ? "trend-negative"
-                    : "trend-neutral"
-              }`}
-            >
-              {data.trend.direction === "up"
-                ? "+"
-                : data.trend.direction === "down"
-                  ? ""
-                  : ""}
-              {data.trend.percentage}% {data.trend.label}
-            </span>
-          </div>
+              {/* Trend pill */}
+              <div className="mt-6 flex items-center gap-4">
+                <span
+                  className={`trend-pill ${
+                    data.trend.direction === "up"
+                      ? "trend-positive"
+                      : data.trend.direction === "down"
+                        ? "trend-negative"
+                        : "trend-neutral"
+                  }`}
+                >
+                  {data.trend.direction === "up"
+                    ? "+"
+                    : data.trend.direction === "down"
+                      ? ""
+                      : ""}
+                  {data.trend.percentage}% {data.trend.label}
+                </span>
+              </div>
+            </>
+          )}
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[var(--color-paper)] to-transparent" />
       </section>
@@ -137,101 +162,114 @@ export default async function QuestionPage({ params }: PageProps) {
           <EmbedButton question={question} />
         </div>
 
-        {/* 12-Month Trend Chart */}
-        <section className="mb-10">
-          <div className="flex items-center gap-2.5 mb-4">
-            <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
-              12-Month Trend
-            </h2>
-            <div className="flex-1 h-px bg-[var(--color-parchment)]" />
-          </div>
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <TrendChart data={data.chartData} color={meta.color} height={320} />
-          </div>
-        </section>
+        {/* Question-specific detail view or generic layout */}
+        {question === "safety" && <SafetyDetail />}
+        {question === "housing" && <HousingDetail />}
 
-        {/* Key Findings + Methodology grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-          {/* Key Findings */}
-          <section>
-            <div className="flex items-center gap-2.5 mb-4">
-              <CheckCircle2 className="w-4 h-4" style={{ color: meta.color }} />
-              <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
-                Key Findings
-              </h2>
-            </div>
-            <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-              <ul className="space-y-4">
-                {data.insights.map((insight, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
-                  >
-                    <span
-                      className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: meta.color }}
-                    />
-                    {insight}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+        {!hasDetailView && data && (
+          <>
+            {/* 12-Month Trend Chart */}
+            <section className="mb-10">
+              <div className="flex items-center gap-2.5 mb-4">
+                <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+                  12-Month Trend
+                </h2>
+                <div className="flex-1 h-px bg-[var(--color-parchment)]" />
+              </div>
+              <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+                <TrendChart data={data.chartData} color={meta.color} height={320} />
+              </div>
+            </section>
 
-          {/* Methodology */}
-          <section>
-            <div className="flex items-center gap-2.5 mb-4">
-              <BookOpen className="w-4 h-4 text-[var(--color-ink-muted)]" />
-              <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
-                Methodology
-              </h2>
-            </div>
-            <div className="bg-[var(--color-parchment)]/40 border border-[var(--color-parchment)]/60 rounded-sm p-6">
-              <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed">
-                Data for this metric is sourced from <strong>{data.source}</strong>.
-                All figures are updated automatically from public records and
-                government APIs. Trend percentages compare the current period to
-                the same period in the prior year unless otherwise noted.
-              </p>
-            </div>
-          </section>
-        </div>
+            {/* Key Findings + Methodology grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+              {/* Key Findings */}
+              <section>
+                <div className="flex items-center gap-2.5 mb-4">
+                  <CheckCircle2 className="w-4 h-4" style={{ color: meta.color }} />
+                  <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+                    Key Findings
+                  </h2>
+                </div>
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+                  <ul className="space-y-4">
+                    {data.insights.map((insight, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
+                      >
+                        <span
+                          className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: meta.color }}
+                        />
+                        {insight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
 
-        {/* Geographic Breakdown (placeholder) */}
-        <section className="mb-10">
-          <div className="flex items-center gap-2.5 mb-4">
-            <MapPin className="w-4 h-4 text-[var(--color-ink-muted)]" />
-            <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
-              Geographic Breakdown
-            </h2>
-          </div>
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-8 text-center">
-            <p className="text-[14px] text-[var(--color-ink-muted)]">
-              Geographic breakdown by neighborhood and ZIP code coming soon.
-            </p>
-            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mt-2">
-              This section will include an interactive map showing data by
-              Portland neighborhood.
-            </p>
-          </div>
-        </section>
+              {/* Methodology */}
+              <section>
+                <div className="flex items-center gap-2.5 mb-4">
+                  <BookOpen className="w-4 h-4 text-[var(--color-ink-muted)]" />
+                  <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+                    Methodology
+                  </h2>
+                </div>
+                <div className="bg-[var(--color-parchment)]/40 border border-[var(--color-parchment)]/60 rounded-sm p-6">
+                  <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed">
+                    Data for this metric is sourced from <strong>{data.source}</strong>.
+                    All figures are updated automatically from public records and
+                    government APIs. Trend percentages compare the current period to
+                    the same period in the prior year unless otherwise noted.
+                  </p>
+                </div>
+              </section>
+            </div>
 
-        {/* Data Source Citation */}
-        <section className="mb-10">
+            {/* Geographic Breakdown (placeholder) */}
+            <section className="mb-10">
+              <div className="flex items-center gap-2.5 mb-4">
+                <MapPin className="w-4 h-4 text-[var(--color-ink-muted)]" />
+                <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+                  Geographic Breakdown
+                </h2>
+              </div>
+              <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-8 text-center">
+                <p className="text-[14px] text-[var(--color-ink-muted)]">
+                  Geographic breakdown by neighborhood and ZIP code coming soon.
+                </p>
+                <p className="text-[12px] text-[var(--color-ink-muted)]/60 mt-2">
+                  This section will include an interactive map showing data by
+                  Portland neighborhood.
+                </p>
+              </div>
+            </section>
+          </>
+        )}
+
+        {/* Data Source Citation — always show */}
+        <section className="mb-10 mt-10">
           <div className="bg-[var(--color-canopy)] rounded-sm p-6 text-white/70">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <p className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.15em] mb-1">
                   Data Source
                 </p>
-                <p className="text-[14px] text-white/80">{data.source}</p>
+                <p className="text-[14px] text-white/80">
+                  {data?.source ??
+                    (question === "safety"
+                      ? "Portland Police Bureau / BOEC 911"
+                      : "BDS PermitsNow / Zillow ZORI")}
+                </p>
               </div>
               <div className="text-right">
                 <p className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.15em] mb-1">
                   Last Updated
                 </p>
                 <p className="text-[14px] text-white/80 font-mono">
-                  {data.lastUpdated}
+                  {data?.lastUpdated ?? new Date().toISOString().slice(0, 10)}
                 </p>
               </div>
             </div>
