@@ -4,6 +4,8 @@ import { useState } from "react";
 import HeadlineCard from "@/components/cards/HeadlineCard";
 import InsightBanner from "@/components/cards/InsightBanner";
 import DetailPanel from "@/components/cards/DetailPanel";
+import { QUESTION_DATA_STATUS } from "@/data/source-status";
+import type { QuestionId } from "@/types/dashboard";
 import {
   Users,
   Building2,
@@ -326,23 +328,35 @@ export default function DashboardPage() {
           id="dashboard"
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8"
         >
-          {headlines.map((h) => (
-            <HeadlineCard
-              key={h.id}
-              question={h.question}
-              headline={h.headline}
-              trend={h.trend}
-              sparklineData={h.sparklineData}
-              source={h.source}
-              lastUpdated={h.lastUpdated}
-              color={h.color}
-              onClick={() =>
-                setSelectedQuestion(
-                  selectedQuestion === h.id ? null : h.id
-                )
-              }
-            />
-          ))}
+          {headlines.map((h) => {
+            const status = QUESTION_DATA_STATUS[h.id as QuestionId];
+            return (
+              <HeadlineCard
+                key={h.id}
+                question={h.question}
+                headline={h.headline}
+                trend={h.trend}
+                sparklineData={h.sparklineData}
+                source={h.source}
+                lastUpdated={h.lastUpdated}
+                color={h.color}
+                onClick={() =>
+                  setSelectedQuestion(
+                    selectedQuestion === h.id ? null : h.id
+                  )
+                }
+                dataStatus={
+                  status
+                    ? {
+                        status: status.overallStatus,
+                        label: status.badgeLabel,
+                        tooltip: status.badgeTooltip,
+                      }
+                    : undefined
+                }
+              />
+            );
+          })}
         </div>
 
         {/* Detail Panel */}
