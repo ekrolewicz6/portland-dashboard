@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import StatGrid from "@/components/charts/StatGrid";
-import BarChart from "@/components/charts/BarChart";
+import MultiLineChart from "@/components/charts/MultiLineChart";
 import TrendChart from "@/components/charts/TrendChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
 import {
@@ -66,24 +66,17 @@ export default function SafetyDetail() {
     return (
       <div className="space-y-8 animate-pulse">
         {[...Array(4)].map((_, i) => (
-          <div
-            key={i}
-            className="bg-[var(--color-parchment)]/50 rounded-sm h-64"
-          />
+          <div key={i} className="bg-[var(--color-parchment)]/50 rounded-sm h-64" />
         ))}
       </div>
     );
   }
 
   if (!data) {
-    return (
-      <p className="text-[var(--color-ink-muted)] text-[14px]">
-        Unable to load safety detail data.
-      </p>
-    );
+    return <p className="text-[var(--color-ink-muted)] text-[14px]">Unable to load safety detail data.</p>;
   }
 
-  const { heroStats, currentYearByCategory, graffitiTrend, topInsights } = data;
+  const { heroStats, crimeByCategory, graffitiTrend, topInsights } = data;
 
   const graffitiChartData = graffitiTrend
     ? graffitiTrend.map((r) => ({ date: r.month, value: r.count }))
@@ -91,105 +84,13 @@ export default function SafetyDetail() {
 
   return (
     <div className="space-y-10">
-      {/* 1. Hero Stat Grid — from real data */}
-      <section>
-        <SectionHeader icon={Shield} title="Key Metrics (Current Snapshot)" />
-        <StatGrid
-          accentColor="#b85c3a"
-          stats={[
-            {
-              label: "Total Crimes (Snapshot)",
-              value: heroStats.totalCrimesThisYear,
-            },
-            {
-              label: "Rate per 1,000",
-              value: heroStats.ratePer1000,
-              suffix: "",
-            },
-            {
-              label: "Year-over-Year",
-              value: "N/A",
-            },
-            {
-              label: "Avg P1 Response",
-              value: heroStats.avgResponseP1 !== null ? heroStats.avgResponseP1 : "N/A",
-              suffix: heroStats.avgResponseP1 !== null ? " min" : "",
-            },
-          ]}
-        />
-      </section>
-
-      {/* 2. Crime by Category - Current (REAL from ArcGIS) */}
-      {currentYearByCategory && currentYearByCategory.length > 0 && (
-        <section>
-          <SectionHeader icon={Shield} title="Crime by Category (ArcGIS Snapshot)" color="#c8956c" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <BarChart data={currentYearByCategory} height={260} />
-          </div>
-        </section>
-      )}
-
-      {/* 3. Historical Crime Trend — DATA NEEDED */}
-      <section>
-        <SectionHeader icon={AlertTriangle} title="Historical Crime Trend" />
-        <DataNeeded
-          title="Historical Monthly Crime Data Needed"
-          description="We have a current snapshot from the ArcGIS Crime MapServer grid, but no historical monthly trends. The Portland Police Bureau publishes downloadable CSV data that would enable 10-year trend analysis."
-          color="#b85c3a"
-          actions={[
-            {
-              label: "Download PPB crime CSVs from Portland Open Data",
-              href: "https://www.portland.gov/police/open-data/reported-crime-data",
-              type: "download",
-            },
-            {
-              label: "Contact PPB Open Data team",
-              href: "mailto:ppbopendata@police.portlandoregon.gov",
-              type: "prr",
-            },
-          ]}
-        />
-      </section>
-
-      {/* 4. 911 Response Times — DATA NEEDED */}
-      <section>
-        <SectionHeader icon={Shield} title="911 Response Times" color="#4a7f9e" />
-        <DataNeeded
-          title="911 Response Time Data Needed"
-          description="Response time data from the Bureau of Emergency Communications (BOEC) is not publicly available through an API. A public records request is required to obtain monthly Priority 1 response medians."
-          color="#4a7f9e"
-          actions={[
-            {
-              label: "File public records request to BOEC for response time data",
-              type: "prr",
-            },
-          ]}
-        />
-      </section>
-
-      {/* 5. Graffiti/Disorder Trend — REAL from Portland BPS */}
-      {graffitiTrend && graffitiTrend.length > 0 && (
-        <section>
-          <SectionHeader icon={AlertTriangle} title="Graffiti / Disorder Trend (Real Data)" color="#7c6f9e" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Monthly graffiti reports from Portland BPS serve as a proxy for visible street-level disorder.
-            </p>
-            <TrendChart data={graffitiChartData} color="#7c6f9e" height={260} />
-          </div>
-        </section>
-      )}
-
-      {/* 6. Key Insights */}
+      {/* 1. Key Insights (always first) */}
       <section>
         <SectionHeader icon={Lightbulb} title="Key Insights" color="#3d7a5a" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
           <ul className="space-y-3">
             {topInsights.map((insight, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
-              >
+              <li key={i} className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed">
                 <span className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[var(--color-clay)]" />
                 {insight}
               </li>
@@ -197,6 +98,109 @@ export default function SafetyDetail() {
           </ul>
         </div>
       </section>
+
+      {/* 2. Hero Stat Grid */}
+      <section>
+        <SectionHeader icon={Shield} title="Key Metrics (Latest Month)" />
+        <StatGrid
+          stats={[
+            { label: "Crimes This Month", value: heroStats.totalCrimesThisYear.toLocaleString() },
+            { label: "Rate per 1,000 (Ann.)", value: String(heroStats.ratePer1000) },
+            {
+              label: "Year-over-Year",
+              value: heroStats.yoyChange !== 0 ? `${heroStats.yoyChange > 0 ? "+" : ""}${heroStats.yoyChange}%` : "N/A",
+            },
+            {
+              label: "Avg P1 Response",
+              value: heroStats.avgResponseP1 !== null ? `${heroStats.avgResponseP1} min` : "N/A",
+            },
+          ]}
+        />
+      </section>
+
+      {/* 3. Crime by Category Over Time — 10-YEAR MULTI-LINE CHART */}
+      {crimeByCategory && crimeByCategory.length > 0 && (
+        <section>
+          <SectionHeader icon={Shield} title="Crime by Category Over Time (10 Years)" color="#c8956c" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Monthly reported crimes by type: Property (theft, burglary, vandalism), Person (assault, robbery), and Society (drugs, weapons). Source: Portland ArcGIS Crime MapServer.
+            </p>
+            <MultiLineChart
+              data={crimeByCategory.map((r) => ({
+                month: r.month,
+                Property: r.property,
+                Person: r.person,
+                Society: r.society,
+              }))}
+              xKey="month"
+              height={400}
+              lines={[
+                { key: "Property", label: "Property Crime", color: "#c8956c" },
+                { key: "Person", label: "Person Crime", color: "#b85c3a" },
+                { key: "Society", label: "Society Crime", color: "#7c6f9e" },
+              ]}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* 4. Latest Month Breakdown — simple HTML bars */}
+      {data.currentYearByCategory && data.currentYearByCategory.length > 0 && (
+        <section>
+          <SectionHeader icon={Shield} title="Latest Month Breakdown" color="#b85c3a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <div className="space-y-3">
+              {data.currentYearByCategory.map((cat, i) => {
+                const maxVal = data.currentYearByCategory![0]?.value || 1;
+                const pct = Math.round((cat.value / maxVal) * 100);
+                return (
+                  <div key={i} className="flex items-center gap-4">
+                    <span className="text-[13px] text-[var(--color-ink-light)] w-[100px] text-right flex-shrink-0">
+                      {cat.name}
+                    </span>
+                    <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                      <div
+                        className="h-full rounded-sm transition-all duration-700"
+                        style={{ width: `${pct}%`, backgroundColor: cat.color }}
+                      />
+                    </div>
+                    <span className="text-[13px] font-mono font-semibold text-[var(--color-ink)] w-[70px] text-right">
+                      {cat.value.toLocaleString()}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5. 911 Response Times — DATA NEEDED */}
+      <section>
+        <SectionHeader icon={Shield} title="911 Response Times" color="#4a7f9e" />
+        <DataNeeded
+          title="911 Response Time Data Needed"
+          description="Response time data from the Bureau of Emergency Communications (BOEC) is not publicly available through an API. A public records request is required."
+          color="#4a7f9e"
+          actions={[
+            { label: "File public records request to BOEC", type: "prr" },
+          ]}
+        />
+      </section>
+
+      {/* 6. Graffiti/Disorder Trend — REAL */}
+      {graffitiTrend && graffitiTrend.length > 0 && (
+        <section>
+          <SectionHeader icon={AlertTriangle} title="Graffiti / Visible Disorder (Real Data)" color="#7c6f9e" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Monthly graffiti reports from Portland BPS as a proxy for visible street-level disorder.
+            </p>
+            <TrendChart data={graffitiChartData} color="#7c6f9e" height={260} />
+          </div>
+        </section>
+      )}
     </div>
   );
 }
