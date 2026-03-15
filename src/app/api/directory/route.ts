@@ -38,15 +38,21 @@ export async function GET(request: NextRequest) {
     const values: unknown[] = [];
 
     if (search) {
-      // Split search into words and match each independently
-      // Strip trailing 's' to handle possessives ("elephants" matches "ELEPHANT'S")
-      // Also search address field
       const words = search.split(/\s+/).filter(Boolean);
       for (const word of words) {
-        // Remove trailing 's' for possessive matching
-        const stem = word.replace(/s$/i, "");
-        conditions.push(`(business_name ILIKE $${values.length + 1} OR address ILIKE $${values.length + 1})`);
-        values.push(`%${stem}%`);
+        // For short words (<=4 chars), require word boundary match to avoid false positives
+        // "eem" should match "EEM LLC" but not "Freeman"
+        if (word.length <= 4) {
+          // Match start of name, or after a space/punctuation
+          conditions.push(`(business_name ~* $${values.length + 1} OR address ILIKE $${values.length + 2})`);
+          values.push(`(^|[\\s'&,.-])${word}`);  // regex: word boundary at start
+          values.push(`%${word}%`);
+        } else {
+          // For longer words, strip trailing 's' for possessive matching
+          const stem = word.replace(/s$/i, "");
+          conditions.push(`(business_name ILIKE $${values.length + 1} OR address ILIKE $${values.length + 1})`);
+          values.push(`%${stem}%`);
+        }
       }
     }
 
@@ -68,7 +74,7 @@ export async function GET(request: NextRequest) {
                 registry_date::text, address, city, state, zip
          FROM business.oregon_sos_all_active
          ${whereClause}
-         ORDER BY registry_date DESC NULLS LAST, business_name ASC
+         ORDER BY ${search ? "LENGTH(business_name) ASC," : ""} business_name ASC, registry_date DESC NULLS LAST
          LIMIT $${values.length + 1} OFFSET $${values.length + 2}`,
         [...values, limit, offset] as (string | number)[]
       ),
