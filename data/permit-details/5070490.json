@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070490,
+  "metadata": {
+    "ivr_number": "5070490",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "SE HOLGATE recon sidewalk P-551 4-ft (2-5-0)",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2025-04-09",
+    "final_date": null,
+    "status": "Issued-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

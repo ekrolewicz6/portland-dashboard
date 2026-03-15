@@ -1,0 +1,86 @@
+{
+  "detail_id": 5190543,
+  "metadata": {
+    "ivr_number": "5190543",
+    "permit_type": "Zoning PermitLand Use Review Condition ComplianceResidential",
+    "work_description": "SINGLE PDF - LUR TREE PLANTING REQUIRED BY LU 22-176116 LDP",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Check Building Permit Reqd",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "INTAKE"
+    },
+    {
+      "activity_name": "Completeness Check - ZP",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Zoning Code Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Caron,Marisol   503-865-6436"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    }
+  ]
+}

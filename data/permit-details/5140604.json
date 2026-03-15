@@ -1,0 +1,46 @@
+{
+  "detail_id": 5140604,
+  "metadata": {
+    "ivr_number": "5140604",
+    "permit_type": "Tree CodeRemoval/ReplantPrivate",
+    "work_description": "Private property tree removal permit",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-04",
+    "issue_date": "2025-04-07",
+    "final_date": null,
+    "status": "Final - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit Required",
+      "last_activity_date": "2025-04-07",
+      "goal_date": "2025-04-07",
+      "completed_date": "2025-04-07",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": "2025-04-07",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "Blankenship,Autumn   971-266-7564"
+    }
+  ]
+}

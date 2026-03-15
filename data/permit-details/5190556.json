@@ -1,0 +1,56 @@
+{
+  "detail_id": 5190556,
+  "metadata": {
+    "ivr_number": "5190556",
+    "permit_type": "Code ComplianceZoningErosion Control",
+    "work_description": "Complaint received. BES Referral: Work without permit, building a retaining wall on the E side of the house along a creek. Photos in TrackIT 2922415",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Request"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": "2025-09-18",
+      "completed_date": null,
+      "staff_contact": "Seward,Michelle   503-823-8167"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Seward,Michelle   503-823-8167"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

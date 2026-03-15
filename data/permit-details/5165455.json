@@ -1,0 +1,86 @@
+{
+  "detail_id": 5165455,
+  "metadata": {
+    "ivr_number": "5165455",
+    "permit_type": "Fire Systems PermitFire AlarmsRemoval",
+    "work_description": "ALARM - DECOMMISSION EXISTING FIRE ALARM SYSTEM.",
+    "address": null,
+    "setup_date": "2025-06-25",
+    "under_review_date": "2025-06-25",
+    "issue_date": "2025-06-25",
+    "final_date": "2025-10-22",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Alarm/Supervision",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-24",
+      "goal_date": null,
+      "completed_date": "2025-10-24",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

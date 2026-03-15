@@ -1,0 +1,406 @@
+{
+  "detail_id": 5070541,
+  "metadata": {
+    "ivr_number": "5070541",
+    "permit_type": "Commercial Building PermitApartments/Condos (3 or more units)Demolition",
+    "work_description": "SB871: Demolish 10-unit apartment building and associated site work",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Demo Forms",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DEMO SITE REVIEW & RELEASE"
+    },
+    {
+      "activity_name": "Site Controls Check",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DEMO SITE REVIEW & RELEASE"
+    },
+    {
+      "activity_name": "Assign Address",
+      "activity_type": "Addressing",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "ADDRESSING  503-823-7379"
+    },
+    {
+      "activity_name": "County Right of Way Review",
+      "activity_type": "Multnomah County",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "County Zoning Review",
+      "activity_type": "Multnomah County",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Hillside Development Review",
+      "activity_type": "Multnomah County",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "County Floodplain Review",
+      "activity_type": "Multnomah County",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "LUR Conditions - Multnomah County",
+      "activity_type": "Multnomah County",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Maywood Park Zoning Review",
+      "activity_type": "Maywood Park",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DSCPLANNING  503-823-7526"
+    },
+    {
+      "activity_name": "Erosion Control Plan Review",
+      "activity_type": "Erosion Control",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Site Development Review",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Spec. Insp. - Site Dev.",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LIFESAFETY  503-823-1456"
+    },
+    {
+      "activity_name": "Energy Code Review",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LIFESAFETY  503-823-1456"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "STRUCTURAL  503-823-7540"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "STRUCTURAL  503-823-7540"
+    },
+    {
+      "activity_name": "Commercial Plumbing Review",
+      "activity_type": "Commercial Plumbing",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "CommercialPlumbingPlanReview  503-823-7302"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE"
+    },
+    {
+      "activity_name": "Source Control Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "BESSOURCECONTROL  503-823-7122"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "BES  503-823-7761"
+    },
+    {
+      "activity_name": "Transportation SDC Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PBOTSDC  503-823-7002"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PDOT  503-823-7002"
+    },
+    {
+      "activity_name": "Street Systems - Assign Reviews",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PDOT  503-823-7002"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Water Available Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "WATER  503-823-7368"
+    },
+    {
+      "activity_name": "Outside Water District",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "WATER  503-823-7368"
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "WATER  503-823-7368"
+    },
+    {
+      "activity_name": "Water Columbia Southshore",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE"
+    },
+    {
+      "activity_name": "Parks SDC Review",
+      "activity_type": "Parks Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PARKSSDC  503-823-5105"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PPD TREE INSPECTION"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": "2025-01-02",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    }
+  ]
+}

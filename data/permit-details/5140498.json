@@ -1,0 +1,186 @@
+{
+  "detail_id": 5140498,
+  "metadata": {
+    "ivr_number": "5140498",
+    "permit_type": "Residential Bldg/Trade PermitGarage/CarportNew Construction",
+    "work_description": "SINGLE PDF - REVISION TO CONVERT FROM TWO DOOR TO SINGLE DOOR GARAGE",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-04",
+    "issue_date": "2025-05-05",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-30",
+      "goal_date": null,
+      "completed_date": "2025-04-30",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": "2025-04-25",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-25",
+      "goal_date": null,
+      "completed_date": "2025-04-25",
+      "staff_contact": "Cooper,Kristin   503-865-6395"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-25",
+      "goal_date": null,
+      "completed_date": "2025-04-25",
+      "staff_contact": "Malekzadeh,Roza   503-865-6544"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-25",
+      "goal_date": null,
+      "completed_date": "2025-04-25",
+      "staff_contact": "Malekzadeh,Roza   503-865-6544"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMBINATION NE TEAM"
+    }
+  ]
+}

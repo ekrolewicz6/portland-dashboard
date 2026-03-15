@@ -1,0 +1,66 @@
+{
+  "detail_id": 5190529,
+  "metadata": {
+    "ivr_number": "5190529",
+    "permit_type": "Noise ComplaintIndustrial/CommercialExterior Activities- Not Construction",
+    "work_description": "Industrial equipment operating in early morning hours",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2026-02-17",
+    "final_date": "2025-09-12",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Inspection - NC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close - NC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-17",
+      "goal_date": null,
+      "completed_date": "2025-09-12",
+      "staff_contact": "Carroll,Nicholas   503-823-7350"
+    },
+    {
+      "activity_name": "Mailed Notices - NC",
+      "activity_type": "Notified",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Citation - Noise",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

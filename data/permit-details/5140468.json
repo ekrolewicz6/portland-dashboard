@@ -1,0 +1,76 @@
+{
+  "detail_id": 5140468,
+  "metadata": {
+    "ivr_number": "5140468",
+    "permit_type": "Public RegistrySites with House(s) or Duplex(es)Lot Confirmation",
+    "work_description": "Confirm Lot 8 & Lots 33-36",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-07",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Decision Rendered"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": "2025-04-07",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-14",
+      "goal_date": null,
+      "completed_date": "2025-05-14",
+      "staff_contact": "Dawkins,Leah   503-865-6734"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-14",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Life Safety Review - PR",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LIFE SAFETY LU"
+    },
+    {
+      "activity_name": "BES Development Srv - PR",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-21",
+      "completed_date": "2025-04-09",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "Water Review - PR",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-21",
+      "goal_date": "2025-04-21",
+      "completed_date": "2025-04-21",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

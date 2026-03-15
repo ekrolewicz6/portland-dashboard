@@ -1,0 +1,56 @@
+{
+  "detail_id": 5140483,
+  "metadata": {
+    "ivr_number": "5140483",
+    "permit_type": "NuisanceOwner OccupiedInspector Initiated",
+    "work_description": "Complaint received. Trash and debris, car parts and construction materials scattered throughout exterior.",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-04",
+    "issue_date": null,
+    "final_date": "2025-07-08",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": "2025-04-11",
+      "completed_date": null,
+      "staff_contact": "Mendez,Edgar   503-823-8438"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-08",
+      "goal_date": null,
+      "completed_date": "2025-07-08",
+      "staff_contact": "Terrell,Lisa   503-823-8534"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Mendez,Edgar   503-823-8438"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

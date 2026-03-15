@@ -1,0 +1,166 @@
+{
+  "detail_id": 5165435,
+  "metadata": {
+    "ivr_number": "5165435",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingAddition",
+    "work_description": "SINGLE PDF - 22 SQFT ADDITION TO FRONT ENTRANCE *** ANY ET PT OR MT SEPARATE",
+    "address": null,
+    "setup_date": "2025-06-25",
+    "under_review_date": "2025-06-25",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Cooper,Kristin   503-865-6395"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-06-26",
+      "goal_date": null,
+      "completed_date": "2025-06-26",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Cooper,Kristin   503-865-6395"
+    },
+    {
+      "activity_name": "Erosion Control Plan Review",
+      "activity_type": "Erosion Control",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SITEDEVELOPMENT  503-823-6892"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LIFESAFETY  503-823-1456"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "STRUCTURAL  503-823-7540"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "Transportation SDC Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PBOTSDC  503-823-7002"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Parks SDC Review",
+      "activity_type": "Parks Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PARKSSDC  503-823-5105"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PPD TREE INSPECTION"
+    }
+  ]
+}

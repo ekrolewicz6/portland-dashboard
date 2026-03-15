@@ -1,0 +1,66 @@
+{
+  "detail_id": 5140492,
+  "metadata": {
+    "ivr_number": "5140492",
+    "permit_type": "Noise VarianceOther ApplicationsOther Events",
+    "work_description": "05/03/25 1:00 pm - 6:30pm. City Cast Portland 503 Day. Event using professional PA System, Live music, DJ and generators. 221 SW ANKENY",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-10",
+    "issue_date": "2025-04-24",
+    "final_date": "2025-05-03",
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": "2025-04-10",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

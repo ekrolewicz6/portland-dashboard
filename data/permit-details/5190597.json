@@ -1,0 +1,196 @@
+{
+  "detail_id": 5190597,
+  "metadata": {
+    "ivr_number": "5190597",
+    "permit_type": "Early AssistanceEA-Zoning & Inf. Bur.- w/mtg",
+    "work_description": "New, 8-story, 120,000sf, 143 affordable units residential building with a height of 84'-0\" as calculated per the COP Zoning Code. Construction is Type 1A on Level 1-3 and Type IIIA on Level 4-8. Ground floor parking provides 19 parking spaces with access off of SE Pine Street. Stormwater will be managed on-site via stormwater filtration eco-roof. These are non-contributing resources in the East Portland/Grand Avenue Historic District.",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-15",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code - EA Response",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Inclusionary Housing Review",
+      "activity_type": "Housing Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": "Flanary,Chris   503-823-3259"
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "BDS LUS - EA Response",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-08",
+      "goal_date": null,
+      "completed_date": "2025-10-08",
+      "staff_contact": "Jeffreys,Grace   503-865-6521"
+    },
+    {
+      "activity_name": "Mail Appt Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Site Dev Review - EA Response",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Site Dev Review - EA mtg",
+      "activity_type": "Site Development",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-02",
+      "goal_date": null,
+      "completed_date": "2025-10-02",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES PW - EA mtg",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-26",
+      "goal_date": null,
+      "completed_date": "2025-09-26",
+      "staff_contact": "Krauter,Rodney   503-823-7064"
+    },
+    {
+      "activity_name": "BES PW - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-06",
+      "goal_date": null,
+      "completed_date": "2025-10-06",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "PBOT PW - EA mtg",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": "2025-09-26",
+      "completed_date": null,
+      "staff_contact": "PDOT PW Plan Reviewer"
+    },
+    {
+      "activity_name": "Water PW - EA Response",
+      "activity_type": "Water Bureau",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-13",
+      "goal_date": null,
+      "completed_date": "2025-10-13",
+      "staff_contact": "Vittori,Bryan   971-917-5458"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

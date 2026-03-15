@@ -1,0 +1,76 @@
+{
+  "detail_id": 5165452,
+  "metadata": {
+    "ivr_number": "5165452",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "N WILLIAMS AVE recon P-531 240 sq-ft; P-540 18-LF (match existing)N MORRIS ST recon P-551 488 sq-ft; P-540 56-LF (match existing)",
+    "address": null,
+    "setup_date": "2025-06-25",
+    "under_review_date": "2025-06-25",
+    "issue_date": "2025-06-27",
+    "final_date": null,
+    "status": "Under Inspection-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-24",
+      "goal_date": null,
+      "completed_date": "2025-07-24",
+      "staff_contact": "Dale,James"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Dale,James"
+    }
+  ]
+}

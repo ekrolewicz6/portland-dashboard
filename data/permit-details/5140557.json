@@ -1,0 +1,216 @@
+{
+  "detail_id": 5140557,
+  "metadata": {
+    "ivr_number": "5140557",
+    "permit_type": "Land Use ReviewELD - Expedited Land DivisionMLDP - Middle Housing Partition",
+    "work_description": "Approval of a Preliminary Plan for a Middle Housing Land Division partition to divide a site with an approved triplex into three parcels, as illustrated with Exhibit C1 ¿ C4, subject to the following conditions: A.As-built survey. An as-built survey shall be submitted with the final plat survey for Land Use Services, Life Safety, Fire Bureau, Environmental Services, and Water for review and approval. That plan must show that structures and underground services are constructed in conformance with the preliminary land division plan and meet requirements in relation to property lines and any easements or tracts. B.The final plat must show the following: 1.The final plat survey shall include a note with the following statement: ¿This plat was approved as a Middle Housing Land Division under ORS 92.031.¿ 2.A private access easement shall be shown, for the benefit of Parcel 2, over the relevant portions of Parcel 1 and 3. 3.A private water easement, for the benefit of Parcel 3, shall be shown and labeled over the relevant portions of Parcel 2. 4.A private storm drain easement, for the benefit of Parcel 2, shall be shown and labeled over the relevant portions of Parcel 1 and 3. 5.A private storm drywell easement, for the benefit of Parcel 2 and 3, shall be shown and labeled over the relevant portions of Parcel 1 and 2. 6.One or more emergency access and egress easements, for the benefit of Parcel 1 thru 3 shall be shown and labeled over the relevant portions of Parcel 1 thru 3. 7.The easements noted above may be modified from what is shown on the preliminary plan by more than the allowances in 33.663.200.A, provided the change is approved by City review groups and all access and service requirements continue to be met. 8.A recording block for each of the legal documents, required by Condition C.1 and C.2 below. The recording block(s) shall, at a minimum, include language substantially similar to the following example: ¿A [Name of Document] has been",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-04",
+    "issue_date": "2025-06-24",
+    "final_date": null,
+    "status": "Decision Rendered"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-23",
+      "goal_date": null,
+      "completed_date": "2025-04-23",
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-24",
+      "goal_date": null,
+      "completed_date": "2025-06-24",
+      "staff_contact": "Tierney,Bryan   503-823-5092"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-25",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Tentative Decision",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-24",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-06",
+      "goal_date": null,
+      "completed_date": "2025-08-06",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": "2025-04-07",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-30",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-04-30",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Site Dev Review - RFC",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-18",
+      "goal_date": "2025-04-18",
+      "completed_date": "2025-04-18",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-13",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-05-13",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Life Safety Review - RFC",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-17",
+      "goal_date": "2025-04-18",
+      "completed_date": "2025-04-17",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-03",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-05-03",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-08",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-05-08",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-18",
+      "completed_date": "2025-04-09",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-30",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-04-30",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-15",
+      "goal_date": "2025-04-18",
+      "completed_date": "2025-04-15",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-05-05",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-05-05",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Water Review - RFC",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-14",
+      "goal_date": "2025-04-18",
+      "completed_date": "2025-04-14",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    },
+    {
+      "activity_name": "Tree Code - RFC",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-16",
+      "goal_date": "2025-04-18",
+      "completed_date": "2025-04-16",
+      "staff_contact": "Collyer,Casey"
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-05-06",
+      "goal_date": "2025-05-09",
+      "completed_date": "2025-05-06",
+      "staff_contact": "Collyer,Casey"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "detail_id": 5070471,
+  "metadata": {
+    "ivr_number": "5070471",
+    "permit_type": "Tree CodeRoot PruningRight-of-Way",
+    "work_description": "Street Tree Root pruning",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2024-08-05",
+    "final_date": "2024-08-08",
+    "status": "Expired - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": ""
+    }
+  ]
+}

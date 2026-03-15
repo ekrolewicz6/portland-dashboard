@@ -562,21 +562,37 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 7. Valuation by Year (REAL) */}
+      {/* 7. Valuation by Year (REAL) — HTML bars for reliability */}
       {valuationByYear.length > 0 && (
         <section>
-          <SectionHeader icon={DollarSign} title="Construction Valuation by Year (Real Data)" color="#c8956c" />
+          <SectionHeader icon={DollarSign} title="Total Construction Valuation by Year" color="#c8956c" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <BarChart
-              data={valuationByYear.map((r) => ({
-                ...r,
-                value: Math.round(r.value / 1_000_000),
-              }))}
-              color="#c8956c"
-              height={300}
-              valuePrefix="$"
-              valueSuffix="M"
-            />
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Total dollar value of all building permits issued each year. Based on declared project valuations from Portland BDS.
+            </p>
+            <div className="space-y-3">
+              {valuationByYear.map((v, i) => {
+                const maxVal = Math.max(...valuationByYear.map((x) => x.value));
+                const valM = Math.round(v.value / 1_000_000);
+                const pct = maxVal > 0 ? Math.round((v.value / maxVal) * 100) : 0;
+                return (
+                  <div key={i} className="flex items-center gap-4">
+                    <span className="text-[14px] font-mono font-semibold text-[var(--color-ink)] w-[50px] text-right">
+                      {v.name}
+                    </span>
+                    <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                      <div
+                        className="h-full rounded-sm transition-all duration-700"
+                        style={{ width: `${pct}%`, backgroundColor: "#c8956c" }}
+                      />
+                    </div>
+                    <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[80px] text-right">
+                      ${valM}M
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
       )}

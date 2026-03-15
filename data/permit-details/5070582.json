@@ -1,0 +1,56 @@
+{
+  "detail_id": 5070582,
+  "metadata": {
+    "ivr_number": "5070582",
+    "permit_type": "Dangerous BuildingGeneral",
+    "work_description": "COMPLT RCVD: BACKYARD ADDITION W/O PERMITS, STRUCTURE BURNED DOWN. CAOK W/CALL AHEAD",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": null,
+    "final_date": "2024-08-06",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - DB",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Close - DB",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Mailed Notices - DB",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Waiver - HS, DB",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

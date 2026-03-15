@@ -1,0 +1,56 @@
+{
+  "detail_id": 5070542,
+  "metadata": {
+    "ivr_number": "5070542",
+    "permit_type": "On-Site Sewage Evaluations & ServicesSingle Family DwellingDecommission Sewage Disposal System",
+    "work_description": "Decommission Cesspool",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2024-08-06",
+    "final_date": "2024-08-08",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Decommissioning Req'd?",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Required",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "842 Decommission System(Pumped & Filled)",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-08",
+      "goal_date": null,
+      "completed_date": "2024-08-08",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "Recorded Waiver Rec'd",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "detail_id": 5190508,
+  "metadata": {
+    "ivr_number": "5190508",
+    "permit_type": "Tree CodeRemoval/ReplantPrivate",
+    "work_description": "Private property tree removal permit",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2025-10-09",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2025-09-16",
+      "goal_date": "2025-09-16",
+      "completed_date": "2025-09-16",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-10-09",
+      "goal_date": null,
+      "completed_date": "2025-10-09",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "No Permit Work Conducted",
+      "last_activity_date": "2026-01-21",
+      "goal_date": "2026-01-21",
+      "completed_date": "2026-01-21",
+      "staff_contact": ""
+    }
+  ]
+}

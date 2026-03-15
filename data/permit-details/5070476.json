@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070476,
+  "metadata": {
+    "ivr_number": "5070476",
+    "permit_type": "Noise VarianceOther ApplicationsBlock Party",
+    "work_description": "09/07/24 10am-4pm. Street Fair. Goose Hollow Foothills League. amplified sound. ROW SW Morrison St between W Burnside St and SW 20th Ave SW 20th Pl between W Burnside St and SW Yamhill St",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-12",
+    "issue_date": "2024-09-04",
+    "final_date": "2024-09-07",
+    "status": "Variance Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - NV",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Olivella Lopez,Juliette"
+    },
+    {
+      "activity_name": "Noise Officer Review",
+      "activity_type": "Under Review",
+      "must_check": "Y",
+      "activity_status": "Approved w/ Cond",
+      "last_activity_date": "2024-09-04",
+      "goal_date": null,
+      "completed_date": "2024-09-04",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Notify Applicant of Decision",
+      "activity_type": "Decision Notification",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2024-09-04",
+      "goal_date": null,
+      "completed_date": "2024-09-04",
+      "staff_contact": "VanOrden,Paul   503-823-5829"
+    },
+    {
+      "activity_name": "Close Noise Variance",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NOISE"
+    }
+  ]
+}

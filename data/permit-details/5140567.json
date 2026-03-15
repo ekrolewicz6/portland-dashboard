@@ -1,0 +1,96 @@
+{
+  "detail_id": 5140567,
+  "metadata": {
+    "ivr_number": "5140567",
+    "permit_type": "Public RegistrySites With Other DevelopmentProperty Line Adjustment",
+    "work_description": "Adjust the southern property line of Lot 5 within existing property 2 for the USPS Master Plan, Dated August 20, 2020. NOTE: This is the second of two PLAs (see PR 25-020728 PLA - which is the first of two).",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-07",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Intake - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": "2025-04-07",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "P & Z Review - PR",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-06-09",
+      "goal_date": null,
+      "completed_date": "2025-06-09",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-21",
+      "goal_date": null,
+      "completed_date": "2025-07-21",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Site Development Review - PR",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-16",
+      "goal_date": "2025-04-21",
+      "completed_date": "2025-04-16",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Life Safety Review - PR",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-09",
+      "goal_date": "2025-04-21",
+      "completed_date": "2025-04-09",
+      "staff_contact": "Altman,Guy Inactive"
+    },
+    {
+      "activity_name": "BES Development Srv - PR",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-10",
+      "goal_date": "2025-04-21",
+      "completed_date": "2025-04-10",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": "2025-04-09",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Water Review - PR",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-04-21",
+      "goal_date": "2025-04-21",
+      "completed_date": "2025-04-21",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

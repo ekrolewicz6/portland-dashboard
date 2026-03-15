@@ -1,0 +1,66 @@
+{
+  "detail_id": 5190503,
+  "metadata": {
+    "ivr_number": "5190503",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "SE KNAPP ST recon shared driveway P-528 total 270 sq-ft (18-ft throat)",
+    "address": null,
+    "setup_date": "2025-09-12",
+    "under_review_date": "2025-09-12",
+    "issue_date": "2025-09-15",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": "2025-09-23",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Patten,Evan   503-830-9067"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "detail_id": 5070522,
+  "metadata": {
+    "ivr_number": "5070522",
+    "permit_type": "Early AssistanceDA - Design Advice Request",
+    "work_description": "DZ HEARING - Replacement of the existing high school with a new four-story building to accommodate ~1,700 students. Redevelopment of the site will include pedestrian/bicycle pathways, parking areas, athletic fields, and field support structures. An existing swimming pool, operated by PP&R, will remain along with the existing Rieke ES buildings. The new school will offer a full range of high school facilities, including a theater, band and choir rooms, a cafeteria and commons, and a media center as well as classrooms and science labs, art rooms, shop spaces and a variety of specialized learning environments. The school will also accommodate a childcare center and a health clinic.",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Completed"
+  },
+  "activities": [
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Source Ctrl - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "BES Watershed Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Tree Code - LU",
+      "activity_type": "Trees",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Intake-EA",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-07",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Schedule Hearing Date",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-30",
+      "goal_date": null,
+      "completed_date": "2024-08-30",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Memo to Commission",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-31",
+      "goal_date": null,
+      "completed_date": "2024-09-12",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Hearing",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-31",
+      "goal_date": null,
+      "completed_date": "2024-09-19",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Mail DA Summary",
+      "activity_type": "Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-31",
+      "goal_date": null,
+      "completed_date": "2024-10-22",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "BES Syst Dev - EA Response",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-05",
+      "goal_date": null,
+      "completed_date": "2024-09-05",
+      "staff_contact": "Cermak,Abigail   503-823-7577"
+    },
+    {
+      "activity_name": "PBOT Dev Rev - EA Response",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-04",
+      "goal_date": null,
+      "completed_date": "2024-09-04",
+      "staff_contact": "BorenKing,Tammy   503-823-2948"
+    },
+    {
+      "activity_name": "Cancel Folder",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Put on Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Remove Hold",
+      "activity_type": "Process Managment",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

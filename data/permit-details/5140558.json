@@ -1,0 +1,56 @@
+{
+  "detail_id": 5140558,
+  "metadata": {
+    "ivr_number": "5140558",
+    "permit_type": "On-Site Sewage Evaluations & ServicesSingle Family DwellingDecommission Sewage Disposal System",
+    "work_description": "Decommission septic tank",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-04",
+    "issue_date": "2025-04-04",
+    "final_date": null,
+    "status": "Under Inspection"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": "2025-04-04",
+      "staff_contact": "Blais,Nicole   503-823-8524"
+    },
+    {
+      "activity_name": "Decommissioning Req'd?",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "842 Decommission System(Pumped & Filled)",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Not Approved",
+      "last_activity_date": "2025-04-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "Recorded Waiver Rec'd",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    }
+  ]
+}

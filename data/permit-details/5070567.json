@@ -1,0 +1,46 @@
+{
+  "detail_id": 5070567,
+  "metadata": {
+    "ivr_number": "5070567",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "SINGLE PDF PROCESS/ KPFF STRUCTURAL REMODEL 25TH-26TH FLRS; DEMO WALLS, 25TH FLR - NEW WALLS TO CREATE OPEN OFFICE & OPEN COLLAB AREAS, HUDDLE RMS, STORAGE RM, PHONE RMS, RESTRM, COFFEE BAR, SERVER RM, REMODEL ELEVATOR LOBBY, RESTRMS, RCM OFFICE, 26TH FLR - REMODEL WELL RM, RECEPTION, ADMIN & COPY/PRINT AREAS CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2024-08-05",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Bechtel,Carole   503-823-4708"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

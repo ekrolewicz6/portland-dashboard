@@ -1,0 +1,26 @@
+{
+  "detail_id": 5140548,
+  "metadata": {
+    "ivr_number": "5140548",
+    "permit_type": "Tree CodePlantingRight-of-Way",
+    "work_description": "Street tree planting permit",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-04",
+    "issue_date": "2025-04-16",
+    "final_date": null,
+    "status": "Issued - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": "2025-04-16",
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070536,
+  "metadata": {
+    "ivr_number": "5070536",
+    "permit_type": "Tree CodeOtherRight-of-Way",
+    "work_description": "Street Tree Ornamental Lighting Permit",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2024-08-09",
+    "final_date": null,
+    "status": "Expired - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "Title 11 Permit With Conditions Required",
+      "last_activity_date": "2024-08-07",
+      "goal_date": "2024-08-12",
+      "completed_date": "2024-08-06",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2026-08-23",
+      "completed_date": null,
+      "staff_contact": "Nguyen,Justin   503-348-6784"
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-09",
+      "goal_date": "2027-08-23",
+      "completed_date": null,
+      "staff_contact": "Nguyen,Justin   503-348-6784"
+    },
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Issued",
+      "last_activity_date": "2024-08-09",
+      "goal_date": null,
+      "completed_date": "2024-08-09",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitoring",
+      "activity_type": "D - Permit Request",
+      "must_check": "N",
+      "activity_status": "Conditions Met",
+      "last_activity_date": "2025-09-02",
+      "goal_date": "2025-09-02",
+      "completed_date": "2025-09-02",
+      "staff_contact": ""
+    }
+  ]
+}
