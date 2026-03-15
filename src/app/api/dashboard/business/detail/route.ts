@@ -3,249 +3,187 @@ import sql from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
 
+interface QuarterlyRow {
+  quarter: string;
+  total: number;
+  llcs: number;
+  corps: number;
+  nonprofits: number;
+  assumed_names: number;
+}
+
+interface EntityRow {
+  entity_type: string;
+  cnt: number;
+}
+
+interface ZipRow {
+  zip: string;
+  cnt: number;
+}
+
 interface YearlyRow {
-  year: number;
-  reg_count: number;
+  yr: number;
+  cnt: number;
 }
 
-interface EntityTypeRow {
-  entity_type: string;
-  count: number;
-}
-
-interface StatsRow {
-  key: string;
-  value: number;
-}
-
-interface NewBizRow {
-  registry_number: string;
-  business_name: string;
-  entity_type: string;
-  registry_date: string;
-  address: string | null;
-  city: string | null;
-  zip: string | null;
-}
-
-interface QCEWRow {
-  measure: string;
-  year: number;
-  month: number;
-  value: number;
-  period_name: string;
-}
-
-interface CBPRow {
-  year: number;
-  establishments: number;
-  size_label: string;
-  size_code: string;
+interface TotalRow {
+  total: number;
 }
 
 export async function GET() {
   try {
-    // ── Oregon SOS data ──
-    const [statsRows, yearlyRows, entityRows, newBizRows] = await Promise.all([
-      sql<StatsRow[]>`
-        SELECT key, value::int as value FROM business.oregon_sos_stats
-      `.catch(() => [] as StatsRow[]),
-      sql<YearlyRow[]>`
-        SELECT year, reg_count FROM business.oregon_sos_yearly ORDER BY year
-      `.catch(() => [] as YearlyRow[]),
-      sql<EntityTypeRow[]>`
-        SELECT entity_type, count FROM business.oregon_sos_entity_types ORDER BY count DESC
-      `.catch(() => [] as EntityTypeRow[]),
-      sql<NewBizRow[]>`
-        SELECT registry_number, business_name, entity_type, registry_date::text, address, city, zip
-        FROM business.oregon_sos_new_monthly
-        ORDER BY registry_date DESC LIMIT 500
-      `.catch(() => [] as NewBizRow[]),
-    ]);
+    const [quarterlyRows, entityRows, zipRows, yearlyRows, totalRows] =
+      await Promise.all([
+        sql<QuarterlyRow[]>`
+          SELECT date_trunc('quarter', registry_date)::date::text as quarter,
+            count(*)::int as total,
+            count(*) FILTER (WHERE entity_type ILIKE '%limited liability%')::int as llcs,
+            count(*) FILTER (WHERE entity_type ILIKE '%business corporation%')::int as corps,
+            count(*) FILTER (WHERE entity_type ILIKE '%nonprofit%')::int as nonprofits,
+            count(*) FILTER (WHERE entity_type ILIKE '%assumed%')::int as assumed_names
+          FROM business.oregon_sos_all_active
+          WHERE registry_date >= '2016-01-01' AND registry_date < '2026-04-01'
+          GROUP BY 1 ORDER BY 1
+        `,
+        sql<EntityRow[]>`
+          SELECT entity_type, count(*)::int as cnt
+          FROM business.oregon_sos_all_active
+          GROUP BY 1 ORDER BY cnt DESC
+        `,
+        sql<ZipRow[]>`
+          SELECT zip, count(*)::int as cnt
+          FROM business.oregon_sos_all_active
+          WHERE zip IS NOT NULL AND zip != ''
+          GROUP BY 1 ORDER BY cnt DESC LIMIT 10
+        `,
+        sql<YearlyRow[]>`
+          SELECT EXTRACT(YEAR FROM registry_date)::int as yr, count(*)::int as cnt
+          FROM business.oregon_sos_all_active
+          WHERE registry_date >= '2016-01-01'
+          GROUP BY 1 ORDER BY 1
+        `,
+        sql<TotalRow[]>`
+          SELECT count(*)::int as total FROM business.oregon_sos_all_active
+        `,
+      ]);
 
-    // ── BLS/Census data (secondary) ──
-    const [qcewRows, cbpAllRows] = await Promise.all([
-      sql<QCEWRow[]>`
-        SELECT measure, year, month, value::float as value, period_name
-        FROM business.bls_employment
-        ORDER BY year, month
-      `.catch(() => [] as QCEWRow[]),
-      sql<CBPRow[]>`
-        SELECT year, establishments, size_label, size_code
-        FROM business.census_cbp
-        ORDER BY year, size_code
-      `.catch(() => [] as CBPRow[]),
-    ]);
+    const totalActive = totalRows[0]?.total ?? 0;
 
-    const hasData =
-      yearlyRows.length > 0 ||
-      statsRows.length > 0 ||
-      qcewRows.length > 0 ||
-      cbpAllRows.length > 0;
+    // Current quarter registrations (Q1 2026 = Jan-Mar 2026)
+    const currentQuarter = quarterlyRows.length > 0
+      ? quarterlyRows[quarterlyRows.length - 1]
+      : null;
+    const newThisQuarter = currentQuarter?.total ?? 0;
 
-    if (!hasData) {
-      return NextResponse.json({
-        oregonSOS: null,
-        formationTrend: null,
-        yearlyTotals: null,
-        cumulativeFormation: null,
-        establishmentsBySize: null,
-        employmentTrend: null,
-        newBusinesses: null,
-        dataStatus: "unavailable",
-        dataAvailable: false,
-        dataSources: [
-          {
-            name: "Oregon SOS / BLS / Census",
-            status: "not_loaded",
-            provider: "Multiple",
-            action: "Run: npx tsx scripts/fetch-oregon-businesses.ts && npx tsx scripts/fetch-business-data.ts",
-          },
-        ],
-      });
+    // Top entity type
+    const topEntity = entityRows[0];
+    const topEntityPct =
+      totalActive > 0 && topEntity
+        ? Math.round((topEntity.cnt / totalActive) * 100)
+        : 0;
+
+    // Simplify entity type names for display
+    const entityNameMap: Record<string, string> = {};
+    for (const row of entityRows) {
+      const name = row.entity_type;
+      let label = name;
+      if (name.toLowerCase().includes("limited liability")) label = "LLC";
+      else if (name.toLowerCase().includes("assumed")) label = "Assumed Business Name";
+      else if (name.toLowerCase().includes("nonprofit")) label = "Nonprofit";
+      else if (name.toLowerCase().includes("business corporation") && !name.toLowerCase().includes("foreign"))
+        label = "Business Corporation";
+      else if (name.toLowerCase().includes("foreign") && name.toLowerCase().includes("limited liability"))
+        label = "Foreign LLC";
+      else if (name.toLowerCase().includes("foreign") && name.toLowerCase().includes("business corporation"))
+        label = "Foreign Business Corp";
+      else if (name.toLowerCase().includes("limited partnership"))
+        label = "Limited Partnership";
+      else if (name.toLowerCase().includes("professional"))
+        label = "Professional Corp";
+      entityNameMap[name] = label;
     }
 
-    // ── Oregon SOS data ──
-    const totalActive = statsRows.find((r) => r.key === "total_portland_active")?.value ?? 0;
-    const newMonthlyCount = statsRows.find((r) => r.key === "new_monthly_count")?.value ?? 0;
+    // Aggregate entity types by simplified label
+    const entityAgg: Record<string, number> = {};
+    for (const row of entityRows) {
+      const label = entityNameMap[row.entity_type] ?? row.entity_type;
+      entityAgg[label] = (entityAgg[label] ?? 0) + row.cnt;
+    }
+    const entityBreakdown = Object.entries(entityAgg)
+      .map(([name, value]) => ({ name, value }))
+      .sort((a, b) => b.value - a.value);
 
-    // Formation trend from Oregon SOS yearly registrations
-    const formationTrend = yearlyRows.map((r) => ({
-      date: `${r.year}-01-01`,
-      value: r.reg_count,
-      label: `${r.year} (Oregon SOS registrations)`,
+    // Top entity type label for hero stat
+    const topEntityLabel = entityBreakdown[0]?.name ?? "LLC";
+
+    // Year-over-year growth
+    const yearlyTotals = yearlyRows.map((r) => ({
+      year: r.yr,
+      count: r.cnt,
     }));
 
-    // Entity type breakdown
-    const entityTypeBreakdown = entityRows.map((r) => ({
-      entityType: r.entity_type,
-      count: r.count,
-      pctOfTotal: totalActive > 0 ? Math.round((r.count / totalActive) * 1000) / 10 : 0,
+    // Quarterly trend
+    const quarterlyTrend = quarterlyRows.map((r) => ({
+      quarter: r.quarter,
+      total: r.total,
+      llcs: r.llcs,
+      corps: r.corps,
+      nonprofits: r.nonprofits,
+      assumedNames: r.assumed_names,
     }));
 
-    // New businesses detail
-    const newBusinesses = newBizRows.map((r) => ({
-      registryNumber: r.registry_number,
-      name: r.business_name,
-      type: r.entity_type,
-      date: r.registry_date,
-      address: r.address,
-      city: r.city,
+    // Top ZIP codes
+    const topZipCodes = zipRows.map((r) => ({
       zip: r.zip,
+      count: r.cnt,
     }));
 
-    // ── BLS QCEW data ──
-    const estabRows = qcewRows.filter(
-      (r) =>
-        r.measure === "private_establishments" ||
-        r.measure === "total_establishments"
-    );
-    const qcewFormation = estabRows.map((r) => ({
-      date: `${r.year}-${String(r.month).padStart(2, "0")}-01`,
-      value: r.value,
-      label: `${r.period_name} ${r.year} (${r.measure.replace("_", " ")})`,
-    }));
-
-    // ── Census CBP data ──
-    const cbpTotals = cbpAllRows.filter((r) => r.size_code === "001");
-    const yearlyTotals = cbpTotals.map((r) => ({
-      date: `${r.year}-01-01`,
-      value: r.establishments,
-      label: `${r.year}`,
-    }));
-
-    const cumulativeFormation = cbpTotals.map((r) => ({
-      date: `${r.year}-01-01`,
-      value: r.establishments,
-      label: `${r.year} total`,
-    }));
-
-    // Establishments by size (latest year)
-    const latestYear = cbpAllRows.length > 0
-      ? Math.max(...cbpAllRows.map((r) => r.year))
-      : 0;
-    const latestBySize = cbpAllRows
-      .filter((r) => r.year === latestYear && r.size_code !== "001")
-      .map((r) => ({
-        sizeClass: r.size_label,
-        sizeCode: r.size_code,
-        count: r.establishments,
-      }));
-
-    // Employment trend from QCEW
-    const emplRows = qcewRows.filter(
-      (r) =>
-        r.measure === "private_employment" ||
-        r.measure === "total_employment"
-    );
-    const employmentTrend = emplRows.map((r) => ({
-      date: `${r.year}-${String(r.month).padStart(2, "0")}-01`,
-      value: r.value,
-      label: `${r.period_name} ${r.year} (${r.measure.replace("_", " ")})`,
-    }));
+    // YoY growth for hero stat
+    const sortedYears = [...yearlyTotals].sort((a, b) => a.year - b.year);
+    const firstFullYear = sortedYears.find((y) => y.year === 2016);
+    const lastFullYear = sortedYears.find((y) => y.year === 2025);
+    const yoyGrowthMultiple =
+      firstFullYear && lastFullYear && firstFullYear.count > 0
+        ? Math.round((lastFullYear.count / firstFullYear.count) * 10) / 10
+        : 0;
 
     return NextResponse.json({
-      // Oregon SOS (primary)
-      oregonSOS: {
-        totalActivePortland: totalActive,
-        newMonthlyCount,
-        entityTypeBreakdown,
-        registrationsByYear: formationTrend,
-        newBusinesses,
-        source: "Oregon Secretary of State via data.oregon.gov",
-        datasets: { active: "tckn-sxa6", newMonthly: "esjy-u4fc" },
-      },
-      // BLS / Census (secondary)
-      formationTrend: qcewFormation.length > 0 ? qcewFormation : formationTrend,
+      quarterlyTrend,
+      entityBreakdown,
+      topZipCodes,
       yearlyTotals,
-      cumulativeFormation,
-      establishmentsBySize: latestBySize.length > 0 ? latestBySize : null,
-      establishmentsBySizeYear: latestYear || null,
-      employmentTrend,
-      dataStatus: "available",
-      dataAvailable: true,
-      dataSources: [
-        {
-          name: "Oregon Secretary of State Business Registry",
-          status: "connected",
-          provider: "data.oregon.gov (Socrata)",
-          action: `${totalActive.toLocaleString()} active Portland businesses`,
-        },
-        ...(qcewRows.length > 0
-          ? [
-              {
-                name: "BLS Quarterly Census of Employment and Wages",
-                status: "connected",
-                provider: "Bureau of Labor Statistics",
-                action: "Quarterly data for Multnomah County (FIPS 41051)",
-              },
-            ]
-          : []),
-        ...(cbpAllRows.length > 0
-          ? [
-              {
-                name: "Census County Business Patterns",
-                status: "connected",
-                provider: "U.S. Census Bureau",
-                action: "Annual establishment counts by size class",
-              },
-            ]
-          : []),
-      ],
+      heroStats: {
+        totalActive,
+        newThisQuarter,
+        topEntityType: topEntityLabel,
+        topEntityPct,
+        yoyGrowthMultiple,
+        firstYear: firstFullYear?.count ?? 0,
+        lastYear: lastFullYear?.count ?? 0,
+      },
+      dataStatus: "live",
     });
   } catch (err) {
     console.error("Business detail API error:", err);
-    return NextResponse.json({
-      oregonSOS: null,
-      formationTrend: null,
-      yearlyTotals: null,
-      cumulativeFormation: null,
-      establishmentsBySize: null,
-      employmentTrend: null,
-      newBusinesses: null,
-      dataStatus: "error",
-      dataAvailable: false,
-      dataSources: [],
-    });
+    return NextResponse.json(
+      {
+        quarterlyTrend: [],
+        entityBreakdown: [],
+        topZipCodes: [],
+        yearlyTotals: [],
+        heroStats: {
+          totalActive: 0,
+          newThisQuarter: 0,
+          topEntityType: "LLC",
+          topEntityPct: 0,
+          yoyGrowthMultiple: 0,
+          firstYear: 0,
+          lastYear: 0,
+        },
+        dataStatus: "error",
+      },
+      { status: 500 }
+    );
   }
 }
