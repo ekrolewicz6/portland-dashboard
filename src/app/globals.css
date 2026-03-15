@@ -485,6 +485,39 @@
     opacity: 0.25;
   }
 
+  /* ── Progress Report — editorial article styles ── */
+  .article-content {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  @media (min-width: 640px) {
+    .article-content {
+      font-size: 1.125rem;
+    }
+  }
+
+  .article-content > p:first-child::first-line {
+    font-weight: 500;
+  }
+
+  /* Hide scrollbar for TOC nav */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-up,

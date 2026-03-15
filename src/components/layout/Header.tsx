@@ -55,12 +55,24 @@ export default function Header() {
             >
               Dashboard
             </a>
+            <Link
+              href="/spaces"
+              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+            >
+              Spaces
+            </Link>
             <a
               href="#methodology"
               className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
             >
               Methodology
             </a>
+            <Link
+              href="/progress-report"
+              className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
+            >
+              Progress Report
+            </Link>
             <a
               href="#export"
               className="px-3 py-1.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
@@ -100,12 +112,24 @@ export default function Header() {
           >
             Dashboard
           </a>
+          <Link
+            href="/spaces"
+            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
+          >
+            Spaces
+          </Link>
           <a
             href="#methodology"
             className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
           >
             Methodology
           </a>
+          <Link
+            href="/progress-report"
+            className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
+          >
+            Progress Report
+          </Link>
           <a
             href="#export"
             className="block px-3 py-2 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded"
