@@ -24,6 +24,7 @@ interface HousingDetailData {
   pipelineTrend: { month: string; units: number }[];
   rentTrend: { month: string; rent: number }[] | null;
   processingTimeTrend: { month: string; avgDays: number }[];
+  processingByType: Record<string, string | number>[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
     unitsInPipeline: number;
@@ -97,6 +98,7 @@ export default function HousingDetail() {
     pipelineTrend,
     rentTrend,
     processingTimeTrend,
+    processingByType,
     valuationByYear,
     ninetyDayBreakdown,
     topInsights,
@@ -173,7 +175,7 @@ export default function HousingDetail() {
           <SectionHeader icon={TrendingUp} title="Housing Pipeline (Real Permit Data)" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Monthly permits issued from BDS PermitsNow database.
+              Monthly building permits issued (residential + commercial + facility). Excludes trade permits (electrical, plumbing, mechanical). Source: Portland BDS PermitsNow.
             </p>
             <TrendChart data={pipelineChartData} color="#3d7a5a" height={320} />
           </div>
@@ -195,6 +197,32 @@ export default function HousingDetail() {
               valueSuffix=" days"
               lines={[
                 { key: "avgDays", label: "Median Processing Days", color: "#4a7f9e" },
+              ]}
+              referenceLines={[
+                { y: 90, label: "90-day target", color: "#b85c3a" },
+              ]}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* 3b. Processing Time BY PERMIT TYPE (REAL) */}
+      {processingByType && processingByType.length > 0 && (
+        <section>
+          <SectionHeader icon={Clock} title="Processing Time by Permit Type (Real Data)" color="#7c6f9e" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Median processing days by permit type per quarter. Shows which permit processes are getting faster or slower over time.
+            </p>
+            <MultiLineChart
+              data={processingByType}
+              xKey="quarter"
+              height={320}
+              valueSuffix=" days"
+              lines={[
+                { key: "Residential", label: "Residential", color: "#3d7a5a" },
+                { key: "Commercial", label: "Commercial", color: "#c8956c" },
+                { key: "Facility", label: "Facility", color: "#4a7f9e" },
               ]}
               referenceLines={[
                 { y: 90, label: "90-day target", color: "#b85c3a" },

@@ -524,3 +524,321 @@ curl -s "https://gis.oregonmetro.gov/arcgis/rest/services/?f=json" | python3 -m 
 # Get full TriMet API documentation
 curl -s "https://developer.trimet.org/ws_docs.htm"
 ```
+
+---
+
+## ADDITIONAL DATA SOURCES — Compiled 2026-03-15
+
+> **Note:** WebSearch and WebFetch were unavailable during this compilation. All URLs below are based on
+> known data sources as of early 2026. URLs should be verified before integration. Sources marked with
+> `[VERIFY URL]` especially need confirmation.
+
+---
+
+### 1. Portland City Bureau Data (NOT already listed above)
+
+#### Portland Parks & Recreation
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| PP&R Annual Report / Dashboard | `https://www.portland.gov/parks/data` | Park usage, program enrollment, facility utilization, maintenance backlogs | Free | Web/PDF | MEDIUM — livability, public amenity health |
+| Parks System Development Charges | `https://www.portland.gov/parks/sdc` | SDC collections by year, park investment pipeline | Free | PDF reports | MEDIUM — growth/investment indicator |
+| Community Gardens Waitlist Data | `https://www.portland.gov/parks/community-gardens` | Waitlist length, garden utilization | Free | Web | LOW — community engagement proxy |
+| Urban Forestry Tree Inventory | `https://www.portlandmaps.com/arcgis/rest/services/Public/Parks_Street_Tree_Inventory_Active/MapServer` | Street tree locations, species, condition | Free | ArcGIS REST | LOW — environmental quality |
+| Parks Capital Improvement Program | `https://www.portland.gov/parks/budget` | Capital project spending, deferred maintenance | Free | PDF/budget docs | MEDIUM — infrastructure investment |
+
+#### Portland Fire & Rescue
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| PF&R Annual Report | `https://www.portland.gov/fire/annual-report` | Response times, call volumes, fire incidents, EMS data | Free | PDF | HIGH — "Is the city functional?" response times |
+| PF&R Response Time Data | `https://www.portland.gov/fire/data` [VERIFY URL] | Average response times by station/district | Free | PDF/Web | HIGH — public safety responsiveness |
+| NFIRS (National Fire Incident Reporting) | `https://www.usfa.fema.gov/nfirs/` | Fire incident data reported by PF&R to federal system | Free | Bulk download | MEDIUM — fire incident trends |
+| Portland BOEC (911 Center) | `https://www.portland.gov/911/data` [VERIFY URL] | 911 call volumes, answer times, dispatch times | Free | Web/reports | HIGH — emergency response health |
+
+#### Portland Bureau of Environmental Services (BES)
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| BES Watershed Health Reports | `https://www.portland.gov/bes/watershed-health` | Water quality monitoring, watershed condition | Free | PDF/Web | LOW — environmental quality |
+| BES Stormwater Management Data | `https://www.portlandmaps.com/arcgis/rest/services/Public/BES_Utilities_Storm_Greenstreets/MapServer` | Green infrastructure locations, stormwater facilities | Free | ArcGIS REST | LOW — infrastructure |
+| BES Surface Water Monitoring | `https://www.portlandmaps.com/arcgis/rest/services/Public/BES_Surface_Water_Monitoring_Locations/MapServer` | Water quality sampling sites and results | Free | ArcGIS REST | LOW — environmental health |
+| Combined Sewer Overflow (CSO) Reports | `https://www.portland.gov/bes/cso` [VERIFY URL] | CSO event frequency, Big Pipe project outcomes | Free | PDF | LOW — infrastructure success story |
+
+#### Portland Bureau of Planning & Sustainability (BPS)
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| Portland Climate Action Plan Dashboard | `https://www.portland.gov/bps/climate-action/climate-action-plan-dashboard` [VERIFY URL] | GHG emissions, energy use, climate metrics | Free | Web/Tableau | MEDIUM — sustainability metrics |
+| Buildable Lands Inventory (BLI) | `https://gis-pdx.opendata.arcgis.com/` (BLI Model Development Capacity) | Developable land capacity by zone | Free | GeoJSON/CSV | HIGH — housing supply pipeline |
+| Portland Eco-Districts Data | `https://www.portland.gov/bps/ecodistricts` [VERIFY URL] | Neighborhood sustainability metrics | Free | Web | LOW |
+| Gentrification/Displacement Risk Maps | `https://www.portland.gov/bps/planning/adap` [VERIFY URL] | Displacement risk by census tract | Free | Web/GIS | MEDIUM — equity, demographic shifts |
+| Portland Comprehensive Plan Data | `https://www.portland.gov/bps/comp-plan` | Growth scenarios, land use designations | Free | PDF/GIS | MEDIUM — planning context |
+
+#### City Budget & Finance
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| City of Portland Budget Documents | `https://www.portland.gov/cbo/budget` | Annual budget by bureau, revenue sources, tax receipts | Free | PDF | HIGH — fiscal health |
+| Portland Arts Tax Revenue | `https://www.portland.gov/revenue/arts-tax` | Arts tax collections, compliance rates | Free | Web/reports | MEDIUM — revenue indicator, population proxy |
+| Portland Business License Tax Revenue | `https://www.portland.gov/revenue/business-tax` | Business tax filings, revenue by category | Free | PDF/annual reports | HIGH — business activity |
+| Supportive Housing Services (SHS) Tax Revenue | `https://www.portland.gov/revenue/shs-tax` [VERIFY URL] | Metro SHS tax collections for homeless services | Free | Web/reports | HIGH — homelessness funding |
+| Portland Clean Energy Fund (PCEF) | `https://www.portland.gov/bps/cleanenergy` | PCEF surcharge revenue, grants awarded | Free | Web/reports | MEDIUM — climate investment |
+| City Auditor Reports | `https://www.portland.gov/auditor/audit-reports` | Performance audits of city bureaus | Free | PDF | MEDIUM — government effectiveness |
+| Portland Revenue Division Data | `https://www.portland.gov/revenue/data` [VERIFY URL] | Tax collection data, compliance stats | Free | PDF/Web | HIGH — fiscal health |
+
+#### PDX Reporter / 311 Service Requests
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| PDX Reporter (Portland 311) | `https://pdxreporter.org/` | Graffiti, abandoned vehicles, potholes, illegal camping, dumping | Free | App/Web (reports are public) | HIGH — livability, visible disorder |
+| PDX Reporter Data Feed | Via PBOT Service Requests MapServer (already listed) + possibly Socrata | Geocoded service requests with status | Free | ArcGIS REST / API | HIGH — city responsiveness metrics |
+
+---
+
+### 2. Multnomah County Data (NOT already listed above)
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **Multnomah County Assessment & Taxation** | `https://multcoproptax.com/` | Property values, tax statements, assessed values by parcel | Free | Web lookup / bulk via data.multco.us | HIGH — property value trends, tax base |
+| **Multnomah County DA Case Data** | `https://www.mcda.us/` [VERIFY URL] | Prosecution rates, case outcomes, diversion programs | Free | Annual reports (PDF) | HIGH — criminal justice pipeline, "Is Portland safe?" |
+| **Multnomah County Circuit Court** | `https://www.courts.oregon.gov/courts/multnomah` | Case filings, dispositions (evictions, criminal, civil) | Free | Oregon eCourt / OJIN lookup | HIGH — eviction trends, civil/criminal caseload |
+| **Joint Office of Homeless Services (JOHS)** | `https://www.multco.us/johs` | Shelter capacity, placements, homeless services data | Free | Web/PDF reports | HIGH — homelessness services tracking |
+| **JOHS System Performance Dashboard** | `https://public.tableau.com/` (JOHS profile) [VERIFY URL] | HMIS data: entries/exits from homelessness, length of time homeless | Free | Tableau | HIGH — homelessness outcomes |
+| **Point-in-Time Count** | `https://www.multco.us/johs/point-time-counts` [VERIFY URL] | Biennial unsheltered/sheltered count (HUD-mandated) | Free | PDF/Web | HIGH — headline homelessness number |
+| **Multnomah County Health Department** | `https://www.multco.us/health` | Communicable disease data, vital statistics, environmental health | Free | Web/PDF | MEDIUM — public health |
+| **Community Health Assessment (CHA)** | `https://www.multco.us/health/community-health-data` [VERIFY URL] | County-wide health indicators, social determinants | Free | PDF/interactive | MEDIUM — health equity |
+| **Multnomah County Library Data** | `https://multcolib.org/about/statistics` [VERIFY URL] | Circulation, visits, program attendance, card registrations | Free | Web/annual report | LOW — community engagement proxy |
+| **Multnomah County Elections** | `https://www.multco.us/elections` | Voter registration, turnout, ballot measure results | Free | Web/PDF | MEDIUM — civic engagement |
+| **SHS (Supportive Housing Services) Dashboard** | `https://www.multco.us/multnomah-county-supportive-housing-services` [VERIFY URL] | Spending, placements, shelter beds from Metro SHS tax | Free | Tableau/Web | HIGH — homelessness spending and outcomes |
+| **Multnomah County Budget** | `https://www.multco.us/budget` | County spending by department, revenue sources | Free | PDF | MEDIUM — fiscal health |
+
+---
+
+### 3. Real Estate & Commercial Data (Free/Public Sources)
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **CBRE Quarterly Market Reports** | `https://www.cbre.com/insights/figures/portland-office-figures` | Office vacancy, absorption, asking rents for Portland MSA | Free | PDF download (quarterly) | HIGH — "Is downtown coming back?" commercial health |
+| **Colliers Quarterly Reports** | `https://www.colliers.com/en-us/research/portland` | Office, industrial, retail vacancy and rents | Free | PDF download (quarterly) | HIGH — commercial real estate health |
+| **Cushman & Wakefield MarketBeat** | `https://www.cushmanwakefield.com/en/united-states/insights/us-marketbeats/portland-marketbeat` | Office, industrial, multifamily metrics | Free | PDF download (quarterly) | HIGH — commercial vacancy, rents |
+| **JLL Research** | `https://www.us.jll.com/en/trends-and-insights/research/office-market-statistics` | Office market stats including Portland | Free | PDF/interactive | HIGH — office market health |
+| **Kidder Mathews Reports** | `https://kidder.com/market-research/` | Portland office, industrial, retail, multifamily reports | Free | PDF (quarterly) | HIGH — local brokerage with deep Portland data |
+| **NAI Elliott Reports** | `https://www.naielliott.com/research/` [VERIFY URL] | Portland commercial RE reports | Free | PDF | MEDIUM — local market perspective |
+| **FRED (Federal Reserve Economic Data)** | `https://fred.stlouisfed.org/tags/series?t=portland` | Housing price index, employment, GDP, CPI for Portland MSA | Free | API + CSV | HIGH — economic indicators |
+| **Redfin Data Center** | `https://www.redfin.com/news/data-center/` | Home prices, inventory, days on market by metro/zip/neighborhood | Free | CSV download (weekly/monthly) | HIGH — residential real estate health |
+| **Realtor.com Research** | `https://www.realtor.com/research/data/` | Inventory, median listing price, days on market | Free | CSV download (monthly) | HIGH — housing market |
+| **FHFA House Price Index** | `https://www.fhfa.gov/data/hpi` | House Price Index for Portland MSA | Free | CSV/API | HIGH — home price trends |
+| **CoreLogic (limited free data)** | `https://www.corelogic.com/intelligence/` | Home price insights, foreclosure data (some free reports) | Free (reports) / Paid (raw data) | PDF/Web | MEDIUM — foreclosure trends |
+| **ATTOM Data (limited free)** | `https://www.attomdata.com/` | Foreclosure filings, home equity, property tax data | Free (reports) / Paid ($) | PDF/API | MEDIUM — distressed property trends |
+
+---
+
+### 4. Economic Data (NOT already listed)
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **FRED - Portland MSA Series** | `https://fred.stlouisfed.org/categories/30280` | GDP, employment, unemployment, CPI, housing starts for Portland-Vancouver-Hillsboro MSA | Free | API (`api.stlouisfed.org/fred/`) + CSV | HIGH — comprehensive economic indicators |
+| **Oregon Office of Economic Analysis** | `https://www.oregon.gov/das/OEA` | State economist forecasts, revenue forecasts, economic/demographic projections | Free | PDF/Web | HIGH — state economic outlook, Portland-relevant |
+| **Oregon Employment Department - QualityInfo** | `https://www.qualityinfo.org/` | Employment, wages, industry data by county/MSA; QCEW data | Free | Web/CSV download | HIGH — local labor market |
+| **Oregon Employment Dept - Local Area Unemployment** | `https://www.qualityinfo.org/data` | Monthly unemployment rate for Portland MSA, Multnomah County | Free | CSV/Web | HIGH — jobs indicator |
+| **Prosper Portland** | `https://prosperportland.us/data-reports/` [VERIFY URL] | Urban renewal area data, TIF revenues, business loans, economic development spending | Free | PDF/Web | HIGH — downtown/neighborhood investment |
+| **Prosper Portland Annual Report** | `https://prosperportland.us/annual-report/` [VERIFY URL] | Economic development outcomes, business starts, loan portfolio | Free | PDF/Web | HIGH — "Is Portland open for business?" |
+| **Portland Business Alliance** | `https://portlandalliance.com/` | Downtown Portland economic reports, clean & safe district data | Free (some) / Membership | PDF/Web | HIGH — downtown health indicators |
+| **Portland Business Alliance Clean & Safe** | `https://downtownportland.org/` [VERIFY URL] | Downtown foot traffic counts, safety incidents, cleanliness metrics | Free | PDF/quarterly reports | HIGH — "Is downtown coming back?" |
+| **Travel Portland** | `https://www.travelportland.com/industry/research/` [VERIFY URL] | Tourism data: hotel occupancy, visitor spending, convention bookings | Free | PDF | HIGH — tourism recovery indicator |
+| **Portland Region Visitor Statistics** | Via Travel Portland / Dean Runyan Associates | Annual visitor volume, spending by category | Free | PDF | HIGH — economic vitality |
+| **Smith Travel Research (STR) - Free Summaries** | Via Travel Portland or PBA reports | Hotel occupancy, ADR, RevPAR for Portland market | Free (summaries) / Paid (raw) | PDF | HIGH — hotel market health |
+| **BEA Regional GDP** | `https://www.bea.gov/data/gdp/gdp-metropolitan-area` | GDP for Portland-Vancouver-Hillsboro MSA | Free | CSV/API | HIGH — overall economic output |
+| **BEA Personal Income** | `https://www.bea.gov/data/income-saving/personal-income-county-metro-and-other-areas` | Per capita personal income for Portland MSA | Free | CSV/API | HIGH — income trends |
+| **Small Business Administration (SBA) Loans** | `https://data.sba.gov/` | SBA loan approvals by zip code (7(a), 504, PPP) | Free | CSV/API (Socrata) | MEDIUM — small business health |
+| **FDIC Summary of Deposits** | `https://www.fdic.gov/analysis/quarterly-banking-profile/fdic-quarterly/` | Bank branch deposits by county/city | Free | CSV | MEDIUM — financial health proxy |
+| **Oregon Liquor & Cannabis Commission (OLCC)** | `https://www.oregon.gov/olcc/marijuana/pages/marijuana-market-data.aspx` | Cannabis sales data by county/city | Free | CSV/PDF | MEDIUM — tax revenue, retail activity |
+| **Port of Portland** | `https://www.portofportland.com/Trade-Statistics` | Cargo volumes, air passenger counts (PDX airport) | Free | PDF/Web | HIGH — economic/recovery indicator |
+| **PDX Airport Passenger Statistics** | `https://www.portofportland.com/Aviation-Statistics` [VERIFY URL] | Monthly passenger enplanements, airline market share | Free | PDF | HIGH — "Is Portland coming back?" travel proxy |
+
+---
+
+### 5. Safety & Livability (NOT already listed)
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **FBI UCR / NIBRS Data** | `https://crime-data-explorer.fr.cloud.gov/` | FBI Crime Data Explorer — Portland PD reported crime (national comparison) | Free | API + CSV | HIGH — national benchmarking of crime |
+| **Oregon Criminal Justice Commission** | `https://www.oregon.gov/cjc/data` [VERIFY URL] | State criminal justice data, recidivism, prison population | Free | Web/PDF | MEDIUM — criminal justice outcomes |
+| **Oregon Judicial Department** | `https://www.courts.oregon.gov/about/Pages/reports-measures.aspx` | Court caseload data: filings, dispositions, clearance rates | Free | PDF | MEDIUM — justice system capacity |
+| **OregonLive / Oregonian Crime Data** | Various | Investigative data projects on Portland crime | Free | Web | LOW — media analysis |
+| **Mapping Police Violence** | `https://mappingpoliceviolence.org/` | Police use of force incidents (includes Portland) | Free | CSV | LOW — accountability |
+| **Vera Institute — Incarceration Trends** | `https://trends.vera.org/` | Jail/prison population for Multnomah County | Free | CSV/interactive | MEDIUM — justice system |
+| **Eviction Lab (Princeton)** | `https://evictionlab.org/` | Eviction filings and rates for Portland/Multnomah County | Free | CSV/API | HIGH — housing stability |
+| **HUD Continuum of Care (CoC) Data** | `https://www.hudexchange.info/programs/coc/` | Point-in-Time counts, Housing Inventory Count, system performance | Free | CSV/Excel | HIGH — official homelessness data |
+| **HUD Annual Homeless Assessment Report** | `https://www.huduser.gov/portal/sites/default/files/pdf/AHAR-data.html` [VERIFY URL] | National/CoC-level homelessness data | Free | Excel | HIGH — homelessness trends |
+| **HMIS Data (via JOHS)** | `https://www.multco.us/johs` | Homeless Management Information System entries, exits, demographics | Free (aggregated) | Web/Tableau | HIGH — homelessness flow data |
+| **National Neighborhood Indicators Partnership** | `https://www.neighborhoodindicators.org/` | Cross-city neighborhood health indicators | Free | Web | LOW — benchmarking |
+| **Portland Insights (City Auditor Surveys)** | `https://www.portland.gov/auditor/community-survey` [VERIFY URL] | Resident satisfaction surveys: safety, livability, services | Free | PDF/Web | HIGH — subjective quality of life |
+
+---
+
+### 6. Education Data
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **Portland Public Schools (PPS) Enrollment** | `https://www.pps.net/Page/2037` [VERIFY URL] | Annual enrollment by school, grade, demographics | Free | PDF/Excel | HIGH — population indicator, family retention |
+| **PPS Budget Documents** | `https://www.pps.net/budget` [VERIFY URL] | School district budget, revenue, staffing | Free | PDF | MEDIUM — public investment |
+| **Oregon Dept of Education (ODE) Data** | `https://www.oregon.gov/ode/reports-and-data` | School enrollment, graduation rates, test scores, demographics (all Oregon districts) | Free | CSV/Excel download | HIGH — education outcomes |
+| **ODE School Report Cards** | `https://www.ode.state.or.us/data/reportcard/` [VERIFY URL] | Individual school performance metrics | Free | Web/CSV | MEDIUM — school quality |
+| **National Center for Education Statistics (NCES)** | `https://nces.ed.gov/ccd/schoolsearch/` | Enrollment, demographics, free/reduced lunch for all PPS schools | Free | CSV/API | HIGH — school demographics, poverty proxy |
+| **IPEDS (Higher Ed Enrollment)** | `https://nces.ed.gov/ipeds/` | Enrollment at PSU, UP, Reed, Lewis & Clark, PCC, OHSU | Free | CSV/API | MEDIUM — higher ed enrollment trends |
+| **PSU Enrollment Data** | `https://www.pdx.edu/institutional-research/enrollment-data` [VERIFY URL] | PSU enrollment trends, retention, demographics | Free | Web/PDF | MEDIUM — anchor institution health |
+| **PCC Enrollment Data** | `https://www.pcc.edu/institutional-effectiveness/` [VERIFY URL] | Portland Community College enrollment, completion | Free | Web/PDF | MEDIUM — workforce development |
+
+---
+
+### 7. Health & Demographics
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **Oregon Health Authority (OHA) Data** | `https://www.oregon.gov/oha/PH/DISEASESCONDITIONS/Pages/index.aspx` | Communicable disease, vital statistics, substance abuse, overdose data | Free | Web/PDF/CSV | HIGH — public health, overdose crisis |
+| **OHA Oregon Drug Overdose Dashboard** | `https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/SUBSTANCEUSE/Pages/index.aspx` [VERIFY URL] | Overdose deaths, naloxone distribution, Measure 110 data | Free | Tableau/Web | HIGH — drug crisis indicator |
+| **County Health Rankings** | `https://www.countyhealthrankings.org/explore-health-rankings/oregon/multnomah` | Health outcomes, health behaviors, clinical care, social/economic factors | Free | CSV/Excel | HIGH — comprehensive health benchmarking |
+| **Oregon Vital Statistics** | `https://www.oregon.gov/oha/PH/BIRTHDEATHCERTIFICATES/VITALSTATISTICS/Pages/index.aspx` | Births, deaths, cause of death, life expectancy by county | Free | PDF/tables | MEDIUM — demographic trends |
+| **CDC WONDER** | `https://wonder.cdc.gov/` | Mortality data (including drug overdose) by county | Free | Web query tool | MEDIUM — mortality comparison |
+| **CDC PLACES** | `https://www.cdc.gov/places/` | Health estimates at census tract level for Portland | Free | CSV/API/GIS | HIGH — neighborhood-level health data |
+| **SAMHSA Treatment Locator** | `https://findtreatment.gov/` | Substance abuse treatment facility data | Free | API/CSV | LOW — treatment capacity |
+| **Oregon PDMP (Prescription Drug Monitoring)** | `https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/SAFELIVING/PDMP/Pages/index.aspx` | Prescription opioid dispensing data by county | Free (aggregate reports) | PDF | MEDIUM — opioid crisis tracking |
+| **PSU Population Research Center** | `https://www.pdx.edu/population-research/` | Annual population estimates for Oregon cities/counties (official state estimates) | Free | PDF/Excel | HIGH — gold standard Portland population estimates |
+| **PSU Population Forecasts** | `https://www.pdx.edu/population-research/population-forecasts` [VERIFY URL] | Long-range population forecasts by county | Free | PDF/Excel | HIGH — growth trajectory |
+
+---
+
+### 8. Transportation (NOT already listed)
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **PBOT Bike Counts (Eco-Counter)** | `https://www.portland.gov/transportation/bicycles/bike-count-data` [VERIFY URL] | Automated bicycle counter data from key bridges and paths | Free | CSV/Web | HIGH — active transportation trends |
+| **PBOT Eco-Visio / Eco-Counter Portal** | `https://www.eco-visio.net/` (Portland instance) [VERIFY URL] | Real-time and historical bike/ped counter data | Free | Web (may need login) | HIGH — foot/bike traffic proxy |
+| **ODOT TransGIS** | `https://gis.odot.state.or.us/transgis/` | Traffic volumes (AADT), crash data, highway data for Portland area | Free | GIS/Web | HIGH — traffic volume trends |
+| **ODOT Crash Data System** | `https://www.oregon.gov/odot/Data/Pages/Crash.aspx` | All reported traffic crashes in Oregon including Portland | Free | CSV/Web query | HIGH — "Is Portland safe?" traffic safety |
+| **ODOT Traffic Counting Program** | `https://www.oregon.gov/odot/Data/Pages/Traffic-Counting.aspx` | Continuous and short-duration traffic counts on state highways | Free | CSV/Web | MEDIUM — traffic volume trends |
+| **ODOT TransInfo** | `https://www.oregon.gov/odot/Data/Pages/index.aspx` | Comprehensive transportation data portal (crashes, traffic, bridges) | Free | Various | MEDIUM — reference |
+| **National Transit Database (NTD) - TriMet** | `https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release` | Monthly ridership for all TriMet modes (bus, MAX, WES, streetcar) | Free | Excel/CSV | HIGH — transit recovery tracking |
+| **Portland Streetcar Data** | `https://portlandstreetcar.org/about/ridership` [VERIFY URL] | Streetcar ridership by line and stop | Free | Web/PDF | MEDIUM — downtown activity proxy |
+| **Biketown (Lyft) Ridership** | `https://www.biketownpdx.com/system-data` [VERIFY URL] | Bike-share trip data (origin/destination, duration) | Free | CSV | MEDIUM — micro-mobility |
+| **PBOT Parking Data** | `https://www.portland.gov/transportation/parking/data` [VERIFY URL] | Meter revenue, occupancy, citation data | Free | Web/PDF | MEDIUM — downtown activity proxy |
+| **Waze for Cities (CCP)** | `https://www.waze.com/ccp` | Traffic jams, incidents, road closures (if Portland participates) | Free (partner cities) | API/dashboard | MEDIUM — real-time traffic conditions |
+| **Replica (StreetLight Data)** | `https://www.replicahq.com/` | Trip modeling, origin-destination data from mobile/GPS | Subscription ($$$) | API/dashboard | HIGH — comprehensive mobility data |
+
+---
+
+### 9. Private / Subscription Data Sources
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **Placer.ai** | `https://www.placer.ai/` | Foot traffic to any POI, visitor demographics, trade areas, cross-shopping | $1,000-$5,000+/mo (varies by tier) | Dashboard + API | HIGH — downtown foot traffic, retail health |
+| **CoStar** | `https://www.costar.com/` | Commercial RE: vacancy, rents, absorption, cap rates, tenant data | ~$500-$2,000+/mo per market | Dashboard + API | HIGH — commercial vacancy, office market |
+| **SafeGraph (now Dewey)** | `https://www.deweydata.io/` (via Dewey) or `https://www.safegraph.com/` | POI foot traffic, spend data, mobility patterns | $1,000-$10,000+/mo | API + bulk download | HIGH — foot traffic alternative to Placer |
+| **Advan Research** | `https://www.advanresearch.com/` | Foot traffic from mobile device data, daily granularity | Subscription (custom pricing) | API + CSV | HIGH — foot traffic |
+| **Gravy Analytics** | `https://gravyanalytics.com/` | Location intelligence, foot traffic, audience insights | Subscription (custom) | API | MEDIUM — foot traffic |
+| **Unacast** | `https://www.unacast.com/` | Foot traffic, migration patterns, cross-visitation | Subscription (custom) | API + dashboard | MEDIUM — foot traffic + migration |
+| **Near Intelligence** | `https://near.com/` | People movement data, audience intelligence | Subscription (custom) | API + dashboard | MEDIUM — mobility patterns |
+| **Orbital Insight** | `https://orbitalinsight.com/` | Satellite imagery analytics: parking lot fill rates, construction activity | Subscription ($$$) | API + dashboard | MEDIUM — alternative vacancy/activity indicator |
+| **Spectus (formerly Cuebiq)** | `https://spectus.ai/` | Privacy-first mobility data, foot traffic | Subscription + academic program | API | MEDIUM — foot traffic |
+| **Precisely** | `https://www.precisely.com/` | Address data, demographics, foot traffic, POI data | Subscription (custom) | API | LOW — enrichment data |
+| **Lightcast (formerly Emsi/Burning Glass)** | `https://lightcast.io/` | Labor market data: job postings, skills demand, talent supply for Portland MSA | Subscription ($10K+/yr) | Dashboard + API | HIGH — labor market health |
+| **Revelio Labs** | `https://www.reveliolabs.com/` | Workforce intelligence: hiring, attrition, remote work trends by company/metro | Subscription (custom) | API + dashboard | MEDIUM — workforce trends |
+| **Crunchbase** | `https://www.crunchbase.com/` | Startup funding, company data for Portland tech ecosystem | Free (limited) / $29-$49/mo (Pro) | API + CSV | MEDIUM — tech ecosystem health |
+| **PitchBook** | `https://pitchbook.com/` | VC/PE investment data for Portland companies | Subscription ($$$) | Dashboard | MEDIUM — investment flows |
+| **Yelp Fusion API** | `https://www.yelp.com/developers` | Business listings, reviews, ratings, open/closed status | Free (5,000 calls/day) | API | MEDIUM — business churn, sentiment |
+| **Google Maps Platform — Places API** | `https://developers.google.com/maps/documentation/places/web-service` | Business listings, ratings, popular times, open/closed | $0.017-0.032/call | API | MEDIUM — business activity |
+
+---
+
+### 10. Academic & Research
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **PSU Population Research Center** | `https://www.pdx.edu/population-research/` | Official Oregon population estimates (certified annually), housing unit estimates | Free | PDF/Excel | HIGH — authoritative population data |
+| **PSU Northwest Economic Research Center (NERC)** | `https://www.pdx.edu/nerc/` [VERIFY URL] | Regional economic analysis, housing studies, economic impact studies | Free | PDF/Web | HIGH — local economic research |
+| **PSU Homelessness Research & Action Collaborative** | `https://www.pdx.edu/homelessness/` | Homelessness research, policy analysis | Free | PDF/Web | HIGH — evidence-based homelessness analysis |
+| **PSU Institute of Portland Metropolitan Studies** | `https://www.pdx.edu/ims/` [VERIFY URL] | Regional livability research, civic engagement studies | Free | PDF/Web | MEDIUM — civic health research |
+| **UO Oregon Economic Forum** | `https://www.uoregon.edu/oregon-economic-forum` [VERIFY URL] | State economist Tim Duy's economic analysis and forecasts | Free | Web/PDF | HIGH — authoritative economic outlook |
+| **UO Institute for Policy Research & Engagement** | `https://ipre.uoregon.edu/` [VERIFY URL] | Community development research, housing studies | Free | PDF | MEDIUM — policy research |
+| **ECONorthwest** | `https://econw.com/` | Portland-area economic consulting: housing needs analyses, fiscal impact studies | Free (published reports) | PDF | HIGH — frequent Portland policy research |
+| **Brookings Institution — Metro Monitor** | `https://www.brookings.edu/interactives/metro-monitor/` [VERIFY URL] | Portland MSA economic performance vs. peer metros | Free | Web/interactive | HIGH — national benchmarking |
+| **Urban Institute** | `https://www.urban.org/` | Housing, poverty, criminal justice data/research relevant to Portland | Free | Web/PDF | MEDIUM — policy research |
+| **National League of Cities** | `https://www.nlc.org/resource/` | City fiscal health data, comparative city metrics | Free | PDF/Web | LOW — benchmarking |
+| **ICMA (International City/County Management)** | `https://icma.org/survey-research` | City performance benchmarking data | Membership | Web | LOW — benchmarking |
+
+---
+
+### 11. Federal Data Sources (Portland MSA-Specific)
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **FRED - Portland-Specific Series** | See key series IDs below | Dozens of Portland MSA economic time series | Free | API (`api.stlouisfed.org/fred/series/observations?series_id=XXX&api_key=YYY`) | HIGH |
+| **BEA Regional Accounts** | `https://apps.bea.gov/regional/` | GDP, personal income, employment by MSA | Free | API + CSV | HIGH |
+| **HUD Fair Market Rents** | `https://www.huduser.gov/portal/datasets/fmr.html` | Fair Market Rents for Portland MSA by bedroom count | Free | CSV/API | HIGH — housing affordability |
+| **HUD Income Limits** | `https://www.huduser.gov/portal/datasets/il.html` | Area Median Income for Portland MSA | Free | CSV/API | HIGH — affordability thresholds |
+| **USPS Change of Address (COA) Data** | Via HUD USPS Vacancy dataset (already listed) | Move-in/move-out by zip code | Free | CSV | Already listed |
+| **EPA Environmental Data** | `https://www.epa.gov/enviro/` | Air quality, Superfund sites, toxic releases for Portland area | Free | API/CSV | LOW — environmental quality |
+| **AirNow API** | `https://www.airnow.gov/` and `https://docs.airnowapi.org/` | Real-time and historical air quality (AQI) for Portland | Free | API | MEDIUM — livability (smoke season) |
+| **USDA Food Access Research Atlas** | `https://www.ers.usda.gov/data-products/food-access-research-atlas/` | Food desert/food access data at census tract level | Free | CSV/GIS | MEDIUM — equity, livability |
+| **FEMA National Risk Index** | `https://hazards.fema.gov/nri/` | Natural hazard risk scores by census tract | Free | CSV/GIS | LOW — risk context |
+
+#### Key FRED Series IDs for Portland MSA
+
+```
+ORPDX URN  — Unemployment Rate, Portland-Vancouver-Hillsboro MSA
+ENFIRE38900 — Total Nonfarm Employment, Portland MSA
+PORS — All Employees: Total Nonfarm in Portland MSA (may differ)
+ATNHPIUS38900Q — All-Transactions House Price Index, Portland MSA
+MEDLISPRIPERSQUFEE38900 — Median Listing Price Per Sq Ft, Portland MSA
+MEDDAYONMAR38900 — Median Days on Market, Portland MSA
+NEWLISCOU38900 — New Listing Count, Portland MSA
+ACTLISCOU38900 — Active Listing Count, Portland MSA
+LXXRSA38900 — Existing Home Sales, Portland MSA
+RGMP38900 — Real GDP: Portland MSA
+PCPI41 — Per Capita Personal Income: Oregon
+ORPCPI — Per Capita Personal Income: Portland MSA (if available)
+住BPPRIVSA41 — Building Permits (Private Housing), Oregon
+```
+
+**Note:** Exact series IDs should be verified at `https://fred.stlouisfed.org/tags/series?t=portland`. FRED has 100+ series tagged "portland".
+
+---
+
+### 12. Additional Niche / Emerging Sources
+
+| Source | URL | Data Provided | Cost | Access | Relevance |
+|--------|-----|---------------|------|--------|-----------|
+| **OpenStreetMap (Overpass API)** | `https://overpass-turbo.eu/` | Building footprints, POIs, business listings, infrastructure | Free | API | MEDIUM — business/POI enumeration |
+| **Google Environmental Insights Explorer** | `https://insights.sustainability.google/` | Transportation emissions, building emissions, solar potential for Portland | Free | Web | LOW — sustainability |
+| **Opportunity Atlas (Census)** | `https://www.opportunityatlas.org/` | Upward mobility, income outcomes by childhood neighborhood | Free | Web/CSV | MEDIUM — equity, neighborhood outcomes |
+| **PolicyMap** | `https://www.policymap.com/` | Aggregated demographic, economic, housing, health data at census tract level | Subscription (~$5K/yr) / Free for some orgs | Web/API | MEDIUM — comprehensive tract-level data |
+| **Social Explorer** | `https://www.socialexplorer.com/` | Census data visualization and download, historical demographics | Free (limited) / $100+/yr | Web/API | MEDIUM — historical demographic trends |
+| **Data Commons (Google)** | `https://datacommons.org/place/geoId/4159000` | Aggregated public data for Portland: demographics, economics, health, education | Free | API + Web | MEDIUM — convenient aggregation |
+| **National Equity Atlas** | `https://nationalequityatlas.org/` | Racial equity indicators for Portland MSA | Free | Web/interactive | MEDIUM — equity metrics |
+| **Measure 110 Data (Oregon)** | `https://www.oregon.gov/oha/hsd/amh/pages/measure110.aspx` [VERIFY URL] | Drug decriminalization data: citations, treatment referrals, funding | Free | PDF/Web | HIGH — Portland drug policy outcomes |
+| **Oregon Secretary of State Audits** | `https://sos.oregon.gov/audits/Pages/default.aspx` | State audits of Oregon agencies, sometimes Portland-specific | Free | PDF | LOW — government performance |
+| **Oregon Transparency Website** | `https://www.oregon.gov/transparency` | State spending, contracts, employee compensation | Free | Web/download | LOW — state spending context |
+
+---
+
+### 13. Recommended Priority Actions
+
+**Immediate (can automate now, high value):**
+1. **FRED API** — Pull all Portland MSA series (GDP, employment, housing prices, building permits). No auth barrier.
+2. **CBRE/Colliers/Cushman** — Download latest quarterly office/industrial/retail PDFs. Manual but high value.
+3. **ODOT Crash Data** — Download Portland-area crash data for traffic safety metrics.
+4. **ODE School Enrollment** — Download PPS enrollment trends (CSV available).
+5. **County Health Rankings** — Download Multnomah County health data (CSV).
+6. **Redfin Data Center** — Download Portland metro housing data (weekly CSVs, no auth).
+7. **FBI Crime Data Explorer API** — Pull Portland PD data for national crime benchmarking.
+8. **NTD Monthly Ridership** — Download TriMet monthly ridership (Excel from FTA).
+9. **PSU Population Research Center** — Get latest certified population estimates.
+10. **BEA Regional GDP** — Pull Portland MSA GDP via API.
+
+**Medium-term (requires manual download or partnerships):**
+1. **Multnomah County Socrata** — Enumerate all datasets via catalog API (run curl command in Deep Crawl Notes).
+2. **JOHS/Point-in-Time** — Get latest homeless count data.
+3. **Port of Portland** — Airport passenger data.
+4. **Eviction Lab** — Portland eviction data.
+5. **HUD CoC** — Continuum of Care homelessness data.
+
+**Evaluate for subscription:**
+1. **Placer.ai** — Best foot traffic data; ~$1-5K/mo. Worth a trial for downtown recovery question.
+2. **CoStar** — Gold standard commercial RE; ~$500-2K/mo. May be redundant with free brokerage reports.
+3. **Lightcast** — Best labor market data; expensive but valuable.

@@ -6,9 +6,10 @@ export const dynamic = "force-dynamic";
 interface HousingDetailResponse {
   permitsByType: { name: string; value: number; color: string }[];
   permitsByNeighborhood: { name: string; value: number }[];
-  pipelineTrend: { month: string; units: number }[];
-  rentTrend: null; // Unavailable — needs Zillow ZORI CSV download
-  processingTimeTrend: { month: string; avgDays: number }[];
+  pipelineTrend: { month: string; units: number; residential: number; commercial: number }[];
+  rentTrend: null;
+  processingTimeTrend: { month: string; avgDays: number; count: number }[];
+  processingByType: Record<string, string | number>[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
     unitsInPipeline: number;
@@ -21,73 +22,116 @@ interface HousingDetailResponse {
   dataStatus: string;
 }
 
+// Only count these as "building" permits (exclude trade permits, tree permits, noise)
+const BUILDING_PERMIT_FILTER = `
+  permit_type IN (
+    'Residential 1 & 2 Family Permit',
+    'Commercial Building Permit',
+    'Facility Permit',
+    'Minor Improvement Permit',
+    'Housing',
+    'Fire Systems Permit'
+  )
+`;
+
 export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
   try {
-    // 1. Permits by type — use actual permit_type names, top 8 + other
+    // 1. Permits by type — ONLY building-related permits (not tree trimming, electrical, etc.)
     const typeRows = await sql`
-      WITH ranked AS (
-        SELECT permit_type AS category, count(*)::int AS cnt,
-          ROW_NUMBER() OVER (ORDER BY count(*) DESC) AS rn
-        FROM housing.permits
-        WHERE permit_type IS NOT NULL
-        GROUP BY permit_type
-      )
       SELECT
-        CASE WHEN rn <= 8 THEN category ELSE 'Other' END AS category,
-        SUM(cnt)::int AS cnt
-      FROM ranked
-      GROUP BY CASE WHEN rn <= 8 THEN category ELSE 'Other' END
-      ORDER BY SUM(cnt) DESC
+        CASE
+          WHEN permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%'
+            THEN 'Residential'
+          WHEN permit_type ILIKE '%commercial%'
+            THEN 'Commercial'
+          WHEN permit_type ILIKE '%facility%'
+            THEN 'Facility/Institutional'
+          WHEN permit_type ILIKE '%minor improvement%'
+            THEN 'Minor Improvement'
+          WHEN permit_type ILIKE '%housing%'
+            THEN 'Affordable Housing'
+          WHEN permit_type ILIKE '%fire%'
+            THEN 'Fire Systems'
+          WHEN permit_type ILIKE '%electrical%'
+            THEN 'Electrical'
+          WHEN permit_type ILIKE '%mechanical%'
+            THEN 'Mechanical'
+          WHEN permit_type ILIKE '%plumbing%'
+            THEN 'Plumbing'
+          ELSE 'Other'
+        END AS category,
+        count(*)::int AS cnt
+      FROM housing.permits
+      WHERE permit_type NOT ILIKE '%pruning%'
+        AND permit_type NOT ILIKE '%urban forestry%'
+        AND permit_type NOT ILIKE '%noise%'
+        AND permit_type NOT ILIKE '%nuisance%'
+      GROUP BY 1
+      ORDER BY cnt DESC
     `;
 
     const typeColors: Record<string, string> = {
       Residential: "#3d7a5a",
       Commercial: "#c8956c",
-      Facility: "#4a7f9e",
-      "Trade/Other": "#7c6f9e",
+      "Facility/Institutional": "#4a7f9e",
+      "Minor Improvement": "#7c6f9e",
+      "Affordable Housing": "#b85c6a",
+      "Fire Systems": "#b85c3a",
+      Electrical: "#64748b",
+      Mechanical: "#1a3a2a",
+      Plumbing: "#2d5f7e",
+      Other: "#a8c5b2",
     };
 
     const permitsByType = typeRows.map((r) => ({
       name: r.category as string,
       value: Number(r.cnt),
-      color: typeColors[r.category as string] ?? "#1a3a2a",
+      color: typeColors[r.category as string] ?? "#78716c",
     }));
 
-    // 2. Top 10 neighborhoods by permit count
+    // 2. Top 10 neighborhoods — building permits only
     const neighborhoodRows = await sql`
       SELECT neighborhood AS name, count(*)::int AS cnt
       FROM housing.permits
       WHERE neighborhood IS NOT NULL AND neighborhood != ''
+        AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
       GROUP BY neighborhood
       ORDER BY cnt DESC
       LIMIT 10
     `;
 
     const permitsByNeighborhood = neighborhoodRows.map((r) => ({
-      name: r.name as string,
+      name: (r.name as string).replace(/\b\w/g, (c) => c.toUpperCase()).replace(/\b(Of|The|And)\b/g, (c) => c.toLowerCase()),
       value: Number(r.cnt),
     }));
 
-    // 3. Pipeline trend — REAL permit issuance data from housing.permits
+    // 3. Pipeline trend — building permits only, by month
     const pipelineRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') AS month,
-        count(*)::int AS total_permits
+        count(*)::int AS total,
+        count(*) FILTER (WHERE permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%' OR permit_type ILIKE '%housing%')::int AS residential,
+        count(*) FILTER (WHERE permit_type ILIKE '%commercial%' OR permit_type ILIKE '%facility%')::int AS commercial
       FROM housing.permits
-      WHERE issued_date IS NOT NULL AND issued_date >= '2023-01-01' AND issued_date <= '2026-12-31'
+      WHERE issued_date IS NOT NULL
+        AND issued_date >= '2023-01-01'
+        AND issued_date <= NOW()
+        AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
       GROUP BY date_trunc('month', issued_date)
       ORDER BY date_trunc('month', issued_date)
     `;
 
     const pipelineTrend = pipelineRows.map((r) => ({
       month: r.month as string,
-      units: Number(r.total_permits),
+      units: Number(r.total),
+      residential: Number(r.residential),
+      commercial: Number(r.commercial),
     }));
 
-    // 4. Rent trend — UNAVAILABLE (needs Zillow ZORI CSV download)
-    // NOT querying from public.housing_rents which is FAKE data
+    // 4. Rent trend — UNAVAILABLE
+    // Not querying fake data
 
-    // 5. Processing time trend — MEDIAN per month, excluding outliers
+    // 5. Processing time — building permits only, min 10 permits/month, cap at 180 days
     const processingRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') AS month,
@@ -95,27 +139,70 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         count(*)::int AS permit_count
       FROM housing.permits
       WHERE issued_date IS NOT NULL
-        AND issued_date >= NOW() - INTERVAL '36 months'
+        AND issued_date >= '2023-01-01'
         AND processing_days IS NOT NULL
         AND processing_days > 0
-        AND processing_days <= 365
+        AND processing_days <= 180
+        AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
       GROUP BY date_trunc('month', issued_date)
-      HAVING count(*) >= 5
+      HAVING count(*) >= 50
       ORDER BY date_trunc('month', issued_date)
     `;
 
     const processingTimeTrend = processingRows.map((r) => ({
       month: r.month as string,
       avgDays: Number(r.avg_days),
+      count: Number(r.permit_count),
     }));
 
-    // 6. Valuation by year
+    // 5b. Processing time BY PERMIT TYPE — median days per type per quarter
+    const processingByTypeRows = await sql`
+      SELECT
+        CASE
+          WHEN permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%'
+            THEN 'Residential'
+          WHEN permit_type ILIKE '%commercial%'
+            THEN 'Commercial'
+          WHEN permit_type ILIKE '%facility%'
+            THEN 'Facility'
+          ELSE 'Other Building'
+        END AS ptype,
+        TO_CHAR(date_trunc('quarter', issued_date), 'YYYY-"Q"Q') AS quarter,
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days)::int AS median_days,
+        count(*)::int AS cnt
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL
+        AND processing_days IS NOT NULL
+        AND processing_days > 0
+        AND processing_days <= 365
+        AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
+      GROUP BY 1, date_trunc('quarter', issued_date)
+      HAVING count(*) >= 10
+      ORDER BY date_trunc('quarter', issued_date), 1
+    `;
+
+    // Pivot into {quarter, Residential, Commercial, Facility} rows
+    const quarterMap = new Map<string, Record<string, number>>();
+    for (const r of processingByTypeRows) {
+      const q = r.quarter as string;
+      if (!quarterMap.has(q)) quarterMap.set(q, {});
+      quarterMap.get(q)![r.ptype as string] = Number(r.median_days);
+    }
+    const processingByType = [...quarterMap.entries()].map(([quarter, types]) => ({
+      quarter,
+      ...types,
+    }));
+
+    // 6. Valuation by year — exclude current incomplete year
     const valuationRows = await sql`
       SELECT
         EXTRACT(YEAR FROM issued_date)::int AS yr,
-        SUM(valuation)::bigint AS total
+        SUM(valuation)::bigint AS total,
+        count(*)::int AS permit_count
       FROM housing.permits
-      WHERE issued_date IS NOT NULL AND valuation > 0
+      WHERE issued_date IS NOT NULL
+        AND valuation > 0
+        AND EXTRACT(YEAR FROM issued_date) <= 2024
       GROUP BY EXTRACT(YEAR FROM issued_date)
       ORDER BY yr
     `;
@@ -125,40 +212,54 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       value: Number(r.total),
     }));
 
-    // 7. Hero stats
+    // 7. Hero stats — building permits only for pipeline
     const heroRows = await sql`
       SELECT
-        count(*) FILTER (WHERE status = 'issued')::int AS pipeline,
-        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days) FILTER (WHERE processing_days IS NOT NULL AND processing_days > 0 AND processing_days <= 365)::int AS avg_days,
-        SUM(valuation) FILTER (WHERE valuation > 0)::bigint AS total_val,
-        count(*) FILTER (WHERE processing_days IS NOT NULL AND processing_days >= 0)::int AS total_with_days,
-        count(*) FILTER (WHERE processing_days IS NOT NULL AND processing_days >= 0 AND processing_days <= 90)::int AS under_90
+        count(*) FILTER (WHERE status = 'issued' AND ${sql.unsafe(BUILDING_PERMIT_FILTER)})::int AS pipeline,
+        count(*) FILTER (WHERE ${sql.unsafe(BUILDING_PERMIT_FILTER)})::int AS total_building,
+        SUM(valuation) FILTER (WHERE valuation > 0)::bigint AS total_val
       FROM housing.permits
     `;
 
+    const processingStatsRows = await sql`
+      SELECT
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days)::int AS median_days,
+        count(*)::int AS total_with_days,
+        count(*) FILTER (WHERE processing_days <= 90)::int AS under_90
+      FROM housing.permits
+      WHERE processing_days IS NOT NULL
+        AND processing_days > 0
+        AND processing_days <= 365
+        AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
+    `;
+
     const unitsInPipeline = Number(heroRows[0].pipeline);
-    const avgPermitDays = Number(heroRows[0].avg_days);
+    const totalBuilding = Number(heroRows[0].total_building);
+    const avgPermitDays = Number(processingStatsRows[0].median_days);
     const totalValuation = Number(heroRows[0].total_val);
-    const totalWithDays = Number(heroRows[0].total_with_days);
-    const under90 = Number(heroRows[0].under_90);
+    const totalWithDays = Number(processingStatsRows[0].total_with_days);
+    const under90 = Number(processingStatsRows[0].under_90);
     const ninetyDayCompliance =
       totalWithDays > 0 ? Math.round((under90 / totalWithDays) * 100) : 0;
 
-    // 8. Insights from REAL data only
+    // 8. Insights from REAL data
     const topInsights: string[] = [];
 
-    const totalPermits = permitsByType.reduce((s, p) => s + p.value, 0);
     topInsights.push(
-      `${totalPermits.toLocaleString()} total permits in the database spanning residential, commercial, facility, and trade categories.`
+      `${totalBuilding.toLocaleString()} building permits tracked (excluding trade permits like electrical/plumbing).`
     );
 
     topInsights.push(
-      `${ninetyDayCompliance}% of permits meet the 90-day processing guarantee (${under90.toLocaleString()} of ${totalWithDays.toLocaleString()}).`
+      `${ninetyDayCompliance}% of building permits processed within 90 days (${under90.toLocaleString()} of ${totalWithDays.toLocaleString()}).`
+    );
+
+    topInsights.push(
+      `Median processing time for building permits: ${avgPermitDays} days.`
     );
 
     if (permitsByNeighborhood.length > 0) {
       topInsights.push(
-        `Top neighborhood for permits: ${permitsByNeighborhood[0].name} with ${permitsByNeighborhood[0].value.toLocaleString()} permits.`
+        `Top neighborhood: ${permitsByNeighborhood[0].name} with ${permitsByNeighborhood[0].value.toLocaleString()} building permits.`
       );
     }
 
@@ -168,16 +269,25 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       );
     }
 
+    if (pipelineTrend.length >= 2) {
+      const recent = pipelineTrend[pipelineTrend.length - 1];
+      const peak = pipelineTrend.reduce((max, r) => r.units > max.units ? r : max, pipelineTrend[0]);
+      topInsights.push(
+        `Peak building permit month: ${peak.month} with ${peak.units} permits. Most recent: ${recent.month} with ${recent.units}.`
+      );
+    }
+
     topInsights.push(
       "Median rent data unavailable — download Zillow ZORI CSV from zillow.com/research/data/."
     );
 
-    const result: HousingDetailResponse = {
+    return NextResponse.json({
       permitsByType,
       permitsByNeighborhood,
       pipelineTrend,
-      rentTrend: null, // Unavailable — needs Zillow ZORI
+      rentTrend: null,
       processingTimeTrend,
+      processingByType,
       valuationByYear,
       heroStats: {
         unitsInPipeline,
@@ -191,9 +301,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       },
       topInsights,
       dataStatus: "partial",
-    };
-
-    return NextResponse.json(result);
+    });
   } catch (error) {
     console.error("[housing/detail] DB query failed:", error);
     return NextResponse.json(
@@ -203,6 +311,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         pipelineTrend: [],
         rentTrend: null,
         processingTimeTrend: [],
+        processingByType: [],
         valuationByYear: [],
         heroStats: {
           unitsInPipeline: 0,
