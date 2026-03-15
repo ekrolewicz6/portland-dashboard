@@ -137,6 +137,43 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       );
     }
 
+    // FBI Crime Data Explorer — Oregon state-level crime estimates
+    let fbiCrimeTrend: { year: number; violent_crime: number; property_crime: number; population: number }[] | null = null;
+    try {
+      const fbiRows = await sql`
+        SELECT year, violent_crime::int, property_crime::int, population::bigint
+        FROM safety.fbi_crime_estimates
+        WHERE year >= 2016
+        ORDER BY year
+      `;
+      if (fbiRows.length > 0) {
+        fbiCrimeTrend = fbiRows.map((r) => ({
+          year: Number(r.year),
+          violent_crime: Number(r.violent_crime),
+          property_crime: Number(r.property_crime),
+          population: Number(r.population),
+        }));
+
+        const latest = fbiCrimeTrend[fbiCrimeTrend.length - 1];
+        const prior = fbiCrimeTrend.length >= 2 ? fbiCrimeTrend[fbiCrimeTrend.length - 2] : null;
+        const violentRate = ((latest.violent_crime / latest.population) * 1000).toFixed(1);
+        const propertyRate = ((latest.property_crime / latest.population) * 1000).toFixed(1);
+
+        topInsights.push(
+          `Oregon statewide (${latest.year}, FBI UCR): ${latest.violent_crime.toLocaleString()} violent crimes (${violentRate}/1K), ${latest.property_crime.toLocaleString()} property crimes (${propertyRate}/1K).`
+        );
+
+        if (prior) {
+          const violentChange = (((latest.violent_crime - prior.violent_crime) / prior.violent_crime) * 100).toFixed(1);
+          topInsights.push(
+            `Oregon violent crime ${Number(violentChange) < 0 ? "decreased" : "increased"} ${Math.abs(Number(violentChange))}% from ${prior.year} to ${latest.year} (FBI UCR data).`
+          );
+        }
+      }
+    } catch {
+      // FBI crime table may not exist
+    }
+
     topInsights.push(
       "Historical monthly crime trends are unavailable — need PPB CSV downloads from portland.gov/police/open-data/reported-crime-data."
     );
@@ -156,7 +193,7 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       },
       graffitiTrend,
       responseTimesTrend: null, // Needs BOEC public records request
-      historicalCrimeTrend: null, // Needs PPB CSV downloads
+      historicalCrimeTrend: fbiCrimeTrend, // FBI UCR state-level trend
       topInsights,
       dataStatus: "partial",
     };

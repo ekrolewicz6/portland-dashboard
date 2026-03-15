@@ -257,6 +257,20 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
         ...(listingsData.length > 0
           ? [`FRED Active Listings: ${listingsData[listingsData.length - 1]?.value.toLocaleString()} (${listingsData[listingsData.length - 1]?.date}). ${listingsData.length} monthly data points.`]
           : []),
+        ...(await (async () => {
+          try {
+            const fhfa = await sql`SELECT year, quarter, hpi FROM housing.fhfa_hpi ORDER BY year DESC, quarter DESC LIMIT 1`;
+            if (fhfa.length > 0) return [`FHFA House Price Index (Portland MSA): ${Number(fhfa[0].hpi).toFixed(1)} (Q${fhfa[0].quarter} ${fhfa[0].year}).`];
+          } catch {}
+          return [];
+        })()),
+        ...(await (async () => {
+          try {
+            const redfin = await sql`SELECT median_sale_price, days_on_market, period_begin FROM housing.redfin_market ORDER BY period_begin DESC LIMIT 1`;
+            if (redfin.length > 0 && redfin[0].median_sale_price) return [`Portland median sale price: $${Number(redfin[0].median_sale_price).toLocaleString()}, ${redfin[0].days_on_market} days on market (${String(redfin[0].period_begin).slice(0, 7)}).`];
+          } catch {}
+          return [];
+        })()),
         "Median rent data unavailable -- download Zillow ZORI CSV from zillow.com/research/data/.",
       ],
     };

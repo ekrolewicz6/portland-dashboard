@@ -66,10 +66,21 @@ export async function GET(): Promise<
     const hasOregonData = yearlyRows.length > 0 || statsRows.length > 0;
 
     // ── BLS/Census data (secondary, if available) ──
+    // Query new BLS employment table (Portland MSA unemployment rate from BLS API)
+    const blsUnemploymentRows = await sql<{ year: number; period_name: string; value: number }[]>`
+      SELECT year, period_name, value::float as value
+      FROM business.bls_employment
+      WHERE series_id = 'LAUMT413890000000003'
+        AND period != 'M13'
+      ORDER BY year DESC, period DESC
+      LIMIT 24
+    `.catch(() => [] as { year: number; period_name: string; value: number }[]);
+
     const [qcewRows, cbpRows, blsSeriesRows] = await Promise.all([
       sql<QCEWRow[]>`
         SELECT measure, year, month, value::float as value, period_name
-        FROM business.bls_employment
+        FROM business.bls_employment_series
+        WHERE measure IS NOT NULL
         ORDER BY year, month
       `.catch(() => [] as QCEWRow[]),
       sql<CBPRow[]>`
@@ -86,7 +97,7 @@ export async function GET(): Promise<
       `.catch(() => [] as { series_name: string; year: number; period: string; value: number }[]),
     ]);
 
-    const hasAnyData = hasOregonData || qcewRows.length > 0 || cbpRows.length > 0 || blsSeriesRows.length > 0;
+    const hasAnyData = hasOregonData || qcewRows.length > 0 || cbpRows.length > 0 || blsSeriesRows.length > 0 || blsUnemploymentRows.length > 0;
 
     if (!hasAnyData) {
       return NextResponse.json({
@@ -215,6 +226,14 @@ export async function GET(): Promise<
       );
     }
 
+    // New BLS API unemployment data
+    if (blsUnemploymentRows.length > 0 && unempRows.length === 0) {
+      const latest = blsUnemploymentRows[0];
+      insights.push(
+        `BLS: Portland MSA unemployment rate: ${latest.value}% (${latest.period_name} ${latest.year}).`
+      );
+    }
+
     // Data sources
     const dataSources = [
       {
@@ -246,6 +265,14 @@ export async function GET(): Promise<
         status: "connected" as const,
         provider: "Bureau of Labor Statistics",
         action: `${blsSeriesRows.length} monthly employment data points for Portland MSA`,
+      });
+    }
+    if (blsUnemploymentRows.length > 0) {
+      dataSources.push({
+        name: "BLS Local Area Unemployment",
+        status: "connected" as const,
+        provider: "Bureau of Labor Statistics API",
+        action: `${blsUnemploymentRows.length} monthly unemployment data points for Portland MSA (2019-2025)`,
       });
     }
 

@@ -86,6 +86,7 @@ export async function GET(): Promise<NextResponse<SafetyData & { dataStatus: str
           .slice(0, 3)
           .map((c) => `${c.category}: ${c.count.toLocaleString()} incidents (current snapshot from ArcGIS grid).`),
         ...(graffitiCount ? [`${graffitiCount.toLocaleString()} graffiti reports from Portland BPS.`] : []),
+        "FBI UCR Oregon statewide crime estimates available (2016-2022) — see detail view for trends.",
         "Historical monthly crime trends unavailable — need PPB CSV downloads from portland.gov/police/open-data.",
         "911 response times unavailable — requires public records request to BOEC.",
       ],
