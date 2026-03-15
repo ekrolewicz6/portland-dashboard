@@ -10,6 +10,7 @@ interface HousingDetailResponse {
   rentTrend: null;
   processingTimeTrend: { month: string; avgDays: number; count: number }[];
   processingByType: Record<string, string | number>[];
+  clearanceData: Record<string, string | number>[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
     unitsInPipeline: number;
@@ -201,6 +202,45 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       ...types,
     }));
 
+    // 5c. Clearance rates by quarter and type — shows pipeline health
+    const clearanceRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('quarter', issued_date), 'YYYY-"Q"Q') AS quarter,
+        CASE
+          WHEN permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%' THEN 'Residential'
+          WHEN permit_type ILIKE '%commercial%' THEN 'Commercial'
+          WHEN permit_type ILIKE '%facility%' THEN 'Facility'
+          ELSE 'Other'
+        END AS ptype,
+        count(*)::int AS total_issued,
+        count(*) FILTER (WHERE status = 'finaled')::int AS finaled,
+        ROUND(100.0 * count(*) FILTER (WHERE status = 'finaled') / NULLIF(count(*), 0))::int AS clearance_pct,
+        ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days) FILTER (WHERE processing_days > 0 AND processing_days <= 365))::int AS median_days
+      FROM housing.permits
+      WHERE issued_date IS NOT NULL
+        AND issued_date >= '2023-01-01'
+        AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
+      GROUP BY 1, 2
+      HAVING count(*) >= 5
+      ORDER BY 1, 2
+    `;
+
+    // Pivot clearance data into rows with columns per type
+    const clearanceMap = new Map<string, Record<string, number>>();
+    for (const r of clearanceRows) {
+      const q = r.quarter as string;
+      if (!clearanceMap.has(q)) clearanceMap.set(q, {});
+      const entry = clearanceMap.get(q)!;
+      const ptype = r.ptype as string;
+      entry[`${ptype}_clearance`] = Number(r.clearance_pct);
+      entry[`${ptype}_median`] = Number(r.median_days) || 0;
+      entry[`${ptype}_total`] = Number(r.total_issued);
+    }
+    const clearanceData = [...clearanceMap.entries()].map(([quarter, data]) => ({
+      quarter,
+      ...data,
+    }));
+
     // 6. Valuation by year — exclude current incomplete year
     const valuationRows = await sql`
       SELECT
@@ -296,6 +336,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       rentTrend: null,
       processingTimeTrend,
       processingByType,
+      clearanceData,
       valuationByYear,
       heroStats: {
         unitsInPipeline,
@@ -320,6 +361,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         rentTrend: null,
         processingTimeTrend: [],
         processingByType: [],
+        clearanceData: [],
         valuationByYear: [],
         heroStats: {
           unitsInPipeline: 0,

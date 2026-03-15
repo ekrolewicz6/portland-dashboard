@@ -25,6 +25,7 @@ interface HousingDetailData {
   rentTrend: { month: string; rent: number }[] | null;
   processingTimeTrend: { month: string; avgDays: number }[];
   processingByType: Record<string, string | number>[];
+  clearanceData: Record<string, string | number>[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
     unitsInPipeline: number;
@@ -99,6 +100,7 @@ export default function HousingDetail() {
     rentTrend,
     processingTimeTrend,
     processingByType,
+    clearanceData,
     valuationByYear,
     ninetyDayBreakdown,
     topInsights,
@@ -243,6 +245,34 @@ export default function HousingDetail() {
               ]}
               referenceLines={[
                 { y: 90, label: "90-day target", color: "#b85c3a" },
+              ]}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* 3c. Clearance Rate by Type — shows pipeline health */}
+      {clearanceData && clearanceData.length > 0 && (
+        <section>
+          <SectionHeader icon={CheckCircle2} title="Permit Clearance Rate by Type (Real Data)" color="#3d7a5a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Percentage of permits issued in each quarter that have been finalized. A declining clearance rate means more permits are sitting in the pipeline unresolved. This eliminates survivorship bias — it measures throughput, not just the speed of completed permits.
+            </p>
+            <MultiLineChart
+              data={clearanceData.map((r) => ({
+                quarter: r.quarter,
+                Residential: (r as Record<string, unknown>).Residential_clearance as number ?? 0,
+                Commercial: (r as Record<string, unknown>).Commercial_clearance as number ?? 0,
+                Facility: (r as Record<string, unknown>).Facility_clearance as number ?? 0,
+              }))}
+              xKey="quarter"
+              height={320}
+              valueSuffix="%"
+              lines={[
+                { key: "Residential", label: "Residential Clearance %", color: "#3d7a5a" },
+                { key: "Commercial", label: "Commercial Clearance %", color: "#c8956c" },
+                { key: "Facility", label: "Facility Clearance %", color: "#4a7f9e" },
               ]}
             />
           </div>

@@ -66,18 +66,18 @@ Dashboard. Each source is tagged with one of:
 
 ---
 
-### Census Population Estimates — `NEEDS_API_KEY`
+### Census Population Estimates — `LIVE`
 
 | Field | Value |
 |-------|-------|
-| **Current status** | MOCK — hardcoded population figures in mock-data.ts |
-| **API endpoint** | `https://api.census.gov/data/{year}/pep/population` |
+| **Current status** | LIVE — real Census data fetched and loaded into PostgreSQL |
+| **API endpoint** | `https://api.census.gov/data/{year}/pep/population` + ACS 5-Year |
 | **Geography** | `state:41` (Oregon), `place:59000` (Portland) |
-| **Registration URL** | https://api.census.gov/data/key_signup.html |
-| **Steps** | 1. Fill out the form with name and email. 2. Receive API key via email within minutes. 3. Set `CENSUS_API_KEY` env var. |
-| **Rate limit** | 500 requests/day without key, unlimited with key |
-| **Env var** | `CENSUS_API_KEY` |
-| **Code location** | `src/app/api/dashboard/migration/route.ts` (stub comment exists) |
+| **Data loaded** | PEP 2019 (654,741) + ACS 5-Year 2017-2022 (630,331 - 650,380) |
+| **Database tables** | `migration.census_population`, `public.migration_census` |
+| **Fetch script** | `scripts/fetch-census.ts` |
+| **API route** | `src/app/api/dashboard/migration/route.ts` (updated to serve real data) |
+| **Note** | PEP 2020-2023 endpoints returned 404; ACS 5-Year provides coverage for those years |
 
 ---
 
@@ -306,18 +306,19 @@ Dashboard. Each source is tagged with one of:
 
 ## 8. Supporting Data Sources (Not Yet Integrated)
 
-### BLS Employment Data — `NEEDS_API_KEY`
+### BLS Employment Data — `LIVE`
 
 | Field | Value |
 |-------|-------|
-| **Current status** | NOT IMPLEMENTED |
-| **What it provides** | Monthly employment, unemployment rate for Portland MSA |
-| **API endpoint** | `https://api.bls.gov/publicAPI/v2/timeseries/data/` |
-| **Series IDs** | `LAUMT413890000000003` (unemployment rate), `LAUMT413890000000006` (employment) |
-| **Registration URL** | https://data.bls.gov/registrationEngine/ |
-| **Steps** | 1. Register with email. 2. Receive API key. 3. Set `BLS_API_KEY` env var. |
-| **Rate limit** | 25 queries/day without key, 500/day with key |
-| **Env var** | `BLS_API_KEY` |
+| **Current status** | LIVE — 1,918 data points fetched via BLS v1 API (no key) |
+| **What it provides** | Monthly employment by sector + unemployment rate for Portland MSA |
+| **API endpoint** | `https://api.bls.gov/publicAPI/v1/timeseries/data/` |
+| **Series loaded** | 16 series: Total Nonfarm, Total Private, all industry sectors, unemployment rate, employment level, US reference |
+| **Date range** | 2016-2025 (120 monthly data points per series) |
+| **Database table** | `business.bls_employment_series` |
+| **Fetch script** | `scripts/fetch-bls.ts` |
+| **API route** | `src/app/api/dashboard/business/route.ts` (updated with BLS insights) |
+| **Note** | Area code 38900 works for Portland-Vancouver-Hillsboro MSA. v1 API has 25 req/day limit. |
 
 ### TriMet Ridership — `NEEDS_API_KEY`
 

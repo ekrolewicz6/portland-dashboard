@@ -166,7 +166,44 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
       value,
     }));
 
-    // 10. Compute YoY trend from real data
+    // 10. FRED House Price Index (if available)
+    let hpiData: ChartPoint[] = [];
+    try {
+      const hpiRows = await sql`
+        SELECT quarter::text as date, hpi_value::float as value
+        FROM housing.fred_house_price_index
+        WHERE quarter >= '2010-01-01'
+        ORDER BY quarter
+      `;
+      hpiData = hpiRows.map((r) => ({
+        date: (r.date as string).slice(0, 10),
+        value: Math.round(Number(r.value) * 100) / 100,
+        label: "House Price Index",
+      }));
+    } catch {
+      // Table may not exist yet
+    }
+
+    // 10b. FRED Active Listings Count (if available)
+    let listingsData: ChartPoint[] = [];
+    try {
+      const listingsRows = await sql`
+        SELECT date::text as date, value::float as value
+        FROM public.fred_series
+        WHERE series_id = 'ACTLISCOU38900'
+          AND date >= '2017-01-01'
+        ORDER BY date
+      `;
+      listingsData = listingsRows.map((r) => ({
+        date: (r.date as string).slice(0, 10),
+        value: Math.round(Number(r.value)),
+        label: "Active Listings",
+      }));
+    } catch {
+      // Table may not exist yet
+    }
+
+    // 11. Compute YoY trend from real data
     const trendRows = await sql`
       WITH periods AS (
         SELECT
@@ -198,7 +235,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
       chartData: chartData.length > 0 ? chartData : [],
       permitPipeline: permitPipeline.length > 0 ? permitPipeline : [],
       processingDays: processingDays.length > 0 ? processingDays : [],
-      medianRent: [], // Rent data not available — needs Zillow ZORI CSV download
+      medianRent: hpiData.length > 0 ? hpiData : [], // FRED House Price Index (rent data needs Zillow ZORI)
       unitsInPipeline,
       avgProcessingTime,
       totalConstructionValuation,
@@ -214,6 +251,12 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
         `${pctUnder90Days}% of permits meet the 90-day processing guarantee.`,
         `Total construction valuation (24 months): $${(totalConstructionValuation / 1_000_000).toFixed(0)}M.`,
         `Breakdown: ${permitBreakdown.map((b) => `${b.category}: ${b.count.toLocaleString()}`).join(", ")}.`,
+        ...(hpiData.length > 0
+          ? [`FRED House Price Index: ${hpiData[hpiData.length - 1]?.value} (${hpiData[hpiData.length - 1]?.date}). ${hpiData.length} quarterly data points.`]
+          : []),
+        ...(listingsData.length > 0
+          ? [`FRED Active Listings: ${listingsData[listingsData.length - 1]?.value.toLocaleString()} (${listingsData[listingsData.length - 1]?.date}). ${listingsData.length} monthly data points.`]
+          : []),
         "Median rent data unavailable -- download Zillow ZORI CSV from zillow.com/research/data/.",
       ],
     };

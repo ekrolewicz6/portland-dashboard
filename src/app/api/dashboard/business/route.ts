@@ -66,7 +66,7 @@ export async function GET(): Promise<
     const hasOregonData = yearlyRows.length > 0 || statsRows.length > 0;
 
     // ── BLS/Census data (secondary, if available) ──
-    const [qcewRows, cbpRows] = await Promise.all([
+    const [qcewRows, cbpRows, blsSeriesRows] = await Promise.all([
       sql<QCEWRow[]>`
         SELECT measure, year, month, value::float as value, period_name
         FROM business.bls_employment
@@ -78,9 +78,15 @@ export async function GET(): Promise<
         WHERE size_code = '001'
         ORDER BY year
       `.catch(() => [] as CBPRow[]),
+      sql<{ series_name: string; year: number; period: string; value: number }[]>`
+        SELECT series_name, year, period, value::float as value
+        FROM business.bls_employment_series
+        WHERE series_name IN ('Total Nonfarm', 'Portland MSA Unemployment Rate')
+        ORDER BY year, period
+      `.catch(() => [] as { series_name: string; year: number; period: string; value: number }[]),
     ]);
 
-    const hasAnyData = hasOregonData || qcewRows.length > 0 || cbpRows.length > 0;
+    const hasAnyData = hasOregonData || qcewRows.length > 0 || cbpRows.length > 0 || blsSeriesRows.length > 0;
 
     if (!hasAnyData) {
       return NextResponse.json({
@@ -193,6 +199,22 @@ export async function GET(): Promise<
       );
     }
 
+    // BLS Employment Series insights
+    const nonfarmRows = blsSeriesRows.filter((r) => r.series_name === "Total Nonfarm");
+    if (nonfarmRows.length > 0) {
+      const latest = nonfarmRows[nonfarmRows.length - 1];
+      insights.push(
+        `BLS: Portland MSA total nonfarm employment: ${latest.value.toLocaleString()}K (${latest.period} ${latest.year}).`
+      );
+    }
+    const unempRows = blsSeriesRows.filter((r) => r.series_name === "Portland MSA Unemployment Rate");
+    if (unempRows.length > 0) {
+      const latest = unempRows[unempRows.length - 1];
+      insights.push(
+        `BLS: Portland MSA unemployment rate: ${latest.value}% (${latest.period} ${latest.year}).`
+      );
+    }
+
     // Data sources
     const dataSources = [
       {
@@ -216,6 +238,14 @@ export async function GET(): Promise<
         status: "connected" as const,
         provider: "U.S. Census Bureau",
         action: "Annual establishment counts by employee size class",
+      });
+    }
+    if (blsSeriesRows.length > 0) {
+      dataSources.push({
+        name: "BLS Current Employment Statistics",
+        status: "connected" as const,
+        provider: "Bureau of Labor Statistics",
+        action: `${blsSeriesRows.length} monthly employment data points for Portland MSA`,
       });
     }
 
