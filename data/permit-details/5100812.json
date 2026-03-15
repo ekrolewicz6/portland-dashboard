@@ -1,0 +1,216 @@
+{
+  "detail_id": 5100812,
+  "metadata": {
+    "ivr_number": "5100812",
+    "permit_type": "Commercial Building PermitApartments/Condos (3 or more units)New Construction",
+    "work_description": "ALDER 9 - DFS-09 - Aluminum storefronts",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-22",
+    "issue_date": "2025-01-09",
+    "final_date": "2025-09-30",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": "2024-11-22",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": "2024-11-22",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-07",
+      "goal_date": null,
+      "completed_date": "2025-01-07",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": "2024-11-22",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-19",
+      "goal_date": null,
+      "completed_date": "2024-12-19",
+      "staff_contact": "Moore,Katie   503-865-6429"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-08",
+      "goal_date": null,
+      "completed_date": "2025-01-08",
+      "staff_contact": "McCafferty,Maureen   503-865-6542"
+    },
+    {
+      "activity_name": "Deferred Submittals",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-20",
+      "goal_date": null,
+      "completed_date": "2024-12-20",
+      "staff_contact": "Olsen,Whitney   503-865-6510"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Required",
+      "last_activity_date": "2024-12-20",
+      "goal_date": null,
+      "completed_date": "2024-12-20",
+      "staff_contact": "Olsen,Whitney   503-865-6510"
+    },
+    {
+      "activity_name": "Struct Spec. Insp. Form Reqd",
+      "activity_type": "Special Inspections Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-20",
+      "goal_date": null,
+      "completed_date": "2024-12-20",
+      "staff_contact": "Olsen,Whitney   503-865-6510"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": "2025-04-11",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Alvey,Chandra   503-865-6641"
+    },
+    {
+      "activity_name": "Final Summary Report Received",
+      "activity_type": "Special Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-22",
+      "goal_date": null,
+      "completed_date": "2025-09-22",
+      "staff_contact": "Rowland,Elgin   503-823-8171"
+    },
+    {
+      "activity_name": "S. I. Audit",
+      "activity_type": "Special Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-30",
+      "goal_date": null,
+      "completed_date": "2025-09-30",
+      "staff_contact": "Rowland,Elgin   503-823-8171"
+    }
+  ]
+}

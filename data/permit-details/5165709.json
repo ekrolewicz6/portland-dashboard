@@ -1,0 +1,56 @@
+{
+  "detail_id": 5165709,
+  "metadata": {
+    "ivr_number": "5165709",
+    "permit_type": "Minor Improvement PermitRequired MIP",
+    "work_description": "New P-540 for 16 linear feet, close existing approach. / Recon P-551 @ 50 sq ft (as required).",
+    "address": null,
+    "setup_date": "2025-06-25",
+    "under_review_date": "2025-06-25",
+    "issue_date": "2025-06-25",
+    "final_date": null,
+    "status": "Issued-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM East"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM East"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

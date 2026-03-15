@@ -1,0 +1,66 @@
+{
+  "detail_id": 5140717,
+  "metadata": {
+    "ivr_number": "5140717",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "recon P-551 83 sq-ft (4-6-3)",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-07",
+    "issue_date": "2025-04-09",
+    "final_date": null,
+    "status": "Under Inspection-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-21",
+      "goal_date": null,
+      "completed_date": "2025-04-21",
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    }
+  ]
+}

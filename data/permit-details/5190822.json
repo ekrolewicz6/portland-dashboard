@@ -1,0 +1,276 @@
+{
+  "detail_id": 5190822,
+  "metadata": {
+    "ivr_number": "5190822",
+    "permit_type": "Residential Bldg/Trade PermitSingle Family DwellingDemolition",
+    "work_description": "SINGLE PDF - SB871: DEMOLISH NORTH SINGLE-FAMILY RESIDENCE WITHOUT BASEMENT. CAP SEWER. DRIVEWAY/CURB CUT TO REMAIN. REMOVE ALL DEBRIS. ***SUBJECT TO 35-DAY DEMO DELAY. DEMOLITION 35-DAY DELAY APPEAL PERIOD UNTIL 4:30 PM Wednesday, October 22, 2025.** W/25-074673 & 075157 RS***SEPTIC DECOMMISSIONING REQUIRED***",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-17",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Buerkle,Jason   503-865-6531"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Olson,Shannon   503-823-7231"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-10-13",
+      "goal_date": null,
+      "completed_date": "2025-10-13",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-12-23",
+      "goal_date": null,
+      "completed_date": "2025-12-23",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-08",
+      "goal_date": null,
+      "completed_date": "2026-01-08",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-11",
+      "goal_date": null,
+      "completed_date": "2026-03-11",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-03-11",
+      "goal_date": null,
+      "completed_date": "2026-03-11",
+      "staff_contact": "Holte,Dan   503-823-9645"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2025-09-26",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-13",
+      "goal_date": null,
+      "completed_date": "2025-10-13",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Corrections Received - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-23",
+      "goal_date": null,
+      "completed_date": "2025-12-23",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-07",
+      "goal_date": null,
+      "completed_date": "2026-01-07",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - RS",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Demo Forms",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Complete",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Grayson Reville,Anna 503823"
+    },
+    {
+      "activity_name": "Site Controls Check",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-31",
+      "goal_date": null,
+      "completed_date": "2025-12-31",
+      "staff_contact": "Russell,Jeremy   503-823-8658"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-14",
+      "goal_date": null,
+      "completed_date": "2025-10-14",
+      "staff_contact": "Green,Brando   503-823-6539"
+    },
+    {
+      "activity_name": "Erosion Control Plan Review",
+      "activity_type": "Erosion Control",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Duquette,Jeff   503-823-5075"
+    },
+    {
+      "activity_name": "Life Safety Plan Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-16",
+      "staff_contact": "Buerkle,Jason   503-865-6531"
+    },
+    {
+      "activity_name": "Residential Subsurface Site Evaluation",
+      "activity_type": "Plumbing/Subsurface Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-10-15",
+      "goal_date": null,
+      "completed_date": "2025-10-15",
+      "staff_contact": "Koss,Ericka   503-823-6617"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-17",
+      "goal_date": null,
+      "completed_date": "2025-09-17",
+      "staff_contact": "Knapp,Kevin   503-823-7807"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-09-18",
+      "goal_date": null,
+      "completed_date": "2025-09-18",
+      "staff_contact": "Moog,Renee   503-823-8733"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-17",
+      "goal_date": "2026-02-17",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-07",
+      "goal_date": null,
+      "completed_date": "2026-01-07",
+      "staff_contact": "Ross,Steve   503-823-3357"
+    }
+  ]
+}

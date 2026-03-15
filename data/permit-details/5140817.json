@@ -1,0 +1,46 @@
+{
+  "detail_id": 5140817,
+  "metadata": {
+    "ivr_number": "5140817",
+    "permit_type": "BES - Sewer Repair PermitSingle Family Dwelling",
+    "work_description": "CONTRACTOR TO REPLACE EXISTING LATERAL FROM PROPERTY LINE TO FACE OF CURB PER CITY STD P-262; PBOT NOTE LOCATION, SLEEVING. Contractor must verify depth/location and downstream connection point to public system in the field.",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-07",
+    "issue_date": "2025-04-07",
+    "final_date": "2025-05-05",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": "2025-04-07",
+      "staff_contact": "Castillo,Fernando   503-823-4863"
+    },
+    {
+      "activity_name": "Expire Permit - PT, UC, UR",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": "2025-10-06",
+      "completed_date": null,
+      "staff_contact": "PBOT SSM"
+    },
+    {
+      "activity_name": "Final - ROW Restoration",
+      "activity_type": "Transportation Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-05",
+      "goal_date": null,
+      "completed_date": "2025-05-05",
+      "staff_contact": "Small,Brice   503-823-7002"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "detail_id": 5140769,
+  "metadata": {
+    "ivr_number": "5140769",
+    "permit_type": "Fire Systems PermitHazardous MaterialsNew",
+    "work_description": "HAZARDOUS / TANK - INSTALL NEW STANDBY BACKUP GENERATOR WITH BUILT IN DIESEL FUEL TANK",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-15",
+    "issue_date": "2025-04-21",
+    "final_date": "2026-01-14",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-17",
+      "goal_date": null,
+      "completed_date": "2025-04-17",
+      "staff_contact": "Perryman,Jerome 503823XXXX"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-21",
+      "goal_date": null,
+      "completed_date": "2025-04-21",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    },
+    {
+      "activity_name": "Piping Pressure Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Not Required",
+      "last_activity_date": "2026-01-13",
+      "goal_date": null,
+      "completed_date": "2026-01-13",
+      "staff_contact": "Perryman,Jerome 503823XXXX"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2026-01-14",
+      "goal_date": null,
+      "completed_date": "2026-01-14",
+      "staff_contact": "Perryman,Jerome 503823XXXX"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-20",
+      "goal_date": null,
+      "completed_date": "2026-01-20",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

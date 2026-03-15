@@ -1,0 +1,146 @@
+{
+  "detail_id": 5165717,
+  "metadata": {
+    "ivr_number": "5165717",
+    "permit_type": "NuisanceVacantComplaint",
+    "work_description": "COMPLT RCVD: TG&W, BROKEN GLASS, TRASH AND DEBRIS. TRACKIT: 2904025",
+    "address": null,
+    "setup_date": "2025-06-25",
+    "under_review_date": "2025-06-25",
+    "issue_date": "2025-08-25",
+    "final_date": "2026-01-07",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-19",
+      "goal_date": null,
+      "completed_date": "2025-09-19",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Work Order Inspection",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-01",
+      "goal_date": null,
+      "completed_date": "2025-10-01",
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-22",
+      "goal_date": null,
+      "completed_date": "2025-07-16",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Search Warrant",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-31",
+      "goal_date": null,
+      "completed_date": "2025-12-31",
+      "staff_contact": "Stout,Lacy   503-823-4468"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-07",
+      "goal_date": null,
+      "completed_date": "2026-01-07",
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Work Order",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Returned",
+      "last_activity_date": "2026-01-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Notice of Possible Lien",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-01-09",
+      "goal_date": null,
+      "completed_date": "2025-10-02",
+      "staff_contact": "Kuhn,Melissa   503-823-7324"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-18",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-07-21",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Fee Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Fee Adjustment",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

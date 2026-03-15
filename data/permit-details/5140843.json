@@ -1,0 +1,56 @@
+{
+  "detail_id": 5140843,
+  "metadata": {
+    "ivr_number": "5140843",
+    "permit_type": "NuisanceVacantComplaint",
+    "work_description": "Complaint Rcvd: T/D, non trash items, T/G/W",
+    "address": null,
+    "setup_date": "2025-04-07",
+    "under_review_date": "2025-04-07",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Close Pending"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": "2025-04-11",
+      "staff_contact": "Terrell,Lisa   503-823-8534"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

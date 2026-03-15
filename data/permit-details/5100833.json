@@ -1,0 +1,126 @@
+{
+  "detail_id": 5100833,
+  "metadata": {
+    "ivr_number": "5100833",
+    "permit_type": "Land Use ReviewType 2 procedureAD: Adjustment",
+    "work_description": "Approval of an Adjustment to Zoning Code Section 33.110.275.C.1 to increase the maximum fence height in the first 10 feet from SE Woodward St for these two properties from 3.5 feet to up to 6 feet, 10 inches. Approval is per the approved plans, Exhibits C.1 through C.3, signed and dated February 3, 2025, subject to the following conditions: A.The property owner must reduce the fence height to a maximum of 3.5 feet, or relocate the fence out of the front setback, if a sidewalk is constructed on the south side of SE Woodward St between SE 46th Ave and SE 47th Ave adjacent to the subject lots. B.If either lot is subdivided in the future, all fence regulations must be met.",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": "2025-02-05",
+    "final_date": "2025-06-03",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-24",
+      "goal_date": null,
+      "completed_date": "2024-12-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": "2024-11-08",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-04",
+      "goal_date": null,
+      "completed_date": "2025-02-04",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-24",
+      "goal_date": null,
+      "completed_date": "2024-12-26",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-05",
+      "goal_date": null,
+      "completed_date": "2025-02-05",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-03",
+      "goal_date": null,
+      "completed_date": "2025-06-03",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-03",
+      "goal_date": null,
+      "completed_date": "2025-06-03",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-01-06",
+      "goal_date": "2025-01-16",
+      "completed_date": "2025-01-06",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-30",
+      "goal_date": "2025-01-16",
+      "completed_date": "2024-12-30",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-01-13",
+      "goal_date": "2025-01-16",
+      "completed_date": "2025-01-13",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-01-10",
+      "goal_date": "2025-01-16",
+      "completed_date": "2025-01-10",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "detail_id": 5190817,
+  "metadata": {
+    "ivr_number": "5190817",
+    "permit_type": "Sanitation InspectionsHolding TankAnnual Inspection",
+    "work_description": "Holding Tank 2025 Due August",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-15",
+    "issue_date": "2025-11-13",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - SI",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Contact Applicant for Inspection",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "852 Holding Tank",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-13",
+      "goal_date": "2025-11-17",
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "Send Renewal Notice & Bill",
+      "activity_type": "Renewal",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-11-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    }
+  ]
+}

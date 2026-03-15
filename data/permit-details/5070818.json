@@ -1,0 +1,96 @@
+{
+  "detail_id": 5070818,
+  "metadata": {
+    "ivr_number": "5070818",
+    "permit_type": "ViolationCommercialMultiple Trades",
+    "work_description": "COMPLT RCVD: WWOP: NEW ADDITION ON SW SIDE OF PROPERTY, MULTIPLE TRADES.",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-12-16",
+    "final_date": null,
+    "status": "Notified"
+  },
+  "activities": [
+    {
+      "activity_name": "Stop Work Order",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": "2024-08-06",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-13",
+      "goal_date": "2025-01-13",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Close - VI",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": "2024-08-06",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2024-09-25",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gauba,Jeff   503-823-8729"
+    },
+    {
+      "activity_name": "Mailed Compliance Requests - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Mailed",
+      "last_activity_date": "2024-12-13",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Gauba,Jeff   503-823-8729"
+    },
+    {
+      "activity_name": "Monitor for Compliance",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-05-13",
+      "goal_date": "2025-08-20",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    },
+    {
+      "activity_name": "Extension of Time Granted- VI",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-05-13",
+      "goal_date": "2025-08-07",
+      "completed_date": null,
+      "staff_contact": "Dibert,Lisa   503-823-6542"
+    }
+  ]
+}

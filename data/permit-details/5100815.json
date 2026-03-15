@@ -1,0 +1,146 @@
+{
+  "detail_id": 5100815,
+  "metadata": {
+    "ivr_number": "5100815",
+    "permit_type": "Land Use ReviewType 2 procedureAD: Adjustment",
+    "work_description": "Approval of the following Adjustments to Zoning Code requirements to create a new commercial tenant space within the existing building area on this site: ¿To reduce the minimum width of the pedestrian connection between the main entrance to the new tenant space and the public sidewalk on SE 35th Avenue from 6 feet to 4 feet (Zoning Code Section 33.130.240.B.2.a). ¿To reduce the minimum width of the required L3 (high screen) landscaping buffer between the new tenant space and the south lot line from 5 feet to between zero and 4 feet (Zoning Code Section 33.130.215.B.2.b). Approval is per the approved plans, Exhibits C-1 and C-2, subject to the following conditions: A.As part of the building permit application submittal, each of the required site plans and any additional drawings must reflect the information and design approved by this land use review as indicated in Exhibits C-1 and C-2. The sheets on which this information appears must be labeled, \"Proposal and design as approved in Case File # LU 24-096646 AD.¿ B.A minimum 7-foot-tall fence must be continuously maintained in good repair along the section of the south lot line shown in Exhibit C-2. Within 10 feet of the street lot line, this fence must be 50% sight-obscuring in compliance with Zoning Code Section 33.130.270.C.1. The fence must be 100% sight-obscuring everywhere else.",
+    "address": null,
+    "setup_date": "2024-11-07",
+    "under_review_date": "2024-11-07",
+    "issue_date": "2025-01-02",
+    "final_date": "2025-01-23",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-03",
+      "goal_date": null,
+      "completed_date": "2024-12-03",
+      "staff_contact": "Gulizia,Andrew   503-823-7046"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": "2024-11-07",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-02",
+      "goal_date": null,
+      "completed_date": "2025-01-02",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-04",
+      "goal_date": null,
+      "completed_date": "2024-12-06",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-02",
+      "goal_date": null,
+      "completed_date": "2025-01-03",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-23",
+      "goal_date": null,
+      "completed_date": "2025-01-23",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-23",
+      "goal_date": null,
+      "completed_date": "2025-01-23",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-12-09",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-09",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-18",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-18",
+      "staff_contact": "Altman,Guy Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-11",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-11",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-26",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-26",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-12",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-12",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2024-12-20",
+      "goal_date": "2024-12-27",
+      "completed_date": "2024-12-20",
+      "staff_contact": "Calvert,Kris Inactive"
+    }
+  ]
+}

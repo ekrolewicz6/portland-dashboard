@@ -179,8 +179,8 @@ export const safetyData: SafetyData = {
 // ─── 5. Tax Competitiveness ─────────────────────────────────────────────────
 
 export const taxData: TaxData = {
-  headline: "Portland effective tax burden: 2nd highest of 5 peer cities",
-  headlineValue: "2nd highest",
+  headline: "Portland's 12.4% effective rate is 2nd highest among 10 comparable Western cities — only San Francisco is higher",
+  headlineValue: "12.4%",
   trend: { direction: "flat", percentage: 0, label: "no rate changes this fiscal year" },
   chartData: [
     { date: "Portland", value: 100 },
@@ -244,10 +244,11 @@ export const taxData: TaxData = {
   source: "Lincoln Institute / OR DOR / WA DOR / City budget offices",
   lastUpdated: "2026-01-15",
   insights: [
-    "Portland's layered income taxes (city + county + state) create the highest marginal rate in the metro.",
-    "Vancouver, WA has the lowest effective burden thanks to no broad income tax and no local BIT.",
-    "Seattle surpasses Portland on overall burden due to its 10.25% sales tax on consumption.",
-    "Multnomah County Preschool for All adds 1.5% on income above $125k, unique in the region.",
+    "Portland has the HIGHEST local income tax burden (2.5%) of any comparable Western city — BLT 2.6%, MultCo BIT 2.0%, Metro SHS 1.0%, MultCo PFA 1.5%.",
+    "At $200K income, a Portland resident pays $24,800 in total taxes — $5,000 of that is local taxes that don't exist in most other cities.",
+    "Only San Francisco (13.1%) has a higher effective rate than Portland (12.4%), driven by California's 9.3% state income tax.",
+    "No-income-tax states (TX, WA, NV) have effective rates of 6.4-7.3% — a $12,000-$18,000 annual difference from Portland at $200K income.",
+    "Comparison includes: San Francisco, Portland, Bend, Denver, Salt Lake City, Boise, Seattle, Vancouver WA, Austin, and Reno.",
   ],
 };
 

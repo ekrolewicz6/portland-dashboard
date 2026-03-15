@@ -1,0 +1,36 @@
+{
+  "detail_id": 5100837,
+  "metadata": {
+    "ivr_number": "5100837",
+    "permit_type": "Plumbing PermitCommercial or Multi-Family Dwelling/StructureNew Construction",
+    "work_description": "PROVIDE AND INSTALL STORM, WASTE, RADON & DOMESTIC WATER SYSTEMS.",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-12",
+    "issue_date": null,
+    "final_date": null,
+    "status": "VOID"
+  },
+  "activities": [
+    {
+      "activity_name": "Check CCB, Plumbing Board licenses OR ch",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": "2024-11-12",
+      "completed_date": null,
+      "staff_contact": "DSC TRADES"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - PT",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PREISSUANCEPT;ET  503-823-7300"
+    }
+  ]
+}

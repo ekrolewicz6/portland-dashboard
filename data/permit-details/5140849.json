@@ -1,0 +1,166 @@
+{
+  "detail_id": 5140849,
+  "metadata": {
+    "ivr_number": "5140849",
+    "permit_type": "Final PlatFinal Plat Review",
+    "work_description": "Final plat to create a 2-parcel partition",
+    "address": null,
+    "setup_date": "2025-04-08",
+    "under_review_date": "2025-04-15",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Under Review"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - FP",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Assign Planner",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    },
+    {
+      "activity_name": "Intro Letter",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Assign Reviewers - FP",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Corrections Received - FP",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Routed",
+      "last_activity_date": "2026-01-20",
+      "goal_date": null,
+      "completed_date": "2026-01-20",
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    },
+    {
+      "activity_name": "Status Report",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Sent",
+      "last_activity_date": "2025-05-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    },
+    {
+      "activity_name": "Survey Review",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Sent",
+      "last_activity_date": "2026-02-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    },
+    {
+      "activity_name": "Lien Review",
+      "activity_type": "Auditor",
+      "must_check": "Y",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-18",
+      "goal_date": "2025-04-29",
+      "completed_date": "2025-04-18",
+      "staff_contact": "Pieper,Fritz   503-823-3574"
+    },
+    {
+      "activity_name": "Preliminary Addressing",
+      "activity_type": "Addressing",
+      "must_check": "Y",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-04-15",
+      "goal_date": "2025-04-29",
+      "completed_date": "2025-04-15",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "BDS LUS Conditions",
+      "activity_type": "BDS Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2026-02-11",
+      "goal_date": "2026-02-11",
+      "completed_date": "2026-02-11",
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    },
+    {
+      "activity_name": "Fire Conditions",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2026-03-04",
+      "goal_date": null,
+      "completed_date": "2026-03-04",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Conditions",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2026-01-28",
+      "goal_date": "2026-02-04",
+      "completed_date": "2026-01-28",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Conditions",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2026-01-30",
+      "goal_date": "2026-02-04",
+      "completed_date": "2026-01-30",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Tree Code Conditions",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-04-29",
+      "goal_date": null,
+      "completed_date": "2025-04-29",
+      "staff_contact": "Olson,Neil   971-480-0805"
+    },
+    {
+      "activity_name": "Maintenance Agreement",
+      "activity_type": "City Attorney",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-11",
+      "goal_date": null,
+      "completed_date": "2026-02-11",
+      "staff_contact": "Caruso,Christine   503-865-6420"
+    }
+  ]
+}

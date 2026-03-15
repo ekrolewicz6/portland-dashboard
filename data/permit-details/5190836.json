@@ -1,0 +1,46 @@
+{
+  "detail_id": 5190836,
+  "metadata": {
+    "ivr_number": "5190836",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "Stnd. Cntr. B2 Pavilion outlet Extend 120v crt to Security Equipment",
+    "address": null,
+    "setup_date": "2025-09-15",
+    "under_review_date": "2025-09-15",
+    "issue_date": "2025-09-15",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": "2025-09-15",
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070732,
+  "metadata": {
+    "ivr_number": "5070732",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "recon: sidewalk P-551 180sq-ft; approach P-528 160sq-ft (12-ft throat); curb P-540 18-ft (4-6-2)",
+    "address": null,
+    "setup_date": "2024-08-06",
+    "under_review_date": "2024-08-06",
+    "issue_date": "2024-08-06",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-26",
+      "goal_date": null,
+      "completed_date": "2024-11-26",
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-03",
+      "goal_date": null,
+      "completed_date": "2024-12-03",
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    }
+  ]
+}

@@ -36,22 +36,22 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    /* Responsive base font size: scales up on larger screens */
+    /* Responsive base font size: scales up significantly on larger screens */
     font-size: 16px;
   }
 
   /* Fluid typography for wider displays */
   @media (min-width: 1280px) {
-    html { font-size: 17px; }
-  }
-  @media (min-width: 1536px) {
     html { font-size: 18px; }
   }
+  @media (min-width: 1536px) {
+    html { font-size: 20px; }
+  }
   @media (min-width: 1920px) {
-    html { font-size: 19px; }
+    html { font-size: 22px; }
   }
   @media (min-width: 2560px) {
-    html { font-size: 21px; }
+    html { font-size: 24px; }
   }
 
   body {
@@ -301,12 +301,16 @@
   }
 
   .stat-label {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--color-ink-muted);
     margin-top: 6px;
+  }
+
+  @media (min-width: 1536px) {
+    .stat-label { font-size: 14px; }
   }
 
   /* ── Section divider with label ── */
@@ -319,12 +323,17 @@
 
   .section-divider h2,
   .section-divider h3 {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--color-ink-muted);
     white-space: nowrap;
+  }
+
+  @media (min-width: 1536px) {
+    .section-divider h2,
+    .section-divider h3 { font-size: 14px; }
   }
 
   .section-divider::after {
