@@ -21,7 +21,8 @@ const DB_URL =
   "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
 const sql = postgres(DB_URL);
 
-const DATA_DIR = path.resolve(import.meta.dirname ?? ".", "..", "data");
+const SCRIPT_DIR = import.meta.dirname ?? path.dirname(new URL(import.meta.url).pathname);
+const DATA_DIR = path.resolve(SCRIPT_DIR, "..", "data");
 
 // Review types we care about (excludes inspections, process management, etc.)
 const REVIEW_TYPES = [
@@ -84,8 +85,8 @@ async function main() {
   const statsRows = await sql`
     SELECT
       activity_type,
-      ROUND(AVG(days_from_setup), 1) as avg_days,
-      ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY days_from_setup), 1) as median_days,
+      ROUND(AVG(days_from_setup)::numeric, 1) as avg_days,
+      ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY days_from_setup)::numeric, 1) as median_days,
       count(DISTINCT detail_id)::int as permit_count
     FROM housing.permit_activities
     WHERE days_from_setup IS NOT NULL

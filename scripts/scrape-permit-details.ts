@@ -19,12 +19,8 @@ const DB_URL =
   "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
 const sql = postgres(DB_URL);
 
-const DATA_DIR = path.resolve(
-  import.meta.dirname ?? ".",
-  "..",
-  "data",
-  "permit-details"
-);
+const SCRIPT_DIR = import.meta.dirname ?? path.dirname(new URL(import.meta.url).pathname);
+const DATA_DIR = path.resolve(SCRIPT_DIR, "..", "data", "permit-details");
 fs.mkdirSync(DATA_DIR, { recursive: true });
 
 const API_KEY = "7D700138A0EA40349E799EA216BF82F9";

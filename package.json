@@ -14,7 +14,9 @@
     "fetch:trimet": "npx tsx scripts/fetch-trimet-gtfs.ts",
     "fetch:fbi": "npx tsx scripts/fetch-fbi-crime.ts",
     "fetch:housing": "npx tsx scripts/fetch-housing-data.ts",
-    "fetch:employment": "npx tsx scripts/fetch-oregon-employment.ts"
+    "fetch:employment": "npx tsx scripts/fetch-oregon-employment.ts",
+    "scrape:permits": "npx tsx scripts/scrape-permit-details.ts",
+    "analyze:bottlenecks": "npx tsx scripts/analyze-permit-bottlenecks.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
