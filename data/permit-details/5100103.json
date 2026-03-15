@@ -1,0 +1,26 @@
+{
+  "detail_id": 5100103,
+  "metadata": {
+    "ivr_number": "5100103",
+    "permit_type": "Tree CodeOtherPrivate",
+    "work_description": "Inquiry",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": null,
+    "final_date": null,
+    "status": "No Permit Required"
+  },
+  "activities": [
+    {
+      "activity_name": "Permit Type Required",
+      "activity_type": "A - Research",
+      "must_check": "N",
+      "activity_status": "No Permit Required",
+      "last_activity_date": "2024-11-08",
+      "goal_date": "2024-11-08",
+      "completed_date": "2024-11-08",
+      "staff_contact": ""
+    }
+  ]
+}

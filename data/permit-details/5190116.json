@@ -1,0 +1,56 @@
+{
+  "detail_id": 5190116,
+  "metadata": {
+    "ivr_number": "5190116",
+    "permit_type": "Code ComplianceZoningExterior Display/Storage",
+    "work_description": "Complaint received. Fire Marshall referal: Commercial tent without permit/tent up beyond 180 days. TrackIT 2922233",
+    "address": null,
+    "setup_date": "2025-09-11",
+    "under_review_date": "2025-09-11",
+    "issue_date": null,
+    "final_date": "2025-12-08",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-11",
+      "goal_date": "2025-09-17",
+      "completed_date": null,
+      "staff_contact": "Lindley,Justin   503-823-8253"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-12-08",
+      "goal_date": null,
+      "completed_date": "2025-12-08",
+      "staff_contact": "Lindley,Justin   503-823-8253"
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Lindley,Justin   503-823-8253"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

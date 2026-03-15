@@ -1,0 +1,226 @@
+{
+  "detail_id": 5100117,
+  "metadata": {
+    "ivr_number": "5100117",
+    "permit_type": "Final PlatFP_MHS - Middle Housing Subdivision",
+    "work_description": "Approval of the final plat to create a 4-lot cottage cluster development",
+    "address": null,
+    "setup_date": "2024-11-12",
+    "under_review_date": "2024-11-18",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Plat Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - FP",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Assign Planner",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Assign Reviewers - FP",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-18",
+      "goal_date": null,
+      "completed_date": "2024-11-18",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Corrections Received - FP",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Routed",
+      "last_activity_date": "2024-12-30",
+      "goal_date": null,
+      "completed_date": "2024-12-30",
+      "staff_contact": "Dawkins,Leah   503-865-6734"
+    },
+    {
+      "activity_name": "Status Report",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-01-20",
+      "goal_date": "2024-12-19",
+      "completed_date": "2025-01-20",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Survey Review",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-20",
+      "goal_date": null,
+      "completed_date": "2025-01-16",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Lien Review",
+      "activity_type": "Auditor",
+      "must_check": "Y",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-11-22",
+      "goal_date": "2024-12-02",
+      "completed_date": "2024-11-22",
+      "staff_contact": "Pieper,Fritz   503-823-3574"
+    },
+    {
+      "activity_name": "Preliminary Addressing",
+      "activity_type": "Addressing",
+      "must_check": "Y",
+      "activity_status": "No concerns",
+      "last_activity_date": "2024-11-18",
+      "goal_date": "2024-12-02",
+      "completed_date": "2024-11-18",
+      "staff_contact": "Baumgartner,Lisa"
+    },
+    {
+      "activity_name": "BDS LUS Conditions",
+      "activity_type": "BDS Land Use Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-01-20",
+      "goal_date": "2025-01-17",
+      "completed_date": "2025-01-16",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Life Safety Conditions",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2024-11-26",
+      "goal_date": "2024-12-02",
+      "completed_date": "2024-11-26",
+      "staff_contact": "Carlson,Tara   503-865-6532"
+    },
+    {
+      "activity_name": "Fire Conditions",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-01-15",
+      "goal_date": "2025-01-13",
+      "completed_date": "2025-01-15",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "Fire Conditions",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-01-20",
+      "goal_date": null,
+      "completed_date": "2025-01-20",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "BES Conditions",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-01-03",
+      "goal_date": "2025-01-13",
+      "completed_date": "2025-01-03",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Conditions",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2025-01-10",
+      "goal_date": "2025-01-24",
+      "completed_date": "2025-01-10",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Conditions",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2024-12-05",
+      "goal_date": "2024-12-06",
+      "completed_date": "2024-12-05",
+      "staff_contact": "Mann,Tyler   503-865-6444"
+    },
+    {
+      "activity_name": "Water Conditions",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Satisfied",
+      "last_activity_date": "2024-11-26",
+      "goal_date": "2024-12-02",
+      "completed_date": "2024-11-26",
+      "staff_contact": "Calvert,Kris Inactive"
+    },
+    {
+      "activity_name": "Mylar Signature - City Engineer",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Signed",
+      "last_activity_date": "2025-01-22",
+      "goal_date": "2025-01-22",
+      "completed_date": "2025-01-22",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Mylar Signature - BDS",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Signed",
+      "last_activity_date": "2025-01-22",
+      "goal_date": "2025-01-22",
+      "completed_date": "2025-01-22",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Approval Letter",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-22",
+      "goal_date": null,
+      "completed_date": "2025-01-22",
+      "staff_contact": "Hale,Diane   503-865-6431"
+    },
+    {
+      "activity_name": "Plat Issuance",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-23",
+      "goal_date": null,
+      "completed_date": "2025-01-22",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "County Recording",
+      "activity_type": "Plat Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-02-12",
+      "goal_date": null,
+      "completed_date": "2025-01-30",
+      "staff_contact": "LAND USE REVIEW"
+    }
+  ]
+}

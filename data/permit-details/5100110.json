@@ -1,0 +1,76 @@
+{
+  "detail_id": 5100110,
+  "metadata": {
+    "ivr_number": "5100110",
+    "permit_type": "Minor Improvement PermitVoluntary MIP",
+    "work_description": "SE 20TH AVE recon P-551 108 sq-ft (3-6-2)SE BYBEE BLVD recon P-551 192 sq-ft recon approach P-526 36 sq-ft (9-ft throat) (4-6-2)",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": "2024-11-12",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": "2024-11-19",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "MIP Form Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-25",
+      "goal_date": null,
+      "completed_date": "2024-11-25",
+      "staff_contact": "Patten,Evan   503-830-9067"
+    },
+    {
+      "activity_name": "MIP Final Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": "2024-12-02",
+      "staff_contact": "Ficek,Joe   503-823-7002"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Patten,Evan   503-830-9067"
+    }
+  ]
+}

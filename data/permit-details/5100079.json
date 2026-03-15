@@ -1,0 +1,96 @@
+{
+  "detail_id": 5100079,
+  "metadata": {
+    "ivr_number": "5100079",
+    "permit_type": "NuisanceOwner OccupiedComplaint",
+    "work_description": "Complaint Rcvd: Trackit 2854549 - Low limbs, vegetation encroaching ROW. Photos in trackit.",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": "2024-12-02",
+    "final_date": "2025-01-02",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-06",
+      "goal_date": null,
+      "completed_date": "2025-01-02",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-27",
+      "goal_date": null,
+      "completed_date": "2024-11-26",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-06",
+      "goal_date": null,
+      "completed_date": "2025-01-02",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Sewer Video",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-27",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

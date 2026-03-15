@@ -1,0 +1,86 @@
+{
+  "detail_id": 5190090,
+  "metadata": {
+    "ivr_number": "5190090",
+    "permit_type": "Minor Improvement PermitRequired MIP",
+    "work_description": "Pre & Post Demolition Inspection",
+    "address": null,
+    "setup_date": "2025-09-11",
+    "under_review_date": "2025-09-11",
+    "issue_date": "2025-09-11",
+    "final_date": null,
+    "status": "Closed-TM"
+  },
+  "activities": [
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "Sidewalk Driveway Frontage",
+      "activity_type": "Permit Frontage",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "Kimbrell,Quincy 503823"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2026-02-06",
+      "goal_date": null,
+      "completed_date": "2026-02-06",
+      "staff_contact": "Riche,John 503823XXXX"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM West"
+    },
+    {
+      "activity_name": "MIP Misc Inspection",
+      "activity_type": "MIP Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "TM West"
+    },
+    {
+      "activity_name": "Folder Status Maintenance",
+      "activity_type": "Status Change",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2026-02-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Riche,John 503823XXXX"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "detail_id": 5165059,
+  "metadata": {
+    "ivr_number": "5165059",
+    "permit_type": "Public RegistryTier 1DMV",
+    "work_description": "Mostly wholesale dealer so it will meet retail limitation per applicant",
+    "address": null,
+    "setup_date": "2025-06-24",
+    "under_review_date": "2025-06-24",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "DMV P & Z",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-24",
+      "goal_date": null,
+      "completed_date": "2025-06-24",
+      "staff_contact": "Soppe,Thomas   503-865-6443"
+    }
+  ]
+}

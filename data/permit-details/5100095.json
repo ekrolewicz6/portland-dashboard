@@ -1,0 +1,66 @@
+{
+  "detail_id": 5100095,
+  "metadata": {
+    "ivr_number": "5100095",
+    "permit_type": "Noise ComplaintResidentialStereo",
+    "work_description": "Loud music playing in early morning hours",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": "2024-11-08",
+    "final_date": null,
+    "status": "Warned"
+  },
+  "activities": [
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection - NC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": "2024-11-08",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Close - NC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": "2024-11-08",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Notices - NC",
+      "activity_type": "Notified",
+      "must_check": "N",
+      "activity_status": "Mailed",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Carroll,Nicholas   503-823-7350"
+    },
+    {
+      "activity_name": "Citation - Noise",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}
