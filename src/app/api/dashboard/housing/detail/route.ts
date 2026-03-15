@@ -149,6 +149,17 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       ? rentRows.map((r) => ({ month: r.month as string, rent: Number(Number(r.rent).toFixed(0)) }))
       : null;
 
+    // 4b. Home values — Zillow ZHVI (typical home value, 35th-65th percentile)
+    const zhviRows = await sql`
+      SELECT TO_CHAR(month, 'YYYY-MM') AS month, zhvi::numeric AS value
+      FROM public.zillow_zhvi
+      WHERE month >= '2010-01-01'
+      ORDER BY month
+    `;
+    const homeValueTrend = zhviRows.length > 0
+      ? zhviRows.map((r) => ({ month: r.month as string, value: Number(Number(r.value).toFixed(0)) }))
+      : null;
+
     // 5. Processing time — building permits only, min 10 permits/month, cap at 180 days
     const processingRows = await sql`
       SELECT
@@ -393,6 +404,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       permitsByNeighborhood,
       pipelineTrend,
       rentTrend: rentTrendData,
+      homeValueTrend,
       processingTimeTrend,
       processingByType,
       clearanceData,
@@ -419,6 +431,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         permitsByNeighborhood: [],
         pipelineTrend: [],
         rentTrend: null,
+        homeValueTrend: null,
         processingTimeTrend: [],
         processingByType: [],
         clearanceData: [],

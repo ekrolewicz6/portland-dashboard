@@ -43,6 +43,7 @@ interface HousingDetailData {
   permitsByNeighborhood: { name: string; value: number }[];
   pipelineTrend: { month: string; units: number }[];
   rentTrend: { month: string; rent: number }[] | null;
+  homeValueTrend: { month: string; value: number }[] | null;
   processingTimeTrend: { month: string; avgDays: number }[];
   processingByType: Record<string, string | number>[];
   clearanceData: Record<string, string | number>[];
@@ -121,6 +122,7 @@ export default function HousingDetail() {
     permitsByNeighborhood,
     pipelineTrend,
     rentTrend,
+    homeValueTrend,
     processingTimeTrend,
     processingByType,
     clearanceData,
@@ -527,6 +529,28 @@ export default function HousingDetail() {
                 );
               })}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5d. Home Values — Zillow ZHVI */}
+      {homeValueTrend && homeValueTrend.length > 0 && (
+        <section>
+          <SectionHeader icon={DollarSign} title="Portland Home Values (Zillow ZHVI)" color="#1a3a2a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
+              Zillow Home Value Index: typical home value for the 35th-65th percentile range in the Portland metro. Based on the neural Zestimate model.
+            </p>
+            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
+              Current: ${homeValueTrend[homeValueTrend.length - 1].value.toLocaleString()} ({homeValueTrend[homeValueTrend.length - 1].month}) &middot;
+              Zillow forecasts -1.4% over the next 12 months
+            </p>
+            <TrendChart
+              data={homeValueTrend.map((r) => ({ date: r.month, value: r.value }))}
+              color="#1a3a2a"
+              height={320}
+              valuePrefix="$"
+            />
           </div>
         </section>
       )}
