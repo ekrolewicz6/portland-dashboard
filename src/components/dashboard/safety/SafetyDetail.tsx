@@ -263,15 +263,24 @@ export default function SafetyDetail() {
         </section>
       )}
 
-      {/* 7. Graffiti / Visible Disorder — existing BPS data */}
+      {/* 7. Graffiti / Visible Disorder — single stat (not enough data for a chart) */}
       {graffitiTrend && graffitiTrend.length > 0 && (
         <section>
           <SectionHeader icon={AlertTriangle} title="Graffiti / Visible Disorder (BPS Data)" color="#7c6f9e" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Monthly graffiti reports from Portland BPS as a proxy for visible street-level disorder.
-            </p>
-            <TrendChart data={graffitiChartData} color="#7c6f9e" height={260} />
+            <div className="flex items-center gap-6">
+              <div>
+                <p className="text-[36px] font-mono font-bold text-[var(--color-ink)]">
+                  {graffitiTrend.reduce((s, r) => s + r.count, 0).toLocaleString()}
+                </p>
+                <p className="text-[13px] text-[var(--color-ink-muted)] mt-1">
+                  graffiti reports tracked from Portland BPS
+                </p>
+              </div>
+              <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed flex-1">
+                Graffiti reports serve as a proxy for visible street-level disorder. This is a cumulative count from the BPS Graffiti FeatureServer — monthly trend data requires more frequent data pulls.
+              </p>
+            </div>
           </div>
         </section>
       )}
