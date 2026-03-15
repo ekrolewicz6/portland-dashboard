@@ -140,9 +140,9 @@ export default function SafetyDetail() {
     totalRecords,
   } = data;
 
-  // Prepare 10-year trend chart data — sample to every 3rd month for readability
+  // Prepare 10-year trend chart data with readable date labels
   const trendChartData = crimeByCategory.map((r) => ({
-    month: formatMonthLabel(r.month) || "",
+    month: r.month, // Keep raw YYYY-MM for Recharts
     property: r.property,
     person: r.person,
     society: r.society,
@@ -150,7 +150,7 @@ export default function SafetyDetail() {
 
   // MVT chart data
   const mvtChartData = mvtTrend.map((r) => ({
-    date: formatMonthLabel(r.month) || "",
+    date: r.month, // Keep raw YYYY-MM
     value: r.count,
   }));
 
