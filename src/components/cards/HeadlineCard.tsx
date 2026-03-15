@@ -2,6 +2,8 @@
 
 import { TrendingUp, TrendingDown, Minus, ArrowRight } from "lucide-react";
 import Sparkline from "@/components/charts/Sparkline";
+import DataSourceBadge from "@/components/cards/DataSourceBadge";
+import type { DataSourceStatus } from "@/data/source-status";
 
 export interface HeadlineCardProps {
   question: string;
@@ -21,6 +23,12 @@ export interface HeadlineCardProps {
   lastUpdated: string;
   color: string;
   onClick?: () => void;
+  /** Optional data source status to display a provenance badge */
+  dataStatus?: {
+    status: DataSourceStatus;
+    label: string;
+    tooltip?: string;
+  };
 }
 
 export default function HeadlineCard({
@@ -32,6 +40,7 @@ export default function HeadlineCard({
   lastUpdated,
   color,
   onClick,
+  dataStatus,
 }: HeadlineCardProps) {
   const trendClass = trend.isPositive
     ? "trend-pill trend-positive"
@@ -107,10 +116,19 @@ export default function HeadlineCard({
 
       {/* Footer */}
       <div className="flex items-center justify-between pt-3 border-t border-[var(--color-parchment)]">
-        <span className="text-[11px] text-[var(--color-ink-muted)] font-medium tracking-wide uppercase">
-          {source}
-        </span>
-        <span className="text-[11px] text-[var(--color-ink-muted)]/60 font-mono">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-[11px] text-[var(--color-ink-muted)] font-medium tracking-wide uppercase truncate">
+            {source}
+          </span>
+          {dataStatus && (
+            <DataSourceBadge
+              status={dataStatus.status}
+              label={dataStatus.label}
+              tooltip={dataStatus.tooltip}
+            />
+          )}
+        </div>
+        <span className="text-[11px] text-[var(--color-ink-muted)]/60 font-mono flex-shrink-0">
           {lastUpdated}
         </span>
       </div>
