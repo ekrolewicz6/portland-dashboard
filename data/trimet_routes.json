@@ -1,0 +1,892 @@
+[
+  {
+    "route_id": "1",
+    "route_name": "Vermont",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r001.htm",
+    "created_at": "2026-03-15T06:36:29.225Z"
+  },
+  {
+    "route_id": "10",
+    "route_name": "Harold St",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r010.htm",
+    "created_at": "2026-03-15T06:36:29.232Z"
+  },
+  {
+    "route_id": "100",
+    "route_name": "MAX Blue Line",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "1359AE",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r100.htm",
+    "created_at": "2026-03-15T06:36:29.248Z"
+  },
+  {
+    "route_id": "11",
+    "route_name": "Rivergate/Marine Dr",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r011.htm",
+    "created_at": "2026-03-15T06:36:29.232Z"
+  },
+  {
+    "route_id": "12",
+    "route_name": "Barbur/Sandy Blvd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r012.htm",
+    "created_at": "2026-03-15T06:36:29.233Z"
+  },
+  {
+    "route_id": "14",
+    "route_name": "Hawthorne/Foster",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r014.htm",
+    "created_at": "2026-03-15T06:36:29.233Z"
+  },
+  {
+    "route_id": "15",
+    "route_name": "Belmont/NW 23rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r015.htm",
+    "created_at": "2026-03-15T06:36:29.233Z"
+  },
+  {
+    "route_id": "152",
+    "route_name": "Milwaukie",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r152.htm",
+    "created_at": "2026-03-15T06:36:29.248Z"
+  },
+  {
+    "route_id": "153",
+    "route_name": "Stafford/Salamo",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r153.htm",
+    "created_at": "2026-03-15T06:36:29.248Z"
+  },
+  {
+    "route_id": "155",
+    "route_name": "Sunnyside",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r155.htm",
+    "created_at": "2026-03-15T06:36:29.249Z"
+  },
+  {
+    "route_id": "156",
+    "route_name": "Mather Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r156.htm",
+    "created_at": "2026-03-15T06:36:29.249Z"
+  },
+  {
+    "route_id": "16",
+    "route_name": "Front Ave/St Helens Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r016.htm",
+    "created_at": "2026-03-15T06:36:29.234Z"
+  },
+  {
+    "route_id": "17",
+    "route_name": "Holgate/Broadway",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r017.htm",
+    "created_at": "2026-03-15T06:36:29.234Z"
+  },
+  {
+    "route_id": "18",
+    "route_name": "Hillside",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r018.htm",
+    "created_at": "2026-03-15T06:36:29.234Z"
+  },
+  {
+    "route_id": "19",
+    "route_name": "Woodstock/Glisan",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r019.htm",
+    "created_at": "2026-03-15T06:36:29.234Z"
+  },
+  {
+    "route_id": "190",
+    "route_name": "MAX Yellow Line",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "FFC52F",
+    "route_text_color": "000000",
+    "route_url": "https://trimet.org/schedules/r190.htm",
+    "created_at": "2026-03-15T06:36:29.249Z"
+  },
+  {
+    "route_id": "193",
+    "route_name": "Portland Streetcar - NS Line",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "72A130",
+    "route_text_color": "000000",
+    "route_url": "https://portlandstreetcar.org/",
+    "created_at": "2026-03-15T06:36:29.250Z"
+  },
+  {
+    "route_id": "194",
+    "route_name": "Portland Streetcar - A Loop",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "D91965",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://portlandstreetcar.org/",
+    "created_at": "2026-03-15T06:36:29.250Z"
+  },
+  {
+    "route_id": "195",
+    "route_name": "Portland Streetcar - B Loop",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "4650BE",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://portlandstreetcar.org/",
+    "created_at": "2026-03-15T06:36:29.250Z"
+  },
+  {
+    "route_id": "2",
+    "route_name": "Division",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "61A60E",
+    "route_text_color": "000000",
+    "route_url": "https://trimet.org/schedules/r002.htm",
+    "created_at": "2026-03-15T06:36:29.227Z"
+  },
+  {
+    "route_id": "20",
+    "route_name": "Burnside/Stark",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r020.htm",
+    "created_at": "2026-03-15T06:36:29.235Z"
+  },
+  {
+    "route_id": "200",
+    "route_name": "MAX Green Line",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "008342",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r200.htm",
+    "created_at": "2026-03-15T06:36:29.250Z"
+  },
+  {
+    "route_id": "203",
+    "route_name": "WES Commuter Rail",
+    "route_type": "2",
+    "route_type_name": "Commuter Rail (WES)",
+    "route_color": "6E6E6E",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r203.htm",
+    "created_at": "2026-03-15T06:36:29.252Z"
+  },
+  {
+    "route_id": "208",
+    "route_name": "Portland Aerial Tram",
+    "route_type": "6",
+    "route_type_name": "Other",
+    "route_color": "898E91",
+    "route_text_color": "000000",
+    "route_url": "http://www.gobytram.com/",
+    "created_at": "2026-03-15T06:36:29.252Z"
+  },
+  {
+    "route_id": "21",
+    "route_name": "Sandy Blvd/223rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r021.htm",
+    "created_at": "2026-03-15T06:36:29.235Z"
+  },
+  {
+    "route_id": "22",
+    "route_name": "Parkrose",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r022.htm",
+    "created_at": "2026-03-15T06:36:29.235Z"
+  },
+  {
+    "route_id": "23",
+    "route_name": "San Rafael",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r023.htm",
+    "created_at": "2026-03-15T06:36:29.235Z"
+  },
+  {
+    "route_id": "24",
+    "route_name": "Fremont/NW 18th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r024.htm",
+    "created_at": "2026-03-15T06:36:29.235Z"
+  },
+  {
+    "route_id": "25",
+    "route_name": "Glisan/Troutdale Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r025.htm",
+    "created_at": "2026-03-15T06:36:29.235Z"
+  },
+  {
+    "route_id": "26",
+    "route_name": "Thurman/NW 18th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r026.htm",
+    "created_at": "2026-03-15T06:36:29.237Z"
+  },
+  {
+    "route_id": "287",
+    "route_name": "Blue Eastside Bus",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "1359AE",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r287.htm",
+    "created_at": "2026-03-15T06:36:29.252Z"
+  },
+  {
+    "route_id": "288",
+    "route_name": "Blue Westside Bus",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "1359AE",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r288.htm",
+    "created_at": "2026-03-15T06:36:29.252Z"
+  },
+  {
+    "route_id": "29",
+    "route_name": "Lake/Webster Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r029.htm",
+    "created_at": "2026-03-15T06:36:29.237Z"
+  },
+  {
+    "route_id": "290",
+    "route_name": "MAX Orange Line",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "D05F27",
+    "route_text_color": "000000",
+    "route_url": "https://trimet.org/schedules/r290.htm",
+    "created_at": "2026-03-15T06:36:29.253Z"
+  },
+  {
+    "route_id": "291",
+    "route_name": "Orange Bus",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "D05F27",
+    "route_text_color": "000000",
+    "route_url": "https://trimet.org/schedules/r291.htm",
+    "created_at": "2026-03-15T06:36:29.253Z"
+  },
+  {
+    "route_id": "292",
+    "route_name": "Red Bus",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "C41F3E",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r292.htm",
+    "created_at": "2026-03-15T06:36:29.253Z"
+  },
+  {
+    "route_id": "293",
+    "route_name": "Yellow Bus",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "FFC52F",
+    "route_text_color": "000000",
+    "route_url": "https://trimet.org/schedules/r293.htm",
+    "created_at": "2026-03-15T06:36:29.253Z"
+  },
+  {
+    "route_id": "30",
+    "route_name": "Estacada",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r030.htm",
+    "created_at": "2026-03-15T06:36:29.237Z"
+  },
+  {
+    "route_id": "31",
+    "route_name": "Webster Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r031.htm",
+    "created_at": "2026-03-15T06:36:29.237Z"
+  },
+  {
+    "route_id": "32",
+    "route_name": "Oatfield",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r032.htm",
+    "created_at": "2026-03-15T06:36:29.237Z"
+  },
+  {
+    "route_id": "33",
+    "route_name": "McLoughlin/King Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r033.htm",
+    "created_at": "2026-03-15T06:36:29.238Z"
+  },
+  {
+    "route_id": "34",
+    "route_name": "Linwood/River Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r034.htm",
+    "created_at": "2026-03-15T06:36:29.238Z"
+  },
+  {
+    "route_id": "35",
+    "route_name": "Macadam/Greeley",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r035.htm",
+    "created_at": "2026-03-15T06:36:29.238Z"
+  },
+  {
+    "route_id": "37",
+    "route_name": "Lake Grove",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r037.htm",
+    "created_at": "2026-03-15T06:36:29.238Z"
+  },
+  {
+    "route_id": "38",
+    "route_name": "Boones Ferry Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r038.htm",
+    "created_at": "2026-03-15T06:36:29.238Z"
+  },
+  {
+    "route_id": "39",
+    "route_name": "Arnold Creek/Hillsdale",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r039.htm",
+    "created_at": "2026-03-15T06:36:29.238Z"
+  },
+  {
+    "route_id": "4",
+    "route_name": "Fessenden",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r004.htm",
+    "created_at": "2026-03-15T06:36:29.228Z"
+  },
+  {
+    "route_id": "40",
+    "route_name": "Tacoma/Swan Island",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r040.htm",
+    "created_at": "2026-03-15T06:36:29.239Z"
+  },
+  {
+    "route_id": "43",
+    "route_name": "Taylors Ferry/Marquam Hill",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r043.htm",
+    "created_at": "2026-03-15T06:36:29.239Z"
+  },
+  {
+    "route_id": "44",
+    "route_name": "Capitol Hwy/Mocks Crest",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r044.htm",
+    "created_at": "2026-03-15T06:36:29.239Z"
+  },
+  {
+    "route_id": "45",
+    "route_name": "Garden Home",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r045.htm",
+    "created_at": "2026-03-15T06:36:29.239Z"
+  },
+  {
+    "route_id": "46",
+    "route_name": "North Hillsboro",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r046.htm",
+    "created_at": "2026-03-15T06:36:29.239Z"
+  },
+  {
+    "route_id": "47",
+    "route_name": "Main/Baseline",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r047.htm",
+    "created_at": "2026-03-15T06:36:29.239Z"
+  },
+  {
+    "route_id": "48",
+    "route_name": "Cornell",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r048.htm",
+    "created_at": "2026-03-15T06:36:29.240Z"
+  },
+  {
+    "route_id": "51",
+    "route_name": "Vista/Sunset Blvd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r051.htm",
+    "created_at": "2026-03-15T06:36:29.240Z"
+  },
+  {
+    "route_id": "52",
+    "route_name": "Farmington/185th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r052.htm",
+    "created_at": "2026-03-15T06:36:29.240Z"
+  },
+  {
+    "route_id": "53",
+    "route_name": "Arctic/Allen",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r053.htm",
+    "created_at": "2026-03-15T06:36:29.240Z"
+  },
+  {
+    "route_id": "54",
+    "route_name": "Beaverton-Hillsdale Hwy",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r054.htm",
+    "created_at": "2026-03-15T06:36:29.241Z"
+  },
+  {
+    "route_id": "55",
+    "route_name": "Hamilton",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r055.htm",
+    "created_at": "2026-03-15T06:36:29.241Z"
+  },
+  {
+    "route_id": "56",
+    "route_name": "Scholls Ferry/Marquam Hill",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r056.htm",
+    "created_at": "2026-03-15T06:36:29.241Z"
+  },
+  {
+    "route_id": "57",
+    "route_name": "TV Hwy/Forest Grove",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r057.htm",
+    "created_at": "2026-03-15T06:36:29.241Z"
+  },
+  {
+    "route_id": "58",
+    "route_name": "Canyon Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r058.htm",
+    "created_at": "2026-03-15T06:36:29.241Z"
+  },
+  {
+    "route_id": "59",
+    "route_name": "Walker/Park Way",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r059.htm",
+    "created_at": "2026-03-15T06:36:29.242Z"
+  },
+  {
+    "route_id": "6",
+    "route_name": "Martin Luther King Jr Blvd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r006.htm",
+    "created_at": "2026-03-15T06:36:29.229Z"
+  },
+  {
+    "route_id": "62",
+    "route_name": "Murray Blvd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r062.htm",
+    "created_at": "2026-03-15T06:36:29.242Z"
+  },
+  {
+    "route_id": "63",
+    "route_name": "Washington Park/SW 6th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r063.htm",
+    "created_at": "2026-03-15T06:36:29.242Z"
+  },
+  {
+    "route_id": "67",
+    "route_name": "Bethany/158th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r067.htm",
+    "created_at": "2026-03-15T06:36:29.243Z"
+  },
+  {
+    "route_id": "70",
+    "route_name": "12th/NE 33rd Ave",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r070.htm",
+    "created_at": "2026-03-15T06:36:29.243Z"
+  },
+  {
+    "route_id": "71",
+    "route_name": "60th Ave",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r071.htm",
+    "created_at": "2026-03-15T06:36:29.244Z"
+  },
+  {
+    "route_id": "72",
+    "route_name": "Killingsworth/82nd Ave",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r072.htm",
+    "created_at": "2026-03-15T06:36:29.244Z"
+  },
+  {
+    "route_id": "73",
+    "route_name": "122nd Ave",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r073.htm",
+    "created_at": "2026-03-15T06:36:29.244Z"
+  },
+  {
+    "route_id": "74",
+    "route_name": "162nd Ave",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r074.htm",
+    "created_at": "2026-03-15T06:36:29.244Z"
+  },
+  {
+    "route_id": "75",
+    "route_name": "Cesar Chavez/Lombard",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r075.htm",
+    "created_at": "2026-03-15T06:36:29.244Z"
+  },
+  {
+    "route_id": "76",
+    "route_name": "Hall/Greenburg",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r076.htm",
+    "created_at": "2026-03-15T06:36:29.244Z"
+  },
+  {
+    "route_id": "77",
+    "route_name": "Broadway/Halsey",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r077.htm",
+    "created_at": "2026-03-15T06:36:29.245Z"
+  },
+  {
+    "route_id": "78",
+    "route_name": "Denney/Kerr Pkwy",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r078.htm",
+    "created_at": "2026-03-15T06:36:29.246Z"
+  },
+  {
+    "route_id": "79",
+    "route_name": "Clackamas/Oregon City",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r079.htm",
+    "created_at": "2026-03-15T06:36:29.246Z"
+  },
+  {
+    "route_id": "8",
+    "route_name": "Jackson Park/NE 15th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r008.htm",
+    "created_at": "2026-03-15T06:36:29.230Z"
+  },
+  {
+    "route_id": "81",
+    "route_name": "Kane/257th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r081.htm",
+    "created_at": "2026-03-15T06:36:29.246Z"
+  },
+  {
+    "route_id": "82",
+    "route_name": "South Gresham",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r082.htm",
+    "created_at": "2026-03-15T06:36:29.246Z"
+  },
+  {
+    "route_id": "84",
+    "route_name": "Powell Valley/Orient Dr",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r084.htm",
+    "created_at": "2026-03-15T06:36:29.246Z"
+  },
+  {
+    "route_id": "86",
+    "route_name": "148th Ave",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r086.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  },
+  {
+    "route_id": "87",
+    "route_name": "Airport Way/181st",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r087.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  },
+  {
+    "route_id": "88",
+    "route_name": "Hart/198th",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r088.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  },
+  {
+    "route_id": "9",
+    "route_name": "Powell Blvd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r009.htm",
+    "created_at": "2026-03-15T06:36:29.231Z"
+  },
+  {
+    "route_id": "90",
+    "route_name": "MAX Red Line",
+    "route_type": "0",
+    "route_type_name": "Streetcar",
+    "route_color": "C41F3E",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r090.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  },
+  {
+    "route_id": "94",
+    "route_name": "Tigard/Sherwood",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r094.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  },
+  {
+    "route_id": "96",
+    "route_name": "Tualatin/I-5",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r096.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  },
+  {
+    "route_id": "97",
+    "route_name": "Tualatin-Sherwood Rd",
+    "route_type": "3",
+    "route_type_name": "Bus",
+    "route_color": "4679AA",
+    "route_text_color": "FFFFFF",
+    "route_url": "https://trimet.org/schedules/r097.htm",
+    "created_at": "2026-03-15T06:36:29.247Z"
+  }
+]
