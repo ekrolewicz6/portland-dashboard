@@ -285,17 +285,82 @@ export default function SafetyDetail() {
         </section>
       )}
 
-      {/* 8. 911 Response Times — Data Needed */}
+      {/* 8. 911 Response — REAL data from BOEC Director Report */}
       <section>
-        <SectionHeader icon={Shield} title="911 Response Times" color="#4a7f9e" />
-        <DataNeeded
-          title="911 Response Time Data Needed"
-          description="Response time data from the Bureau of Emergency Communications (BOEC) is not publicly available through an API. A public records request is required."
-          color="#4a7f9e"
-          actions={[
-            { label: "File public records request to BOEC", type: "prr" },
-          ]}
-        />
+        <SectionHeader icon={Shield} title="911 Call Answering Performance (BOEC Data)" color="#4a7f9e" />
+        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+          <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
+            Source: BOEC Director&apos;s Report, February 2026. NENA standard: 90% of 911 calls answered within 15 seconds.
+          </p>
+          <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-5 font-mono">
+            Portland is currently at 72% (Jan 2026) — well below the 90% standard. Average wait: 18 seconds.
+          </p>
+
+          {/* Key 911 stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+            <div className="bg-[var(--color-canopy)] rounded-sm p-4 text-white text-center">
+              <p className="text-[28px] font-mono font-bold">72%</p>
+              <p className="text-[11px] text-white/60 mt-1">Answered within 15s</p>
+              <p className="text-[10px] text-[var(--color-ember)] mt-0.5">Target: 90%</p>
+            </div>
+            <div className="bg-[var(--color-parchment)]/40 rounded-sm p-4 text-center">
+              <p className="text-[28px] font-mono font-bold text-[var(--color-ink)]">18s</p>
+              <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">Avg Wait Time</p>
+              <p className="text-[10px] text-[#3d7a5a] mt-0.5">Improved from 29s</p>
+            </div>
+            <div className="bg-[var(--color-parchment)]/40 rounded-sm p-4 text-center">
+              <p className="text-[28px] font-mono font-bold text-[var(--color-ink)]">45,214</p>
+              <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">911 Calls (Jan 2026)</p>
+              <p className="text-[10px] text-[var(--color-ink-muted)] mt-0.5">Down 4% from 2024</p>
+            </div>
+            <div className="bg-[var(--color-parchment)]/40 rounded-sm p-4 text-center">
+              <p className="text-[28px] font-mono font-bold text-[var(--color-ink)]">113</p>
+              <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">Certified Dispatchers</p>
+              <p className="text-[10px] text-[#b85c3a] mt-0.5">Need 122 (9 vacancies)</p>
+            </div>
+          </div>
+
+          {/* Monthly answer rate trend */}
+          <div className="space-y-2">
+            {[
+              { month: "Jan 2025", pct: 69, wait: 24 },
+              { month: "Mar 2025", pct: 68, wait: 24 },
+              { month: "May 2025", pct: 66, wait: 23 },
+              { month: "Jul 2025", pct: 63, wait: 26 },
+              { month: "Sep 2025", pct: 60, wait: 29 },
+              { month: "Oct 2025", pct: 56, wait: 29 },
+              { month: "Nov 2025", pct: 70, wait: 21 },
+              { month: "Jan 2026", pct: 72, wait: 18 },
+            ].map((d, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <span className="text-[12px] text-[var(--color-ink-muted)] w-[80px] text-right">{d.month}</span>
+                <div className="flex-1 h-6 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden relative">
+                  <div
+                    className="h-full rounded-sm"
+                    style={{
+                      width: `${d.pct}%`,
+                      backgroundColor: d.pct >= 80 ? "#3d7a5a" : d.pct >= 65 ? "#c8956c" : "#b85c3a",
+                    }}
+                  />
+                  {/* 90% target line */}
+                  <div className="absolute top-0 bottom-0 border-l-2 border-dashed border-[#b85c3a]/40" style={{ left: "90%" }} />
+                </div>
+                <span className="text-[12px] font-mono font-semibold w-[35px] text-right">{d.pct}%</span>
+                <span className="text-[11px] font-mono text-[var(--color-ink-muted)] w-[35px] text-right">{d.wait}s</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 flex items-center gap-4 text-[11px] text-[var(--color-ink-muted)]">
+            <span>Bar = % answered within 15 seconds</span>
+            <span>Dashed line = 90% NENA standard</span>
+            <span>Right column = avg wait (seconds)</span>
+          </div>
+
+          <p className="mt-4 pt-3 border-t border-[var(--color-parchment)] text-[12px] text-[var(--color-ink-muted)]">
+            Source: Bureau of Emergency Communications (BOEC) Director&apos;s Report, February 2026.
+            Staffing: 113 certified dispatchers of 122 needed (6 vacancies + 13 candidates in training).
+          </p>
+        </div>
       </section>
     </div>
   );
