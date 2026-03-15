@@ -205,7 +205,7 @@ export default function HousingDetail() {
             </p>
             <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-5 font-mono">
               {bottleneckData.correction_stats.pct_with_corrections}% of permits required corrections (avg {bottleneckData.correction_stats.avg_rounds.toFixed(1)} rounds).
-              The "Last %" column shows how often each review is the final one to complete — the true bottleneck.
+              The &ldquo;Last %&rdquo; column shows how often each review is the final one to complete — the true bottleneck.
             </p>
 
             {/* Horizontal bar chart */}
