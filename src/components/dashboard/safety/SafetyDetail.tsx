@@ -356,10 +356,19 @@ export default function SafetyDetail() {
             <span>Right column = avg wait (seconds)</span>
           </div>
 
-          <p className="mt-4 pt-3 border-t border-[var(--color-parchment)] text-[12px] text-[var(--color-ink-muted)]">
-            Source: Bureau of Emergency Communications (BOEC) Director&apos;s Report, February 2026.
-            Staffing: 113 certified dispatchers of 122 needed (6 vacancies + 13 candidates in training).
-          </p>
+          <div className="mt-4 pt-3 border-t border-[var(--color-parchment)] flex flex-wrap items-center justify-between gap-2">
+            <p className="text-[12px] text-[var(--color-ink-muted)]">
+              Source: BOEC Director&apos;s Report, Feb 2026. Staffing: 113 of 122 needed (13 in training).
+            </p>
+            <a
+              href="https://www.portland.gov/911/documents/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[12px] font-medium text-[var(--color-river)] hover:text-[var(--color-river-deep)] underline underline-offset-2"
+            >
+              View all BOEC reports &rarr;
+            </a>
+          </div>
         </div>
       </section>
     </div>

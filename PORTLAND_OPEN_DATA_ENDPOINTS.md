@@ -925,3 +925,21 @@ Roughly 8,000-10,000 IDs per month across all permit types.
 
 ### Rate Limiting
 Use 1-second delay between requests. No documented rate limit, but be polite — this is public civic infrastructure.
+
+---
+
+## BOEC 911 Director's Reports (CONFIRMED 2026-03-15)
+
+**URL**: https://www.portland.gov/911/documents/
+**Format**: Monthly PDF reports
+**Update**: Published ~2-3 weeks after month end
+**Contains**: 911 call answering performance, avg wait times, staffing levels,
+  dispatch workload by discipline, call volume by city/council district
+
+Key metrics extracted from Feb 2026 report:
+- 72% of 911 calls answered within 15 seconds (NENA target: 90%)
+- 18 second average wait time
+- 45,214 911 calls in January 2026
+- 113 certified dispatchers (need 122)
+
+Must be manually downloaded and parsed monthly — no API.
