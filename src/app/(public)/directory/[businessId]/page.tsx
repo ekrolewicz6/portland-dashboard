@@ -84,7 +84,10 @@ function formatEntityType(raw: string): string {
 function formatDate(dateStr: string | null): string {
   if (!dateStr) return "Unknown";
   try {
-    const d = new Date(dateStr + "T00:00:00");
+    // Handle both "1979-04-20" and "1979-04-20 00:00:00-06" formats
+    const clean = dateStr.split(" ")[0].split("T")[0];
+    const d = new Date(clean + "T12:00:00");
+    if (isNaN(d.getTime())) return dateStr.split(" ")[0];
     return d.toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
@@ -98,7 +101,9 @@ function formatDate(dateStr: string | null): string {
 function formatShortDate(dateStr: string | null): string {
   if (!dateStr) return "";
   try {
-    const d = new Date(dateStr + "T00:00:00");
+    const clean = dateStr.split(" ")[0].split("T")[0];
+    const d = new Date(clean + "T12:00:00");
+    if (isNaN(d.getTime())) return clean;
     return d.toLocaleDateString("en-US", {
       month: "short",
       year: "numeric",
@@ -171,15 +176,34 @@ async function getBusiness(id: number) {
   return rows[0] ?? null;
 }
 
-async function getSimilarBusinesses(entityType: string, excludeId: number) {
-  return sql<SimilarRow[]>`
+async function getSimilarBusinesses(businessName: string, entityType: string, excludeId: number) {
+  // First try to find businesses with similar names (other locations, related entities)
+  const firstWord = businessName.split(/[\s']+/)[0];
+  const nameMatches = await sql<SimilarRow[]>`
+    SELECT id, business_name, entity_type, registry_date::text, city, state
+    FROM business.oregon_sos_all_active
+    WHERE business_name ILIKE ${`%${firstWord}%`}
+      AND id != ${excludeId}
+    ORDER BY
+      CASE WHEN business_name ILIKE ${`%${businessName}%`} THEN 0 ELSE 1 END,
+      registry_date DESC
+    LIMIT 6
+  `;
+
+  if (nameMatches.length >= 3) return nameMatches;
+
+  // Fall back to same entity type if not enough name matches
+  const typeMatches = await sql<SimilarRow[]>`
     SELECT id, business_name, entity_type, registry_date::text, city, state
     FROM business.oregon_sos_all_active
     WHERE entity_type = ${entityType}
       AND id != ${excludeId}
+      AND id NOT IN (${sql(nameMatches.map(r => r.id))})
     ORDER BY registry_date DESC
-    LIMIT 6
+    LIMIT ${6 - nameMatches.length}
   `;
+
+  return [...nameMatches, ...typeMatches];
 }
 
 /* ── SEO Metadata ── */
@@ -225,7 +249,7 @@ export default async function BusinessProfilePage({
   const business = await getBusiness(id);
   if (!business) notFound();
 
-  const similar = await getSimilarBusinesses(business.entity_type, id);
+  const similar = await getSimilarBusinesses(business.business_name, business.entity_type, id);
 
   const name = titleCase(business.business_name);
   const humanEntityType = formatEntityType(business.entity_type);
@@ -481,7 +505,7 @@ export default async function BusinessProfilePage({
         {similar.length > 0 && (
           <div className="mt-12 lg:mt-16">
             <div className="section-divider mb-6">
-              <h2>Recently Registered {humanEntityType} Businesses</h2>
+              <h2>Related Businesses</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {similar.map((s) => {
