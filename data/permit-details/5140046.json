@@ -1,0 +1,96 @@
+{
+  "detail_id": 5140046,
+  "metadata": {
+    "ivr_number": "5140046",
+    "permit_type": "Zoning PermitLandscapingCommercial",
+    "work_description": "SINGLE PDF: NEW 5' L2 LANDSCAPING AT TWO LOCATIONS. ASSOCIATED W/22-211471 PLA",
+    "address": null,
+    "setup_date": "2025-04-03",
+    "under_review_date": "2025-04-15",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Approved to Issue"
+  },
+  "activities": [
+    {
+      "activity_name": "Check Building Permit Reqd",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "INTAKE"
+    },
+    {
+      "activity_name": "Completeness Check - ZP",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Upload Approved",
+      "last_activity_date": "2025-04-21",
+      "goal_date": null,
+      "completed_date": "2025-04-21",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-03",
+      "goal_date": null,
+      "completed_date": "2025-05-03",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-21",
+      "goal_date": null,
+      "completed_date": "2025-04-21",
+      "staff_contact": "Barry,Ibrahima   503-823-7163"
+    },
+    {
+      "activity_name": "Zoning Code Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-28",
+      "goal_date": null,
+      "completed_date": "2025-04-28",
+      "staff_contact": "Messa,Gina   503-865-6425"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-02",
+      "goal_date": null,
+      "completed_date": "2025-05-02",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    }
+  ]
+}

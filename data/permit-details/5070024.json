@@ -1,0 +1,56 @@
+{
+  "detail_id": 5070024,
+  "metadata": {
+    "ivr_number": "5070024",
+    "permit_type": "Code ComplianceZoning",
+    "work_description": "Complaint Rcvd: Trackit 2827799 - Over height fence and semi trucks being stored.",
+    "address": null,
+    "setup_date": "2024-08-02",
+    "under_review_date": "2024-08-02",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Request"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection - CC",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-02",
+      "goal_date": "2024-08-08",
+      "completed_date": null,
+      "staff_contact": "CODE COMPLIANCE"
+    },
+    {
+      "activity_name": "Close - CC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Notices- CC",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "CODE COMPLIANCE"
+    },
+    {
+      "activity_name": "CC - Admin Review",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

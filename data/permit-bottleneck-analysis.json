@@ -1,103 +1,103 @@
 {
-  "generated_at": "2026-03-15T19:23:12.188Z",
-  "total_permits_analyzed": 63,
-  "avg_correction_rounds_overall": 0.14,
-  "pct_permits_with_corrections": 11.1,
+  "generated_at": "2026-03-15T19:27:41.101Z",
+  "total_permits_analyzed": 198,
+  "avg_correction_rounds_overall": 0.24,
+  "pct_permits_with_corrections": 21.2,
   "bottleneck_ranking": [
     {
-      "activity_type": "Plumbing Inspections",
-      "avg_days_to_complete": 74.7,
-      "median_days_to_complete": 46,
-      "pct_is_last_review": 18.5,
-      "total_permits_reviewed": 10,
-      "avg_correction_rounds": 0.1
-    },
-    {
-      "activity_type": "Issuance",
-      "avg_days_to_complete": 63.4,
-      "median_days_to_complete": 25,
-      "pct_is_last_review": 0,
-      "total_permits_reviewed": 7,
-      "avg_correction_rounds": 0
-    },
-    {
-      "activity_type": "Structural",
-      "avg_days_to_complete": 63,
-      "median_days_to_complete": 82,
-      "pct_is_last_review": 0,
-      "total_permits_reviewed": 3,
-      "avg_correction_rounds": 0
-    },
-    {
-      "activity_type": "Electrical Inspections",
-      "avg_days_to_complete": 55.1,
-      "median_days_to_complete": 41,
-      "pct_is_last_review": 35.2,
-      "total_permits_reviewed": 20,
-      "avg_correction_rounds": 0
-    },
-    {
-      "activity_type": "Life Safety",
-      "avg_days_to_complete": 54.8,
-      "median_days_to_complete": 83,
-      "pct_is_last_review": 0,
-      "total_permits_reviewed": 4,
-      "avg_correction_rounds": 0
-    },
-    {
-      "activity_type": "Mechanical Inspections",
-      "avg_days_to_complete": 54.8,
-      "median_days_to_complete": 21,
-      "pct_is_last_review": 18.5,
-      "total_permits_reviewed": 11,
-      "avg_correction_rounds": 0
-    },
-    {
-      "activity_type": "Trees",
-      "avg_days_to_complete": 49.5,
-      "median_days_to_complete": 49.5,
-      "pct_is_last_review": 0,
+      "activity_type": "D - Permit Request",
+      "avg_days_to_complete": 381,
+      "median_days_to_complete": 381,
+      "pct_is_last_review": 1.3,
       "total_permits_reviewed": 2,
       "avg_correction_rounds": 0
     },
     {
-      "activity_type": "Erosion Control",
-      "avg_days_to_complete": 44.3,
-      "median_days_to_complete": 46,
-      "pct_is_last_review": 1.9,
+      "activity_type": "MIP Inspections",
+      "avg_days_to_complete": 179.6,
+      "median_days_to_complete": 217,
+      "pct_is_last_review": 2,
       "total_permits_reviewed": 3,
+      "avg_correction_rounds": 0
+    },
+    {
+      "activity_type": "Facilities Final Inspection",
+      "avg_days_to_complete": 108.9,
+      "median_days_to_complete": 95,
+      "pct_is_last_review": 4,
+      "total_permits_reviewed": 7,
       "avg_correction_rounds": 1
     },
     {
+      "activity_type": "Plumbing Inspections",
+      "avg_days_to_complete": 63.9,
+      "median_days_to_complete": 41,
+      "pct_is_last_review": 11.9,
+      "total_permits_reviewed": 21,
+      "avg_correction_rounds": 0
+    },
+    {
+      "activity_type": "Mechanical Inspections",
+      "avg_days_to_complete": 60.3,
+      "median_days_to_complete": 30,
+      "pct_is_last_review": 21.9,
+      "total_permits_reviewed": 34,
+      "avg_correction_rounds": 0.21
+    },
+    {
       "activity_type": "Request",
-      "avg_days_to_complete": 44,
-      "median_days_to_complete": 44,
-      "pct_is_last_review": 13,
-      "total_permits_reviewed": 7,
+      "avg_days_to_complete": 55.5,
+      "median_days_to_complete": 42,
+      "pct_is_last_review": 10.6,
+      "total_permits_reviewed": 16,
       "avg_correction_rounds": 0
     },
     {
-      "activity_type": "Planning and Zoning",
-      "avg_days_to_complete": 43.2,
-      "median_days_to_complete": 5,
-      "pct_is_last_review": 1.9,
-      "total_permits_reviewed": 5,
-      "avg_correction_rounds": 3
+      "activity_type": "Electrical Inspections",
+      "avg_days_to_complete": 52.7,
+      "median_days_to_complete": 27,
+      "pct_is_last_review": 29.8,
+      "total_permits_reviewed": 46,
+      "avg_correction_rounds": 0.07
     },
     {
-      "activity_type": "Transportation",
-      "avg_days_to_complete": 31.3,
-      "median_days_to_complete": 26,
-      "pct_is_last_review": 1.9,
+      "activity_type": "Structural",
+      "avg_days_to_complete": 49.8,
+      "median_days_to_complete": 46,
+      "pct_is_last_review": 1.3,
+      "total_permits_reviewed": 12,
+      "avg_correction_rounds": 2
+    },
+    {
+      "activity_type": "Life Safety",
+      "avg_days_to_complete": 43.7,
+      "median_days_to_complete": 18.5,
+      "pct_is_last_review": 3.3,
+      "total_permits_reviewed": 13,
+      "avg_correction_rounds": 1.2
+    },
+    {
+      "activity_type": "Issuance",
+      "avg_days_to_complete": 39.5,
+      "median_days_to_complete": 25,
+      "pct_is_last_review": 0,
+      "total_permits_reviewed": 34,
+      "avg_correction_rounds": 0
+    },
+    {
+      "activity_type": "Erosion Control",
+      "avg_days_to_complete": 34.8,
+      "median_days_to_complete": 36,
+      "pct_is_last_review": 0.7,
       "total_permits_reviewed": 4,
-      "avg_correction_rounds": 0
+      "avg_correction_rounds": 1
     },
     {
-      "activity_type": "Fire Review",
-      "avg_days_to_complete": 27.3,
-      "median_days_to_complete": 13,
-      "pct_is_last_review": 1.9,
-      "total_permits_reviewed": 3,
+      "activity_type": "Trees",
+      "avg_days_to_complete": 30.4,
+      "median_days_to_complete": 14,
+      "pct_is_last_review": 0.7,
+      "total_permits_reviewed": 7,
       "avg_correction_rounds": 1
     },
     {
@@ -109,27 +109,67 @@
       "avg_correction_rounds": 0
     },
     {
-      "activity_type": "Environmental Services",
-      "avg_days_to_complete": 23.5,
-      "median_days_to_complete": 24,
-      "pct_is_last_review": 0,
-      "total_permits_reviewed": 3,
+      "activity_type": "Planning and Zoning",
+      "avg_days_to_complete": 24,
+      "median_days_to_complete": 9,
+      "pct_is_last_review": 2,
+      "total_permits_reviewed": 20,
+      "avg_correction_rounds": 1.67
+    },
+    {
+      "activity_type": "Transportation",
+      "avg_days_to_complete": 23.3,
+      "median_days_to_complete": 23,
+      "pct_is_last_review": 0.7,
+      "total_permits_reviewed": 6,
       "avg_correction_rounds": 0
+    },
+    {
+      "activity_type": "Plumbing/Subsurface Review",
+      "avg_days_to_complete": 22.7,
+      "median_days_to_complete": 18,
+      "pct_is_last_review": 3.3,
+      "total_permits_reviewed": 6,
+      "avg_correction_rounds": 1
+    },
+    {
+      "activity_type": "Environmental Services",
+      "avg_days_to_complete": 17.2,
+      "median_days_to_complete": 6,
+      "pct_is_last_review": 0,
+      "total_permits_reviewed": 7,
+      "avg_correction_rounds": 0
+    },
+    {
+      "activity_type": "Mechanical Review",
+      "avg_days_to_complete": 13.9,
+      "median_days_to_complete": 11,
+      "pct_is_last_review": 1.3,
+      "total_permits_reviewed": 7,
+      "avg_correction_rounds": 1
     },
     {
       "activity_type": "Trade Permits",
       "avg_days_to_complete": 12.5,
       "median_days_to_complete": 12.5,
-      "pct_is_last_review": 3.7,
+      "pct_is_last_review": 1.3,
       "total_permits_reviewed": 2,
       "avg_correction_rounds": 1
     },
     {
+      "activity_type": "Fire Review",
+      "avg_days_to_complete": 12.1,
+      "median_days_to_complete": 4.5,
+      "pct_is_last_review": 0.7,
+      "total_permits_reviewed": 10,
+      "avg_correction_rounds": 1
+    },
+    {
       "activity_type": "Intake",
-      "avg_days_to_complete": 11,
+      "avg_days_to_complete": 11.3,
       "median_days_to_complete": 11,
       "pct_is_last_review": 0,
-      "total_permits_reviewed": 2,
+      "total_permits_reviewed": 3,
       "avg_correction_rounds": 0
     }
   ]

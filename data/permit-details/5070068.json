@@ -1,0 +1,106 @@
+{
+  "detail_id": 5070068,
+  "metadata": {
+    "ivr_number": "5070068",
+    "permit_type": "NuisanceVacantComplaint",
+    "work_description": "Complaint Rcvd: Trackit 2827829 - T/G/W. Photos in trackit.",
+    "address": null,
+    "setup_date": "2024-08-02",
+    "under_review_date": "2024-08-02",
+    "issue_date": "2024-08-19",
+    "final_date": "2024-09-27",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-11",
+      "goal_date": null,
+      "completed_date": "2024-09-09",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Work Order Inspection",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-02",
+      "goal_date": null,
+      "completed_date": "2024-09-27",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": "2024-08-14",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-02",
+      "goal_date": null,
+      "completed_date": "2024-09-27",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    },
+    {
+      "activity_name": "Work Order",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2024-09-12",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-02",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}
