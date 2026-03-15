@@ -23,7 +23,6 @@ export interface HeadlineCardProps {
   lastUpdated: string;
   color: string;
   onClick?: () => void;
-  /** Optional data source status to display a provenance badge */
   dataStatus?: {
     status: DataSourceStatus;
     label: string;
@@ -48,12 +47,6 @@ export default function HeadlineCard({
       ? "trend-pill trend-neutral"
       : "trend-pill trend-negative";
 
-  const signalColor = trend.isPositive
-    ? "#059669"
-    : trend.direction === "flat"
-      ? "#78716c"
-      : "#dc2626";
-
   const TrendIcon =
     trend.direction === "up"
       ? TrendingUp
@@ -67,59 +60,55 @@ export default function HeadlineCard({
       className="metric-card text-left w-full group"
       style={{ "--accent-color": color } as React.CSSProperties}
     >
-      {/* Question header */}
-      <div className="flex items-start justify-between mb-4">
-        <h2 className="font-editorial text-[17px] 2xl:text-[19px] 3xl:text-[21px] text-[var(--color-ink)] leading-snug pr-6">
+      {/* ── Question ── */}
+      <div className="flex items-start justify-between gap-3 mb-5">
+        <h2 className="font-editorial text-[18px] 2xl:text-[20px] text-[var(--color-ink)] leading-snug">
           {question}
         </h2>
-        <ArrowRight className="w-4 h-4 text-[var(--color-ink-muted)]/30 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
+        <ArrowRight className="w-4 h-4 text-[var(--color-ink-muted)]/20 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1.5" />
       </div>
 
-      {/* Headline metric + trend */}
-      <div className="flex items-end justify-between mb-1.5">
-        <div>
-          <p className="text-[32px] 2xl:text-[38px] 3xl:text-[44px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
-            {headline.value}
-          </p>
-          <p className="text-[13px] 2xl:text-[14px] 3xl:text-[16px] text-[var(--color-ink-muted)] mt-1.5">
-            {headline.label}
-          </p>
-        </div>
-        <div className="flex flex-col items-end gap-2">
-          <span className={trendClass}>
-            <TrendIcon className="w-3 h-3" />
-            {trend.value}
-          </span>
-          <span
-            className="signal-dot"
-            style={{ backgroundColor: signalColor, color: signalColor }}
-          />
-        </div>
+      {/* ── Big Number ── */}
+      <p className="text-[36px] 2xl:text-[42px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
+        {headline.value}
+      </p>
+      <p className="text-[14px] 2xl:text-[15px] text-[var(--color-ink-muted)] mt-2 leading-snug">
+        {headline.label}
+      </p>
+
+      {/* ── Trend pill ── */}
+      <div className="mt-3">
+        <span className={trendClass}>
+          <TrendIcon className="w-3.5 h-3.5" />
+          {trend.value}
+        </span>
       </div>
 
-      {/* Sub-metric */}
+      {/* ── Sub-metric ── */}
       {headline.subValue && (
-        <div className="flex items-baseline gap-1.5 mt-2 mb-1">
-          <span className="text-[20px] font-semibold text-[var(--color-ink-light)]">
+        <div className="mt-3 pt-3 border-t border-[var(--color-parchment)]/60">
+          <span className="text-[22px] 2xl:text-[26px] font-semibold text-[var(--color-ink-light)]">
             {headline.subValue}
           </span>
-          <span className="text-[12px] text-[var(--color-ink-muted)]">
+          <span className="text-[13px] text-[var(--color-ink-muted)] ml-2">
             {headline.subLabel}
           </span>
         </div>
       )}
 
-      {/* Sparkline */}
-      <div className="mt-4 mb-4">
-        <Sparkline data={sparklineData} color={color} />
+      {/* ── Sparkline ── */}
+      <div className="mt-5 mb-5">
+        <Sparkline data={sparklineData} color={color} height={52} />
       </div>
 
-      {/* Footer */}
-      <div className="flex items-center justify-between pt-3 border-t border-[var(--color-parchment)]">
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="text-[11px] text-[var(--color-ink-muted)] font-medium tracking-wide uppercase truncate">
+      {/* ── Footer: source + status + date stacked ── */}
+      <div className="pt-3 border-t border-[var(--color-parchment)] space-y-1.5">
+        <div className="flex items-center gap-2">
+          <span className="text-[12px] text-[var(--color-ink-muted)] font-medium tracking-wide uppercase truncate">
             {source}
           </span>
+        </div>
+        <div className="flex items-center justify-between">
           {dataStatus && (
             <DataSourceBadge
               status={dataStatus.status}
@@ -127,10 +116,10 @@ export default function HeadlineCard({
               tooltip={dataStatus.tooltip}
             />
           )}
+          <span className="text-[12px] text-[var(--color-ink-muted)]/50 font-mono ml-auto">
+            {lastUpdated}
+          </span>
         </div>
-        <span className="text-[11px] text-[var(--color-ink-muted)]/60 font-mono flex-shrink-0">
-          {lastUpdated}
-        </span>
       </div>
     </div>
   );

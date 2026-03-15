@@ -150,7 +150,7 @@ export default function DashboardClient({ questions }: DashboardClientProps) {
           <h2>The Seven Questions</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 2xl:gap-6">
           {/* Cards with REAL data */}
           {liveQuestions.map((q, i) => {
             const status = QUESTION_DATA_STATUS[q.id as QuestionId];
