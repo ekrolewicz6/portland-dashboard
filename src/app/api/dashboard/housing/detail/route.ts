@@ -7,7 +7,7 @@ interface HousingDetailResponse {
   permitsByType: { name: string; value: number; color: string }[];
   permitsByNeighborhood: { name: string; value: number }[];
   pipelineTrend: { month: string; units: number }[];
-  rentTrend: { month: string; rent: number }[];
+  rentTrend: null; // Unavailable — needs Zillow ZORI CSV download
   processingTimeTrend: { month: string; avgDays: number }[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
@@ -18,6 +18,7 @@ interface HousingDetailResponse {
   };
   ninetyDayBreakdown: { met: number; missed: number };
   topInsights: string[];
+  dataStatus: string;
 }
 
 export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
@@ -71,10 +72,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     const pipelineRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') AS month,
-        count(*)::int AS total_permits,
-        count(*) FILTER (WHERE permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%')::int AS residential,
-        count(*) FILTER (WHERE permit_type ILIKE '%commercial%')::int AS commercial,
-        ROUND(COALESCE(SUM(valuation) FILTER (WHERE valuation > 0), 0) / 1000000, 1) AS valuation_millions
+        count(*)::int AS total_permits
       FROM housing.permits
       WHERE issued_date IS NOT NULL AND issued_date >= '2023-01-01' AND issued_date <= '2026-12-31'
       GROUP BY date_trunc('month', issued_date)
@@ -84,26 +82,12 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     const pipelineTrend = pipelineRows.map((r) => ({
       month: r.month as string,
       units: Number(r.total_permits),
-      residential: Number(r.residential),
-      commercial: Number(r.commercial),
-      valuationM: Number(r.valuation_millions),
     }));
 
-    // 4. Rent trend from housing_rents (10-year)
-    const rentRows = await sql`
-      SELECT TO_CHAR(month, 'YYYY-MM') AS month, zori AS rent
-      FROM housing_rents
-      ORDER BY month
-    `;
-
-    const rentTrend = rentRows.map((r) => ({
-      month: r.month as string,
-      rent: Number(Number(r.rent).toFixed(0)),
-    }));
+    // 4. Rent trend — UNAVAILABLE (needs Zillow ZORI CSV download)
+    // NOT querying from public.housing_rents which is FAKE data
 
     // 5. Processing time trend — MEDIAN per month, excluding outliers
-    // Only include permits with reasonable processing times (1-365 days)
-    // and from the last 3 years for a meaningful trend
     const processingRows = await sql`
       SELECT
         TO_CHAR(date_trunc('month', issued_date), 'YYYY-MM') AS month,
@@ -160,62 +144,39 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     const ninetyDayCompliance =
       totalWithDays > 0 ? Math.round((under90 / totalWithDays) * 100) : 0;
 
-    // 8. Insights
+    // 8. Insights from REAL data only
     const topInsights: string[] = [];
 
-    // Total permits
     const totalPermits = permitsByType.reduce((s, p) => s + p.value, 0);
     topInsights.push(
       `${totalPermits.toLocaleString()} total permits in the database spanning residential, commercial, facility, and trade categories.`
     );
 
-    // Pipeline trend
-    if (pipelineTrend.length >= 24) {
-      const recent = pipelineTrend.slice(-3).reduce((s, r) => s + r.units, 0) / 3;
-      const twoYearsAgo =
-        pipelineTrend.slice(-27, -24).reduce((s, r) => s + r.units, 0) / 3;
-      if (twoYearsAgo > 0) {
-        const pipelineChange = ((recent - twoYearsAgo) / twoYearsAgo) * 100;
-        topInsights.push(
-          `Housing pipeline is ${pipelineChange > 0 ? "up" : "down"} ${Math.abs(Math.round(pipelineChange))}% vs two years ago.`
-        );
-      }
-    }
-
-    // 90-day compliance
     topInsights.push(
       `${ninetyDayCompliance}% of permits meet the 90-day processing guarantee (${under90.toLocaleString()} of ${totalWithDays.toLocaleString()}).`
     );
 
-    // Top neighborhood
     if (permitsByNeighborhood.length > 0) {
       topInsights.push(
         `Top neighborhood for permits: ${permitsByNeighborhood[0].name} with ${permitsByNeighborhood[0].value.toLocaleString()} permits.`
       );
     }
 
-    // Valuation
     if (totalValuation > 0) {
       topInsights.push(
         `Total construction valuation: $${(totalValuation / 1_000_000_000).toFixed(2)}B across all permits.`
       );
     }
 
-    // Rent trend
-    if (rentTrend.length >= 2) {
-      const latestRent = rentTrend[rentTrend.length - 1].rent;
-      const firstRent = rentTrend[0].rent;
-      const rentChange = ((latestRent - firstRent) / firstRent) * 100;
-      topInsights.push(
-        `Median rent (ZORI) has ${rentChange > 0 ? "increased" : "decreased"} ${Math.abs(Math.round(rentChange))}% over the period, from $${firstRent.toLocaleString()} to $${latestRent.toLocaleString()}.`
-      );
-    }
+    topInsights.push(
+      "Median rent data unavailable — download Zillow ZORI CSV from zillow.com/research/data/."
+    );
 
     const result: HousingDetailResponse = {
       permitsByType,
       permitsByNeighborhood,
       pipelineTrend,
-      rentTrend,
+      rentTrend: null, // Unavailable — needs Zillow ZORI
       processingTimeTrend,
       valuationByYear,
       heroStats: {
@@ -229,6 +190,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         missed: totalWithDays - under90,
       },
       topInsights,
+      dataStatus: "partial",
     };
 
     return NextResponse.json(result);
@@ -239,7 +201,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         permitsByType: [],
         permitsByNeighborhood: [],
         pipelineTrend: [],
-        rentTrend: [],
+        rentTrend: null,
         processingTimeTrend: [],
         valuationByYear: [],
         heroStats: {
@@ -250,6 +212,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         },
         ninetyDayBreakdown: { met: 0, missed: 0 },
         topInsights: ["Data temporarily unavailable."],
+        dataStatus: "unavailable",
       },
       { status: 200 }
     );

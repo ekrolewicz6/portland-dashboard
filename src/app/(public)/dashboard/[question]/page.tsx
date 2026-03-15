@@ -120,7 +120,7 @@ export default async function QuestionPage({ params }: PageProps) {
         style={{ backgroundColor: meta.color }}
       >
         <div className="absolute inset-0 bg-[var(--color-canopy)]/60" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-12 sm:py-16">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-12 sm:py-16">
           {/* Back link */}
           <Link
             href="/"
@@ -166,7 +166,7 @@ export default async function QuestionPage({ params }: PageProps) {
       </section>
 
       {/* Content */}
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 -mt-4 relative z-20">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 -mt-4 relative z-20">
         {/* Action buttons */}
         <div className="flex items-center justify-end gap-2 mb-6">
           <ExportButton question={question} />

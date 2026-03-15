@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-canopy)] text-white">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14">
           {/* Logo & wordmark */}
           <Link href="/" className="flex items-center gap-3 group">

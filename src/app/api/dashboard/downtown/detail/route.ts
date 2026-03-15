@@ -5,89 +5,60 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    // Weekly foot traffic trend
-    const footTrafficRows = await sql`
-      SELECT week, pct_of_2019, day_of_week
-      FROM public.downtown_foot_traffic
-      ORDER BY week ASC
+    // Only real data: graffiti from safety.graffiti_monthly
+    // NOT querying public.downtown_foot_traffic or public.downtown_vacancy (FAKE data)
+
+    const graffitiRows = await sql`
+      SELECT TO_CHAR(month, 'YYYY-MM') AS month, count::int
+      FROM safety.graffiti_monthly
+      ORDER BY month
     `;
 
-    // Quarterly vacancy trend
-    const vacancyRows = await sql`
-      SELECT quarter, office_vacancy_pct, retail_vacancy_pct
-      FROM public.downtown_vacancy
-      ORDER BY quarter ASC
-    `;
-
-    // Aggregate foot traffic to weekly averages for the trend chart
-    const weekMap = new Map<string, { total: number; count: number }>();
-    const weekdayTotals = { weekday: { total: 0, count: 0 }, weekend: { total: 0, count: 0 } };
-
-    for (const r of footTrafficRows) {
-      const week = String(r.week).slice(0, 10);
-      const pct = Number(r.pct_of_2019);
-      const day = String(r.day_of_week);
-
-      const existing = weekMap.get(week) || { total: 0, count: 0 };
-      existing.total += pct;
-      existing.count += 1;
-      weekMap.set(week, existing);
-
-      const isWeekend = day === "Saturday" || day === "Sunday";
-      if (isWeekend) {
-        weekdayTotals.weekend.total += pct;
-        weekdayTotals.weekend.count += 1;
-      } else {
-        weekdayTotals.weekday.total += pct;
-        weekdayTotals.weekday.count += 1;
-      }
-    }
-
-    const footTrafficTrend = Array.from(weekMap.entries()).map(([week, v]) => ({
-      week,
-      pct: Math.round((v.total / v.count) * 10) / 10,
-    }));
-
-    const vacancyTrend = vacancyRows.map((r) => ({
-      quarter: String(r.quarter),
-      office: Number(r.office_vacancy_pct),
-      retail: Number(r.retail_vacancy_pct),
-    }));
-
-    const weekdayVsWeekend = {
-      weekday: weekdayTotals.weekday.count > 0
-        ? Math.round((weekdayTotals.weekday.total / weekdayTotals.weekday.count) * 10) / 10
-        : 0,
-      weekend: weekdayTotals.weekend.count > 0
-        ? Math.round((weekdayTotals.weekend.total / weekdayTotals.weekend.count) * 10) / 10
-        : 0,
-    };
-
-    // Recovery milestones: first week each threshold was crossed
-    const milestones: { threshold: number; week: string }[] = [];
-    const thresholds = [50, 75, 90];
-    const crossed = new Set<number>();
-
-    for (const point of footTrafficTrend) {
-      for (const t of thresholds) {
-        if (!crossed.has(t) && point.pct >= t) {
-          milestones.push({ threshold: t, week: point.week });
-          crossed.add(t);
-        }
-      }
-    }
+    const graffitiTrend = graffitiRows.length > 0
+      ? graffitiRows.map((r) => ({
+          month: r.month as string,
+          count: Number(r.count),
+        }))
+      : null;
 
     return NextResponse.json({
-      footTrafficTrend,
-      vacancyTrend,
-      weekdayVsWeekend,
-      recoveryMilestones: milestones,
+      // REAL data
+      graffitiTrend,
+      // UNAVAILABLE — needs subscriptions
+      footTrafficTrend: null,
+      vacancyTrend: null,
+      weekdayVsWeekend: null,
+      recoveryMilestones: null,
+      dataStatus: "partial",
+      dataSources: [
+        {
+          name: "Graffiti Reports",
+          status: "live",
+          provider: "Portland BPS via ArcGIS",
+        },
+        {
+          name: "Foot Traffic",
+          status: "needs_subscription",
+          provider: "Placer.ai",
+          action: "$2K-$5K/mo subscription or Clean & Safe partnership",
+        },
+        {
+          name: "Commercial Vacancy Rate",
+          status: "needs_subscription",
+          provider: "CoStar Group",
+          action: "$500-$1.5K/mo subscription or free CBRE/Colliers quarterly reports",
+        },
+      ],
     });
   } catch (error) {
     console.error("[downtown/detail] DB query failed:", error);
-    return NextResponse.json(
-      { error: "Failed to load downtown detail data" },
-      { status: 500 },
-    );
+    return NextResponse.json({
+      graffitiTrend: null,
+      footTrafficTrend: null,
+      vacancyTrend: null,
+      weekdayVsWeekend: null,
+      recoveryMilestones: null,
+      dataStatus: "unavailable",
+    });
   }
 }

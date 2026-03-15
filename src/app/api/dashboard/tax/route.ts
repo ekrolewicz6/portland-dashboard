@@ -4,7 +4,10 @@ import type { TaxData } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-/** Static tax analysis data — no external API. */
-export async function GET(): Promise<NextResponse<TaxData>> {
-  return NextResponse.json(taxData);
+/** Static tax analysis data — computed from published rates, this IS real data. */
+export async function GET(): Promise<NextResponse<TaxData & { dataStatus: string }>> {
+  return NextResponse.json({
+    ...taxData,
+    dataStatus: "live",
+  });
 }

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { housingData } from "@/lib/mock-data";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { HousingData, ChartPoint, PermitBreakdown } from "@/lib/types";
 
@@ -7,10 +6,10 @@ export const dynamic = "force-dynamic";
 
 const CACHE_KEY = "housing";
 
-export async function GET(): Promise<NextResponse<HousingData>> {
+export async function GET(): Promise<NextResponse<HousingData & { dataStatus: string }>> {
   try {
     // Check cache first
-    const cached = await getCachedData<HousingData>(CACHE_KEY);
+    const cached = await getCachedData<HousingData & { dataStatus: string }>(CACHE_KEY);
     if (cached) return NextResponse.json(cached);
 
     // 1. Summary: total permits and average processing days
@@ -23,8 +22,19 @@ export async function GET(): Promise<NextResponse<HousingData>> {
     `;
 
     if (!summaryRows || summaryRows.length === 0 || Number(summaryRows[0].total) === 0) {
-      console.warn("[housing] No permit data in DB, returning mock data");
-      return NextResponse.json(housingData);
+      return NextResponse.json({
+        headline: "Housing permit data temporarily unavailable",
+        headlineValue: 0,
+        dataStatus: "unavailable",
+        trend: { direction: "flat" as const, percentage: 0, label: "no data" },
+        chartData: [],
+        permitPipeline: [],
+        processingDays: [],
+        medianRent: [],
+        source: "BDS PermitsNow",
+        lastUpdated: new Date().toISOString().slice(0, 10),
+        insights: ["Permit data is not currently available from the database."],
+      } as unknown as HousingData & { dataStatus: string });
     }
 
     const totalPermits = Number(summaryRows[0].total);
@@ -176,30 +186,26 @@ export async function GET(): Promise<NextResponse<HousingData>> {
     const yoyPct = Number(trendRows[0].yoy_pct || 0);
     const trendDirection = yoyPct > 0 ? "up" : yoyPct < 0 ? "down" : "flat";
 
-    const result: HousingData = {
+    const result: HousingData & { dataStatus: string } = {
       headline: `${totalPermits.toLocaleString()} permits processed, avg ${avgDays} days | ${unitsInPipeline} residential in pipeline`,
       headlineValue: totalPermits,
+      dataStatus: "partial",
       trend: {
         direction: trendDirection as "up" | "down" | "flat",
         percentage: Math.abs(yoyPct),
         label: "vs. prior 12 months",
       },
-      chartData: chartData.length > 0 ? chartData : housingData.chartData,
-      permitPipeline:
-        permitPipeline.length > 0 ? permitPipeline : housingData.permitPipeline,
-      processingDays:
-        processingDays.length > 0
-          ? processingDays
-          : housingData.processingDays,
-      medianRent: housingData.medianRent, // rent data not in local DB
-      // New real-data fields
+      chartData: chartData.length > 0 ? chartData : [],
+      permitPipeline: permitPipeline.length > 0 ? permitPipeline : [],
+      processingDays: processingDays.length > 0 ? processingDays : [],
+      medianRent: [], // Rent data not available — needs Zillow ZORI CSV download
       unitsInPipeline,
       avgProcessingTime,
       totalConstructionValuation,
       pctUnder90Days,
       permitBreakdown,
       monthlyTrend,
-      source: "BDS PermitsNow (34,307 real permits) / Zillow ZORI (mock)",
+      source: "BDS PermitsNow (34,307 real permits)",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
         `${totalPermits.toLocaleString()} permits with status Issued or Final in the database.`,
@@ -208,14 +214,26 @@ export async function GET(): Promise<NextResponse<HousingData>> {
         `${pctUnder90Days}% of permits meet the 90-day processing guarantee.`,
         `Total construction valuation (24 months): $${(totalConstructionValuation / 1_000_000).toFixed(0)}M.`,
         `Breakdown: ${permitBreakdown.map((b) => `${b.category}: ${b.count.toLocaleString()}`).join(", ")}.`,
-        "Median rent data still uses mock values -- Zillow ZORI integration pending.",
+        "Median rent data unavailable -- download Zillow ZORI CSV from zillow.com/research/data/.",
       ],
     };
 
     await setCachedData(CACHE_KEY, result);
     return NextResponse.json(result);
   } catch (error) {
-    console.error("[housing] DB query failed, returning mock data:", error);
-    return NextResponse.json(housingData);
+    console.error("[housing] DB query failed:", error);
+    return NextResponse.json({
+      headline: "Housing data temporarily unavailable",
+      headlineValue: 0,
+      dataStatus: "unavailable",
+      trend: { direction: "flat" as const, percentage: 0, label: "no data" },
+      chartData: [],
+      permitPipeline: [],
+      processingDays: [],
+      medianRent: [],
+      source: "BDS PermitsNow",
+      lastUpdated: new Date().toISOString().slice(0, 10),
+      insights: ["Database connection failed. Housing data is temporarily unavailable."],
+    } as unknown as HousingData & { dataStatus: string });
   }
 }

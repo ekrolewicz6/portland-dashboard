@@ -25,6 +25,9 @@
   --font-display: "Instrument Serif", "Georgia", serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Wide screen breakpoint */
+  --breakpoint-3xl: 1920px;
 }
 
 @layer base {
@@ -33,11 +36,28 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    /* Responsive base font size: scales up on larger screens */
+    font-size: 16px;
+  }
+
+  /* Fluid typography for wider displays */
+  @media (min-width: 1280px) {
+    html { font-size: 17px; }
+  }
+  @media (min-width: 1536px) {
+    html { font-size: 18px; }
+  }
+  @media (min-width: 1920px) {
+    html { font-size: 19px; }
+  }
+  @media (min-width: 2560px) {
+    html { font-size: 21px; }
   }
 
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
+    line-height: 1.6;
   }
 
   ::selection {
@@ -107,6 +127,18 @@
     overflow: hidden;
   }
 
+  @media (min-width: 1536px) {
+    .metric-card {
+      padding: 2rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .metric-card {
+      padding: 2.25rem;
+    }
+  }
+
   .metric-card::before {
     content: "";
     position: absolute;
@@ -155,6 +187,13 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     font-family: var(--font-mono);
+  }
+
+  @media (min-width: 1536px) {
+    .trend-pill { font-size: 12px; padding: 3px 10px; }
+  }
+  @media (min-width: 1920px) {
+    .trend-pill { font-size: 13px; padding: 4px 12px; }
   }
 
   .trend-positive {

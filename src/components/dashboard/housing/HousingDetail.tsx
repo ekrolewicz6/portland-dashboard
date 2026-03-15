@@ -6,6 +6,7 @@ import BarChart from "@/components/charts/BarChart";
 import PieChart from "@/components/charts/PieChart";
 import MultiLineChart from "@/components/charts/MultiLineChart";
 import TrendChart from "@/components/charts/TrendChart";
+import DataNeeded from "@/components/dashboard/DataNeeded";
 import {
   Building2,
   Clock,
@@ -21,7 +22,7 @@ interface HousingDetailData {
   permitsByType: { name: string; value: number; color: string }[];
   permitsByNeighborhood: { name: string; value: number }[];
   pipelineTrend: { month: string; units: number }[];
-  rentTrend: { month: string; rent: number }[];
+  rentTrend: { month: string; rent: number }[] | null;
   processingTimeTrend: { month: string; avgDays: number }[];
   valuationByYear: { name: string; value: number }[];
   heroStats: {
@@ -111,11 +112,6 @@ export default function HousingDetail() {
     avgDays: r.avgDays,
   }));
 
-  const rentChartData = rentTrend.map((r) => ({
-    date: r.month,
-    value: r.rent,
-  }));
-
   const neighborhoodBarData = permitsByNeighborhood.map((r) => ({
     name: r.name,
     value: r.value,
@@ -171,143 +167,166 @@ export default function HousingDetail() {
         />
       </section>
 
-      {/* 2. 10-Year Housing Pipeline */}
-      <section>
-        <SectionHeader icon={TrendingUp} title="10-Year Housing Pipeline" color="#3d7a5a" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-            Monthly units in the permitting pipeline. The 2022-2023 crash in new construction starts is clearly visible.
-          </p>
-          <TrendChart data={pipelineChartData} color="#3d7a5a" height={320} />
-        </div>
-      </section>
+      {/* 2. Housing Pipeline (REAL) */}
+      {pipelineChartData.length > 0 && (
+        <section>
+          <SectionHeader icon={TrendingUp} title="Housing Pipeline (Real Permit Data)" color="#3d7a5a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Monthly permits issued from BDS PermitsNow database.
+            </p>
+            <TrendChart data={pipelineChartData} color="#3d7a5a" height={320} />
+          </div>
+        </section>
+      )}
 
-      {/* 3. Permit Processing Time Trend */}
-      <section>
-        <SectionHeader icon={Clock} title="Permit Processing Time" color="#4a7f9e" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-            Average days from application to issuance. The dashed line marks the 90-day target.
-          </p>
-          <MultiLineChart
-            data={processingChartData}
-            xKey="month"
-            height={320}
-            valueSuffix=" days"
-            lines={[
-              { key: "avgDays", label: "Avg Processing Days", color: "#4a7f9e" },
-            ]}
-            referenceLines={[
-              { y: 90, label: "90-day target", color: "#b85c3a" },
-            ]}
-          />
-        </div>
-      </section>
+      {/* 3. Permit Processing Time Trend (REAL) */}
+      {processingChartData.length > 0 && (
+        <section>
+          <SectionHeader icon={Clock} title="Permit Processing Time (Real Data)" color="#4a7f9e" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Median days from application to issuance. The dashed line marks the 90-day target.
+            </p>
+            <MultiLineChart
+              data={processingChartData}
+              xKey="month"
+              height={320}
+              valueSuffix=" days"
+              lines={[
+                { key: "avgDays", label: "Median Processing Days", color: "#4a7f9e" },
+              ]}
+              referenceLines={[
+                { y: 90, label: "90-day target", color: "#b85c3a" },
+              ]}
+            />
+          </div>
+        </section>
+      )}
 
-      {/* 4. Permits by Type (Pie Chart) */}
-      <section>
-        <SectionHeader icon={Home} title="Permits by Type" color="#c8956c" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <PieChart data={permitsByType} height={380} />
-        </div>
-      </section>
+      {/* 4. Permits by Type (REAL) */}
+      {permitsByType.length > 0 && (
+        <section>
+          <SectionHeader icon={Home} title="Permits by Type (Real Data)" color="#c8956c" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <PieChart data={permitsByType} height={380} />
+          </div>
+        </section>
+      )}
 
-      {/* 5. Top Neighborhoods */}
-      <section>
-        <SectionHeader icon={MapPin} title="Top 10 Neighborhoods" color="#3d7a5a" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <BarChart
-            data={neighborhoodBarData}
-            layout="vertical"
-            color="#3d7a5a"
-            height={400}
-          />
-        </div>
-      </section>
+      {/* 5. Top Neighborhoods (REAL) */}
+      {neighborhoodBarData.length > 0 && (
+        <section>
+          <SectionHeader icon={MapPin} title="Top 10 Neighborhoods (Real Data)" color="#3d7a5a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <BarChart
+              data={neighborhoodBarData}
+              layout="vertical"
+              color="#3d7a5a"
+              height={400}
+            />
+          </div>
+        </section>
+      )}
 
-      {/* 6. Rent Trend */}
-      <section>
-        <SectionHeader icon={DollarSign} title="10-Year Median Rent (ZORI)" color="#b85c6a" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-            Zillow Observed Rent Index for the Portland metro area.
-          </p>
-          <TrendChart
-            data={rentChartData}
+      {/* 6. Rent Trend — DATA NEEDED */}
+      {rentTrend === null ? (
+        <section>
+          <SectionHeader icon={DollarSign} title="Median Rent Trend" color="#b85c6a" />
+          <DataNeeded
+            title="Median Rent Data Needed"
+            description="Zillow publishes the Observed Rent Index (ZORI) as a free CSV download. This would show median rent trends for the Portland metro area over time."
             color="#b85c6a"
-            height={300}
-            valuePrefix="$"
+            actions={[
+              {
+                label: "Download Zillow ZORI CSV (free)",
+                href: "https://www.zillow.com/research/data/",
+                type: "download",
+              },
+            ]}
           />
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section>
+          <SectionHeader icon={DollarSign} title="Median Rent (ZORI)" color="#b85c6a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <TrendChart
+              data={rentTrend.map((r) => ({ date: r.month, value: r.rent }))}
+              color="#b85c6a"
+              height={300}
+              valuePrefix="$"
+            />
+          </div>
+        </section>
+      )}
 
-      {/* 7. Valuation by Year */}
-      <section>
-        <SectionHeader icon={DollarSign} title="Construction Valuation by Year" color="#c8956c" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <BarChart
-            data={valuationByYear.map((r) => ({
-              ...r,
-              value: Math.round(r.value / 1_000_000),
-            }))}
-            color="#c8956c"
-            height={300}
-            valuePrefix="$"
-            valueSuffix="M"
-          />
-        </div>
-      </section>
+      {/* 7. Valuation by Year (REAL) */}
+      {valuationByYear.length > 0 && (
+        <section>
+          <SectionHeader icon={DollarSign} title="Construction Valuation by Year (Real Data)" color="#c8956c" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <BarChart
+              data={valuationByYear.map((r) => ({
+                ...r,
+                value: Math.round(r.value / 1_000_000),
+              }))}
+              color="#c8956c"
+              height={300}
+              valuePrefix="$"
+              valueSuffix="M"
+            />
+          </div>
+        </section>
+      )}
 
-      {/* 8. 90-Day Guarantee Tracker */}
-      <section>
-        <SectionHeader icon={CheckCircle2} title="90-Day Guarantee Tracker" color="#3d7a5a" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <div className="flex flex-col sm:flex-row items-center gap-6">
-            {/* Visual bar */}
-            <div className="flex-1 w-full">
-              <div className="flex items-center justify-between text-[12px] font-mono text-[var(--color-ink-muted)] mb-2">
-                <span>Met target ({ninetyDayBreakdown.met.toLocaleString()})</span>
-                <span>Missed ({ninetyDayBreakdown.missed.toLocaleString()})</span>
+      {/* 8. 90-Day Guarantee Tracker (REAL) */}
+      {totalNinetyDay > 0 && (
+        <section>
+          <SectionHeader icon={CheckCircle2} title="90-Day Guarantee Tracker (Real Data)" color="#3d7a5a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="flex-1 w-full">
+                <div className="flex items-center justify-between text-[12px] font-mono text-[var(--color-ink-muted)] mb-2">
+                  <span>Met target ({ninetyDayBreakdown.met.toLocaleString()})</span>
+                  <span>Missed ({ninetyDayBreakdown.missed.toLocaleString()})</span>
+                </div>
+                <div className="w-full h-10 rounded-sm overflow-hidden flex">
+                  <div
+                    className="h-full transition-all duration-700"
+                    style={{
+                      width: `${metPct}%`,
+                      backgroundColor: "#3d7a5a",
+                    }}
+                  />
+                  <div
+                    className="h-full transition-all duration-700"
+                    style={{
+                      width: `${100 - metPct}%`,
+                      backgroundColor: "#b85c3a",
+                    }}
+                  />
+                </div>
+                <div className="flex items-center justify-between mt-2">
+                  <span className="text-[11px] font-mono text-green-700 font-semibold">
+                    {metPct}% within 90 days
+                  </span>
+                  <span className="text-[11px] font-mono text-red-700 font-semibold">
+                    {100 - metPct}% over 90 days
+                  </span>
+                </div>
               </div>
-              <div className="w-full h-10 rounded-sm overflow-hidden flex">
-                <div
-                  className="h-full transition-all duration-700"
-                  style={{
-                    width: `${metPct}%`,
-                    backgroundColor: "#3d7a5a",
-                  }}
-                />
-                <div
-                  className="h-full transition-all duration-700"
-                  style={{
-                    width: `${100 - metPct}%`,
-                    backgroundColor: "#b85c3a",
-                  }}
-                />
+              <div className="text-center sm:text-right sm:min-w-[140px]">
+                <p className="text-[48px] font-mono font-bold text-[var(--color-ink)] leading-none">
+                  {metPct}%
+                </p>
+                <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">
+                  compliance rate
+                </p>
               </div>
-              <div className="flex items-center justify-between mt-2">
-                <span className="text-[11px] font-mono text-green-700 font-semibold">
-                  {metPct}% within 90 days
-                </span>
-                <span className="text-[11px] font-mono text-red-700 font-semibold">
-                  {100 - metPct}% over 90 days
-                </span>
-              </div>
-            </div>
-            {/* Big number */}
-            <div className="text-center sm:text-right sm:min-w-[140px]">
-              <p className="text-[48px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                {metPct}%
-              </p>
-              <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">
-                compliance rate
-              </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Insights already shown at top */}
+        </section>
+      )}
     </div>
   );
 }

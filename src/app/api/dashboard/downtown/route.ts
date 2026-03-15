@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { downtownData } from "@/lib/mock-data";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { DowntownData } from "@/lib/types";
 
@@ -7,16 +6,13 @@ export const dynamic = "force-dynamic";
 
 const CACHE_KEY = "downtown";
 
-export async function GET(): Promise<NextResponse<DowntownData>> {
+export async function GET(): Promise<NextResponse<DowntownData & { dataStatus: string }>> {
   try {
     // Check cache first
-    const cached = await getCachedData<DowntownData>(CACHE_KEY);
+    const cached = await getCachedData<DowntownData & { dataStatus: string }>(CACHE_KEY);
     if (cached) return NextResponse.json(cached);
 
-    // Start with mock data as baseline (foot traffic, vacancy rate, dwell time are all mock)
-    const result: DowntownData = { ...downtownData };
-
-    // Query latest graffiti count from DB
+    // Only real data: graffiti reports from Portland BPS
     const graffitiRows = await sql`
       SELECT count
       FROM safety.graffiti_monthly
@@ -24,41 +20,63 @@ export async function GET(): Promise<NextResponse<DowntownData>> {
       LIMIT 1
     `;
 
-    // Query monthly graffiti trend
     const monthlyGraffiti = await sql`
       SELECT TO_CHAR(month, 'YYYY-MM') as date, count
       FROM safety.graffiti_monthly
       ORDER BY month
     `;
 
-    if (graffitiRows.length > 0) {
-      const latestGraffiti = Number(graffitiRows[0].count);
-      const totalGraffiti =
-        monthlyGraffiti.length > 0
-          ? monthlyGraffiti.reduce((s, r) => s + Number(r.count), 0)
-          : latestGraffiti;
+    const latestGraffiti = graffitiRows.length > 0 ? Number(graffitiRows[0].count) : 0;
+    const totalGraffiti = monthlyGraffiti.length > 0
+      ? monthlyGraffiti.reduce((s, r) => s + Number(r.count), 0)
+      : 0;
 
-      result.source =
-        "Placer.ai (mock) / Graffiti Reports (local DB) / CoStar (mock)";
-      result.lastUpdated = new Date().toISOString().slice(0, 10);
-      result.insights = [
-        ...downtownData.insights.slice(0, 2),
-        `${totalGraffiti.toLocaleString()} graffiti reports total across ${monthlyGraffiti.length} months (visible disorder metric).`,
-        `Latest month: ${latestGraffiti} graffiti reports. Trend: ${monthlyGraffiti
-          .slice(-3)
-          .map((r) => `${r.date}: ${r.count}`)
-          .join(", ")}.`,
-      ];
-    } else {
-      console.warn(
-        "[downtown] No graffiti data in DB, using full mock data",
-      );
-    }
+    const graffitiChartData = monthlyGraffiti.map((r) => ({
+      date: r.date as string,
+      value: Number(r.count),
+    }));
+
+    const result: DowntownData & { dataStatus: string } = {
+      headline: latestGraffiti > 0
+        ? `${totalGraffiti.toLocaleString()} graffiti reports tracked — disorder proxy metric`
+        : "Downtown vitality data collection in progress",
+      headlineValue: totalGraffiti,
+      dataStatus: "partial",
+      trend: { direction: "flat" as const, percentage: 0, label: "no trend comparison available" },
+      chartData: graffitiChartData,
+      footTraffic: [], // Needs Placer.ai subscription ($2-5K/mo)
+      vacancyRate: [], // Needs CoStar subscription ($500-1.5K/mo)
+      dwellTime: [], // Needs Placer.ai subscription
+      source: "Portland BPS Graffiti (real) / Placer.ai (unavailable) / CoStar (unavailable)",
+      lastUpdated: new Date().toISOString().slice(0, 10),
+      insights: [
+        ...(totalGraffiti > 0
+          ? [`${totalGraffiti.toLocaleString()} graffiti reports total from Portland BPS.`]
+          : []),
+        ...(latestGraffiti > 0
+          ? [`Latest month: ${latestGraffiti.toLocaleString()} graffiti reports.`]
+          : []),
+        "Foot traffic data unavailable — requires Placer.ai subscription ($2-5K/mo) or Clean & Safe partnership.",
+        "Vacancy rate data unavailable — requires CoStar subscription ($500-1.5K/mo) or free CBRE/Colliers quarterly reports.",
+      ],
+    };
 
     await setCachedData(CACHE_KEY, result);
     return NextResponse.json(result);
   } catch (error) {
-    console.error("[downtown] DB query failed, returning mock data:", error);
-    return NextResponse.json(downtownData);
+    console.error("[downtown] DB query failed:", error);
+    return NextResponse.json({
+      headline: "Downtown data temporarily unavailable",
+      headlineValue: 0,
+      dataStatus: "unavailable",
+      trend: { direction: "flat" as const, percentage: 0, label: "no data" },
+      chartData: [],
+      footTraffic: [],
+      vacancyRate: [],
+      dwellTime: [],
+      source: "Placer.ai / CoStar / Portland BPS",
+      lastUpdated: new Date().toISOString().slice(0, 10),
+      insights: ["Database connection failed. Downtown data is temporarily unavailable."],
+    } as unknown as DowntownData & { dataStatus: string });
   }
 }

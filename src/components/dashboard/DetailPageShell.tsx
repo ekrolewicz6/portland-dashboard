@@ -62,7 +62,7 @@ export default function DetailPageShell({
           style={{ backgroundColor: color }}
         />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 pt-8 pb-14 sm:pt-10 sm:pb-20">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 pt-8 pb-14 sm:pt-10 sm:pb-20">
           {/* Nav row */}
           <div className="flex items-center justify-between mb-10">
             <Link
@@ -150,12 +150,12 @@ export default function DetailPageShell({
       </section>
 
       {/* ── Content ── */}
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 -mt-4 relative z-20 pb-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 -mt-4 relative z-20 pb-16">
         {children}
       </div>
 
       {/* ── Source Citation Footer ── */}
-      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 pb-12">
+      <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 pb-12">
         <div className="story-callout">
           <p>
             Every number on this page is sourced from public records and

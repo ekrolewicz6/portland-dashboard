@@ -1,85 +1,50 @@
 import { NextResponse } from "next/server";
-import { businessData } from "@/lib/mock-data";
-import sql, { getCachedData, setCachedData } from "@/lib/db-query";
-import type { BusinessData, ChartPoint } from "@/lib/types";
+import type { BusinessData } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-const CACHE_KEY = "business";
+export async function GET(): Promise<NextResponse<BusinessData & { dataStatus: string; dataAvailable: boolean }>> {
+  // All business data sources are unavailable:
+  // - CivicApps API is permanently offline
+  // - BLT registration data needs public records request to Revenue Division
+  // - Oregon SOS business filings not yet integrated
 
-export async function GET(): Promise<NextResponse<BusinessData>> {
-  try {
-    // Check cache first
-    const cached = await getCachedData<BusinessData>(CACHE_KEY);
-    if (cached) return NextResponse.json(cached);
-
-    // Query monthly new business licenses
-    const monthlyRows = await sql`
-      SELECT
-        TO_CHAR(date_trunc('month', date_added), 'YYYY-MM') as date,
-        count(*) as count
-      FROM business.civicapps_licenses
-      WHERE date_added IS NOT NULL
-      GROUP BY date_trunc('month', date_added)
-      ORDER BY date_trunc('month', date_added)
-    `;
-
-    if (!monthlyRows || monthlyRows.length === 0) {
-      console.warn("[business] No license data in DB, returning mock data");
-      return NextResponse.json(businessData);
-    }
-
-    const newRegistrations: ChartPoint[] = monthlyRows.map((row) => ({
-      date: row.date as string,
-      value: Number(row.count),
-      label: "New registrations",
-    }));
-
-    // Get total count
-    const totalRows = await sql`
-      SELECT count(*) as total FROM business.civicapps_licenses
-    `;
-    const totalNew = Number(totalRows[0].total);
-
-    // Get top ZIP codes for insights
-    const zipRows = await sql`
-      SELECT zip_code, count(*) as count
-      FROM business.civicapps_licenses
-      WHERE zip_code IS NOT NULL
-      GROUP BY zip_code
-      ORDER BY count(*) DESC
-      LIMIT 3
-    `;
-
-    const chartData = newRegistrations.map(({ date, value }) => ({
-      date,
-      value,
-    }));
-
-    const result: BusinessData = {
-      headline: `${totalNew.toLocaleString()} business licenses in database`,
-      headlineValue: totalNew,
-      trend: businessData.trend, // keep mock trend until YoY computation
-      chartData: chartData.length > 0 ? chartData : businessData.chartData,
-      newRegistrations,
-      cancelledRegistrations: businessData.cancelledRegistrations, // not available from civicapps
-      civicAppsLicenses: newRegistrations,
-      source: "CivicApps Business Licenses (local DB)",
-      lastUpdated: new Date().toISOString().slice(0, 10),
-      insights: [
-        `${totalNew} business licenses stored locally.`,
-        `Data spans ${newRegistrations.length} months.`,
-        `Top ZIP codes: ${zipRows
-          .map((r) => `${r.zip_code} (${r.count})`)
-          .join(", ")}.`,
-        "Cancellation data not available — using mock values.",
-      ],
-    };
-
-    await setCachedData(CACHE_KEY, result);
-    return NextResponse.json(result);
-  } catch (error) {
-    console.error("[business] DB query failed, returning mock data:", error);
-    return NextResponse.json(businessData);
-  }
+  return NextResponse.json({
+    headline: "Business formation data not yet available",
+    headlineValue: 0,
+    dataStatus: "unavailable",
+    dataAvailable: false,
+    dataSources: [
+      {
+        name: "Revenue Division BLT Registrations",
+        status: "needs_prr",
+        provider: "Portland Revenue Division",
+        action: "File public records request — call 503-823-5157",
+      },
+      {
+        name: "CivicApps Business Licenses",
+        status: "offline",
+        provider: "CivicApps Portland",
+        action: "API permanently offline — use Revenue Division PRR instead",
+      },
+      {
+        name: "Oregon SOS Business Filings",
+        status: "needs_download",
+        provider: "Oregon Secretary of State",
+        action: "Download from sos.oregon.gov/business",
+      },
+    ],
+    trend: { direction: "flat" as const, percentage: 0, label: "no data" },
+    chartData: [],
+    newRegistrations: [],
+    cancelledRegistrations: [],
+    civicAppsLicenses: [],
+    source: "No data sources currently connected",
+    lastUpdated: new Date().toISOString().slice(0, 10),
+    insights: [
+      "Business formation data requires a public records request to the Portland Revenue Division.",
+      "CivicApps API is permanently offline.",
+      "Oregon Secretary of State filings can be downloaded for free.",
+    ],
+  } as unknown as BusinessData & { dataStatus: string; dataAvailable: boolean });
 }

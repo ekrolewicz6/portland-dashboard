@@ -69,7 +69,7 @@ export default function HeadlineCard({
     >
       {/* Question header */}
       <div className="flex items-start justify-between mb-4">
-        <h2 className="font-editorial text-[17px] text-[var(--color-ink)] leading-snug pr-6">
+        <h2 className="font-editorial text-[17px] 2xl:text-[19px] 3xl:text-[21px] text-[var(--color-ink)] leading-snug pr-6">
           {question}
         </h2>
         <ArrowRight className="w-4 h-4 text-[var(--color-ink-muted)]/30 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
@@ -78,10 +78,10 @@ export default function HeadlineCard({
       {/* Headline metric + trend */}
       <div className="flex items-end justify-between mb-1.5">
         <div>
-          <p className="text-[32px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
+          <p className="text-[32px] 2xl:text-[38px] 3xl:text-[44px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
             {headline.value}
           </p>
-          <p className="text-[13px] text-[var(--color-ink-muted)] mt-1.5">
+          <p className="text-[13px] 2xl:text-[14px] 3xl:text-[16px] text-[var(--color-ink-muted)] mt-1.5">
             {headline.label}
           </p>
         </div>

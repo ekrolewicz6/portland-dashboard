@@ -81,7 +81,7 @@ export default function LandingPage() {
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[var(--color-canopy-light)] rounded-full blur-[200px] opacity-30 -translate-y-1/2 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--color-ember)] rounded-full blur-[180px] opacity-[0.07] translate-y-1/3 -translate-x-1/4" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-24 sm:py-32 lg:py-40">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl">
             {/* Tagline */}
             <div className="flex items-center gap-3 mb-8 animate-fade-up">
@@ -142,7 +142,7 @@ export default function LandingPage() {
 
       {/* ── Stats Bar ── */}
       <section className="relative z-20 -mt-8">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12">
           <div
             className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-8 py-6 animate-fade-up"
             style={{ animationDelay: "400ms" }}
@@ -164,7 +164,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Three Pillars ── */}
-      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
+      <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-px bg-[var(--color-ember)]" />
@@ -210,7 +210,7 @@ export default function LandingPage() {
 
       {/* ── Values ── */}
       <section className="bg-[var(--color-canopy)] noise-overlay">
-        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
           <div className="text-center mb-14">
             <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
               Our Principles
@@ -242,7 +242,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA Banner ── */}
-      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
+      <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
         <div className="relative bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-10 sm:p-14 text-center overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--color-ember)]" />
           <h2 className="font-editorial-normal text-[32px] sm:text-[40px] text-[var(--color-ink)] leading-tight">

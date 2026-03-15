@@ -4,7 +4,7 @@ export default function Footer() {
       {/* Divider accent */}
       <div className="h-px bg-gradient-to-r from-transparent via-[var(--color-ember)]/40 to-transparent" />
 
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-14">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand */}
           <div className="md:col-span-5">

@@ -1,37 +1,23 @@
 import { NextResponse } from "next/server";
-import sql from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  try {
-    const rows = await sql`
-      SELECT as_of, total_certified, survival_rate_1yr, jobs_created, credits_issued
-      FROM public.program_pcb_summary
-      ORDER BY as_of ASC
-    `;
-
-    const growthTrend = rows.map((r) => ({
-      month: String(r.as_of).slice(0, 7),
-      total: Number(r.total_certified),
-      survival: Number(r.survival_rate_1yr),
-      jobs: Number(r.jobs_created),
-      credits: Number(r.credits_issued),
-    }));
-
-    const currentStats = growthTrend.length > 0
-      ? growthTrend[growthTrend.length - 1]
-      : null;
-
-    return NextResponse.json({
-      growthTrend,
-      currentStats,
-    });
-  } catch (error) {
-    console.error("[program/detail] DB query failed:", error);
-    return NextResponse.json(
-      { error: "Failed to load program detail data" },
-      { status: 500 },
-    );
-  }
+  // All program detail data is unavailable:
+  // - public.program_pcb_summary is FAKE modeled data — removed
+  // - PCB registry system not yet live
+  return NextResponse.json({
+    growthTrend: null,
+    currentStats: null,
+    dataStatus: "unavailable",
+    dataAvailable: false,
+    dataSources: [
+      {
+        name: "PCB Registry",
+        status: "internal",
+        provider: "Portland Commons Program Office",
+        action: "Will be available once the PCB certification system is live",
+      },
+    ],
+  });
 }

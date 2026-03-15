@@ -167,7 +167,7 @@ export default function DashboardPage() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-canopy-light)] rounded-full blur-[180px] opacity-30 -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--color-ember)] rounded-full blur-[160px] opacity-[0.06] translate-y-1/2 -translate-x-1/3" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-14 sm:py-18">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-14 sm:py-18">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-5 animate-fade-up">
               <div className="w-8 h-px bg-[var(--color-ember)]" />
@@ -198,14 +198,14 @@ export default function DashboardPage() {
       </section>
 
       {/* ── Insights ── */}
-      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 -mt-6 relative z-20">
+      <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 -mt-6 relative z-20">
         <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
           <InsightBanner insights={insights} />
         </div>
       </section>
 
       {/* ── Seven Questions Grid ── */}
-      <section className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 mt-10 pb-16">
+      <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 mt-10 pb-16">
         <div className="section-divider">
           <h2>The Seven Questions</h2>
         </div>
