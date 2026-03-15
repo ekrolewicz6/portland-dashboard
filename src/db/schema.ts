@@ -163,3 +163,35 @@ export const insights = pgTable("insights", {
   metricValue: doublePrecision("metric_value"),
   generatedAt: timestamp("generated_at").defaultNow(),
 });
+
+// ── Progress Reports ───────────────────────────────────────────────────
+
+import { boolean as pgBoolean, pgSchema } from "drizzle-orm/pg-core";
+
+export const contentSchema = pgSchema("content");
+
+export const progressReports = contentSchema.table("progress_reports", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  issueDate: date("issue_date").notNull(),
+  slug: text("slug").notNull().unique(),
+  summary: text("summary"),
+  coverImageUrl: text("cover_image_url"),
+  published: pgBoolean("published").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const reportSections = contentSchema.table("report_sections", {
+  id: serial("id").primaryKey(),
+  reportId: integer("report_id")
+    .notNull()
+    .references(() => progressReports.id),
+  title: text("title").notNull(),
+  subtitle: text("subtitle"),
+  content: text("content").notNull(),
+  sectionOrder: integer("section_order").notNull(),
+  sectionType: text("section_type").default("article"), // article, data-summary, profile, recommendation
+  dataQuery: text("data_query"),
+  dataSnapshot: jsonb("data_snapshot"),
+});

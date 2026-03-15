@@ -17,6 +17,7 @@
     "fetch:employment": "npx tsx scripts/fetch-oregon-employment.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@auth/pg-adapter": "^1.11.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
