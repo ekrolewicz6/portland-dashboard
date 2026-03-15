@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import StatGrid from "@/components/charts/StatGrid";
 import MultiLineChart from "@/components/charts/MultiLineChart";
+import DataNeeded from "@/components/dashboard/DataNeeded";
 import BarChart from "@/components/charts/BarChart";
 import {
   Building2,
@@ -358,52 +359,30 @@ export default function BusinessDetail() {
         </section>
       )}
 
-      {/* 5. Year-over-Year Growth — bar chart */}
-      {yearlyBarData.length > 0 && (
-        <section>
-          <SectionHeader
-            icon={BarChart3}
-            title="Still-Active Businesses by Founding Year (2016-2026)"
-            color="#1a3a2a"
-          />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
-              Unique new business registrations per year (deduplicated by registry number).
-            </p>
-            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-5 font-mono">
-              Note: The Oregon SOS dataset has multiple rows per business (registered agent, principal address, etc.). These counts are deduplicated.
-            </p>
-            <div className="space-y-2.5">
-              {yearlyBarData.map((y, i) => {
-                const maxVal = Math.max(...yearlyBarData.map((x) => x.value));
-                const pct = maxVal > 0 ? Math.round((y.value / maxVal) * 100) : 0;
-                const isPartial = y.name === String(new Date().getFullYear());
-                return (
-                  <div key={i} className="flex items-center gap-3">
-                    <span className={`text-[15px] font-mono font-semibold w-[50px] text-right ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
-                      {y.name}
-                    </span>
-                    <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                      <div
-                        className="h-full rounded-sm transition-all duration-700"
-                        style={{ width: `${pct}%`, backgroundColor: isPartial ? "#a8c5b2" : "#3d7a5a" }}
-                      />
-                    </div>
-                    <span className={`text-[15px] font-mono font-bold w-[70px] text-right ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
-                      {y.value.toLocaleString()}
-                    </span>
-                    {isPartial && (
-                      <span className="text-[10px] font-mono text-[var(--color-ink-muted)] bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm flex-shrink-0">
-                        partial
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* 5. Survival Rate — pending PRR data */}
+      <section>
+        <SectionHeader
+          icon={BarChart3}
+          title="Business Survival Rate"
+          color="#b85c3a"
+        />
+        <DataNeeded
+          title="Total Business Filings Data Needed for Survival Analysis"
+          description="To calculate what percentage of Portland businesses survive each year, we need the TOTAL number of businesses filed (including dissolved/cancelled ones). The Oregon SOS 'Active Businesses' dataset only shows currently active businesses — creating survivorship bias in the charts above. A public records request has been filed with Oregon SOS to obtain total historical filing counts."
+          color="#b85c3a"
+          actions={[
+            {
+              label: "PRR filed with Oregon Secretary of State (pending)",
+              type: "prr",
+            },
+            {
+              label: "Search Oregon SOS directly for dissolved businesses",
+              href: "https://sos.oregon.gov/business/pages/find.aspx",
+              type: "download",
+            },
+          ]}
+        />
+      </section>
     </div>
   );
 }
