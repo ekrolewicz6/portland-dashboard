@@ -217,26 +217,22 @@ export default function HousingDetail() {
       {/* 1a. Housing Creation — How much housing is actually being built? */}
       {housingCreation && housingCreation.length > 0 && (
         <section>
-          <SectionHeader icon={Home} title="How Much Housing Is Being Created? (Real Permit Data)" color="#b85c3a" />
+          <SectionHeader icon={Home} title="Housing Permits Issued by Type (Real Permit Data)" color="#b85c3a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
-              New housing permits issued by type per quarter. This answers the core question: is Portland building enough housing? The collapse from 2023 to 2025 is dramatic.
+              Housing permits issued by type per quarter from the ArcGIS BDS dataset.
+            </p>
+            <p className="text-[12px] text-[var(--color-clay)] mb-4 font-mono">
+              ⚠ Important: The 2023 spike and subsequent decline is partly a data artifact. The ArcGIS dataset loaded a batch of permits with 2023 application dates that were issued over 2023-2026. The decline after 2023 reflects the clearing of that batch, not necessarily a real collapse in new construction starts. For accurate new-start data, we need permits grouped by APPLICATION date from the Portland Maps detail API.
             </p>
 
-            {/* Story callout */}
-            {(() => {
-              const peak = housingCreation.reduce((max, r) => r.total > max.total ? r : max, housingCreation[0]);
-              const latest = housingCreation[housingCreation.length - 1];
-              const decline = peak.total > 0 ? Math.round((1 - latest.total / peak.total) * 100) : 0;
-              return (
-                <div className="story-callout mb-6">
-                  <p>
-                    Portland issued {peak.total.toLocaleString()} housing permits in {peak.quarter} — then just {latest.total.toLocaleString()} in {latest.quarter}. That&apos;s a {decline}% collapse in new housing creation.
-                  </p>
-                  <cite>Portland BDS Permit Data — Real Numbers</cite>
-                </div>
-              );
-            })()}
+            {/* Story callout — honest about data limitations */}
+            <div className="story-callout mb-6">
+              <p>
+                Portland&apos;s housing pipeline is under severe pressure. The ArcGIS permit data shows a massive batch of permits processed in 2023 followed by dramatically fewer issuances — but the true rate of NEW construction starts requires application-date data that isn&apos;t reliably available in the bulk dataset.
+              </p>
+              <cite>Portland BDS Permit Data — interpret with caution (see note above)</cite>
+            </div>
 
             {/* Stacked view by type */}
             <MultiLineChart
