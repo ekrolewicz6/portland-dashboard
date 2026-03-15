@@ -1,0 +1,116 @@
+{
+  "detail_id": 5140202,
+  "metadata": {
+    "ivr_number": "5140202",
+    "permit_type": "HousingGeneralComplaint",
+    "work_description": "Complaint Rcvd: trackit #2886597 w/ photos possible occupied RV trailer on property",
+    "address": null,
+    "setup_date": "2025-04-03",
+    "under_review_date": "2025-04-03",
+    "issue_date": null,
+    "final_date": "2025-04-24",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-04-10",
+      "goal_date": "2025-04-10",
+      "completed_date": null,
+      "staff_contact": "Terrell,Lisa   503-823-8534"
+    },
+    {
+      "activity_name": "Reinspection - HS",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": "2025-04-10",
+      "completed_date": null,
+      "staff_contact": "Terrell,Lisa   503-823-8534"
+    },
+    {
+      "activity_name": "30 Day Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "60 Day Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "3 Month Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Close - HS/AC",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-24",
+      "goal_date": null,
+      "completed_date": "2025-04-24",
+      "staff_contact": "Terrell,Lisa   503-823-8534"
+    },
+    {
+      "activity_name": "Notice of Possible Lien",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - HS",
+      "activity_type": "Under Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": "2025-04-17",
+      "completed_date": null,
+      "staff_contact": "Terrell,Lisa   503-823-8534"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - HS, DB",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-10",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

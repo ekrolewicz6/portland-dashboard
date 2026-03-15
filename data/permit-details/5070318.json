@@ -1,0 +1,526 @@
+{
+  "detail_id": 5070318,
+  "metadata": {
+    "ivr_number": "5070318",
+    "permit_type": "Commercial Building PermitUtilityAlteration",
+    "work_description": "SINGLE PDF - REMOVE AND REPLACE CLEARANCE BAR IN DRIVE-THRU",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-07",
+    "issue_date": "2024-08-23",
+    "final_date": "2025-01-21",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "2nd Screen App Set-Up",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "P & Z - Property Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Poisner,Suzan Inactive"
+    },
+    {
+      "activity_name": "Life Safety - Application Check",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "McCafferty,Maureen   503-865-6542"
+    },
+    {
+      "activity_name": "Intake - DSC",
+      "activity_type": "Issuance/Intake",
+      "must_check": "Y",
+      "activity_status": "Intake",
+      "last_activity_date": "2024-08-06",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-24",
+      "goal_date": null,
+      "completed_date": "2024-08-24",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-16",
+      "goal_date": null,
+      "completed_date": "2024-09-16",
+      "staff_contact": "Siquina,Antonia   503-823-4683"
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-09-16",
+      "goal_date": null,
+      "completed_date": "2024-09-16",
+      "staff_contact": "Siquina,Antonia   503-823-4683"
+    },
+    {
+      "activity_name": "Assign Plan and File Location",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-07",
+      "goal_date": "2024-08-21",
+      "completed_date": null,
+      "staff_contact": "PS DAY2 503823"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Plans checked out to Applicant",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-07",
+      "goal_date": "2024-08-21",
+      "completed_date": null,
+      "staff_contact": "DOCUMENTSERVICES  503-823-7300"
+    },
+    {
+      "activity_name": "Process Manager",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": "2024-08-23",
+      "staff_contact": "PROCESSMANAGEMENT  503-823-7300"
+    },
+    {
+      "activity_name": "Point of Contact",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": "2024-08-23",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Assign Address",
+      "activity_type": "Addressing",
+      "must_check": "N",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Poisner,Suzan Inactive"
+    },
+    {
+      "activity_name": "Life Safety Review",
+      "activity_type": "Life Safety",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "McCafferty,Maureen   503-865-6542"
+    },
+    {
+      "activity_name": "Structural Review",
+      "activity_type": "Structural",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Duquette,Shelly   503-865-6498"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "STRUCTURAL  503-823-7540"
+    },
+    {
+      "activity_name": "Fire Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Galvan,Jeff   503-823-3820"
+    },
+    {
+      "activity_name": "Source Control Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-20",
+      "goal_date": null,
+      "completed_date": "2024-08-20",
+      "staff_contact": "Bans,Alex   503-823-2585"
+    },
+    {
+      "activity_name": "Sewer and Storm System Review",
+      "activity_type": "Environmental Services",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-07",
+      "staff_contact": "Chang,Mark   503-823-6004"
+    },
+    {
+      "activity_name": "Transportation SDC Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-07",
+      "goal_date": null,
+      "completed_date": "2024-08-06",
+      "staff_contact": "Weigert,Matthew   503-823-4959"
+    },
+    {
+      "activity_name": "Street Systems - Assign Reviews",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "PDOT  503-823-7002"
+    },
+    {
+      "activity_name": "Water SDC Payment Plan",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Water Quality Backflow Review",
+      "activity_type": "Water Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-08-12",
+      "goal_date": null,
+      "completed_date": "2024-08-12",
+      "staff_contact": "Baker,Jim   503-823-7480"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-07",
+      "goal_date": "2025-01-02",
+      "completed_date": null,
+      "staff_contact": "PREISSUANCECO;SD;ZP  503-823-7300"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": "2024-08-23",
+      "staff_contact": "Quach,Henry   503-823-7397"
+    },
+    {
+      "activity_name": "Temporary Certificate Time Tracking - CO",
+      "activity_type": "BDS Inspection Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Adjust Maximum Inspections",
+      "activity_type": "BDS Inspection Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "842 Decommission System(Pumped & Filled)",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "SUBSURFACE/ONSITE SANITATION"
+    },
+    {
+      "activity_name": "215 Setbacks",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "220 Footings",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-06",
+      "goal_date": null,
+      "completed_date": "2025-01-06",
+      "staff_contact": "Rowland,Elgin   503-823-8171"
+    },
+    {
+      "activity_name": "225 Foundation",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "226 Foundation Drain",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "230 Concrete/Reinforcing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "235 Slab/Flatwork",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "238 Radon Mitigation",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "240 Underfloor/Post & Beam",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "250 Masonry/Reinforcing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "270 Framing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "275 Wallboard Attachment",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "277 Ceiling Grid",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "280 Insulation/Vapor Barrier",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "285 Roofing",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "288 Demolition",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMMERCIAL INSPECTIONS"
+    },
+    {
+      "activity_name": "290 Temporary Occupancy",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMMERCIAL INSPECTIONS"
+    },
+    {
+      "activity_name": "295 Other/Consultation",
+      "activity_type": "Building Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "996 Issue Certificate of Final Inspect",
+      "activity_type": "Final Permit",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "COMMERCIAL INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-21",
+      "goal_date": null,
+      "completed_date": "2025-01-21",
+      "staff_contact": "Buckholt,Robert   503-865-6135"
+    },
+    {
+      "activity_name": "Expire Permit",
+      "activity_type": "Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Extended",
+      "last_activity_date": "2025-01-06",
+      "goal_date": "2025-01-06",
+      "completed_date": "2025-01-06",
+      "staff_contact": ""
+    }
+  ]
+}

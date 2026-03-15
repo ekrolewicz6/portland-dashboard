@@ -1,0 +1,136 @@
+{
+  "detail_id": 5100145,
+  "metadata": {
+    "ivr_number": "5100145",
+    "permit_type": "Zoning PermitResidential DrivewayResidential",
+    "work_description": "SINGLE PDF-VOLUNTARY REPLACEMENT OF SIDEWALK AND DRIVEWAY RAMP. EXPANDING DRIVEWAY & RAMP FROM 7.5' TO 9.5'.",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": "2024-12-06",
+    "final_date": "2025-01-21",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Check Building Permit Reqd",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "INTAKE"
+    },
+    {
+      "activity_name": "Completeness Check - ZP",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": "2024-11-08",
+      "staff_contact": "HunterJames,Rochelle   503-823-0678"
+    },
+    {
+      "activity_name": "Corrections Upload",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-12-03",
+      "goal_date": null,
+      "completed_date": "2024-12-03",
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Fiche Film Scanning",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": "2025-10-30",
+      "staff_contact": "Moore,Elizabeth   503-823-7135"
+    },
+    {
+      "activity_name": "Assign Reviews - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": "2024-11-08",
+      "staff_contact": "HunterJames,Rochelle   503-823-0678"
+    },
+    {
+      "activity_name": "Corrections Received - CO",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Zoning Code Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-12",
+      "goal_date": null,
+      "completed_date": "2024-11-12",
+      "staff_contact": "Slusarenko,Malia   503-865-6434"
+    },
+    {
+      "activity_name": "Trans - Street Systems Review",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-22",
+      "goal_date": null,
+      "completed_date": "2024-11-22",
+      "staff_contact": "Riley,Christian   503-823-4845"
+    },
+    {
+      "activity_name": "Street Systems - Assign Reviews",
+      "activity_type": "Transportation",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-11-13",
+      "goal_date": null,
+      "completed_date": "2024-11-13",
+      "staff_contact": "Close,Wayne Inactive"
+    },
+    {
+      "activity_name": "Tree Code Review",
+      "activity_type": "Trees",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-27",
+      "goal_date": null,
+      "completed_date": "2024-11-27",
+      "staff_contact": "Jones,Travis   971-442-2566"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-12-02",
+      "goal_date": null,
+      "completed_date": "2024-12-02",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "555 Code Compliance Inspection",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-21",
+      "goal_date": null,
+      "completed_date": "2025-01-21",
+      "staff_contact": "Sato,Joseph   503-865-6091"
+    }
+  ]
+}

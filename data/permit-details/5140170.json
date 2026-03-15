@@ -1,0 +1,26 @@
+{
+  "detail_id": 5140170,
+  "metadata": {
+    "ivr_number": "5140170",
+    "permit_type": "Tree CodeOtherCity",
+    "work_description": "Urban Forestry NPUP Review",
+    "address": null,
+    "setup_date": "2025-04-03",
+    "under_review_date": "2025-04-03",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Application - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Tree Code",
+      "activity_type": "Utility Review - All",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-15",
+      "goal_date": null,
+      "completed_date": "2025-04-15",
+      "staff_contact": "Gallahan,Andrew   503-679-0318"
+    }
+  ]
+}

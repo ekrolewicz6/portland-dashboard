@@ -1,0 +1,226 @@
+{
+  "detail_id": 5070376,
+  "metadata": {
+    "ivr_number": "5070376",
+    "permit_type": "Facility PermitElectricalAlteration",
+    "work_description": "power-KPFF CIVIL STE 2400 24TH FLR TI; DEMO WALLS, NEW WALLS TO CREATE CONF RMS, RECEPTION AREA, PHONE RMS, STORAGE RMS, OPEN OFFICE AREAS, COPY/PRINT RM, SERVER RM, MOTHERS RM, BREAK RM, REMODEL ELEVATOR LOBBY, RESTRMS, CEILING, FLOORING, FINISHES, PLUMB AND ELEC",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2024-09-16",
+    "final_date": "2025-01-16",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Review Project Scope",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Completeness Check - FA",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "Assign Reviews - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": "2024-08-05",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Corrections Received - FA",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Administration - Electrical",
+      "activity_type": "Facilities Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Electrical Plan Review",
+      "activity_type": "Facilities Electrical Plan Review",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "Send Letter of intent to expire",
+      "activity_type": "Document Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": "2025-01-02",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Issue FA",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-09-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "105 Cover - Electrical",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "110 Underground - Electrical",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "115 Temporary Electrical Service",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "120 Permanent Elec Svc/Reconnect",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "125 Low Voltage/Alarm",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "135 Hot Tub/Spa/Swimming Pool",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "140 Industrial Plant",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "145 Circuits/Feeders",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "150 Generator/Transfer Switch",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "199 Final - Electrical",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Consultation - Electrical",
+      "activity_type": "Facilities Electrical Inspections",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-09",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Scranton,David   503-823-8059"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-09-16",
+      "goal_date": "2025-03-15",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-16",
+      "goal_date": null,
+      "completed_date": "2025-01-16",
+      "staff_contact": "Scranton,David   503-823-8059"
+    }
+  ]
+}

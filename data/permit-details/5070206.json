@@ -1,0 +1,116 @@
+{
+  "detail_id": 5070206,
+  "metadata": {
+    "ivr_number": "5070206",
+    "permit_type": "NuisanceOwner Occupied",
+    "work_description": "Complaint rec'd 8/2/24...G&W, T&D, NonT&D, vegetation over ROW",
+    "address": null,
+    "setup_date": "2024-08-04",
+    "under_review_date": "2024-08-04",
+    "issue_date": "2024-08-05",
+    "final_date": "2024-10-30",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Reinspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": "2024-08-23",
+      "staff_contact": "Meltzer,David   503-823-8111"
+    },
+    {
+      "activity_name": "Work Order Inspection",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-30",
+      "goal_date": null,
+      "completed_date": "2024-10-30",
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Inspection",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-08-04",
+      "goal_date": null,
+      "completed_date": "2024-08-02",
+      "staff_contact": "Kuhn,Melissa   503-823-7324"
+    },
+    {
+      "activity_name": "Close",
+      "activity_type": "Request",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-10-30",
+      "goal_date": null,
+      "completed_date": "2024-10-30",
+      "staff_contact": "Magnee,Lauren   503-341-8341"
+    },
+    {
+      "activity_name": "Sewer Video",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Work Order",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Mailed Notices - NU",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2024-08-23",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    },
+    {
+      "activity_name": "Cancel Permit",
+      "activity_type": "Process Management",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Waiver - NU",
+      "activity_type": "Administration",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Violation Admin Review",
+      "activity_type": "Administration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-04",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "NEIGHBORHOOD INSPECTIONS"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "detail_id": 5165221,
+  "metadata": {
+    "ivr_number": "5165221",
+    "permit_type": "Land Use ReviewType 1 procedure newHR - Historic Resource Review",
+    "work_description": "Approval of a new dumpster enclosure at 1000 SW Vista Avenue, a non-contributing building in the Kings Hill Historic District. Approval per Exhibits C-1 through C-2, signed and dated September 30, 2025, subject to the following conditions: A.As part of the building permit application submittal, the following development-related conditions (B through C) must be noted on each of the four required site plans or included as a sheet in the numbered set of plans. The sheet on which this information appears must be labeled \"ZONING COMPLIANCE PAGE- Case File LU 25-050011 HR.\" All requirements must be graphically represented on the site plan, landscape, or other required plan and must be labeled \"REQUIRED.\" B.At the time of building permit submittal, a signed Certificate of Compliance form (https://www.portland.gov/ppd/documents/design-and-historic-resource-review-approvals-certificate-compliance) must be submitted to ensure the permit plans comply with the Design/Historic Resource Review decision and approved exhibits. C. No field changes allowed.",
+    "address": null,
+    "setup_date": "2025-06-24",
+    "under_review_date": "2025-06-24",
+    "issue_date": "2025-10-02",
+    "final_date": "2025-10-22",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-24",
+      "goal_date": null,
+      "completed_date": "2025-06-24",
+      "staff_contact": "LU Tech"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-02",
+      "goal_date": null,
+      "completed_date": "2025-10-02",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-10",
+      "goal_date": null,
+      "completed_date": "2025-09-09",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-09-10",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "DuVall,Laura   503-865-6525"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-02",
+      "goal_date": null,
+      "completed_date": "2025-10-03",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "LUBA",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-30",
+      "goal_date": null,
+      "completed_date": "2025-10-30",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-10-22",
+      "goal_date": null,
+      "completed_date": "2025-10-22",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-09-12",
+      "goal_date": "2025-09-25",
+      "completed_date": "2025-09-12",
+      "staff_contact": "Horn,Chanel   503-865-6538"
+    }
+  ]
+}

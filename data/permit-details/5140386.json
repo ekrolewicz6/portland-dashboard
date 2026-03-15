@@ -1,0 +1,136 @@
+{
+  "detail_id": 5140386,
+  "metadata": {
+    "ivr_number": "5140386",
+    "permit_type": "Sign PermitWall/Fascia SignNew Sign/Awning",
+    "work_description": "NEW 3 OF 5 SIGNS. SIGN D - 16 SQ FT ILLUMINATED FLUSHMOUNT FASCIA SIGN FOR CHICK-FIL-A ON SOUTH ELEVATION. **ET SEPARATE. SEE LU-24-056258 DZM. W/24-026263/265/270/272/274 SG",
+    "address": null,
+    "setup_date": "2025-04-04",
+    "under_review_date": "2025-04-16",
+    "issue_date": "2025-08-19",
+    "final_date": "2025-12-26",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check - Sign",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": "2025-04-16",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Technician Plan Review",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-18",
+      "goal_date": null,
+      "completed_date": "2025-04-18",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Determine if Zoning Review required",
+      "activity_type": "Trade Permits",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-18",
+      "goal_date": null,
+      "completed_date": "2025-04-18",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Corrections Received - SG",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-10",
+      "goal_date": null,
+      "completed_date": "2025-07-10",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "Planning and Zoning Review",
+      "activity_type": "Planning and Zoning",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-18",
+      "goal_date": null,
+      "completed_date": "2025-04-18",
+      "staff_contact": "Leasure,Rob Inactive"
+    },
+    {
+      "activity_name": "Spec. Insp. - Structural",
+      "activity_type": "Structural",
+      "must_check": "N",
+      "activity_status": "Not Required",
+      "last_activity_date": "2025-04-18",
+      "goal_date": null,
+      "completed_date": "2025-04-18",
+      "staff_contact": "Olsen,Whitney   503-865-6510"
+    },
+    {
+      "activity_name": "Pre-Issuance Check",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-14",
+      "goal_date": null,
+      "completed_date": "2025-07-14",
+      "staff_contact": "Wilson,Emily   503-865-6523"
+    },
+    {
+      "activity_name": "400 Sign Footings",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "405 Electrical Service - Sign",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "410 Sign Structure",
+      "activity_type": "Sign Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Expire Permit - SG",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-08-19",
+      "goal_date": "2026-02-17",
+      "completed_date": null,
+      "staff_contact": "SIGN INSPECTIONS"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Final Permit",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-12-26",
+      "goal_date": null,
+      "completed_date": "2025-12-26",
+      "staff_contact": "Buckholt,Robert   503-865-6135"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "detail_id": 5070401,
+  "metadata": {
+    "ivr_number": "5070401",
+    "permit_type": "On-Site Sewage Evaluations & ServicesSingle Family DwellingSeptic Review Certification",
+    "work_description": "",
+    "address": null,
+    "setup_date": "2024-08-05",
+    "under_review_date": "2024-08-05",
+    "issue_date": "2024-11-14",
+    "final_date": "2024-11-14",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Application Intake - SE",
+      "activity_type": "Application",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": "2024-08-05",
+      "staff_contact": "Ault,Donna   503-823-7484"
+    },
+    {
+      "activity_name": "Subsurface Plan Review",
+      "activity_type": "Plan Review",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-14",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    },
+    {
+      "activity_name": "Corrections Received - SE",
+      "activity_type": "Process Management",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-08-05",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "846 Septic System Staked",
+      "activity_type": "Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-14",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    },
+    {
+      "activity_name": "Certify On-Site Sewage Disposal",
+      "activity_type": "Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-14",
+      "goal_date": null,
+      "completed_date": "2024-11-14",
+      "staff_contact": "Reschke,Lindsey Inactive"
+    }
+  ]
+}

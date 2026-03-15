@@ -1,0 +1,96 @@
+{
+  "detail_id": 5100259,
+  "metadata": {
+    "ivr_number": "5100259",
+    "permit_type": "ViolationCommercialSigns- Portable",
+    "work_description": "Complaint Rcvd: Inflatable and waving balloon sign blocking sidewalk with unsecure ET cord.",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-08",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Request"
+  },
+  "activities": [
+    {
+      "activity_name": "Stop Work Order",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": "2024-11-08",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Close - VI",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": "2024-11-08",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Inspection - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Compliance Requests - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitor for Compliance",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Extension of Time Granted- VI",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-08",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

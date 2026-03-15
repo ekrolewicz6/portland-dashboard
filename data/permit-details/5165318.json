@@ -1,0 +1,176 @@
+{
+  "detail_id": 5165318,
+  "metadata": {
+    "ivr_number": "5165318",
+    "permit_type": "Land Use ReviewType 2 procedureAD: Adjustment",
+    "work_description": "Approval of the following four Adjustments for a new single-car garage: ¿Waive required 10-foot front setback (Zoning Code Section 33.110.220.B and Table 110-4);¿Waive required 5-foot side setback (33.110.220.B and Table 110-4);¿Waive required 18-foot garage entrance setback (33.110.220.B and Table 110-4); and ¿Allow a garage wall that faces a street to be closer to the street lot line than the longest street-facing wall of the dwelling unit (33.110.250.D.3). Approval is per the approved plans, Exhibits C.1 through C.2, signed and dated August 6, 2025, subject to the following conditions: A.A finalized building permit must be obtained to document the approved project. As part of the permit application submittal, each of the site plans and any additional drawings must reflect the information and design approved by this land use review as indicated in Exhibits C.1-C.2. The sheets on which this information appears must be labeled, \"Proposal and design as approved in Case File # LU 25-050099 AD.¿",
+    "address": null,
+    "setup_date": "2025-06-24",
+    "under_review_date": "2025-06-24",
+    "issue_date": "2025-08-07",
+    "final_date": "2025-08-27",
+    "status": "Recorded"
+  },
+  "activities": [
+    {
+      "activity_name": "Prepare RFC",
+      "activity_type": "Land Use Review",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-25",
+      "goal_date": null,
+      "completed_date": "2025-06-25",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Application Intake",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-06-24",
+      "goal_date": null,
+      "completed_date": "2025-06-24",
+      "staff_contact": "Duncan,Elizabeth   503-865-6524"
+    },
+    {
+      "activity_name": "Planner Assigned",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-07",
+      "goal_date": null,
+      "completed_date": "2025-08-07",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Verify Completeness",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-10",
+      "goal_date": null,
+      "completed_date": "2025-07-09",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Prepare Notice",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-07-10",
+      "goal_date": null,
+      "completed_date": "2025-07-11",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Finalize Decision Report",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-07",
+      "goal_date": null,
+      "completed_date": "2025-08-08",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Appeal Period",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-27",
+      "goal_date": null,
+      "completed_date": "2025-08-27",
+      "staff_contact": "LAND USE REVIEW"
+    },
+    {
+      "activity_name": "Recording",
+      "activity_type": "Land Use Review",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-08-27",
+      "goal_date": null,
+      "completed_date": "2025-08-27",
+      "staff_contact": "Alva,Desiree   503-865-6424"
+    },
+    {
+      "activity_name": "Site Dev Review - LU",
+      "activity_type": "Site Development",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-14",
+      "goal_date": "2025-08-01",
+      "completed_date": "2025-07-14",
+      "staff_contact": "ButlerBrown,Jason   503-823-8307"
+    },
+    {
+      "activity_name": "Life Safety Review - LU",
+      "activity_type": "Life Safety",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-07-16",
+      "goal_date": "2025-08-01",
+      "completed_date": "2025-07-16",
+      "staff_contact": "Mortensen,Steven Inactive"
+    },
+    {
+      "activity_name": "Fire Review - LU",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-31",
+      "goal_date": "2025-08-01",
+      "completed_date": "2025-07-31",
+      "staff_contact": "Krantz,Dawn   971-313-3675"
+    },
+    {
+      "activity_name": "BES Dev Svr - RFC",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-06-27",
+      "goal_date": "2025-07-03",
+      "completed_date": "2025-06-27",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "BES Dev Srv - LU",
+      "activity_type": "Environmental Services",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-07-23",
+      "goal_date": "2025-08-01",
+      "completed_date": "2025-07-23",
+      "staff_contact": "Ruth,Ella   503-823-8068"
+    },
+    {
+      "activity_name": "PDOT Review - RFC",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "No concerns",
+      "last_activity_date": "2025-07-01",
+      "goal_date": "2025-07-03",
+      "completed_date": "2025-07-01",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "PDOT Review - LU",
+      "activity_type": "Transportation",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-07-29",
+      "goal_date": "2025-08-01",
+      "completed_date": "2025-07-29",
+      "staff_contact": "Pina,Michael   503-823-4249"
+    },
+    {
+      "activity_name": "Water Review - LU",
+      "activity_type": "Water Review",
+      "must_check": "N",
+      "activity_status": "Response Sent",
+      "last_activity_date": "2025-07-29",
+      "goal_date": "2025-08-01",
+      "completed_date": "2025-07-29",
+      "staff_contact": "Morris,Dawn   503-865-6909"
+    }
+  ]
+}

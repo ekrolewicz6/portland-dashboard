@@ -1,0 +1,46 @@
+{
+  "detail_id": 5190224,
+  "metadata": {
+    "ivr_number": "5190224",
+    "permit_type": "Facility PermitProjectAlteration",
+    "work_description": "ELEC_MERC; OREGON CONVENTION CENTER; REMOVE 4 EXISTION EVCS & REPLACE WITH 6 NEW EVCS, 400 AMP LOADCENTER AND CHARGING CIRCUITS (100 AMP)PR# 8R328",
+    "address": null,
+    "setup_date": "2025-09-11",
+    "under_review_date": "2025-09-11",
+    "issue_date": "2025-09-11",
+    "final_date": null,
+    "status": "Issued"
+  },
+  "activities": [
+    {
+      "activity_name": "Project Review",
+      "activity_type": "Reviews",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": "2025-09-11",
+      "staff_contact": "Botkin,Joe   503-823-5915"
+    },
+    {
+      "activity_name": "Project Pre-Issuance - FPP",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Final Project",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Open",
+      "last_activity_date": "2025-09-11",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "detail_id": 5140224,
+  "metadata": {
+    "ivr_number": "5140224",
+    "permit_type": "ViolationCommercial",
+    "work_description": "Complaint Rcvd: Trackit 2887642 - Possible change of occ w/out permit.",
+    "address": null,
+    "setup_date": "2025-04-03",
+    "under_review_date": "2025-04-03",
+    "issue_date": null,
+    "final_date": "2025-05-08",
+    "status": "Closed"
+  },
+  "activities": [
+    {
+      "activity_name": "Stop Work Order",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": "2025-04-03",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Refer",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Close - VI",
+      "activity_type": "Request",
+      "must_check": "N",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-05-08",
+      "goal_date": null,
+      "completed_date": "2025-05-08",
+      "staff_contact": "Gummer,Kevin   503-823-8324"
+    },
+    {
+      "activity_name": "Inspection - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "In Progress",
+      "last_activity_date": "2025-04-10",
+      "goal_date": "2025-04-15",
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Mailed Compliance Requests - VI",
+      "activity_type": "Under Inspection",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Monitor for Compliance",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Code Enforcement Fee",
+      "activity_type": "Enforcement",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    },
+    {
+      "activity_name": "Extension of Time Granted- VI",
+      "activity_type": "Code Compliance",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": ""
+    }
+  ]
+}

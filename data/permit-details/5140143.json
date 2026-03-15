@@ -1,0 +1,136 @@
+{
+  "detail_id": 5140143,
+  "metadata": {
+    "ivr_number": "5140143",
+    "permit_type": "Facility PermitFire SprinklersAlteration",
+    "work_description": "OHSU PHYSICAL PLANT 2ND FLR TI - DEMO EXISTING AR SSP A.S. SPRINKLERS IN AREA OF WORK. INSTALL NEW QR CONCEALED A.S. SPRINKLERS IN AREA OF WORK",
+    "address": null,
+    "setup_date": "2025-04-03",
+    "under_review_date": "2025-04-03",
+    "issue_date": "2025-04-16",
+    "final_date": "2025-05-15",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Review Project Scope",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": "2025-04-03",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Pena,Geoffrey   503-209-1833"
+    },
+    {
+      "activity_name": "Consultation - Fire",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE"
+    },
+    {
+      "activity_name": "Administration - Fire",
+      "activity_type": "Fire Review",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE"
+    },
+    {
+      "activity_name": "Hydrostatic Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-03",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Pena,Geoffrey   503-209-1833"
+    },
+    {
+      "activity_name": "Cover",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-06",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "Pena,Geoffrey   503-209-1833"
+    },
+    {
+      "activity_name": "Final Inspection - Fire SP",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-15",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE"
+    },
+    {
+      "activity_name": "Issue FA",
+      "activity_type": "Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-04-16",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "Expire Permit - FA",
+      "activity_type": "Facilities Permit Expiration",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2025-04-16",
+      "goal_date": "2025-10-13",
+      "completed_date": null,
+      "staff_contact": "FACILITIES"
+    },
+    {
+      "activity_name": "999 Final Permit",
+      "activity_type": "Facilities Final Inspection",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-05-15",
+      "goal_date": null,
+      "completed_date": "2025-05-15",
+      "staff_contact": "Pena,Geoffrey   503-209-1833"
+    }
+  ]
+}

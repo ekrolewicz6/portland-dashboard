@@ -111,12 +111,10 @@ export default function TaxDetail() {
 
   // Portland vs Vancouver gap
   const portland200 = comparison.find(
-    (r) => r.city === "Portland" && r.income_level === Math.max(...incomeLevels),
+    (r) => r.city.startsWith("Portland") && r.income_level === Math.max(...incomeLevels),
   );
   const vancouver200 = comparison.find(
-    (r) =>
-      (r.city === "Vancouver" || r.city === "Vancouver WA") &&
-      r.income_level === Math.max(...incomeLevels),
+    (r) => r.city.startsWith("Vancouver") && r.income_level === Math.max(...incomeLevels),
   );
 
   const gap =
@@ -130,6 +128,9 @@ export default function TaxDetail() {
       <section>
         <SectionHeader title={`Tax Burden Comparison at $${(Math.max(...incomeLevels) / 1000).toFixed(0)}K Income`} />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+            Effective income tax rate broken down by level of government. Portland stands out for having the highest LOCAL tax burden (BLT + MultCo BIT + Metro SHS + PFA) of any comparable city.
+          </p>
           <ComparisonBarChart
             data={groupedBarData}
             xKey="city"
@@ -140,26 +141,29 @@ export default function TaxDetail() {
               { key: "Other", label: "Other", color: "#7c6f9e", stackId: "stack" },
             ]}
             height={360}
-            valuePrefix="$"
+            valueSuffix="%"
           />
         </div>
       </section>
 
       {/* Portland Tax Breakdown */}
       <section>
-        <SectionHeader title="Portland Tax Breakdown by Income" />
+        <SectionHeader title="Portland Tax Breakdown by Income Level" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+            How Portland&apos;s effective tax rate breaks down at each income level. Local taxes (BLT 2.6%, MultCo BIT 2.0%, Metro SHS 1.0%, PFA 1.5%) hit hardest above $125K.
+          </p>
           <ComparisonBarChart
             data={portlandStacked}
             xKey="income"
             bars={[
               { key: "Federal", label: "Federal", color: "#4a7f9e", stackId: "stack" },
-              { key: "State", label: "State", color: "#3d7a5a", stackId: "stack" },
-              { key: "Local", label: "Local", color: "#c8956c", stackId: "stack" },
-              { key: "Other", label: "Other", color: "#7c6f9e", stackId: "stack" },
+              { key: "State", label: "State (Oregon)", color: "#3d7a5a", stackId: "stack" },
+              { key: "Local", label: "Local (BLT+BIT+SHS+PFA)", color: "#c8956c", stackId: "stack" },
+              { key: "Other", label: "Other (Arts Tax)", color: "#7c6f9e", stackId: "stack" },
             ]}
             height={320}
-            valuePrefix="$"
+            valueSuffix="%"
           />
         </div>
       </section>

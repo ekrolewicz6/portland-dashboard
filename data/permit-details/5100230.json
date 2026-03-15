@@ -1,0 +1,96 @@
+{
+  "detail_id": 5100230,
+  "metadata": {
+    "ivr_number": "5100230",
+    "permit_type": "Fire Systems PermitFire SprinklersAddition",
+    "work_description": "SPRINKLER - ADD ONE FIRE SPRINKLER HEADS FOR OFFICE TI",
+    "address": null,
+    "setup_date": "2024-11-08",
+    "under_review_date": "2024-11-19",
+    "issue_date": "2024-11-19",
+    "final_date": "2025-01-09",
+    "status": "Final Inspection Approved"
+  },
+  "activities": [
+    {
+      "activity_name": "Completeness Check-Fire",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": "2024-11-19",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Connect to F2K",
+      "activity_type": "Intake",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": "2024-11-19",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Fire Permit Plan Review",
+      "activity_type": "Fire Review",
+      "must_check": "Y",
+      "activity_status": "Not Required",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": "2024-11-19",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Pre-Issuance Check - Fire",
+      "activity_type": "Fire Permit Issuance",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": "2024-11-19",
+      "staff_contact": "De Haas,Kendall"
+    },
+    {
+      "activity_name": "Cover",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Trip Test",
+      "activity_type": "Fire Inspections",
+      "must_check": "N",
+      "activity_status": "Open",
+      "last_activity_date": "2024-11-19",
+      "goal_date": null,
+      "completed_date": null,
+      "staff_contact": "FIRE GIDEON"
+    },
+    {
+      "activity_name": "Final Inspection - Fire",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Approved",
+      "last_activity_date": "2025-01-09",
+      "goal_date": null,
+      "completed_date": "2025-01-09",
+      "staff_contact": "Cole,Mark   503-593-8342"
+    },
+    {
+      "activity_name": "Close Permit - FS",
+      "activity_type": "Fire Inspections",
+      "must_check": "Y",
+      "activity_status": "Completed",
+      "last_activity_date": "2025-01-16",
+      "goal_date": null,
+      "completed_date": "2025-01-16",
+      "staff_contact": "Pagnotta,Monique   503-823-3713"
+    }
+  ]
+}

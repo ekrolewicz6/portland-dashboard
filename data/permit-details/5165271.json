@@ -1,0 +1,26 @@
+{
+  "detail_id": 5165271,
+  "metadata": {
+    "ivr_number": "5165271",
+    "permit_type": "Tree CodeRemoval/ReplantPrivate",
+    "work_description": "Four Bigleaf maple trees Denied for removal permitting (30,35,36,40\" DBH: Tree #'s 10130,10114, 10129, 10128 on attached map)",
+    "address": null,
+    "setup_date": "2025-06-24",
+    "under_review_date": "2025-06-24",
+    "issue_date": null,
+    "final_date": null,
+    "status": "Denied - UF"
+  },
+  "activities": [
+    {
+      "activity_name": "Inspection / Issuance",
+      "activity_type": "D - Permit Request",
+      "must_check": "Y",
+      "activity_status": "Permit Denied",
+      "last_activity_date": "2025-06-24",
+      "goal_date": null,
+      "completed_date": "2025-06-24",
+      "staff_contact": ""
+    }
+  ]
+}
