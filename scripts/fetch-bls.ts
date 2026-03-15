@@ -18,7 +18,11 @@ import postgres from "postgres";
 const DB_URL =
   process.env.DATABASE_URL ||
   "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
-const DATA_DIR = path.resolve(import.meta.dirname ?? ".", "..", "data");
+const DATA_DIR = path.resolve(
+  new URL(".", import.meta.url).pathname,
+  "..",
+  "data"
+);
 fs.mkdirSync(DATA_DIR, { recursive: true });
 
 const BLS_API_URL = "https://api.bls.gov/publicAPI/v1/timeseries/data/";

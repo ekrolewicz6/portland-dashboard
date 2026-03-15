@@ -1,0 +1,44 @@
+[
+  {
+    "year": 2019,
+    "population": 654741,
+    "source": "PEP",
+    "name": "Portland city, Oregon"
+  },
+  {
+    "year": 2022,
+    "population": 646101,
+    "source": "ACS5",
+    "name": "Portland city, Oregon"
+  },
+  {
+    "year": 2021,
+    "population": 647176,
+    "source": "ACS5",
+    "name": "Portland city, Oregon"
+  },
+  {
+    "year": 2020,
+    "population": 650380,
+    "source": "ACS5",
+    "name": "Portland city, Oregon"
+  },
+  {
+    "year": 2019,
+    "population": 645291,
+    "source": "ACS5",
+    "name": "Portland city, Oregon"
+  },
+  {
+    "year": 2018,
+    "population": 639387,
+    "source": "ACS5",
+    "name": "Portland city, Oregon"
+  },
+  {
+    "year": 2017,
+    "population": 630331,
+    "source": "ACS5",
+    "name": "Portland city, Oregon"
+  }
+]

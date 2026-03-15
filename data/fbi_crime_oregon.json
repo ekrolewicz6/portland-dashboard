@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2016,
+    "population": 4093465,
+    "violent_crime": 11488,
+    "homicide": 110,
+    "robbery": 2869,
+    "aggravated_assault": 6462,
+    "property_crime": 141610,
+    "burglary": 26478,
+    "larceny": 96967,
+    "motor_vehicle_theft": 18165
+  },
+  {
+    "year": 2017,
+    "population": 4142776,
+    "violent_crime": 12431,
+    "homicide": 117,
+    "robbery": 2954,
+    "aggravated_assault": 7213,
+    "property_crime": 148773,
+    "burglary": 25856,
+    "larceny": 102260,
+    "motor_vehicle_theft": 20657
+  },
+  {
+    "year": 2018,
+    "population": 4190713,
+    "violent_crime": 12765,
+    "homicide": 100,
+    "robbery": 2760,
+    "aggravated_assault": 7705,
+    "property_crime": 148200,
+    "burglary": 24039,
+    "larceny": 101505,
+    "motor_vehicle_theft": 22656
+  },
+  {
+    "year": 2019,
+    "population": 4217737,
+    "violent_crime": 12930,
+    "homicide": 96,
+    "robbery": 2643,
+    "aggravated_assault": 7945,
+    "property_crime": 140959,
+    "burglary": 21768,
+    "larceny": 96140,
+    "motor_vehicle_theft": 23051
+  },
+  {
+    "year": 2020,
+    "population": 4237256,
+    "violent_crime": 14429,
+    "homicide": 138,
+    "robbery": 2651,
+    "aggravated_assault": 9376,
+    "property_crime": 143823,
+    "burglary": 21389,
+    "larceny": 95975,
+    "motor_vehicle_theft": 26459
+  },
+  {
+    "year": 2021,
+    "population": 4246155,
+    "violent_crime": 14818,
+    "homicide": 172,
+    "robbery": 2716,
+    "aggravated_assault": 9639,
+    "property_crime": 152116,
+    "burglary": 20780,
+    "larceny": 100224,
+    "motor_vehicle_theft": 31112
+  },
+  {
+    "year": 2022,
+    "population": 4240137,
+    "violent_crime": 13980,
+    "homicide": 146,
+    "robbery": 2858,
+    "aggravated_assault": 8894,
+    "property_crime": 158424,
+    "burglary": 20420,
+    "larceny": 104367,
+    "motor_vehicle_theft": 33637
+  }
+]

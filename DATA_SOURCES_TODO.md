@@ -1,6 +1,6 @@
 # Portland Commons Dashboard — Data Sources TODO
 
-> Last updated: 2026-03-15
+> Last updated: 2026-03-15 (Census, BLS, FRED data now LIVE)
 
 This document tracks the status of every data source used in the Portland Commons
 Dashboard. Each source is tagged with one of:
@@ -320,6 +320,21 @@ Dashboard. Each source is tagged with one of:
 | **API route** | `src/app/api/dashboard/business/route.ts` (updated with BLS insights) |
 | **Note** | Area code 38900 works for Portland-Vancouver-Hillsboro MSA. v1 API has 25 req/day limit. |
 
+### FRED Economic Data — `LIVE`
+
+| Field | Value |
+|-------|-------|
+| **Current status** | LIVE — 441 data points fetched via FRED CSV download (no key) |
+| **What it provides** | Oregon population, Portland MSA House Price Index, active listings count |
+| **Download URLs** | `https://fred.stlouisfed.org/graph/fredgraph.csv?id={SERIES_ID}` |
+| **Series loaded** | ORPOP (126 rows, 1900-2025), ATNHPIUS38900Q (199 rows, 1976-2025), ACTLISCOU38900 (116 rows, 2016-2026) |
+| **Database tables** | `public.fred_series`, `housing.fred_house_price_index` |
+| **Fetch script** | `scripts/fetch-fred.ts` |
+| **API route** | `src/app/api/dashboard/housing/route.ts` (updated with HPI + listings data) |
+| **Note** | MEDLISFPRI38900, LAUMT413890000000003, MEHOINUSOR672N returned 404 via CSV endpoint |
+
+---
+
 ### TriMet Ridership — `NEEDS_API_KEY`
 
 | Field | Value |
@@ -365,17 +380,21 @@ Dashboard. Each source is tagged with one of:
 
 ### Immediate (this week)
 
-1. [ ] **Register for Census API key** — takes 5 minutes, unlocks population data
-   - URL: https://api.census.gov/data/key_signup.html
-   - Set `CENSUS_API_KEY` in `.env.local`
+1. [x] **Census population data** — DONE, fetched via PEP + ACS 5-Year without key
+   - Script: `npx tsx scripts/fetch-census.ts`
+   - 7 years of population data (2017-2022 ACS, 2019 PEP)
 
 2. [ ] **Download Zillow ZORI CSV** — free, takes 10 minutes
    - URL: https://files.zillowstatic.com/research/public_csvs/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv
    - Parse and load Portland metro row into database
 
-3. [ ] **Register for BLS API key** — takes 5 minutes
-   - URL: https://data.bls.gov/registrationEngine/
-   - Set `BLS_API_KEY` in `.env.local`
+3. [x] **BLS employment data** — DONE, fetched 1,918 data points via v1 API (no key needed)
+   - Script: `npx tsx scripts/fetch-bls.ts`
+   - 16 series covering all Portland MSA employment sectors (2016-2025)
+
+3b. [x] **FRED economic data** — DONE, fetched 441 data points via CSV download
+   - Script: `npx tsx scripts/fetch-fred.ts`
+   - Oregon population, Portland HPI, active listings (some series 404'd)
 
 4. [ ] **Register for TriMet AppID** — takes 5 minutes
    - URL: https://developer.trimet.org/
@@ -412,7 +431,7 @@ Dashboard. Each source is tagged with one of:
 | Question | Data Source | Status | Blocker |
 |----------|-----------|--------|---------|
 | Migration | Water Bureau activations | `NEEDS_PRR` | File public records request |
-| Migration | Census population | `NEEDS_API_KEY` | Register at census.gov |
+| Migration | Census population | `LIVE` | 7 years of PEP + ACS data loaded |
 | Migration | IRS SOI migration | `NEEDS_DOWNLOAD` | Download CSV from irs.gov |
 | Business | Revenue Div BLT | `NEEDS_PRR` | File public records request |
 | Business | CivicApps API | `OFFLINE` | API permanently down |
@@ -427,7 +446,8 @@ Dashboard. Each source is tagged with one of:
 | Housing | Zillow ZORI rents | `NEEDS_DOWNLOAD` | Download free CSV |
 | Housing | PHB dashboards | `NEEDS_INVESTIGATION` | Check Tableau exports |
 | Program | PCB registry | `INTERNAL` | Awaiting PCB system launch |
-| Supporting | BLS employment | `NEEDS_API_KEY` | Register at bls.gov |
+| Supporting | BLS employment | `LIVE` | 1,918 data points, 16 series |
+| Supporting | FRED economic data | `LIVE` | 441 data points, HPI + listings |
 | Supporting | TriMet ridership | `NEEDS_API_KEY` | Register at trimet.org |
 | Supporting | PBOT ped counters | `NEEDS_INVESTIGATION` | Check ArcGIS layers |
 | Reference | Neighborhoods | `LIVE` | -- |

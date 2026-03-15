@@ -1,0 +1,170 @@
+[
+  {
+    "period": "2020-01",
+    "median_sale_price": 395000,
+    "homes_sold": 1420,
+    "days_on_market": 28,
+    "inventory": 3200,
+    "ppsf": 242
+  },
+  {
+    "period": "2020-04",
+    "median_sale_price": 410000,
+    "homes_sold": 1280,
+    "days_on_market": 22,
+    "inventory": 2800,
+    "ppsf": 248
+  },
+  {
+    "period": "2020-07",
+    "median_sale_price": 432000,
+    "homes_sold": 1850,
+    "days_on_market": 14,
+    "inventory": 2300,
+    "ppsf": 260
+  },
+  {
+    "period": "2020-10",
+    "median_sale_price": 440000,
+    "homes_sold": 1650,
+    "days_on_market": 16,
+    "inventory": 2100,
+    "ppsf": 265
+  },
+  {
+    "period": "2021-01",
+    "median_sale_price": 449000,
+    "homes_sold": 1380,
+    "days_on_market": 12,
+    "inventory": 1800,
+    "ppsf": 272
+  },
+  {
+    "period": "2021-04",
+    "median_sale_price": 485000,
+    "homes_sold": 1920,
+    "days_on_market": 8,
+    "inventory": 1400,
+    "ppsf": 295
+  },
+  {
+    "period": "2021-07",
+    "median_sale_price": 510000,
+    "homes_sold": 1780,
+    "days_on_market": 7,
+    "inventory": 1350,
+    "ppsf": 310
+  },
+  {
+    "period": "2021-10",
+    "median_sale_price": 515000,
+    "homes_sold": 1500,
+    "days_on_market": 10,
+    "inventory": 1500,
+    "ppsf": 312
+  },
+  {
+    "period": "2022-01",
+    "median_sale_price": 520000,
+    "homes_sold": 1250,
+    "days_on_market": 14,
+    "inventory": 1600,
+    "ppsf": 315
+  },
+  {
+    "period": "2022-04",
+    "median_sale_price": 540000,
+    "homes_sold": 1650,
+    "days_on_market": 10,
+    "inventory": 1800,
+    "ppsf": 325
+  },
+  {
+    "period": "2022-07",
+    "median_sale_price": 525000,
+    "homes_sold": 1420,
+    "days_on_market": 20,
+    "inventory": 2500,
+    "ppsf": 318
+  },
+  {
+    "period": "2022-10",
+    "median_sale_price": 500000,
+    "homes_sold": 1150,
+    "days_on_market": 30,
+    "inventory": 2900,
+    "ppsf": 305
+  },
+  {
+    "period": "2023-01",
+    "median_sale_price": 485000,
+    "homes_sold": 980,
+    "days_on_market": 38,
+    "inventory": 3100,
+    "ppsf": 298
+  },
+  {
+    "period": "2023-04",
+    "median_sale_price": 500000,
+    "homes_sold": 1380,
+    "days_on_market": 25,
+    "inventory": 2800,
+    "ppsf": 305
+  },
+  {
+    "period": "2023-07",
+    "median_sale_price": 510000,
+    "homes_sold": 1450,
+    "days_on_market": 18,
+    "inventory": 2600,
+    "ppsf": 310
+  },
+  {
+    "period": "2023-10",
+    "median_sale_price": 498000,
+    "homes_sold": 1200,
+    "days_on_market": 28,
+    "inventory": 2900,
+    "ppsf": 303
+  },
+  {
+    "period": "2024-01",
+    "median_sale_price": 490000,
+    "homes_sold": 1050,
+    "days_on_market": 35,
+    "inventory": 3200,
+    "ppsf": 300
+  },
+  {
+    "period": "2024-04",
+    "median_sale_price": 505000,
+    "homes_sold": 1400,
+    "days_on_market": 22,
+    "inventory": 2900,
+    "ppsf": 308
+  },
+  {
+    "period": "2024-07",
+    "median_sale_price": 515000,
+    "homes_sold": 1500,
+    "days_on_market": 16,
+    "inventory": 2700,
+    "ppsf": 312
+  },
+  {
+    "period": "2024-10",
+    "median_sale_price": 508000,
+    "homes_sold": 1250,
+    "days_on_market": 24,
+    "inventory": 3000,
+    "ppsf": 308
+  },
+  {
+    "period": "2025-01",
+    "median_sale_price": 495000,
+    "homes_sold": 1100,
+    "days_on_market": 32,
+    "inventory": 3300,
+    "ppsf": 302
+  }
+]

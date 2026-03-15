@@ -7,7 +7,7 @@ interface HousingDetailResponse {
   permitsByType: { name: string; value: number; color: string }[];
   permitsByNeighborhood: { name: string; value: number }[];
   pipelineTrend: { month: string; units: number; residential: number; commercial: number }[];
-  rentTrend: null;
+  rentTrend: { month: string; rent: number }[] | null;
   processingTimeTrend: { month: string; avgDays: number; count: number }[];
   processingByType: Record<string, string | number>[];
   clearanceData: Record<string, string | number>[];
@@ -137,8 +137,16 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       commercial: Number(r.commercial),
     }));
 
-    // 4. Rent trend — UNAVAILABLE
-    // Not querying fake data
+    // 4. Rent trend — REAL Zillow ZORI data
+    const rentRows = await sql`
+      SELECT TO_CHAR(month, 'YYYY-MM') AS month, zori::numeric AS rent
+      FROM public.housing_rents
+      WHERE zori IS NOT NULL
+      ORDER BY month
+    `;
+    const rentTrendData = rentRows.length > 0
+      ? rentRows.map((r) => ({ month: r.month as string, rent: Number(Number(r.rent).toFixed(0)) }))
+      : null;
 
     // 5. Processing time — building permits only, min 10 permits/month, cap at 180 days
     const processingRows = await sql`
@@ -325,15 +333,20 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       );
     }
 
-    topInsights.push(
-      "Median rent data unavailable — download Zillow ZORI CSV from zillow.com/research/data/."
-    );
+    if (rentTrendData && rentTrendData.length >= 2) {
+      const latestRent = rentTrendData[rentTrendData.length - 1].rent;
+      const firstRent = rentTrendData[0].rent;
+      const rentChange = ((latestRent - firstRent) / firstRent) * 100;
+      topInsights.push(
+        `Portland median rent (Zillow ZORI): $${latestRent.toLocaleString()}/month, ${rentChange > 0 ? "up" : "down"} ${Math.abs(Math.round(rentChange))}% since ${rentTrendData[0].month}. (Real Zillow data)`
+      );
+    }
 
     return NextResponse.json({
       permitsByType,
       permitsByNeighborhood,
       pipelineTrend,
-      rentTrend: null,
+      rentTrend: rentTrendData,
       processingTimeTrend,
       processingByType,
       clearanceData,
@@ -358,7 +371,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         permitsByType: [],
         permitsByNeighborhood: [],
         pipelineTrend: [],
-        rentTrend: null,
+        rentTrend: rentTrendData,
         processingTimeTrend: [],
         processingByType: [],
         clearanceData: [],

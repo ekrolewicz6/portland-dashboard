@@ -1,0 +1,3026 @@
+[
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M12",
+    "period_name": "December",
+    "value": 4.9,
+    "footnotes": "Preliminary."
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M11",
+    "period_name": "November",
+    "value": 4.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M10",
+    "period_name": "October",
+    "value": null,
+    "footnotes": "Data unavailable due to the 2025 lapse in appropriations."
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M09",
+    "period_name": "September",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M08",
+    "period_name": "August",
+    "value": 5.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M07",
+    "period_name": "July",
+    "value": 5.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M06",
+    "period_name": "June",
+    "value": 4.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M05",
+    "period_name": "May",
+    "value": 4.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M02",
+    "period_name": "February",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2025,
+    "period": "M01",
+    "period_name": "January",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M12",
+    "period_name": "December",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M11",
+    "period_name": "November",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M09",
+    "period_name": "September",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M08",
+    "period_name": "August",
+    "value": 4.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M07",
+    "period_name": "July",
+    "value": 4.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M02",
+    "period_name": "February",
+    "value": 4.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2024,
+    "period": "M01",
+    "period_name": "January",
+    "value": 4.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M12",
+    "period_name": "December",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M11",
+    "period_name": "November",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M09",
+    "period_name": "September",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M08",
+    "period_name": "August",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M07",
+    "period_name": "July",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M04",
+    "period_name": "April",
+    "value": 2.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M03",
+    "period_name": "March",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M02",
+    "period_name": "February",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2023,
+    "period": "M01",
+    "period_name": "January",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M12",
+    "period_name": "December",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M11",
+    "period_name": "November",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M09",
+    "period_name": "September",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M08",
+    "period_name": "August",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M07",
+    "period_name": "July",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M03",
+    "period_name": "March",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M02",
+    "period_name": "February",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2022,
+    "period": "M01",
+    "period_name": "January",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M12",
+    "period_name": "December",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M11",
+    "period_name": "November",
+    "value": 3.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M09",
+    "period_name": "September",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M08",
+    "period_name": "August",
+    "value": 4.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M07",
+    "period_name": "July",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M06",
+    "period_name": "June",
+    "value": 5.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M05",
+    "period_name": "May",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M04",
+    "period_name": "April",
+    "value": 5.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M03",
+    "period_name": "March",
+    "value": 6.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M02",
+    "period_name": "February",
+    "value": 6.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2021,
+    "period": "M01",
+    "period_name": "January",
+    "value": 6.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M12",
+    "period_name": "December",
+    "value": 6.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M11",
+    "period_name": "November",
+    "value": 6.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M10",
+    "period_name": "October",
+    "value": 6.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M09",
+    "period_name": "September",
+    "value": 7.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M08",
+    "period_name": "August",
+    "value": 8.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M07",
+    "period_name": "July",
+    "value": 10.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M06",
+    "period_name": "June",
+    "value": 10.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M05",
+    "period_name": "May",
+    "value": 11.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M04",
+    "period_name": "April",
+    "value": 13,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M02",
+    "period_name": "February",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2020,
+    "period": "M01",
+    "period_name": "January",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M12",
+    "period_name": "December",
+    "value": 2.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M11",
+    "period_name": "November",
+    "value": 2.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M09",
+    "period_name": "September",
+    "value": 3.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M08",
+    "period_name": "August",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M07",
+    "period_name": "July",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M02",
+    "period_name": "February",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000003",
+    "series_name": "Portland MSA Unemployment Rate",
+    "year": 2019,
+    "period": "M01",
+    "period_name": "January",
+    "value": 4.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1322742,
+    "footnotes": "Preliminary."
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1338053,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M10",
+    "period_name": "October",
+    "value": null,
+    "footnotes": "Data unavailable due to the 2025 lapse in appropriations."
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1328364,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1328942,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1321395,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1315610,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1311616,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1321080,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1315082,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1309294,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2025,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1311761,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1324793,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1335312,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1336857,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1331205,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1330289,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1327349,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1325510,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1327597,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1332312,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1329990,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1323940,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2024,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1313971,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1329213,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1340899,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1334202,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1329607,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1328551,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1324863,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1325453,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1321041,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1326797,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1330041,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1328444,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2023,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1321839,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1316992,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1316419,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1322526,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1320439,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1328376,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1326498,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1308990,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1318756,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1321119,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1326215,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1321248,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2022,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1307957,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1315403,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1319909,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1308183,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1291764,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1288883,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1286471,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1273552,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1275657,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1274204,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1269986,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1255817,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2021,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1247627,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1261380,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1266666,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1264252,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1238028,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1237186,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1204303,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1190786,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1164900,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1134777,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1281314,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1303397,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2020,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1294071,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1306498,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1309782,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1304332,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1291879,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1291801,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1287544,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1281321,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1281055,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1282499,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1281104,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1282776,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000005",
+    "series_name": "Portland MSA Employment",
+    "year": 2019,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1275210,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1391046,
+    "footnotes": "Preliminary."
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1404516,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M10",
+    "period_name": "October",
+    "value": null,
+    "footnotes": "Data unavailable due to the 2025 lapse in appropriations."
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1398006,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1402573,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1392023,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1380717,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1371781,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1375379,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1381685,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1377893,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2025,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1380803,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1381774,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1390523,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1390354,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1383825,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1389463,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1388105,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1378130,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1377121,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1381040,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1387730,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1384191,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2024,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1373778,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1382509,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1389267,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1382961,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1377966,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1381809,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1375035,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1370474,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1363364,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1366119,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1378029,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1380665,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2023,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1375167,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1364951,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1364947,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1370356,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1367727,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1382925,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1376828,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1357034,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1362219,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1365589,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1378506,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1374381,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2022,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1365437,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1362815,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1366454,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1356968,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1345931,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1351490,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1353609,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1343813,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1343470,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1349231,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1354938,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1342793,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2021,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1337797,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1347415,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1350219,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1351465,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1339790,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1348359,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1341172,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1331942,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1322243,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1303667,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1337122,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1350081,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2020,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1342635,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M12",
+    "period_name": "December",
+    "value": 1345097,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M11",
+    "period_name": "November",
+    "value": 1347306,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M10",
+    "period_name": "October",
+    "value": 1344474,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M09",
+    "period_name": "September",
+    "value": 1333999,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M08",
+    "period_name": "August",
+    "value": 1343161,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M07",
+    "period_name": "July",
+    "value": 1339681,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M06",
+    "period_name": "June",
+    "value": 1330933,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M05",
+    "period_name": "May",
+    "value": 1324126,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M04",
+    "period_name": "April",
+    "value": 1328841,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M03",
+    "period_name": "March",
+    "value": 1335440,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M02",
+    "period_name": "February",
+    "value": 1336402,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LAUMT413890000000006",
+    "series_name": "Portland MSA Labor Force",
+    "year": 2019,
+    "period": "M01",
+    "period_name": "January",
+    "value": 1332467,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M12",
+    "period_name": "December",
+    "value": 5.2,
+    "footnotes": "Preliminary."
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M11",
+    "period_name": "November",
+    "value": 5.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M10",
+    "period_name": "October",
+    "value": null,
+    "footnotes": "Data unavailable due to the 2025 lapse in appropriations."
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M09",
+    "period_name": "September",
+    "value": 5.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M08",
+    "period_name": "August",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M07",
+    "period_name": "July",
+    "value": 4.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M06",
+    "period_name": "June",
+    "value": 4.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M05",
+    "period_name": "May",
+    "value": 4.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M04",
+    "period_name": "April",
+    "value": 4.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M02",
+    "period_name": "February",
+    "value": 4.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2025,
+    "period": "M01",
+    "period_name": "January",
+    "value": 4.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M12",
+    "period_name": "December",
+    "value": 4.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M11",
+    "period_name": "November",
+    "value": 4.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M10",
+    "period_name": "October",
+    "value": 4.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M09",
+    "period_name": "September",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M08",
+    "period_name": "August",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M07",
+    "period_name": "July",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M06",
+    "period_name": "June",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M05",
+    "period_name": "May",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M04",
+    "period_name": "April",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M02",
+    "period_name": "February",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2024,
+    "period": "M01",
+    "period_name": "January",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M12",
+    "period_name": "December",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M11",
+    "period_name": "November",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M09",
+    "period_name": "September",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M08",
+    "period_name": "August",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M07",
+    "period_name": "July",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M03",
+    "period_name": "March",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M02",
+    "period_name": "February",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2023,
+    "period": "M01",
+    "period_name": "January",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M12",
+    "period_name": "December",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M11",
+    "period_name": "November",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M10",
+    "period_name": "October",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M09",
+    "period_name": "September",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M08",
+    "period_name": "August",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M07",
+    "period_name": "July",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M03",
+    "period_name": "March",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M02",
+    "period_name": "February",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2022,
+    "period": "M01",
+    "period_name": "January",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M12",
+    "period_name": "December",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M11",
+    "period_name": "November",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M10",
+    "period_name": "October",
+    "value": 4.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M09",
+    "period_name": "September",
+    "value": 4.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M08",
+    "period_name": "August",
+    "value": 4.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M07",
+    "period_name": "July",
+    "value": 5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M06",
+    "period_name": "June",
+    "value": 5.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M05",
+    "period_name": "May",
+    "value": 5.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M04",
+    "period_name": "April",
+    "value": 6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M03",
+    "period_name": "March",
+    "value": 6.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M02",
+    "period_name": "February",
+    "value": 6.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2021,
+    "period": "M01",
+    "period_name": "January",
+    "value": 6.3,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M12",
+    "period_name": "December",
+    "value": 6.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M11",
+    "period_name": "November",
+    "value": 6.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M10",
+    "period_name": "October",
+    "value": 6.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M09",
+    "period_name": "September",
+    "value": 7.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M08",
+    "period_name": "August",
+    "value": 7.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M07",
+    "period_name": "July",
+    "value": 9.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M06",
+    "period_name": "June",
+    "value": 10.2,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M05",
+    "period_name": "May",
+    "value": 11.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M04",
+    "period_name": "April",
+    "value": 13.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M03",
+    "period_name": "March",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M02",
+    "period_name": "February",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2020,
+    "period": "M01",
+    "period_name": "January",
+    "value": 3.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M12",
+    "period_name": "December",
+    "value": 3.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M11",
+    "period_name": "November",
+    "value": 3.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M10",
+    "period_name": "October",
+    "value": 3.4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M09",
+    "period_name": "September",
+    "value": 3.5,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M08",
+    "period_name": "August",
+    "value": 3.6,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M07",
+    "period_name": "July",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M06",
+    "period_name": "June",
+    "value": 3.7,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M05",
+    "period_name": "May",
+    "value": 3.8,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M04",
+    "period_name": "April",
+    "value": 3.9,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M03",
+    "period_name": "March",
+    "value": 4,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M02",
+    "period_name": "February",
+    "value": 4.1,
+    "footnotes": ""
+  },
+  {
+    "series_id": "LASST410000000000003",
+    "series_name": "Oregon Statewide Unemployment Rate",
+    "year": 2019,
+    "period": "M01",
+    "period_name": "January",
+    "value": 4.2,
+    "footnotes": ""
+  }
+]
