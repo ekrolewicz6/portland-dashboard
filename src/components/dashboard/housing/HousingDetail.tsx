@@ -256,17 +256,36 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 5. Top Neighborhoods (REAL) */}
+      {/* 5. Top Neighborhoods (REAL) — custom HTML bars for reliability */}
       {neighborhoodBarData.length > 0 && (
         <section>
           <SectionHeader icon={MapPin} title="Top 10 Neighborhoods (Real Data)" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <BarChart
-              data={neighborhoodBarData}
-              layout="vertical"
-              color="#3d7a5a"
-              height={480}
-            />
+            <div className="space-y-3">
+              {neighborhoodBarData.map((n, i) => {
+                const maxVal = neighborhoodBarData[0]?.value || 1;
+                const pct = Math.round((n.value / maxVal) * 100);
+                return (
+                  <div key={i} className="flex items-center gap-4">
+                    <span className="text-[13px] text-[var(--color-ink-light)] w-[180px] text-right flex-shrink-0 truncate">
+                      {n.name}
+                    </span>
+                    <div className="flex-1 h-7 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                      <div
+                        className="h-full rounded-sm transition-all duration-700"
+                        style={{
+                          width: `${pct}%`,
+                          backgroundColor: "#3d7a5a",
+                        }}
+                      />
+                    </div>
+                    <span className="text-[13px] font-mono font-semibold text-[var(--color-ink)] w-[60px] text-right">
+                      {n.value.toLocaleString()}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
       )}
