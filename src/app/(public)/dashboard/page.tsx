@@ -5,156 +5,119 @@ import HeadlineCard from "@/components/cards/HeadlineCard";
 import InsightBanner from "@/components/cards/InsightBanner";
 import { QUESTION_DATA_STATUS } from "@/data/source-status";
 import type { QuestionId } from "@/types/dashboard";
+import { Database } from "lucide-react";
 
-const headlines = [
-  {
-    id: "migration",
-    question: "Is Portland gaining or losing people?",
-    headline: { value: "+127", label: "net households this month" },
-    trend: { direction: "up" as const, value: "+12%", isPositive: true },
-    sparklineData: [
-      { value: -45 }, { value: -32 }, { value: -18 }, { value: -5 },
-      { value: 12 }, { value: 28 }, { value: 35 }, { value: 54 },
-      { value: 72 }, { value: 89 }, { value: 108 }, { value: 127 },
-    ],
-    source: "Portland Water Bureau",
-    lastUpdated: "Mar 1, 2026",
-    color: "#4a7f9e",
-  },
-  {
-    id: "business",
-    question: "Is Portland gaining or losing businesses?",
-    headline: { value: "+83", label: "net business formations this month" },
-    trend: { direction: "up" as const, value: "+8%", isPositive: true },
-    sparklineData: [
-      { value: -12 }, { value: -5 }, { value: 8 }, { value: 15 },
-      { value: 22 }, { value: 31 }, { value: 38 }, { value: 45 },
-      { value: 52 }, { value: 64 }, { value: 71 }, { value: 83 },
-    ],
-    source: "Portland Revenue Division",
-    lastUpdated: "Mar 1, 2026",
-    color: "#3d7a5a",
-  },
-  {
-    id: "downtown",
-    question: "Is downtown coming back?",
-    headline: {
-      value: "86%",
-      label: "of 2019 foot traffic",
-      subValue: "73%",
-      subLabel: "ground floors occupied",
-    },
-    trend: { direction: "up" as const, value: "+5.5%", isPositive: true },
-    sparklineData: [
-      { value: 62 }, { value: 65 }, { value: 68 }, { value: 71 },
-      { value: 73 }, { value: 74 }, { value: 76 }, { value: 79 },
-      { value: 80 }, { value: 82 }, { value: 84 }, { value: 86 },
-    ],
-    source: "Placer.ai via Clean & Safe",
-    lastUpdated: "Mar 7, 2026",
-    color: "#c8956c",
-  },
+/**
+ * Headlines for questions with REAL data.
+ * Questions without real data get a different card style below.
+ */
+const realHeadlines = [
   {
     id: "safety",
     question: "Is Portland safe?",
     headline: {
-      value: "4.2",
-      label: "property crime per 1,000 residents",
-      subValue: "8.4 min",
-      subLabel: "avg 911 response (Priority 1)",
+      value: "5,494",
+      label: "crime incidents in current ArcGIS snapshot",
+      subValue: "22K",
+      subLabel: "graffiti reports from BPS",
     },
-    trend: { direction: "down" as const, value: "-8%", isPositive: true },
-    sparklineData: [
-      { value: 6.1 }, { value: 5.8 }, { value: 5.5 }, { value: 5.4 },
-      { value: 5.2 }, { value: 5.0 }, { value: 4.9 }, { value: 4.7 },
-      { value: 4.6 }, { value: 4.5 }, { value: 4.3 }, { value: 4.2 },
-    ],
-    source: "Portland Police Bureau",
-    lastUpdated: "Feb 28, 2026",
+    trend: { direction: "flat" as const, value: "snapshot", isPositive: false },
+    sparklineData: [] as { value: number }[],
+    source: "Portland Police Bureau ArcGIS",
+    lastUpdated: "Live snapshot",
     color: "#b85c3a",
   },
   {
     id: "tax",
     question: "Is the tax burden competitive?",
     headline: {
-      value: "12.4%",
-      label: "effective rate at $200K income",
-      subValue: "vs 7.1%",
+      value: "12.8%",
+      label: "Portland effective rate at highest bracket",
+      subValue: "vs 8.4%",
       subLabel: "Vancouver, WA",
     },
-    trend: { direction: "flat" as const, value: "flat", isPositive: false },
-    sparklineData: [
-      { value: 12.4 }, { value: 12.4 }, { value: 12.4 }, { value: 12.4 },
-      { value: 12.4 }, { value: 12.4 }, { value: 12.4 }, { value: 12.4 },
-      { value: 12.4 }, { value: 12.4 }, { value: 12.4 }, { value: 12.4 },
-    ],
-    source: "Portland Commons analysis",
-    lastUpdated: "Jan 2026",
+    trend: { direction: "flat" as const, value: "stable", isPositive: false },
+    sparklineData: [] as { value: number }[],
+    source: "Published tax rates",
+    lastUpdated: "FY 2025-26",
     color: "#7c6f9e",
   },
   {
     id: "housing",
     question: "Is housing getting built?",
     headline: {
-      value: "824",
-      label: "units in pipeline",
-      subValue: "14.2 mo",
-      subLabel: "avg permit time",
+      value: "34,307",
+      label: "real building permits tracked",
+      subValue: "91%",
+      subLabel: "processed within 90 days",
     },
-    trend: { direction: "up" as const, value: "+168 units", isPositive: true },
-    sparklineData: [
-      { value: 420 }, { value: 445 }, { value: 480 }, { value: 510 },
-      { value: 548 }, { value: 590 }, { value: 620 }, { value: 656 },
-      { value: 700 }, { value: 745 }, { value: 790 }, { value: 824 },
-    ],
-    source: "PP&D permit data",
-    lastUpdated: "Mar 10, 2026",
+    trend: { direction: "flat" as const, value: "real data", isPositive: true },
+    sparklineData: [] as { value: number }[],
+    source: "BDS PermitsNow (ArcGIS)",
+    lastUpdated: "Live data",
     color: "#b85c6a",
+  },
+  {
+    id: "downtown",
+    question: "Is downtown coming back?",
+    headline: {
+      value: "22K",
+      label: "graffiti reports (disorder proxy)",
+    },
+    trend: { direction: "flat" as const, value: "partial", isPositive: false },
+    sparklineData: [] as { value: number }[],
+    source: "Portland BPS (real)",
+    lastUpdated: "Live data",
+    color: "#c8956c",
+  },
+];
+
+/** Questions with NO real data — shown as "data collection in progress" cards */
+const unavailableQuestions = [
+  {
+    id: "migration",
+    question: "Is Portland gaining or losing people?",
+    color: "#4a7f9e",
+    needed: "Water Bureau PRR + Census API key",
+  },
+  {
+    id: "business",
+    question: "Is Portland gaining or losing businesses?",
+    color: "#3d7a5a",
+    needed: "Revenue Division PRR (CivicApps offline)",
   },
   {
     id: "program",
     question: "Is the Portland Commons working?",
-    headline: {
-      value: "347",
-      label: "certified businesses",
-      subValue: "89%",
-      subLabel: "1-year survival (vs 80% national avg)",
-    },
-    trend: { direction: "up" as const, value: "+23 this mo", isPositive: true },
-    sparklineData: [
-      { value: 180 }, { value: 200 }, { value: 218 }, { value: 235 },
-      { value: 248 }, { value: 262 }, { value: 278 }, { value: 295 },
-      { value: 310 }, { value: 324 }, { value: 336 }, { value: 347 },
-    ],
-    source: "Portland Commons Registry",
-    lastUpdated: "real-time",
     color: "#1a3a2a",
+    needed: "PCB registry not yet live",
   },
 ];
 
+/** Real insights computed from actual data we have */
 const insights = [
   {
     id: "1",
-    text: "Saturday foot traffic is now 94% of 2019 — the highest recovery of any day of the week.",
-    question: "downtown",
+    text: "34,307 building permits tracked across Portland — 91% processed within 90 days.",
+    question: "housing",
     severity: "high" as const,
   },
   {
     id: "2",
-    text: "After 18 months of decline, net household migration turned positive for the third consecutive month.",
-    question: "migration",
-    severity: "high" as const,
+    text: "22,000 graffiti reports mapped citywide from Portland BPS — a visible disorder metric.",
+    question: "downtown",
+    severity: "medium" as const,
   },
   {
     id: "3",
-    text: "Vehicle theft dropped 22% year-over-year — the largest improvement of any crime category.",
+    text: "Property crime grid data shows 5,494 incidents in current ArcGIS snapshot across 3 categories.",
     question: "safety",
     severity: "medium" as const,
   },
   {
     id: "4",
-    text: "The Central Eastside saw 22% more foot traffic this month — the largest increase of any corridor.",
-    question: "downtown",
+    text: "120 Portland neighborhoods tracked with real boundary data from Portland Boundaries.",
+    question: "housing",
     severity: "medium" as const,
   },
 ];
@@ -189,15 +152,16 @@ export default function DashboardPage() {
               className="mt-4 text-[16px] text-white/50 leading-relaxed max-w-xl animate-fade-up"
               style={{ animationDelay: "160ms" }}
             >
-              Seven questions that drive Portland&apos;s story, answered with
-              real data. Click any card to explore the full analysis.
+              Seven questions that drive Portland&apos;s story. Real data where
+              we have it, honest gaps where we don&apos;t. Click any card to
+              explore.
             </p>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[var(--color-paper)] to-transparent" />
       </section>
 
-      {/* ── Insights ── */}
+      {/* ── Insights (REAL) ── */}
       <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 -mt-6 relative z-20">
         <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
           <InsightBanner insights={insights} />
@@ -211,7 +175,8 @@ export default function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {headlines.map((h, i) => {
+          {/* Cards with REAL data */}
+          {realHeadlines.map((h, i) => {
             const status = QUESTION_DATA_STATUS[h.id as QuestionId];
             return (
               <Link
@@ -238,6 +203,74 @@ export default function DashboardPage() {
                       : undefined
                   }
                 />
+              </Link>
+            );
+          })}
+
+          {/* Cards with NO real data — data collection in progress */}
+          {unavailableQuestions.map((q, i) => {
+            const status = QUESTION_DATA_STATUS[q.id as QuestionId];
+            return (
+              <Link
+                key={q.id}
+                href={`/dashboard/${q.id}`}
+                className="block animate-fade-up"
+                style={{
+                  animationDelay: `${400 + (realHeadlines.length + i) * 60}ms`,
+                }}
+              >
+                <div
+                  className="metric-card text-left w-full group relative overflow-hidden"
+                  style={
+                    { "--accent-color": q.color } as React.CSSProperties
+                  }
+                >
+                  {/* Subtle accent bar */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[3px] opacity-40"
+                    style={{ backgroundColor: q.color }}
+                  />
+
+                  <div className="flex items-start justify-between mb-4">
+                    <h2 className="font-editorial text-[17px] text-[var(--color-ink)] leading-snug pr-6">
+                      {q.question}
+                    </h2>
+                    {status && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-sm bg-amber-100 text-amber-800 flex-shrink-0 uppercase tracking-wider">
+                        {status.badgeLabel}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 rounded-sm flex items-center justify-center"
+                      style={{
+                        backgroundColor: q.color,
+                        opacity: 0.12,
+                      }}
+                    >
+                      <Database
+                        className="w-5 h-5"
+                        style={{ color: q.color }}
+                      />
+                    </div>
+                    <div>
+                      <p className="text-[14px] font-medium text-[var(--color-ink-light)]">
+                        Data collection in progress
+                      </p>
+                      <p className="text-[12px] text-[var(--color-ink-muted)]">
+                        {q.needed}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-[var(--color-parchment)]">
+                    <p className="text-[11px] text-[var(--color-ink-muted)] leading-relaxed">
+                      Click to see what data is needed and how to contribute.
+                    </p>
+                  </div>
+                </div>
               </Link>
             );
           })}

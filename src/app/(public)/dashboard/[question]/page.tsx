@@ -93,21 +93,12 @@ export default async function QuestionPage({ params }: PageProps) {
 
   let data: DashboardResponse | null = null;
 
-  // Always fetch data for hero section
+  // Fetch data for hero section — no mock fallback
   try {
     data = await fetchQuestionData(question);
   } catch {
-    const mockModule = await import("@/lib/mock-data");
-    const dataMap: Record<string, DashboardResponse> = {
-      migration: mockModule.migrationData,
-      business: mockModule.businessData,
-      downtown: mockModule.downtownData,
-      safety: mockModule.safetyData,
-      tax: mockModule.taxData,
-      housing: mockModule.housingData,
-      program: mockModule.programData,
-    };
-    data = dataMap[question] ?? null;
+    // Data unavailable — detail component will show DataNeeded
+    data = null;
   }
 
   const DetailComponent = detailComponents[question];
