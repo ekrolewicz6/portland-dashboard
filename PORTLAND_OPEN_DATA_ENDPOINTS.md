@@ -291,3 +291,236 @@ All Socrata endpoints support:
 - `$order` for sorting
 - `$group` for aggregation
 - Output formats: `.json`, `.csv`, `.geojson`
+
+---
+
+## Multnomah County Data
+
+Portal: `https://data.multco.us/` (Socrata-powered)
+Socrata Discovery API: `https://api.us.socrata.com/api/catalog/v1?domains=data.multco.us&limit=100`
+
+**Note:** Socrata catalog API was rate-limited during crawl. The portal is confirmed Socrata-based, meaning all datasets support JSON, CSV, GeoJSON export via `/resource/{dataset-id}.csv` pattern.
+
+### Known High-Value Datasets
+
+| Dataset | Socrata Endpoint Pattern | Format | Update Freq | Relevance | Dashboard Use |
+|---------|-------------------------|--------|-------------|-----------|---------------|
+| Multnomah County Property Tax Rolls | `data.multco.us/d/{id}` | CSV/JSON/API | Annual | HIGH | Property values, vacancy cross-ref |
+| Assessment & Taxation Data | `data.multco.us/d/{id}` | CSV/JSON/API | Annual | HIGH | Tax revenue tracking |
+| County Budget Data | `data.multco.us/d/{id}` | CSV/JSON/API | Annual | MEDIUM | Government spending |
+| Multnomah County Employee Compensation | `data.multco.us/d/{id}` | CSV/JSON/API | Annual | LOW | Government transparency |
+| Library Usage Statistics | `data.multco.us/d/{id}` | CSV/JSON/API | Monthly | LOW | Community engagement proxy |
+| Health Department Data | `data.multco.us/d/{id}` | CSV/JSON/API | Varies | MEDIUM | Public health metrics |
+| Homeless Population Counts (Point-in-Time) | `data.multco.us/d/{id}` | CSV/JSON/API | Annual (Jan) | HIGH | Homelessness tracking |
+| Mental Health / Addiction Services | `data.multco.us/d/{id}` | CSV/JSON/API | Quarterly | MEDIUM | Social services capacity |
+
+**To discover exact dataset IDs:** Query `https://api.us.socrata.com/api/catalog/v1?domains=data.multco.us&limit=100` or browse `https://data.multco.us/d/browse`
+
+---
+
+## Portland Bureau Data
+
+### PBOT (Transportation)
+
+Portal: `https://www.portland.gov/transportation/data`
+
+| Dataset | URL | Format | Update Freq | Relevance | Dashboard Use |
+|---------|-----|--------|-------------|-----------|---------------|
+| Vision Zero Dashboard | `https://public.tableau.com/app/profile/portland.bureau.of.transportation/viz/VisionZeroDashboard_16179023789280/VisionZeroDashboard` | Tableau (interactive) | Monthly | HIGH | Traffic fatalities/injuries, crash data |
+| Vision Zero Crash Data | ODOT official records (18mo lag); PPB crash investigation for interim | CSV via Tableau export | Annual (official), Monthly (PPB) | HIGH | "Is Portland safe?" — traffic deaths by mode |
+| Vision Zero Injuries by Severity | Via Vision Zero Dashboard | Tableau export | Annual (2017-2025 available) | HIGH | Injury trends |
+| Speed Camera Citations | Via Vision Zero Dashboard | Tableau export | Monthly | MEDIUM | Enforcement activity |
+| Pothole Map | `https://www.portland.gov/transportation/data/pothole-map` | Interactive map | Real-time | MEDIUM | City responsiveness, "Is the city functional?" |
+| Keep Portland Moving Map (ROW Permits) | `https://www.portland.gov/transportation/permitting/movepdx` | Interactive map | Real-time | MEDIUM | Construction activity tracking |
+| Curb Ramps Map | `https://www.portland.gov/transportation/data/curb-ramps` | Interactive map | As needed | LOW | ADA compliance |
+| Speed Limits Map | `https://www.portland.gov/transportation/vision-zero/speed-limit` | Interactive map | As needed | LOW | Reference |
+| PBOT Equity Matrix | `https://www.portland.gov/transportation/justice/pbot-equity-matrix-0` | Interactive (census tract) | Annual | MEDIUM | Equity analysis |
+| E-Scooter & Bike-Share Data | `https://public.ridereport.com/pdx` (redirects from portland.gov) | Ride Report platform | Continuous | MEDIUM | Micromobility usage, downtown activity |
+| PBOT Service Requests | `https://www.portlandmaps.com/arcgis/rest/services/Public/PBOT_Service_Requests/MapServer` | ArcGIS REST/GeoJSON | Daily | HIGH | Street-level conditions, city responsiveness |
+| Transportation System Plan | `https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer` | ArcGIS REST | As needed | LOW | Planning reference |
+| Transportation (routes/infrastructure) | `https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation/MapServer` | ArcGIS REST | As needed | LOW | Reference layer |
+
+### PHB (Housing Bureau)
+
+Portal: `https://www.portland.gov/phb/data-and-reports`
+
+| Dataset | URL | Format | Update Freq | Relevance | Dashboard Use |
+|---------|-----|--------|-------------|-----------|---------------|
+| PHB Budget Performance Dashboard | `https://public.tableau.com/app/profile/portland.housing.bureau/viz/PortlandHousingBureauBudgetPerformanceMeasureDashboard/PHBPerformanceManagementDashboard` | Tableau | Quarterly | HIGH | Housing bureau effectiveness |
+| Eviction Legal Defense Dashboard | `https://public.tableau.com/views/EvictionLegalDefenseDashboard/ELDDashboard` | Tableau | Monthly | HIGH | Eviction trends, tenant protection |
+| Permanent Supportive Housing Dashboard | `https://public.tableau.com/app/profile/portland.housing.bureau/viz/HousingBureauPSHDashboard/PSHDashboard` | Tableau | Quarterly | HIGH | Homelessness/housing pipeline |
+| COVID Emergency Rent Assistance | `https://public.tableau.com/app/profile/portland.housing.bureau/viz/COVIDEmergencyRentAssistancePrograms/Dashboard1` | Tableau | Historical (ended) | LOW | Reference only |
+| State of Housing Report | `https://www.portland.gov/phb/state-of-housing-report` | PDF/Report | Annual | HIGH | Comprehensive housing metrics |
+| Income/Rent Limits Calculator | `https://www.portland.gov/phb/income-rent-and-utility-limits` | Web tool | Annual (HUD updates) | MEDIUM | AMI thresholds |
+| Affordable Housing Dev Pipeline | `https://www.portland.gov/phb/affordable-housing-development` | Interactive map | Quarterly | HIGH | "Is housing getting built?" |
+| Opportunity Mapping | `https://www.portland.gov/phb/opportunity-mapping` | Interactive map | As needed | MEDIUM | Equity/access analysis |
+| Consolidated Plan & Action Plan | `https://www.portland.gov/phb/consolidated-plan-portland-gresham-and-multnomah-county` | PDF | Annual | MEDIUM | HUD compliance, spending |
+| Housing Production Work Session | `https://www.portland.gov/phb/documents/housing-production-work-session/download` | PDF | One-time (2023) | MEDIUM | Production targets |
+| Residential Dev Cost Study | `https://www.portland.gov/phb/documents/residential-development-cost-study-2024/download` | PDF | One-time (2024) | HIGH | Construction cost benchmarks |
+| PHB Rental Portfolio (GIS) | `https://www.portlandmaps.com/arcgis/rest/services/Public/PHB_Rental_Portfolio/MapServer` | ArcGIS REST/GeoJSON | Quarterly | HIGH | Affordable housing inventory map |
+
+### Water Bureau
+
+Portal: `https://www.portland.gov/water/`
+
+| Dataset | URL | Format | Update Freq | Relevance | Dashboard Use |
+|---------|-----|--------|-------------|-----------|---------------|
+| Annual Water Quality Report | `https://www.portland.gov/waterqualityreport` | PDF/Web | Annual | LOW | Infrastructure health |
+| Supplemental Water Quality (Nov 2025) | `https://www.portland.gov/water/drinking-water-quality/documents/supplemental-water-quality-data-november-2025/download` | PDF (298 KB) | 3x/year | LOW | Water quality metrics |
+| Supplemental Water Quality (Aug 2025) | `https://www.portland.gov/water/drinking-water-quality/documents/supplemental-water-quality-data-august-2025/download` | PDF (299 KB) | 3x/year | LOW | Water quality metrics |
+| Supplemental Water Quality (Apr 2025) | `https://www.portland.gov/water/drinking-water-quality/documents/supplemental-water-quality-data-april-2025/download` | PDF (297 KB) | 3x/year | LOW | Water quality metrics |
+| Cryptosporidium Monthly Monitoring | `https://www.portland.gov/water/water-quality/test-results` (monthly PDFs) | PDF | Monthly | LOW | Public health |
+| Water Quality Test Results Portal | `https://www.portland.gov/water/water-quality/test-results` | Web + PDF | Ongoing | LOW | 200+ contaminant tests |
+
+**Note:** Water Bureau data is primarily PDF-based reports, not machine-readable. System stats: 2,250 mi pipe, 95M gal/day, 193K meters, 15K hydrants.
+
+### Police Bureau (Tableau CSV Downloads)
+
+All PPB open data is accessed through Tableau Public dashboards. CSV export available via "Download Data" tabs.
+
+**Tableau Public Profile:** `https://public.tableau.com/app/profile/portlandpolicebureau`
+**Contact:** ppbopendata@police.portlandoregon.gov
+
+| Dataset | Tableau Public URL | Update Freq | Relevance |
+|---------|-------------------|-------------|-----------|
+| Monthly Reported Crime Statistics | `https://public.tableau.com/app/profile/portlandpolicebureau/viz/MonthlyReportedCrimeStatistics/MonthlyStatistics` | Monthly | HIGH |
+| Reported Crime Trend Report | `https://public.tableau.com/app/profile/portlandpolicebureau/viz/ReportedCrimeTrendReport/YTDComparison` | Monthly | HIGH |
+| Dispatched Calls for Service | `https://public.tableau.com/app/profile/portlandpolicebureau/viz/DispatchedCallsforService/DispatchedCalls` | Monthly | HIGH |
+| Shooting Incident Statistics | `https://public.tableau.com/views/PortlandShootingIncidentStatistics/ShootingIncidentStatistics` | Monthly | HIGH |
+| Gun Violence Trends Report | `https://public.tableau.com/app/profile/portlandpolicebureau/viz/GunViolenceTrendsReport/YeartoDateRollingYearStatistics` | Monthly | HIGH |
+| Stolen Vehicle Statistics | `https://public.tableau.com/views/MonthlyStolenVehicleStatistics/Dashboard` | Monthly | HIGH |
+| Business Districts Crime Summary | `https://public.tableau.com/views/PortlandBusinessDistrictCrime/BusinessDistricts` | Monthly | HIGH |
+| Use of Force Audit Report | `https://public.tableau.com/app/profile/portlandpolicebureau/viz/ForceAuditReport/Summary` | Quarterly | MEDIUM |
+| Overtime Dashboard | `https://public.tableau.com/views/OvertimeDashboard-public/OTHoursbyMonth` | Monthly | MEDIUM |
+
+**Programmatic CSV export from Tableau Public:**
+```
+https://public.tableau.com/views/{WorkbookName}/{SheetName}.csv
+```
+
+**Alternative crime data:** `https://www.portlandoregon.gov/police/71978` — Monthly Neighborhood Offense Statistics (NIBRS Group A since May 2015)
+
+---
+
+## TriMet Transit Data
+
+Portal: `https://developer.trimet.org/`
+Authentication: Free AppID (register at developer.trimet.org)
+
+### GTFS Static Data
+
+| Resource | URL | Format | Update Freq | Relevance |
+|----------|-----|--------|-------------|-----------|
+| GTFS Schedule Data | `https://developer.trimet.org/schedule/gtfs.zip` | GTFS ZIP | Each service change (~quarterly) | HIGH |
+| GTFS-RT Trip Updates | `https://developer.trimet.org/ws/V1/TripUpdate?appID={appid}` | Protocol Buffers | Real-time | MEDIUM |
+| GTFS-RT Vehicle Positions | `https://developer.trimet.org/ws/V1/VehiclePosition?appID={appid}` | Protocol Buffers | Real-time | MEDIUM |
+| GTFS-RT Service Alerts | `https://developer.trimet.org/ws/V1/FeedMessage?appID={appid}` | Protocol Buffers | Real-time | LOW |
+
+### REST API Web Services
+
+| Service | Endpoint | Format | Description | Relevance |
+|---------|----------|--------|-------------|-----------|
+| Arrivals V2 | `https://developer.trimet.org/ws/V2/arrivals?locIDs={stop_ids}&appID={appid}` | JSON/XML | Real-time arrival predictions by stop | HIGH |
+| Trip Planner | `https://developer.trimet.org/ws/V1/trips/tripplanner?fromPlace={lat,lng}&toPlace={lat,lng}&appID={appid}` | JSON/XML | Route planning | LOW |
+| Stops | `https://developer.trimet.org/ws/V1/stops?ll={lat},{lng}&feet={radius}&appID={appid}` | JSON/XML | Stop locations and details | MEDIUM |
+| Routes | `https://developer.trimet.org/ws/V1/routeConfig?appID={appid}` | JSON/XML | Route configurations | MEDIUM |
+| Detours | `https://developer.trimet.org/ws/V1/detours?appID={appid}` | JSON/XML | Active service detours | LOW |
+| Vehicles | `https://developer.trimet.org/ws/v2/vehicles?appID={appid}` | JSON/XML | Vehicle locations | MEDIUM |
+
+### Ridership Data (Historical)
+
+| Resource | URL | Format | Update Freq | Relevance |
+|----------|-----|--------|-------------|-----------|
+| TriMet Ridership Statistics | `https://trimet.org/about/ridership.htm` | Web/PDF | Quarterly | HIGH |
+| Annual Ridership Data | `https://trimet.org/about/pdf/trimetridership.pdf` | PDF | Annual | HIGH |
+| NTD Transit Agency Profile | `https://www.transit.dot.gov/ntd/transit-agency-profiles/trimet` | CSV | Annual | HIGH |
+
+**Dashboard use:** "Is downtown coming back?" — ridership trends as foot traffic proxy, route-level recovery
+
+---
+
+## Metro Regional Data
+
+Portal: `https://www.oregonmetro.gov/tools-partners/data-resource-center`
+RLIS Discovery: `https://rlisdiscovery.oregonmetro.gov/`
+Socrata Discovery: `https://api.us.socrata.com/api/catalog/v1?domains=data.oregonmetro.gov&limit=100`
+
+### RLIS (Regional Land Information System)
+
+RLIS is the primary GIS data repository for the Portland metro region. Subscription-based for full access, many layers freely available.
+
+| Dataset | Access Method | Format | Update Freq | Relevance | Dashboard Use |
+|---------|--------------|--------|-------------|-----------|---------------|
+| Taxlots (Regional) | RLIS subscription / ArcGIS REST | Shapefile/GDB/GeoJSON | Quarterly | HIGH | Property analysis across metro |
+| Zoning (Regional) | RLIS subscription / ArcGIS REST | Shapefile/GDB | As amended | HIGH | Development potential |
+| Urban Growth Boundary (UGB) | Free download via Metro | Shapefile/GeoJSON | As amended | HIGH | Growth boundary tracking |
+| Building Footprints (Regional) | RLIS subscription | Shapefile/GDB | Annual | MEDIUM | Building stock analysis |
+| Transit Routes & Stops | RLIS / TriMet GTFS | Shapefile/GTFS | Quarterly | MEDIUM | Transit coverage |
+| Bike Network | RLIS subscription | Shapefile | Annual | LOW | Active transport |
+| Street Centerlines | RLIS subscription | Shapefile | Monthly | MEDIUM | Address matching |
+| Aerial Photography | RLIS subscription | GeoTIFF/MrSID | Annual | LOW | Visual reference |
+| Natural Areas | Free via Metro | Shapefile | As needed | LOW | Parks/environment |
+| Census Geography (Tracts/Blocks) | Free via Metro | Shapefile | Decennial | MEDIUM | Demographic analysis |
+
+### Metro Open Data (Socrata)
+
+| Dataset | Expected Endpoint | Format | Update Freq | Relevance |
+|---------|------------------|--------|-------------|-----------|
+| Regional Population Estimates | `data.oregonmetro.gov/d/{id}` | CSV/JSON/API | Annual | HIGH |
+| Housing Production Data | `data.oregonmetro.gov/d/{id}` | CSV/JSON/API | Annual | HIGH |
+| Regional Employment Data | `data.oregonmetro.gov/d/{id}` | CSV/JSON/API | Quarterly | HIGH |
+| Urban Growth Report Data | `data.oregonmetro.gov/d/{id}` | CSV/JSON/API | Every 5 years | MEDIUM |
+| Solid Waste/Recycling Data | `data.oregonmetro.gov/d/{id}` | CSV/JSON/API | Annual | LOW |
+| Parks & Natural Areas Visitors | `data.oregonmetro.gov/d/{id}` | CSV/JSON/API | Annual | LOW |
+
+**Note:** Exact Socrata dataset IDs need discovery via catalog API or browsing `data.oregonmetro.gov`.
+
+### Metro GIS REST Services
+
+| Service | URL | Format | Relevance |
+|---------|-----|--------|-----------|
+| RLIS ArcGIS Server | `https://gis.oregonmetro.gov/arcgis/rest/services/` | ArcGIS REST | HIGH |
+| RLIS Discovery Portal | `https://rlisdiscovery.oregonmetro.gov/` | Web catalog | HIGH |
+| Metro Maps (public viewer) | `https://gis.oregonmetro.gov/metromap/` | Web map | LOW |
+
+---
+
+## Deep Crawl Notes (2026-03-15)
+
+### Successfully Crawled
+- `portland.gov/transportation/data` — full PBOT data inventory
+- `portland.gov/phb/data-and-reports` — all Tableau dashboard URLs for housing
+- `portland.gov/police/open-data` + 6 sub-pages — all Tableau workbook URLs extracted
+- `portland.gov/police/open-data/reported-crime-data` — Tableau URLs for crime dashboards
+- `portland.gov/police/open-data/police-dispatched-calls` — dispatch dashboard URL
+- `portland.gov/police/open-data/shooting-incident-statistics` — shooting + gun violence URLs
+- `portland.gov/police/open-data/stolen-vehicle-statistics` — stolen vehicle dashboard URL
+- `portland.gov/police/open-data/business-districts-crime-summary` — business district crime URL
+- `portland.gov/police/open-data/ppb-use-force-dashboard` — use of force URL
+- `portland.gov/police/open-data/police-overtime` — overtime dashboard URL
+- `portland.gov/water/water-quality/test-results` — water quality downloads
+- `portland.gov/water/about-portlands-water-system` — system statistics
+- `portland.gov/transportation/vision-zero/vision-zero-dashboard` — crash data sources
+
+### Rate-Limited / Needs Follow-Up
+- `data.multco.us` — Socrata portal confirmed but catalog not fully enumerated
+- `developer.trimet.org/ws_docs.htm` — API docs not fully crawled; endpoints documented from known docs
+- `data.oregonmetro.gov` — Socrata catalog not enumerated
+- `rlisdiscovery.oregonmetro.gov` — RLIS layer catalog not fully crawled
+- `public.tableau.com/app/profile/portlandpolicebureau` — full workbook list not retrieved
+- `public.ridereport.com/pdx` — e-scooter/bikeshare portal (redirects from portland.gov)
+
+### Recommended Follow-Up Commands
+```bash
+# Enumerate Multnomah County Socrata datasets
+curl -s "https://api.us.socrata.com/api/catalog/v1?domains=data.multco.us&limit=100" | python3 -m json.tool
+
+# Enumerate Metro Socrata datasets
+curl -s "https://api.us.socrata.com/api/catalog/v1?domains=data.oregonmetro.gov&limit=100" | python3 -m json.tool
+
+# Enumerate RLIS GIS layers
+curl -s "https://gis.oregonmetro.gov/arcgis/rest/services/?f=json" | python3 -m json.tool
+
+# Get full TriMet API documentation
+curl -s "https://developer.trimet.org/ws_docs.htm"
+```
