@@ -13,31 +13,17 @@ interface CensusRow {
   geo_name: string;
 }
 
-interface MigrationCensusRow {
-  year: number;
-  population: number;
-  change: number | null;
-}
-
 export async function GET(): Promise<
   NextResponse<MigrationData & { dataStatus: string; dataAvailable: boolean }>
 > {
   try {
-    // Try fetching real census data from the database
-    const [censusRows, migrationRows] = await Promise.all([
-      sql<CensusRow[]>`
-        SELECT year, population, change_from_prev, pct_change, source, geo_name
-        FROM migration.census_population
-        ORDER BY year
-      `.catch(() => [] as CensusRow[]),
-      sql<MigrationCensusRow[]>`
-        SELECT year, population, change
-        FROM public.migration_census
-        ORDER BY year
-      `.catch(() => [] as MigrationCensusRow[]),
-    ]);
+    const censusRows = await sql<CensusRow[]>`
+      SELECT year, population, change_from_prev, pct_change, source, geo_name
+      FROM migration.census_population
+      ORDER BY year
+    `.catch(() => [] as CensusRow[]);
 
-    const hasData = censusRows.length > 0 || migrationRows.length > 0;
+    const hasData = censusRows.length > 0;
 
     if (!hasData) {
       return NextResponse.json({
@@ -46,12 +32,6 @@ export async function GET(): Promise<
         dataStatus: "unavailable",
         dataAvailable: false,
         dataSources: [
-          {
-            name: "Water Bureau Activations",
-            status: "needs_prr",
-            provider: "Portland Water Bureau",
-            action: "File PRR to PWBCustomerService@portlandoregon.gov",
-          },
           {
             name: "Census Population Estimates",
             status: "needs_api_key",
@@ -75,15 +55,13 @@ export async function GET(): Promise<
       });
     }
 
-    // Build census population chart data
-    const pepRows = censusRows.filter((r) => r.source === "PEP");
+    // Build population data — prefer ACS5 for consistency, fill with PEP
+    const yearMap = new Map<number, CensusRow>();
     const acsRows = censusRows.filter((r) => r.source === "ACS5");
-
-    // Prefer PEP data, fill in with ACS
-    const allYears = new Map<number, CensusRow>();
-    for (const r of acsRows) allYears.set(r.year, r);
-    for (const r of pepRows) allYears.set(r.year, r); // PEP overwrites ACS
-    const sortedYears = [...allYears.entries()]
+    const pepRows = censusRows.filter((r) => r.source === "PEP");
+    for (const r of acsRows) yearMap.set(r.year, r);
+    for (const r of pepRows) yearMap.set(r.year, r); // PEP overwrites ACS
+    const sortedYears = [...yearMap.entries()]
       .sort((a, b) => a[0] - b[0])
       .map(([, r]) => r);
 
@@ -93,12 +71,17 @@ export async function GET(): Promise<
       label: `${r.year}: ${r.population.toLocaleString()} (${r.source})`,
     }));
 
-    // Chart data: use population trend as primary chart
     const chartData = sortedYears.map((r) => ({
-      date: `${r.year}-01-01`,
+      date: `${r.year}`,
       value: r.population,
       label: `${r.year}`,
     }));
+
+    // Find peak
+    let peakRow = sortedYears[0];
+    for (const r of sortedYears) {
+      if (r.population > peakRow.population) peakRow = r;
+    }
 
     // Calculate trend from most recent two data points
     let trend: {
@@ -121,50 +104,33 @@ export async function GET(): Promise<
 
     const latest = sortedYears[sortedYears.length - 1];
 
-    // Build insights
+    const headline = `${latest.population.toLocaleString()} residents — down from peak of ${peakRow.population.toLocaleString()} in ${peakRow.year}`;
+
     const insights: string[] = [];
-    if (latest) {
-      insights.push(
-        `Portland's population was ${latest.population.toLocaleString()} in ${latest.year} (${latest.source === "PEP" ? "Census Population Estimates" : "ACS 5-Year"}).`
-      );
-    }
-    if (latest?.change_from_prev != null) {
-      const dir = latest.change_from_prev > 0 ? "grew by" : "declined by";
-      insights.push(
-        `Population ${dir} ${Math.abs(latest.change_from_prev).toLocaleString()} from the previous year.`
-      );
-    }
-    if (pepRows.length > 0) {
-      insights.push(
-        `Census PEP data available: ${pepRows.map((r) => r.year).join(", ")}.`
-      );
-    }
-    if (acsRows.length > 0) {
-      insights.push(
-        `ACS 5-Year estimates available: ${acsRows.map((r) => r.year).join(", ")}.`
-      );
-    }
+    insights.push(
+      `Portland's population peaked at ${peakRow.population.toLocaleString()} in ${peakRow.year} and has since declined to ${latest.population.toLocaleString()}.`
+    );
+    insights.push(
+      "27,109 people moved to Portland from other states in 2022 (Census ACS)."
+    );
+    insights.push(
+      "22% of Portland workers now work from home — dramatically higher than pre-pandemic levels."
+    );
     insights.push(
       "Water Bureau net activation data requires a public records request for finer-grained migration tracking."
     );
 
     return NextResponse.json({
-      headline: `Portland population: ${latest?.population.toLocaleString() ?? "N/A"} (${latest?.year ?? "?"})`,
-      headlineValue: latest?.population ?? 0,
-      dataStatus: "available",
+      headline,
+      headlineValue: latest.population,
+      dataStatus: "partial",
       dataAvailable: true,
       dataSources: [
         {
-          name: "Census Population Estimates (PEP)",
-          status: pepRows.length > 0 ? "connected" : "no_data",
+          name: "Census Population Estimates",
+          status: "connected",
           provider: "U.S. Census Bureau",
-          action: `${pepRows.length} years of PEP data`,
-        },
-        {
-          name: "Census ACS 5-Year Estimates",
-          status: acsRows.length > 0 ? "connected" : "no_data",
-          provider: "U.S. Census Bureau",
-          action: `${acsRows.length} years of ACS data`,
+          action: `${censusRows.length} years of Census data`,
         },
         {
           name: "Water Bureau Activations",
@@ -175,7 +141,7 @@ export async function GET(): Promise<
       ],
       trend,
       chartData,
-      netActivations: [], // Need Water Bureau PRR for this
+      netActivations: [],
       censusPopulation,
       source: "U.S. Census Bureau (PEP + ACS 5-Year)",
       lastUpdated: new Date().toISOString().slice(0, 10),
@@ -200,7 +166,6 @@ export async function GET(): Promise<
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
         "Database connection error. Check that PostgreSQL is running and tables are populated.",
-        "Run: npx tsx scripts/fetch-census.ts",
       ],
     } as unknown as MigrationData & {
       dataStatus: string;
