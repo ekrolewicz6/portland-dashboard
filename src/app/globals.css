@@ -36,28 +36,36 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    /* Responsive base font size: scales up significantly on larger screens */
-    font-size: 16px;
-  }
-
-  /* Fluid typography for wider displays */
-  @media (min-width: 1280px) {
-    html { font-size: 18px; }
-  }
-  @media (min-width: 1536px) {
-    html { font-size: 20px; }
-  }
-  @media (min-width: 1920px) {
-    html { font-size: 22px; }
-  }
-  @media (min-width: 2560px) {
-    html { font-size: 24px; }
+    /* Fluid base font — scales smoothly with viewport width */
+    /* 1280px → 18px, 1920px → 21px, 2560px → 24px */
+    font-size: clamp(17px, 0.55vw + 11px, 26px);
   }
 
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
     line-height: 1.6;
+    /* Minimum font size for readability on large displays */
+    min-font-size: 14px;
+  }
+
+  /* Scale up small hardcoded font sizes on larger viewports */
+  @media (min-width: 1280px) {
+    /* These override Tailwind's arbitrary values for readability */
+    [class*="text-\[10px\]"] { font-size: 12px !important; }
+    [class*="text-\[11px\]"] { font-size: 13px !important; }
+    [class*="text-\[12px\]"] { font-size: 14px !important; }
+    [class*="text-\[13px\]"] { font-size: 15px !important; }
+    [class*="text-\[14px\]"] { font-size: 16px !important; }
+  }
+
+  @media (min-width: 1920px) {
+    [class*="text-\[10px\]"] { font-size: 14px !important; }
+    [class*="text-\[11px\]"] { font-size: 15px !important; }
+    [class*="text-\[12px\]"] { font-size: 16px !important; }
+    [class*="text-\[13px\]"] { font-size: 17px !important; }
+    [class*="text-\[14px\]"] { font-size: 18px !important; }
+    [class*="text-\[15px\]"] { font-size: 19px !important; }
   }
 
   ::selection {
