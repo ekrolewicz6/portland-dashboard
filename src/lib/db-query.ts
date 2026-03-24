@@ -61,7 +61,12 @@ export async function getCachedData<T>(question: string): Promise<T | null> {
 
     if (updatedAt < oneHourAgo) return null;
 
-    return row.data as T;
+    // Validate cached data isn't a poisoned error response
+    const cached = row.data as Record<string, unknown>;
+    if (cached && cached.dataStatus === "unavailable") return null;
+    if (cached && !cached.headline && !cached.dataAvailable) return null;
+
+    return cached as T;
   } catch {
     return null;
   }
