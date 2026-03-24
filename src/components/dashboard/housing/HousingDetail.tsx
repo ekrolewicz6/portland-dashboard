@@ -441,106 +441,67 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 1b. Permit Review Bottlenecks — WHERE the process is broken */}
+      {/* 1b. Permit Review Bottlenecks — full table */}
       {bottleneckData && bottleneckData.ranking.length > 0 && (
         <section>
-          <SectionHeader icon={AlertTriangle} title="Permit Review Bottlenecks (Portland Maps Activity Data)" color="#b85c3a" />
+          <SectionHeader icon={AlertTriangle} title="Every Review Step: How Long and How Common" color="#b85c3a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
-              Median days from permit setup to completion for each review type. Based on {bottleneckData.total_permits_analyzed.toLocaleString()} permits ({bottleneckData.date_range?.earliest ?? "?"} to {bottleneckData.date_range?.latest ?? "?"}).
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-1">
+              Every review step in the permit process, sorted by average delay. Based on {bottleneckData.total_permits_analyzed.toLocaleString()} permits ({bottleneckData.date_range?.earliest ?? "?"} to {bottleneckData.date_range?.latest ?? "?"}).
+            </p>
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              {bottleneckData.correction_stats.pct_with_corrections}% of permits require corrections (avg {bottleneckData.correction_stats.avg_rounds.toFixed(1)} rounds).
             </p>
 
-            {/* Horizontal bar chart */}
-            <div className="space-y-2.5">
-              {bottleneckData.ranking
-                .filter((r) => r.avg_days_to_complete > 0)
-                .slice(0, 12)
-                .map((entry, i) => {
-                  const maxDays = bottleneckData.ranking[0]?.avg_days_to_complete || 1;
-                  const pct = Math.round(
-                    (entry.avg_days_to_complete / maxDays) * 100
-                  );
-                  const isWorst = i === 0;
-                  const barColor = isWorst
-                    ? "#b85c3a"
-                    : entry.avg_days_to_complete > 60
-                      ? "#c8956c"
-                      : "#3d7a5a";
-
-                  return (
-                    <div key={entry.activity_type} className="flex items-center gap-3">
-                      <span
-                        className={`text-[12px] w-[160px] text-right flex-shrink-0 truncate ${
-                          isWorst
-                            ? "font-semibold text-[#b85c3a]"
-                            : "text-[var(--color-ink-light)]"
-                        }`}
-                      >
-                        {entry.activity_type}
-                      </span>
-                      <div className="flex-1 h-7 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden relative">
-                        <div
-                          className="h-full rounded-sm transition-all duration-700"
-                          style={{
-                            width: `${Math.max(pct, 4)}%`,
-                            backgroundColor: barColor,
-                          }}
-                        />
-                        {isWorst && (
-                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono font-bold text-[#b85c3a]">
-                            SLOWEST
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-[12px] font-mono font-semibold w-[55px] text-right">
-                        {entry.avg_days_to_complete.toFixed(0)}d
-                      </span>
-                      <span className="text-[11px] font-mono text-[var(--color-ink-muted)] w-[50px] text-right">
-                        {entry.pct_is_last_review > 0
-                          ? `${entry.pct_is_last_review.toFixed(0)}%`
-                          : ""}
-                      </span>
-                    </div>
-                  );
-                })}
-            </div>
-
-            {/* Legend */}
-            <div className="mt-4 pt-4 border-t border-[var(--color-parchment)] flex flex-wrap gap-x-6 gap-y-1">
-              <span className="text-[11px] text-[var(--color-ink-muted)]">
-                Bar = avg days from setup to completion
-              </span>
-              <span className="text-[11px] text-[var(--color-ink-muted)]">
-                Right column = % of permits where this review finished last
-              </span>
-            </div>
-
-            {/* Correction stats summary */}
-            <div className="mt-4 pt-4 border-t border-[var(--color-parchment)] grid grid-cols-3 gap-4">
-              <div className="text-center">
-                <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                  {bottleneckData.correction_stats.avg_rounds.toFixed(1)}
-                </p>
-                <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">
-                  avg correction rounds
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                  {bottleneckData.correction_stats.pct_with_corrections}%
-                </p>
-                <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">
-                  permits need corrections
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                  {bottleneckData.total_permits_analyzed.toLocaleString()}
-                </p>
-                <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">
-                  permits analyzed
-                </p>
-              </div>
+            {/* Full table */}
+            <div className="overflow-x-auto">
+              <table className="w-full text-[12px]">
+                <thead>
+                  <tr className="border-b border-[var(--color-parchment)] text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider">
+                    <th className="text-left py-2 pr-3">Review Step</th>
+                    <th className="text-right py-2 px-2">Avg Days</th>
+                    <th className="text-right py-2 px-2">Median</th>
+                    <th className="text-right py-2 px-2">Permits</th>
+                    <th className="text-left py-2 pl-3 w-[40%]">Delay</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bottleneckData.ranking
+                    .filter((r) => r.avg_days_to_complete > 0 && r.total_permits_reviewed >= 3)
+                    .map((entry, i) => {
+                      const maxDays = bottleneckData.ranking[0]?.avg_days_to_complete || 1;
+                      const pct = Math.round((entry.avg_days_to_complete / maxDays) * 100);
+                      const severity = entry.avg_days_to_complete > 120 ? "#b85c3a"
+                        : entry.avg_days_to_complete > 60 ? "#c8956c"
+                        : entry.avg_days_to_complete > 30 ? "#d4a574"
+                        : "#3d7a5a";
+                      return (
+                        <tr key={entry.activity_type} className="border-b border-[var(--color-parchment)]/50">
+                          <td className="py-1.5 pr-3 text-[var(--color-ink-light)]" style={i === 0 ? { color: "#b85c3a", fontWeight: 600 } : {}}>
+                            {entry.activity_type}
+                          </td>
+                          <td className="py-1.5 px-2 text-right font-mono font-semibold" style={{ color: severity }}>
+                            {entry.avg_days_to_complete.toFixed(0)}d
+                          </td>
+                          <td className="py-1.5 px-2 text-right font-mono text-[var(--color-ink-muted)]">
+                            {entry.median_days_to_complete.toFixed(0)}d
+                          </td>
+                          <td className="py-1.5 px-2 text-right font-mono text-[var(--color-ink-muted)]">
+                            {entry.total_permits_reviewed.toLocaleString()}
+                          </td>
+                          <td className="py-1.5 pl-3">
+                            <div className="h-4 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                              <div
+                                className="h-full rounded-sm"
+                                style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: severity }}
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
