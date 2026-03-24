@@ -222,24 +222,12 @@ export default function HousingDetail() {
         <section>
           <SectionHeader icon={Home} title="Housing Permits Issued by Type (Real Permit Data)" color="#b85c3a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
-              Housing permits issued by type per quarter from the ArcGIS BDS dataset.
-            </p>
-            <p className="text-[12px] text-[var(--color-clay)] mb-4 font-mono">
-              ⚠ Important: The 2023 spike and subsequent decline is partly a data artifact. The ArcGIS dataset loaded a batch of permits with 2023 application dates that were issued over 2023-2026. The decline after 2023 reflects the clearing of that batch, not necessarily a real collapse in new construction starts. For accurate new-start data, we need permits grouped by APPLICATION date from the Portland Maps detail API.
+            <p className="text-[14px] text-[var(--color-ink-muted)] mb-4">
+              Housing permits issued by type per quarter. Source: Portland BDS via ArcGIS ({housingCreation.length} quarters).
             </p>
 
-            {/* Story callout — honest about data limitations */}
-            <div className="story-callout mb-6">
-              <p>
-                Portland&apos;s housing pipeline is under severe pressure. The ArcGIS permit data shows a massive batch of permits processed in 2023 followed by dramatically fewer issuances — but the true rate of NEW construction starts requires application-date data that isn&apos;t reliably available in the bulk dataset.
-              </p>
-              <cite>Portland BDS Permit Data — interpret with caution (see note above)</cite>
-            </div>
-
-            {/* Stacked view by type */}
             <MultiLineChart
-              data={housingCreation.map((r) => ({
+              data={housingCreation.filter((r) => r.total > 0).map((r) => ({
                 quarter: r.quarter,
                 "Single Family": r.singleFamily,
                 "Apartments/Townhouses": r.multifamily,
@@ -258,9 +246,10 @@ export default function HousingDetail() {
               ]}
             />
 
-            {/* Latest quarter breakdown */}
+            {/* Latest quarter with actual data */}
             {(() => {
-              const latest = housingCreation[housingCreation.length - 1];
+              // Find the last quarter that has permits (skip future/empty quarters)
+              const latest = [...housingCreation].reverse().find((q) => q.total > 0);
               if (!latest) return null;
               const types = [
                 { label: "Single Family", value: latest.singleFamily, color: "#3d7a5a" },
