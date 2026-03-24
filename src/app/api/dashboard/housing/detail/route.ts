@@ -466,7 +466,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         count(DISTINCT permit_number) FILTER (WHERE permit_type_mapped = 'Accessory Dwelling Unit')::int as adus,
         count(DISTINCT permit_number) FILTER (WHERE permit_type_mapped IN ('Apartments/Condos (3 or more units)', 'Townhouse (3 or more units)', 'Commercial/Multifamily'))::int as multifamily
       FROM housing.permits
-      WHERE final_date IS NOT NULL AND final_date >= '2020-01-01'
+      WHERE final_date IS NOT NULL AND final_date >= '2023-07-01'
         AND permit_type IN ('Residential 1 & 2 Family Permit', 'Commercial Building Permit', 'Facility Permit', 'Housing')
       GROUP BY 1 ORDER BY 1
     `;
@@ -493,7 +493,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       const totalADUs = completions.reduce((sum, r) => sum + r.adus, 0);
       const latestQ = completions[completions.length - 1];
       topInsights.push(
-        `${totalCompleted.toLocaleString()} housing permits completed (finaled) since 2020. ${totalADUs} were ADUs. Latest quarter (${latestQ.quarter}): ${latestQ.total} completions.`
+        `${totalCompleted.toLocaleString()} housing permits completed (finaled) since Q3 2023. ${totalADUs} were ADUs. Latest quarter (${latestQ.quarter}): ${latestQ.total} completions.`
       );
     }
 
