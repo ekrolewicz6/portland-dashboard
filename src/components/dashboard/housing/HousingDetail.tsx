@@ -420,36 +420,69 @@ export default function HousingDetail() {
           };
         }).filter((t) => t["Total Process"] > 0);
 
-        const peak = durationTrend.reduce((max, t) => t["Total Process"] > max["Total Process"] ? t : max, durationTrend[0]);
-        const recent = durationTrend[durationTrend.length - 2];
-        const pctImproved = peak && recent ? Math.round((1 - recent["Total Process"] / peak["Total Process"]) * 100) : 0;
+        // Permits take ~200 days median. Quarters less than 9 months old have incomplete data.
+        // Mark last 3 quarters as "incomplete" — their numbers are artificially low.
+        const incompleteCount = 3;
+        const reliableData = durationTrend.slice(0, -incompleteCount);
+        const incompleteData = durationTrend.slice(-incompleteCount);
+
+        // Use last reliable quarter for the improvement callout, not the most recent
+        const peak = reliableData.reduce((max, t) => t["Total Process"] > max["Total Process"] ? t : max, reliableData[0]);
+        const lastReliable = reliableData[reliableData.length - 1];
+        const pctImproved = peak && lastReliable ? Math.round((1 - lastReliable["Total Process"] / peak["Total Process"]) * 100) : 0;
+
+        // Build chart data: reliable lines + faded incomplete lines
+        const chartData = [
+          ...reliableData,
+          ...incompleteData.map((d) => ({
+            ...d,
+            "Total Process (incomplete)": d["Total Process"],
+            "Time to Approve (incomplete)": d["Time to Approve"],
+            "Total Process": reliableData.length > 0 ? null : d["Total Process"],
+            "Time to Approve": reliableData.length > 0 ? null : d["Time to Approve"],
+            "Construction Time": null,
+          })),
+        ];
+
+        // Bridge: duplicate last reliable point into incomplete series for continuity
+        if (reliableData.length > 0 && incompleteData.length > 0) {
+          const bridge = reliableData[reliableData.length - 1];
+          const bridgeIdx = reliableData.length - 1;
+          chartData[bridgeIdx] = {
+            ...chartData[bridgeIdx],
+            "Total Process (incomplete)": bridge["Total Process"],
+            "Time to Approve (incomplete)": bridge["Time to Approve"],
+          };
+        }
 
         return (
         <section>
           <SectionHeader icon={TrendingUp} title="Is the Permitting Process Getting Faster or Slower?" color="#b85c3a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            {pctImproved > 10 && peak && recent && (
+            {pctImproved > 10 && peak && lastReliable && (
               <div className="bg-[#3d7a5a]/[0.06] border border-[#3d7a5a]/15 rounded-sm p-3 mb-4">
                 <p className="text-[13px] text-[var(--color-ink)]">
                   <span className="font-semibold text-[#3d7a5a]">Improving.</span>{" "}
                   Total time down <span className="font-mono font-semibold">{pctImproved}%</span> from peak of{" "}
                   <span className="font-mono">{peak["Total Process"]}d</span> ({peak.period}) to{" "}
-                  <span className="font-mono">{recent["Total Process"]}d</span> ({recent.period}).
-                  Recent quarters may appear lower due to incomplete data.
+                  <span className="font-mono">{lastReliable["Total Process"]}d</span> ({lastReliable.period}).
                 </p>
               </div>
             )}
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
               For permits set up each quarter: how long to get approved vs. how long from approval to final sign-off.
+              <span className="text-[var(--color-clay)]"> Faded lines = recent quarters where many permits are still in progress (data incomplete).</span>
             </p>
             <MultiLineChart
-              data={durationTrend}
+              data={chartData}
               xKey="period"
               height={340}
               lines={[
                 { key: "Time to Approve", label: "Review & Approval", color: "#4a7f9e" },
                 { key: "Construction Time", label: "Construction to Final", color: "#c8956c" },
                 { key: "Total Process", label: "Total", color: "#b85c3a" },
+                { key: "Time to Approve (incomplete)", label: "Review (incomplete)", color: "#4a7f9e", dashed: true },
+                { key: "Total Process (incomplete)", label: "Total (incomplete)", color: "#b85c3a", dashed: true },
               ]}
             />
           </div>
