@@ -69,11 +69,17 @@ export async function getCachedData<T>(question: string): Promise<T | null> {
 
 /**
  * Store computed data in the dashboard_cache table.
+ * Refuses to cache responses that look like error/empty states.
  */
 export async function setCachedData(
   question: string,
   data: unknown,
 ): Promise<void> {
+  // Don't cache error responses — they'll poison the cache
+  const d = data as Record<string, unknown> | null;
+  if (!d || d.dataStatus === "unavailable" || (!d.headline && !d.dataAvailable)) {
+    return;
+  }
   try {
     await sql`
       INSERT INTO public.dashboard_cache (question, data, updated_at)
