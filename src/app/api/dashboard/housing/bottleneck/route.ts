@@ -50,6 +50,22 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
       'Facilities Process Management',
       'Under Inspection',
       'Plat Issuance',
+      'Enforcement',
+      'Permit Expiration',
+      'E - Code Compliance',
+      'Tree Inspections',
+      'Deconstruction Inspections',
+      'Sign Inspections',
+      'City Attorney',
+      'Bond/Insurance PW',
+      'Pre-Issuance PW',
+      'Permit Frontage',
+      'Deconstruction',
+      'Intake',
+      'Home Occupation Permit Issuance',
+      'Revenue',
+      'Multnomah County',
+      'Trade Permits',
     ];
     const rankingRows = await sql`
       SELECT

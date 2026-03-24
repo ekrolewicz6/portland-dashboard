@@ -19,7 +19,10 @@ import postgres from "postgres";
 const DB_URL =
   process.env.DATABASE_URL ||
   "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
-const sql = postgres(DB_URL);
+const isPooled = DB_URL.includes("pooler.supabase.com");
+const sql = postgres(DB_URL, {
+  ...(isPooled ? { prepare: false } : {}),
+});
 
 const SCRIPT_DIR = import.meta.dirname ?? path.dirname(new URL(import.meta.url).pathname);
 const DATA_DIR = path.resolve(SCRIPT_DIR, "..", "data");
