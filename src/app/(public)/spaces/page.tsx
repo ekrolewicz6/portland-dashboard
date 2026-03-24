@@ -71,6 +71,18 @@ export default function SpacesPage() {
 
   return (
     <div className="bg-[var(--color-paper)]">
+      {/* Demo data banner */}
+      <div className="bg-[var(--color-ember)]/10 border-b border-[var(--color-ember)]/20">
+        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-3 flex items-center gap-3">
+          <span className="text-[11px] font-semibold text-[var(--color-clay)] bg-[var(--color-ember)]/20 px-2 py-0.5 rounded-sm uppercase tracking-wider">
+            Preview
+          </span>
+          <p className="text-[13px] text-[var(--color-clay)]">
+            This page shows sample listings to demonstrate the platform. Real commercial space data is coming soon.
+          </p>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative bg-[var(--color-canopy)] text-white overflow-hidden">
         {/* Subtle grid pattern */}

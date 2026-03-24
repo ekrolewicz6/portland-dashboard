@@ -103,6 +103,18 @@ export default function ListingDetailPage({ params }: PageProps) {
 
   return (
     <div className="bg-[var(--color-paper)]">
+      {/* Demo data banner */}
+      <div className="bg-[var(--color-ember)]/10 border-b border-[var(--color-ember)]/20">
+        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-3 flex items-center gap-3">
+          <span className="text-[11px] font-semibold text-[var(--color-clay)] bg-[var(--color-ember)]/20 px-2 py-0.5 rounded-sm uppercase tracking-wider">
+            Preview
+          </span>
+          <p className="text-[13px] text-[var(--color-clay)]">
+            This is a sample listing for demonstration purposes. Real commercial space data is coming soon.
+          </p>
+        </div>
+      </div>
+
       {/* Breadcrumb */}
       <div className="bg-[var(--color-canopy)] border-b border-white/10">
         <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-4">
@@ -363,21 +375,19 @@ export default function ListingDetailPage({ params }: PageProps) {
                 )}
               </div>
 
-              <a
-                href={`mailto:${listing.contact_email || "leasing@portlandcommons.org"}?subject=Inquiry: ${listing.title}`}
-                className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-[var(--color-canopy)] text-white text-[14px] font-semibold rounded-sm hover:bg-[var(--color-canopy-mid)] transition-colors mb-3"
+              <div
+                className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-[var(--color-canopy)]/40 text-white/60 text-[14px] font-semibold rounded-sm cursor-default mb-3"
               >
                 <Mail className="w-4 h-4" />
-                Contact Leasing
-              </a>
+                Contact Leasing — Coming Soon
+              </div>
 
-              <Link
-                href="/apply"
-                className="flex items-center justify-center gap-2 w-full px-5 py-3 border border-[var(--color-ember)] text-[var(--color-clay)] text-[14px] font-semibold rounded-sm hover:bg-[var(--color-ember)]/5 transition-colors"
+              <div
+                className="flex items-center justify-center gap-2 w-full px-5 py-3 border border-[var(--color-parchment)] text-[var(--color-ink-muted)] text-[14px] font-semibold rounded-sm cursor-default"
               >
                 <Zap className="w-4 h-4" />
-                Apply for PCB Certification
-              </Link>
+                PCB Certification — Coming Soon
+              </div>
 
               <p className="mt-4 text-[12px] text-[var(--color-ink-muted)] leading-relaxed">
                 PCB-certified businesses receive priority access and exclusive
