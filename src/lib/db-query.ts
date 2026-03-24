@@ -1,15 +1,35 @@
 import postgres from "postgres";
 
-const isPooled = (process.env.DATABASE_URL ?? "").includes("pooler.supabase.com");
+const databaseUrl = process.env.DATABASE_URL ||
+  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const isPooled = databaseUrl.includes("pooler.supabase.com");
 
-const sql = postgres(
-  process.env.DATABASE_URL ||
-    "postgresql://edankrolewicz@localhost:5432/portland_dashboard",
-  {
-    // Supabase pooler (Supavisor) requires prepared statements to be disabled
-    ...(isPooled ? { prepare: false } : {}),
-  },
-);
+// Parse connection string explicitly to avoid URL parser issues with special
+// characters in passwords (e.g. * getting misinterpreted)
+function parseConnectionOptions(url: string) {
+  try {
+    const parsed = new URL(url);
+    return {
+      host: parsed.hostname,
+      port: parsed.port ? Number(parsed.port) : 5432,
+      database: parsed.pathname.slice(1) || "postgres",
+      username: decodeURIComponent(parsed.username),
+      password: decodeURIComponent(parsed.password),
+      ssl: "prefer" as const,
+    };
+  } catch {
+    return undefined;
+  }
+}
+
+const explicitOpts = isPooled ? parseConnectionOptions(databaseUrl) : undefined;
+
+const sql = explicitOpts
+  ? postgres({
+      ...explicitOpts,
+      prepare: false,
+    })
+  : postgres(databaseUrl);
 
 export default sql;
 
