@@ -449,61 +449,144 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 1b. Permit Journey — what does the process actually look like? */}
-      {journeyData && journeyData.phases.length > 0 && (
+      {/* 1b. Permit Journey — redesigned to show step durations and corrections */}
+      {journeyData && journeyData.phases.length > 0 && (() => {
+        const reviewPhases = journeyData.phases.filter(p =>
+          ["Application", "Planning and Zoning", "Structural", "Life Safety", "Fire Review", "Environmental Services"].includes(p.phase)
+        );
+        const inspectionPhases = journeyData.phases.filter(p =>
+          ["Building Inspections", "Electrical Inspections", "Plumbing Inspections", "Mechanical Inspections"].includes(p.phase)
+        );
+        const issuancePhase = journeyData.phases.find(p => p.phase === "Issuance");
+        const finalPhase = journeyData.phases.find(p => p.phase === "Final Permit");
+        const maxStepDuration = Math.max(...journeyData.phases.map(p => p.median_step_duration), 1);
+
+        const totalReviewDays = issuancePhase?.median_day ?? 0;
+        const totalConstructionDays = (finalPhase?.median_day ?? 0) - totalReviewDays;
+
+        return (
         <section>
-          <SectionHeader icon={Clock} title="The Permit Journey: How Long Does Each Phase Take?" color="#4a7f9e" />
+          <SectionHeader icon={Clock} title="The Permit Journey: Where Does the Time Go?" color="#4a7f9e" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-1">
-              Median day each phase completes (from permit setup) and how long that phase takes on its own.
-              Based on {journeyData.correctionStats.totalPermits.toLocaleString()} permits (2019-2026).
-            </p>
+
+            {/* Big story: two halves + corrections */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-[var(--color-canopy)]/[0.04] border border-[var(--color-canopy)]/10 rounded-sm p-4 text-center">
+                <p className="text-[32px] font-mono font-bold text-[var(--color-canopy)]">{totalReviewDays}d</p>
+                <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">Review & Approval</p>
+                <p className="text-[11px] text-[var(--color-ink-muted)]/60">Application to permit issued</p>
+              </div>
+              <div className="bg-[var(--color-ember)]/[0.04] border border-[var(--color-ember)]/10 rounded-sm p-4 text-center">
+                <p className="text-[32px] font-mono font-bold text-[var(--color-clay)]">{totalConstructionDays}d</p>
+                <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">Construction & Inspections</p>
+                <p className="text-[11px] text-[var(--color-ink-muted)]/60">Permit issued to final sign-off</p>
+              </div>
+              <div className="bg-[#b85c3a]/[0.06] border border-[#b85c3a]/15 rounded-sm p-4 text-center">
+                <p className="text-[32px] font-mono font-bold text-[#b85c3a]">{journeyData.correctionStats.avgRounds}x</p>
+                <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">Avg Correction Rounds</p>
+                <p className="text-[11px] text-[var(--color-ink-muted)]/60">{journeyData.correctionStats.pctWithCorrections}% of {(journeyData.correctionStats.totalPermits / 1000).toFixed(0)}K permits need corrections</p>
+              </div>
+            </div>
+
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              {journeyData.correctionStats.pctWithCorrections}% of permits require corrections (avg {journeyData.correctionStats.avgRounds} rounds).
+              How long each step takes on its own (median days). Bars show step duration, not cumulative time.
             </p>
 
-            {/* Journey timeline */}
-            <div className="space-y-1.5">
-              {journeyData.phases.map((phase, i) => {
-                const maxDay = journeyData.phases[journeyData.phases.length - 1]?.median_day || 1;
-                const pct = Math.round((phase.median_day / maxDay) * 100);
-                const isReview = phase.median_day <= 60;
-                const isInspection = phase.phase.includes("Inspection");
-                const color = isReview ? "#4a7f9e" : isInspection ? "#c8956c" : phase.phase === "Final Permit" ? "#b85c3a" : "#3d7a5a";
-                return (
-                  <div key={phase.phase} className="flex items-center gap-3">
-                    <span className="text-[11px] text-[var(--color-ink-light)] w-[160px] text-right flex-shrink-0 truncate" title={phase.phase}>
-                      {phase.phase}
-                    </span>
-                    <div className="flex-1 h-6 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden relative">
-                      <div
-                        className="h-full rounded-sm"
-                        style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: color, opacity: 0.8 }}
-                      />
+            {/* Phase 1: Reviews */}
+            <div className="mb-2">
+              <p className="text-[10px] font-semibold text-[var(--color-canopy)] uppercase tracking-wider mb-1.5">
+                Phase 1: Review & Approval (Days 0–{totalReviewDays})
+              </p>
+              <div className="space-y-1">
+                {reviewPhases.map((phase) => {
+                  const pct = Math.round((phase.median_step_duration / maxStepDuration) * 100);
+                  return (
+                    <div key={phase.phase} className="flex items-center gap-3">
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-[150px] text-right flex-shrink-0 truncate">
+                        {phase.phase}
+                      </span>
+                      <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
+                        <div className="h-full rounded-sm" style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: "#4a7f9e" }} />
+                      </div>
+                      <span className="text-[11px] font-mono font-semibold text-[#4a7f9e] w-[35px] text-right">
+                        {phase.median_step_duration}d
+                      </span>
+                      <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
+                        {phase.permits_affected >= 1000 ? `${(phase.permits_affected / 1000).toFixed(0)}K` : phase.permits_affected}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-mono font-semibold w-[45px] text-right" style={{ color }}>
-                      Day {phase.median_day}
+                  );
+                })}
+                {issuancePhase && (
+                  <div className="flex items-center gap-3">
+                    <span className="text-[11px] font-semibold text-[#3d7a5a] w-[150px] text-right flex-shrink-0">
+                      Permit Issued
                     </span>
-                    <span className="text-[10px] font-mono text-[var(--color-ink-muted)] w-[55px] text-right" title="Median duration of this step alone">
-                      ~{phase.median_step_duration}d step
+                    <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
+                      <div className="h-full rounded-sm" style={{ width: `${Math.max(Math.round((issuancePhase.median_step_duration / maxStepDuration) * 100), 2)}%`, backgroundColor: "#3d7a5a" }} />
+                    </div>
+                    <span className="text-[11px] font-mono font-semibold text-[#3d7a5a] w-[35px] text-right">
+                      {issuancePhase.median_step_duration}d
                     </span>
-                    <span className="text-[10px] text-[var(--color-ink-muted)] w-[60px] text-right">
-                      {phase.permits_affected >= 1000 ? `${(phase.permits_affected / 1000).toFixed(0)}K` : phase.permits_affected} permits
+                    <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
+                      {issuancePhase.permits_affected >= 1000 ? `${(issuancePhase.permits_affected / 1000).toFixed(0)}K` : issuancePhase.permits_affected}
                     </span>
                   </div>
-                );
-              })}
+                )}
+              </div>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-[var(--color-parchment)] flex gap-5 text-[10px] text-[var(--color-ink-muted)]">
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#4a7f9e" }} />Reviews (design/code)</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#3d7a5a" }} />Issuance</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#c8956c" }} />Inspections (construction)</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#b85c3a" }} />Final</span>
+            {/* Phase 2: Construction & Inspections */}
+            <div className="mt-4 pt-3 border-t border-[var(--color-parchment)]">
+              <p className="text-[10px] font-semibold text-[var(--color-clay)] uppercase tracking-wider mb-1.5">
+                Phase 2: Construction & Inspections (Days {totalReviewDays}–{finalPhase?.median_day ?? "?"})
+              </p>
+              <div className="space-y-1">
+                {inspectionPhases.map((phase) => {
+                  const pct = Math.round((phase.median_step_duration / maxStepDuration) * 100);
+                  return (
+                    <div key={phase.phase} className="flex items-center gap-3">
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-[150px] text-right flex-shrink-0 truncate">
+                        {phase.phase}
+                      </span>
+                      <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
+                        <div className="h-full rounded-sm" style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: "#c8956c" }} />
+                      </div>
+                      <span className="text-[11px] font-mono font-semibold text-[#c8956c] w-[35px] text-right">
+                        {phase.median_step_duration}d
+                      </span>
+                      <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
+                        {phase.permits_affected >= 1000 ? `${(phase.permits_affected / 1000).toFixed(0)}K` : phase.permits_affected}
+                      </span>
+                    </div>
+                  );
+                })}
+                {finalPhase && (
+                  <div className="flex items-center gap-3">
+                    <span className="text-[11px] font-semibold text-[#b85c3a] w-[150px] text-right flex-shrink-0">
+                      Final Sign-Off
+                    </span>
+                    <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
+                      <div className="h-full rounded-sm" style={{ width: `${Math.max(Math.round((finalPhase.median_step_duration / maxStepDuration) * 100), 2)}%`, backgroundColor: "#b85c3a" }} />
+                    </div>
+                    <span className="text-[11px] font-mono font-semibold text-[#b85c3a] w-[35px] text-right">
+                      {finalPhase.median_step_duration}d
+                    </span>
+                    <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
+                      {finalPhase.permits_affected >= 1000 ? `${(finalPhase.permits_affected / 1000).toFixed(0)}K` : finalPhase.permits_affected}
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
+
+            <p className="mt-4 pt-3 border-t border-[var(--color-parchment)] text-[11px] text-[var(--color-ink-muted)]">
+              Based on {journeyData.correctionStats.totalPermits.toLocaleString()} permits (2019–2026). Right column = permits affected. Bars = median step duration.
+            </p>
           </div>
         </section>
-      )}
+        );
+      })()}
 
       {/* 1b-ii. Journey by Permit Type */}
       {journeyData && journeyData.byType.length > 0 && (
