@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
-import sql from "@/lib/db-query";
+import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
+
+const CACHE_KEY = "housing_bottleneck";
 
 interface BottleneckEntry {
   activity_type: string;
@@ -42,6 +44,9 @@ interface BottleneckResponse {
 
 export async function GET(): Promise<NextResponse<BottleneckResponse>> {
   try {
+    const cached = await getCachedData<BottleneckResponse>(CACHE_KEY);
+    if (cached) return NextResponse.json(cached);
+
     // 1. Get bottleneck ranking — exclude non-review activity types
     // (D - Permit Request, inspections, process management are not review steps)
     const EXCLUDED_TYPES = [
@@ -195,7 +200,7 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
     const totalAnalyzed = Number(corrStats[0].total_permits);
     const withCorr = Number(corrStats[0].with_corrections);
 
-    return NextResponse.json({
+    const result = {
       ranking,
       trend,
       slowest_examples,
@@ -209,7 +214,10 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
             : 0,
       },
       dataStatus: ranking.length > 0 ? "available" : "empty",
-    });
+    };
+
+    await setCachedData(CACHE_KEY, result);
+    return NextResponse.json(result);
   } catch (error) {
     console.error("[housing/bottleneck] DB query failed:", error);
     return NextResponse.json(

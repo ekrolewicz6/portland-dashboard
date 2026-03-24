@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
-import sql from "@/lib/db-query";
+import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
+
+const CACHE_KEY = "housing_journey";
 
 interface JourneyPhase {
   phase: string;
@@ -66,6 +68,10 @@ const KEY_PHASES = [
 
 export async function GET(): Promise<NextResponse<JourneyResponse>> {
   try {
+    // Check cache first (1-hour TTL)
+    const cached = await getCachedData<JourneyResponse>(CACHE_KEY);
+    if (cached) return NextResponse.json(cached);
+
     // 1. Overall journey phases — median arrival day and step duration
     const phaseRows = await sql`
       WITH permit_phases AS (
@@ -177,7 +183,7 @@ export async function GET(): Promise<NextResponse<JourneyResponse>> {
       FROM (SELECT count(*) as rounds FROM housing.permit_activities WHERE activity_name ILIKE '%correction%' GROUP BY detail_id) sub
     `;
 
-    return NextResponse.json({
+    const result: JourneyResponse = {
       phases,
       byType,
       trend,
@@ -189,7 +195,10 @@ export async function GET(): Promise<NextResponse<JourneyResponse>> {
         totalPermits: Number(corrRows[0].total),
       },
       dataStatus: "live",
-    });
+    };
+
+    await setCachedData(CACHE_KEY, result);
+    return NextResponse.json(result);
   } catch (error) {
     console.error("[housing/journey] DB query failed:", error);
     return NextResponse.json({
