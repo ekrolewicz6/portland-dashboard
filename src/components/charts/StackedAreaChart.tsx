@@ -30,7 +30,7 @@ export default function StackedAreaChart({
   return (
     <div style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
+        <AreaChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }}>
           <defs>
             {areas.map((area, i) => (
               <linearGradient

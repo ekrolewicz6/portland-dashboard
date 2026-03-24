@@ -15,67 +15,94 @@ export interface QuestionConfig {
 
 export const QUESTIONS = [
   {
-    id: "migration",
-    title: "Are people moving to or away from Portland?",
-    shortTitle: "Migration",
+    id: "housing",
+    title: "Are We Building Enough?",
+    shortTitle: "Housing",
     description:
-      "Tracks net domestic migration, inbound/outbound moves, and population change trends across the Portland metro area.",
-    icon: "plane",
-    color: "blue",
+      "Tracks building permits, median rents, home values, and housing completions across Portland.",
+    icon: "home",
+    color: "rose",
   },
   {
-    id: "business",
-    title: "Is Portland gaining or losing businesses?",
-    shortTitle: "Business",
+    id: "homelessness",
+    title: "Are People Getting Housed?",
+    shortTitle: "Homelessness",
     description:
-      "Monitors new business registrations, closures, and net change to gauge the health of Portland's entrepreneurial ecosystem.",
-    icon: "building-2",
-    color: "emerald",
-  },
-  {
-    id: "downtown",
-    title: "Is downtown Portland coming back to life?",
-    shortTitle: "Downtown",
-    description:
-      "Measures foot traffic, commercial vacancy rates, and storefront activity in the central business district.",
-    icon: "map-pin",
-    color: "violet",
+      "Monitors shelter capacity, Point-in-Time counts, permanent supportive housing, and behavioral health services.",
+    icon: "tent",
+    color: "stone",
   },
   {
     id: "safety",
-    title: "Is Portland becoming safer?",
-    shortTitle: "Safety",
+    title: "Are People Safe?",
+    shortTitle: "Public Safety",
     description:
-      "Analyzes crime rates, incident counts, and clearance rates to evaluate public safety trends across the city.",
+      "Analyzes crime data, 911 response times, officer staffing, and use-of-force trends across the city.",
     icon: "shield",
     color: "amber",
   },
   {
-    id: "tax",
-    title: "How does Portland's tax burden compare?",
-    shortTitle: "Taxes",
+    id: "transportation",
+    title: "Can You Get Around?",
+    shortTitle: "Transportation",
     description:
-      "Compares Portland's effective tax rates — income, property, and business — against peer cities in the region and nation.",
+      "Tracks transit ridership, traffic fatalities, commute mode share, and bike infrastructure.",
+    icon: "bus",
+    color: "blue",
+  },
+  {
+    id: "education",
+    title: "Are Kids Learning?",
+    shortTitle: "Education",
+    description:
+      "Monitors PPS enrollment, test scores, graduation rates, and teacher staffing ratios.",
+    icon: "graduation-cap",
+    color: "emerald",
+  },
+  {
+    id: "fiscal",
+    title: "Is the City Solvent?",
+    shortTitle: "Fiscal Health",
+    description:
+      "Compares tax burden, tracks city budget trends, revenue sources, capital project completion, and PERS liability.",
     icon: "receipt",
-    color: "red",
+    color: "violet",
   },
   {
-    id: "housing",
-    title: "Can people afford to live in Portland?",
-    shortTitle: "Housing",
+    id: "economy",
+    title: "Can People Make a Living?",
+    shortTitle: "Economy",
     description:
-      "Tracks median home prices, rental costs, inventory levels, and an affordability index relative to local incomes.",
-    icon: "home",
-    color: "teal",
-  },
-  {
-    id: "program",
-    title: "Are city programs actually working?",
-    shortTitle: "Programs",
-    description:
-      "Evaluates budget utilization, outcome scores, and effectiveness measures for major city-funded initiatives.",
-    icon: "bar-chart-3",
+      "Combines business registrations, commercial vacancy, employment data, wages by sector, and downtown vitality.",
+    icon: "building-2",
     color: "orange",
+  },
+  {
+    id: "environment",
+    title: "Are We Meeting Our Climate Goals?",
+    shortTitle: "Environment",
+    description:
+      "Tracks greenhouse gas emissions, air quality, tree canopy coverage, and waste diversion rates.",
+    icon: "leaf",
+    color: "green",
+  },
+  {
+    id: "quality",
+    title: "Does Portland Work as a Place to Live?",
+    shortTitle: "Quality of Life",
+    description:
+      "Measures park access, library services, street conditions, and 311 service request trends.",
+    icon: "sun",
+    color: "slate",
+  },
+  {
+    id: "accountability",
+    title: "Who Promised What?",
+    shortTitle: "Accountability",
+    description:
+      "Tracks elected officials, ballot measure outcomes, campaign finance, and agency performance metrics.",
+    icon: "scale",
+    color: "pink",
   },
 ] as const satisfies readonly QuestionConfig[];
 

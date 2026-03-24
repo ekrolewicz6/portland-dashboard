@@ -43,7 +43,7 @@ export default function MultiLineChart({
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}
-          margin={{ top: 8, right: 8, left: -8, bottom: 0 }}
+          margin={{ top: 8, right: 8, left: 4, bottom: 0 }}
         >
           <CartesianGrid
             strokeDasharray="2 6"

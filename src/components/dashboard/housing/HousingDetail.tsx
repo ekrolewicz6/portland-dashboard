@@ -6,6 +6,7 @@ import BarChart from "@/components/charts/BarChart";
 import PieChart from "@/components/charts/PieChart";
 import MultiLineChart from "@/components/charts/MultiLineChart";
 import TrendChart from "@/components/charts/TrendChart";
+import ComparisonBarChart from "@/components/charts/ComparisonBarChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
 import {
   Building2,
@@ -71,6 +72,8 @@ interface HousingDetailData {
   ninetyDayBreakdown: { met: number; missed: number };
   topInsights: string[];
   housingCreation?: { quarter: string; adus: number; multifamily: number; singleFamily: number; commercialMulti: number; affordable: number; total: number }[];
+  demolitionTrend?: { quarter: string; total: number; residential: number; commercial: number }[];
+  completions?: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
   housingMarket?: HousingMarketData;
 }
 
@@ -289,6 +292,110 @@ export default function HousingDetail() {
                         </span>
                       </div>
                     ))}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </section>
+      )}
+
+      {/* 1a-ii. Housing Completions — finaled permits by type */}
+      {data.completions && data.completions.length > 0 && (
+        <section>
+          <SectionHeader icon={CheckCircle2} title="Housing Completions by Type (Finaled Permits)" color="#3d7a5a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
+              Permits that reached &ldquo;finaled&rdquo; status each quarter — meaning construction was completed and inspected. This is the real measure of housing actually built, not just permitted.
+            </p>
+            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
+              Source: Portland BDS permits with final_date since 2020. Covers residential, commercial building, facility, and affordable housing permits.
+            </p>
+            <ComparisonBarChart
+              data={data.completions.map((r) => ({
+                quarter: r.quarter,
+                "Single Family": r.single_family,
+                "ADUs": r.adus,
+                "Multifamily": r.multifamily,
+              }))}
+              xKey="quarter"
+              bars={[
+                { key: "Single Family", label: "Single Family", color: "#3d7a5a", stackId: "completions" },
+                { key: "ADUs", label: "ADUs", color: "#7c6f9e", stackId: "completions" },
+                { key: "Multifamily", label: "Multifamily", color: "#4a7f9e", stackId: "completions" },
+              ]}
+              height={360}
+            />
+            {/* Summary stat */}
+            {(() => {
+              const totalCompleted = data.completions!.reduce((s, r) => s + r.total, 0);
+              const latest = data.completions![data.completions!.length - 1];
+              return (
+                <div className="mt-4 pt-4 border-t border-[var(--color-parchment)] flex flex-wrap gap-6">
+                  <div>
+                    <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
+                      {totalCompleted.toLocaleString()}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">total completions since 2020</p>
+                  </div>
+                  {latest && (
+                    <div>
+                      <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
+                        {latest.total}
+                      </p>
+                      <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">completed in {latest.quarter}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+          </div>
+        </section>
+      )}
+
+      {/* 1a-iii. Demolition Tracking */}
+      {data.demolitionTrend && data.demolitionTrend.length > 0 && (
+        <section>
+          <SectionHeader icon={AlertTriangle} title="Demolition Permits" color="#b85c3a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
+              Demolition permits issued per quarter since 2020. Demolitions reduce net housing gains — every demolished home must be replaced by new construction just to break even.
+            </p>
+            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
+              Residential demolitions include any permit where the type or mapped type references dwellings.
+            </p>
+            <ComparisonBarChart
+              data={data.demolitionTrend.map((r) => ({
+                quarter: r.quarter,
+                "Residential": r.residential,
+                "Commercial": r.commercial,
+                "Other": r.total - r.residential - r.commercial,
+              }))}
+              xKey="quarter"
+              bars={[
+                { key: "Residential", label: "Residential", color: "#b85c3a", stackId: "demo" },
+                { key: "Commercial", label: "Commercial", color: "#c8956c", stackId: "demo" },
+                { key: "Other", label: "Other", color: "#a8c5b2", stackId: "demo" },
+              ]}
+              height={320}
+            />
+            {/* Total demolitions summary */}
+            {(() => {
+              const totalDemo = data.demolitionTrend!.reduce((s, r) => s + r.total, 0);
+              const totalRes = data.demolitionTrend!.reduce((s, r) => s + r.residential, 0);
+              return (
+                <div className="mt-4 pt-4 border-t border-[var(--color-parchment)] flex flex-wrap gap-6">
+                  <div>
+                    <p className="text-[24px] font-mono font-bold text-[#b85c3a] leading-none">
+                      {totalDemo}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">total demolitions since 2020</p>
+                  </div>
+                  <div>
+                    <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
+                      {totalRes}
+                    </p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">residential demolitions</p>
                   </div>
                 </div>
               );

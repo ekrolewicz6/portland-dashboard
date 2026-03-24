@@ -26,8 +26,11 @@ interface SafetyDetailResponse {
     yoyChange: number;
     totalCurrentYear: number;
   };
-  // Top neighborhoods by crime (last 12 months)
-  topNeighborhoods: { name: string; count: number }[];
+  // Neighborhoods by crime (last 12 months) — highest and lowest, broken down by type
+  neighborhoodCrime: {
+    highest: { name: string; total: number; property: number; person: number; society: number }[];
+    lowest: { name: string; total: number; property: number; person: number; society: number }[];
+  };
   // Motor vehicle theft trend
   mvtTrend: { month: string; count: number }[];
   // Graffiti from BPS
@@ -105,21 +108,33 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       yearOverYear = { current: cur, prior, change };
     }
 
-    // 4. Top neighborhoods by crime (last 12 months)
+    // 4. Neighborhoods by crime type (last 12 months) — get all, then take highest & lowest
     const neighborhoodRows = await sql`
-      SELECT neighborhood, count(*)::int AS cnt
+      SELECT
+        neighborhood,
+        count(*)::int AS total,
+        COALESCE(count(*) FILTER (WHERE crime_against = 'Property'), 0)::int AS property,
+        COALESCE(count(*) FILTER (WHERE crime_against = 'Person'), 0)::int AS person,
+        COALESCE(count(*) FILTER (WHERE crime_against = 'Society'), 0)::int AS society
       FROM safety.ppb_offenses
       WHERE occur_date >= CURRENT_DATE - interval '12 months'
         AND neighborhood IS NOT NULL AND neighborhood != ''
       GROUP BY 1
-      ORDER BY cnt DESC
-      LIMIT 10
+      ORDER BY total DESC
     `;
 
-    const topNeighborhoods = neighborhoodRows.map((r) => ({
+    const allNeighborhoods = neighborhoodRows.map((r) => ({
       name: r.neighborhood as string,
-      count: Number(r.cnt),
+      total: Number(r.total),
+      property: Number(r.property),
+      person: Number(r.person),
+      society: Number(r.society),
     }));
+
+    const neighborhoodCrime = {
+      highest: allNeighborhoods.slice(0, 10),
+      lowest: allNeighborhoods.slice(-10).reverse(),
+    };
 
     // 5. Motor vehicle theft trend (Portland story)
     const mvtRows = await sql`
@@ -222,9 +237,10 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       );
     }
 
-    if (topNeighborhoods.length > 0) {
+    if (neighborhoodCrime.highest.length > 0) {
+      const top = neighborhoodCrime.highest[0];
       topInsights.push(
-        `${topNeighborhoods[0].name} leads in reported crime over the last 12 months (${topNeighborhoods[0].count.toLocaleString()} offenses).`
+        `${top.name} leads in reported crime over the last 12 months (${top.total.toLocaleString()} offenses: ${top.property.toLocaleString()} property, ${top.person.toLocaleString()} person, ${top.society.toLocaleString()} society).`
       );
     }
 
@@ -243,7 +259,7 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
         yoyChange,
         totalCurrentYear,
       },
-      topNeighborhoods,
+      neighborhoodCrime,
       mvtTrend,
       graffitiTrend,
       topInsights,
@@ -265,7 +281,7 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
         yoyChange: 0,
         totalCurrentYear: 0,
       },
-      topNeighborhoods: [],
+      neighborhoodCrime: { highest: [], lowest: [] },
       mvtTrend: [],
       graffitiTrend: null,
       topInsights: ["Data temporarily unavailable."],

@@ -1,8 +1,14 @@
 import postgres from "postgres";
 
+const isPooled = (process.env.DATABASE_URL ?? "").includes("pooler.supabase.com");
+
 const sql = postgres(
   process.env.DATABASE_URL ||
     "postgresql://edankrolewicz@localhost:5432/portland_dashboard",
+  {
+    // Supabase pooler (Supavisor) requires prepared statements to be disabled
+    ...(isPooled ? { prepare: false } : {}),
+  },
 );
 
 export default sql;

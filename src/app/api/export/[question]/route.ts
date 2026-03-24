@@ -14,12 +14,16 @@ import {
 export const dynamic = "force-dynamic";
 
 const dataMap: Record<string, DashboardResponse> = {
+  // New category mappings
+  housing: housingData,
+  safety: safetyData,
+  economy: businessData,
+  fiscal: taxData,
+  // Legacy mappings
   migration: migrationData,
   business: businessData,
   downtown: downtownData,
-  safety: safetyData,
   tax: taxData,
-  housing: housingData,
   program: programData,
 };
 
@@ -31,12 +35,19 @@ export async function GET(
 
   if (!isValidQuestion(question)) {
     return NextResponse.json(
-      { error: "Invalid question. Valid options: migration, business, downtown, safety, tax, housing, program" },
+      { error: `Invalid question. Valid options: ${Object.keys(dataMap).join(", ")}` },
       { status: 400 }
     );
   }
 
   const data = dataMap[question];
+  if (!data) {
+    return NextResponse.json(
+      { error: "No export data available for this category yet" },
+      { status: 404 }
+    );
+  }
+
   const chartData = data.chartData;
 
   // Build CSV
@@ -49,7 +60,7 @@ export async function GET(
   const csv = rows.join("\n");
 
   const today = new Date().toISOString().slice(0, 10);
-  const filename = `portland-commons-${question}-${today}.csv`;
+  const filename = `portland-civic-${question}-${today}.csv`;
 
   return new NextResponse(csv, {
     status: 200,

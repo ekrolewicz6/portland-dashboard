@@ -128,7 +128,7 @@ export default function DashboardClient({ questions }: DashboardClientProps) {
               className="mt-4 text-[16px] text-white/50 leading-relaxed max-w-xl animate-fade-up"
               style={{ animationDelay: "160ms" }}
             >
-              Seven questions that drive Portland&apos;s story. Real data where
+              Ten questions that hold Portland accountable. Real data where
               we have it, honest gaps where we don&apos;t. Click any card to
               explore.
             </p>
@@ -149,7 +149,7 @@ export default function DashboardClient({ questions }: DashboardClientProps) {
       {/* -- Seven Questions Grid -- */}
       <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 mt-10 pb-16">
         <div className="section-divider">
-          <h2>The Seven Questions</h2>
+          <h2>Ten Questions</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 2xl:gap-6">

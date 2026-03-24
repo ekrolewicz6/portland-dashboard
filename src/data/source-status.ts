@@ -16,6 +16,7 @@
 //   STATIC         — Computed from published rates, no live feed
 //   INTERNAL       — Will come from our own system (PCB registry)
 //   OFFLINE        — Data source permanently unavailable
+//   DATA_NEEDED    — Category exists but no data sources connected yet
 
 import type { QuestionId } from "@/types/dashboard";
 
@@ -33,7 +34,8 @@ export type DataSourceStatus =
   | "NEEDS_SUB"
   | "STATIC"
   | "INTERNAL"
-  | "OFFLINE";
+  | "OFFLINE"
+  | "DATA_NEEDED";
 
 export interface DataSource {
   /** Human-readable name */
@@ -75,11 +77,342 @@ function hasEnvVar(name: string): boolean {
 }
 
 // ---------------------------------------------------------------------------
-// Source Definitions
+// Source Definitions — 10 Civic Dashboard Categories
 // ---------------------------------------------------------------------------
 
 export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
-  // ── Migration ───────────────────────────────────────────────────────────
+  // ── Housing ───────────────────────────────────────────────────────────
+  housing: {
+    questionId: "housing",
+    overallStatus: "LIVE_PARTIAL",
+    badgeLabel: "Partially live",
+    badgeTooltip:
+      "Building permits are live from ArcGIS. Median rent data uses estimates (Zillow ZORI CSV available for free download).",
+    sources: [
+      {
+        name: "Building Permits (BDS)",
+        status: "LIVE",
+        statusLabel: "Live data",
+        provider: "Portland Permitting & Development via ArcGIS",
+      },
+      {
+        name: "Median Rent (Zillow ZORI)",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Free CSV download needed",
+        provider: "Zillow Research",
+        blocker:
+          "Download from zillow.com/research/data/ — filter Portland metro row",
+      },
+    ],
+  },
+
+  // ── Homelessness ──────────────────────────────────────────────────────
+  homelessness: {
+    questionId: "homelessness",
+    overallStatus: "DATA_NEEDED",
+    badgeLabel: "Data needed",
+    badgeTooltip:
+      "Homelessness data requires JOHS shelter reports, HUD PIT counts, and Multnomah County behavioral health data.",
+    sources: [
+      {
+        name: "JOHS Shelter Data",
+        status: "NEEDS_PRR",
+        statusLabel: "Data sharing agreement needed",
+        provider: "Joint Office of Homeless Services",
+        blocker: "Request data sharing agreement with JOHS",
+      },
+      {
+        name: "HUD Point-in-Time Count",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Annual download needed",
+        provider: "HUD Exchange",
+        blocker: "Download from hudexchange.info/programs/coc/",
+      },
+      {
+        name: "Behavioral Health Data",
+        status: "NEEDS_PRR",
+        statusLabel: "Public records request needed",
+        provider: "Multnomah County Health Department",
+        blocker: "File PRR with Multnomah County",
+      },
+    ],
+  },
+
+  // ── Public Safety ─────────────────────────────────────────────────────
+  safety: {
+    questionId: "safety",
+    overallStatus: "LIVE_PARTIAL",
+    badgeLabel: "Partially live",
+    badgeTooltip:
+      "Crime grid data is live from ArcGIS. 911 response times are estimated (require BOEC public records request).",
+    sources: [
+      {
+        name: "Crime Grid Data",
+        status: "LIVE",
+        statusLabel: "Live data",
+        provider: "Portland Police Bureau via ArcGIS",
+      },
+      {
+        name: "911 Response Times",
+        status: "NEEDS_PRR",
+        statusLabel: "Public records request needed",
+        provider: "Bureau of Emergency Communications (BOEC)",
+        blocker: "File PRR to BOEC for monthly Priority 1 response medians",
+      },
+      {
+        name: "PPB Crime CSVs",
+        status: "NEEDS_API_KEY",
+        statusLabel: "Needs investigation",
+        provider: "Portland Police Bureau Open Data",
+        blocker: "Email ppbopendata@police.portlandoregon.gov",
+      },
+    ],
+  },
+
+  // ── Transportation ────────────────────────────────────────────────────
+  transportation: {
+    questionId: "transportation",
+    overallStatus: "DATA_NEEDED",
+    badgeLabel: "Data needed",
+    badgeTooltip:
+      "TriMet route/stop data is in DB. Ridership trends, crash data, and commute mode share still needed.",
+    sources: [
+      {
+        name: "TriMet GTFS Routes & Stops",
+        status: "LIVE",
+        statusLabel: "Live data (89 routes, 6,399 stops)",
+        provider: "TriMet via GTFS",
+      },
+      {
+        name: "TriMet Ridership Trends",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Monthly reports available",
+        provider: "TriMet",
+        blocker: "Download monthly ridership reports from trimet.org",
+      },
+      {
+        name: "PBOT Crash Data",
+        status: "NEEDS_API_KEY",
+        statusLabel: "ArcGIS layer available",
+        provider: "Portland Bureau of Transportation",
+        blocker: "Query Portland Maps ArcGIS for crash data",
+      },
+      {
+        name: "Census Commute Mode Share",
+        status: hasEnvVar("CENSUS_API_KEY") ? "LIVE" : "NEEDS_API_KEY",
+        statusLabel: hasEnvVar("CENSUS_API_KEY") ? "Connected" : "API key needed",
+        provider: "U.S. Census Bureau ACS",
+        envVar: "CENSUS_API_KEY",
+      },
+    ],
+  },
+
+  // ── Education ─────────────────────────────────────────────────────────
+  education: {
+    questionId: "education",
+    overallStatus: "DATA_NEEDED",
+    badgeLabel: "Data needed",
+    badgeTooltip:
+      "Education data requires Oregon Dept of Education downloads for PPS enrollment, test scores, and graduation rates.",
+    sources: [
+      {
+        name: "PPS Enrollment Data",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Free download available",
+        provider: "Oregon Dept of Education",
+        blocker: "Download from ode.state.or.us/data/reportcard/",
+      },
+      {
+        name: "Test Scores (3rd grade reading, 8th grade math)",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Free download available",
+        provider: "Oregon Dept of Education",
+        blocker: "Download ODE assessment data",
+      },
+      {
+        name: "Graduation Rates",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Published annually",
+        provider: "Oregon Dept of Education",
+        blocker: "Download from ODE data portal",
+      },
+    ],
+  },
+
+  // ── Fiscal Health ─────────────────────────────────────────────────────
+  fiscal: {
+    questionId: "fiscal",
+    overallStatus: "STATIC",
+    badgeLabel: "Published rates",
+    badgeTooltip:
+      "Tax comparison is computed from published tax rates. Updated annually when new fiscal year begins. Budget and PERS data still needed.",
+    sources: [
+      {
+        name: "Tax Rate Analysis",
+        status: "STATIC",
+        statusLabel: "Static analysis",
+        provider: "Lincoln Institute / OR DOR / WA DOR / City budgets",
+      },
+      {
+        name: "City Budget Data",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Annual download needed",
+        provider: "Portland City Budget Office",
+        blocker: "Download from portland.gov/cbo/budget",
+      },
+      {
+        name: "PERS Liability Data",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Annual report available",
+        provider: "Oregon PERS",
+        blocker: "Download from oregon.gov/pers/",
+      },
+    ],
+  },
+
+  // ── Economy ───────────────────────────────────────────────────────────
+  economy: {
+    questionId: "economy",
+    overallStatus: "LIVE_PARTIAL",
+    badgeLabel: "Partially live",
+    badgeTooltip:
+      "Business registrations are live from Oregon SOS. Downtown vacancy data from quarterly reports. Foot traffic needs Placer.ai subscription.",
+    sources: [
+      {
+        name: "Oregon SOS Business Registry",
+        status: "LIVE",
+        statusLabel: "Live data",
+        provider: "Oregon Secretary of State via data.oregon.gov",
+      },
+      {
+        name: "Commercial Vacancy Rate",
+        status: "LIVE_PARTIAL",
+        statusLabel: "Quarterly reports",
+        provider: "CBRE/Colliers/JLL/Kidder Mathews",
+      },
+      {
+        name: "BLS Employment & Wages",
+        status: "NEEDS_API_KEY",
+        statusLabel: "Free API available",
+        provider: "Bureau of Labor Statistics",
+        blocker: "Register at bls.gov/developers/",
+        envVar: "BLS_API_KEY",
+      },
+      {
+        name: "Foot Traffic",
+        status: "NEEDS_SUB",
+        statusLabel: "Subscription needed",
+        provider: "Placer.ai",
+        blocker: "$2K-$5K/mo subscription or partnership with Clean & Safe District",
+      },
+    ],
+  },
+
+  // ── Environment & Climate ─────────────────────────────────────────────
+  environment: {
+    questionId: "environment",
+    overallStatus: "DATA_NEEDED",
+    badgeLabel: "Data needed",
+    badgeTooltip:
+      "Environment data requires BPS emissions inventory, DEQ air quality API, and Urban Forestry canopy data.",
+    sources: [
+      {
+        name: "GHG Emissions Inventory",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Download available",
+        provider: "Portland Bureau of Planning & Sustainability",
+        blocker: "Download from portland.gov/bps/climate-action",
+      },
+      {
+        name: "Air Quality Index",
+        status: "NEEDS_API_KEY",
+        statusLabel: "Free API key available",
+        provider: "EPA AirNow",
+        blocker: "Register at docs.airnow.gov",
+        envVar: "AIRNOW_API_KEY",
+      },
+      {
+        name: "Tree Canopy Coverage",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "GIS data available",
+        provider: "Portland Urban Forestry",
+        blocker: "Download from Portland Parks GIS",
+      },
+      {
+        name: "Waste Diversion Rate",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Annual report available",
+        provider: "Metro Regional Government",
+        blocker: "Download from oregonmetro.gov",
+      },
+    ],
+  },
+
+  // ── Quality of Life ───────────────────────────────────────────────────
+  quality: {
+    questionId: "quality",
+    overallStatus: "DATA_NEEDED",
+    badgeLabel: "Data needed",
+    badgeTooltip:
+      "Quality of life data requires Portland Parks ArcGIS, library data, and street condition ratings.",
+    sources: [
+      {
+        name: "Park Access Data",
+        status: "NEEDS_API_KEY",
+        statusLabel: "ArcGIS layer available",
+        provider: "Portland Parks & Recreation",
+        blocker: "Query Portland Parks ArcGIS layers",
+      },
+      {
+        name: "Library Hours & Visits",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Annual reports available",
+        provider: "Multnomah County Library",
+        blocker: "Download annual reports from multcolib.org",
+      },
+      {
+        name: "Street Condition Ratings",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "PBOT data available",
+        provider: "Portland Bureau of Transportation",
+        blocker: "Download PBOT pavement condition index data",
+      },
+    ],
+  },
+
+  // ── Accountability ────────────────────────────────────────────────────
+  accountability: {
+    questionId: "accountability",
+    overallStatus: "DATA_NEEDED",
+    badgeLabel: "Data needed",
+    badgeTooltip:
+      "Accountability layer requires elected official database, ballot measure tracking, and campaign finance data from ORESTAR.",
+    sources: [
+      {
+        name: "Elected Official Database",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Public records available",
+        provider: "Portland City Council / portland.gov",
+        blocker: "Compile from portland.gov/council",
+      },
+      {
+        name: "Ballot Measure Tracking",
+        status: "NEEDS_DOWNLOAD",
+        statusLabel: "Election results available",
+        provider: "Multnomah County Elections",
+        blocker: "Download from multco.us/elections",
+      },
+      {
+        name: "Campaign Finance (ORESTAR)",
+        status: "NEEDS_API_KEY",
+        statusLabel: "Free portal available",
+        provider: "Oregon Secretary of State",
+        blocker: "Access via secure.sos.state.or.us/orestar/",
+      },
+    ],
+  },
+
+  // ── Legacy categories (kept for API route compatibility) ──────────────
   migration: {
     questionId: "migration",
     overallStatus: "MOCK",
@@ -116,7 +449,6 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
     ],
   },
 
-  // ── Business ────────────────────────────────────────────────────────────
   business: {
     questionId: "business",
     overallStatus: "MOCK",
@@ -141,27 +473,26 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
     ],
   },
 
-  // ── Downtown ────────────────────────────────────────────────────────────
   downtown: {
     questionId: "downtown",
     overallStatus: "LIVE_PARTIAL",
     badgeLabel: "Partially live",
     badgeTooltip:
-      "Graffiti reports are live from ArcGIS. Foot traffic and vacancy data are estimated (require Placer.ai and CoStar subscriptions).",
+      "Graffiti reports are live from ArcGIS. Foot traffic and vacancy data are estimated.",
     sources: [
       {
         name: "Foot Traffic",
         status: "NEEDS_SUB",
         statusLabel: "Subscription needed",
         provider: "Placer.ai",
-        blocker: "$2K-$5K/mo subscription or partnership with Clean & Safe District",
+        blocker: "$2K-$5K/mo subscription",
       },
       {
         name: "Commercial Vacancy Rate",
         status: "NEEDS_SUB",
         statusLabel: "Subscription needed",
         provider: "CoStar Group",
-        blocker: "$500-$1.5K/mo subscription or use free PBA quarterly reports",
+        blocker: "$500-$1.5K/mo subscription",
       },
       {
         name: "Graffiti Reports",
@@ -172,38 +503,6 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
     ],
   },
 
-  // ── Safety ──────────────────────────────────────────────────────────────
-  safety: {
-    questionId: "safety",
-    overallStatus: "LIVE_PARTIAL",
-    badgeLabel: "Partially live",
-    badgeTooltip:
-      "Crime grid data is live from ArcGIS. 911 response times are estimated (require BOEC public records request). Year-over-year comparisons use estimates.",
-    sources: [
-      {
-        name: "Crime Grid Data",
-        status: "LIVE",
-        statusLabel: "Live data",
-        provider: "Portland Police Bureau via ArcGIS",
-      },
-      {
-        name: "911 Response Times",
-        status: "NEEDS_PRR",
-        statusLabel: "Public records request needed",
-        provider: "Bureau of Emergency Communications (BOEC)",
-        blocker: "File PRR to BOEC for monthly Priority 1 response medians",
-      },
-      {
-        name: "PPB Crime CSVs",
-        status: "NEEDS_API_KEY",
-        statusLabel: "Needs investigation",
-        provider: "Portland Police Bureau Open Data",
-        blocker: "Email ppbopendata@police.portlandoregon.gov",
-      },
-    ],
-  },
-
-  // ── Tax ─────────────────────────────────────────────────────────────────
   tax: {
     questionId: "tax",
     overallStatus: "STATIC",
@@ -220,32 +519,6 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
     ],
   },
 
-  // ── Housing ─────────────────────────────────────────────────────────────
-  housing: {
-    questionId: "housing",
-    overallStatus: "LIVE_PARTIAL",
-    badgeLabel: "Partially live",
-    badgeTooltip:
-      "Building permits are live from ArcGIS. Median rent data uses estimates (Zillow ZORI CSV available for free download).",
-    sources: [
-      {
-        name: "Building Permits (BDS)",
-        status: "LIVE",
-        statusLabel: "Live data",
-        provider: "Portland Permitting & Development via ArcGIS",
-      },
-      {
-        name: "Median Rent (Zillow ZORI)",
-        status: "NEEDS_DOWNLOAD",
-        statusLabel: "Free CSV download needed",
-        provider: "Zillow Research",
-        blocker:
-          "Download from zillow.com/research/data/ — filter Portland metro row",
-      },
-    ],
-  },
-
-  // ── Program ─────────────────────────────────────────────────────────────
   program: {
     questionId: "program",
     overallStatus: "INTERNAL",
@@ -290,6 +563,7 @@ export function getBadgeVariant(
     case "NEEDS_PRR":
     case "NEEDS_DOWNLOAD":
     case "NEEDS_API_KEY":
+    case "DATA_NEEDED":
       return "warning";
     case "NEEDS_SUB":
     case "OFFLINE":
@@ -314,6 +588,7 @@ export const MOCK_QUESTIONS: QuestionId[] = (
     (q) =>
       q.overallStatus === "MOCK" ||
       q.overallStatus === "NEEDS_PRR" ||
-      q.overallStatus === "NEEDS_SUB",
+      q.overallStatus === "NEEDS_SUB" ||
+      q.overallStatus === "DATA_NEEDED",
   )
   .map((q) => q.questionId);

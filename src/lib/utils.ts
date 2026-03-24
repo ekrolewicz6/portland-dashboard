@@ -110,6 +110,8 @@ export function formatDate(
 const INVERTED_QUESTIONS: ReadonlySet<QuestionId> = new Set([
   "safety", // crime going down = good
   "tax", // tax burden going down = good
+  "fiscal", // tax/debt going down = good
+  "homelessness", // homelessness going down = good
 ]);
 
 /**

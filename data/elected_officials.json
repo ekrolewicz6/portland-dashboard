@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Keith Wilson",
+    "title": "Mayor",
+    "district": null,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Candace Avalos",
+    "title": "City Councilor",
+    "district": 1,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Jamie Dunphy",
+    "title": "City Councilor",
+    "district": 1,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Loretta Smith",
+    "title": "City Councilor",
+    "district": 1,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Dan Ryan",
+    "title": "City Councilor",
+    "district": 2,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Elana Pirtle-Guiney",
+    "title": "City Councilor (Council President)",
+    "district": 2,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Sameer Kanal",
+    "title": "City Councilor",
+    "district": 2,
+    "term_start": "2025-01-01",
+    "term_end": "2028-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Steve Novick",
+    "title": "City Councilor",
+    "district": 3,
+    "term_start": "2025-01-01",
+    "term_end": "2026-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Angelita Morillo",
+    "title": "City Councilor",
+    "district": 3,
+    "term_start": "2025-01-01",
+    "term_end": "2026-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Tiffany Koyama Lane",
+    "title": "City Councilor (Vice President)",
+    "district": 3,
+    "term_start": "2025-01-01",
+    "term_end": "2026-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Eric Zimmerman",
+    "title": "City Councilor",
+    "district": 4,
+    "term_start": "2025-01-01",
+    "term_end": "2026-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Mitch Green",
+    "title": "City Councilor",
+    "district": 4,
+    "term_start": "2025-01-01",
+    "term_end": "2026-12-31",
+    "email": null,
+    "party": null
+  },
+  {
+    "name": "Olivia Clark",
+    "title": "City Councilor",
+    "district": 4,
+    "term_start": "2025-01-01",
+    "term_end": "2026-12-31",
+    "email": null,
+    "party": null
+  }
+]

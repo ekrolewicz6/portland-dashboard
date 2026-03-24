@@ -31,6 +31,8 @@ interface HousingDetailResponse {
     ninetyDayCompliance: number;
   };
   ninetyDayBreakdown: { met: number; missed: number };
+  demolitionTrend: { quarter: string; total: number; residential: number; commercial: number }[];
+  completions: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
   topInsights: string[];
   housingMarket: HousingMarketData;
   dataStatus: string;
@@ -435,6 +437,66 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       total: Number(r.adus) + Number(r.multifamily) + Number(r.single_family) + Number(r.commercial_multi) + Number(r.affordable),
     }));
 
+    // ─── Demolition Permits by Quarter ───
+    const demolitionRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('quarter', issued_date), 'YYYY-"Q"Q') as quarter,
+        count(*)::int as total,
+        count(*) FILTER (WHERE permit_type ILIKE '%residential%' OR permit_type_mapped ILIKE '%dwelling%')::int as residential,
+        count(*) FILTER (WHERE permit_type ILIKE '%commercial%')::int as commercial
+      FROM housing.permits
+      WHERE permit_type ILIKE '%demolition%'
+        AND issued_date IS NOT NULL AND issued_date >= '2020-01-01'
+      GROUP BY 1 ORDER BY 1
+    `;
+
+    const demolitionTrend = demolitionRows.map((r) => ({
+      quarter: r.quarter as string,
+      total: Number(r.total),
+      residential: Number(r.residential),
+      commercial: Number(r.commercial),
+    }));
+
+    // ─── Housing Completions (finaled permits) by Quarter ───
+    const completionRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('quarter', final_date), 'YYYY-"Q"Q') as quarter,
+        count(DISTINCT permit_number)::int as total,
+        count(DISTINCT permit_number) FILTER (WHERE permit_type_mapped = 'Single Family Dwelling')::int as single_family,
+        count(DISTINCT permit_number) FILTER (WHERE permit_type_mapped = 'Accessory Dwelling Unit')::int as adus,
+        count(DISTINCT permit_number) FILTER (WHERE permit_type_mapped IN ('Apartments/Condos (3 or more units)', 'Townhouse (3 or more units)', 'Commercial/Multifamily'))::int as multifamily
+      FROM housing.permits
+      WHERE final_date IS NOT NULL AND final_date >= '2020-01-01'
+        AND permit_type IN ('Residential 1 & 2 Family Permit', 'Commercial Building Permit', 'Facility Permit', 'Housing')
+      GROUP BY 1 ORDER BY 1
+    `;
+
+    const completions = completionRows.map((r) => ({
+      quarter: r.quarter as string,
+      total: Number(r.total),
+      single_family: Number(r.single_family),
+      adus: Number(r.adus),
+      multifamily: Number(r.multifamily),
+    }));
+
+    // Demolition and completion insights (must come after queries above)
+    if (demolitionTrend.length > 0) {
+      const totalDemolitions = demolitionTrend.reduce((sum, r) => sum + r.total, 0);
+      const totalResDemo = demolitionTrend.reduce((sum, r) => sum + r.residential, 0);
+      topInsights.push(
+        `${totalDemolitions} demolition permits issued since 2020 (${totalResDemo} residential). Demolitions reduce net housing gains from new construction.`
+      );
+    }
+
+    if (completions.length > 0) {
+      const totalCompleted = completions.reduce((sum, r) => sum + r.total, 0);
+      const totalADUs = completions.reduce((sum, r) => sum + r.adus, 0);
+      const latestQ = completions[completions.length - 1];
+      topInsights.push(
+        `${totalCompleted.toLocaleString()} housing permits completed (finaled) since 2020. ${totalADUs} were ADUs. Latest quarter (${latestQ.quarter}): ${latestQ.total} completions.`
+      );
+    }
+
     // ─── Housing Market Analysis (Zillow metrics) ───
 
     // Home value trend: typical, sfr, condo from 2010+
@@ -574,6 +636,8 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       },
       topInsights,
       housingCreation,
+      demolitionTrend,
+      completions,
       housingMarket,
       dataStatus: "partial",
     });
@@ -600,6 +664,8 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         ninetyDayBreakdown: { met: 0, missed: 0 },
         topInsights: ["Data temporarily unavailable."],
         housingCreation: [],
+        demolitionTrend: [],
+        completions: [],
         housingMarket: {
           homeValueTrendMulti: [],
           valueByType: [],

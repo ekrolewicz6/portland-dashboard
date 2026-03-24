@@ -4,15 +4,18 @@ import type { ApiResponse, QuestionData } from "./types";
 
 export const dynamic = "force-dynamic";
 
-/** The seven questions in display order */
+/** The ten civic dashboard categories in display order */
 const QUESTIONS = [
-  { id: "safety", question: "Is Portland safe?", color: "#b85c3a" },
-  { id: "tax", question: "Is the tax burden competitive?", color: "#7c6f9e" },
-  { id: "housing", question: "Is housing getting built?", color: "#b85c6a" },
-  { id: "downtown", question: "Is downtown coming back?", color: "#c8956c" },
-  { id: "migration", question: "Is Portland gaining or losing people?", color: "#4a7f9e" },
-  { id: "business", question: "Is Portland gaining or losing businesses?", color: "#3d7a5a" },
-  { id: "program", question: "Is the Portland Commons working?", color: "#1a3a2a" },
+  { id: "housing", question: "Are We Building Enough?", color: "#b85c6a" },
+  { id: "safety", question: "Are People Safe?", color: "#b85c3a" },
+  { id: "economy", question: "Can People Make a Living?", color: "#c8956c" },
+  { id: "fiscal", question: "Is the City Solvent?", color: "#7c6f9e" },
+  { id: "homelessness", question: "Are People Getting Housed?", color: "#8b6c5c" },
+  { id: "transportation", question: "Can You Get Around?", color: "#4a7f9e" },
+  { id: "education", question: "Are Kids Learning?", color: "#3d7a5a" },
+  { id: "environment", question: "Are We Meeting Our Climate Goals?", color: "#5a8a6a" },
+  { id: "quality", question: "Does Portland Work as a Place to Live?", color: "#6a7f8a" },
+  { id: "accountability", question: "Who Promised What?", color: "#8a5c6a" },
 ] as const;
 
 async function fetchQuestionData(baseUrl: string): Promise<QuestionData[]> {

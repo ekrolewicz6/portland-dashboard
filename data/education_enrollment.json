@@ -1,0 +1,569 @@
+[
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "K",
+    "enrollment": 2997,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "1",
+    "enrollment": 3213,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "2",
+    "enrollment": 3355,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "3",
+    "enrollment": 3316,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "4",
+    "enrollment": 3462,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "5",
+    "enrollment": 3461,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "6",
+    "enrollment": 3204,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "7",
+    "enrollment": 3329,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "8",
+    "enrollment": 3282,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "9",
+    "enrollment": 3441,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "10",
+    "enrollment": 3590,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "11",
+    "enrollment": 3558,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "12",
+    "enrollment": 3771,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "American Indian/Alaska Native",
+    "demographic_count": 216,
+    "demographic_pct": 0.00491
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "Asian",
+    "demographic_count": 2487,
+    "demographic_pct": 0.05655
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "Black/African American",
+    "demographic_count": 332,
+    "demographic_pct": 0.00755
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "Hispanic/Latino",
+    "demographic_count": 3558,
+    "demographic_pct": 0.0809
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "Multiracial",
+    "demographic_count": 7688,
+    "demographic_pct": 0.17481
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "Native Hawaiian/Pacific Islander",
+    "demographic_count": 24276,
+    "demographic_pct": 0.55199
+  },
+  {
+    "school_year": "2023-24",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43979,
+    "demographic_group": "White",
+    "demographic_count": 5422,
+    "demographic_pct": 0.12329
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "K",
+    "enrollment": 2829,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "1",
+    "enrollment": 3072,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "2",
+    "enrollment": 3203,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "3",
+    "enrollment": 3365,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "4",
+    "enrollment": 3289,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "5",
+    "enrollment": 3405,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "6",
+    "enrollment": 3266,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "7",
+    "enrollment": 3195,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "8",
+    "enrollment": 3330,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "9",
+    "enrollment": 3388,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "10",
+    "enrollment": 3427,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "11",
+    "enrollment": 3539,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "12",
+    "enrollment": 4011,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "American Indian/Alaska Native",
+    "demographic_count": 218,
+    "demographic_pct": 0.00503
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "Asian",
+    "demographic_count": 2362,
+    "demographic_pct": 0.05453
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "Black/African American",
+    "demographic_count": 295,
+    "demographic_pct": 0.00681
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "Hispanic/Latino",
+    "demographic_count": 3554,
+    "demographic_pct": 0.08204
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "Multiracial",
+    "demographic_count": 7899,
+    "demographic_pct": 0.18234
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "Native Hawaiian/Pacific Islander",
+    "demographic_count": 23574,
+    "demographic_pct": 0.5442
+  },
+  {
+    "school_year": "2024-25",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 43319,
+    "demographic_group": "White",
+    "demographic_count": 5417,
+    "demographic_pct": 0.12505
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "K",
+    "enrollment": 2913,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "1",
+    "enrollment": 2952,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "2",
+    "enrollment": 3080,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "3",
+    "enrollment": 3156,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "4",
+    "enrollment": 3349,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "5",
+    "enrollment": 3240,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "6",
+    "enrollment": 3309,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "7",
+    "enrollment": 3236,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "8",
+    "enrollment": 3209,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "9",
+    "enrollment": 3478,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "10",
+    "enrollment": 3395,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "11",
+    "enrollment": 3365,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "12",
+    "enrollment": 3941,
+    "demographic_group": null,
+    "demographic_count": null,
+    "demographic_pct": null
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "American Indian/Alaska Native",
+    "demographic_count": 236,
+    "demographic_pct": 0.00554
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "Asian",
+    "demographic_count": 2373,
+    "demographic_pct": 0.05567
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "Black/African American",
+    "demographic_count": 335,
+    "demographic_pct": 0.00786
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "Hispanic/Latino",
+    "demographic_count": 3478,
+    "demographic_pct": 0.0816
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "Multiracial",
+    "demographic_count": 7687,
+    "demographic_pct": 0.18035
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "Native Hawaiian/Pacific Islander",
+    "demographic_count": 23026,
+    "demographic_pct": 0.54022
+  },
+  {
+    "school_year": "2025-26",
+    "district_name": "Portland SD 1J",
+    "grade_level": "Total",
+    "enrollment": 42623,
+    "demographic_group": "White",
+    "demographic_count": 5488,
+    "demographic_pct": 0.12876
+  }
+]

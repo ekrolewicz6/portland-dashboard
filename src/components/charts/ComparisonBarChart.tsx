@@ -50,7 +50,7 @@ export default function ComparisonBarChart({
   return (
     <div style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
+        <BarChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }}>
           <CartesianGrid
             strokeDasharray="2 6"
             stroke="#d6d3d1"

@@ -13,12 +13,21 @@ export type InsightSeverity = "info" | "warning" | "critical" | "positive";
 
 /** Question category identifiers */
 export type QuestionId =
+  | "housing"
+  | "homelessness"
+  | "safety"
+  | "transportation"
+  | "education"
+  | "fiscal"
+  | "economy"
+  | "environment"
+  | "quality"
+  | "accountability"
+  // Legacy IDs — kept for API route compatibility
   | "migration"
   | "business"
   | "downtown"
-  | "safety"
   | "tax"
-  | "housing"
   | "program";
 
 // ---------------------------------------------------------------------------

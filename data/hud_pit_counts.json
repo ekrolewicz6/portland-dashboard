@@ -1,0 +1,80 @@
+[
+  {
+    "year": 2024,
+    "coc_code": "OR-501",
+    "coc_name": "Portland, Gresham/Multnomah County CoC",
+    "total_homeless": 6297,
+    "sheltered": 2100,
+    "unsheltered": 4197,
+    "chronically_homeless": null,
+    "veterans": null,
+    "families": null,
+    "unaccompanied_youth": null,
+    "source": "HUD 2024 PIT Count"
+  },
+  {
+    "year": 2023,
+    "coc_code": "OR-501",
+    "coc_name": "Portland, Gresham/Multnomah County CoC",
+    "total_homeless": 6070,
+    "sheltered": null,
+    "unsheltered": null,
+    "chronically_homeless": null,
+    "veterans": null,
+    "families": null,
+    "unaccompanied_youth": null,
+    "source": "HUD 2023 PIT Count"
+  },
+  {
+    "year": 2022,
+    "coc_code": "OR-501",
+    "coc_name": "Portland, Gresham/Multnomah County CoC",
+    "total_homeless": 5228,
+    "sheltered": null,
+    "unsheltered": null,
+    "chronically_homeless": null,
+    "veterans": null,
+    "families": null,
+    "unaccompanied_youth": null,
+    "source": "HUD 2022 PIT Count"
+  },
+  {
+    "year": 2020,
+    "coc_code": "OR-501",
+    "coc_name": "Portland, Gresham/Multnomah County CoC",
+    "total_homeless": 4015,
+    "sheltered": null,
+    "unsheltered": null,
+    "chronically_homeless": null,
+    "veterans": null,
+    "families": null,
+    "unaccompanied_youth": null,
+    "source": "HUD 2020 PIT Count (COVID year, partial count)"
+  },
+  {
+    "year": 2019,
+    "coc_code": "OR-501",
+    "coc_name": "Portland, Gresham/Multnomah County CoC",
+    "total_homeless": 4015,
+    "sheltered": null,
+    "unsheltered": null,
+    "chronically_homeless": null,
+    "veterans": null,
+    "families": null,
+    "unaccompanied_youth": null,
+    "source": "HUD 2019 PIT Count"
+  },
+  {
+    "year": 2017,
+    "coc_code": "OR-501",
+    "coc_name": "Portland, Gresham/Multnomah County CoC",
+    "total_homeless": 4177,
+    "sheltered": null,
+    "unsheltered": null,
+    "chronically_homeless": null,
+    "veterans": null,
+    "families": null,
+    "unaccompanied_youth": null,
+    "source": "HUD 2017 PIT Count"
+  }
+]

@@ -1,13 +1,16 @@
-/** Metadata for the 7 dashboard questions */
+/** Metadata for the 10 civic dashboard categories */
 
 export const VALID_QUESTIONS = [
-  "migration",
-  "business",
-  "downtown",
-  "safety",
-  "tax",
   "housing",
-  "program",
+  "homelessness",
+  "safety",
+  "transportation",
+  "education",
+  "fiscal",
+  "economy",
+  "environment",
+  "quality",
+  "accountability",
 ] as const;
 
 export type QuestionSlug = (typeof VALID_QUESTIONS)[number];
@@ -18,13 +21,16 @@ export function isValidQuestion(slug: string): slug is QuestionSlug {
 
 export const questionMeta: Record<
   QuestionSlug,
-  { title: string; color: string }
+  { title: string; shortTitle: string; color: string }
 > = {
-  migration: { title: "Is Portland gaining or losing people?", color: "#4a7f9e" },
-  business: { title: "Is Portland gaining or losing businesses?", color: "#3d7a5a" },
-  downtown: { title: "Is downtown coming back?", color: "#c8956c" },
-  safety: { title: "Is Portland safe?", color: "#b85c3a" },
-  tax: { title: "Is the tax burden competitive?", color: "#7c6f9e" },
-  housing: { title: "Is housing getting built?", color: "#b85c6a" },
-  program: { title: "Is the Portland Commons working?", color: "#1a3a2a" },
+  housing: { title: "Are We Building Enough?", shortTitle: "Housing", color: "#b85c6a" },
+  homelessness: { title: "Are People Getting Housed?", shortTitle: "Homelessness", color: "#8b6c5c" },
+  safety: { title: "Are People Safe?", shortTitle: "Public Safety", color: "#b85c3a" },
+  transportation: { title: "Can You Get Around?", shortTitle: "Transportation", color: "#4a7f9e" },
+  education: { title: "Are Kids Learning?", shortTitle: "Education", color: "#3d7a5a" },
+  fiscal: { title: "Is the City Solvent?", shortTitle: "Fiscal Health", color: "#7c6f9e" },
+  economy: { title: "Can People Make a Living?", shortTitle: "Economy", color: "#c8956c" },
+  environment: { title: "Are We Meeting Our Climate Goals?", shortTitle: "Environment", color: "#5a8a6a" },
+  quality: { title: "Does Portland Work as a Place to Live?", shortTitle: "Quality of Life", color: "#6a7f8a" },
+  accountability: { title: "Who Promised What?", shortTitle: "Accountability", color: "#8a5c6a" },
 };

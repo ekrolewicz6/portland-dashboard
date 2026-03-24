@@ -30,7 +30,10 @@ interface SafetyDetailData {
     yoyChange: number;
     totalCurrentYear: number;
   };
-  topNeighborhoods: { name: string; count: number }[];
+  neighborhoodCrime: {
+    highest: { name: string; total: number; property: number; person: number; society: number }[];
+    lowest: { name: string; total: number; property: number; person: number; society: number }[];
+  };
   mvtTrend: { month: string; count: number }[];
   graffitiTrend: { month: string; count: number }[] | null;
   topInsights: string[];
@@ -101,6 +104,58 @@ function HorizontalBars({
   );
 }
 
+const CRIME_COLORS = {
+  property: "#c8956c",
+  person: "#b85c3a",
+  society: "#7c6f9e",
+};
+
+function StackedNeighborhoodBars({
+  items,
+  maxVal,
+}: {
+  items: { name: string; total: number; property: number; person: number; society: number }[];
+  maxVal: number;
+}) {
+  return (
+    <div className="space-y-3">
+      {items.map((item, i) => {
+        const totalPct = maxVal > 0 ? (item.total / maxVal) * 100 : 0;
+        const propPct = item.total > 0 ? (item.property / item.total) * totalPct : 0;
+        const persPct = item.total > 0 ? (item.person / item.total) * totalPct : 0;
+        const socPct = item.total > 0 ? (item.society / item.total) * totalPct : 0;
+        return (
+          <div key={i} className="flex items-center gap-4">
+            <span className="text-[13px] text-[var(--color-ink-light)] w-[140px] text-right flex-shrink-0 truncate" title={item.name}>
+              {item.name}
+            </span>
+            <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden flex">
+              <div
+                className="h-full transition-all duration-700"
+                style={{ width: `${propPct}%`, backgroundColor: CRIME_COLORS.property }}
+                title={`Property: ${item.property.toLocaleString()}`}
+              />
+              <div
+                className="h-full transition-all duration-700"
+                style={{ width: `${persPct}%`, backgroundColor: CRIME_COLORS.person }}
+                title={`Person: ${item.person.toLocaleString()}`}
+              />
+              <div
+                className="h-full transition-all duration-700"
+                style={{ width: `${socPct}%`, backgroundColor: CRIME_COLORS.society }}
+                title={`Society: ${item.society.toLocaleString()}`}
+              />
+            </div>
+            <span className="text-[13px] font-mono font-semibold text-[var(--color-ink)] w-[70px] text-right">
+              {item.total.toLocaleString()}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function SafetyDetail() {
   const [data, setData] = useState<SafetyDetailData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -133,7 +188,7 @@ export default function SafetyDetail() {
     heroStats,
     crimeByCategory,
     topOffenseCategories,
-    topNeighborhoods,
+    neighborhoodCrime,
     mvtTrend,
     graffitiTrend,
     topInsights,
@@ -255,11 +310,53 @@ export default function SafetyDetail() {
         </section>
       )}
 
-      {/* 6. Top Neighborhoods — HTML bars */}
-      {topNeighborhoods.length > 0 && (
+      {/* 6. Neighborhoods by Crime Type — highest and lowest */}
+      {(neighborhoodCrime.highest.length > 0 || neighborhoodCrime.lowest.length > 0) && (
         <section>
-          <SectionHeader icon={MapPin} title="Top Neighborhoods (Last 12 Months)" color="#4a7f9e" />
-          <HorizontalBars items={topNeighborhoods} color="#4a7f9e" />
+          <SectionHeader icon={MapPin} title="Neighborhoods by Crime Type (Last 12 Months)" color="#4a7f9e" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6 space-y-8">
+            {/* Legend */}
+            <div className="flex items-center gap-5 text-[12px] text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: CRIME_COLORS.property }} />
+                Property
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: CRIME_COLORS.person }} />
+                Person
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: CRIME_COLORS.society }} />
+                Society
+              </span>
+            </div>
+
+            {/* Highest crime neighborhoods */}
+            {neighborhoodCrime.highest.length > 0 && (
+              <div>
+                <h3 className="text-[12px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">
+                  Highest Crime
+                </h3>
+                <StackedNeighborhoodBars
+                  items={neighborhoodCrime.highest}
+                  maxVal={neighborhoodCrime.highest[0]?.total ?? 1}
+                />
+              </div>
+            )}
+
+            {/* Lowest crime neighborhoods */}
+            {neighborhoodCrime.lowest.length > 0 && (
+              <div>
+                <h3 className="text-[12px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">
+                  Lowest Crime
+                </h3>
+                <StackedNeighborhoodBars
+                  items={neighborhoodCrime.lowest}
+                  maxVal={neighborhoodCrime.highest[0]?.total ?? 1}
+                />
+              </div>
+            )}
+          </div>
         </section>
       )}
 

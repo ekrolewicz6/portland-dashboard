@@ -29,13 +29,16 @@ async function fetchQuestionData(
 
 export async function generateStaticParams() {
   return [
-    { question: "migration" },
-    { question: "business" },
-    { question: "downtown" },
-    { question: "safety" },
-    { question: "tax" },
     { question: "housing" },
-    { question: "program" },
+    { question: "homelessness" },
+    { question: "safety" },
+    { question: "transportation" },
+    { question: "education" },
+    { question: "fiscal" },
+    { question: "economy" },
+    { question: "environment" },
+    { question: "quality" },
+    { question: "accountability" },
   ];
 }
 
@@ -54,15 +57,22 @@ export default async function EmbedPage({ params }: PageProps) {
   } catch {
     const mockModule = await import("@/lib/mock-data");
     const dataMap: Record<string, DashboardResponse> = {
+      housing: mockModule.housingData,
+      safety: mockModule.safetyData,
+      economy: mockModule.businessData,
+      fiscal: mockModule.taxData,
+      // Legacy
       migration: mockModule.migrationData,
       business: mockModule.businessData,
       downtown: mockModule.downtownData,
-      safety: mockModule.safetyData,
       tax: mockModule.taxData,
-      housing: mockModule.housingData,
       program: mockModule.programData,
     };
     data = dataMap[question];
+    if (!data) {
+      // New categories without mock data
+      notFound();
+    }
   }
 
   const sparklineData = data.chartData.map((d) => ({ value: d.value }));

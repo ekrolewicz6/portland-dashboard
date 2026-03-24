@@ -8,11 +8,14 @@ import ExportButton from "@/components/dashboard/ExportButton";
 import EmbedButton from "@/components/dashboard/EmbedButton";
 import SafetyDetail from "@/components/dashboard/safety/SafetyDetail";
 import HousingDetail from "@/components/dashboard/housing/HousingDetail";
-import MigrationDetail from "@/components/dashboard/migration/MigrationDetail";
-import BusinessDetail from "@/components/dashboard/business/BusinessDetail";
-import DowntownDetail from "@/components/dashboard/downtown/DowntownDetail";
-import TaxDetail from "@/components/dashboard/tax/TaxDetail";
-import ProgramDetail from "@/components/dashboard/program/ProgramDetail";
+import EconomyDetail from "@/components/dashboard/economy/EconomyDetail";
+import FiscalDetail from "@/components/dashboard/fiscal/FiscalDetail";
+import HomelessnessDetail from "@/components/dashboard/homelessness/HomelessnessDetail";
+import TransportationDetail from "@/components/dashboard/transportation/TransportationDetail";
+import EducationDetail from "@/components/dashboard/education/EducationDetail";
+import EnvironmentDetail from "@/components/dashboard/environment/EnvironmentDetail";
+import QualityDetail from "@/components/dashboard/quality/QualityDetail";
+import AccountabilityDetail from "@/components/dashboard/accountability/AccountabilityDetail";
 
 interface PageProps {
   params: Promise<{ question: string }>;
@@ -40,13 +43,16 @@ async function fetchQuestionData(
 
 export async function generateStaticParams() {
   return [
-    { question: "migration" },
-    { question: "business" },
-    { question: "downtown" },
-    { question: "safety" },
-    { question: "tax" },
     { question: "housing" },
-    { question: "program" },
+    { question: "homelessness" },
+    { question: "safety" },
+    { question: "transportation" },
+    { question: "education" },
+    { question: "fiscal" },
+    { question: "economy" },
+    { question: "environment" },
+    { question: "quality" },
+    { question: "accountability" },
   ];
 }
 
@@ -55,30 +61,22 @@ export async function generateMetadata({ params }: PageProps) {
   if (!isValidQuestion(question)) return {};
   const meta = questionMeta[question];
   return {
-    title: `${meta.title} | Portland Commons Dashboard`,
+    title: `${meta.title} | Portland Civic Dashboard`,
     description: `Deep-dive data and analysis: ${meta.title}`,
   };
 }
 
-/** Questions that have dedicated detail views */
-const DETAIL_QUESTIONS = new Set([
-  "safety",
-  "housing",
-  "migration",
-  "business",
-  "downtown",
-  "tax",
-  "program",
-]);
-
 const detailComponents: Record<string, React.ComponentType> = {
-  safety: SafetyDetail,
   housing: HousingDetail,
-  migration: MigrationDetail,
-  business: BusinessDetail,
-  downtown: DowntownDetail,
-  tax: TaxDetail,
-  program: ProgramDetail,
+  homelessness: HomelessnessDetail,
+  safety: SafetyDetail,
+  transportation: TransportationDetail,
+  education: EducationDetail,
+  fiscal: FiscalDetail,
+  economy: EconomyDetail,
+  environment: EnvironmentDetail,
+  quality: QualityDetail,
+  accountability: AccountabilityDetail,
 };
 
 export default async function QuestionPage({ params }: PageProps) {
@@ -89,7 +87,7 @@ export default async function QuestionPage({ params }: PageProps) {
   }
 
   const meta = questionMeta[question];
-  const hasDetailView = DETAIL_QUESTIONS.has(question);
+  const DetailComponent = detailComponents[question];
 
   let data: DashboardResponse | null = null;
 
@@ -100,8 +98,6 @@ export default async function QuestionPage({ params }: PageProps) {
     // Data unavailable — detail component will show DataNeeded
     data = null;
   }
-
-  const DetailComponent = detailComponents[question];
 
   return (
     <div className="bg-[var(--color-paper)] min-h-screen">
@@ -120,6 +116,12 @@ export default async function QuestionPage({ params }: PageProps) {
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
           </Link>
+
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
+              {meta.shortTitle}
+            </span>
+          </div>
 
           <h1 className="font-editorial-normal text-[36px] sm:text-[48px] lg:text-[56px] text-white leading-[1.1] tracking-tight max-w-3xl">
             {meta.title}
@@ -165,9 +167,9 @@ export default async function QuestionPage({ params }: PageProps) {
         </div>
 
         {/* Question-specific detail view or generic layout */}
-        {hasDetailView && DetailComponent && <DetailComponent />}
+        {DetailComponent && <DetailComponent />}
 
-        {!hasDetailView && data && (
+        {!DetailComponent && data && (
           <>
             {/* 12-Month Trend Chart */}
             <section className="mb-10">
@@ -259,10 +261,7 @@ export default async function QuestionPage({ params }: PageProps) {
                   Data Source
                 </p>
                 <p className="text-[14px] text-white/80">
-                  {data?.source ??
-                    (question === "safety"
-                      ? "Portland Police Bureau / BOEC 911"
-                      : "BDS PermitsNow / Zillow ZORI")}
+                  {data?.source ?? "Data collection in progress"}
                 </p>
               </div>
               <div className="text-right">

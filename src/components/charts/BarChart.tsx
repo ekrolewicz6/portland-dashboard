@@ -39,7 +39,7 @@ export default function BarChart({
           margin={
             isVertical
               ? { top: 4, right: 32, left: 0, bottom: 4 }
-              : { top: 8, right: 8, left: -8, bottom: 0 }
+              : { top: 8, right: 8, left: 4, bottom: 20 }
           }
         >
           <CartesianGrid

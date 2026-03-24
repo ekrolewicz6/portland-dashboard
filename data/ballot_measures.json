@@ -1,0 +1,50 @@
+[
+  {
+    "measure_number": "26-210",
+    "measure_title": "Supportive Housing Services (SHS)",
+    "election_date": "2020-05-19",
+    "jurisdiction": "Multnomah County",
+    "yes_votes": null,
+    "no_votes": null,
+    "yes_pct": 58.6,
+    "passed": true,
+    "annual_revenue_estimate": 250000000,
+    "description": "Personal income tax (1% on income over $125K/$200K joint) and business income tax (1% on profits over $5M) to fund supportive housing services for people experiencing or at risk of homelessness."
+  },
+  {
+    "measure_number": "26-201",
+    "measure_title": "Portland Clean Energy Fund (PCEF)",
+    "election_date": "2018-11-06",
+    "jurisdiction": "City of Portland",
+    "yes_votes": null,
+    "no_votes": null,
+    "yes_pct": 64.7,
+    "passed": true,
+    "annual_revenue_estimate": 80000000,
+    "description": "1% surcharge on gross revenue for Portland retailers with $1B+ national revenue and $500K+ Portland revenue. Funds clean energy, green jobs, and climate justice programs."
+  },
+  {
+    "measure_number": "26-146",
+    "measure_title": "Arts Education and Access Income Tax (Arts Tax)",
+    "election_date": "2012-11-06",
+    "jurisdiction": "City of Portland",
+    "yes_votes": null,
+    "no_votes": null,
+    "yes_pct": 62,
+    "passed": true,
+    "annual_revenue_estimate": 12000000,
+    "description": "$35/year flat tax on Portland residents with income above the federal poverty level. Funds K-5 arts and music teachers and arts organizations."
+  },
+  {
+    "measure_number": "26-214",
+    "measure_title": "Preschool for All (PFA)",
+    "election_date": "2020-11-03",
+    "jurisdiction": "Multnomah County",
+    "yes_votes": null,
+    "no_votes": null,
+    "yes_pct": 64,
+    "passed": true,
+    "annual_revenue_estimate": 200000000,
+    "description": "Personal income tax (1.5% on taxable income over $125K/$200K joint, 3% over $250K/$400K joint) to fund free universal preschool for 3- and 4-year-olds in Multnomah County."
+  }
+]

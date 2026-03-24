@@ -1,3 +1,7 @@
+# database dumps
+*.dump
+*.sql.gz
+
 # dependencies
 /node_modules
 /.pnp
