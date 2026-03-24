@@ -33,6 +33,7 @@ interface HousingDetailResponse {
   ninetyDayBreakdown: { met: number; missed: number };
   demolitionTrend: { quarter: string; total: number; residential: number; commercial: number }[];
   completions: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
+  backlogTrend: { quarter: string; residential: number; commercial: number; facility: number }[];
   topInsights: string[];
   housingMarket: HousingMarketData;
   dataStatus: string;
@@ -497,6 +498,31 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       );
     }
 
+    // ─── Permit Backlog Trend (open permits over time by type) ───
+    const backlogRows = await sql`
+      WITH quarters AS (
+        SELECT generate_series('2023-01-01'::date, CURRENT_DATE, '3 months'::interval) as q
+      )
+      SELECT
+        TO_CHAR(q.q, 'YYYY-"Q"Q') as quarter,
+        count(*) FILTER (WHERE LOWER(p.status) IN ('issued','issued - uf','under inspection','under review','approved to issue','approved')
+          AND (p.permit_type ILIKE '%residential%' OR p.permit_type ILIKE '%1 & 2 family%'))::int as residential_open,
+        count(*) FILTER (WHERE LOWER(p.status) IN ('issued','issued - uf','under inspection','under review','approved to issue','approved')
+          AND p.permit_type ILIKE '%commercial%')::int as commercial_open,
+        count(*) FILTER (WHERE LOWER(p.status) IN ('issued','issued - uf','under inspection','under review','approved to issue','approved')
+          AND p.permit_type ILIKE '%facility%')::int as facility_open
+      FROM quarters q
+      LEFT JOIN housing.permits p ON p.issued_date < q.q AND (p.final_date IS NULL OR p.final_date >= q.q)
+        AND p.permit_type IN ('Residential 1 & 2 Family Permit','Commercial Building Permit','Facility Permit','Housing')
+      GROUP BY 1 ORDER BY 1
+    `;
+    const backlogTrend = backlogRows.map((r) => ({
+      quarter: r.quarter as string,
+      residential: Number(r.residential_open),
+      commercial: Number(r.commercial_open),
+      facility: Number(r.facility_open),
+    }));
+
     // ─── Housing Market Analysis (Zillow metrics) ───
 
     // Home value trend: typical, sfr, condo from 2010+
@@ -638,6 +664,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       housingCreation,
       demolitionTrend,
       completions,
+      backlogTrend,
       housingMarket,
       dataStatus: "partial",
     });
@@ -666,6 +693,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         housingCreation: [],
         demolitionTrend: [],
         completions: [],
+        backlogTrend: [],
         housingMarket: {
           homeValueTrendMulti: [],
           valueByType: [],

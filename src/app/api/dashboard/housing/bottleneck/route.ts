@@ -173,25 +173,21 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
       days_from_setup: Number(r.days_from_setup),
     }));
 
-    // 3. Overall correction stats
+    // 3. Overall correction stats — query activities directly
     const corrStats = await sql`
       SELECT
-        count(DISTINCT detail_id)::int as total_permits,
-        count(DISTINCT detail_id) FILTER (
-          WHERE detail_id IN (
-            SELECT DISTINCT detail_id FROM housing.permit_activities
-            WHERE activity_name ILIKE '%corrections received%'
-          )
-        )::int as with_corrections
-      FROM housing.permit_details
+        (SELECT count(DISTINCT detail_id)::int FROM housing.permit_activities) as total_permits,
+        count(DISTINCT detail_id)::int as with_corrections
+      FROM housing.permit_activities
+      WHERE activity_name ILIKE '%correction%'
     `;
 
     const corrRoundRows = await sql`
-      SELECT ROUND(AVG(rounds), 2)::float as avg_rounds
+      SELECT ROUND(AVG(rounds)::numeric, 2)::float as avg_rounds
       FROM (
         SELECT detail_id, count(*)::int as rounds
         FROM housing.permit_activities
-        WHERE activity_name ILIKE '%corrections received%'
+        WHERE activity_name ILIKE '%correction%'
         GROUP BY detail_id
       ) sub
     `;

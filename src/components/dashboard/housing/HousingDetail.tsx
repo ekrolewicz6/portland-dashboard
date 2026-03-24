@@ -76,6 +76,7 @@ interface HousingDetailData {
   housingCreation?: { quarter: string; adus: number; multifamily: number; singleFamily: number; commercialMulti: number; affordable: number; total: number }[];
   demolitionTrend?: { quarter: string; total: number; residential: number; commercial: number }[];
   completions?: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
+  backlogTrend?: { quarter: string; residential: number; commercial: number; facility: number }[];
   housingMarket?: HousingMarketData;
 }
 
@@ -391,6 +392,28 @@ export default function HousingDetail() {
                 </div>
               );
             })()}
+          </div>
+        </section>
+      )}
+
+      {/* 1a-iv. Permit Backlog — is it growing or shrinking? */}
+      {data.backlogTrend && data.backlogTrend.length > 0 && (
+        <section>
+          <SectionHeader icon={TrendingUp} title="Permit Backlog: Is It Growing or Shrinking?" color="#b85c3a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Open building permits (issued but not yet finaled) at the start of each quarter. Rising lines mean the backlog is growing — more permits entering than exiting.
+            </p>
+            <MultiLineChart
+              data={data.backlogTrend.filter((r) => r.residential + r.commercial + r.facility > 0)}
+              xKey="quarter"
+              height={340}
+              lines={[
+                { key: "residential", label: "Residential", color: "#3d7a5a" },
+                { key: "commercial", label: "Commercial", color: "#c8956c" },
+                { key: "facility", label: "Facility", color: "#4a7f9e" },
+              ]}
+            />
           </div>
         </section>
       )}
