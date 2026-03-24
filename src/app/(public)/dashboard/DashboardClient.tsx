@@ -40,22 +40,19 @@ function hasData(q: QuestionData): boolean {
 }
 
 /** Extract a short headline value from the API headline string */
-function extractHeadlineValue(headline: string): string {
-  // Try to pull the first number-like value from the headline
+function extractHeadlineValue(headline: string | undefined): string {
+  if (!headline) return "—";
   const match = headline.match(/^([\d,]+(?:\.\d+)?%?)/);
   if (match) return match[1];
-  // Try to find a number with commas
   const numMatch = headline.match(/([\d,]+(?:\.\d+)?)/);
   if (numMatch) return numMatch[1];
-  // Fallback
   return headline.split(" ").slice(0, 3).join(" ");
 }
 
 /** Extract a label from the headline (everything after the first number) */
-function extractHeadlineLabel(headline: string): string {
-  // Remove the leading number part
+function extractHeadlineLabel(headline: string | undefined): string {
+  if (!headline) return "Data loading";
   const cleaned = headline.replace(/^[\d,]+(?:\.\d+)?%?\s*/, "");
-  // Trim leading dashes or separators
   return cleaned.replace(/^[—–-]\s*/, "").trim() || headline;
 }
 
