@@ -67,7 +67,7 @@ export async function GET() {
         ROUND(AVG(aqi))::int AS avg_aqi
       FROM environment.airnow_aqi
       WHERE pollutant = 'PM2.5'
-        AND date >= CURRENT_DATE - INTERVAL '30 days'
+        AND date >= CURRENT_DATE - INTERVAL '14 days'
       GROUP BY date
       ORDER BY date DESC
     `;

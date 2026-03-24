@@ -43,10 +43,10 @@ async function refreshAirNowData() {
     );
     const current: AirNowObservation[] = currentRes.ok ? await currentRes.json() : [];
 
-    // Fetch last 30 days of historical data (batch 5 at a time to stay fast)
+    // Fetch last 14 days of historical data (batch 5 at a time to stay fast)
     const allObs: AirNowObservation[] = [...current];
     const dates: string[] = [];
-    for (let i = 1; i <= 30; i++) {
+    for (let i = 1; i <= 14; i++) {
       const d = new Date();
       d.setDate(d.getDate() - i);
       dates.push(d.toISOString().slice(0, 10));
@@ -87,7 +87,7 @@ async function refreshAirNowData() {
       }
     }
 
-    console.log(`[environment/detail] Refreshed ${allObs.length} AirNow observations (30 days)`);
+    console.log(`[environment/detail] Refreshed ${allObs.length} AirNow observations (14 days)`);
   } catch (err) {
     console.warn("[environment/detail] AirNow refresh failed:", err instanceof Error ? err.message : err);
   }
@@ -133,7 +133,7 @@ export async function GET(): Promise<NextResponse<EnvironmentDetailResponse>> {
       SELECT date::text AS date, ROUND(AVG(aqi))::int AS avg_aqi
       FROM environment.airnow_aqi
       WHERE pollutant = 'PM2.5'
-        AND date >= CURRENT_DATE - INTERVAL '30 days'
+        AND date >= CURRENT_DATE - INTERVAL '14 days'
       GROUP BY date
       ORDER BY date
     `;
