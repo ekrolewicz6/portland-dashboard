@@ -645,12 +645,13 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       mortgage: Math.round((Number(r.home_value) * 0.8 * 0.07) / 12),
     }));
 
-    // Market health indicators
+    // Market health indicators — get latest available value for each metric
     const healthRows = await sql`
-      SELECT metric, value::numeric AS value
+      SELECT DISTINCT ON (metric) metric, value::numeric AS value
       FROM public.zillow_metrics
-      WHERE month = (SELECT MAX(month) FROM public.zillow_metrics WHERE metric = 'inventory')
-        AND metric IN ('inventory', 'new_listings', 'pct_sold_above', 'pct_sold_below', 'market_temp')
+      WHERE metric IN ('inventory', 'new_listings', 'pct_sold_above', 'pct_sold_below', 'market_temp')
+        AND value IS NOT NULL AND value > 0
+      ORDER BY metric, month DESC
     `;
     const marketHealth = healthRows.map((r) => ({
       metric: r.metric as string,
