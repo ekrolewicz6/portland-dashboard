@@ -185,60 +185,32 @@ export default function HousingDetail() {
   const totalNinetyDay = ninetyDayBreakdown.met + ninetyDayBreakdown.missed;
   const metPct = totalNinetyDay > 0 ? Math.round((ninetyDayBreakdown.met / totalNinetyDay) * 100) : 0;
 
-  return (
-    <div className="space-y-10">
-      {/* 0. Key Insights (always first) */}
-      <section>
-        <SectionHeader icon={Lightbulb} title="Key Insights" color="#3d7a5a" />
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <ul className="space-y-3">
-            {topInsights.map((insight, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-[14px] text-[var(--color-ink-light)] leading-relaxed"
-              >
-                <span className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[var(--color-rose-hip)]" />
-                {insight}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+  // Helper for journey by-type cards
+  function yearsAndMonths(days: number) {
+      {/* ═══════════════════════════════════════════════════
+          SECTION 1: THE BIG PICTURE — Is Portland Building Enough?
+          ═══════════════════════════════════════════════════ */}
 
-      {/* 1. Hero Stat Grid */}
+      {/* Key Metrics */}
       <section>
-        <SectionHeader icon={Building2} title="Key Metrics" />
+        <SectionHeader icon={Activity} title="Key Metrics" />
         <StatGrid
-          accentColor="#b85c6a"
           stats={[
-            {
-              label: "Units in Pipeline",
-              value: heroStats.unitsInPipeline,
-            },
-            {
-              label: "Median Permit Time",
-              value: heroStats.avgPermitDays,
-              suffix: " days",
-            },
-            {
-              label: "Total Valuation",
-              value: `$${(heroStats.totalValuation / 1_000_000).toFixed(0)}M`,
-            },
-            {
-              label: "90-Day Compliance",
-              value: `${heroStats.ninetyDayCompliance}%`,
-            },
+            { label: "Units in Pipeline", value: heroStats.unitsInPipeline.toLocaleString() },
+            { label: "Median Permit Time", value: `${heroStats.avgPermitDays} days` },
+            { label: "Construction Valuation", value: `$${(heroStats.totalValuation / 1_000_000_000).toFixed(2)}B` },
+            { label: "90-Day Compliance", value: `${heroStats.ninetyDayCompliance}%` },
           ]}
         />
       </section>
 
-      {/* 0. Permit Backlog — THE lead chart */}
+      {/* Backlog: THE lead chart */}
       {data.backlogTrend && data.backlogTrend.length > 0 && (
         <section>
           <SectionHeader icon={TrendingUp} title="Permit Backlog: Is It Growing or Shrinking?" color="#b85c3a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Open building permits (issued but not yet finaled) at the start of each quarter. Rising lines mean the backlog is growing — more permits entering than exiting.
+              Open building permits (issued but not yet finaled) at the start of each quarter. Rising lines = backlog is growing.
             </p>
             <MultiLineChart
               data={data.backlogTrend.filter((r) => r.residential + r.commercial + r.facility > 0)}
@@ -254,18 +226,18 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 0b. Permit Throughput — Applications vs Issuances vs Completions */}
+      {/* Throughput: Applications vs Issuances vs Completions */}
       {data.throughput && data.throughput.length > 0 && (
         <section>
-          <SectionHeader icon={TrendingUp} title="Permit Throughput: Applications vs Issuances vs Completions" color="#3d7a5a" />
+          <SectionHeader icon={Activity} title="Permit Throughput: Applications vs Issuances vs Completions" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              How many building permits are applied for, issued, and completed each quarter. The gap between lines shows where the pipeline is backing up.
+              How many building permits are applied for, issued, and completed each quarter. The gap between lines shows where the pipeline backs up.
             </p>
             <MultiLineChart
               data={data.throughput}
               xKey="quarter"
-              height={360}
+              height={340}
               lines={[
                 { key: "applied", label: "Applications Filed", color: "#b85c3a" },
                 { key: "issued", label: "Permits Issued", color: "#c8956c" },
@@ -276,180 +248,11 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 1a. Housing Creation — How much housing is actually being built? */}
-      {housingCreation && housingCreation.length > 0 && (
-        <section>
-          <SectionHeader icon={Home} title="Housing Permits Issued by Type (Real Permit Data)" color="#b85c3a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[14px] text-[var(--color-ink-muted)] mb-4">
-              Housing permits issued by type per quarter. Source: Portland BDS via ArcGIS ({housingCreation.length} quarters).
-            </p>
+      {/* ═══════════════════════════════════════════════════
+          SECTION 2: THE PERMIT PROCESS — What's Broken?
+          ═══════════════════════════════════════════════════ */}
 
-            <MultiLineChart
-              data={housingCreation.filter((r) => r.total > 0).map((r) => ({
-                quarter: r.quarter,
-                "Single Family": r.singleFamily,
-                "Apartments/Townhouses": r.multifamily,
-                "Commercial/Mixed-Use": r.commercialMulti,
-                "ADUs": r.adus,
-              }))}
-              xKey="quarter"
-              height={380}
-              lines={[
-                { key: "Single Family", label: "Single Family", color: "#3d7a5a" },
-                { key: "Apartments/Townhouses", label: "Apartments & Townhouses (3+ units)", color: "#4a7f9e" },
-                { key: "Commercial/Mixed-Use", label: "Commercial / Mixed-Use", color: "#c8956c" },
-                { key: "ADUs", label: "Accessory Dwelling Units", color: "#7c6f9e" },
-              ]}
-            />
-
-            {/* Latest quarter with actual data */}
-            {(() => {
-              // Find the last quarter that has permits (skip future/empty quarters)
-              const latest = [...housingCreation].reverse().find((q) => q.total > 0);
-              if (!latest) return null;
-              const types = [
-                { label: "Single Family", value: latest.singleFamily, color: "#3d7a5a" },
-                { label: "Apartments & Townhouses", value: latest.multifamily, color: "#4a7f9e" },
-                { label: "Commercial / Mixed-Use", value: latest.commercialMulti, color: "#c8956c" },
-                { label: "ADUs", value: latest.adus, color: "#7c6f9e" },
-              ];
-              const maxVal = Math.max(...types.map(t => t.value), 1);
-              return (
-                <div className="mt-6 pt-4 border-t border-[var(--color-parchment)]">
-                  <p className="text-[13px] font-semibold text-[var(--color-ink-muted)] mb-3">
-                    Latest Quarter ({latest.quarter}): {latest.total} total permits
-                  </p>
-                  <div className="space-y-2">
-                    {types.map((t) => (
-                      <div key={t.label} className="flex items-center gap-3">
-                        <span className="text-[13px] text-[var(--color-ink-light)] w-[200px] text-right flex-shrink-0 truncate">
-                          {t.label}
-                        </span>
-                        <div className="flex-1 h-6 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                          <div
-                            className="h-full rounded-sm"
-                            style={{ width: `${Math.max((t.value / maxVal) * 100, 3)}%`, backgroundColor: t.color }}
-                          />
-                        </div>
-                        <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[40px] text-right">
-                          {t.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-        </section>
-      )}
-
-      {/* 1a-ii. Housing Completions — finaled permits by type */}
-      {data.completions && data.completions.length > 0 && (
-        <section>
-          <SectionHeader icon={CheckCircle2} title="Housing Completions by Type (Finaled Permits)" color="#3d7a5a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
-              Permits that reached &ldquo;finaled&rdquo; status each quarter — meaning construction was completed and inspected. This is the real measure of housing actually built, not just permitted.
-            </p>
-            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-              Source: Portland BDS permits with final_date since Q3 2023. Covers residential, commercial building, and facility permits.
-            </p>
-            <ComparisonBarChart
-              data={data.completions.map((r) => ({
-                quarter: r.quarter,
-                "Single Family": r.single_family,
-                "ADUs": r.adus,
-                "Multifamily": r.multifamily,
-              }))}
-              xKey="quarter"
-              bars={[
-                { key: "Single Family", label: "Single Family", color: "#3d7a5a", stackId: "completions" },
-                { key: "ADUs", label: "ADUs", color: "#7c6f9e", stackId: "completions" },
-                { key: "Multifamily", label: "Multifamily", color: "#4a7f9e", stackId: "completions" },
-              ]}
-              height={360}
-            />
-            {/* Summary stat */}
-            {(() => {
-              const totalCompleted = data.completions!.reduce((s, r) => s + r.total, 0);
-              const latest = data.completions![data.completions!.length - 1];
-              return (
-                <div className="mt-4 pt-4 border-t border-[var(--color-parchment)] flex flex-wrap gap-6">
-                  <div>
-                    <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                      {totalCompleted.toLocaleString()}
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">total completions since 2020</p>
-                  </div>
-                  {latest && (
-                    <div>
-                      <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                        {latest.total}
-                      </p>
-                      <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">completed in {latest.quarter}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
-          </div>
-        </section>
-      )}
-
-      {/* 1a-iii. Demolition Tracking */}
-      {data.demolitionTrend && data.demolitionTrend.length > 0 && (
-        <section>
-          <SectionHeader icon={AlertTriangle} title="Demolition Permits" color="#b85c3a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
-              Demolition permits issued per quarter since 2020. Demolitions reduce net housing gains — every demolished home must be replaced by new construction just to break even.
-            </p>
-            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-              Residential demolitions include any permit where the type or mapped type references dwellings.
-            </p>
-            <ComparisonBarChart
-              data={data.demolitionTrend.map((r) => ({
-                quarter: r.quarter,
-                "Residential": r.residential,
-                "Commercial": r.commercial,
-                "Other": r.total - r.residential - r.commercial,
-              }))}
-              xKey="quarter"
-              bars={[
-                { key: "Residential", label: "Residential", color: "#b85c3a", stackId: "demo" },
-                { key: "Commercial", label: "Commercial", color: "#c8956c", stackId: "demo" },
-                { key: "Other", label: "Other", color: "#a8c5b2", stackId: "demo" },
-              ]}
-              height={320}
-            />
-            {/* Total demolitions summary */}
-            {(() => {
-              const totalDemo = data.demolitionTrend!.reduce((s, r) => s + r.total, 0);
-              const totalRes = data.demolitionTrend!.reduce((s, r) => s + r.residential, 0);
-              return (
-                <div className="mt-4 pt-4 border-t border-[var(--color-parchment)] flex flex-wrap gap-6">
-                  <div>
-                    <p className="text-[24px] font-mono font-bold text-[#b85c3a] leading-none">
-                      {totalDemo}
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">total demolitions since 2020</p>
-                  </div>
-                  <div>
-                    <p className="text-[24px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                      {totalRes}
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-1">residential demolitions</p>
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-        </section>
-      )}
-
-      {/* 1b. Permit Journey — redesigned to show step durations and corrections */}
+      {/* Journey: Where Does Time Go? */}
       {journeyData && journeyData.phases.length > 0 && (() => {
         const reviewPhases = journeyData.phases.filter(p =>
           ["Application", "Planning and Zoning", "Structural", "Life Safety", "Fire Review", "Environmental Services"].includes(p.phase)
@@ -460,7 +263,6 @@ export default function HousingDetail() {
         const issuancePhase = journeyData.phases.find(p => p.phase === "Issuance");
         const finalPhase = journeyData.phases.find(p => p.phase === "Final Permit");
         const maxStepDuration = Math.max(...journeyData.phases.map(p => p.median_step_duration), 1);
-
         const totalReviewDays = issuancePhase?.median_day ?? 0;
         const totalConstructionDays = (finalPhase?.median_day ?? 0) - totalReviewDays;
 
@@ -468,150 +270,82 @@ export default function HousingDetail() {
         <section>
           <SectionHeader icon={Clock} title="The Permit Journey: Where Does the Time Go?" color="#4a7f9e" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-
-            {/* Big story: two halves + corrections */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="bg-[var(--color-canopy)]/[0.04] border border-[var(--color-canopy)]/10 rounded-sm p-4 text-center">
                 <p className="text-[32px] font-mono font-bold text-[var(--color-canopy)]">{totalReviewDays}d</p>
                 <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">Review & Approval</p>
-                <p className="text-[11px] text-[var(--color-ink-muted)]/60">Application to permit issued</p>
               </div>
               <div className="bg-[var(--color-ember)]/[0.04] border border-[var(--color-ember)]/10 rounded-sm p-4 text-center">
                 <p className="text-[32px] font-mono font-bold text-[var(--color-clay)]">{totalConstructionDays}d</p>
                 <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">Construction & Inspections</p>
-                <p className="text-[11px] text-[var(--color-ink-muted)]/60">Permit issued to final sign-off</p>
               </div>
               <div className="bg-[#b85c3a]/[0.06] border border-[#b85c3a]/15 rounded-sm p-4 text-center">
                 <p className="text-[32px] font-mono font-bold text-[#b85c3a]">{journeyData.correctionStats.avgRounds}x</p>
                 <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">Avg Correction Rounds</p>
-                <p className="text-[11px] text-[var(--color-ink-muted)]/60">{journeyData.correctionStats.pctWithCorrections}% of {(journeyData.correctionStats.totalPermits / 1000).toFixed(0)}K permits need corrections</p>
+                <p className="text-[10px] text-[var(--color-ink-muted)]/60">{journeyData.correctionStats.pctWithCorrections}% of permits</p>
               </div>
             </div>
-
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              How long each step takes on its own (median days). Bars show step duration, not cumulative time.
-            </p>
-
-            {/* Phase 1: Reviews */}
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-3">How long each step takes on its own (median days).</p>
             <div className="mb-2">
-              <p className="text-[10px] font-semibold text-[var(--color-canopy)] uppercase tracking-wider mb-1.5">
-                Phase 1: Review & Approval (Days 0–{totalReviewDays})
-              </p>
+              <p className="text-[10px] font-semibold text-[var(--color-canopy)] uppercase tracking-wider mb-1.5">Phase 1: Review & Approval</p>
               <div className="space-y-1">
-                {reviewPhases.map((phase) => {
+                {[...reviewPhases, ...(issuancePhase ? [{ ...issuancePhase, phase: "Permit Issued" }] : [])].map((phase) => {
                   const pct = Math.round((phase.median_step_duration / maxStepDuration) * 100);
+                  const color = phase.phase === "Permit Issued" ? "#3d7a5a" : "#4a7f9e";
                   return (
                     <div key={phase.phase} className="flex items-center gap-3">
-                      <span className="text-[11px] text-[var(--color-ink-light)] w-[150px] text-right flex-shrink-0 truncate">
-                        {phase.phase}
-                      </span>
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-[150px] text-right flex-shrink-0 truncate">{phase.phase}</span>
                       <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
-                        <div className="h-full rounded-sm" style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: "#4a7f9e" }} />
+                        <div className="h-full rounded-sm" style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: color }} />
                       </div>
-                      <span className="text-[11px] font-mono font-semibold text-[#4a7f9e] w-[35px] text-right">
-                        {phase.median_step_duration}d
-                      </span>
+                      <span className="text-[11px] font-mono font-semibold w-[35px] text-right" style={{ color }}>{phase.median_step_duration}d</span>
                       <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
                         {phase.permits_affected >= 1000 ? `${(phase.permits_affected / 1000).toFixed(0)}K` : phase.permits_affected}
                       </span>
                     </div>
                   );
                 })}
-                {issuancePhase && (
-                  <div className="flex items-center gap-3">
-                    <span className="text-[11px] font-semibold text-[#3d7a5a] w-[150px] text-right flex-shrink-0">
-                      Permit Issued
-                    </span>
-                    <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
-                      <div className="h-full rounded-sm" style={{ width: `${Math.max(Math.round((issuancePhase.median_step_duration / maxStepDuration) * 100), 2)}%`, backgroundColor: "#3d7a5a" }} />
-                    </div>
-                    <span className="text-[11px] font-mono font-semibold text-[#3d7a5a] w-[35px] text-right">
-                      {issuancePhase.median_step_duration}d
-                    </span>
-                    <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
-                      {issuancePhase.permits_affected >= 1000 ? `${(issuancePhase.permits_affected / 1000).toFixed(0)}K` : issuancePhase.permits_affected}
-                    </span>
-                  </div>
-                )}
               </div>
             </div>
-
-            {/* Phase 2: Construction & Inspections */}
             <div className="mt-4 pt-3 border-t border-[var(--color-parchment)]">
-              <p className="text-[10px] font-semibold text-[var(--color-clay)] uppercase tracking-wider mb-1.5">
-                Phase 2: Construction & Inspections (Days {totalReviewDays}–{finalPhase?.median_day ?? "?"})
-              </p>
+              <p className="text-[10px] font-semibold text-[var(--color-clay)] uppercase tracking-wider mb-1.5">Phase 2: Construction & Inspections</p>
               <div className="space-y-1">
-                {inspectionPhases.map((phase) => {
+                {[...inspectionPhases, ...(finalPhase ? [{ ...finalPhase, phase: "Final Sign-Off" }] : [])].map((phase) => {
                   const pct = Math.round((phase.median_step_duration / maxStepDuration) * 100);
+                  const color = phase.phase === "Final Sign-Off" ? "#b85c3a" : "#c8956c";
                   return (
                     <div key={phase.phase} className="flex items-center gap-3">
-                      <span className="text-[11px] text-[var(--color-ink-light)] w-[150px] text-right flex-shrink-0 truncate">
-                        {phase.phase}
-                      </span>
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-[150px] text-right flex-shrink-0 truncate">{phase.phase}</span>
                       <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
-                        <div className="h-full rounded-sm" style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: "#c8956c" }} />
+                        <div className="h-full rounded-sm" style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: color }} />
                       </div>
-                      <span className="text-[11px] font-mono font-semibold text-[#c8956c] w-[35px] text-right">
-                        {phase.median_step_duration}d
-                      </span>
+                      <span className="text-[11px] font-mono font-semibold w-[35px] text-right" style={{ color }}>{phase.median_step_duration}d</span>
                       <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
                         {phase.permits_affected >= 1000 ? `${(phase.permits_affected / 1000).toFixed(0)}K` : phase.permits_affected}
                       </span>
                     </div>
                   );
                 })}
-                {finalPhase && (
-                  <div className="flex items-center gap-3">
-                    <span className="text-[11px] font-semibold text-[#b85c3a] w-[150px] text-right flex-shrink-0">
-                      Final Sign-Off
-                    </span>
-                    <div className="flex-1 h-5 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
-                      <div className="h-full rounded-sm" style={{ width: `${Math.max(Math.round((finalPhase.median_step_duration / maxStepDuration) * 100), 2)}%`, backgroundColor: "#b85c3a" }} />
-                    </div>
-                    <span className="text-[11px] font-mono font-semibold text-[#b85c3a] w-[35px] text-right">
-                      {finalPhase.median_step_duration}d
-                    </span>
-                    <span className="text-[10px] text-[var(--color-ink-muted)] w-[40px] text-right">
-                      {finalPhase.permits_affected >= 1000 ? `${(finalPhase.permits_affected / 1000).toFixed(0)}K` : finalPhase.permits_affected}
-                    </span>
-                  </div>
-                )}
               </div>
             </div>
-
-            <p className="mt-4 pt-3 border-t border-[var(--color-parchment)] text-[11px] text-[var(--color-ink-muted)]">
-              Based on {journeyData.correctionStats.totalPermits.toLocaleString()} permits (2019–2026). Right column = permits affected. Bars = median step duration.
-            </p>
           </div>
         </section>
         );
       })()}
 
-      {/* 1b-ii. Journey by Permit Type — clear table with phase durations */}
+      {/* How Long by Permit Type — cards grouped by category */}
       {journeyData && journeyData.byType.length > 0 && (() => {
         const sorted = [...journeyData.byType].sort((a, b) => b.total_days - a.total_days);
         const maxDays = sorted[0]?.total_days || 1;
-
-        // Group into categories
         const newConstruction = sorted.filter(t => t.label.includes("(New)") || t.label.includes("New Construction"));
         const remodels = sorted.filter(t => t.label.includes("Remodel") || t.label.includes("Alteration") || t.label.includes("Addition") || t.label.includes("Interior"));
-        const demolitions = sorted.filter(t => t.label.includes("Demoli"));
-        const other = sorted.filter(t => !newConstruction.includes(t) && !remodels.includes(t) && !demolitions.includes(t));
-
-        function yearsAndMonths(days: number) {
-          if (days >= 365) return `${(days / 365).toFixed(1)} years`;
-          if (days >= 60) return `${Math.round(days / 30)} months`;
-          return `${days} days`;
-        }
+        const other = sorted.filter(t => !newConstruction.includes(t) && !remodels.includes(t));
 
         function renderGroup(title: string, items: typeof sorted, accent: string) {
           if (items.length === 0) return null;
           return (
             <div className="mb-5 last:mb-0">
-              <p className="text-[10px] font-semibold uppercase tracking-wider mb-2" style={{ color: accent }}>
-                {title}
-              </p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider mb-2" style={{ color: accent }}>{title}</p>
               <div className="space-y-2">
                 {items.map((type) => (
                   <div key={type.label} className="bg-[var(--color-paper)] rounded-sm p-3 border border-[var(--color-parchment)]/50">
@@ -622,22 +356,14 @@ export default function HousingDetail() {
                         <span className="text-[10px] text-[var(--color-ink-muted)]">{type.permits >= 1000 ? `${(type.permits / 1000).toFixed(1)}K` : type.permits} permits</span>
                       </div>
                     </div>
-                    {/* Phase bar */}
                     <div className="h-3 bg-[var(--color-parchment)]/30 rounded-full overflow-hidden flex mb-1.5">
                       {type.phases.map((p, j) => {
                         const prevDay = j > 0 ? type.phases[j - 1].median_day : 0;
                         const segWidth = ((p.median_day - prevDay) / maxDays) * 100;
                         const colors = ["#4a7f9e", "#3d7a5a", "#c8956c", "#b85c3a"];
-                        return (
-                          <div
-                            key={p.phase}
-                            className="h-full transition-all duration-500"
-                            style={{ width: `${Math.max(segWidth, 0.5)}%`, backgroundColor: colors[j % colors.length] }}
-                          />
-                        );
+                        return <div key={p.phase} className="h-full" style={{ width: `${Math.max(segWidth, 0.5)}%`, backgroundColor: colors[j % colors.length] }} />;
                       })}
                     </div>
-                    {/* Phase labels */}
                     <div className="flex gap-4 text-[10px] text-[var(--color-ink-muted)]">
                       {type.phases.map((p, j) => {
                         const prevDay = j > 0 ? type.phases[j - 1].median_day : 0;
@@ -664,36 +390,31 @@ export default function HousingDetail() {
           <SectionHeader icon={Building2} title="How Long Does Each Permit Type Take?" color="#c8956c" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-5">
-              Total time from application to final sign-off, broken down by phase. Each card shows how long the typical permit takes and where that time goes.
+              Total time from application to final sign-off, broken down by phase.
             </p>
             {renderGroup("New Construction", newConstruction, "#b85c3a")}
             {renderGroup("Remodels & Additions", remodels, "#c8956c")}
-            {renderGroup("Demolitions", demolitions, "#7c6f9e")}
             {renderGroup("Other", other, "#4a7f9e")}
           </div>
         </section>
         );
       })()}
 
-      {/* 1b-iii. Is the Process Getting Worse? */}
+      {/* Is the Process Getting Faster or Slower? */}
       {journeyData && journeyData.trend.length > 1 && (() => {
-        // Convert cumulative milestones to phase durations
         const durationTrend = journeyData.trend.map((t) => {
-          const review = Number(t["Review Complete"]) || 0;
           const issued = Number(t["Permit Issued"]) || 0;
-          const inspections = Number(t["Inspections Done"]) || 0;
           const final_val = Number(t["Final Permit"]) || 0;
           return {
             period: t.period as string,
-            "Time to Approve": issued, // Days from setup to permit issued
-            "Construction Time": final_val > 0 && issued > 0 ? final_val - issued : 0, // Issued to final
-            "Total Process": final_val, // End-to-end
+            "Time to Approve": issued,
+            "Construction Time": final_val > 0 && issued > 0 ? final_val - issued : 0,
+            "Total Process": final_val,
           };
         }).filter((t) => t["Total Process"] > 0);
 
-        // Find peak and current for annotation
         const peak = durationTrend.reduce((max, t) => t["Total Process"] > max["Total Process"] ? t : max, durationTrend[0]);
-        const recent = durationTrend[durationTrend.length - 2]; // Second to last (last may be incomplete)
+        const recent = durationTrend[durationTrend.length - 2];
         const pctImproved = peak && recent ? Math.round((1 - recent["Total Process"] / peak["Total Process"]) * 100) : 0;
 
         return (
@@ -704,21 +425,15 @@ export default function HousingDetail() {
               <div className="bg-[#3d7a5a]/[0.06] border border-[#3d7a5a]/15 rounded-sm p-3 mb-4">
                 <p className="text-[13px] text-[var(--color-ink)]">
                   <span className="font-semibold text-[#3d7a5a]">Improving.</span>{" "}
-                  Total permit time is down <span className="font-mono font-semibold">{pctImproved}%</span> from the peak of{" "}
-                  <span className="font-mono">{peak["Total Process"]} days</span> ({peak.period}) to{" "}
-                  <span className="font-mono">{recent["Total Process"]} days</span> ({recent.period}).
-                  {recent["Time to Approve"] < 50 && " Review times have fallen below 50 days."}
+                  Total time down <span className="font-mono font-semibold">{pctImproved}%</span> from peak of{" "}
+                  <span className="font-mono">{peak["Total Process"]}d</span> ({peak.period}) to{" "}
+                  <span className="font-mono">{recent["Total Process"]}d</span> ({recent.period}).
+                  Recent quarters may appear lower due to incomplete data.
                 </p>
               </div>
             )}
-            {pctImproved <= 10 && pctImproved >= -10 && (
-              <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-                Permit processing times have been roughly flat — no significant improvement or decline.
-              </p>
-            )}
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              For permits set up in each quarter: how long to get approved, and how long from approval to final sign-off.
-              Recent quarters may show lower numbers because slower permits haven&apos;t finished yet.
+              For permits set up each quarter: how long to get approved vs. how long from approval to final sign-off.
             </p>
             <MultiLineChart
               data={durationTrend}
@@ -727,7 +442,7 @@ export default function HousingDetail() {
               lines={[
                 { key: "Time to Approve", label: "Review & Approval", color: "#4a7f9e" },
                 { key: "Construction Time", label: "Construction to Final", color: "#c8956c" },
-                { key: "Total Process", label: "Total (Application to Final)", color: "#b85c3a" },
+                { key: "Total Process", label: "Total", color: "#b85c3a" },
               ]}
             />
           </div>
@@ -735,420 +450,114 @@ export default function HousingDetail() {
         );
       })()}
 
-      {/* 1c. Permit Review Bottlenecks — full table */}
-      {bottleneckData && bottleneckData.ranking.length > 0 && (
-        <section>
-          <SectionHeader icon={AlertTriangle} title="Every Review Step: How Long and How Common" color="#b85c3a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-1">
-              Every review step in the permit process, sorted by average delay. Based on {bottleneckData.total_permits_analyzed.toLocaleString()} permits ({bottleneckData.date_range?.earliest ?? "?"} to {bottleneckData.date_range?.latest ?? "?"}).
-            </p>
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              {bottleneckData.correction_stats.pct_with_corrections}% of permits require corrections (avg {bottleneckData.correction_stats.avg_rounds.toFixed(1)} rounds).
-            </p>
+      {/* ═══════════════════════════════════════════════════
+          SECTION 3: WHAT'S BEING BUILT — Types and Trends
+          ═══════════════════════════════════════════════════ */}
 
-            {/* Full table */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-[12px]">
-                <thead>
-                  <tr className="border-b border-[var(--color-parchment)] text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider">
-                    <th className="text-left py-2 pr-3">Review Step</th>
-                    <th className="text-right py-2 px-2">Avg Days</th>
-                    <th className="text-right py-2 px-2">Median</th>
-                    <th className="text-right py-2 px-2">Permits</th>
-                    <th className="text-left py-2 pl-3 w-[40%]">Delay</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bottleneckData.ranking
-                    .filter((r) => r.avg_days_to_complete > 0 && r.total_permits_reviewed >= 3)
-                    .map((entry, i) => {
-                      const maxDays = bottleneckData.ranking[0]?.avg_days_to_complete || 1;
-                      const pct = Math.round((entry.avg_days_to_complete / maxDays) * 100);
-                      const severity = entry.avg_days_to_complete > 120 ? "#b85c3a"
-                        : entry.avg_days_to_complete > 60 ? "#c8956c"
-                        : entry.avg_days_to_complete > 30 ? "#d4a574"
-                        : "#3d7a5a";
-                      return (
-                        <tr key={entry.activity_type} className="border-b border-[var(--color-parchment)]/50">
-                          <td className="py-1.5 pr-3 text-[var(--color-ink-light)]" style={i === 0 ? { color: "#b85c3a", fontWeight: 600 } : {}}>
-                            {entry.activity_type}
-                          </td>
-                          <td className="py-1.5 px-2 text-right font-mono font-semibold" style={{ color: severity }}>
-                            {entry.avg_days_to_complete.toFixed(0)}d
-                          </td>
-                          <td className="py-1.5 px-2 text-right font-mono text-[var(--color-ink-muted)]">
-                            {entry.median_days_to_complete.toFixed(0)}d
-                          </td>
-                          <td className="py-1.5 px-2 text-right font-mono text-[var(--color-ink-muted)]">
-                            {entry.total_permits_reviewed.toLocaleString()}
-                          </td>
-                          <td className="py-1.5 pl-3">
-                            <div className="h-4 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                              <div
-                                className="h-full rounded-sm"
-                                style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: severity }}
-                              />
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 1c. Bottleneck Trend Over Time */}
-      {bottleneckData && bottleneckData.trend && bottleneckData.trend.length > 1 && (
+      {/* Housing Creation by Type */}
+      {housingCreation && housingCreation.length > 0 && (
         <section>
-          <SectionHeader icon={Clock} title="Review Times Over Time (Median Days by Quarter)" color="#c8956c" />
+          <SectionHeader icon={Home} title="Housing Permits Issued by Type" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              How long each review step takes, tracked quarterly. Rising lines indicate growing backlogs.
+              Building permits issued per quarter by type. Source: Portland BDS via ArcGIS.
             </p>
             <MultiLineChart
-              data={bottleneckData.trend}
+              data={housingCreation.filter((r) => r.total > 0).map((r) => ({
+                quarter: r.quarter,
+                "Single Family": r.singleFamily,
+                "Apartments/Townhouses": r.multifamily,
+                "Commercial/Mixed-Use": r.commercialMulti,
+                "ADUs": r.adus,
+              }))}
               xKey="quarter"
               height={340}
               lines={[
-                { key: "Fire Inspections", label: "Fire Inspections", color: "#b85c3a" },
-                { key: "Electrical Inspections", label: "Electrical", color: "#4a7f9e" },
-                { key: "Plumbing Inspections", label: "Plumbing", color: "#7c6f9e" },
-                { key: "Mechanical Inspections", label: "Mechanical", color: "#c8956c" },
-                { key: "Plan Review PW", label: "Plan Review PW", color: "#3d7a5a" },
+                { key: "Single Family", label: "Single Family", color: "#3d7a5a" },
+                { key: "Apartments/Townhouses", label: "Apartments & Townhouses", color: "#4a7f9e" },
+                { key: "Commercial/Mixed-Use", label: "Commercial / Mixed-Use", color: "#c8956c" },
+                { key: "ADUs", label: "ADUs", color: "#7c6f9e" },
               ]}
             />
           </div>
         </section>
       )}
 
-      {/* 2. COHORT VIEW: Median days to clear by permit type and application month */}
-      {cohortData && cohortData.length > 0 && (
+      {/* Completions by Type */}
+      {data.completions && data.completions.length > 0 && (
         <section>
-          <SectionHeader icon={Clock} title="How Long Does Each Permit Type Take? (Cohort View)" color="#b85c3a" />
+          <SectionHeader icon={CheckCircle2} title="Housing Completions (Finaled Permits)" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
-              For every permit <strong>applied for</strong> in each month, this shows the median number of days it took to get cleared. This is the honest view — no survivorship bias.
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Permits that reached &ldquo;finaled&rdquo; status — construction completed and inspected. Source: Portland BDS.
             </p>
-            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-              Grouped by application date, not clearance date. If you applied in May 2023, how long did you wait?
-            </p>
-            <MultiLineChart
-              data={cohortData.map((r) => ({
-                month: r.month,
-                Residential: (r as Record<string, unknown>).Residential as number ?? 0,
-                Commercial: (r as Record<string, unknown>).Commercial as number ?? 0,
-                Facility: (r as Record<string, unknown>).Facility as number ?? 0,
-                Electrical: (r as Record<string, unknown>).Electrical as number ?? 0,
-                Plumbing: (r as Record<string, unknown>).Plumbing as number ?? 0,
+            <ComparisonBarChart
+              data={data.completions.map((r) => ({
+                quarter: r.quarter,
+                "Single Family": r.single_family,
+                "ADUs": r.adus,
+                "Multifamily": r.multifamily,
               }))}
-              xKey="month"
-              height={400}
-              valueSuffix=" days"
-              lines={[
-                { key: "Commercial", label: "Commercial", color: "#c8956c" },
-                { key: "Residential", label: "Residential", color: "#3d7a5a" },
-                { key: "Facility", label: "Facility", color: "#4a7f9e" },
-                { key: "Electrical", label: "Electrical", color: "#64748b" },
-                { key: "Plumbing", label: "Plumbing", color: "#7c6f9e" },
+              xKey="quarter"
+              bars={[
+                { key: "Single Family", label: "Single Family", color: "#3d7a5a", stackId: "comp" },
+                { key: "ADUs", label: "ADUs", color: "#7c6f9e", stackId: "comp" },
+                { key: "Multifamily", label: "Multifamily", color: "#4a7f9e", stackId: "comp" },
               ]}
-              referenceLines={[
-                { y: 90, label: "90-day target", color: "#b85c3a" },
-              ]}
+              height={320}
             />
+          </div>
+        </section>
+      )}
 
-            {/* Clearance rate by type for same cohort */}
-            <div className="mt-6 pt-6 border-t border-[var(--color-parchment)]">
-              <p className="text-[13px] text-[var(--color-ink-muted)] mb-4 font-semibold">
-                Clearance Rate: What % of permits filed each month have been fully cleared?
-              </p>
-              <div className="space-y-2">
-                {(() => {
-                  // Get the latest month's data
-                  const latest = cohortData[cohortData.length - 1] as Record<string, unknown> | undefined;
-                  if (!latest) return null;
-                  const types = ["Residential", "Commercial", "Facility", "Electrical", "Plumbing"];
-                  return types.map((t) => {
-                    const clearance = (latest[`${t}_clearance`] as number) ?? 0;
-                    const applied = (latest[`${t}_applied`] as number) ?? 0;
-                    const days = (latest[t] as number) ?? 0;
-                    if (applied === 0) return null;
-                    return (
-                      <div key={t} className="flex items-center gap-3">
-                        <span className="text-[12px] text-[var(--color-ink-light)] w-[100px] text-right">{t}</span>
-                        <div className="flex-1 h-6 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                          <div
-                            className="h-full rounded-sm transition-all duration-700"
-                            style={{
-                              width: `${clearance}%`,
-                              backgroundColor: clearance >= 90 ? "#3d7a5a" : clearance >= 70 ? "#c8956c" : "#b85c3a",
-                            }}
-                          />
-                        </div>
-                        <span className="text-[12px] font-mono font-semibold w-[50px] text-right">{clearance}%</span>
-                        <span className="text-[11px] text-[var(--color-ink-muted)] w-[80px]">{days}d median</span>
-                      </div>
-                    );
-                  });
-                })()}
-              </div>
+      {/* Construction Valuation by Year */}
+      {valuationByYear.length > 0 && (
+        <section>
+          <SectionHeader icon={DollarSign} title="Construction Valuation by Year" color="#c8956c" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Total dollar value of building permits issued each year.
+            </p>
+            <div className="space-y-3">
+              {valuationByYear.map((yr) => {
+                const maxVal = Math.max(...valuationByYear.map((v) => v.value));
+                const pct = Math.round((yr.value / maxVal) * 100);
+                const valM = Math.round(yr.value / 1_000_000);
+                return (
+                  <div key={yr.name} className="flex items-center gap-4">
+                    <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[50px]">{yr.name}</span>
+                    <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                      <div className="h-full rounded-sm" style={{ width: `${pct}%`, backgroundColor: (yr as any).partial ? "#a8c5b2" : "#c8956c" }} />
+                    </div>
+                    <span className="text-[13px] font-mono font-semibold w-[70px] text-right">${valM}M</span>
+                    <span className="text-[11px] text-[var(--color-ink-muted)] w-[70px] text-right">
+                      {(yr as any).permits?.toLocaleString()} permits
+                      {(yr as any).partial && <span className="ml-1 text-[9px] bg-[var(--color-parchment)] px-1 rounded">partial</span>}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
       )}
 
-      {/* 2b. Housing Pipeline by Type (REAL) */}
-      {pipelineTrend.length > 0 && (
+      {/* Top Neighborhoods */}
+      {permitsByNeighborhood.length > 0 && (
         <section>
-          <SectionHeader icon={TrendingUp} title="Housing Pipeline by Type (Real Permit Data)" color="#3d7a5a" />
+          <SectionHeader icon={MapPin} title="Top Neighborhoods by Building Permits" color="#3d7a5a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Monthly building permits issued, broken down by Residential, Commercial, and Facility. Excludes trade permits. Source: Portland BDS PermitsNow.
-            </p>
-            <MultiLineChart
-              data={pipelineTrend.map((r) => ({
-                month: r.month,
-                Residential: (r as Record<string, unknown>).residential as number ?? 0,
-                Commercial: (r as Record<string, unknown>).commercial as number ?? 0,
-                Total: r.units,
-              }))}
-              xKey="month"
-              height={360}
-              lines={[
-                { key: "Total", label: "Total Building Permits", color: "#1a3a2a" },
-                { key: "Residential", label: "Residential", color: "#3d7a5a" },
-                { key: "Commercial", label: "Commercial / Facility", color: "#c8956c" },
-              ]}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* 3. Permit Processing Time Trend (REAL) */}
-      {processingChartData.length > 0 && (
-        <section>
-          <SectionHeader icon={Clock} title="Permit Processing Time (Real Data)" color="#4a7f9e" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Median days from application to issuance. The dashed line marks the 90-day target.
-            </p>
-            <MultiLineChart
-              data={processingChartData}
-              xKey="month"
-              height={320}
-              valueSuffix=" days"
-              lines={[
-                { key: "avgDays", label: "Median Processing Days", color: "#4a7f9e" },
-              ]}
-              referenceLines={[
-                { y: 90, label: "90-day target", color: "#b85c3a" },
-              ]}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* 3b. Processing Time BY PERMIT TYPE (REAL) */}
-      {processingByType && processingByType.length > 0 && (
-        <section>
-          <SectionHeader icon={Clock} title="Processing Time by Permit Type (Real Data)" color="#7c6f9e" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
-              Median processing days by permit type per quarter. The steep rise in late 2023+ reflects survivor bias — easy permits were cleared first during the 2023 backlog processing, leaving only complex/slow permits in later quarters.
-            </p>
-            <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-              Note: Data ends Q4 2024 due to low permit volume in 2025-2026 (insufficient sample size for reliable medians).
-            </p>
-            <MultiLineChart
-              data={processingByType}
-              xKey="quarter"
-              height={320}
-              valueSuffix=" days"
-              lines={[
-                { key: "Residential", label: "Residential", color: "#3d7a5a" },
-                { key: "Commercial", label: "Commercial", color: "#c8956c" },
-                { key: "Facility", label: "Facility", color: "#4a7f9e" },
-              ]}
-              referenceLines={[
-                { y: 90, label: "90-day target", color: "#b85c3a" },
-              ]}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* 3c. Clearance Rate by Type — shows pipeline health */}
-      {clearanceData && clearanceData.length > 0 && (
-        <section>
-          <SectionHeader icon={CheckCircle2} title="Permit Clearance Rate by Type (Real Data)" color="#3d7a5a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Percentage of permits issued in each quarter that have been finalized. A declining clearance rate means more permits are sitting in the pipeline unresolved. This eliminates survivorship bias — it measures throughput, not just the speed of completed permits.
-            </p>
-            <MultiLineChart
-              data={clearanceData.map((r) => ({
-                quarter: r.quarter,
-                Residential: (r as Record<string, unknown>).Residential_clearance as number ?? 0,
-                Commercial: (r as Record<string, unknown>).Commercial_clearance as number ?? 0,
-                Facility: (r as Record<string, unknown>).Facility_clearance as number ?? 0,
-              }))}
-              xKey="quarter"
-              height={320}
-              valueSuffix="%"
-              lines={[
-                { key: "Residential", label: "Residential Clearance %", color: "#3d7a5a" },
-                { key: "Commercial", label: "Commercial Clearance %", color: "#c8956c" },
-                { key: "Facility", label: "Facility Clearance %", color: "#4a7f9e" },
-              ]}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* 4. Permits by Type (REAL) */}
-      {permitsByType.length > 0 && (
-        <section>
-          <SectionHeader icon={Home} title="Permits by Type (Real Data)" color="#c8956c" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <PieChart data={permitsByType} height={380} />
-          </div>
-        </section>
-      )}
-
-      {/* 5. Top Neighborhoods (REAL) — custom HTML bars for reliability */}
-      {neighborhoodBarData.length > 0 && (
-        <section>
-          <SectionHeader icon={MapPin} title="Top 10 Neighborhoods (Real Data)" color="#3d7a5a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <div className="space-y-3">
+            <div className="space-y-2">
               {neighborhoodBarData.map((n, i) => {
                 const maxVal = neighborhoodBarData[0]?.value || 1;
                 const pct = Math.round((n.value / maxVal) * 100);
                 return (
-                  <div key={i} className="flex items-center gap-4">
-                    <span className="text-[13px] text-[var(--color-ink-light)] w-[180px] text-right flex-shrink-0 truncate">
-                      {n.name}
-                    </span>
-                    <div className="flex-1 h-7 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                      <div
-                        className="h-full rounded-sm transition-all duration-700"
-                        style={{
-                          width: `${pct}%`,
-                          backgroundColor: "#3d7a5a",
-                        }}
-                      />
-                    </div>
-                    <span className="text-[13px] font-mono font-semibold text-[var(--color-ink)] w-[60px] text-right">
-                      {n.value.toLocaleString()}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 5d. Home Values — Zillow ZHVI */}
-      {homeValueTrend && homeValueTrend.length > 0 && (
-        <section>
-          <SectionHeader icon={DollarSign} title="Portland Home Values (Zillow ZHVI)" color="#1a3a2a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
-              Zillow Home Value Index: typical home value for the 35th-65th percentile range in the Portland metro. Based on the neural Zestimate model.
-            </p>
-            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-              Current: ${homeValueTrend[homeValueTrend.length - 1].value.toLocaleString()} ({homeValueTrend[homeValueTrend.length - 1].month}) &middot;
-              Zillow forecasts -1.4% over the next 12 months
-            </p>
-            <TrendChart
-              data={homeValueTrend.map((r) => ({ date: r.month, value: r.value }))}
-              color="#1a3a2a"
-              height={320}
-              valuePrefix="$"
-            />
-          </div>
-        </section>
-      )}
-
-      {/* 6. Rent Trend — DATA NEEDED */}
-      {rentTrend === null ? (
-        <section>
-          <SectionHeader icon={DollarSign} title="Median Rent Trend" color="#b85c6a" />
-          <DataNeeded
-            title="Median Rent Data Needed"
-            description="Zillow publishes the Observed Rent Index (ZORI) as a free CSV download. This would show median rent trends for the Portland metro area over time."
-            color="#b85c6a"
-            actions={[
-              {
-                label: "Download Zillow ZORI CSV (free)",
-                href: "https://www.zillow.com/research/data/",
-                type: "download",
-              },
-            ]}
-          />
-        </section>
-      ) : (
-        <section>
-          <SectionHeader icon={DollarSign} title="Median Rent (ZORI)" color="#b85c6a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <TrendChart
-              data={rentTrend.map((r) => ({ date: r.month, value: r.rent }))}
-              color="#b85c6a"
-              height={300}
-              valuePrefix="$"
-            />
-          </div>
-        </section>
-      )}
-
-      {/* 7. Valuation by Year (REAL) — bars with permit counts and partial year markers */}
-      {valuationByYear.length > 0 && (
-        <section>
-          <SectionHeader icon={DollarSign} title="Construction Valuation by Year (Real Data)" color="#c8956c" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[14px] text-[var(--color-ink-muted)] mb-2">
-              Total dollar value of building permits issued each year. Our ArcGIS data currently covers 2023-present.
-            </p>
-            <p className="text-[12px] text-[var(--color-ink-muted)]/60 mb-5 font-mono">
-              To see 10+ years, run: npm run scrape:permits -- 4900000 5000000 (fetches older permits from Portland Maps API)
-            </p>
-            <div className="space-y-3">
-              {valuationByYear.map((v: { name: string; value: number; permits?: number; partial?: boolean }, i: number) => {
-                const maxVal = Math.max(...valuationByYear.map((x: { value: number }) => x.value));
-                const valM = Math.round(v.value / 1_000_000);
-                const pct = maxVal > 0 ? Math.round((v.value / maxVal) * 100) : 0;
-                const isPartial = v.partial;
-                return (
                   <div key={i} className="flex items-center gap-3">
-                    <span className={`text-[15px] font-mono font-semibold w-[55px] text-right ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
-                      {v.name}
-                    </span>
-                    <div className="flex-1 h-9 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                      <div
-                        className="h-full rounded-sm transition-all duration-700"
-                        style={{
-                          width: `${pct}%`,
-                          backgroundColor: isPartial ? "#a8c5b2" : "#c8956c",
-                        }}
-                      />
+                    <span className="text-[12px] text-[var(--color-ink-light)] w-[160px] text-right flex-shrink-0 truncate">{n.name}</span>
+                    <div className="flex-1 h-6 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
+                      <div className="h-full rounded-sm" style={{ width: `${pct}%`, backgroundColor: "#3d7a5a", opacity: 0.7 + 0.3 * (1 - i / neighborhoodBarData.length) }} />
                     </div>
-                    <div className="text-right w-[130px] flex-shrink-0">
-                      <span className={`text-[15px] font-mono font-bold ${isPartial ? "text-[var(--color-ink-muted)]" : "text-[var(--color-ink)]"}`}>
-                        ${valM}M
-                      </span>
-                      <span className="text-[12px] font-mono text-[var(--color-ink-muted)] ml-2">
-                        {(v.permits || 0).toLocaleString()} permits
-                      </span>
-                    </div>
-                    {isPartial && (
-                      <span className="text-[10px] font-mono text-[var(--color-ink-muted)] bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm flex-shrink-0">
-                        partial
-                      </span>
-                    )}
+                    <span className="text-[12px] font-mono font-semibold w-[60px] text-right">{n.value.toLocaleString()}</span>
                   </div>
                 );
               })}
@@ -1157,139 +566,59 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 8. 90-Day Guarantee Tracker (REAL) */}
-      {totalNinetyDay > 0 && (
-        <section>
-          <SectionHeader icon={CheckCircle2} title="90-Day Guarantee Tracker (Real Data)" color="#3d7a5a" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-              <div className="flex-1 w-full">
-                <div className="flex items-center justify-between text-[12px] font-mono text-[var(--color-ink-muted)] mb-2">
-                  <span>Met target ({ninetyDayBreakdown.met.toLocaleString()})</span>
-                  <span>Missed ({ninetyDayBreakdown.missed.toLocaleString()})</span>
-                </div>
-                <div className="w-full h-10 rounded-sm overflow-hidden flex">
-                  <div
-                    className="h-full transition-all duration-700"
-                    style={{
-                      width: `${metPct}%`,
-                      backgroundColor: "#3d7a5a",
-                    }}
-                  />
-                  <div
-                    className="h-full transition-all duration-700"
-                    style={{
-                      width: `${100 - metPct}%`,
-                      backgroundColor: "#b85c3a",
-                    }}
-                  />
-                </div>
-                <div className="flex items-center justify-between mt-2">
-                  <span className="text-[11px] font-mono text-green-700 font-semibold">
-                    {metPct}% within 90 days
-                  </span>
-                  <span className="text-[11px] font-mono text-red-700 font-semibold">
-                    {100 - metPct}% over 90 days
-                  </span>
-                </div>
-              </div>
-              <div className="text-center sm:text-right sm:min-w-[140px]">
-                <p className="text-[48px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                  {metPct}%
-                </p>
-                <p className="text-[12px] text-[var(--color-ink-muted)] mt-1">
-                  compliance rate
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          HOUSING MARKET ANALYSIS — Zillow data
-          ═══════════════════════════════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════
+          SECTION 4: THE HOUSING MARKET — Prices and Rents
+          ═══════════════════════════════════════════════════ */}
 
       {housingMarket && housingMarket.homeValueTrendMulti.length > 0 && (() => {
         const hm = housingMarket;
         const latestTypical = hm.homeValueTrendMulti[hm.homeValueTrendMulti.length - 1]?.typical ?? 0;
-        const peakEntry = hm.homeValueTrendMulti.reduce((max, r) => r.typical > max.typical ? r : max, hm.homeValueTrendMulti[0]);
-        const peakValue = peakEntry?.typical ?? 0;
-        const peakMonth = peakEntry?.month ?? "";
-        const forecastPct = hm.forecast ?? -1.4;
-        const forecastValue = Math.round(latestTypical * (1 + forecastPct / 100));
-
-        // Find rent change since 2020
-        const rent2020 = hm.rentTrendMulti.find((r) => r.month.startsWith("2020-01"))?.all ?? 0;
         const latestRent = hm.rentTrendMulti[hm.rentTrendMulti.length - 1]?.all ?? 0;
-        const rentChangePct = rent2020 > 0 ? Math.round(((latestRent - rent2020) / rent2020) * 100) : 0;
-
-        // Market temperature label
         const tempEntry = hm.marketHealth.find((m) => m.metric === "market_temp");
         const temp = tempEntry?.value ?? 0;
         const tempLabel = temp < 40 ? "cold" : temp < 60 ? "cool" : temp < 80 ? "neutral" : "hot";
-        const tempColor: string = temp < 40 ? "#4a7f9e" : temp < 60 ? "#3d7a5a" : temp < 80 ? "#c8956c" : "#b85c3a";
-
-        // Helper for metric labels
-        const bedroomLabel = (metric: string) => {
-          const map: Record<string, string> = {
-            zhvi_1bed: "1 Bedroom",
-            zhvi_2bed: "2 Bedrooms",
-            zhvi_3bed: "3 Bedrooms",
-            zhvi_4bed: "4 Bedrooms",
-            zhvi_5bed: "5+ Bedrooms",
-          };
-          return map[metric] ?? metric;
-        };
-        const tierLabel = (metric: string) => {
-          const map: Record<string, string> = {
-            zhvi_bottom_tier: "Bottom Tier (5-35th %)",
-            zhvi_typical: "Typical (35-65th %)",
-            zhvi_top_tier: "Top Tier (65-95th %)",
-          };
-          return map[metric] ?? metric;
-        };
-
+        const tempColor = temp < 40 ? "#4a7f9e" : temp < 60 ? "#3d7a5a" : temp < 80 ? "#c8956c" : "#b85c3a";
+        const forecastPct = hm.forecast ?? 0;
         const inventoryVal = hm.marketHealth.find((m) => m.metric === "inventory")?.value ?? 0;
         const newListingsVal = hm.marketHealth.find((m) => m.metric === "new_listings")?.value ?? 0;
         const soldAboveVal = hm.marketHealth.find((m) => m.metric === "pct_sold_above")?.value ?? 0;
-        const soldBelowVal = hm.marketHealth.find((m) => m.metric === "pct_sold_below")?.value ?? 0;
 
         return (
           <>
-            {/* The Housing Market Story */}
+            {/* Market Summary */}
             <section>
-              <SectionHeader icon={Home} title="The Housing Market Story" color="#1a3a2a" />
-              <div className="bg-[#1a3a2a] rounded-sm p-8 text-[var(--color-paper-warm)]">
-                <p className="text-[18px] leading-relaxed font-[family-name:var(--font-heading)]">
-                  Portland&rsquo;s housing market is{" "}
-                  <span className="font-semibold" style={{ color: tempColor === "#1a3a2a" ? "#a8c5b2" : tempColor }}>
-                    {tempLabel}
-                  </span>.{" "}
-                  Typical home values peaked at ${peakValue.toLocaleString()} in {peakMonth} and have since declined to ${latestTypical.toLocaleString()}.{" "}
-                  Zillow forecasts a further {Math.abs(forecastPct)}% {forecastPct < 0 ? "decline" : "increase"} over the next 12 months.{" "}
-                  Meanwhile, rents {rentChangePct > 0 ? "continue to rise" : "have declined"} — the typical rent is ${latestRent.toLocaleString()}/mo
-                  {rent2020 > 0 && <>, {rentChangePct > 0 ? "up" : "down"} {Math.abs(rentChangePct)}% since January 2020</>}.
-                </p>
+              <SectionHeader icon={Home} title="Housing Market Snapshot" color="#1a3a2a" />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4 text-center">
+                  <p className="text-[24px] font-mono font-bold text-[var(--color-ink)]">${(latestTypical / 1000).toFixed(0)}K</p>
+                  <p className="text-[11px] text-[var(--color-ink-muted)]">Typical Home Value</p>
+                </div>
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4 text-center">
+                  <p className="text-[24px] font-mono font-bold text-[var(--color-ink)]">${latestRent.toLocaleString()}</p>
+                  <p className="text-[11px] text-[var(--color-ink-muted)]">Typical Rent/Month</p>
+                </div>
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4 text-center">
+                  <p className="text-[24px] font-mono font-bold" style={{ color: tempColor }}>{tempLabel}</p>
+                  <p className="text-[11px] text-[var(--color-ink-muted)]">Market Temperature</p>
+                </div>
+                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4 text-center">
+                  <p className="text-[24px] font-mono font-bold" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>{forecastPct > 0 ? "+" : ""}{forecastPct}%</p>
+                  <p className="text-[11px] text-[var(--color-ink-muted)]">12-Month Forecast</p>
+                </div>
               </div>
             </section>
 
-            {/* Home Values Over Time — Multi-line */}
+            {/* Home Values Over Time */}
             <section>
               <SectionHeader icon={TrendingUp} title="Home Values Over Time" color="#1a3a2a" />
               <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
                 <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-                  Zillow Home Value Index from 2010 to present. Shows how single family homes, condos, and the typical home value have diverged. Source: Zillow ZHVI.
+                  Zillow Home Value Index (ZHVI) from 2010 to present. Source: Zillow Research.
                 </p>
                 <MultiLineChart
-                  data={hm.homeValueTrendMulti.map((r) => ({
-                    month: r.month,
-                    Typical: r.typical,
-                    "Single Family": r.sfr,
-                    "Condo/Co-op": r.condo,
-                  }))}
+                  data={hm.homeValueTrendMulti.map((r) => ({ month: r.month, Typical: r.typical, "Single Family": r.sfr, "Condo/Co-op": r.condo }))}
                   xKey="month"
-                  height={400}
+                  height={360}
                   valuePrefix="$"
                   lines={[
                     { key: "Typical", label: "Typical Home", color: "#1a3a2a" },
@@ -1300,134 +629,22 @@ export default function HousingDetail() {
               </div>
             </section>
 
-            {/* What Does a Portland Home Cost by Size? */}
-            {hm.valueByBedroom.length > 0 && (
-              <section>
-                <SectionHeader icon={Home} title="What Does a Portland Home Cost by Size?" color="#3d7a5a" />
-                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-                  <p className="text-[13px] text-[var(--color-ink-muted)] mb-5">
-                    Current typical home value by bedroom count and market tier. This immediately answers: can I afford Portland?
-                  </p>
-
-                  {/* By bedroom count */}
-                  <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-3">
-                    By Bedroom Count
-                  </p>
-                  <div className="space-y-2.5 mb-8">
-                    {hm.valueByBedroom.map((entry) => {
-                      const maxVal = Math.max(...hm.valueByBedroom.map((e) => e.value));
-                      const pct = maxVal > 0 ? Math.round((entry.value / maxVal) * 100) : 0;
-                      return (
-                        <div key={entry.metric} className="flex items-center gap-3">
-                          <span className="text-[13px] text-[var(--color-ink-light)] w-[120px] text-right flex-shrink-0">
-                            {bedroomLabel(entry.metric)}
-                          </span>
-                          <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                            <div
-                              className="h-full rounded-sm transition-all duration-700"
-                              style={{
-                                width: `${Math.max(pct, 4)}%`,
-                                backgroundColor: "#3d7a5a",
-                              }}
-                            />
-                          </div>
-                          <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[90px] text-right">
-                            ${(entry.value / 1000).toFixed(0)}K
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* By market tier */}
-                  <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-3">
-                    By Market Tier
-                  </p>
-                  <div className="space-y-2.5">
-                    {hm.valueByTier.map((entry) => {
-                      const maxVal = Math.max(...hm.valueByTier.map((e) => e.value));
-                      const pct = maxVal > 0 ? Math.round((entry.value / maxVal) * 100) : 0;
-                      const tierColors: Record<string, string> = {
-                        zhvi_bottom_tier: "#4a7f9e",
-                        zhvi_typical: "#3d7a5a",
-                        zhvi_top_tier: "#c8956c",
-                      };
-                      return (
-                        <div key={entry.metric} className="flex items-center gap-3">
-                          <span className="text-[13px] text-[var(--color-ink-light)] w-[160px] text-right flex-shrink-0">
-                            {tierLabel(entry.metric)}
-                          </span>
-                          <div className="flex-1 h-8 bg-[var(--color-parchment)]/50 rounded-sm overflow-hidden">
-                            <div
-                              className="h-full rounded-sm transition-all duration-700"
-                              style={{
-                                width: `${Math.max(pct, 4)}%`,
-                                backgroundColor: tierColors[entry.metric] ?? "#3d7a5a",
-                              }}
-                            />
-                          </div>
-                          <span className="text-[14px] font-mono font-bold text-[var(--color-ink)] w-[90px] text-right">
-                            ${(entry.value / 1000).toFixed(0)}K
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </section>
-            )}
-
             {/* Rent vs Buy */}
             {hm.rentVsBuy.length > 0 && (
               <section>
-                <SectionHeader icon={DollarSign} title="Rent vs Buy" color="#b85c6a" />
-                <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-                  <p className="text-[13px] text-[var(--color-ink-muted)] mb-2">
-                    Monthly rent (Zillow ZORI) vs estimated monthly mortgage payment on a typical Portland home. Mortgage assumes 20% down payment at ~7% interest rate.
-                  </p>
-                  <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-                    When the mortgage line is above the rent line, renting is cheaper than buying.
-                  </p>
-                  <MultiLineChart
-                    data={hm.rentVsBuy.map((r) => ({
-                      month: r.month,
-                      "Monthly Rent": r.rent,
-                      "Est. Mortgage": r.mortgage,
-                    }))}
-                    xKey="month"
-                    height={360}
-                    valuePrefix="$"
-                    lines={[
-                      { key: "Monthly Rent", label: "Monthly Rent (ZORI)", color: "#b85c6a" },
-                      { key: "Est. Mortgage", label: "Est. Monthly Mortgage", color: "#1a3a2a", dashed: true },
-                    ]}
-                  />
-                </div>
-              </section>
-            )}
-
-            {/* Rental Market — Multi-line */}
-            {hm.rentTrendMulti.length > 0 && (
-              <section>
-                <SectionHeader icon={DollarSign} title="Rental Market" color="#7c6f9e" />
+                <SectionHeader icon={DollarSign} title="Rent vs Buy: Monthly Cost" color="#c8956c" />
                 <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
                   <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-                    Zillow Observed Rent Index (ZORI) for all homes, single family rentals, and multifamily rentals. Shows how different rental segments have tracked.
+                    Typical monthly rent vs. estimated mortgage payment (80% LTV at 7% rate). Source: Zillow ZORI + ZHVI.
                   </p>
                   <MultiLineChart
-                    data={hm.rentTrendMulti.map((r) => ({
-                      month: r.month,
-                      "All Homes": r.all,
-                      "Single Family": r.sfr,
-                      "Multifamily": r.mfr,
-                    }))}
+                    data={hm.rentVsBuy.map((r) => ({ month: r.month, Rent: r.rent, "Est. Mortgage": r.mortgage }))}
                     xKey="month"
-                    height={360}
+                    height={320}
                     valuePrefix="$"
                     lines={[
-                      { key: "All Homes", label: "All Homes", color: "#7c6f9e" },
-                      { key: "Single Family", label: "Single Family", color: "#3d7a5a" },
-                      { key: "Multifamily", label: "Multifamily", color: "#c8956c" },
+                      { key: "Rent", label: "Typical Rent", color: "#c8956c" },
+                      { key: "Est. Mortgage", label: "Est. Mortgage", color: "#1a3a2a" },
                     ]}
                   />
                 </div>
@@ -1435,123 +652,20 @@ export default function HousingDetail() {
             )}
 
             {/* Market Health */}
-            {hm.marketHealth.length > 0 && (
-              <section>
-                <SectionHeader icon={Activity} title="Market Health" color="#c8956c" />
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                  {/* Inventory */}
-                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#4a7f9e" }} />
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
-                      For-Sale Inventory
-                    </p>
-                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
-                      {inventoryVal.toLocaleString()}
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
-                      Total homes currently listed for sale in the Portland metro area.
-                    </p>
-                  </div>
-
-                  {/* New Listings */}
-                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#3d7a5a" }} />
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
-                      New Listings / Month
-                    </p>
-                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
-                      {newListingsVal.toLocaleString()}
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
-                      New homes hitting the market each month. More supply eases competition.
-                    </p>
-                  </div>
-
-                  {/* Sold Above List */}
-                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#3d7a5a" }} />
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
-                      Sold Above List
-                    </p>
-                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
-                      {soldAboveVal.toFixed(0)}%
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
-                      Share of homes selling above asking price. Was 60%+ in 2021, now just {soldAboveVal.toFixed(0)}%.
-                    </p>
-                  </div>
-
-                  {/* Sold Below List */}
-                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: "#b85c3a" }} />
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
-                      Sold Below List
-                    </p>
-                    <p className="text-[28px] font-mono font-semibold text-[var(--color-ink)] leading-none tracking-tight">
-                      {soldBelowVal.toFixed(0)}%
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
-                      Share of homes selling below asking. Over half of Portland homes now sell under list.
-                    </p>
-                  </div>
-
-                  {/* Market Temperature */}
-                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: tempColor }} />
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
-                      Market Temperature
-                    </p>
-                    <p className="text-[28px] font-mono font-semibold leading-none tracking-tight" style={{ color: tempColor }}>
-                      {temp.toFixed(0)}
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
-                      Zillow&rsquo;s index: &lt;40 = cold, 40-60 = cool, 60-80 = neutral, 80+ = hot. Currently: <span className="font-semibold">{tempLabel}</span>.
-                    </p>
-                  </div>
-
-                  {/* Forecast */}
-                  <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }} />
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.12em] mb-2">
-                      12-Month Forecast
-                    </p>
-                    <p className="text-[28px] font-mono font-semibold leading-none tracking-tight" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>
-                      {forecastPct > 0 ? "+" : ""}{forecastPct.toFixed(1)}%
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 leading-relaxed">
-                      Zillow&rsquo;s forecast for Portland home values over the next 12 months.
-                    </p>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {/* Home Value Forecast */}
             <section>
-              <SectionHeader icon={TrendingDown} title="Home Value Forecast" color="#b85c3a" />
-              <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-8">
-                <div className="flex flex-col sm:flex-row items-start gap-8">
-                  <div className="flex-1">
-                    <p className="text-[16px] text-[var(--color-ink-light)] leading-relaxed font-[family-name:var(--font-heading)]">
-                      Zillow forecasts Portland home values will {forecastPct < 0 ? "decline" : "increase"}{" "}
-                      <span className="font-semibold" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>
-                        {Math.abs(forecastPct)}%
-                      </span>{" "}
-                      over the next year, from ${latestTypical.toLocaleString()} to ~${forecastValue.toLocaleString()}.
-                      {forecastPct < 0 && " This would be the third consecutive year of real value decline when adjusted for inflation."}
-                    </p>
+              <SectionHeader icon={Activity} title="Market Health Indicators" color="#4a7f9e" />
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {[
+                  { label: "Active Inventory", value: inventoryVal.toLocaleString(), sub: "homes for sale" },
+                  { label: "New Listings", value: newListingsVal.toLocaleString(), sub: "per month" },
+                  { label: "Sold Above Ask", value: `${soldAboveVal.toFixed(1)}%`, sub: "of recent sales" },
+                ].map((s) => (
+                  <div key={s.label} className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4">
+                    <p className="text-[24px] font-mono font-bold text-[var(--color-ink)]">{s.value}</p>
+                    <p className="text-[11px] text-[var(--color-ink-muted)]">{s.label}</p>
+                    <p className="text-[10px] text-[var(--color-ink-muted)]/60">{s.sub}</p>
                   </div>
-                  <div className="text-center sm:text-right sm:min-w-[160px] flex-shrink-0">
-                    <p className="text-[14px] text-[var(--color-ink-muted)] font-mono mb-1">Current</p>
-                    <p className="text-[32px] font-mono font-bold text-[var(--color-ink)] leading-none">
-                      ${(latestTypical / 1000).toFixed(0)}K
-                    </p>
-                    <p className="text-[28px] font-mono font-bold leading-none mt-2" style={{ color: forecastPct < 0 ? "#b85c3a" : "#3d7a5a" }}>
-                      {forecastPct < 0 ? "\u2193" : "\u2191"} ${(forecastValue / 1000).toFixed(0)}K
-                    </p>
-                    <p className="text-[11px] text-[var(--color-ink-muted)] font-mono mt-1">12-month forecast</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </section>
           </>
