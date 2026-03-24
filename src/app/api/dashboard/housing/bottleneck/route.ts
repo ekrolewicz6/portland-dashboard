@@ -22,10 +22,17 @@ interface SlowestPermit {
   days_from_setup: number;
 }
 
+interface TrendPoint {
+  quarter: string;
+  [key: string]: string | number; // activity_type keys with median_days values
+}
+
 interface BottleneckResponse {
   ranking: BottleneckEntry[];
+  trend: TrendPoint[];
   slowest_examples: SlowestPermit[];
   total_permits_analyzed: number;
+  date_range: { earliest: string; latest: string };
   correction_stats: {
     avg_rounds: number;
     pct_with_corrections: number;
@@ -66,7 +73,51 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
       avg_correction_rounds: Number(r.avg_correction_rounds),
     }));
 
-    // 2. Get slowest specific permits for each top review type
+    // 2. Quarterly trend — median days by activity type over time
+    const TOP_TREND_TYPES = [
+      'Fire Inspections',
+      'Electrical Inspections',
+      'Plumbing Inspections',
+      'Mechanical Inspections',
+      'Plan Review PW',
+    ];
+    const trendRows = await sql`
+      SELECT
+        TO_CHAR(date_trunc('quarter', completed_date), 'YYYY-"Q"Q') as quarter,
+        activity_type,
+        ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY days_from_setup))::int as median_days
+      FROM housing.permit_activities
+      WHERE completed_date IS NOT NULL
+        AND days_from_setup IS NOT NULL AND days_from_setup > 0
+        AND activity_type = ANY(${TOP_TREND_TYPES})
+      GROUP BY 1, 2
+      HAVING count(*) >= 5
+      ORDER BY 1, 2
+    `;
+
+    // Pivot into {quarter, "Fire Inspections": 35, "Electrical Inspections": 20, ...}
+    const trendMap = new Map<string, Record<string, number>>();
+    for (const r of trendRows) {
+      const q = r.quarter as string;
+      if (!trendMap.has(q)) trendMap.set(q, {});
+      trendMap.get(q)![r.activity_type as string] = Number(r.median_days);
+    }
+    const trend: TrendPoint[] = [...trendMap.entries()].map(([quarter, types]) => ({
+      quarter,
+      ...types,
+    }));
+
+    // 2b. Date range of activity data
+    const dateRangeRows = await sql`
+      SELECT min(last_activity_date)::text as earliest, max(last_activity_date)::text as latest
+      FROM housing.permit_activities WHERE last_activity_date IS NOT NULL
+    `;
+    const date_range = {
+      earliest: (dateRangeRows[0]?.earliest as string) ?? "unknown",
+      latest: (dateRangeRows[0]?.latest as string) ?? "unknown",
+    };
+
+    // 3. Get slowest specific permits for each top review type
     const slowestRows = await sql`
       WITH top_types AS (
         SELECT activity_type
@@ -134,8 +185,10 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
 
     return NextResponse.json({
       ranking,
+      trend,
       slowest_examples,
       total_permits_analyzed: totalAnalyzed,
+      date_range,
       correction_stats: {
         avg_rounds: Number(corrRoundRows[0]?.avg_rounds ?? 0),
         pct_with_corrections:
@@ -150,8 +203,10 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
     return NextResponse.json(
       {
         ranking: [],
+        trend: [],
         slowest_examples: [],
         total_permits_analyzed: 0,
+        date_range: { earliest: "unknown", latest: "unknown" },
         correction_stats: { avg_rounds: 0, pct_with_corrections: 0 },
         dataStatus: "unavailable",
       },
