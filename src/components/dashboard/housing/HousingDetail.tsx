@@ -499,16 +499,17 @@ export default function HousingDetail() {
         const pctImproved = peak && lastReliable ? Math.round((1 - lastReliable["Total Process"] / peak["Total Process"]) * 100) : 0;
 
         // Build chart data: reliable lines + faded incomplete lines
-        const chartData = [
-          ...reliableData,
+        // Use Record type to allow dynamic keys
+        const chartData: Record<string, string | number | null>[] = [
+          ...reliableData.map((d) => ({ ...d } as Record<string, string | number | null>)),
           ...incompleteData.map((d) => ({
-            ...d,
+            period: d.period,
             "Total Process (incomplete)": d["Total Process"],
             "Time to Approve (incomplete)": d["Time to Approve"],
-            "Total Process": reliableData.length > 0 ? null : d["Total Process"],
-            "Time to Approve": reliableData.length > 0 ? null : d["Time to Approve"],
+            "Total Process": null,
+            "Time to Approve": null,
             "Construction Time": null,
-          })),
+          } as Record<string, string | number | null>)),
         ];
 
         // Bridge: duplicate last reliable point into incomplete series for continuity
