@@ -676,27 +676,64 @@ export default function HousingDetail() {
       })()}
 
       {/* 1b-iii. Is the Process Getting Worse? */}
-      {journeyData && journeyData.trend.length > 1 && (
+      {journeyData && journeyData.trend.length > 1 && (() => {
+        // Convert cumulative milestones to phase durations
+        const durationTrend = journeyData.trend.map((t) => {
+          const review = Number(t["Review Complete"]) || 0;
+          const issued = Number(t["Permit Issued"]) || 0;
+          const inspections = Number(t["Inspections Done"]) || 0;
+          const final_val = Number(t["Final Permit"]) || 0;
+          return {
+            period: t.period as string,
+            "Time to Approve": issued, // Days from setup to permit issued
+            "Construction Time": final_val > 0 && issued > 0 ? final_val - issued : 0, // Issued to final
+            "Total Process": final_val, // End-to-end
+          };
+        }).filter((t) => t["Total Process"] > 0);
+
+        // Find peak and current for annotation
+        const peak = durationTrend.reduce((max, t) => t["Total Process"] > max["Total Process"] ? t : max, durationTrend[0]);
+        const recent = durationTrend[durationTrend.length - 2]; // Second to last (last may be incomplete)
+        const pctImproved = peak && recent ? Math.round((1 - recent["Total Process"] / peak["Total Process"]) * 100) : 0;
+
+        return (
         <section>
           <SectionHeader icon={TrendingUp} title="Is the Permitting Process Getting Faster or Slower?" color="#b85c3a" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            {pctImproved > 10 && peak && recent && (
+              <div className="bg-[#3d7a5a]/[0.06] border border-[#3d7a5a]/15 rounded-sm p-3 mb-4">
+                <p className="text-[13px] text-[var(--color-ink)]">
+                  <span className="font-semibold text-[#3d7a5a]">Improving.</span>{" "}
+                  Total permit time is down <span className="font-mono font-semibold">{pctImproved}%</span> from the peak of{" "}
+                  <span className="font-mono">{peak["Total Process"]} days</span> ({peak.period}) to{" "}
+                  <span className="font-mono">{recent["Total Process"]} days</span> ({recent.period}).
+                  {recent["Time to Approve"] < 50 && " Review times have fallen below 50 days."}
+                </p>
+              </div>
+            )}
+            {pctImproved <= 10 && pctImproved >= -10 && (
+              <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+                Permit processing times have been roughly flat — no significant improvement or decline.
+              </p>
+            )}
             <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Median days to reach each milestone, by quarter permits were set up. For permits set up in each quarter, how long did it take to reach each phase?
+              For permits set up in each quarter: how long to get approved, and how long from approval to final sign-off.
+              Recent quarters may show lower numbers because slower permits haven&apos;t finished yet.
             </p>
             <MultiLineChart
-              data={journeyData.trend}
+              data={durationTrend}
               xKey="period"
-              height={360}
+              height={340}
               lines={[
-                { key: "Review Complete", label: "Review Complete", color: "#4a7f9e" },
-                { key: "Permit Issued", label: "Permit Issued", color: "#3d7a5a" },
-                { key: "Inspections Done", label: "Inspections Done", color: "#c8956c" },
-                { key: "Final Permit", label: "Final Permit", color: "#b85c3a" },
+                { key: "Time to Approve", label: "Review & Approval", color: "#4a7f9e" },
+                { key: "Construction Time", label: "Construction to Final", color: "#c8956c" },
+                { key: "Total Process", label: "Total (Application to Final)", color: "#b85c3a" },
               ]}
             />
           </div>
         </section>
-      )}
+        );
+      })()}
 
       {/* 1c. Permit Review Bottlenecks — full table */}
       {bottleneckData && bottleneckData.ranking.length > 0 && (
