@@ -73,7 +73,7 @@ interface HousingDetailData {
   };
   ninetyDayBreakdown: { met: number; missed: number };
   topInsights: string[];
-  housingCreation?: { quarter: string; adus: number; multifamily: number; singleFamily: number; commercialMulti: number; affordable: number; total: number }[];
+  housingCreation?: { quarter: string; adus: number; multifamily: number; singleFamily: number; commercialMulti: number; total: number }[];
   demolitionTrend?: { quarter: string; total: number; residential: number; commercial: number }[];
   completions?: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
   backlogTrend?: { quarter: string; residential: number; commercial: number; facility: number }[];
@@ -205,7 +205,7 @@ export default function HousingDetail() {
               value: heroStats.unitsInPipeline,
             },
             {
-              label: "Avg Permit Time",
+              label: "Median Permit Time",
               value: heroStats.avgPermitDays,
               suffix: " days",
             },
@@ -259,7 +259,6 @@ export default function HousingDetail() {
                 "Apartments/Townhouses": r.multifamily,
                 "Commercial/Mixed-Use": r.commercialMulti,
                 "ADUs": r.adus,
-                "Affordable Housing": r.affordable,
               }))}
               xKey="quarter"
               height={380}
@@ -268,7 +267,6 @@ export default function HousingDetail() {
                 { key: "Apartments/Townhouses", label: "Apartments & Townhouses (3+ units)", color: "#4a7f9e" },
                 { key: "Commercial/Mixed-Use", label: "Commercial / Mixed-Use", color: "#c8956c" },
                 { key: "ADUs", label: "Accessory Dwelling Units", color: "#7c6f9e" },
-                { key: "Affordable Housing", label: "Affordable Housing", color: "#b85c6a" },
               ]}
             />
 
@@ -282,7 +280,6 @@ export default function HousingDetail() {
                 { label: "Apartments & Townhouses", value: latest.multifamily, color: "#4a7f9e" },
                 { label: "Commercial / Mixed-Use", value: latest.commercialMulti, color: "#c8956c" },
                 { label: "ADUs", value: latest.adus, color: "#7c6f9e" },
-                { label: "Affordable Housing", value: latest.affordable, color: "#b85c6a" },
               ];
               const maxVal = Math.max(...types.map(t => t.value), 1);
               return (
@@ -324,7 +321,7 @@ export default function HousingDetail() {
               Permits that reached &ldquo;finaled&rdquo; status each quarter — meaning construction was completed and inspected. This is the real measure of housing actually built, not just permitted.
             </p>
             <p className="text-[11px] text-[var(--color-ink-muted)]/60 mb-4 font-mono">
-              Source: Portland BDS permits with final_date since 2020. Covers residential, commercial building, facility, and affordable housing permits.
+              Source: Portland BDS permits with final_date since Q3 2023. Covers residential, commercial building, and facility permits.
             </p>
             <ComparisonBarChart
               data={data.completions.map((r) => ({

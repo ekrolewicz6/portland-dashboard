@@ -47,7 +47,6 @@ const BUILDING_PERMIT_FILTER = `
     'Commercial Building Permit',
     'Facility Permit',
     'Minor Improvement Permit',
-    'Housing',
     'Fire Systems Permit'
   )
 `;
@@ -338,7 +337,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       name: String(r.yr),
       value: Number(r.total),
       permits: Number(r.permit_count),
-      partial: Number(r.yr) >= currentYear,
+      partial: Number(r.yr) >= currentYear || Number(r.yr) === 2023,
     }));
 
     // 7. Hero stats — building permits only for pipeline
@@ -416,16 +415,17 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     }
 
     // ─── Housing Creation by Type (ADU, multifamily, single family) ───
+    // Note: permit_type = 'Housing' is NOT affordable housing — it's housing inspections/compliance
     const housingCreationRows = await sql`
       SELECT
         TO_CHAR(date_trunc('quarter', issued_date), 'YYYY-"Q"Q') as quarter,
         count(DISTINCT CASE WHEN permit_type_mapped = 'Accessory Dwelling Unit' THEN permit_number END)::int as adus,
         count(DISTINCT CASE WHEN permit_type_mapped IN ('Apartments/Condos (3 or more units)', 'Townhouse (3 or more units)') THEN permit_number END)::int as multifamily,
         count(DISTINCT CASE WHEN permit_type_mapped = 'Single Family Dwelling' THEN permit_number END)::int as single_family,
-        count(DISTINCT CASE WHEN permit_type_mapped = 'Commercial/Multifamily' THEN permit_number END)::int as commercial_multi,
-        count(DISTINCT CASE WHEN permit_type = 'Housing' THEN permit_number END)::int as affordable
+        count(DISTINCT CASE WHEN permit_type_mapped = 'Commercial/Multifamily' THEN permit_number END)::int as commercial_multi
       FROM housing.permits
       WHERE issued_date IS NOT NULL AND issued_date >= '2023-01-01'
+        AND permit_type IN ('Residential 1 & 2 Family Permit', 'Commercial Building Permit', 'Facility Permit')
       GROUP BY 1 ORDER BY 1
     `;
 
@@ -435,8 +435,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       multifamily: Number(r.multifamily),
       singleFamily: Number(r.single_family),
       commercialMulti: Number(r.commercial_multi),
-      affordable: Number(r.affordable),
-      total: Number(r.adus) + Number(r.multifamily) + Number(r.single_family) + Number(r.commercial_multi) + Number(r.affordable),
+      total: Number(r.adus) + Number(r.multifamily) + Number(r.single_family) + Number(r.commercial_multi),
     }));
 
     // ─── Permit Throughput: Applications vs Issuances vs Completions ───
@@ -447,7 +446,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         COALESCE(issued.cnt, 0)::int as issued,
         COALESCE(completed.cnt, 0)::int as completed
       FROM (
-        SELECT TO_CHAR(generate_series('2022-01-01'::date, CURRENT_DATE, '3 months'), 'YYYY-"Q"Q') as quarter
+        SELECT TO_CHAR(generate_series('2023-01-01'::date, CURRENT_DATE, '3 months'), 'YYYY-"Q"Q') as quarter
       ) q
       LEFT JOIN (
         SELECT TO_CHAR(date_trunc('quarter', application_date), 'YYYY-"Q"Q') as quarter, count(*)::int as cnt
@@ -510,7 +509,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         count(DISTINCT permit_number) FILTER (WHERE permit_type_mapped IN ('Apartments/Condos (3 or more units)', 'Townhouse (3 or more units)', 'Commercial/Multifamily'))::int as multifamily
       FROM housing.permits
       WHERE final_date IS NOT NULL AND final_date >= '2023-07-01'
-        AND permit_type IN ('Residential 1 & 2 Family Permit', 'Commercial Building Permit', 'Facility Permit', 'Housing')
+        AND permit_type IN ('Residential 1 & 2 Family Permit', 'Commercial Building Permit', 'Facility Permit')
       GROUP BY 1 ORDER BY 1
     `;
 
@@ -662,7 +661,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     let forecast: number | null = null;
     try {
       const forecastRows = await sql`
-        SELECT forecast_pct_change::numeric AS pct FROM public.zillow_zhvf LIMIT 1
+        SELECT COALESCE(forecast_12mo_pct, forecast_pct_change)::numeric AS pct FROM public.zillow_zhvf LIMIT 1
       `;
       if (forecastRows.length > 0) forecast = Number(forecastRows[0].pct);
     } catch {
