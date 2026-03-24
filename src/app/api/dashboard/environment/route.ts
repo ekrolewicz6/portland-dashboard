@@ -35,7 +35,7 @@ export async function GET() {
   try {
     // Latest AQI reading
     const latestRows = await sql`
-      SELECT date, hour, aqi, category, pollutant, reporting_area
+      SELECT date::text AS date, hour, aqi, category, pollutant, reporting_area
       FROM environment.airnow_aqi
       ORDER BY date DESC, hour DESC
       LIMIT 1
@@ -74,7 +74,7 @@ export async function GET() {
 
     const chartData = trendRows
       .map((r) => ({
-        date: (r.date as string).slice(5), // MM-DD
+        date: String(r.date).slice(5), // MM-DD
         value: Number(r.avg_aqi),
       }))
       .reverse();
@@ -152,7 +152,7 @@ export async function GET() {
       },
       chartData,
       source: "EPA AirNow",
-      lastUpdated: (latest.date as string).slice(0, 10),
+      lastUpdated: String(latest.date).slice(0, 10),
       insights,
     });
   } catch (error) {
