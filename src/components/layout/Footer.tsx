@@ -50,14 +50,11 @@ export default function Footer() {
               for details on how each metric is calculated.
             </p>
             <p className="text-[13px] leading-relaxed">
-              Subscribe to{" "}
-              <a
-                href="#pulse"
-                className="text-[var(--color-ember)] hover:text-[var(--color-ember-bright)] font-medium transition-colors"
-              >
+              <span className="text-[var(--color-ember)] font-medium">
                 Portland Pulse
-              </a>{" "}
-              for weekly data stories in your inbox.
+              </span>{" "}
+              — weekly data stories in your inbox.{" "}
+              <span className="text-white/40 italic">Coming soon.</span>
             </p>
           </div>
         </div>
