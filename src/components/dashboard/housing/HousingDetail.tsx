@@ -203,10 +203,28 @@ export default function HousingDetail() {
         <SectionHeader icon={Activity} title="Key Metrics" />
         <StatGrid
           stats={[
-            { label: "Units in Pipeline", value: heroStats.unitsInPipeline.toLocaleString() },
-            { label: "Median Permit Time", value: `${heroStats.avgPermitDays} days` },
-            { label: "Construction Valuation", value: `$${(heroStats.totalValuation / 1_000_000_000).toFixed(2)}B` },
-            { label: "90-Day Compliance", value: `${heroStats.ninetyDayCompliance}%` },
+            { label: "Open Permits (Backlog)", value: heroStats.unitsInPipeline.toLocaleString() },
+            {
+              label: "Median Review Time",
+              value: `${heroStats.avgPermitDays} days`,
+              subtitle: "Application to permit issued",
+            },
+            {
+              label: "Median Total Time",
+              value: journeyData?.phases.find(p => p.phase === "Final Permit")
+                ? `${journeyData.phases.find(p => p.phase === "Final Permit")!.median_day} days`
+                : "—",
+              subtitle: "Application to final sign-off",
+            },
+            {
+              label: "Correction Rate",
+              value: journeyData
+                ? `${journeyData.correctionStats.pctWithCorrections}%`
+                : `${heroStats.ninetyDayCompliance}%`,
+              subtitle: journeyData
+                ? `avg ${journeyData.correctionStats.avgRounds} rounds`
+                : "90-day compliance",
+            },
           ]}
         />
       </section>

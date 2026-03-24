@@ -5,6 +5,7 @@ interface StatItem {
   value: string | number;
   suffix?: string;
   prefix?: string;
+  subtitle?: string;
   change?: number;
   changeLabel?: string;
 }
@@ -39,6 +40,11 @@ export default function StatGrid({
               : stat.value}
             {stat.suffix}
           </p>
+          {stat.subtitle && (
+            <p className="mt-1 text-[11px] text-[var(--color-ink-muted)]">
+              {stat.subtitle}
+            </p>
+          )}
           {stat.change !== undefined && (
             <p
               className={`mt-2 text-[12px] font-mono font-medium ${
