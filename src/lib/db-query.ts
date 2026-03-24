@@ -24,10 +24,19 @@ function parseConnectionOptions(url: string) {
 
 const explicitOpts = isPooled ? parseConnectionOptions(databaseUrl) : undefined;
 
+if (explicitOpts) {
+  console.log(`[db] Connecting to Supabase pooler: ${explicitOpts.host}:${explicitOpts.port}/${explicitOpts.database} (user: ${explicitOpts.username})`);
+} else {
+  // Mask password in log
+  const safeUrl = databaseUrl.replace(/:([^@]+)@/, ":***@");
+  console.log(`[db] Connecting via URL: ${safeUrl}`);
+}
+
 const sql = explicitOpts
   ? postgres({
       ...explicitOpts,
       prepare: false,
+      onnotice: () => {}, // suppress NOTICE messages
     })
   : postgres(databaseUrl);
 

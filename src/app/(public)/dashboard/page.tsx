@@ -19,24 +19,45 @@ const QUESTIONS = [
 ] as const;
 
 async function fetchQuestionData(baseUrl: string): Promise<QuestionData[]> {
+  const startAll = Date.now();
   const results = await Promise.all(
     QUESTIONS.map(async (q) => {
+      const start = Date.now();
       try {
         const res = await fetch(`${baseUrl}/api/dashboard/${q.id}`, {
           cache: "no-store",
         });
+        const elapsed = Date.now() - start;
         if (!res.ok) {
-          console.error(`[dashboard] ${q.id} API returned ${res.status}`);
+          const body = await res.text().catch(() => "(unreadable)");
+          console.error(`[dashboard] ${q.id} returned ${res.status} in ${elapsed}ms — ${body.slice(0, 200)}`);
           return { ...q, apiData: null };
         }
         const data: ApiResponse = await res.json();
+
+        // Validate expected shape
+        if (!data.headline && data.dataStatus !== "unavailable") {
+          console.warn(`[dashboard] ${q.id} responded OK but missing headline field — keys: ${Object.keys(data).join(", ")}`);
+        }
+
+        if (elapsed > 5000) {
+          console.warn(`[dashboard] ${q.id} slow response: ${elapsed}ms`);
+        }
+
         return { ...q, apiData: data };
       } catch (err) {
-        console.error(`[dashboard] Failed to fetch ${q.id}:`, err);
+        const elapsed = Date.now() - start;
+        console.error(`[dashboard] ${q.id} failed after ${elapsed}ms:`, err instanceof Error ? err.message : err);
         return { ...q, apiData: null };
       }
     }),
   );
+
+  const totalElapsed = Date.now() - startAll;
+  const failed = results.filter((r) => !r.apiData).map((r) => r.id);
+  const live = results.filter((r) => r.apiData).map((r) => r.id);
+  console.log(`[dashboard] Fetched ${results.length} questions in ${totalElapsed}ms — live: [${live.join(", ")}]${failed.length ? ` — failed: [${failed.join(", ")}]` : ""}`);
+
   return results;
 }
 

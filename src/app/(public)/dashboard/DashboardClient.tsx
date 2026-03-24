@@ -13,18 +13,22 @@ interface DashboardClientProps {
 }
 
 /** Map API trend to HeadlineCard trend props */
-function mapTrend(apiTrend: { direction: "up" | "down" | "flat"; percentage: number; label: string }) {
+function mapTrend(apiTrend?: { direction: "up" | "down" | "flat"; percentage: number; label: string } | null) {
+  if (!apiTrend) {
+    return { direction: "flat" as const, value: "—", isPositive: false };
+  }
+
   const isPositive =
     (apiTrend.direction === "up" && apiTrend.percentage > 0) ||
-    (apiTrend.direction === "down" && apiTrend.label.toLowerCase().includes("improv"));
+    (apiTrend.direction === "down" && (apiTrend.label ?? "").toLowerCase().includes("improv"));
 
   return {
     direction: apiTrend.direction,
     value: apiTrend.percentage > 0
       ? `${apiTrend.direction === "down" ? "-" : "+"}${apiTrend.percentage}%`
-      : apiTrend.label.length > 20
-        ? apiTrend.label.slice(0, 20)
-        : apiTrend.label,
+      : (apiTrend.label ?? "").length > 20
+        ? (apiTrend.label ?? "").slice(0, 20)
+        : (apiTrend.label ?? "—"),
     isPositive,
   };
 }
