@@ -541,20 +541,20 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     }
 
     // ─── Permit Backlog Trend (open permits over time by type) ───
+    // For each quarter: count permits where issued_date < quarter AND not yet finaled by that quarter
+    // This includes ALL permits in our dataset (2013+), giving a true backlog picture
     const backlogRows = await sql`
       WITH quarters AS (
-        SELECT generate_series('2023-01-01'::date, CURRENT_DATE, '3 months'::interval) as q
+        SELECT generate_series('2024-01-01'::date, CURRENT_DATE, '3 months'::interval) as q
       )
       SELECT
         TO_CHAR(q.q, 'YYYY-"Q"Q') as quarter,
-        count(*) FILTER (WHERE LOWER(p.status) IN ('issued','issued - uf','under inspection','under review','approved to issue','approved')
-          AND (p.permit_type ILIKE '%residential%' OR p.permit_type ILIKE '%1 & 2 family%'))::int as residential_open,
-        count(*) FILTER (WHERE LOWER(p.status) IN ('issued','issued - uf','under inspection','under review','approved to issue','approved')
-          AND p.permit_type ILIKE '%commercial%')::int as commercial_open,
-        count(*) FILTER (WHERE LOWER(p.status) IN ('issued','issued - uf','under inspection','under review','approved to issue','approved')
-          AND p.permit_type ILIKE '%facility%')::int as facility_open
+        count(*) FILTER (WHERE p.permit_type ILIKE '%residential%' OR p.permit_type ILIKE '%1 & 2 family%')::int as residential_open,
+        count(*) FILTER (WHERE p.permit_type ILIKE '%commercial%')::int as commercial_open,
+        count(*) FILTER (WHERE p.permit_type ILIKE '%facility%')::int as facility_open
       FROM quarters q
-      LEFT JOIN housing.permits p ON p.issued_date < q.q AND (p.final_date IS NULL OR p.final_date >= q.q)
+      LEFT JOIN housing.permits p ON p.issued_date < q.q
+        AND (p.final_date IS NULL OR p.final_date >= q.q)
         AND p.permit_type IN ('Residential 1 & 2 Family Permit','Commercial Building Permit','Facility Permit','Housing')
       GROUP BY 1 ORDER BY 1
     `;
