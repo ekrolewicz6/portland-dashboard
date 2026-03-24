@@ -421,46 +421,53 @@ export default function HousingDetail() {
             {renderGroup("Remodels & Additions", remodels, "#c8956c")}
             {renderGroup("Other", other, "#4a7f9e")}
 
-            {/* Benchmark comparison */}
+            {/* Benchmark comparison — apples-to-apples only */}
             <div className="mt-6 pt-5 border-t border-[var(--color-parchment)]">
               <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">How Portland Compares</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-[var(--color-canopy)]/[0.03] border border-[var(--color-canopy)]/10 rounded-sm p-4">
-                  <p className="text-[11px] font-semibold text-[var(--color-canopy)] mb-2">National Review Times (application to issued)</p>
-                  <div className="space-y-1.5 text-[12px]">
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Austin, TX</span><span className="font-mono font-semibold">25 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Chicago, IL</span><span className="font-mono font-semibold">34 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">San Francisco, CA</span><span className="font-mono font-semibold">51 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Seattle, WA</span><span className="font-mono font-semibold">77 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Los Angeles, CA</span><span className="font-mono font-semibold">190 days</span></div>
-                    <div className="flex justify-between border-t border-[var(--color-parchment)] pt-1.5 mt-1.5">
-                      <span className="text-[var(--color-ink)] font-semibold">Portland, OR</span>
-                      <span className="font-mono font-bold text-[#b85c3a]">{heroStats.avgPermitDays} days</span>
+              <div className="bg-[var(--color-canopy)]/[0.03] border border-[var(--color-canopy)]/10 rounded-sm p-4">
+                <p className="text-[11px] font-semibold text-[var(--color-canopy)] mb-2">
+                  Median Review Time: Application to Permit Issued (all building permits)
+                </p>
+                <div className="space-y-1.5 text-[12px]">
+                  {[
+                    { city: "Austin, TX", days: 25 },
+                    { city: "Chicago, IL", days: 34 },
+                    { city: "San Francisco, CA", days: 51 },
+                    { city: "Miami-Dade, FL", days: 60 },
+                    { city: "New York City, NY", days: 62 },
+                    { city: "Seattle, WA", days: 77 },
+                    { city: "Los Angeles, CA", days: 190 },
+                  ].map((c) => {
+                    const maxDays = 190;
+                    const pct = Math.round((c.days / maxDays) * 100);
+                    return (
+                      <div key={c.city} className="flex items-center gap-3">
+                        <span className="text-[var(--color-ink-muted)] w-[130px] text-right flex-shrink-0">{c.city}</span>
+                        <div className="flex-1 h-4 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
+                          <div className="h-full rounded-sm" style={{ width: `${pct}%`, backgroundColor: "#4a7f9e" }} />
+                        </div>
+                        <span className="font-mono font-semibold w-[50px] text-right">{c.days}d</span>
+                      </div>
+                    );
+                  })}
+                  <div className="flex items-center gap-3 pt-1.5 mt-1.5 border-t border-[var(--color-parchment)]">
+                    <span className="text-[var(--color-ink)] font-semibold w-[130px] text-right flex-shrink-0">Portland, OR</span>
+                    <div className="flex-1 h-4 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
+                      <div className="h-full rounded-sm" style={{ width: `${Math.round((heroStats.avgPermitDays / 190) * 100)}%`, backgroundColor: "#3d7a5a" }} />
                     </div>
+                    <span className="font-mono font-bold text-[#3d7a5a] w-[50px] text-right">{heroStats.avgPermitDays}d</span>
                   </div>
-                  <p className="text-[9px] text-[var(--color-ink-muted)] mt-2">Source: Prevesta.io analysis of 1.4M permits (Feb 2026)</p>
                 </div>
-                <div className="bg-[#b85c3a]/[0.03] border border-[#b85c3a]/10 rounded-sm p-4">
-                  <p className="text-[11px] font-semibold text-[#b85c3a] mb-2">Portland Metro: Multifamily Permits (since 2020)</p>
-                  <div className="space-y-1.5 text-[12px]">
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Happy Valley</span><span className="font-mono font-semibold">153 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Hillsboro</span><span className="font-mono font-semibold">204 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Vancouver, WA</span><span className="font-mono font-semibold">226 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Beaverton</span><span className="font-mono font-semibold">275 days</span></div>
-                    <div className="flex justify-between"><span className="text-[var(--color-ink-muted)]">Gresham</span><span className="font-mono font-semibold">313 days</span></div>
-                    <div className="flex justify-between border-t border-[var(--color-parchment)] pt-1.5 mt-1.5">
-                      <span className="text-[var(--color-ink)] font-semibold">Portland</span>
-                      <span className="font-mono font-bold text-[#b85c3a]">413 days</span>
-                    </div>
-                  </div>
-                  <p className="text-[9px] text-[var(--color-ink-muted)] mt-2">Source: Johnson Economics / Oregon Legislature testimony (Nov 2022)</p>
-                </div>
+                <p className="text-[11px] text-[var(--color-ink-muted)] mt-3 leading-relaxed">
+                  Portland&apos;s review phase ({heroStats.avgPermitDays} days median) is actually{" "}
+                  <span className="font-semibold text-[#3d7a5a]">faster than Seattle, SF, NYC, and LA</span>.{" "}
+                  The problem isn&apos;t review speed — it&apos;s the <span className="font-semibold text-[#b85c3a]">construction and inspection phase</span> (145 additional days median) and{" "}
+                  <span className="font-semibold text-[#b85c3a]">4.5 correction rounds</span> that extend the total process.
+                </p>
+                <p className="text-[9px] text-[var(--color-ink-muted)] mt-2">
+                  Source: Prevesta.io analysis of 1.4M building permits across 7 US cities (Feb 2026). Same metric: application submission to permit issuance.
+                </p>
               </div>
-              <p className="text-[11px] text-[var(--color-ink-muted)] mt-3 leading-relaxed">
-                Portland&apos;s multifamily permit review takes <span className="font-semibold text-[#b85c3a]">2.7x longer</span> than Happy Valley and{" "}
-                <span className="font-semibold text-[#b85c3a]">1.8x longer</span> than Vancouver — both in the same metro area.
-                If Portland matched Hillsboro&apos;s pace, a new apartment project would save <span className="font-semibold">7 months</span> in the review phase alone.
-              </p>
             </div>
           </div>
         </section>
