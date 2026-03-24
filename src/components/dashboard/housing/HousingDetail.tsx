@@ -421,54 +421,6 @@ export default function HousingDetail() {
             {renderGroup("Remodels & Additions", remodels, "#c8956c")}
             {renderGroup("Other", other, "#4a7f9e")}
 
-            {/* Benchmark comparison — apples-to-apples only */}
-            <div className="mt-6 pt-5 border-t border-[var(--color-parchment)]">
-              <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">How Portland Compares</p>
-              <div className="bg-[var(--color-canopy)]/[0.03] border border-[var(--color-canopy)]/10 rounded-sm p-4">
-                <p className="text-[11px] font-semibold text-[var(--color-canopy)] mb-2">
-                  Median Review Time: Application to Permit Issued (all building permits)
-                </p>
-                <div className="space-y-1.5 text-[12px]">
-                  {[
-                    { city: "Austin, TX", days: 25 },
-                    { city: "Chicago, IL", days: 34 },
-                    { city: "San Francisco, CA", days: 51 },
-                    { city: "Miami-Dade, FL", days: 60 },
-                    { city: "New York City, NY", days: 62 },
-                    { city: "Seattle, WA", days: 77 },
-                    { city: "Los Angeles, CA", days: 190 },
-                  ].map((c) => {
-                    const maxDays = 190;
-                    const pct = Math.round((c.days / maxDays) * 100);
-                    return (
-                      <div key={c.city} className="flex items-center gap-3">
-                        <span className="text-[var(--color-ink-muted)] w-[130px] text-right flex-shrink-0">{c.city}</span>
-                        <div className="flex-1 h-4 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
-                          <div className="h-full rounded-sm" style={{ width: `${pct}%`, backgroundColor: "#4a7f9e" }} />
-                        </div>
-                        <span className="font-mono font-semibold w-[50px] text-right">{c.days}d</span>
-                      </div>
-                    );
-                  })}
-                  <div className="flex items-center gap-3 pt-1.5 mt-1.5 border-t border-[var(--color-parchment)]">
-                    <span className="text-[var(--color-ink)] font-semibold w-[130px] text-right flex-shrink-0">Portland, OR</span>
-                    <div className="flex-1 h-4 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden">
-                      <div className="h-full rounded-sm" style={{ width: `${Math.round((heroStats.avgPermitDays / 190) * 100)}%`, backgroundColor: "#3d7a5a" }} />
-                    </div>
-                    <span className="font-mono font-bold text-[#3d7a5a] w-[50px] text-right">{heroStats.avgPermitDays}d</span>
-                  </div>
-                </div>
-                <p className="text-[11px] text-[var(--color-ink-muted)] mt-3 leading-relaxed">
-                  Portland&apos;s review phase ({heroStats.avgPermitDays} days median) is actually{" "}
-                  <span className="font-semibold text-[#3d7a5a]">faster than Seattle, SF, NYC, and LA</span>.{" "}
-                  The problem isn&apos;t review speed — it&apos;s the <span className="font-semibold text-[#b85c3a]">construction and inspection phase</span> (145 additional days median) and{" "}
-                  <span className="font-semibold text-[#b85c3a]">4.5 correction rounds</span> that extend the total process.
-                </p>
-                <p className="text-[9px] text-[var(--color-ink-muted)] mt-2">
-                  Source: Prevesta.io analysis of 1.4M building permits across 7 US cities (Feb 2026). Same metric: application submission to permit issuance.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
         );
@@ -541,9 +493,6 @@ export default function HousingDetail() {
               For permits set up each quarter: how long to get approved vs. how long from approval to final sign-off.
               <span className="text-[var(--color-clay)]"> Dashed lines = recent quarters where many permits are still in progress.</span>
             </p>
-            <div className="flex flex-wrap gap-x-5 gap-y-1 mb-4 text-[10px] text-[var(--color-ink-muted)]">
-              <span>Reference: <span className="font-mono font-semibold">Austin 25d</span> review · <span className="font-mono font-semibold">Seattle 77d</span> review · <span className="font-mono font-semibold">Happy Valley 153d</span> total (multifamily)</span>
-            </div>
             <MultiLineChart
               data={chartData as Record<string, string | number>[]}
               xKey="period"

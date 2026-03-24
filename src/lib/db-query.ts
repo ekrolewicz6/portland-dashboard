@@ -46,7 +46,7 @@ export default sql;
  * Check the dashboard_cache table for a cached response.
  * Returns the cached data if found and updated within the last hour, otherwise null.
  */
-export async function getCachedData<T>(question: string): Promise<T | null> {
+export async function getCachedData<T>(question: string, ttlMs: number = 60 * 60 * 1000): Promise<T | null> {
   try {
     const rows = await sql`
       SELECT data, updated_at
@@ -57,9 +57,9 @@ export async function getCachedData<T>(question: string): Promise<T | null> {
 
     const row = rows[0];
     const updatedAt = new Date(row.updated_at as string);
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
+    const cutoff = new Date(Date.now() - ttlMs);
 
-    if (updatedAt < oneHourAgo) return null;
+    if (updatedAt < cutoff) return null;
 
     // Validate cached data isn't a poisoned error response
     const cached = row.data as Record<string, unknown>;

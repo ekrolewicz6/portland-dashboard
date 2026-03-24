@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
-import sql from "@/lib/db-query";
+import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
+
+const CACHE_KEY = "housing_detail";
 
 interface HousingMarketData {
   homeValueTrendMulti: { month: string; typical: number; sfr: number; condo: number }[];
@@ -53,6 +55,10 @@ const BUILDING_PERMIT_FILTER = `
 
 export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
   try {
+    // Check cache (24-hour TTL)
+    const cached = await getCachedData<HousingDetailResponse>(CACHE_KEY, 24 * 60 * 60 * 1000);
+    if (cached) return NextResponse.json(cached);
+
     // 1. Permits by type — ONLY building-related permits (not tree trimming, electrical, etc.)
     const typeRows = await sql`
       SELECT
@@ -681,7 +687,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       forecast,
     };
 
-    return NextResponse.json({
+    const result = {
       permitsByType,
       permitsByNeighborhood,
       pipelineTrend,
@@ -710,7 +716,10 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       throughput,
       housingMarket,
       dataStatus: "partial",
-    });
+    };
+
+    await setCachedData(CACHE_KEY, result);
+    return NextResponse.json(result);
   } catch (error) {
     console.error("[housing/detail] DB query failed:", error);
     return NextResponse.json(

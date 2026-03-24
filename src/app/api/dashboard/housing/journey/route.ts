@@ -95,7 +95,8 @@ const KEY_PHASES = [
 export async function GET(): Promise<NextResponse<JourneyResponse>> {
   try {
     // Check cache first (1-hour TTL)
-    const cached = await getCachedData<JourneyResponse>(CACHE_KEY);
+    // 24-hour TTL — these queries hit 5.9M rows and data changes daily at most
+    const cached = await getCachedData<JourneyResponse>(CACHE_KEY, 24 * 60 * 60 * 1000);
     if (cached) return NextResponse.json(cached);
 
     // 1. Overall journey phases — median arrival day and step duration

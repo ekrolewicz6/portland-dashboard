@@ -44,7 +44,7 @@ interface BottleneckResponse {
 
 export async function GET(): Promise<NextResponse<BottleneckResponse>> {
   try {
-    const cached = await getCachedData<BottleneckResponse>(CACHE_KEY);
+    const cached = await getCachedData<BottleneckResponse>(CACHE_KEY, 24 * 60 * 60 * 1000);
     if (cached) return NextResponse.json(cached);
 
     // 1. Get bottleneck ranking — exclude non-review activity types
