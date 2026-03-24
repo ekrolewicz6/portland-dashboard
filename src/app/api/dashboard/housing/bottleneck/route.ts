@@ -35,7 +35,15 @@ interface BottleneckResponse {
 
 export async function GET(): Promise<NextResponse<BottleneckResponse>> {
   try {
-    // 1. Get bottleneck ranking
+    // 1. Get bottleneck ranking — exclude non-review activity types
+    // (D - Permit Request, inspections, process management are not review steps)
+    const EXCLUDED_TYPES = [
+      'D - Permit Request',
+      'Facilities Final Inspection',
+      'Facilities Process Management',
+      'Under Inspection',
+      'Plat Issuance',
+    ];
     const rankingRows = await sql`
       SELECT
         activity_type,
@@ -45,6 +53,7 @@ export async function GET(): Promise<NextResponse<BottleneckResponse>> {
         total_permits_reviewed::int,
         avg_correction_rounds::float
       FROM housing.permit_bottleneck_analysis
+      WHERE activity_type != ALL(${EXCLUDED_TYPES})
       ORDER BY avg_days_to_complete DESC
     `;
 
