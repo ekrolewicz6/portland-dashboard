@@ -77,6 +77,7 @@ interface HousingDetailData {
   demolitionTrend?: { quarter: string; total: number; residential: number; commercial: number }[];
   completions?: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
   backlogTrend?: { quarter: string; residential: number; commercial: number; facility: number }[];
+  throughput?: { quarter: string; applied: number; issued: number; completed: number }[];
   housingMarket?: HousingMarketData;
 }
 
@@ -219,6 +220,28 @@ export default function HousingDetail() {
           ]}
         />
       </section>
+
+      {/* 0. Permit Throughput — Applications vs Issuances vs Completions */}
+      {data.throughput && data.throughput.length > 0 && (
+        <section>
+          <SectionHeader icon={TrendingUp} title="Permit Throughput: Applications vs Issuances vs Completions" color="#3d7a5a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              How many building permits are applied for, issued, and completed each quarter. The gap between lines shows where the pipeline is backing up.
+            </p>
+            <MultiLineChart
+              data={data.throughput}
+              xKey="quarter"
+              height={360}
+              lines={[
+                { key: "applied", label: "Applications Filed", color: "#b85c3a" },
+                { key: "issued", label: "Permits Issued", color: "#c8956c" },
+                { key: "completed", label: "Completed (Finaled)", color: "#3d7a5a" },
+              ]}
+            />
+          </div>
+        </section>
+      )}
 
       {/* 1a. Housing Creation — How much housing is actually being built? */}
       {housingCreation && housingCreation.length > 0 && (

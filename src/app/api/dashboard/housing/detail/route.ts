@@ -34,6 +34,7 @@ interface HousingDetailResponse {
   demolitionTrend: { quarter: string; total: number; residential: number; commercial: number }[];
   completions: { quarter: string; total: number; single_family: number; adus: number; multifamily: number }[];
   backlogTrend: { quarter: string; residential: number; commercial: number; facility: number }[];
+  throughput: { quarter: string; applied: number; issued: number; completed: number }[];
   topInsights: string[];
   housingMarket: HousingMarketData;
   dataStatus: string;
@@ -438,6 +439,47 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       total: Number(r.adus) + Number(r.multifamily) + Number(r.single_family) + Number(r.commercial_multi) + Number(r.affordable),
     }));
 
+    // ─── Permit Throughput: Applications vs Issuances vs Completions ───
+    const throughputRows = await sql`
+      SELECT
+        q.quarter,
+        COALESCE(apps.cnt, 0)::int as applied,
+        COALESCE(issued.cnt, 0)::int as issued,
+        COALESCE(completed.cnt, 0)::int as completed
+      FROM (
+        SELECT TO_CHAR(generate_series('2022-01-01'::date, CURRENT_DATE, '3 months'), 'YYYY-"Q"Q') as quarter
+      ) q
+      LEFT JOIN (
+        SELECT TO_CHAR(date_trunc('quarter', application_date), 'YYYY-"Q"Q') as quarter, count(*)::int as cnt
+        FROM housing.permits
+        WHERE application_date IS NOT NULL AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
+        GROUP BY 1
+      ) apps ON apps.quarter = q.quarter
+      LEFT JOIN (
+        SELECT TO_CHAR(date_trunc('quarter', issued_date), 'YYYY-"Q"Q') as quarter, count(*)::int as cnt
+        FROM housing.permits
+        WHERE issued_date IS NOT NULL AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
+        GROUP BY 1
+      ) issued ON issued.quarter = q.quarter
+      LEFT JOIN (
+        SELECT TO_CHAR(date_trunc('quarter', final_date), 'YYYY-"Q"Q') as quarter, count(*)::int as cnt
+        FROM housing.permits
+        WHERE final_date IS NOT NULL AND ${sql.unsafe(BUILDING_PERMIT_FILTER)}
+          AND LOWER(status) IN ('final','finaled','final - uf')
+        GROUP BY 1
+      ) completed ON completed.quarter = q.quarter
+      WHERE q.quarter <= TO_CHAR(CURRENT_DATE, 'YYYY-"Q"Q')
+      ORDER BY q.quarter
+    `;
+    const throughput = throughputRows
+      .filter((r) => Number(r.applied) + Number(r.issued) + Number(r.completed) > 0)
+      .map((r) => ({
+        quarter: r.quarter as string,
+        applied: Number(r.applied),
+        issued: Number(r.issued),
+        completed: Number(r.completed),
+      }));
+
     // ─── Demolition Permits by Quarter ───
     const demolitionRows = await sql`
       SELECT
@@ -665,6 +707,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       demolitionTrend,
       completions,
       backlogTrend,
+      throughput,
       housingMarket,
       dataStatus: "partial",
     });
@@ -694,6 +737,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
         demolitionTrend: [],
         completions: [],
         backlogTrend: [],
+        throughput: [],
         housingMarket: {
           homeValueTrendMulti: [],
           valueByType: [],
