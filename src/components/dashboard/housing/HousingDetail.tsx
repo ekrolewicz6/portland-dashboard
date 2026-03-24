@@ -545,7 +545,7 @@ export default function HousingDetail() {
               <span>Reference: <span className="font-mono font-semibold">Austin 25d</span> review · <span className="font-mono font-semibold">Seattle 77d</span> review · <span className="font-mono font-semibold">Happy Valley 153d</span> total (multifamily)</span>
             </div>
             <MultiLineChart
-              data={chartData}
+              data={chartData as Record<string, string | number>[]}
               xKey="period"
               height={340}
               lines={[
