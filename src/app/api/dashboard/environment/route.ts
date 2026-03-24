@@ -60,16 +60,16 @@ export async function GET() {
     const currentAqi = Number(latest.aqi);
     const category = aqiCategory(currentAqi);
 
-    // 7-day PM2.5 trend (daily average)
+    // 30-day PM2.5 trend (daily average)
     const trendRows = await sql`
       SELECT
         date::text AS date,
         ROUND(AVG(aqi))::int AS avg_aqi
       FROM environment.airnow_aqi
       WHERE pollutant = 'PM2.5'
+        AND date >= CURRENT_DATE - INTERVAL '30 days'
       GROUP BY date
       ORDER BY date DESC
-      LIMIT 7
     `;
 
     const chartData = trendRows
