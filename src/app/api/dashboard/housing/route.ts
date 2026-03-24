@@ -18,7 +18,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
         count(*) as total,
         avg(processing_days) as avg_days
       FROM housing.permits
-      WHERE status IN ('finaled', 'issued')
+      WHERE LOWER(status) IN ('finaled', 'final', 'final - uf', 'issued', 'issued - uf')
     `;
 
     if (!summaryRows || summaryRows.length === 0 || Number(summaryRows[0].total) === 0) {
@@ -44,7 +44,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
     const pipelineRows = await sql`
       SELECT count(*) as cnt
       FROM housing.permits
-      WHERE status = 'issued'
+      WHERE LOWER(status) IN ('issued', 'issued - uf')
         AND (permit_type ILIKE '%residential%' OR permit_type ILIKE '%1 & 2 family%')
     `;
     const unitsInPipeline = Number(pipelineRows[0].cnt);
@@ -93,7 +93,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
           ELSE 'Trade/Other'
         END AS category,
         count(*)::int AS cnt,
-        count(*) FILTER (WHERE status = 'issued')::int AS active,
+        count(*) FILTER (WHERE LOWER(status) IN ('issued', 'issued - uf'))::int AS active,
         sum(valuation)::bigint AS total_val,
         avg(processing_days)::int AS avg_days
       FROM housing.permits

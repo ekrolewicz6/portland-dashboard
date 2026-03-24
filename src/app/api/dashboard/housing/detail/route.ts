@@ -247,8 +247,8 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
           ELSE 'Other'
         END AS ptype,
         count(*)::int AS total_issued,
-        count(*) FILTER (WHERE status = 'finaled')::int AS finaled,
-        ROUND(100.0 * count(*) FILTER (WHERE status = 'finaled') / NULLIF(count(*), 0))::int AS clearance_pct,
+        count(*) FILTER (WHERE LOWER(status) IN ('finaled', 'final', 'final - uf'))::int AS finaled,
+        ROUND(100.0 * count(*) FILTER (WHERE LOWER(status) IN ('finaled', 'final', 'final - uf')) / NULLIF(count(*), 0))::int AS clearance_pct,
         ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days) FILTER (WHERE processing_days > 0 AND processing_days <= 365))::int AS median_days
       FROM housing.permits
       WHERE issued_date IS NOT NULL
@@ -289,8 +289,8 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
           ELSE 'Other'
         END as ptype,
         count(*)::int as applied,
-        count(*) FILTER (WHERE status = 'finaled')::int as cleared,
-        ROUND(100.0 * count(*) FILTER (WHERE status = 'finaled') / NULLIF(count(*), 0))::int as clearance_pct,
+        count(*) FILTER (WHERE LOWER(status) IN ('finaled', 'final', 'final - uf'))::int as cleared,
+        ROUND(100.0 * count(*) FILTER (WHERE LOWER(status) IN ('finaled', 'final', 'final - uf')) / NULLIF(count(*), 0))::int as clearance_pct,
         ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY processing_days)
           FILTER (WHERE processing_days > 0 AND processing_days <= 730))::int as median_days
       FROM housing.permits
@@ -342,7 +342,7 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
     // 7. Hero stats — building permits only for pipeline
     const heroRows = await sql`
       SELECT
-        count(*) FILTER (WHERE status = 'issued' AND ${sql.unsafe(BUILDING_PERMIT_FILTER)})::int AS pipeline,
+        count(*) FILTER (WHERE LOWER(status) IN ('issued', 'issued - uf') AND ${sql.unsafe(BUILDING_PERMIT_FILTER)})::int AS pipeline,
         count(*) FILTER (WHERE ${sql.unsafe(BUILDING_PERMIT_FILTER)})::int AS total_building,
         SUM(valuation) FILTER (WHERE valuation > 0)::bigint AS total_val
       FROM housing.permits
