@@ -101,18 +101,29 @@ function SectionHeader({
   );
 }
 
+interface JourneyData {
+  phases: { phase: string; median_day: number; median_step_duration: number; permits_affected: number }[];
+  byType: { label: string; permits: number; phases: { phase: string; median_day: number }[]; total_days: number }[];
+  trend: Record<string, string | number>[];
+  correctionStats: { pctWithCorrections: number; avgRounds: number; totalPermits: number };
+  dataStatus: string;
+}
+
 export default function HousingDetail() {
   const [data, setData] = useState<HousingDetailData | null>(null);
   const [bottleneckData, setBottleneckData] = useState<BottleneckData | null>(null);
+  const [journeyData, setJourneyData] = useState<JourneyData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/dashboard/housing/detail").then((r) => r.json()),
       fetch("/api/dashboard/housing/bottleneck").then((r) => r.json()).catch(() => null),
-    ]).then(([d, b]) => {
+      fetch("/api/dashboard/housing/journey").then((r) => r.json()).catch(() => null),
+    ]).then(([d, b, j]) => {
       setData(d);
       if (b && b.dataStatus !== "unavailable") setBottleneckData(b);
+      if (j && j.dataStatus !== "unavailable") setJourneyData(j);
       setLoading(false);
     }).catch(() => setLoading(false));
   }, []);
@@ -438,7 +449,139 @@ export default function HousingDetail() {
         </section>
       )}
 
-      {/* 1b. Permit Review Bottlenecks — full table */}
+      {/* 1b. Permit Journey — what does the process actually look like? */}
+      {journeyData && journeyData.phases.length > 0 && (
+        <section>
+          <SectionHeader icon={Clock} title="The Permit Journey: How Long Does Each Phase Take?" color="#4a7f9e" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-1">
+              Median day each phase completes (from permit setup) and how long that phase takes on its own.
+              Based on {journeyData.correctionStats.totalPermits.toLocaleString()} permits (2019-2026).
+            </p>
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              {journeyData.correctionStats.pctWithCorrections}% of permits require corrections (avg {journeyData.correctionStats.avgRounds} rounds).
+            </p>
+
+            {/* Journey timeline */}
+            <div className="space-y-1.5">
+              {journeyData.phases.map((phase, i) => {
+                const maxDay = journeyData.phases[journeyData.phases.length - 1]?.median_day || 1;
+                const pct = Math.round((phase.median_day / maxDay) * 100);
+                const isReview = phase.median_day <= 60;
+                const isInspection = phase.phase.includes("Inspection");
+                const color = isReview ? "#4a7f9e" : isInspection ? "#c8956c" : phase.phase === "Final Permit" ? "#b85c3a" : "#3d7a5a";
+                return (
+                  <div key={phase.phase} className="flex items-center gap-3">
+                    <span className="text-[11px] text-[var(--color-ink-light)] w-[160px] text-right flex-shrink-0 truncate" title={phase.phase}>
+                      {phase.phase}
+                    </span>
+                    <div className="flex-1 h-6 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden relative">
+                      <div
+                        className="h-full rounded-sm"
+                        style={{ width: `${Math.max(pct, 2)}%`, backgroundColor: color, opacity: 0.8 }}
+                      />
+                    </div>
+                    <span className="text-[11px] font-mono font-semibold w-[45px] text-right" style={{ color }}>
+                      Day {phase.median_day}
+                    </span>
+                    <span className="text-[10px] font-mono text-[var(--color-ink-muted)] w-[55px] text-right" title="Median duration of this step alone">
+                      ~{phase.median_step_duration}d step
+                    </span>
+                    <span className="text-[10px] text-[var(--color-ink-muted)] w-[60px] text-right">
+                      {phase.permits_affected >= 1000 ? `${(phase.permits_affected / 1000).toFixed(0)}K` : phase.permits_affected} permits
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-[var(--color-parchment)] flex gap-5 text-[10px] text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#4a7f9e" }} />Reviews (design/code)</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#3d7a5a" }} />Issuance</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#c8956c" }} />Inspections (construction)</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#b85c3a" }} />Final</span>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 1b-ii. Journey by Permit Type */}
+      {journeyData && journeyData.byType.length > 0 && (
+        <section>
+          <SectionHeader icon={Building2} title="How Long by Permit Type?" color="#c8956c" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Median days to reach each milestone, by permit type. Longer bars = longer total process.
+            </p>
+            <div className="space-y-3">
+              {journeyData.byType
+                .sort((a, b) => b.total_days - a.total_days)
+                .map((type) => {
+                  const maxDays = journeyData.byType.reduce((m, t) => Math.max(m, t.total_days), 1);
+                  return (
+                    <div key={type.label} className="flex items-center gap-3">
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-[180px] text-right flex-shrink-0 truncate" title={type.label}>
+                        {type.label}
+                      </span>
+                      <div className="flex-1 h-6 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden flex">
+                        {type.phases.map((p, j) => {
+                          const prevDay = j > 0 ? type.phases[j - 1].median_day : 0;
+                          const segWidth = ((p.median_day - prevDay) / maxDays) * 100;
+                          const colors = ["#4a7f9e", "#3d7a5a", "#c8956c", "#b85c3a"];
+                          return (
+                            <div
+                              key={p.phase}
+                              className="h-full"
+                              style={{ width: `${Math.max(segWidth, 0.5)}%`, backgroundColor: colors[j % colors.length], opacity: 0.7 + j * 0.08 }}
+                              title={`${p.phase}: Day ${p.median_day}`}
+                            />
+                          );
+                        })}
+                      </div>
+                      <span className="text-[11px] font-mono font-semibold w-[50px] text-right text-[var(--color-ink)]">
+                        {type.total_days}d
+                      </span>
+                      <span className="text-[10px] font-mono text-[var(--color-ink-muted)] w-[40px] text-right">
+                        {type.permits >= 1000 ? `${(type.permits / 1000).toFixed(1)}K` : type.permits}
+                      </span>
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="mt-3 pt-3 border-t border-[var(--color-parchment)] flex gap-5 text-[10px] text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#4a7f9e" }} />Reviews</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#3d7a5a" }} />Permit Issued</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#c8956c" }} />Construction</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#b85c3a" }} />Final</span>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 1b-iii. Is the Process Getting Worse? */}
+      {journeyData && journeyData.trend.length > 1 && (
+        <section>
+          <SectionHeader icon={TrendingUp} title="Is the Permitting Process Getting Faster or Slower?" color="#b85c3a" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+              Median days to reach each milestone, by quarter permits were set up. For permits set up in each quarter, how long did it take to reach each phase?
+            </p>
+            <MultiLineChart
+              data={journeyData.trend}
+              xKey="period"
+              height={360}
+              lines={[
+                { key: "Review Complete", label: "Review Complete", color: "#4a7f9e" },
+                { key: "Permit Issued", label: "Permit Issued", color: "#3d7a5a" },
+                { key: "Inspections Done", label: "Inspections Done", color: "#c8956c" },
+                { key: "Final Permit", label: "Final Permit", color: "#b85c3a" },
+              ]}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* 1c. Permit Review Bottlenecks — full table */}
       {bottleneckData && bottleneckData.ranking.length > 0 && (
         <section>
           <SectionHeader icon={AlertTriangle} title="Every Review Step: How Long and How Common" color="#b85c3a" />
