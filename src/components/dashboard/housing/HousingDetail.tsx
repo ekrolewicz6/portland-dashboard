@@ -187,6 +187,13 @@ export default function HousingDetail() {
 
   // Helper for journey by-type cards
   function yearsAndMonths(days: number) {
+    if (days >= 365) return `${(days / 365).toFixed(1)} years`;
+    if (days >= 60) return `${Math.round(days / 30)} months`;
+    return `${days} days`;
+  }
+
+  return (
+    <div className="space-y-10">
       {/* ═══════════════════════════════════════════════════
           SECTION 1: THE BIG PICTURE — Is Portland Building Enough?
           ═══════════════════════════════════════════════════ */}
