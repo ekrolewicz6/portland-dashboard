@@ -588,58 +588,92 @@ export default function HousingDetail() {
         );
       })()}
 
-      {/* 1b-ii. Journey by Permit Type */}
-      {journeyData && journeyData.byType.length > 0 && (
-        <section>
-          <SectionHeader icon={Building2} title="How Long by Permit Type?" color="#c8956c" />
-          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Median days to reach each milestone, by permit type. Longer bars = longer total process.
-            </p>
-            <div className="space-y-3">
-              {journeyData.byType
-                .sort((a, b) => b.total_days - a.total_days)
-                .map((type) => {
-                  const maxDays = journeyData.byType.reduce((m, t) => Math.max(m, t.total_days), 1);
-                  return (
-                    <div key={type.label} className="flex items-center gap-3">
-                      <span className="text-[11px] text-[var(--color-ink-light)] w-[180px] text-right flex-shrink-0 truncate" title={type.label}>
-                        {type.label}
-                      </span>
-                      <div className="flex-1 h-6 bg-[var(--color-parchment)]/30 rounded-sm overflow-hidden flex">
-                        {type.phases.map((p, j) => {
-                          const prevDay = j > 0 ? type.phases[j - 1].median_day : 0;
-                          const segWidth = ((p.median_day - prevDay) / maxDays) * 100;
-                          const colors = ["#4a7f9e", "#3d7a5a", "#c8956c", "#b85c3a"];
-                          return (
-                            <div
-                              key={p.phase}
-                              className="h-full"
-                              style={{ width: `${Math.max(segWidth, 0.5)}%`, backgroundColor: colors[j % colors.length], opacity: 0.7 + j * 0.08 }}
-                              title={`${p.phase}: Day ${p.median_day}`}
-                            />
-                          );
-                        })}
+      {/* 1b-ii. Journey by Permit Type — clear table with phase durations */}
+      {journeyData && journeyData.byType.length > 0 && (() => {
+        const sorted = [...journeyData.byType].sort((a, b) => b.total_days - a.total_days);
+        const maxDays = sorted[0]?.total_days || 1;
+
+        // Group into categories
+        const newConstruction = sorted.filter(t => t.label.includes("(New)") || t.label.includes("New Construction"));
+        const remodels = sorted.filter(t => t.label.includes("Remodel") || t.label.includes("Alteration") || t.label.includes("Addition") || t.label.includes("Interior"));
+        const demolitions = sorted.filter(t => t.label.includes("Demoli"));
+        const other = sorted.filter(t => !newConstruction.includes(t) && !remodels.includes(t) && !demolitions.includes(t));
+
+        function yearsAndMonths(days: number) {
+          if (days >= 365) return `${(days / 365).toFixed(1)} years`;
+          if (days >= 60) return `${Math.round(days / 30)} months`;
+          return `${days} days`;
+        }
+
+        function renderGroup(title: string, items: typeof sorted, accent: string) {
+          if (items.length === 0) return null;
+          return (
+            <div className="mb-5 last:mb-0">
+              <p className="text-[10px] font-semibold uppercase tracking-wider mb-2" style={{ color: accent }}>
+                {title}
+              </p>
+              <div className="space-y-2">
+                {items.map((type) => (
+                  <div key={type.label} className="bg-[var(--color-paper)] rounded-sm p-3 border border-[var(--color-parchment)]/50">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[13px] font-semibold text-[var(--color-ink)]">{type.label}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-[18px] font-mono font-bold text-[var(--color-ink)]">{yearsAndMonths(type.total_days)}</span>
+                        <span className="text-[10px] text-[var(--color-ink-muted)]">{type.permits >= 1000 ? `${(type.permits / 1000).toFixed(1)}K` : type.permits} permits</span>
                       </div>
-                      <span className="text-[11px] font-mono font-semibold w-[50px] text-right text-[var(--color-ink)]">
-                        {type.total_days}d
-                      </span>
-                      <span className="text-[10px] font-mono text-[var(--color-ink-muted)] w-[40px] text-right">
-                        {type.permits >= 1000 ? `${(type.permits / 1000).toFixed(1)}K` : type.permits}
-                      </span>
                     </div>
-                  );
-                })}
+                    {/* Phase bar */}
+                    <div className="h-3 bg-[var(--color-parchment)]/30 rounded-full overflow-hidden flex mb-1.5">
+                      {type.phases.map((p, j) => {
+                        const prevDay = j > 0 ? type.phases[j - 1].median_day : 0;
+                        const segWidth = ((p.median_day - prevDay) / maxDays) * 100;
+                        const colors = ["#4a7f9e", "#3d7a5a", "#c8956c", "#b85c3a"];
+                        return (
+                          <div
+                            key={p.phase}
+                            className="h-full transition-all duration-500"
+                            style={{ width: `${Math.max(segWidth, 0.5)}%`, backgroundColor: colors[j % colors.length] }}
+                          />
+                        );
+                      })}
+                    </div>
+                    {/* Phase labels */}
+                    <div className="flex gap-4 text-[10px] text-[var(--color-ink-muted)]">
+                      {type.phases.map((p, j) => {
+                        const prevDay = j > 0 ? type.phases[j - 1].median_day : 0;
+                        const duration = p.median_day - prevDay;
+                        const colors = ["#4a7f9e", "#3d7a5a", "#c8956c", "#b85c3a"];
+                        const labels = ["Reviews", "Issued", "Construction", "Final"];
+                        return (
+                          <span key={p.phase} className="flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors[j % colors.length] }} />
+                            {labels[j] ?? p.phase}: <span className="font-mono font-semibold" style={{ color: colors[j % colors.length] }}>{duration}d</span>
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-3 pt-3 border-t border-[var(--color-parchment)] flex gap-5 text-[10px] text-[var(--color-ink-muted)]">
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#4a7f9e" }} />Reviews</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#3d7a5a" }} />Permit Issued</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#c8956c" }} />Construction</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-2 rounded-sm" style={{ backgroundColor: "#b85c3a" }} />Final</span>
-            </div>
+          );
+        }
+
+        return (
+        <section>
+          <SectionHeader icon={Building2} title="How Long Does Each Permit Type Take?" color="#c8956c" />
+          <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+            <p className="text-[13px] text-[var(--color-ink-muted)] mb-5">
+              Total time from application to final sign-off, broken down by phase. Each card shows how long the typical permit takes and where that time goes.
+            </p>
+            {renderGroup("New Construction", newConstruction, "#b85c3a")}
+            {renderGroup("Remodels & Additions", remodels, "#c8956c")}
+            {renderGroup("Demolitions", demolitions, "#7c6f9e")}
+            {renderGroup("Other", other, "#4a7f9e")}
           </div>
         </section>
-      )}
+        );
+      })()}
 
       {/* 1b-iii. Is the Process Getting Worse? */}
       {journeyData && journeyData.trend.length > 1 && (
