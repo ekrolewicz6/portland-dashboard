@@ -206,25 +206,25 @@ export default function LandingPage() {
               className="metric-card text-left w-full group animate-fade-up"
               style={{ "--accent-color": view.accent, animationDelay: `${400 + i * 60}ms` } as React.CSSProperties}
             >
-              <div className="flex items-start justify-between gap-3 mb-5">
-                <h2 className="font-editorial text-[17px] text-[var(--color-ink)] leading-snug">
+              <div className="flex items-start justify-between gap-3 mb-6">
+                <h2 className="font-editorial text-[20px] lg:text-[22px] 2xl:text-[24px] text-[var(--color-ink)] leading-snug">
                   {view.question}
                 </h2>
-                <ArrowRight className="w-4 h-4 text-[var(--color-ink-muted)]/20 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
+                <ArrowRight className="w-5 h-5 text-[var(--color-ink-muted)]/20 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
               </div>
 
-              <p className="text-[36px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
+              <p className="text-[42px] lg:text-[48px] 2xl:text-[54px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
                 {view.stat}
               </p>
-              <p className="text-[13px] text-[var(--color-ink-muted)] mt-2 leading-snug">
+              <p className="text-[15px] lg:text-[16px] text-[var(--color-ink-muted)] mt-3 leading-snug">
                 {view.statLabel}
               </p>
 
-              <div className="mt-5 pt-3 border-t border-[var(--color-parchment)] flex items-center justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-ink-muted)] group-hover:text-[var(--color-canopy)] transition-colors">
+              <div className="mt-6 pt-4 border-t border-[var(--color-parchment)] flex items-center justify-between">
+                <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[var(--color-ink-muted)] group-hover:text-[var(--color-canopy)] transition-colors">
                   Explore data
                 </span>
-                <view.icon className="w-4 h-4 text-[var(--color-ink-muted)]/30" />
+                <view.icon className="w-5 h-5 text-[var(--color-ink-muted)]/30" />
               </div>
             </Link>
           ))}
