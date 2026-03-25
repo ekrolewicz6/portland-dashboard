@@ -1,0 +1,54 @@
+{
+  "source": "Multnomah County HSD Quarterly Data Dashboard",
+  "url": "https://hsd.multco.us/quarterly-data-dashboard/",
+  "fetched": "2026-03-25",
+  "note": "Data extracted from hardcoded Chart.js on the page. FY = July 1 - June 30.",
+
+  "housing_placements_by_fy": {
+    "labels": ["FY2022", "FY2023", "FY2024"],
+    "data": [4406, 4266, 5477],
+    "description": "People moved from homelessness into permanent housing, cumulative by fiscal year"
+  },
+
+  "shs_housing_placements_fy24_by_quarter": {
+    "labels": ["Q1 FY2024", "Q2 FY2024", "Q3 FY2024", "Q4 FY2024"],
+    "data_cumulative": [253, 537, 1075, 2322],
+    "description": "SHS-funded housing placements (supportive housing, rapid rehousing, other permanent housing)"
+  },
+
+  "housing_placements_demographics_fy24": {
+    "bipoc": { "count": 3194, "pct": 58.3 },
+    "non_hispanic_white": { "count": 2090, "pct": 38.2 },
+    "unreported": { "count": 193, "pct": 3.5 },
+    "total": 5477
+  },
+
+  "rent_assistance_enrolled_by_fy": {
+    "labels": ["FY2022", "FY2023", "FY2024"],
+    "data": [35549, 30090, 18810],
+    "description": "People/households receiving rent assistance for eviction prevention. Decline reflects wind-down of pandemic-era Emergency Rental Assistance."
+  },
+
+  "shelter_capacity_avg_beds_quarterly": {
+    "labels": [
+      "FY2022-Q1", "FY2022-Q2", "FY2022-Q3", "FY2022-Q4",
+      "FY2023-Q1", "FY2023-Q2", "FY2023-Q3", "FY2023-Q4",
+      "FY2024-Q1", "FY2024-Q2", "FY2024-Q3", "FY2024-Q4"
+    ],
+    "data": [995, 1155, 1133, 1356, 1391, 1375, 1480, 1587, 1703, 1992, 2133, 2068],
+    "description": "Average HSD-funded shelter beds in Multnomah County. Excludes City of Portland-operated, faith-based, and non-HSD shelters."
+  },
+
+  "shelter_utilization_fy24": {
+    "labels": ["2024-Q1", "2024-Q2", "2024-Q3", "2024-Q4"],
+    "data": [90.5, 92.1, 92.6, 90.6],
+    "description": "Percent of available shelter beds occupied on any given night"
+  },
+
+  "tableau_endpoints": {
+    "main_dashboard": "https://public.tableau.com/views/MultnomahCountyHomelessServicesDepartmentDataDashboard_17447622060640/TotalPopulation",
+    "tableau_profile": "https://public.tableau.com/app/profile/hsd",
+    "johs_profile_api": "https://public.tableau.com/public/apis/workbooks?profileName=johs&start=0&count=50&visibility=NON_HIDDEN",
+    "note": "The Tableau dashboard requires tableau-scraper Python library for automated data extraction. The quarterly dashboard at /quarterly-data-dashboard/ uses Chart.js with hardcoded data and is easier to scrape."
+  }
+}

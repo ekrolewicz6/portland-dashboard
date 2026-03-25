@@ -1,0 +1,262 @@
+{
+  "fetched_at": "2026-03-25T20:58:26.807Z",
+  "quarterly_dashboard_charts": [
+    {
+      "id": "chart-1283",
+      "label": "New Housing Placements",
+      "labels": [
+        "Q1-Q4 FY2022",
+        "Q1-Q4 FY2023",
+        "Q1-Q4 FY2024"
+      ],
+      "data": [
+        4406,
+        4266,
+        5477
+      ]
+    },
+    {
+      "id": "chart-1296",
+      "label": "SHS Housing Placement (Includes supportive housing, rapid rehousing and other permanent housing)",
+      "labels": [
+        "Q1 FY2024",
+        "Q2 FY2024",
+        "Q3 FY2024",
+        "Q4 FY2024"
+      ],
+      "data": [
+        253,
+        537,
+        1075,
+        2322
+      ]
+    },
+    {
+      "id": "chart-1302",
+      "label": "FY 2024 New Housing Placement Demographics",
+      "labels": [
+        "BIPOC (3",
+        "194 people)",
+        "Non-Hispanic White (2",
+        "090 people)",
+        "Race\\/Ethnicity Unreported (193 people)"
+      ],
+      "data": [
+        58.3,
+        38.2,
+        3.5
+      ]
+    },
+    {
+      "id": "chart-1321",
+      "label": "Rent Assistance (total enrolled)",
+      "labels": [
+        "Q1-Q4 FY2022",
+        "Q1-Q4 FY2023",
+        "Q1-Q4 FY2024"
+      ],
+      "data": [
+        35549,
+        30090,
+        18810
+      ]
+    },
+    {
+      "id": "chart-1370",
+      "label": "Shelter Utilization Percentage",
+      "labels": [
+        "2024 Q1",
+        "2024 Q2",
+        "2024 Q3",
+        "2024 Q4"
+      ],
+      "data": [
+        90.5,
+        92.1,
+        92.6,
+        90.6
+      ]
+    }
+  ],
+  "eviction_filings": [
+    {
+      "county": "Oregon",
+      "total": 28841,
+      "months": [
+        {
+          "month": "2025-04-01",
+          "filings": 2158
+        },
+        {
+          "month": "2025-05-01",
+          "filings": 2426
+        },
+        {
+          "month": "2025-06-01",
+          "filings": 2322
+        },
+        {
+          "month": "2025-07-01",
+          "filings": 2258
+        },
+        {
+          "month": "2025-08-01",
+          "filings": 2592
+        },
+        {
+          "month": "2025-09-01",
+          "filings": 2521
+        },
+        {
+          "month": "2025-10-01",
+          "filings": 2455
+        },
+        {
+          "month": "2025-11-01",
+          "filings": 2660
+        },
+        {
+          "month": "2025-12-01",
+          "filings": 1884
+        },
+        {
+          "month": "2026-01-01",
+          "filings": 2574
+        },
+        {
+          "month": "2026-02-01",
+          "filings": 2750
+        }
+      ]
+    },
+    {
+      "county": "Multnomah",
+      "total": 12127,
+      "months": [
+        {
+          "month": "2025-04-01",
+          "filings": 896
+        },
+        {
+          "month": "2025-05-01",
+          "filings": 1072
+        },
+        {
+          "month": "2025-06-01",
+          "filings": 974
+        },
+        {
+          "month": "2025-07-01",
+          "filings": 929
+        },
+        {
+          "month": "2025-08-01",
+          "filings": 1057
+        },
+        {
+          "month": "2025-09-01",
+          "filings": 1083
+        },
+        {
+          "month": "2025-10-01",
+          "filings": 999
+        },
+        {
+          "month": "2025-11-01",
+          "filings": 1152
+        },
+        {
+          "month": "2025-12-01",
+          "filings": 786
+        },
+        {
+          "month": "2026-01-01",
+          "filings": 1131
+        },
+        {
+          "month": "2026-02-01",
+          "filings": 1132
+        }
+      ]
+    },
+    {
+      "county": "Washington",
+      "total": 4921,
+      "months": [
+        {
+          "month": "2025-04-01",
+          "filings": 385
+        },
+        {
+          "month": "2025-05-01",
+          "filings": 415
+        },
+        {
+          "month": "2025-06-01",
+          "filings": 400
+        },
+        {
+          "month": "2025-07-01",
+          "filings": 401
+        },
+        {
+          "month": "2025-08-01",
+          "filings": 406
+        },
+        {
+          "month": "2025-09-01",
+          "filings": 425
+        },
+        {
+          "month": "2025-10-01",
+          "filings": 421
+        },
+        {
+          "month": "2025-11-01",
+          "filings": 440
+        },
+        {
+          "month": "2025-12-01",
+          "filings": 327
+        },
+        {
+          "month": "2026-01-01",
+          "filings": 421
+        },
+        {
+          "month": "2026-02-01",
+          "filings": 488
+        }
+      ]
+    }
+  ],
+  "all_eviction_counties": [
+    "Oregon",
+    "Benton",
+    "Clatsop",
+    "Columbia",
+    "Coos",
+    "Crook",
+    "Curry",
+    "Deschutes",
+    "Douglas",
+    "Hood River",
+    "Jackson",
+    "Jefferson",
+    "Josephine",
+    "Klamath",
+    "Lake",
+    "Lane",
+    "Lincoln",
+    "Linn",
+    "Marion",
+    "Multnomah",
+    "Polk",
+    "Umatilla",
+    "Union",
+    "Wallowa",
+    "Wasco",
+    "Washington",
+    "Yamhill"
+  ]
+}
