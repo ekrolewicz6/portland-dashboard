@@ -82,7 +82,7 @@ export const QUESTIONS = [
     title: "Are We Meeting Our Climate Goals?",
     shortTitle: "Climate & Environment",
     description:
-      "Climate accountability platform tracking all 43 Climate Emergency Workplan actions, bureau performance, PCEF funding, and emissions trajectory toward 2030 and 2050 targets. Built in response to the Feb 2026 Climate Justice Audit.",
+      "Climate accountability platform tracking all 47 Climate Emergency Workplan actions, bureau performance, PCEF funding, and emissions trajectory toward 2030 and 2050 targets. Built in response to the Feb 2026 Climate Justice Audit.",
     icon: "leaf",
     color: "green",
   },
@@ -109,7 +109,7 @@ export const QUESTIONS = [
     title: "Is Portland Meeting Its Climate Commitments?",
     shortTitle: "Climate",
     description:
-      "Tracks all 43 Climate Emergency Workplan actions, bureau performance, PCEF spending, and Multnomah County emissions trajectory vs. 2030 goals.",
+      "Tracks all 47 Climate Emergency Workplan actions, bureau performance, PCEF spending, and Multnomah County emissions trajectory vs. 2030 goals.",
     icon: "leaf",
     color: "green",
   },

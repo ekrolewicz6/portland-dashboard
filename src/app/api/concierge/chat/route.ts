@@ -48,7 +48,7 @@ const FALLBACK_RESPONSE = `Welcome to the Portland Civic Lab Civic Concierge! I'
 - ADUs, home businesses, food carts, short-term rentals
 
 **Climate & Environment**
-- Portland's Climate Emergency Workplan (43 actions)
+- Portland's Climate Emergency Workplan (47 actions)
 - Portland Clean Energy Fund (PCEF) grants
 - Emissions data and 2030 goals
 

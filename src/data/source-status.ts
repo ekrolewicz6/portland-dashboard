@@ -319,7 +319,7 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
       {
         name: "Climate Emergency Workplan Tracker",
         status: "LIVE",
-        statusLabel: "43 actions encoded",
+        statusLabel: "47 actions encoded",
         provider: "Portland Bureau of Planning & Sustainability",
       },
       {

@@ -17,7 +17,7 @@ interface CewAction {
 }
 
 // ============================================================================
-// All 43 Climate Emergency Workplan 2022-2025 Actions
+// All 47 Climate Emergency Workplan 2022-2025 Actions
 // Source: Portland BPS CEW adopted by Council Aug 24, 2022
 // Status: Feb 2026 audit — 13% achieved, 79% ongoing, 9% delayed
 // ============================================================================

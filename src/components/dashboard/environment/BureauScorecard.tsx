@@ -56,7 +56,7 @@ export default function BureauScorecard() {
     );
   }
 
-  if (!data) return <p className="text-[var(--color-ink-muted)] text-[14px]">Unable to load bureau data.</p>;
+  if (!data) return <p className="text-[var(--color-ink-muted)] text-[16px]">Unable to load bureau data.</p>;
 
   // Summary stats
   const totalBureaus = data.bureaus.length;
@@ -99,16 +99,16 @@ export default function BureauScorecard() {
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <Building2 className="w-4 h-4" style={{ color: ENV_COLOR }} />
-                    <span className="text-[14px] font-semibold text-[var(--color-ink)]">
+                    <span className="text-[16px] font-semibold text-[var(--color-ink)]">
                       {bureau.abbreviation}
                     </span>
                   </div>
-                  <span className="text-[22px] font-mono font-bold text-[var(--color-ink)]">
+                  <span className="text-[22px] lg:text-[26px] 2xl:text-[30px] font-mono font-bold text-[var(--color-ink)]">
                     {bureau.totalActions}
                   </span>
                 </div>
 
-                <p className="text-[12px] text-[var(--color-ink-muted)] mb-3 leading-snug">
+                <p className="text-[14px] text-[var(--color-ink-muted)] mb-3 leading-snug">
                   {bureau.fullName}
                 </p>
 
@@ -125,14 +125,14 @@ export default function BureauScorecard() {
                   )}
                 </div>
 
-                <div className="flex gap-4 text-[11px]">
-                  <span className="text-emerald-700 font-mono">{bureau.achieved} done</span>
-                  <span className="text-amber-700 font-mono">{bureau.ongoing} ongoing</span>
-                  <span className="text-red-700 font-mono">{bureau.delayed} delayed</span>
+                <div className="flex gap-4 text-[13px]">
+                  <span className="text-emerald-700 font-mono lg:text-[15px] 2xl:text-[16px]">{bureau.achieved} done</span>
+                  <span className="text-amber-700 font-mono lg:text-[15px] 2xl:text-[16px]">{bureau.ongoing} ongoing</span>
+                  <span className="text-red-700 font-mono lg:text-[15px] 2xl:text-[16px]">{bureau.delayed} delayed</span>
                 </div>
 
-                <div className="flex items-center gap-1 mt-2 text-[11px] text-[var(--color-ink-muted)]">
-                  {isExpanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+                <div className="flex items-center gap-1.5 mt-3 text-[13px] font-medium" style={{ color: ENV_COLOR }}>
+                  {isExpanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                   {isExpanded ? "Hide actions" : "Show actions"}
                 </div>
               </button>
@@ -140,14 +140,14 @@ export default function BureauScorecard() {
               {isExpanded && (
                 <div className="border-t border-[var(--color-parchment)] px-4 py-3 space-y-1.5">
                   {bureau.actions.map((a) => (
-                    <div key={a.action_id} className="flex items-center gap-2 text-[12px]">
+                    <div key={a.action_id} className="flex items-center gap-2 text-[14px]">
                       <span
                         className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                         style={{ backgroundColor: STATUS_DOT[a.status] ?? "#78716c" }}
                       />
                       <span className="font-mono text-[var(--color-ink-muted)] w-10 flex-shrink-0">{a.action_id}</span>
                       <span className="text-[var(--color-ink)] flex-1 leading-snug">{a.title}</span>
-                      <span className="text-[10px] text-[var(--color-ink-muted)] flex-shrink-0">{a.sector}</span>
+                      <span className="text-[12px] text-[var(--color-ink-muted)] flex-shrink-0 hidden sm:inline">{a.sector}</span>
                     </div>
                   ))}
                 </div>

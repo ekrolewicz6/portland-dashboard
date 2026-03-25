@@ -136,7 +136,7 @@ export async function GET() {
           name: "Climate Emergency Workplan (43 Actions)",
           status: "live",
           provider: "Bureau of Planning and Sustainability",
-          action: "All 43 CEW actions encoded with status from 2025 progress report",
+          action: "All 47 CEW actions encoded with status from 2025 progress report",
         },
         {
           name: "GHG Emissions Inventory (1990–2023)",

@@ -38,7 +38,7 @@ function SectionHeader({
   return (
     <div className="flex items-center gap-2.5 mb-4">
       <Icon className="w-4 h-4" style={{ color: ENV_COLOR }} />
-      <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+      <h2 className="text-[13px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
         {title}
       </h2>
       <div className="flex-1 h-px bg-[var(--color-parchment)]" />
@@ -67,7 +67,7 @@ export default function EmissionsTrajectory() {
     );
   }
 
-  if (!data) return <p className="text-[var(--color-ink-muted)] text-[14px]">Unable to load emissions data.</p>;
+  if (!data) return <p className="text-[var(--color-ink-muted)] text-[16px]">Unable to load emissions data.</p>;
 
   // Build trajectory chart data: historical + target points
   const trajectoryData = [
@@ -139,7 +139,7 @@ export default function EmissionsTrajectory() {
       <section>
         <SectionHeader icon={TrendingDown} title="Emissions Trajectory vs. Targets" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+          <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
             Multnomah County total greenhouse gas emissions (1990–{data.latestYear}) compared to
             Portland&apos;s adopted reduction targets. The city needs to double its annual reduction
             rate to meet the 2030 goal.
@@ -163,7 +163,7 @@ export default function EmissionsTrajectory() {
       <section>
         <SectionHeader icon={TrendingDown} title="Emissions by Sector" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+          <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
             Transportation accounts for 44% of Multnomah County emissions — the single largest sector.
             The top four sources (electricity, gasoline, natural gas, diesel) account for 85% of total emissions.
           </p>
@@ -187,7 +187,7 @@ export default function EmissionsTrajectory() {
         <section>
           <SectionHeader icon={Zap} title="Renewable Energy Progress" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+            <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
               Progress toward 100% renewable electricity by 2030 and 2% community-owned renewable by 2030.
             </p>
             <MultiLineChart
@@ -223,11 +223,11 @@ export default function EmissionsTrajectory() {
               `Building sector emissions are down ~14% since 2017, driven by efficiency improvements and electrification.`,
               latestRenewable ? `Renewable electricity supplies ${latestRenewable.pctRenewable}% of the county's power, with a goal of 100% by 2030.` : null,
               `The Feb 2026 audit found 13% of workplan actions achieved, 79% ongoing, 9% delayed. The city lacks infrastructure to track progress systematically.`,
-              `Of 43 workplan actions, ~25% have funding gaps exceeding $500K. Many gaps are substantially higher.`,
+              `Of 47 workplan actions, ~25% have funding gaps exceeding $500K. Many gaps are substantially higher.`,
             ]
               .filter(Boolean)
               .map((insight, i) => (
-                <li key={i} className="text-[14px] text-[var(--color-ink-light)] leading-relaxed flex items-start gap-3">
+                <li key={i} className="text-[16px] text-[var(--color-ink-light)] leading-relaxed flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#5a8a6a] flex-shrink-0 mt-2" />
                   {insight}
                 </li>

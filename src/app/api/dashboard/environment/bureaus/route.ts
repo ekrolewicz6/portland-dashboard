@@ -26,7 +26,7 @@ const BUREAU_NAMES: Record<string, string> = {
   BRFS: "Bureau of Revenue and Financial Services",
 };
 
-// Simplified action list for bureau grouping (same 43 actions as workplan route)
+// Simplified action list for bureau grouping (same 47 actions as workplan route)
 const actions: CewAction[] = [
   { action_id: "E-1", sector: "Electricity Supply", title: "Implement the state 100% clean electricity law", status: "ongoing", lead_bureaus: ["BPS"] },
   { action_id: "E-2", sector: "Electricity Supply", title: "Invest in community-owned renewable energy generation", status: "ongoing", lead_bureaus: ["BPS"] },

@@ -21,7 +21,7 @@ const dataViews = [
     icon: Leaf,
     id: "climate",
     question: "Is Portland Meeting Its Climate Commitments?",
-    stat: "43",
+    stat: "47",
     statLabel: "CEW actions tracked with bureau accountability",
     accent: "#2d6a4f",
   },

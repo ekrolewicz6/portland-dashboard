@@ -70,7 +70,7 @@ function SectionHeader({
   return (
     <div className="flex items-center gap-2.5 mb-4">
       <Icon className="w-4 h-4" style={{ color: color ?? ENV_COLOR }} />
-      <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+      <h2 className="text-[13px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
         {title}
       </h2>
       <div className="flex-1 h-px bg-[var(--color-parchment)]" />
@@ -105,10 +105,10 @@ export default function EnvironmentDetail() {
           <SectionHeader icon={Wind} title="Current Air Quality" color={ENV_COLOR} />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
             <div className="flex items-center gap-2 mb-5">
-              <span className="text-[12px] font-mono font-semibold text-[#3d7a5a] bg-[#3d7a5a]/10 px-2 py-0.5 rounded-sm">
+              <span className="text-[14px] font-mono font-semibold text-[#3d7a5a] bg-[#3d7a5a]/10 px-2 py-0.5 rounded-sm">
                 LIVE
               </span>
-              <span className="text-[12px] text-[var(--color-ink-muted)]">
+              <span className="text-[14px] text-[var(--color-ink-muted)]">
                 EPA AirNow — {primaryReading.reporting_area}
               </span>
             </div>
@@ -120,16 +120,16 @@ export default function EnvironmentDetail() {
                   style={{ backgroundColor: aqiBgColor(reading.aqi) }}
                 >
                   <p
-                    className="text-[32px] font-mono font-bold"
+                    className="text-[32px] lg:text-[36px] 2xl:text-[40px] font-mono font-bold"
                     style={{ color: aqiColor(reading.aqi) }}
                   >
                     {reading.aqi}
                   </p>
-                  <p className="text-[12px] font-semibold text-[var(--color-ink)] mt-1">
+                  <p className="text-[14px] font-semibold text-[var(--color-ink)] mt-1">
                     {reading.pollutant}
                   </p>
                   <span
-                    className="inline-block mt-2 text-[10px] font-semibold px-2 py-0.5 rounded-sm"
+                    className="inline-block mt-2 text-[12px] font-semibold px-2 py-0.5 rounded-sm"
                     style={{
                       color: aqiColor(reading.aqi),
                       backgroundColor: aqiBgColor(reading.aqi),
@@ -149,7 +149,7 @@ export default function EnvironmentDetail() {
         <section>
           <SectionHeader icon={Wind} title="PM2.5 AQI Trend (Daily Average)" color={ENV_COLOR} />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+            <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
               Daily average PM2.5 Air Quality Index — lower values indicate cleaner air.
             </p>
             <TrendChart data={data.aqiTrend} color={ENV_COLOR} height={280} />
@@ -161,15 +161,15 @@ export default function EnvironmentDetail() {
       <section>
         <div className="flex items-center gap-2.5 mb-6">
           <div className="w-8 h-px" style={{ backgroundColor: ENV_COLOR }} />
-          <h2 className="text-[13px] font-semibold text-[var(--color-ink)] uppercase tracking-[0.12em]">
+          <h2 className="text-[15px] font-semibold text-[var(--color-ink)] uppercase tracking-[0.12em]">
             Climate Accountability Platform
           </h2>
           <div className="flex-1 h-px bg-[var(--color-parchment)]" />
         </div>
 
-        <p className="text-[14px] text-[var(--color-ink-light)] leading-relaxed mb-6 max-w-3xl">
+        <p className="text-[16px] text-[var(--color-ink-light)] leading-relaxed mb-6 max-w-3xl">
           Built in response to the February 2026 Climate Justice Audit, this platform tracks
-          Portland&apos;s 43 Climate Emergency Workplan actions, bureau accountability, PCEF
+          Portland&apos;s 47 Climate Emergency Workplan actions, bureau accountability, PCEF
           funding, and emissions trajectory toward the 2030 and 2050 targets.
         </p>
 
@@ -182,7 +182,7 @@ export default function EnvironmentDetail() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium rounded-sm transition-all ${
+                className={`flex items-center gap-2 px-4 py-2.5 text-[15px] font-medium rounded-sm transition-all ${
                   isActive
                     ? "bg-[var(--color-paper)] text-[var(--color-ink)] shadow-sm border border-[var(--color-parchment)]"
                     : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-paper)]/50"

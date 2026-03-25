@@ -87,7 +87,7 @@ export default function WorkplanTracker() {
     );
   }
 
-  if (!data) return <p className="text-[var(--color-ink-muted)] text-[14px]">Unable to load workplan data.</p>;
+  if (!data) return <p className="text-[var(--color-ink-muted)] text-[16px]">Unable to load workplan data.</p>;
 
   const { summary } = data;
   const achievedPct = Math.round((summary.achieved / summary.total) * 100);
@@ -99,10 +99,10 @@ export default function WorkplanTracker() {
       {/* Summary bar */}
       <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5">
         <div className="flex items-center justify-between mb-3">
-          <p className="text-[13px] font-semibold text-[var(--color-ink)] uppercase tracking-[0.1em]">
+          <p className="text-[15px] font-semibold text-[var(--color-ink)] uppercase tracking-[0.1em]">
             {summary.total} Actions Total
           </p>
-          <p className="text-[12px] text-[var(--color-ink-muted)]">
+          <p className="text-[14px] text-[var(--color-ink-muted)]">
             Climate Emergency Workplan 2022–2025
           </p>
         </div>
@@ -115,19 +115,19 @@ export default function WorkplanTracker() {
         </div>
 
         <div className="flex gap-6 mt-3">
-          <span className="flex items-center gap-1.5 text-[12px]">
+          <span className="flex items-center gap-1.5 text-[14px]">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span className="font-mono font-semibold text-emerald-800">{summary.achieved}</span>
+            <span className="font-mono font-semibold text-emerald-800 lg:text-[16px] 2xl:text-[18px]">{summary.achieved}</span>
             <span className="text-[var(--color-ink-muted)]">Achieved ({achievedPct}%)</span>
           </span>
-          <span className="flex items-center gap-1.5 text-[12px]">
+          <span className="flex items-center gap-1.5 text-[14px]">
             <span className="w-2 h-2 rounded-full bg-amber-400" />
-            <span className="font-mono font-semibold text-amber-800">{summary.ongoing}</span>
+            <span className="font-mono font-semibold text-amber-800 lg:text-[16px] 2xl:text-[18px]">{summary.ongoing}</span>
             <span className="text-[var(--color-ink-muted)]">Ongoing ({ongoingPct}%)</span>
           </span>
-          <span className="flex items-center gap-1.5 text-[12px]">
+          <span className="flex items-center gap-1.5 text-[14px]">
             <span className="w-2 h-2 rounded-full bg-red-400" />
-            <span className="font-mono font-semibold text-red-800">{summary.delayed}</span>
+            <span className="font-mono font-semibold text-red-800 lg:text-[16px] 2xl:text-[18px]">{summary.delayed}</span>
             <span className="text-[var(--color-ink-muted)]">Delayed ({delayedPct}%)</span>
           </span>
         </div>
@@ -139,7 +139,7 @@ export default function WorkplanTracker() {
         <select
           value={filterSector}
           onChange={(e) => setFilterSector(e.target.value)}
-          className="text-[13px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-3 py-1.5 text-[var(--color-ink)]"
+          className="text-[15px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-3 py-1.5 text-[var(--color-ink)]"
         >
           <option value="all">All Sectors</option>
           {data.sectors.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -147,7 +147,7 @@ export default function WorkplanTracker() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="text-[13px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-3 py-1.5 text-[var(--color-ink)]"
+          className="text-[15px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-3 py-1.5 text-[var(--color-ink)]"
         >
           <option value="all">All Statuses</option>
           <option value="achieved">Achieved</option>
@@ -157,7 +157,7 @@ export default function WorkplanTracker() {
         <select
           value={filterBureau}
           onChange={(e) => setFilterBureau(e.target.value)}
-          className="text-[13px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-3 py-1.5 text-[var(--color-ink)]"
+          className="text-[15px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-3 py-1.5 text-[var(--color-ink)]"
         >
           <option value="all">All Bureaus</option>
           {data.bureaus.map((b) => <option key={b} value={b}>{b}</option>)}
@@ -165,12 +165,12 @@ export default function WorkplanTracker() {
         {(filterSector !== "all" || filterStatus !== "all" || filterBureau !== "all") && (
           <button
             onClick={() => { setFilterSector("all"); setFilterStatus("all"); setFilterBureau("all"); }}
-            className="text-[12px] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] underline"
+            className="text-[14px] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] underline"
           >
             Clear filters
           </button>
         )}
-        <span className="text-[12px] text-[var(--color-ink-muted)] ml-auto">
+        <span className="text-[14px] text-[var(--color-ink-muted)] ml-auto">
           Showing {filtered.length} of {data.actions.length}
         </span>
       </div>
@@ -192,11 +192,11 @@ export default function WorkplanTracker() {
                   : <ChevronRight className="w-4 h-4 text-[var(--color-ink-muted)] flex-shrink-0" />
                 }
 
-                <span className="text-[13px] font-mono font-semibold text-[var(--color-ink-muted)] w-12 flex-shrink-0">
+                <span className="text-[15px] font-mono font-semibold text-[var(--color-ink-muted)] w-12 flex-shrink-0">
                   {action.action_id}
                 </span>
 
-                <span className="text-[14px] text-[var(--color-ink)] flex-1 leading-snug">
+                <span className="text-[16px] text-[var(--color-ink)] flex-1 leading-snug">
                   {action.title}
                 </span>
 
@@ -204,7 +204,7 @@ export default function WorkplanTracker() {
                   <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 flex-shrink-0" />
                 )}
 
-                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider border rounded-sm flex-shrink-0 ${cfg.bg} ${cfg.text} ${cfg.border}`}>
+                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 text-[12px] font-semibold uppercase tracking-wider border rounded-sm flex-shrink-0 ${cfg.bg} ${cfg.text} ${cfg.border}`}>
                   <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: cfg.dot }} />
                   {cfg.label}
                 </span>
@@ -212,44 +212,44 @@ export default function WorkplanTracker() {
 
               {isExpanded && (
                 <div className="px-4 pb-4 pt-1 ml-7 border-t border-[var(--color-parchment)] space-y-3">
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-[12px]">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-[14px]">
                     <div>
-                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[10px] mb-1">Sector</p>
+                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[12px] mb-1">Sector</p>
                       <p className="text-[var(--color-ink)] font-medium">{action.sector}</p>
                     </div>
                     <div>
-                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[10px] mb-1">Category</p>
+                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[12px] mb-1">Category</p>
                       <p className="text-[var(--color-ink)] font-medium capitalize">{action.category}</p>
                     </div>
                     <div>
-                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[10px] mb-1">Lead Bureau(s)</p>
-                      <p className="text-[var(--color-ink)] font-medium">{action.lead_bureaus.join(", ")}</p>
+                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[12px] mb-1">Lead Bureau(s)</p>
+                      <p className="text-[var(--color-ink)] font-medium break-words">{action.lead_bureaus.join(", ")}</p>
                     </div>
                     <div>
-                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[10px] mb-1">Fiscal Year</p>
+                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[12px] mb-1">Fiscal Year</p>
                       <p className="text-[var(--color-ink)] font-medium">{action.fiscal_year}</p>
                     </div>
                     <div>
-                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[10px] mb-1">Resource Gap</p>
+                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[12px] mb-1">Resource Gap</p>
                       <p className="text-[var(--color-ink)] font-medium">
                         {action.resource_gap} {GAP_LABELS[action.resource_gap] ? `(${GAP_LABELS[action.resource_gap]})` : ""}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[10px] mb-1">Flags</p>
+                      <p className="text-[var(--color-ink-muted)] uppercase tracking-wider text-[12px] mb-1">Flags</p>
                       <div className="flex flex-wrap gap-1.5">
                         {action.maps_to_declaration && (
-                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-semibold bg-amber-50 text-amber-800 border border-amber-200 rounded-sm">
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[12px] font-semibold bg-amber-50 text-amber-800 border border-amber-200 rounded-sm">
                             ★ Declaration Priority
                           </span>
                         )}
                         {action.pcef_funded && (
-                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-semibold bg-green-50 text-green-800 border border-green-200 rounded-sm">
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[12px] font-semibold bg-green-50 text-green-800 border border-green-200 rounded-sm">
                             PCEF Funded
                           </span>
                         )}
                         {action.multi_bureau && (
-                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-800 border border-blue-200 rounded-sm">
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[12px] font-semibold bg-blue-50 text-blue-800 border border-blue-200 rounded-sm">
                             Multi-Bureau
                           </span>
                         )}

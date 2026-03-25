@@ -23,7 +23,7 @@ function SectionHeader({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-2.5 mb-4">
       <DollarSign className="w-4 h-4" style={{ color: ENV_COLOR }} />
-      <h2 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
+      <h2 className="text-[13px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
         {title}
       </h2>
       <div className="flex-1 h-px bg-[var(--color-parchment)]" />
@@ -52,7 +52,7 @@ export default function ClimateFinanceTracker() {
     );
   }
 
-  if (!data) return <p className="text-[var(--color-ink-muted)] text-[14px]">Unable to load finance data.</p>;
+  if (!data) return <p className="text-[var(--color-ink-muted)] text-[16px]">Unable to load finance data.</p>;
 
   return (
     <div className="space-y-10">
@@ -87,7 +87,7 @@ export default function ClimateFinanceTracker() {
       <section>
         <SectionHeader title="PCEF Funding by Category" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+          <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
             Portland Clean Energy Fund $750M 5-year Climate Investment Plan allocation by program area.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -102,9 +102,9 @@ export default function ClimateFinanceTracker() {
                 <div key={cat.name} className="flex items-center justify-between py-2 border-b border-[var(--color-parchment)]/50 last:border-0">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-sm flex-shrink-0" style={{ backgroundColor: cat.color }} />
-                    <span className="text-[13px] text-[var(--color-ink)]">{cat.name}</span>
+                    <span className="text-[15px] text-[var(--color-ink)]">{cat.name}</span>
                   </div>
-                  <span className="text-[14px] font-mono font-semibold text-[var(--color-ink)]">
+                  <span className="text-[16px] font-mono font-semibold text-[var(--color-ink)] lg:text-[18px] 2xl:text-[20px]">
                     ${(cat.value / 1_000_000).toFixed(0)}M
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export default function ClimateFinanceTracker() {
       <section>
         <SectionHeader title="PCEF Recipients: Bureau vs Community" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+          <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
             Breakdown of PCEF funding flowing to city bureaus versus community organizations.
             The Feb 2026 audit found the City has not been transparent enough about PCEF use by bureaus.
           </p>
@@ -130,8 +130,8 @@ export default function ClimateFinanceTracker() {
       <section>
         <SectionHeader title="Workplan Resource Gaps" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-            Resource gap classification for all 43 workplan actions. The audit found ~25% of actions
+          <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
+            Resource gap classification for all 47 workplan actions. The audit found ~25% of actions
             had staffing or funding gaps exceeding $500K, with most gaps substantially higher.
           </p>
           <BarChart data={data.resourceGaps} layout="vertical" height={280} />
@@ -142,7 +142,7 @@ export default function ClimateFinanceTracker() {
       <section>
         <SectionHeader title="PCEF Spending Timeline" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-          <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+          <p className="text-[15px] text-[var(--color-ink-muted)] mb-4">
             PCEF allocations and spending by fiscal year.
           </p>
           <BarChart

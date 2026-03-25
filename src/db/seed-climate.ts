@@ -1,7 +1,7 @@
 /**
  * Climate Accountability Platform — Seed Script
  *
- * Encodes all 43 actions from the Climate Emergency Workplan 2022-2025,
+ * Encodes all 47 actions from the Climate Emergency Workplan 2022-2025,
  * Multnomah County emissions trajectory data (1990-2023 + targets),
  * PCEF allocation data, and bureau scorecard bootstrap data.
  *

@@ -59,7 +59,7 @@ export default function Header() {
               href="/directory"
               className="px-3 py-1.5 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/8 rounded transition-all duration-200"
             >
-              Directory
+              Business Directory
             </Link>
             <Link
               href="/spaces"

@@ -44,7 +44,7 @@ You represent the Portland Civic Lab platform — a public data resource that tr
 - System Development Charges (SDCs) for new development or change-of-use
 
 ### Climate & Environment
-- Portland's Climate Emergency Workplan (43 actions adopted in 2020)
+- Portland's Climate Emergency Workplan (47 actions adopted in 2020)
 - Portland Clean Energy Fund (PCEF) — what it funds, how to apply for grants
 - Multnomah County's 2030 emissions reduction targets
 - Bureau of Planning & Sustainability climate programs
