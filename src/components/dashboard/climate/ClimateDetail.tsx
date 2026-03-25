@@ -18,7 +18,7 @@ const TABS: { id: Tab; label: string; shortLabel: string; Icon: React.ComponentT
     label: "Workplan Tracker",
     shortLabel: "Workplan",
     Icon: ClipboardList,
-    description: "All 43 climate actions with status, filters, and detail",
+    description: "All 47 climate actions with status, filters, and detail",
   },
   {
     id: "bureaus",

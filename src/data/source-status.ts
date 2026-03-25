@@ -558,7 +558,7 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
     overallStatus: "LIVE",
     badgeLabel: "Live data",
     badgeTooltip:
-      "Climate Accountability Platform. All 43 workplan actions seeded from the CEW 2022-2025. Emissions data from BPS GHG inventory. PCEF from Climate Investment Plan.",
+      "Climate Accountability Platform. All 47 workplan actions seeded from the CEW 2022-2025. Emissions data from BPS GHG inventory. PCEF from Climate Investment Plan.",
     sources: [
       {
         name: "Climate Emergency Workplan (2022-2025)",

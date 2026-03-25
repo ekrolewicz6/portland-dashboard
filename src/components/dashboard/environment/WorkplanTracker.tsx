@@ -95,7 +95,7 @@ export default function WorkplanTracker() {
   const delayedPct = Math.round((summary.delayed / summary.total) * 100);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 overflow-hidden">
       {/* Summary bar */}
       <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5">
         <div className="flex items-center justify-between mb-3">
@@ -185,7 +185,7 @@ export default function WorkplanTracker() {
             <div key={action.action_id} className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm">
               <button
                 onClick={() => toggleExpand(action.action_id)}
-                className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-[var(--color-parchment)]/30 transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-[var(--color-parchment)]/30 transition-colors min-w-0"
               >
                 {isExpanded
                   ? <ChevronDown className="w-4 h-4 text-[var(--color-ink-muted)] flex-shrink-0" />
@@ -196,7 +196,7 @@ export default function WorkplanTracker() {
                   {action.action_id}
                 </span>
 
-                <span className="text-[16px] text-[var(--color-ink)] flex-1 leading-snug">
+                <span className="text-[16px] text-[var(--color-ink)] flex-1 leading-snug min-w-0 truncate sm:whitespace-normal">
                   {action.title}
                 </span>
 
