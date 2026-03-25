@@ -341,7 +341,7 @@ export default function HomelessnessDetail() {
                 housing
               </h3>
               <p className="text-[14px] text-white/60 mt-2">
-                Quinn Colling flow-through framework: inflow → system → outflow
+                Flow-through framework: inflow → system → outflow
               </p>
             </div>
           </div>
@@ -805,10 +805,10 @@ export default function HomelessnessDetail() {
             )}
             <DataNeeded
               title="Singleton shelter effectiveness memo"
-              description="Quinn Colling is locating an internal memo by Singleton analyzing shelter intervention effectiveness, including outcome data on which shelter models produce the best housing outcomes. This would answer whether current shelter investment is producing returns."
+              description="An internal memo by Singleton analyzing shelter intervention effectiveness, including outcome data on which shelter models produce the best housing outcomes, is being located. This would answer whether current shelter investment is producing returns."
               actions={[
                 {
-                  label: "Awaiting from Quinn Colling / HSD",
+                  label: "Awaiting from HSD",
                   type: "prr",
                 },
               ]}
@@ -893,10 +893,10 @@ export default function HomelessnessDetail() {
             <div className="mt-4">
               <DataNeeded
                 title="Health Share / HSD crossover study"
-                description="Quinn Colling is checking whether the Health Share crossover study (analyzing overlap between behavioral health system and homelessness system) is publicly available. This would quantify how many people cycle between healthcare and homelessness."
+                description="The Health Share crossover study (analyzing overlap between behavioral health system and homelessness system) may be publicly available. This would quantify how many people cycle between healthcare and homelessness."
                 actions={[
                   {
-                    label: "Awaiting from Quinn Colling / Health Share",
+                    label: "Awaiting from Health Share",
                     type: "prr",
                   },
                 ]}
@@ -1208,7 +1208,7 @@ export default function HomelessnessDetail() {
             <ul className="text-[12px] text-[var(--color-ink-muted)] space-y-1">
               <li>
                 <strong>Singleton memo</strong> — Shelter effectiveness analysis
-                (pending from Quinn Colling)
+                (pending from HSD)
               </li>
               <li>
                 <strong>Health Share crossover study</strong> — Behavioral
