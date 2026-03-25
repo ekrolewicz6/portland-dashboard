@@ -45,8 +45,8 @@ const dataViews = [
     icon: Users,
     id: "homelessness",
     question: "Are People Getting Housed?",
-    stat: "3,057",
-    statLabel: "unsheltered individuals (2024 PIT count)",
+    stat: "10,526",
+    statLabel: "people homeless (2025 PIT count)",
     accent: "#8b6c5c",
   },
   {
