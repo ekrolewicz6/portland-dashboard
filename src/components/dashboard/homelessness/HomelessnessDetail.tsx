@@ -583,8 +583,8 @@ export default function HomelessnessDetail() {
               <BarChart
                 data={shsFunding
                   .filter((s) => s.spending > 0)
-                  .map((s) => ({
-                    name: `FY${s.year}`,
+                  .map((s, i) => ({
+                    name: `Year ${i + 1} (FY${String(s.year).slice(2)})`,
                     value: Math.round(s.spending / 1e6),
                   }))}
                 color={ACCENT}
