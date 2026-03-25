@@ -79,13 +79,6 @@ export default function Header() {
             >
               Reports
             </Link>
-            <div className="w-px h-5 bg-white/15 mx-2" />
-            <Link
-              href="/apply"
-              className="px-3.5 py-1.5 text-[14px] font-medium text-[var(--color-canopy)] bg-[var(--color-ember)] hover:bg-[var(--color-ember-bright)] rounded transition-all duration-200"
-            >
-              Apply for PCB
-            </Link>
           </nav>
 
           {/* Mobile menu */}
@@ -122,14 +115,6 @@ export default function Header() {
           <Link href="/calculator" className="block px-3 py-2 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/5 rounded">
             Benefits Calculator
           </Link>
-          <div className="pt-2">
-            <Link
-              href="/apply"
-              className="block px-3 py-2.5 text-[14px] font-medium text-center text-[var(--color-canopy)] bg-[var(--color-ember)] rounded"
-            >
-              Apply for PCB Certification
-            </Link>
-          </div>
         </div>
       )}
     </header>
