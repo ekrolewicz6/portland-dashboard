@@ -306,9 +306,10 @@ export default function WorkplanTracker() {
       )}
 
       {/* Action table */}
-      <div className="border border-[var(--color-parchment)] rounded-sm overflow-hidden">
+      <div className="overflow-x-auto rounded-sm border border-[var(--color-parchment)]">
+      <div className="min-w-[640px]">
         {/* Header */}
-        <div className="hidden lg:grid grid-cols-[60px_1fr_120px_100px_90px_90px] gap-3 px-4 py-2 bg-[var(--color-canopy)] text-[10px] font-semibold text-white/70 uppercase tracking-wider">
+        <div className="grid grid-cols-[60px_1fr_120px_100px_90px_90px] gap-3 px-4 py-2 bg-[var(--color-canopy)] text-[10px] font-semibold text-white/70 uppercase tracking-wider">
           <div>Action</div>
           <div>Title</div>
           <div>Lead Bureau(s)</div>
@@ -331,7 +332,7 @@ export default function WorkplanTracker() {
               className="w-full text-left"
             >
               <div
-                className={`grid lg:grid-cols-[60px_1fr_120px_100px_90px_90px] gap-3 px-4 py-3 transition-colors ${
+                className={`grid grid-cols-[60px_1fr_120px_100px_90px_90px] gap-3 px-4 py-3 transition-colors ${
                   i % 2 === 0 ? "bg-[var(--color-paper-warm)]" : "bg-white"
                 } hover:bg-[var(--color-parchment)]/30 ${expandedId === action.actionId ? "border-l-2" : ""}`}
                 style={{ borderLeftColor: expandedId === action.actionId ? CLIMATE_COLOR : undefined }}
@@ -466,6 +467,7 @@ export default function WorkplanTracker() {
             )}
           </div>
         ))}
+      </div>
       </div>
 
       <p className="mt-4 text-[11px] text-[var(--color-ink-muted)]">

@@ -242,7 +242,7 @@ export default function BureauScorecard() {
               {bureauActions.map((a, i) => (
                 <div
                   key={a.actionId}
-                  className={`px-4 py-3 grid grid-cols-[60px_1fr_80px_80px] gap-3 items-center text-[12px] ${
+                  className={`px-4 py-3 grid grid-cols-[auto_1fr_auto_auto] sm:grid-cols-[60px_1fr_80px_80px] gap-x-3 gap-y-1 items-center text-[12px] ${
                     i % 2 === 0 ? "bg-white" : "bg-[var(--color-paper-warm)]"
                   }`}
                 >

@@ -196,7 +196,7 @@ export default function EmissionsTrajectory() {
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={actuals} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#ebe5da" />
-              <XAxis dataKey="year" tick={{ fontSize: 11 }} />
+              <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
               <YAxis
                 domain={[0, 12]}
                 tick={{ fontSize: 11 }}
@@ -245,7 +245,7 @@ export default function EmissionsTrajectory() {
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={actuals} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#ebe5da" />
-              <XAxis dataKey="year" tick={{ fontSize: 11 }} />
+              <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
               <YAxis
                 tick={{ fontSize: 11 }}
                 tickFormatter={(v) => `${v}M`}
@@ -270,7 +270,7 @@ export default function EmissionsTrajectory() {
 
           {/* Sector summary for latest year */}
           {summary.sectorSummary && (
-            <div className="mt-4 grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
               {(Object.entries(summary.sectorSummary) as [keyof typeof SECTOR_COLORS, number | null][]).map(([sector, val]) => (
                 <div key={sector} className="text-center">
                   <div className="w-3 h-3 rounded-sm mx-auto mb-1" style={{ backgroundColor: SECTOR_COLORS[sector] }} />
@@ -298,7 +298,7 @@ export default function EmissionsTrajectory() {
               margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#ebe5da" />
-              <XAxis dataKey="year" tick={{ fontSize: 11 }} />
+              <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
               <YAxis
                 domain={[0, 20]}
                 tick={{ fontSize: 11 }}

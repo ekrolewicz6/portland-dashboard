@@ -161,7 +161,7 @@ export default function FinanceTracker() {
                 { label: "Gap TBD", count: 6, color: "#78716c" },
               ].map((row) => (
                 <div key={row.label} className="flex items-center gap-3">
-                  <div className="w-32 text-[11px] text-[var(--color-ink-muted)] text-right flex-shrink-0">{row.label}</div>
+                  <div className="w-24 sm:w-32 text-[10px] sm:text-[11px] text-[var(--color-ink-muted)] text-right flex-shrink-0 leading-tight">{row.label}</div>
                   <div className="flex-1 h-5 bg-[var(--color-parchment)] rounded-sm overflow-hidden">
                     <div
                       className="h-full rounded-sm transition-all"
@@ -213,8 +213,8 @@ export default function FinanceTracker() {
             </h4>
             <div className="space-y-3">
               {summary.allocationSplit.map((row) => (
-                <div key={row.fiscalYear} className="flex items-center gap-3">
-                  <div className="w-20 text-[11px] font-mono text-[var(--color-ink-muted)] flex-shrink-0">{row.fiscalYear}</div>
+                <div key={row.fiscalYear} className="flex items-center gap-2">
+                  <div className="w-16 sm:w-20 text-[11px] font-mono text-[var(--color-ink-muted)] flex-shrink-0">{row.fiscalYear}</div>
                   <div className="flex-1 h-6 bg-[var(--color-parchment)] rounded-sm overflow-hidden">
                     <div className="flex h-full">
                       <div
@@ -237,7 +237,7 @@ export default function FinanceTracker() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-[11px] font-mono text-[var(--color-ink)] w-20 text-right">{formatMoney(row.total)}</div>
+                  <div className="text-[11px] font-mono text-[var(--color-ink)] w-14 sm:w-20 text-right flex-shrink-0">{formatMoney(row.total)}</div>
                 </div>
               ))}
             </div>
@@ -317,7 +317,8 @@ export default function FinanceTracker() {
           </div>
 
           {/* Year-by-year table */}
-          <div className="border border-[var(--color-parchment)] rounded-sm overflow-hidden">
+          <div className="overflow-x-auto rounded-sm border border-[var(--color-parchment)]">
+          <div className="min-w-[560px]">
             <div className="grid grid-cols-[100px_120px_1fr_120px] gap-3 px-4 py-2 bg-[var(--color-canopy)] text-[10px] font-semibold text-white/70 uppercase tracking-wider">
               <div>Fiscal Year</div>
               <div>Amount Diverted</div>
@@ -343,6 +344,7 @@ export default function FinanceTracker() {
               <span className="text-red-700">Directed to General Fund</span>
               <span className="text-red-700">General Fund</span>
             </div>
+          </div>
           </div>
 
           <p className="mt-4 text-[11px] text-[var(--color-ink-muted)]">
