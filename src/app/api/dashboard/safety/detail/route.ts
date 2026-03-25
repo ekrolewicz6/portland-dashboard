@@ -33,6 +33,17 @@ interface SafetyDetailResponse {
   };
   // Motor vehicle theft trend
   mvtTrend: { month: string; count: number }[];
+  // Pre-computed MVT insight for dynamic text
+  mvtInsight: {
+    peakYear: number;
+    peakMonthlyAvg: number;
+    prePandemicYear: number;
+    prePandemicTotal: number;
+    latestFullYear: number;
+    latestFullYearTotal: number;
+    pctFromPeak: number;
+    pctVsPrePandemic: number; // negative = below pre-pandemic
+  } | null;
   // Graffiti from BPS
   graffitiTrend: { month: string; count: number }[] | null;
   // Key insights computed from real data
@@ -131,9 +142,12 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       society: Number(r.society),
     }));
 
+    // Filter out tiny neighborhoods (< 50 crimes in 12 months) to avoid misleading "safest" lists
+    const significantNeighborhoods = allNeighborhoods.filter((n) => n.total >= 50);
+
     const neighborhoodCrime = {
-      highest: allNeighborhoods.slice(0, 10),
-      lowest: allNeighborhoods.slice(-10).reverse(),
+      highest: significantNeighborhoods.slice(0, 10),
+      lowest: significantNeighborhoods.slice(-10).reverse(),
     };
 
     // 5. Motor vehicle theft trend (Portland story)
@@ -152,6 +166,39 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       month: r.month as string,
       count: Number(r.cnt),
     }));
+
+    // 5b. Compute MVT insight — compare peak year, 2019 (pre-pandemic), and latest full year
+    let mvtInsight: SafetyDetailResponse["mvtInsight"] = null;
+    if (mvtTrend.length > 0) {
+      // Group by year and sum
+      const byYear = new Map<number, number>();
+      for (const r of mvtTrend) {
+        const yr = parseInt(r.month.split("-")[0], 10);
+        byYear.set(yr, (byYear.get(yr) ?? 0) + r.count);
+      }
+
+      // Find latest full year (not current partial year)
+      const currentYear = new Date().getFullYear();
+      const fullYears = [...byYear.entries()].filter(([yr]) => yr < currentYear);
+      const peakEntry = fullYears.reduce((max, e) => (e[1] > max[1] ? e : max), fullYears[0]);
+      const latestEntry = fullYears[fullYears.length - 1];
+      const prePandemic = byYear.get(2019) ?? 0;
+
+      if (peakEntry && latestEntry && prePandemic > 0) {
+        const pctFromPeak = Math.round(((peakEntry[1] - latestEntry[1]) / peakEntry[1]) * 100);
+        const pctVsPrePandemic = Math.round(((latestEntry[1] - prePandemic) / prePandemic) * 100);
+        mvtInsight = {
+          peakYear: peakEntry[0],
+          peakMonthlyAvg: Math.round(peakEntry[1] / 12),
+          prePandemicYear: 2019,
+          prePandemicTotal: prePandemic,
+          latestFullYear: latestEntry[0],
+          latestFullYearTotal: latestEntry[1],
+          pctFromPeak,
+          pctVsPrePandemic,
+        };
+      }
+    }
 
     // 6. Graffiti trend from BPS
     let graffitiTrend: SafetyDetailResponse["graffitiTrend"] = null;
@@ -261,6 +308,7 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       },
       neighborhoodCrime,
       mvtTrend,
+      mvtInsight,
       graffitiTrend,
       topInsights,
       dataStatus: "live",
@@ -283,6 +331,7 @@ export async function GET(): Promise<NextResponse<SafetyDetailResponse>> {
       },
       neighborhoodCrime: { highest: [], lowest: [] },
       mvtTrend: [],
+      mvtInsight: null,
       graffitiTrend: null,
       topInsights: ["Data temporarily unavailable."],
       dataStatus: "unavailable",

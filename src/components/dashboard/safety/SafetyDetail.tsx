@@ -35,6 +35,16 @@ interface SafetyDetailData {
     lowest: { name: string; total: number; property: number; person: number; society: number }[];
   };
   mvtTrend: { month: string; count: number }[];
+  mvtInsight: {
+    peakYear: number;
+    peakMonthlyAvg: number;
+    prePandemicYear: number;
+    prePandemicTotal: number;
+    latestFullYear: number;
+    latestFullYearTotal: number;
+    pctFromPeak: number;
+    pctVsPrePandemic: number;
+  } | null;
   graffitiTrend: { month: string; count: number }[] | null;
   topInsights: string[];
   dataStatus: string;
@@ -190,6 +200,7 @@ export default function SafetyDetail() {
     topOffenseCategories,
     neighborhoodCrime,
     mvtTrend,
+    mvtInsight,
     graffitiTrend,
     topInsights,
     totalRecords,
@@ -285,6 +296,11 @@ export default function SafetyDetail() {
               xKey="month"
               height={360}
             />
+            <p className="text-[11px] text-[var(--color-ink-muted)]/70 mt-3 leading-relaxed">
+              <strong>Property</strong> = theft, burglary, vandalism, arson &nbsp;·&nbsp;{" "}
+              <strong>Person</strong> = assault, robbery, homicide, sex offenses &nbsp;·&nbsp;{" "}
+              <strong>Society</strong> = drug offenses, weapons, prostitution, gambling (FBI NIBRS categories)
+            </p>
           </div>
         </section>
       )}
@@ -302,9 +318,27 @@ export default function SafetyDetail() {
         <section>
           <SectionHeader icon={Car} title="Motor Vehicle Theft Spotlight" color="#d97706" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
-            <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-              Portland&apos;s car theft crisis peaked in 2022 and has been declining — but remains well above pre-pandemic levels.
-            </p>
+            {mvtInsight ? (
+              <>
+                <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+                  Motor vehicle theft peaked at ~{mvtInsight.peakMonthlyAvg.toLocaleString()}/month in {mvtInsight.peakYear} — down {mvtInsight.pctFromPeak}% from peak
+                  {mvtInsight.pctVsPrePandemic <= 0
+                    ? ` and now ${Math.abs(mvtInsight.pctVsPrePandemic)}% below pre-pandemic (${mvtInsight.prePandemicYear}) levels.`
+                    : ` but still ${mvtInsight.pctVsPrePandemic}% above pre-pandemic (${mvtInsight.prePandemicYear}) levels.`}
+                </p>
+                {mvtInsight.pctVsPrePandemic <= 0 && (
+                  <div className="bg-[#3d7a5a]/10 border border-[#3d7a5a]/20 rounded-sm px-4 py-3 mb-4">
+                    <p className="text-[13px] text-[#3d7a5a] font-medium">
+                      Progress: {mvtInsight.latestFullYear} motor vehicle thefts ({mvtInsight.latestFullYearTotal.toLocaleString()}) are now below {mvtInsight.prePandemicYear} levels ({mvtInsight.prePandemicTotal.toLocaleString()}).
+                    </p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+                Motor vehicle theft trend since 2016.
+              </p>
+            )}
             <TrendChart data={mvtChartData} color="#d97706" height={280} />
           </div>
         </section>
@@ -315,6 +349,10 @@ export default function SafetyDetail() {
         <section>
           <SectionHeader icon={MapPin} title="Neighborhoods by Crime Type (Last 12 Months)" color="#4a7f9e" />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6 space-y-8">
+            {/* Caveat */}
+            <p className="text-[11px] text-[var(--color-ink-muted)]/70 leading-relaxed">
+              Raw crime counts — not adjusted for population. Larger neighborhoods with more residents, businesses, and foot traffic will naturally show higher counts. Neighborhoods with fewer than 50 reported crimes are excluded.
+            </p>
             {/* Legend */}
             <div className="flex items-center gap-5 text-[12px] text-[var(--color-ink-muted)]">
               <span className="flex items-center gap-1.5">

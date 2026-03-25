@@ -382,6 +382,25 @@ export async function GET() {
       };
     });
 
+    // Geographic economic inequality data (pre-computed from Census ACS tracts)
+    let neighborhoodEconomy: { name: string; medianIncome: number | null; povertyRate: number | null; population?: number }[] = [];
+    try {
+      const neighborhoodIncomeRows = await sql`
+        SELECT neighborhood AS name, median_income, poverty_rate, population
+        FROM economy.neighborhood_income
+        WHERE year = (SELECT MAX(year) FROM economy.neighborhood_income)
+        ORDER BY median_income DESC
+      `;
+      neighborhoodEconomy = neighborhoodIncomeRows.map((r) => ({
+        name: r.name as string,
+        medianIncome: r.median_income ? Number(r.median_income) : null,
+        povertyRate: r.poverty_rate ? Number(r.poverty_rate) : null,
+        population: r.population ? Number(r.population) : undefined,
+      }));
+    } catch {
+      // economy.neighborhood_income may not exist yet — run scripts/fetch-census-tracts.ts
+    }
+
     // Downtown vacancy data (optional table)
     let latestVacancy: { office: number; retail: number; quarter: string } | null = null;
     try {
@@ -423,6 +442,7 @@ export async function GET() {
       detailedIndustryChanges,
       since2019TopGrowers,
       realWageTrend,
+      neighborhoodEconomy,
       dataStatus: "live",
     });
   } catch (err) {
@@ -447,6 +467,7 @@ export async function GET() {
         detailedIndustryChanges: [],
         since2019TopGrowers: [],
         realWageTrend: [],
+        neighborhoodEconomy: [],
         dataStatus: "error",
       },
       { status: 500 }

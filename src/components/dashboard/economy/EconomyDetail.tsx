@@ -14,9 +14,61 @@ import {
   BarChart3,
   DollarSign,
   AlertTriangle,
+  MapPin,
 } from "lucide-react";
 
 const ACCENT = "#c8956c";
+
+const SECTOR_DEFINITIONS: Record<string, string> = {
+  "Trade, Transportation, and Utilities": "Retail, wholesale, warehousing, trucking",
+  "Education and Health Services": "Hospitals, clinics, schools, social workers",
+  "Professional and Business Services": "Tech, law, accounting, consulting, staffing",
+  "Leisure and Hospitality": "Restaurants, hotels, bars, entertainment",
+  "Construction": "Homebuilders, contractors, trades",
+  "Manufacturing": "Factories, food processing, electronics",
+  "Financial Activities": "Banks, insurance, real estate",
+  "Information": "Software, media, telecom, data centers",
+  "Other Services": "Repair shops, salons, nonprofits, religious orgs",
+  "Natural Resources and Mining": "Farms, forestry, quarries",
+};
+
+// Map 3-digit NAICS codes to their parent supersector
+const NAICS3_TO_SUPERSECTOR: Record<string, string> = {
+  "236": "Construction", "237": "Construction", "238": "Construction",
+  "311": "Manufacturing", "312": "Manufacturing", "313": "Manufacturing", "314": "Manufacturing",
+  "315": "Manufacturing", "316": "Manufacturing", "321": "Manufacturing", "322": "Manufacturing",
+  "323": "Manufacturing", "324": "Manufacturing", "325": "Manufacturing", "326": "Manufacturing",
+  "327": "Manufacturing", "331": "Manufacturing", "332": "Manufacturing", "333": "Manufacturing",
+  "334": "Manufacturing", "335": "Manufacturing", "336": "Manufacturing", "337": "Manufacturing", "339": "Manufacturing",
+  "423": "Trade, Transportation, and Utilities", "424": "Trade, Transportation, and Utilities",
+  "425": "Trade, Transportation, and Utilities", "441": "Trade, Transportation, and Utilities",
+  "442": "Trade, Transportation, and Utilities", "443": "Trade, Transportation, and Utilities",
+  "444": "Trade, Transportation, and Utilities", "445": "Trade, Transportation, and Utilities",
+  "446": "Trade, Transportation, and Utilities", "447": "Trade, Transportation, and Utilities",
+  "448": "Trade, Transportation, and Utilities", "451": "Trade, Transportation, and Utilities",
+  "452": "Trade, Transportation, and Utilities", "453": "Trade, Transportation, and Utilities",
+  "454": "Trade, Transportation, and Utilities", "481": "Trade, Transportation, and Utilities",
+  "482": "Trade, Transportation, and Utilities", "483": "Trade, Transportation, and Utilities",
+  "484": "Trade, Transportation, and Utilities", "485": "Trade, Transportation, and Utilities",
+  "486": "Trade, Transportation, and Utilities", "487": "Trade, Transportation, and Utilities",
+  "488": "Trade, Transportation, and Utilities", "491": "Trade, Transportation, and Utilities",
+  "492": "Trade, Transportation, and Utilities", "493": "Trade, Transportation, and Utilities",
+  "221": "Trade, Transportation, and Utilities",
+  "511": "Information", "512": "Information", "515": "Information", "516": "Information", "517": "Information", "518": "Information", "519": "Information",
+  "521": "Financial Activities", "522": "Financial Activities", "523": "Financial Activities",
+  "524": "Financial Activities", "525": "Financial Activities", "531": "Financial Activities",
+  "532": "Financial Activities", "533": "Financial Activities",
+  "541": "Professional and Business Services", "551": "Professional and Business Services",
+  "561": "Professional and Business Services", "562": "Professional and Business Services",
+  "611": "Education and Health Services", "621": "Education and Health Services",
+  "622": "Education and Health Services", "623": "Education and Health Services", "624": "Education and Health Services",
+  "711": "Leisure and Hospitality", "712": "Leisure and Hospitality", "713": "Leisure and Hospitality",
+  "721": "Leisure and Hospitality", "722": "Leisure and Hospitality",
+  "811": "Other Services", "812": "Other Services", "813": "Other Services",
+  "111": "Natural Resources and Mining", "112": "Natural Resources and Mining", "113": "Natural Resources and Mining",
+  "114": "Natural Resources and Mining", "115": "Natural Resources and Mining", "211": "Natural Resources and Mining",
+  "212": "Natural Resources and Mining", "213": "Natural Resources and Mining",
+};
 
 interface QcewIndustry {
   code: string;
@@ -51,6 +103,13 @@ interface EconomyDetailData {
   detailedIndustryChanges?: IndustryChange[];
   since2019TopGrowers?: { title: string; change: number; pctChange: number }[];
   realWageTrend?: { quarter: string; nominalWage: number; realWage: number }[];
+  neighborhoodEconomy?: {
+    name: string;
+    medianIncome: number | null;
+    povertyRate: number | null;
+    businessCount?: number;
+    population?: number;
+  }[];
   dataStatus: string;
 }
 
@@ -104,7 +163,7 @@ export default function EconomyDetail() {
     );
   }
 
-  const { unemploymentTrend, qcewEmployment, qcewTrend, detailedIndustryChanges, since2019TopGrowers, realWageTrend } = data;
+  const { unemploymentTrend, qcewEmployment, qcewTrend, detailedIndustryChanges, since2019TopGrowers, realWageTrend, neighborhoodEconomy } = data;
 
   // Compute key figures from QCEW
   const latestQcew = qcewTrend && qcewTrend.length > 0 ? qcewTrend[qcewTrend.length - 1] : null;
@@ -291,9 +350,12 @@ export default function EconomyDetail() {
                 const barColor = ind.pctChange <= -15 ? "#b85c3a" : ind.pctChange <= -5 ? "#c8956c" : ind.pctChange < 0 ? "#a8a29e" : "#3d7a5a";
 
                 return (
-                  <div key={ind.code} className="flex items-center gap-1 h-6">
+                  <div key={ind.code} className="flex items-center gap-1 h-6" title={NAICS3_TO_SUPERSECTOR[ind.code] ? `${ind.title} (${NAICS3_TO_SUPERSECTOR[ind.code]})` : ind.title}>
                     <span className="text-[11px] text-[var(--color-ink-light)] w-44 flex-shrink-0 truncate text-right pr-2">
                       {ind.title}
+                      {NAICS3_TO_SUPERSECTOR[ind.code] && (
+                        <span className="text-[10px] text-[var(--color-ink-muted)]"> · {NAICS3_TO_SUPERSECTOR[ind.code].split(",")[0]}</span>
+                      )}
                     </span>
                     <div className="flex-1 flex items-center h-full">
                       <div className="w-1/2 flex justify-end">
@@ -315,6 +377,113 @@ export default function EconomyDetail() {
               Source: BLS QCEW, 3-digit NAICS, Multnomah County, private sector.
             </p>
           </div>
+        </section>
+      )}
+
+      {/* ━━━ 5b. WHERE INEQUALITY SHOWS UP ━━━ */}
+      {neighborhoodEconomy && neighborhoodEconomy.length > 0 ? (() => {
+        const sorted = [...neighborhoodEconomy].filter((n) => n.medianIncome !== null);
+        const top10 = sorted.slice(0, 10);
+        const bottom10 = sorted.slice(-10).reverse();
+        const maxIncome = Math.max(...sorted.map((n) => n.medianIncome!));
+        const minIncome = Math.min(...sorted.map((n) => n.medianIncome!));
+        const ratio = minIncome > 0 ? Math.round(maxIncome / minIncome * 10) / 10 : 0;
+        const hasBizData = sorted.some((n) => n.businessCount != null && n.population != null);
+
+        return (
+          <section>
+            <SectionHeader icon={MapPin} title="Where Inequality Shows Up" />
+            <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5">
+              <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
+                Median household income ranges from <strong>${maxIncome.toLocaleString()}</strong> ({top10[0]?.name}) to{" "}
+                <strong>${minIncome.toLocaleString()}</strong> ({bottom10[0]?.name})
+                {ratio > 0 ? ` — a ${ratio}:1 ratio` : ""}.
+                These are neighborhood-level averages from Census tract data; actual variation within neighborhoods can be significant.
+              </p>
+
+              <p className="text-[12px] text-[var(--color-ink-muted)] mb-2 font-semibold">Highest income neighborhoods</p>
+              <div className="space-y-1 mb-4">
+                {top10.map((n) => {
+                  const pct = maxIncome > 0 ? (n.medianIncome! / maxIncome) * 100 : 0;
+                  return (
+                    <div key={n.name} className="flex items-center gap-1 h-5">
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-36 flex-shrink-0 truncate text-right pr-2">{n.name}</span>
+                      <div className="flex-1 h-4 bg-[var(--color-parchment)]/60 rounded-sm overflow-hidden">
+                        <div className="h-full rounded-sm bg-[#3d7a5a]" style={{ width: `${pct}%` }} />
+                      </div>
+                      <span className="text-[11px] font-mono text-[var(--color-ink)] w-16 text-right flex-shrink-0">${n.medianIncome!.toLocaleString()}</span>
+                      {n.povertyRate !== null && (
+                        <span className="text-[10px] text-[var(--color-ink-muted)] w-12 text-right flex-shrink-0">{n.povertyRate}% pov</span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <p className="text-[12px] text-[var(--color-ink-muted)] mb-2 font-semibold">Lowest income neighborhoods</p>
+              <div className="space-y-1 mb-4">
+                {bottom10.map((n) => {
+                  const pct = maxIncome > 0 ? (n.medianIncome! / maxIncome) * 100 : 0;
+                  return (
+                    <div key={n.name} className="flex items-center gap-1 h-5">
+                      <span className="text-[11px] text-[var(--color-ink-light)] w-36 flex-shrink-0 truncate text-right pr-2">{n.name}</span>
+                      <div className="flex-1 h-4 bg-[var(--color-parchment)]/60 rounded-sm overflow-hidden">
+                        <div className="h-full rounded-sm bg-[#b85c3a]" style={{ width: `${pct}%` }} />
+                      </div>
+                      <span className="text-[11px] font-mono text-[var(--color-ink)] w-16 text-right flex-shrink-0">${n.medianIncome!.toLocaleString()}</span>
+                      {n.povertyRate !== null && (
+                        <span className="text-[10px] text-[var(--color-ink-muted)] w-12 text-right flex-shrink-0">{n.povertyRate}% pov</span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {hasBizData && (
+                <>
+                  <p className="text-[12px] text-[var(--color-ink-muted)] mb-2 font-semibold mt-5">Businesses per 1,000 residents</p>
+                  <div className="space-y-1">
+                    {sorted
+                      .filter((n) => n.businessCount != null && n.population != null && n.population! > 0)
+                      .map((n) => ({ ...n, bizPer1k: Math.round((n.businessCount! / n.population!) * 1000 * 10) / 10 }))
+                      .sort((a, b) => b.bizPer1k - a.bizPer1k)
+                      .slice(0, 15)
+                      .map((n) => {
+                        const maxBiz = sorted
+                          .filter((s) => s.businessCount != null && s.population != null && s.population! > 0)
+                          .reduce((max, s) => Math.max(max, (s.businessCount! / s.population!) * 1000), 0);
+                        const pct = maxBiz > 0 ? (n.bizPer1k / maxBiz) * 100 : 0;
+                        return (
+                          <div key={n.name} className="flex items-center gap-1 h-5">
+                            <span className="text-[11px] text-[var(--color-ink-light)] w-36 flex-shrink-0 truncate text-right pr-2">{n.name}</span>
+                            <div className="flex-1 h-4 bg-[var(--color-parchment)]/60 rounded-sm overflow-hidden">
+                              <div className="h-full rounded-sm" style={{ width: `${pct}%`, backgroundColor: ACCENT }} />
+                            </div>
+                            <span className="text-[11px] font-mono text-[var(--color-ink)] w-12 text-right flex-shrink-0">{n.bizPer1k}</span>
+                          </div>
+                        );
+                      })}
+                  </div>
+                  <p className="text-[11px] text-[var(--color-ink-muted)] mt-3">
+                    Source: Portland BLT business registrations (active) · Neighborhood population estimates
+                  </p>
+                </>
+              )}
+
+              <p className="text-[11px] text-[var(--color-ink-muted)] mt-3">
+                Source: Census ACS 5-year estimates, spatially joined to Portland neighborhood boundaries.
+              </p>
+            </div>
+          </section>
+        );
+      })() : (
+        <section>
+          <DataNeeded
+            title="Neighborhood Economic Inequality"
+            description="Median income and poverty rates by neighborhood. Requires Census tract-level demographics spatially joined to Portland neighborhoods. This would show where economic distress concentrates — the aggregate county numbers mask enormous variation."
+            actions={[{ label: "Load Census ACS tract-level demographics with PostGIS spatial join", type: "download" }]}
+            color={ACCENT}
+          />
         </section>
       )}
 
@@ -340,7 +509,12 @@ export default function EconomyDetail() {
                 return (
                   <div key={ind.code}>
                     <div className="flex items-center justify-between text-[12px] mb-0.5">
-                      <span className="text-[var(--color-ink-light)] truncate pr-2">{ind.title}</span>
+                      <div className="truncate pr-2">
+                        <span className="text-[var(--color-ink-light)]">{ind.title}</span>
+                        {SECTOR_DEFINITIONS[ind.title] && (
+                          <span className="text-[11px] text-[var(--color-ink-muted)] ml-1.5">— {SECTOR_DEFINITIONS[ind.title]}</span>
+                        )}
+                      </div>
                       <div className="flex items-center gap-3 flex-shrink-0">
                         <span className="font-mono text-[var(--color-ink)]">{ind.employment.toLocaleString()}</span>
                         <span className="text-[11px] font-mono text-[var(--color-ink-muted)] w-20 text-right">${ind.avgWage.toLocaleString()}/wk</span>
