@@ -993,45 +993,52 @@ export default function HomelessnessDetail() {
           </p>
 
           {latestShsCounty.length > 0 && (
-            <>
-              <h3 className="text-[12px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">
-                Year 4 Housing Placements by County
-              </h3>
-              <BarChart
-                data={latestShsCounty.map((c) => ({
-                  name: c.county,
-                  value: c.householdsPlaced,
-                  color:
-                    c.county === "Multnomah"
-                      ? "#4f46e5"
-                      : c.county === "Washington"
-                        ? "#7c3aed"
-                        : "#a78bfa",
-                }))}
-                color="#4f46e5"
-                height={260}
-              />
-
-              <h3 className="text-[12px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3 mt-5">
-                FY2026 Allocation by County
-              </h3>
-              <BarChart
-                data={latestShsCounty.map((c) => ({
-                  name: c.county,
-                  value: Math.round(c.allocation / 1e6),
-                  color:
-                    c.county === "Multnomah"
-                      ? "#4f46e5"
-                      : c.county === "Washington"
-                        ? "#7c3aed"
-                        : "#a78bfa",
-                }))}
-                color="#4f46e5"
-                height={260}
-                valuePrefix="$"
-                valueSuffix="M"
-              />
-            </>
+            <div className="space-y-4">
+              {latestShsCounty.map((c) => {
+                const colors: Record<string, string> = {
+                  Multnomah: "#4f46e5",
+                  Washington: "#7c3aed",
+                  Clackamas: "#a78bfa",
+                };
+                const color = colors[c.county] ?? "#4f46e5";
+                const maxPlaced = Math.max(
+                  ...latestShsCounty.map((x) => x.householdsPlaced),
+                );
+                const pct =
+                  maxPlaced > 0
+                    ? Math.round((c.householdsPlaced / maxPlaced) * 100)
+                    : 0;
+                return (
+                  <div key={c.county}>
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <span className="text-[14px] font-semibold text-[var(--color-ink)]">
+                        {c.county} County
+                      </span>
+                      <span className="text-[11px] text-[var(--color-ink-muted)]">
+                        {c.allocation > 0 &&
+                          `$${Math.round(c.allocation / 1e6)}M allocated`}
+                      </span>
+                    </div>
+                    <div className="h-8 bg-[var(--color-parchment)] rounded-sm overflow-hidden mb-1">
+                      <div
+                        className="h-full rounded-sm flex items-center px-3"
+                        style={{
+                          width: `${Math.max(pct, 12)}%`,
+                          backgroundColor: color,
+                        }}
+                      >
+                        <span className="text-[13px] font-mono font-semibold text-white">
+                          {c.householdsPlaced.toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-[11px] text-[var(--color-ink-muted)]">
+                      {c.householdsPlaced.toLocaleString()} households placed
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           )}
 
           {/* Federal funding risks */}
