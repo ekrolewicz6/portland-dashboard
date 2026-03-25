@@ -493,10 +493,11 @@ export default function HomelessnessDetail() {
                 Multnomah County Eviction Filings (Monthly)
               </h3>
               <TrendChart
-                data={multEvictions.map((e) => ({
-                  date: e.month.substring(0, 7),
-                  value: e.filings,
-                }))}
+                data={multEvictions.map((e) => {
+                  const d = new Date(e.month);
+                  const label = d.toLocaleDateString("en-US", { month: "short", year: "2-digit", timeZone: "UTC" });
+                  return { date: label, value: e.filings };
+                })}
                 color="#ef4444"
                 height={280}
                 yAxisDomain="auto"
