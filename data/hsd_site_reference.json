@@ -1,0 +1,182 @@
+{
+  "crawled": "2026-03-25",
+  "site": "https://hsd.multco.us/",
+  "description": "Multnomah County Homeless Services Department (formerly Joint Office of Homeless Services). Contracts with 48+ partner orgs — does NOT provide direct services.",
+
+  "pages": {
+    "homepage": { "url": "https://hsd.multco.us/", "description": "Main landing page with nav to all sections" },
+    "find_help": { "url": "https://hsd.multco.us/find-help/", "description": "Primary access point. Directs to 211, CHAT hotline, BIPOC line, veterans, youth, DV, families." },
+    "data_dashboard": { "url": "https://hsd.multco.us/data-dashboard/", "description": "Monthly Tableau dashboard — by-name list population, services, shelter, housing. Launched April 2025." },
+    "quarterly_dashboard": { "url": "https://hsd.multco.us/quarterly-data-dashboard/", "description": "Chart.js dashboard with hardcoded data — housing placements, SHS placements, demographics, rent assistance, shelter capacity/utilization. SCRAPEABLE." },
+    "reports": { "url": "https://hsd.multco.us/reports/", "description": "All published reports: SHS quarterly/annual (FY22-FY26), PIT counts (2009-2025), Adult Shelter Review, Alternative Shelter Evaluation, Built for Zero scorecards." },
+    "emergency_shelters": { "url": "https://hsd.multco.us/emergency-shelters/", "description": "Shelter system overview. 2,000+ beds up from 650 in 2015." },
+    "shelter_list": { "url": "https://hsd.multco.us/emergency-shelters/list-of-shelters/", "description": "Complete directory of 30+ shelters with addresses, capacities, operators, phone numbers." },
+    "day_centers": { "url": "https://hsd.multco.us/emergency-shelters/day-centers/", "description": "11 daytime service locations (8 adult, 3 youth)." },
+    "street_outreach": { "url": "https://hsd.multco.us/street-outreach/", "description": "Field teams. Jul-Oct 2025: 5,000+ connections, 70%+ resulted in placement/assessment." },
+    "housing": { "url": "https://hsd.multco.us/housing/", "description": "Housing programs: rapid rehousing, PSH, RLRA. 16 new projects listed. ~9,000 currently housed." },
+    "rent_assistance": { "url": "https://hsd.multco.us/rent-assistance-programs/", "description": "Rapid rehousing, Emergency Housing Vouchers, RLRA." },
+    "supportive_housing": { "url": "https://hsd.multco.us/supportive-housing/", "description": "PSH combining affordable units with wraparound services." },
+    "rlra": { "url": "https://hsd.multco.us/regional-long-term-rent-assistance/", "description": "Regional Long-Term Rent Assistance. Home Forward admin. 1,000+ households. 91% retention." },
+    "coordinated_access": { "url": "https://hsd.multco.us/coordinated-access/", "description": "Centralized triage system. MSST tool launched Oct 2024. Prioritizes chronic, high vulnerability, BIPOC, elderly." },
+    "shs": { "url": "https://hsd.multco.us/shs/", "description": "SHS Measure 26-210. ~$250M/year. 10-year goals: 5,000 PSH households, 10,000 stabilized." },
+    "built_for_zero": { "url": "https://hsd.multco.us/current-initiatives/built-for-zero/", "description": "National initiative for functional zero chronic homelessness. 3,746 on by-name list (Feb 2024)." },
+    "fuse": { "url": "https://hsd.multco.us/fuse/", "description": "Frequent users pilot. 40 people in PSH. Reduces ER visits and jail bookings." },
+    "case_conferencing": { "url": "https://hsd.multco.us/cross-sector-case-conferencing/", "description": "Healthcare-housing coordination. Biweekly virtual. Health Share, Providence, Kaiser, OHSU, Legacy." },
+    "understanding": { "url": "https://hsd.multco.us/understanding-homelessness/", "description": "Educational page. Root causes, stats, myth debunking." },
+    "who_we_are": { "url": "https://hsd.multco.us/who-we-are/", "description": "Org structure. Became formal department 2024. Interim Director Anna Plumb (June 2025)." },
+    "partners": { "url": "https://hsd.multco.us/our-partners/", "description": "48 contracted organizations listed." },
+    "advisory_bodies": { "url": "https://hsd.multco.us/hsd-community-advisory-bodies/", "description": "5 committees: EAC, LEAC, CoC Board, SHS AC, CBAC." },
+    "continuum_of_care": { "url": "https://hsd.multco.us/continuum-of-care/", "description": "HUD federal grant program. 17-member board." },
+    "hmis": { "url": "https://hsd.multco.us/hmis-links-for-providers/", "description": "HMIS provider docs. Bitfocus replacing 19-year-old system." },
+    "alternative_shelters": { "url": "https://hsd.multco.us/alternative-shelters/", "description": "11 village-style sites. First opened 2017." },
+    "current_initiatives": { "url": "https://hsd.multco.us/current-initiatives/", "description": "Built for Zero, villages, FUSE, RLRA. Past: Oregon All In, Housing Multnomah Now." }
+  },
+
+  "key_reports_pdfs": {
+    "hrap_quarterly_may_2025": "https://multco.us/file/hrap_quarterly_report_may_2025/download",
+    "pit_count_2025": "https://hsd.multco.us/wp-content/uploads/2025/11/2025-Tri-County-PITC-Report-11.04.25.pdf",
+    "shs_annual_fy2025": "https://hsd.multco.us/wp-content/uploads/2025/12/FINAL-SHS-Annual-Report-Updated-12.11.25.pdf",
+    "shs_q2_fy2026": "https://hsd.multco.us/wp-content/uploads/2026/02/Multnomah-County-Q2-FY26-SHS-Report-FINAL.pdf",
+    "shs_q1_fy2026": "https://hsd.multco.us/wp-content/uploads/2026/03/FINAL-Q1-FY26-SHS-Report-Updated-3.23.26.pdf",
+    "adult_shelter_review_fy25": "https://hsd.multco.us/wp-content/uploads/2026/01/Adult-Shelter-Review-FY25.pdf",
+    "alternative_shelter_eval": "https://hsd.multco.us/wp-content/uploads/2024/08/Alternative-Shelter-Evaluation-Report.pdf",
+    "emergency_shelter_report": "https://hsd.multco.us/wp-content/uploads/2025/03/FINAL-Emergency-Shelter-Report-1.pdf",
+    "shs_10yr_implementation_plan": "https://hsd.multco.us/wp-content/uploads/2025/05/Multnomah-County-supportive-housing-services-local-implementation-plan-20210601.pdf",
+    "coc_charter": "https://hsd.multco.us/wp-content/uploads/2025/04/OR-501-CoC-Charter_25_26.pdf",
+    "provider_workforce_study": "https://live-hsd.pantheonsite.io/wp-content/uploads/2023/08/REVISED-HSD-CCB-Study-August2023.pdf"
+  },
+
+  "tableau_dashboards": {
+    "main_data_dashboard": "https://public.tableau.com/views/MultnomahCountyHomelessServicesDepartmentDataDashboard_17447622060640/TotalPopulation",
+    "shelter_utilization": "https://public.tableau.com/app/profile/hsd/viz/ShelterUtilizationReport/Report",
+    "shelter_map": "https://public.tableau.com/app/profile/hsd/viz/ShelterMap_16663755550800/Map_1",
+    "profile": "https://public.tableau.com/app/profile/hsd",
+    "johs_profile_api": "https://public.tableau.com/public/apis/workbooks?profileName=johs&start=0&count=50&visibility=NON_HIDDEN"
+  },
+
+  "hotlines": {
+    "hsd_main": "(503) 988-2525",
+    "211": "211 or 866-698-6155",
+    "chat_adults": "844-765-9384",
+    "bipoc_chat": "503-280-2600 opt 3",
+    "veterans": "855-425-5544",
+    "youth": "503-432-3986",
+    "dv": "503-235-5333",
+    "mental_health_crisis": "503-988-4888",
+    "988_crisis": "988"
+  },
+
+  "hrap_data": {
+    "source": "HRAP Quarterly Report May 2025",
+    "action_items_total": 72,
+    "completed": 55,
+    "completion_rate": 0.764,
+
+    "measure_1_shelter_or_house": {
+      "baseline_unsheltered_jan_2024": 5398,
+      "goal_total": 18658,
+      "progress_5_quarters": 14668,
+      "pct_of_goal": 0.79,
+      "breakdown": { "shelter": 10142, "permanent_housing": 4818, "temporary_housing": 1264 },
+      "cumulative_by_quarter": {
+        "Q1_2024": 3976, "Q2_2024": 6969, "Q3_2024": 9303, "Q4_2024": 11784, "Q1_2025": 14668
+      }
+    },
+
+    "by_name_list_monthly": [
+      { "month": "2024-01", "unsheltered": 4969, "sheltered": 4041, "unknown": 2420, "total": 11430 },
+      { "month": "2024-02", "unsheltered": 5371, "sheltered": 4123, "unknown": 2448, "total": 11942 },
+      { "month": "2024-03", "unsheltered": 5623, "sheltered": 4116, "unknown": 2556, "total": 12295 },
+      { "month": "2024-04", "unsheltered": 5773, "sheltered": 4069, "unknown": 2762, "total": 12604 },
+      { "month": "2024-05", "unsheltered": 5619, "sheltered": 4149, "unknown": 2812, "total": 12580 },
+      { "month": "2024-06", "unsheltered": 5708, "sheltered": 4161, "unknown": 2882, "total": 12751 },
+      { "month": "2024-07", "unsheltered": 5874, "sheltered": 4158, "unknown": 3016, "total": 13048 },
+      { "month": "2024-08", "unsheltered": 5989, "sheltered": 4235, "unknown": 3095, "total": 13319 },
+      { "month": "2024-09", "unsheltered": 5844, "sheltered": 4367, "unknown": 3142, "total": 13353 },
+      { "month": "2024-10", "unsheltered": 5827, "sheltered": 4617, "unknown": 3195, "total": 13639 },
+      { "month": "2024-11", "unsheltered": 5906, "sheltered": 4764, "unknown": 3194, "total": 13864 },
+      { "month": "2024-12", "unsheltered": 5975, "sheltered": 4775, "unknown": 3199, "total": 13949 },
+      { "month": "2025-01", "unsheltered": 5275, "sheltered": 4849, "unknown": 3237, "total": 13361 },
+      { "month": "2025-02", "unsheltered": 5796, "sheltered": 4860, "unknown": 3208, "total": 13864 },
+      { "month": "2025-03", "unsheltered": 7159, "sheltered": 4814, "unknown": 3272, "total": 15245 }
+    ],
+
+    "measure_3_shelter_exit_to_housing": {
+      "baseline": 0.26,
+      "goal": 0.41,
+      "current": 0.19,
+      "trend": [
+        { "period": "Apr2023-Mar2024", "rate": 0.23, "exits_to_housing": 1115, "total_exits": 4847 },
+        { "period": "Jul2023-Jun2024", "rate": 0.24, "exits_to_housing": 1287, "total_exits": 5440 },
+        { "period": "Oct2023-Sep2024", "rate": 0.23, "exits_to_housing": 1332, "total_exits": 5795 },
+        { "period": "Jan2024-Dec2024", "rate": 0.21, "exits_to_housing": 1231, "total_exits": 5935 },
+        { "period": "Apr2024-Mar2025", "rate": 0.19, "exits_to_housing": 1190, "total_exits": 6336 }
+      ]
+    },
+
+    "measure_4_psh_retention": {
+      "goal": 0.75,
+      "current": 0.83,
+      "trend": [
+        { "period": "Apr2023-Mar2024", "rate": 0.80 },
+        { "period": "Jul2023-Jun2024", "rate": 0.79 },
+        { "period": "Oct2023-Sep2024", "rate": 0.79 },
+        { "period": "Jan2024-Dec2024", "rate": 0.81 },
+        { "period": "Apr2024-Mar2025", "rate": 0.83 }
+      ]
+    }
+  },
+
+  "shelter_system_fy25": {
+    "source": "Adult Shelter Review FY25",
+    "total_programs_reviewed": 31,
+    "unique_individuals_served": 6731,
+    "total_cost": 98000000,
+    "avg_cost_per_bed": 46683,
+    "overall_occupancy": 0.88,
+    "overall_avg_los_days": 73,
+    "exits_to_permanent_housing": 841,
+    "exit_to_housing_rate": 0.16,
+    "by_type": {
+      "congregate": { "sites": 12, "served": 5119, "cost": 38000000, "cost_per_bed": 37018, "occupancy": 0.88, "avg_los": 53, "housing_exit_rate": 0.12, "exits_per_bed": 0.45 },
+      "motel": { "sites": 6, "served": 756, "cost": 22300000, "cost_per_bed": 62656, "occupancy": 0.82, "avg_los": 180, "housing_exit_rate": 0.38, "exits_per_bed": 0.52 },
+      "alternative": { "sites": 9, "served": 1312, "cost": 29300000, "cost_per_bed": 51372, "occupancy": 0.89, "avg_los": 159, "housing_exit_rate": 0.18, "exits_per_bed": 0.21 }
+    },
+    "top_exit_rates": [
+      { "name": "Avalon Village", "type": "alternative", "rate": 0.75 },
+      { "name": "Chestnut Tree Inn", "type": "motel", "rate": 0.47 },
+      { "name": "Roseway", "type": "motel", "rate": 0.47 },
+      { "name": "Beacon Village", "type": "alternative", "rate": 0.45 },
+      { "name": "St Johns Village", "type": "alternative", "rate": 0.45 }
+    ],
+    "bottom_exit_rates": [
+      { "name": "Willamette Center", "type": "congregate", "rate": 0.04 },
+      { "name": "BHRC Congregate", "type": "congregate", "rate": 0.04 },
+      { "name": "N Portland Rd TASS", "type": "alternative", "rate": 0.05 }
+    ]
+  },
+
+  "budget_crisis": {
+    "fy2026_budget": 310000000,
+    "shortfall_announced": 104000000,
+    "backfill_approved": 20000000,
+    "remaining_gap": 8700000,
+    "impacts": {
+      "shelter_units_closing": 214,
+      "housing_placements_lost": 873,
+      "rent_assistance_lost": 668,
+      "new_shelter_beds_cancelled": 815
+    }
+  },
+
+  "pit_count_2025": {
+    "tricounty_total": 12034,
+    "multnomah": 10526,
+    "clackamas": 568,
+    "washington": 940,
+    "change_from_2023": 0.61,
+    "chronic_pct": 0.48,
+    "veterans": 771,
+    "bipoc_pct": 0.46
+  }
+}
