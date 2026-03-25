@@ -306,15 +306,15 @@ export default function WorkplanTracker() {
       )}
 
       {/* Action table */}
-      <div className="overflow-x-auto rounded-sm border border-[var(--color-parchment)]">
-      <div className="min-w-[640px]">
+      <div className="rounded-sm border border-[var(--color-parchment)]">
+      <div>
         {/* Header */}
-        <div className="grid grid-cols-[60px_1fr_120px_100px_90px_90px] gap-3 px-4 py-2 bg-[var(--color-canopy)] text-[10px] font-semibold text-white/70 uppercase tracking-wider">
+        <div className="grid grid-cols-[50px_1fr_90px_80px_80px_100px] gap-2 px-3 py-2 bg-[var(--color-canopy)] text-[10px] font-semibold text-white/70 uppercase tracking-wider">
           <div>Action</div>
           <div>Title</div>
-          <div>Lead Bureau(s)</div>
-          <div>FY / Timeline</div>
-          <div>Gap</div>
+          <div className="hidden md:block">Bureau</div>
+          <div className="hidden lg:block">Timeline</div>
+          <div className="hidden lg:block">Gap</div>
           <div>Status</div>
         </div>
 
@@ -332,7 +332,7 @@ export default function WorkplanTracker() {
               className="w-full text-left"
             >
               <div
-                className={`grid grid-cols-[60px_1fr_120px_100px_90px_90px] gap-3 px-4 py-3 transition-colors ${
+                className={`grid grid-cols-[50px_1fr_100px] md:grid-cols-[50px_1fr_90px_100px] lg:grid-cols-[50px_1fr_90px_80px_80px_100px] gap-2 px-3 py-3 transition-colors ${
                   i % 2 === 0 ? "bg-[var(--color-paper-warm)]" : "bg-white"
                 } hover:bg-[var(--color-parchment)]/30 ${expandedId === action.actionId ? "border-l-2" : ""}`}
                 style={{ borderLeftColor: expandedId === action.actionId ? CLIMATE_COLOR : undefined }}
@@ -374,8 +374,8 @@ export default function WorkplanTracker() {
                   </div>
                 </div>
 
-                {/* Bureaus */}
-                <div className="flex flex-wrap gap-1 items-start">
+                {/* Bureaus — hidden on small */}
+                <div className="hidden md:flex flex-wrap gap-1 items-start">
                   {action.leadBureaus.map((b) => (
                     <span key={b} className="text-[10px] font-mono bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm text-[var(--color-ink-muted)]">
                       {b}
@@ -383,13 +383,13 @@ export default function WorkplanTracker() {
                   ))}
                 </div>
 
-                {/* FY */}
-                <div className="text-[11px] text-[var(--color-ink-muted)] flex items-center">
+                {/* FY — hidden on small/medium */}
+                <div className="hidden lg:flex text-[11px] text-[var(--color-ink-muted)] items-center">
                   {action.fiscalYear ?? "—"}
                 </div>
 
-                {/* Gap */}
-                <div className="flex items-center">
+                {/* Gap — hidden on small/medium */}
+                <div className="hidden lg:flex items-center">
                   <GapBadge gap={action.resourceGap} />
                 </div>
 
