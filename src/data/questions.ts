@@ -80,9 +80,9 @@ export const QUESTIONS = [
   {
     id: "environment",
     title: "Are We Meeting Our Climate Goals?",
-    shortTitle: "Environment",
+    shortTitle: "Climate & Environment",
     description:
-      "Tracks greenhouse gas emissions, air quality, tree canopy coverage, and waste diversion rates.",
+      "Climate accountability platform tracking all 43 Climate Emergency Workplan actions, bureau performance, PCEF funding, and emissions trajectory toward 2030 and 2050 targets. Built in response to the Feb 2026 Climate Justice Audit.",
     icon: "leaf",
     color: "green",
   },

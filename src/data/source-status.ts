@@ -311,24 +311,40 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
   // ── Environment & Climate ─────────────────────────────────────────────
   environment: {
     questionId: "environment",
-    overallStatus: "DATA_NEEDED",
-    badgeLabel: "Data needed",
+    overallStatus: "LIVE_PARTIAL",
+    badgeLabel: "Partially live",
     badgeTooltip:
-      "Environment data requires BPS emissions inventory, DEQ air quality API, and Urban Forestry canopy data.",
+      "Climate accountability platform with CEW workplan tracker, bureau scorecard, PCEF finance tracking, and emissions trajectory. AQI data live from EPA AirNow.",
     sources: [
       {
-        name: "GHG Emissions Inventory",
-        status: "NEEDS_DOWNLOAD",
-        statusLabel: "Download available",
+        name: "Climate Emergency Workplan Tracker",
+        status: "LIVE",
+        statusLabel: "43 actions encoded",
         provider: "Portland Bureau of Planning & Sustainability",
-        blocker: "Download from portland.gov/bps/climate-action",
+      },
+      {
+        name: "GHG Emissions Inventory (1990–2023)",
+        status: "LIVE",
+        statusLabel: "Historical data loaded",
+        provider: "BPS Climate & Energy Dashboard",
+      },
+      {
+        name: "PCEF Investment Tracking",
+        status: "LIVE",
+        statusLabel: "$750M plan encoded",
+        provider: "Portland Clean Energy Fund",
+      },
+      {
+        name: "Bureau Climate Scorecard",
+        status: "LIVE",
+        statusLabel: "13 bureaus tracked",
+        provider: "Climate Justice Audit (Feb 2026)",
       },
       {
         name: "Air Quality Index",
-        status: "NEEDS_API_KEY",
-        statusLabel: "Free API key available",
+        status: hasEnvVar("AIRNOW_API_KEY") ? "LIVE" : "NEEDS_API_KEY",
+        statusLabel: hasEnvVar("AIRNOW_API_KEY") ? "Live data" : "Free API key available",
         provider: "EPA AirNow",
-        blocker: "Register at docs.airnow.gov",
         envVar: "AIRNOW_API_KEY",
       },
       {

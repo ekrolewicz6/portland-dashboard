@@ -2,10 +2,28 @@
 
 import { useEffect, useState } from "react";
 import TrendChart from "@/components/charts/TrendChart";
-import DataNeeded from "../DataNeeded";
-import { Wind } from "lucide-react";
+import WorkplanTracker from "./WorkplanTracker";
+import BureauScorecard from "./BureauScorecard";
+import ClimateFinanceTracker from "./ClimateFinanceTracker";
+import EmissionsTrajectory from "./EmissionsTrajectory";
+import {
+  Wind,
+  ClipboardList,
+  Building2,
+  DollarSign,
+  TrendingDown,
+} from "lucide-react";
 
 const ENV_COLOR = "#5a8a6a";
+
+type ClimateTab = "emissions" | "workplan" | "bureaus" | "finance";
+
+const TABS: { id: ClimateTab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: "emissions", label: "Emissions Trajectory", icon: TrendingDown },
+  { id: "workplan", label: "Workplan Tracker", icon: ClipboardList },
+  { id: "bureaus", label: "Bureau Scorecard", icon: Building2 },
+  { id: "finance", label: "Climate Finance", icon: DollarSign },
+];
 
 interface AqiReading {
   pollutant: string;
@@ -63,6 +81,7 @@ function SectionHeader({
 export default function EnvironmentDetail() {
   const [data, setData] = useState<EnvironmentDetailData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState<ClimateTab>("emissions");
 
   useEffect(() => {
     fetch("/api/dashboard/environment/detail")
@@ -74,30 +93,14 @@ export default function EnvironmentDetail() {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading) {
-    return (
-      <div className="space-y-8 animate-pulse">
-        {[...Array(4)].map((_, i) => (
-          <div key={i} className="bg-[var(--color-parchment)]/50 rounded-sm h-64" />
-        ))}
-      </div>
-    );
-  }
-
-  if (!data) {
-    return <p className="text-[var(--color-ink-muted)] text-[14px]">Unable to load environment detail data.</p>;
-  }
-
-  const hasAqi = data.dataStatus === "live" && data.currentAqi.length > 0;
-
-  // Find the primary reading (PM2.5 or first available)
+  const hasAqi = data?.dataStatus === "live" && (data?.currentAqi?.length ?? 0) > 0;
   const primaryReading =
-    data.currentAqi.find((r) => r.pollutant === "PM2.5") ?? data.currentAqi[0];
+    data?.currentAqi?.find((r) => r.pollutant === "PM2.5") ?? data?.currentAqi?.[0];
 
   return (
     <div className="space-y-10">
-      {/* 1. Current AQI */}
-      {hasAqi && primaryReading && (
+      {/* AQI section — always shown if data available */}
+      {!loading && hasAqi && primaryReading && (
         <section>
           <SectionHeader icon={Wind} title="Current Air Quality" color={ENV_COLOR} />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
@@ -109,10 +112,8 @@ export default function EnvironmentDetail() {
                 EPA AirNow — {primaryReading.reporting_area}
               </span>
             </div>
-
-            {/* AQI cards per pollutant */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-              {data.currentAqi.map((reading) => (
+              {data!.currentAqi.map((reading) => (
                 <div
                   key={reading.pollutant}
                   className="rounded-sm p-4 text-center"
@@ -143,8 +144,8 @@ export default function EnvironmentDetail() {
         </section>
       )}
 
-      {/* 2. AQI Trend Chart */}
-      {data.aqiTrend.length > 1 && (
+      {/* AQI trend */}
+      {!loading && data && data.aqiTrend.length > 1 && (
         <section>
           <SectionHeader icon={Wind} title="PM2.5 AQI Trend (Daily Average)" color={ENV_COLOR} />
           <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
@@ -156,31 +157,50 @@ export default function EnvironmentDetail() {
         </section>
       )}
 
-      {/* 3. Data still needed */}
-      <DataNeeded
-        title="Greenhouse gas emissions"
-        description="Portland's Bureau of Planning & Sustainability publishes a community-wide greenhouse gas inventory as part of the Climate Action Plan, tracking progress toward reduction targets."
-        actions={[
-          { label: "Download BPS Climate Action Plan emissions inventory", type: "download" },
-        ]}
-        color={ENV_COLOR}
-      />
-      <DataNeeded
-        title="Tree canopy coverage"
-        description="Portland Urban Forestry tracks tree canopy coverage by neighborhood, a key indicator of urban heat island mitigation and environmental equity."
-        actions={[
-          { label: "Download Portland Urban Forestry canopy data", type: "download" },
-        ]}
-        color={ENV_COLOR}
-      />
-      <DataNeeded
-        title="Waste diversion rate"
-        description="Metro regional government tracks the percentage of waste diverted from landfills through recycling and composting programs across the Portland metro area."
-        actions={[
-          { label: "Download Metro waste diversion data", type: "download" },
-        ]}
-        color={ENV_COLOR}
-      />
+      {/* Climate Accountability Platform — tab navigation */}
+      <section>
+        <div className="flex items-center gap-2.5 mb-6">
+          <div className="w-8 h-px" style={{ backgroundColor: ENV_COLOR }} />
+          <h2 className="text-[13px] font-semibold text-[var(--color-ink)] uppercase tracking-[0.12em]">
+            Climate Accountability Platform
+          </h2>
+          <div className="flex-1 h-px bg-[var(--color-parchment)]" />
+        </div>
+
+        <p className="text-[14px] text-[var(--color-ink-light)] leading-relaxed mb-6 max-w-3xl">
+          Built in response to the February 2026 Climate Justice Audit, this platform tracks
+          Portland&apos;s 43 Climate Emergency Workplan actions, bureau accountability, PCEF
+          funding, and emissions trajectory toward the 2030 and 2050 targets.
+        </p>
+
+        {/* Tab bar */}
+        <div className="flex flex-wrap gap-1 mb-8 bg-[var(--color-parchment)]/40 rounded-sm p-1">
+          {TABS.map((tab) => {
+            const isActive = activeTab === tab.id;
+            const TabIcon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium rounded-sm transition-all ${
+                  isActive
+                    ? "bg-[var(--color-paper)] text-[var(--color-ink)] shadow-sm border border-[var(--color-parchment)]"
+                    : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-paper)]/50"
+                }`}
+              >
+                <TabIcon className="w-4 h-4" />
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Tab content */}
+        {activeTab === "emissions" && <EmissionsTrajectory />}
+        {activeTab === "workplan" && <WorkplanTracker />}
+        {activeTab === "bureaus" && <BureauScorecard />}
+        {activeTab === "finance" && <ClimateFinanceTracker />}
+      </section>
     </div>
   );
 }
