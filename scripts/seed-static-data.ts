@@ -35,183 +35,106 @@ function formatMonth(year: number, month: number): string {
 }
 
 // ── 1. Tax Comparison ───────────────────────────────────────────────────
+//
+// All values are EFFECTIVE RATES (% of gross income), calculated from
+// actual 2024 tax brackets for a single W-2 employee with standard deduction.
+//
+// Federal: 2024 brackets (10/12/22/24/32/35/37%), std deduction $14,600
+// Oregon:  2024 brackets (4.75/6.75/8.75/9.9%), std deduction $2,745
+// California: 2024 brackets (1/2/4/6/8/9.3/10.3/11.3/12.3%), std deduction $5,540
+// Idaho:   flat 5.695% on federal taxable income
+// Colorado: flat 4.4% on federal taxable income
+// Utah:    flat 4.65% on federal taxable income (w/ credits, effective ~3-4.3%)
+//
+// Portland local (W-2 employees only):
+//   PFA: 1.5% on OR taxable income over $125K (single)
+//   Metro SHS: 1.0% on OR taxable income over $125K (single)
+//   Arts Tax: $35 flat
+//   BLT/BIT: $0 (business taxes, not applicable to employees)
 
 async function seedTaxComparison() {
   console.log("\n=== Seeding tax_comparison ===");
 
   await sql`DELETE FROM tax_comparison`;
 
-  const rows: {
-    city: string;
-    income_level: number;
-    effective_rate: number;
-    federal: number;
-    state: number;
-    local: number;
-    other: number;
-  }[] = [];
+  // Each row: [city, income, effective_rate, federal%, state%, local%, other%]
+  type TaxRow = [string, number, number, number, number, number, number];
 
-  // ---------- $200K income ----------
+  const data: TaxRow[] = [
+    // ── Portland, OR (W-2 employee) ──
+    // Local = PFA + SHS (kick in >$125K OR taxable), Other = Arts Tax
+    ["Portland, OR",  40000, 14.6,  7.0, 7.4, 0.0, 0.1],
+    ["Portland, OR",  50000, 15.8,  8.0, 7.7, 0.0, 0.1],
+    ["Portland, OR",  75000, 19.2, 11.1, 8.0, 0.0, 0.0],
+    ["Portland, OR", 100000, 22.1, 13.8, 8.2, 0.0, 0.0],
+    ["Portland, OR", 150000, 26.0, 17.0, 8.6, 0.4, 0.0],  // PFA $334 + SHS $223
+    ["Portland, OR", 200000, 28.6, 18.8, 8.9, 0.9, 0.0],  // PFA $1,084 + SHS $723
 
-  // Portland, OR @ $200K
-  rows.push({
-    city: "Portland, OR",
-    income_level: 200000,
-    effective_rate: 12.4,
-    federal: 48000,
-    state: 17000,
-    local: 9200, // BLT 5200 + BIT 4000
-    other: 1910, // Metro SHS 750 + MultCo PFA 1125 + Arts 35
-  });
+    // ── San Francisco, CA (no local income tax for W-2) ──
+    ["San Francisco, CA",  40000,  9.0,  7.0, 2.0, 0.0, 0.0],
+    ["San Francisco, CA",  50000, 10.6,  8.0, 2.6, 0.0, 0.0],
+    ["San Francisco, CA",  75000, 15.3, 11.1, 4.2, 0.0, 0.0],
+    ["San Francisco, CA", 100000, 19.2, 13.8, 5.4, 0.0, 0.0],
+    ["San Francisco, CA", 150000, 23.7, 17.0, 6.7, 0.0, 0.0],
+    ["San Francisco, CA", 200000, 26.2, 18.8, 7.4, 0.0, 0.0],
 
-  // Vancouver, WA @ $200K
-  rows.push({
-    city: "Vancouver, WA",
-    income_level: 200000,
-    effective_rate: 7.1,
-    federal: 48000,
-    state: 0,
-    local: 0,
-    other: 0,
-  });
+    // ── Seattle, WA (no state/local income tax) ──
+    ["Seattle, WA",  40000,  7.0,  7.0, 0.0, 0.0, 0.0],
+    ["Seattle, WA",  50000,  8.0,  8.0, 0.0, 0.0, 0.0],
+    ["Seattle, WA",  75000, 11.1, 11.1, 0.0, 0.0, 0.0],
+    ["Seattle, WA", 100000, 13.8, 13.8, 0.0, 0.0, 0.0],
+    ["Seattle, WA", 150000, 17.0, 17.0, 0.0, 0.0, 0.0],
+    ["Seattle, WA", 200000, 18.8, 18.8, 0.0, 0.0, 0.0],
 
-  // Beaverton, OR @ $200K
-  rows.push({
-    city: "Beaverton, OR",
-    income_level: 200000,
-    effective_rate: 10.1,
-    federal: 48000,
-    state: 17000,
-    local: 5200, // BLT only, no MultCo BIT
-    other: 0,
-  });
+    // ── Vancouver, WA (no state/local income tax) ──
+    ["Vancouver, WA",  40000,  7.0,  7.0, 0.0, 0.0, 0.0],
+    ["Vancouver, WA",  50000,  8.0,  8.0, 0.0, 0.0, 0.0],
+    ["Vancouver, WA",  75000, 11.1, 11.1, 0.0, 0.0, 0.0],
+    ["Vancouver, WA", 100000, 13.8, 13.8, 0.0, 0.0, 0.0],
+    ["Vancouver, WA", 150000, 17.0, 17.0, 0.0, 0.0, 0.0],
+    ["Vancouver, WA", 200000, 18.8, 18.8, 0.0, 0.0, 0.0],
 
-  // Lake Oswego, OR @ $200K
-  rows.push({
-    city: "Lake Oswego, OR",
-    income_level: 200000,
-    effective_rate: 10.0,
-    federal: 48000,
-    state: 17000,
-    local: 5200,
-    other: 0,
-  });
+    // ── Boise, ID (flat 5.695% on federal taxable income) ──
+    ["Boise, ID",  40000, 10.7,  7.0, 3.6, 0.0, 0.0],
+    ["Boise, ID",  50000, 12.1,  8.0, 4.0, 0.0, 0.0],
+    ["Boise, ID",  75000, 15.7, 11.1, 4.6, 0.0, 0.0],
+    ["Boise, ID", 100000, 18.7, 13.8, 4.9, 0.0, 0.0],
+    ["Boise, ID", 150000, 22.2, 17.0, 5.1, 0.0, 0.0],
+    ["Boise, ID", 200000, 24.1, 18.8, 5.3, 0.0, 0.0],
 
-  // Seattle, WA @ $200K
-  rows.push({
-    city: "Seattle, WA",
-    income_level: 200000,
-    effective_rate: 7.3,
-    federal: 48000,
-    state: 0,
-    local: 0,
-    other: 0,
-  });
+    // ── Denver, CO (flat 4.4% on federal taxable income) ──
+    ["Denver, CO",  40000,  9.8,  7.0, 2.8, 0.0, 0.0],
+    ["Denver, CO",  50000, 11.1,  8.0, 3.1, 0.0, 0.0],
+    ["Denver, CO",  75000, 14.7, 11.1, 3.5, 0.0, 0.0],
+    ["Denver, CO", 100000, 17.6, 13.8, 3.8, 0.0, 0.0],
+    ["Denver, CO", 150000, 21.0, 17.0, 4.0, 0.0, 0.0],
+    ["Denver, CO", 200000, 22.9, 18.8, 4.1, 0.0, 0.0],
 
-  // ---------- $100K income ----------
+    // ── Salt Lake City, UT (4.65% flat minus credits, ~3.0-4.3% effective) ──
+    ["Salt Lake City, UT",  40000, 10.1,  7.0, 3.0, 0.0, 0.0],
+    ["Salt Lake City, UT",  50000, 11.3,  8.0, 3.3, 0.0, 0.0],
+    ["Salt Lake City, UT",  75000, 14.9, 11.1, 3.8, 0.0, 0.0],
+    ["Salt Lake City, UT", 100000, 17.9, 13.8, 4.0, 0.0, 0.0],
+    ["Salt Lake City, UT", 150000, 21.3, 17.0, 4.2, 0.0, 0.0],
+    ["Salt Lake City, UT", 200000, 23.1, 18.8, 4.3, 0.0, 0.0],
 
-  rows.push({
-    city: "Portland, OR",
-    income_level: 100000,
-    effective_rate: 10.8,
-    federal: 17600,
-    state: 8500,
-    local: 4600,
-    other: 35,
-  });
-  rows.push({
-    city: "Vancouver, WA",
-    income_level: 100000,
-    effective_rate: 5.8,
-    federal: 17600,
-    state: 0,
-    local: 0,
-    other: 0,
-  });
-  rows.push({
-    city: "Beaverton, OR",
-    income_level: 100000,
-    effective_rate: 8.7,
-    federal: 17600,
-    state: 8500,
-    local: 2600,
-    other: 0,
-  });
-  rows.push({
-    city: "Lake Oswego, OR",
-    income_level: 100000,
-    effective_rate: 8.6,
-    federal: 17600,
-    state: 8500,
-    local: 2600,
-    other: 0,
-  });
-  rows.push({
-    city: "Seattle, WA",
-    income_level: 100000,
-    effective_rate: 6.0,
-    federal: 17600,
-    state: 0,
-    local: 0,
-    other: 0,
-  });
+    // ── Austin, TX (no state/local income tax) ──
+    ["Austin, TX",  40000,  7.0,  7.0, 0.0, 0.0, 0.0],
+    ["Austin, TX",  50000,  8.0,  8.0, 0.0, 0.0, 0.0],
+    ["Austin, TX",  75000, 11.1, 11.1, 0.0, 0.0, 0.0],
+    ["Austin, TX", 100000, 13.8, 13.8, 0.0, 0.0, 0.0],
+    ["Austin, TX", 150000, 17.0, 17.0, 0.0, 0.0, 0.0],
+    ["Austin, TX", 200000, 18.8, 18.8, 0.0, 0.0, 0.0],
+  ];
 
-  // ---------- $75K income ----------
-
-  rows.push({
-    city: "Portland, OR",
-    income_level: 75000,
-    effective_rate: 9.8,
-    federal: 11250,
-    state: 6375,
-    local: 1950,
-    other: 35,
-  });
-  rows.push({
-    city: "Vancouver, WA",
-    income_level: 75000,
-    effective_rate: 5.2,
-    federal: 11250,
-    state: 0,
-    local: 0,
-    other: 0,
-  });
-  rows.push({
-    city: "Beaverton, OR",
-    income_level: 75000,
-    effective_rate: 7.9,
-    federal: 11250,
-    state: 6375,
-    local: 1950,
-    other: 0,
-  });
-  rows.push({
-    city: "Lake Oswego, OR",
-    income_level: 75000,
-    effective_rate: 7.8,
-    federal: 11250,
-    state: 6375,
-    local: 1950,
-    other: 0,
-  });
-  rows.push({
-    city: "Seattle, WA",
-    income_level: 75000,
-    effective_rate: 5.4,
-    federal: 11250,
-    state: 0,
-    local: 0,
-    other: 0,
-  });
-
-  for (const r of rows) {
+  for (const [city, income, eff, fed, state, local, other] of data) {
     await sql`
       INSERT INTO tax_comparison (city, income_level, effective_rate, federal, state, local, other)
-      VALUES (${r.city}, ${r.income_level}, ${r.effective_rate}, ${r.federal}, ${r.state}, ${r.local}, ${r.other})
+      VALUES (${city}, ${income}, ${eff}, ${fed}, ${state}, ${local}, ${other})
     `;
   }
 
-  console.log(`  Inserted ${rows.length} tax comparison rows`);
+  console.log(`  Inserted ${data.length} tax comparison rows`);
 }
 
 // ── 2. Program PCB Summary ──────────────────────────────────────────────
@@ -543,22 +466,25 @@ async function seedDashboardCache() {
 
   // ---- Tax ----
   const taxCache = {
-    headline: "Portland total tax burden highest among peer cities at $200K",
-    headlineValue: "12.4%",
+    headline: "Portland income tax burden highest among 8 Western cities",
+    headlineValue: "28.6%",
     trend: { direction: "flat", value: "0%", isPositive: false },
     chartData: [
-      { date: "Portland, OR", value: 12.4 },
-      { date: "Beaverton, OR", value: 10.1 },
-      { date: "Lake Oswego, OR", value: 10.0 },
-      { date: "Seattle, WA", value: 7.3 },
-      { date: "Vancouver, WA", value: 7.1 },
+      { date: "Portland, OR", value: 28.6 },
+      { date: "San Francisco, CA", value: 26.2 },
+      { date: "Boise, ID", value: 24.1 },
+      { date: "Salt Lake City, UT", value: 23.1 },
+      { date: "Denver, CO", value: 22.9 },
+      { date: "Seattle, WA", value: 18.8 },
+      { date: "Vancouver, WA", value: 18.8 },
+      { date: "Austin, TX", value: 18.8 },
     ],
-    source: "Tax Foundation / Oregon DOR / IRS",
+    source: "IRS / Oregon DOR / state tax agencies (2024 brackets)",
     lastUpdated,
     insights: [
-      "Portland effective rate 5.3pp higher than Vancouver, WA at $200K income",
-      "MultCo-specific taxes (BIT, PFA, SHS) add ~2.9% for Portland residents",
-      "Gap narrows at lower incomes: 4.6pp difference at $75K",
+      "At $200K, Portland W-2 employees pay 28.6% effective income tax — highest of 8 Western peers",
+      "Oregon's 9.9% top rate drives the gap; Portland-specific PFA + SHS add 0.9% above $125K",
+      "Below $125K, Portland employees pay $0 in local taxes (only $35 Arts Tax)",
     ],
   };
 

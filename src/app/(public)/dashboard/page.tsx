@@ -9,7 +9,7 @@ const QUESTIONS = [
   { id: "housing", question: "Are We Building Enough?", color: "#b85c6a" },
   { id: "safety", question: "Are People Safe?", color: "#b85c3a" },
   { id: "economy", question: "Can People Make a Living?", color: "#c8956c" },
-  { id: "fiscal", question: "Is the City Solvent?", color: "#7c6f9e" },
+  { id: "fiscal", question: "Where Does the Money Go?", color: "#7c6f9e" },
   { id: "homelessness", question: "Are People Getting Housed?", color: "#8b6c5c" },
   { id: "transportation", question: "Can You Get Around?", color: "#4a7f9e" },
   { id: "education", question: "Are Kids Learning?", color: "#3d7a5a" },

@@ -129,7 +129,7 @@ export default function TaxDetail() {
         <SectionHeader title={`Tax Burden Comparison at $${(Math.max(...incomeLevels) / 1000).toFixed(0)}K Income`} />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
           <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-            Effective income tax rate broken down by level of government. Portland stands out for having the highest LOCAL tax burden (BLT + MultCo BIT + Metro SHS + PFA) of any comparable city.
+            Effective income tax rates for a single W-2 employee with standard deduction. Oregon&rsquo;s high state rate (top bracket 9.9%) is the primary driver of Portland&rsquo;s tax burden — not local taxes, which only kick in above $125K.
           </p>
           <ComparisonBarChart
             data={groupedBarData}
@@ -182,7 +182,10 @@ export default function TaxDetail() {
         <SectionHeader title="Portland Tax Breakdown by Income Level" />
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
           <p className="text-[13px] text-[var(--color-ink-muted)] mb-4">
-            How Portland&apos;s effective tax rate breaks down at each income level. Local taxes (BLT 2.6%, MultCo BIT 2.0%, Metro SHS 1.0%, PFA 1.5%) hit hardest above $125K.
+            How Portland&apos;s effective tax rate breaks down at each income level for W-2 employees. Below $125K, local taxes are just $35 (Arts Tax). Above $125K, PFA (1.5%) and Metro SHS (1.0%) apply to taxable income over the threshold.
+          </p>
+          <p className="text-[12px] text-[var(--color-ink-muted)] mb-4 italic">
+            Note: Self-employed and business owners pay additional BLT (2.6%) and MultCo BIT (2.0%) on net business income. These rates show employee-only burden.
           </p>
           <ComparisonBarChart
             data={portlandStacked}
@@ -190,7 +193,7 @@ export default function TaxDetail() {
             bars={[
               { key: "Federal", label: "Federal", color: "#4a7f9e", stackId: "stack" },
               { key: "State", label: "State (Oregon)", color: "#3d7a5a", stackId: "stack" },
-              { key: "Local", label: "Local (BLT+BIT+SHS+PFA)", color: "#c8956c", stackId: "stack" },
+              { key: "Local", label: "Local (PFA + Metro SHS)", color: "#c8956c", stackId: "stack" },
               { key: "Other", label: "Other (Arts Tax)", color: "#7c6f9e", stackId: "stack" },
             ]}
             height={320}
@@ -199,7 +202,7 @@ export default function TaxDetail() {
 
           {/* Dollar breakdown per income level */}
           <div className="mt-6 pt-4 border-t border-[var(--color-parchment)]">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {portlandBreakdown.map((r) => {
                 const totalDollars = Math.round(r.income_level * r.effective_rate / 100);
                 const localDollars = Math.round(r.income_level * r.local / 100);
@@ -215,10 +218,10 @@ export default function TaxDetail() {
                       total tax ({r.effective_rate}% effective)
                     </p>
                     <p className="text-[13px] font-mono font-semibold text-[var(--color-clay)] mt-2">
-                      ${localDollars.toLocaleString()} in local taxes alone
+                      ${localDollars.toLocaleString()} in Portland-specific taxes
                     </p>
                     <p className="text-[11px] text-[var(--color-ink-muted)]">
-                      BLT + MultCo BIT + Metro SHS + PFA ({r.local}%)
+                      {r.local > 0 ? `PFA + Metro SHS (${r.local}%)` : "Arts Tax only ($35)"}
                     </p>
                   </div>
                 );
@@ -282,7 +285,7 @@ export default function TaxDetail() {
               a {gap} percentage point gap.
             </p>
             <p className="text-[13px] text-white/60 mt-3 font-mono">
-              Portland layers include BLT, MultCo BIT, Metro SHS, PFA, state income tax, and federal tax.
+              The gap is almost entirely Oregon&rsquo;s 9.9% top income tax rate. Portland-specific taxes (PFA + SHS) add ~0.9% above $125K. WA has no state income tax.
             </p>
           </div>
         </section>

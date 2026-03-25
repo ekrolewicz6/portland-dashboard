@@ -29,7 +29,7 @@ export const questionMeta: Record<
   safety: { title: "Are People Safe?", shortTitle: "Public Safety", color: "#b85c3a" },
   transportation: { title: "Can You Get Around?", shortTitle: "Transportation", color: "#4a7f9e" },
   education: { title: "Are Kids Learning?", shortTitle: "Education", color: "#3d7a5a" },
-  fiscal: { title: "Is the City Solvent?", shortTitle: "Fiscal Health", color: "#7c6f9e" },
+  fiscal: { title: "Where Does the Money Go?", shortTitle: "Fiscal Health", color: "#7c6f9e" },
   economy: { title: "Can People Make a Living?", shortTitle: "Economy", color: "#c8956c" },
   environment: { title: "Are We Meeting Our Climate Goals?", shortTitle: "Environment", color: "#5a8a6a" },
   quality: { title: "Does Portland Work as a Place to Live?", shortTitle: "Quality of Life", color: "#6a7f8a" },

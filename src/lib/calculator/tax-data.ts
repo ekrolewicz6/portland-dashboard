@@ -10,9 +10,12 @@ export const TAX_RATES = {
   BLT: 0.026,
   /** Multnomah County Business Income Tax: 2.0% of net income */
   MULTCO_BIT: 0.02,
-  /** Metro Supportive Housing Services: 1.0% (if gross > $5M) */
+  /** Metro Supportive Housing Services: 1.0% on taxable income over threshold */
   METRO_SHS: 0.01,
-  METRO_SHS_THRESHOLD: 5_000_000,
+  /** SHS individual threshold: $125K single / $200K joint */
+  METRO_SHS_INDIVIDUAL_THRESHOLD: 125_000,
+  /** SHS business threshold: $5M gross receipts */
+  METRO_SHS_BUSINESS_THRESHOLD: 5_000_000,
   /** Portland/Multnomah Preschool For All: 1.5% personal (if income > $125K) */
   PFA: 0.015,
   PFA_THRESHOLD: 125_000,

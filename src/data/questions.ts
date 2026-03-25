@@ -61,7 +61,7 @@ export const QUESTIONS = [
   },
   {
     id: "fiscal",
-    title: "Is the City Solvent?",
+    title: "Where Does the Money Go?",
     shortTitle: "Fiscal Health",
     description:
       "Compares tax burden, tracks city budget trends, revenue sources, capital project completion, and PERS liability.",
