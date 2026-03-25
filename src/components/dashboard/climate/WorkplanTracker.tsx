@@ -172,7 +172,7 @@ export default function WorkplanTracker() {
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider">
-                All 43 Actions:
+                All {summary.total} Actions:
               </span>
             </div>
             <div className="flex items-center gap-1.5">

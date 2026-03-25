@@ -290,10 +290,8 @@ export default function FinanceTracker() {
                 {formatMoney(summary.totalInterestDiverted)} in PCEF Interest Redirected to General Fund
               </p>
               <p className="text-[12px] text-red-700 leading-relaxed">
-                The ~$25M in PCEF-generated interest that was redirected to fill general fund budget gaps is
-                the single most politically sensitive data point in Portland&apos;s climate landscape.
-                This diversion was not transparently communicated to the public. Voters passed PCEF to fund
-                clean energy and community benefits, not to backstop city budget shortfalls.
+                The audit found the City has not been transparent enough about PCEF funding flows.
+                This view shows where PCEF-generated interest was directed each fiscal year.
               </p>
             </div>
           </div>
@@ -342,7 +340,7 @@ export default function FinanceTracker() {
             <div className="grid grid-cols-[100px_120px_1fr_120px] gap-3 px-4 py-3 bg-red-50 border-t border-red-200 text-[12px] font-bold">
               <span className="text-red-800">TOTAL</span>
               <span className="font-mono text-red-800">{formatMoney(summary.totalInterestDiverted, 1)}</span>
-              <span className="text-red-700">Redirected to General Fund instead of PCEF climate programs</span>
+              <span className="text-red-700">Directed to General Fund</span>
               <span className="text-red-700">General Fund</span>
             </div>
           </div>
