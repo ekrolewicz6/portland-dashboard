@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Portland Commons Dashboard — Question Configuration
+// Portland Civic Lab Dashboard — Question Configuration
 // ---------------------------------------------------------------------------
 
 import type { QuestionId } from "@/types/dashboard";

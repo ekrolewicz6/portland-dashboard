@@ -2,7 +2,7 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 /**
- * NextAuth.js configuration for Portland Commons.
+ * NextAuth.js configuration for Portland Civic Lab.
  *
  * Uses a credentials provider (email / password) as the initial auth method.
  * When a Postgres database is available the @auth/pg-adapter can be wired in

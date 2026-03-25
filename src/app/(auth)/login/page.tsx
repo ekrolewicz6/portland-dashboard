@@ -40,7 +40,7 @@ function LoginForm() {
           Sign in
         </h1>
         <p className="text-[14px] text-[var(--color-ink-muted)] mt-2">
-          Welcome back to Portland Commons
+          Welcome back to Portland Civic Lab
         </p>
       </div>
 

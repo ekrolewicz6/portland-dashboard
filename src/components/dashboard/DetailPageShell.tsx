@@ -162,7 +162,7 @@ export default function DetailPageShell({
             government APIs. If you see something wrong, tell us.
           </p>
           <cite>
-            Portland Commons Civic Dashboard &middot; {source} &middot;{" "}
+            Portland Civic Lab Civic Dashboard &middot; {source} &middot;{" "}
             {lastUpdated}
           </cite>
         </div>

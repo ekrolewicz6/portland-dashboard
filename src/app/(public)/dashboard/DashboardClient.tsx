@@ -112,7 +112,7 @@ export default function DashboardClient({ questions }: DashboardClientProps) {
             <div className="flex items-center gap-3 mb-5 animate-fade-up">
               <div className="w-8 h-px bg-[var(--color-ember)]" />
               <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
-                Portland Commons Civic Dashboard
+                Portland Civic Lab Civic Dashboard
               </span>
             </div>
             <h1

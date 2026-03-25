@@ -146,7 +146,7 @@ export default function CalculatorPage() {
             What Is Certification Worth to Your Business?
           </h1>
           <p className="text-white/60 text-[15px] max-w-xl mx-auto leading-relaxed">
-            Estimate the total first-year value of Portland Commons Business
+            Estimate the total first-year value of Portland Civic Lab Business
             certification — from tax savings to network benefits.
           </p>
         </div>

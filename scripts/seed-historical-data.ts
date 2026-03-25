@@ -825,11 +825,11 @@ async function seedDashboardCache() {
   });
 
   const programCache = {
-    headline: "Portland Commons program driving business growth",
+    headline: "Portland Civic Lab program driving business growth",
     headlineValue: "347 certified",
     trend: { direction: "up", value: "+93%", isPositive: true },
     chartData: pcbChartFull,
-    source: "Portland Commons Business Program",
+    source: "Portland Civic Lab Business Program",
     lastUpdated,
     insights: [
       "347 PCB-certified businesses, 89% one-year survival rate",

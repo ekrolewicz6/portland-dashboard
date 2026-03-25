@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Portland Commons Dashboard — Utility Functions
+// Portland Civic Lab Dashboard — Utility Functions
 // ---------------------------------------------------------------------------
 
 import { clsx, type ClassValue } from "clsx";

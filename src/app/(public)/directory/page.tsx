@@ -103,7 +103,7 @@ export default function DirectoryPage() {
               <Building2 className="w-5 h-5 text-[var(--color-ember)]" />
             </div>
             <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--color-ember)]">
-              Portland Commons
+              Portland Civic Lab
             </span>
           </div>
           <h1 className="font-[family-name:var(--font-display)] text-4xl lg:text-5xl xl:text-[3.5rem] italic leading-[1.15] mb-4">

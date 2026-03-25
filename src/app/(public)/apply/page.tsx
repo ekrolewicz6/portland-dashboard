@@ -236,10 +236,10 @@ export default function ApplyPage() {
       <section className="bg-[var(--color-canopy)] text-white py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
           <p className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em] mb-4">
-            Portland Commons Business
+            Portland Civic Lab Business
           </p>
           <h1 className="font-editorial-normal text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-4">
-            Apply for Portland Commons Certification
+            Apply for Portland Civic Lab Certification
           </h1>
           <p className="text-white/60 text-[15px] max-w-xl mx-auto leading-relaxed">
             Join Portland&apos;s network of certified local businesses. Access

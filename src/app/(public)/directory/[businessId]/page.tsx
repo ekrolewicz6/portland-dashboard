@@ -258,10 +258,10 @@ export async function generateMetadata({
 
   return {
     title: `${name} | Portland Business Directory`,
-    description: `${name} is a ${humanType.toLowerCase()} registered in ${location || "Portland, OR"}. View registration details and similar businesses in the Portland Commons directory.`,
+    description: `${name} is a ${humanType.toLowerCase()} registered in ${location || "Portland, OR"}. View registration details and similar businesses in the Portland Civic Lab directory.`,
     openGraph: {
       title: `${name} — Portland Business Directory`,
-      description: `${humanType} registered in ${location || "Portland, OR"}. Part of the Portland Commons civic platform.`,
+      description: `${humanType} registered in ${location || "Portland, OR"}. Part of the Portland Civic Lab civic platform.`,
       type: "website",
     },
   };

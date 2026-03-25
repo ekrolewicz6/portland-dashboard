@@ -55,11 +55,11 @@ export async function generateMetadata({
   const report = await fetchReport(baseUrl, issueId);
 
   if (!report) {
-    return { title: "Report Not Found | Portland Commons" };
+    return { title: "Report Not Found | Portland Civic Lab" };
   }
 
   return {
-    title: `${report.title} | Portland Commons`,
+    title: `${report.title} | Portland Civic Lab`,
     description: report.summary ?? "Portland Progress Report",
     openGraph: {
       title: report.title,
@@ -211,7 +211,7 @@ export default async function ProgressReportPage({
               href="/dashboard"
               className="text-[var(--color-canopy-light)] hover:text-[var(--color-canopy)] underline underline-offset-2 decoration-[var(--color-canopy-light)]/30 hover:decoration-[var(--color-canopy)]/50 transition-all"
             >
-              Portland Commons Civic Dashboard
+              Portland Civic Lab Civic Dashboard
             </Link>
             , which draws from public records and government APIs.
           </p>

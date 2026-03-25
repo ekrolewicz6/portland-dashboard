@@ -99,7 +99,7 @@ export default function DataNeeded({ title, description, actions, color }: DataN
 
         {/* Footer note */}
         <p className="text-[11px] text-[var(--color-ink-muted)]/60 mt-5 leading-relaxed">
-          Portland Commons is committed to transparency. We show real data when we have it and clearly mark what is missing.
+          Portland Civic Lab is committed to transparency. We show real data when we have it and clearly mark what is missing.
           Help us fill the gaps by contributing data sources.
         </p>
       </div>

@@ -16,11 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portland Commons Civic Dashboard",
+  title: "Portland Civic Lab Civic Dashboard",
   description:
     "Real-time data on Portland's recovery — migration, business formation, downtown activity, safety, taxes, and housing.",
   openGraph: {
-    title: "Portland Commons Civic Dashboard",
+    title: "Portland Civic Lab Civic Dashboard",
     description:
       "Seven questions that drive Portland's story, answered with real data.",
     type: "website",

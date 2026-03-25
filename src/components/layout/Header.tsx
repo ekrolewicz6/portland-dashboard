@@ -39,7 +39,7 @@ export default function Header() {
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-[15px] font-semibold tracking-tight">
-                Portland Commons
+                Portland Civic Lab
               </span>
               <span className="hidden sm:inline text-[11px] font-medium text-[var(--color-sage)] uppercase tracking-[0.15em]">
                 Civic Dashboard

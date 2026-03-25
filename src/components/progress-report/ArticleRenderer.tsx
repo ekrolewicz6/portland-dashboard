@@ -459,7 +459,7 @@ function ArticleSection({ section }: { section: ReportSection }) {
             ))}
           </div>
           <p className="text-[11px] text-[var(--color-ink-muted)] mt-4 font-mono">
-            Sources: Portland Commons Dashboard, peer city permit data (2025-2026)
+            Sources: Portland Civic Lab Dashboard, peer city permit data (2025-2026)
           </p>
         </div>
       )}

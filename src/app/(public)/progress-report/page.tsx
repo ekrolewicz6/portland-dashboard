@@ -7,7 +7,7 @@ import type { ProgressReportSummary } from "@/app/api/progress-report/route";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Portland Progress Report — Archive | Portland Commons",
+  title: "Portland Progress Report — Archive | Portland Civic Lab",
   description:
     "Quarterly publication combining dashboard data with narrative analysis. Portland's unofficial performance review.",
 };

@@ -1,7 +1,7 @@
 /**
  * seed-static-data.ts
  *
- * Seeds STATIC and REFERENCE data into the Portland Commons Dashboard database.
+ * Seeds STATIC and REFERENCE data into the Portland Civic Lab Dashboard database.
  * These are computed from specs or relatively stable reference data points
  * that don't come from live APIs.
  *
@@ -476,10 +476,10 @@ async function seedDashboardCache() {
       { date: "Feb 2026", value: 338 },
       { date: "Mar 2026", value: 347 },
     ],
-    source: "Portland Commons Business (PCB) Program",
+    source: "Portland Civic Lab Business (PCB) Program",
     lastUpdated,
     insights: [
-      "347 businesses certified through Portland Commons, up from 180 a year ago",
+      "347 businesses certified through Portland Civic Lab, up from 180 a year ago",
       "89% one-year survival rate among certified businesses",
       "$3.2M in tax credits issued, creating 1,240 jobs",
     ],
@@ -592,7 +592,7 @@ async function seedDashboardCache() {
 
   // ---- Program ----
   const programCache = {
-    headline: "Portland Commons program driving business growth",
+    headline: "Portland Civic Lab program driving business growth",
     headlineValue: "347 certified",
     trend: { direction: "up", value: "+93%", isPositive: true },
     chartData: [
@@ -609,7 +609,7 @@ async function seedDashboardCache() {
       { date: "Feb 2026", value: 338 },
       { date: "Mar 2026", value: 347 },
     ],
-    source: "Portland Commons Business Program",
+    source: "Portland Civic Lab Business Program",
     lastUpdated,
     insights: [
       "347 PCB-certified businesses, 89% one-year survival rate",

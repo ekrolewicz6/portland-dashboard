@@ -1,4 +1,4 @@
-/** Shared types for the Portland Commons Dashboard API */
+/** Shared types for the Portland Civic Lab Dashboard API */
 
 export interface TrendInfo {
   direction: "up" | "down" | "flat";

@@ -193,7 +193,7 @@ export default async function EmbedPage({ params }: PageProps) {
             fontWeight: 600,
           }}
         >
-          Portland Commons
+          Portland Civic Lab
         </a>
       </div>
     </div>

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Portland Commons Dashboard — Core Type Definitions
+// Portland Civic Lab Dashboard — Core Type Definitions
 // ---------------------------------------------------------------------------
 
 /** Traffic-light indicator for headline metrics */

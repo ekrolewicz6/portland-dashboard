@@ -29,7 +29,7 @@ const questionLabels: Record<string, string> = {
   safety: "Is Portland safe?",
   tax: "Is the tax burden competitive?",
   housing: "Is housing getting built?",
-  program: "Is the Portland Commons working?",
+  program: "Is the Portland Civic Lab working?",
 };
 
 export async function GET() {

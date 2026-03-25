@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Portland Commons Dashboard — API Response Types
+// Portland Civic Lab Dashboard — API Response Types
 // ---------------------------------------------------------------------------
 
 import type {

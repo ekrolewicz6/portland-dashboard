@@ -1,5 +1,5 @@
 /**
- * Comprehensive mock data for all 7 Portland Commons Dashboard questions.
+ * Comprehensive mock data for all 7 Portland Civic Lab Dashboard questions.
  * All numbers are realistic Portland-area figures for demonstration.
  * Date range: March 2025 – February 2026.
  */
@@ -287,7 +287,7 @@ export const housingData: HousingData = {
   ],
 };
 
-// ─── 7. Portland Commons Business Program ───────────────────────────────────
+// ─── 7. Portland Civic Lab Business Program ───────────────────────────────────
 
 export const programData: ProgramData = {
   headline: "312 PCB-certified businesses, 89% survival rate",
@@ -312,7 +312,7 @@ export const programData: ProgramData = {
     value: 45 + Math.round(i * 4 + Math.random() * 10),
     label: "Jobs created (monthly)",
   })),
-  source: "Portland Commons Program Office",
+  source: "Portland Civic Lab Program Office",
   lastUpdated: "2026-03-01",
   insights: [
     "89% two-year survival rate vs. 78% citywide average for new businesses.",

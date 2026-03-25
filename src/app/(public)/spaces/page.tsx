@@ -104,7 +104,7 @@ export default function SpacesPage() {
                 <Building2 className="w-5 h-5 text-[var(--color-ember)]" />
               </div>
               <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
-                Portland Commons Real Estate
+                Portland Civic Lab Real Estate
               </span>
             </div>
 
@@ -286,7 +286,7 @@ export default function SpacesPage() {
                 space downtown. The PCB program turns vacancy into opportunity
                 with graduated rent and pop-up programs.
               </p>
-              <cite>Portland Commons Real Estate</cite>
+              <cite>Portland Civic Lab Real Estate</cite>
               <div className="mt-6">
                 <Link
                   href="/apply"

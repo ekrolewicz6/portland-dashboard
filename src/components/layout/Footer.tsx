@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <h3 className="font-editorial-normal text-xl text-white mb-3">
-              Portland Commons
+              Portland Civic Lab
             </h3>
             <p className="text-[13px] leading-relaxed max-w-sm">
               Open data for Portland&apos;s recovery. Every metric is sourced
@@ -62,7 +62,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[12px] text-white/40">
-            &copy; {new Date().getFullYear()} Portland Commons. Data provided
+            &copy; {new Date().getFullYear()} Portland Civic Lab. Data provided
             as-is from public sources.
           </p>
           <p className="text-[11px] text-white/25 font-mono">

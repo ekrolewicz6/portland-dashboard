@@ -11,7 +11,7 @@ export default function EmbedButton({ question }: EmbedButtonProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const embedCode = `<iframe src="https://portlandcommons.org/dashboard/embed/${question}" width="400" height="300" frameborder="0" title="Portland Commons - ${question}"></iframe>`;
+  const embedCode = `<iframe src="https://portlandcommons.org/dashboard/embed/${question}" width="400" height="300" frameborder="0" title="Portland Civic Lab - ${question}"></iframe>`;
 
   const handleCopy = async () => {
     try {

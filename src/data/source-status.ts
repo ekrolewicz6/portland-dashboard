@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Portland Commons Dashboard — Data Source Status Registry
+// Portland Civic Lab Dashboard — Data Source Status Registry
 // ---------------------------------------------------------------------------
 //
 // This module exports the status of each data source so the dashboard can
@@ -546,7 +546,7 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
         name: "PCB Registry",
         status: "INTERNAL",
         statusLabel: "Awaiting system launch",
-        provider: "Portland Commons Program Office",
+        provider: "Portland Civic Lab Program Office",
         blocker: "PCB application system not yet live",
       },
     ],

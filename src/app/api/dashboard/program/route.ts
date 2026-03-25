@@ -14,7 +14,7 @@ export async function GET(): Promise<NextResponse<ProgramData & { dataStatus: st
       {
         name: "PCB Registry",
         status: "internal",
-        provider: "Portland Commons Program Office",
+        provider: "Portland Civic Lab Program Office",
         action: "Will be available once the PCB certification system is live",
       },
     ],
@@ -23,7 +23,7 @@ export async function GET(): Promise<NextResponse<ProgramData & { dataStatus: st
     certifiedBusinesses: [],
     survivalRate: [],
     jobsCreated: [],
-    source: "Portland Commons Program Office (not yet live)",
+    source: "Portland Civic Lab Program Office (not yet live)",
     lastUpdated: new Date().toISOString().slice(0, 10),
     insights: [
       "PCB program metrics will be available once the certification system launches.",

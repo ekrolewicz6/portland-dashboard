@@ -55,7 +55,7 @@ export default function SignupPage() {
           Create an account
         </h1>
         <p className="text-[14px] text-[var(--color-ink-muted)] mt-2">
-          Join the Portland Commons community
+          Join the Portland Civic Lab community
         </p>
       </div>
 

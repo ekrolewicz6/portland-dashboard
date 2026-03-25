@@ -15,7 +15,7 @@ export async function GET() {
       {
         name: "PCB Registry",
         status: "internal",
-        provider: "Portland Commons Program Office",
+        provider: "Portland Civic Lab Program Office",
         action: "Will be available once the PCB certification system is live",
       },
     ],

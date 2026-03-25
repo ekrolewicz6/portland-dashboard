@@ -1,5 +1,5 @@
 /**
- * Database connection for Portland Commons Dashboard.
+ * Database connection for Portland Civic Lab Dashboard.
  *
  * Uses Drizzle ORM with postgres-js driver.
  */

@@ -1,7 +1,7 @@
 /**
  * PCB Benefits Calculator — Savings Engine
  *
- * Computes estimated first-year value of Portland Commons Business certification.
+ * Computes estimated first-year value of Portland Civic Lab Business certification.
  */
 
 import {

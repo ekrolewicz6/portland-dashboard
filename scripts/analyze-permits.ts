@@ -762,7 +762,7 @@ async function updateDashboardCache() {
 // ── Main ────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log("Portland Commons Dashboard — Permit Analysis Report");
+  console.log("Portland Civic Lab Dashboard — Permit Analysis Report");
   console.log("====================================================");
   console.log(`Generated: ${new Date().toISOString()}\n`);
 

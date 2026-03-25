@@ -4,67 +4,111 @@ import Footer from "@/components/layout/Footer";
 import {
   ArrowRight,
   BarChart3,
-  Building2,
-  Calculator,
-  FileText,
+  Leaf,
   Shield,
+  Home,
   Users,
+  BookOpen,
+  Zap,
+  Sun,
+  Scale,
 } from "lucide-react";
 
-/* ─── Static data for the landing page ─────────────────────────────── */
+/* ─── Dashboard data views ──────────────────────────────────────────── */
 
-const stats = [
-  { value: "347", label: "Certified Businesses" },
-  { value: "1,240", label: "Jobs Created" },
-  { value: "89%", label: "1-Year Survival Rate" },
-  { value: "$3.2K", label: "Avg Commons Credit" },
-];
-
-const pillars = [
+const dataViews = [
   {
-    icon: BarChart3,
-    title: "Civic Dashboard",
+    icon: Leaf,
+    id: "climate",
+    title: "Climate Accountability",
     description:
-      "Seven questions that drive Portland's story, answered with real data. Updated automatically from public records and government APIs.",
-    href: "/dashboard",
-    cta: "View the dashboard",
+      "All 43 Climate Emergency Workplan actions, bureau performance, PCEF spending, and emissions trajectory vs. 2030 goals.",
+    color: "text-green-400",
+    bg: "bg-green-900/20",
+  },
+  {
+    icon: Home,
+    id: "housing",
+    title: "Housing",
+    description:
+      "Building permits, median rents, home values, and housing completions across Portland.",
+    color: "text-rose-400",
+    bg: "bg-rose-900/20",
   },
   {
     icon: Shield,
-    title: "PCB Certification",
+    id: "safety",
+    title: "Public Safety",
     description:
-      "Portland Commons Business certification signals quality, community commitment, and fair business practices to Portland residents.",
-    href: "/apply",
-    cta: "Apply for certification",
+      "Crime data, 911 response times, officer staffing, and use-of-force trends.",
+    color: "text-amber-400",
+    bg: "bg-amber-900/20",
   },
   {
-    icon: Calculator,
-    title: "Benefits Calculator",
+    icon: Users,
+    id: "homelessness",
+    title: "Homelessness",
     description:
-      "See exactly how much you could save with Commons Credits, tax incentives, and the collective buying power of the network.",
-    href: "/calculator",
-    cta: "Calculate your benefits",
+      "Shelter capacity, Point-in-Time counts, permanent supportive housing, and behavioral health services.",
+    color: "text-stone-300",
+    bg: "bg-stone-800/30",
+  },
+  {
+    icon: Zap,
+    id: "economy",
+    title: "Economy",
+    description:
+      "Business registrations, commercial vacancy, employment data, wages by sector, and downtown vitality.",
+    color: "text-orange-400",
+    bg: "bg-orange-900/20",
+  },
+  {
+    icon: BookOpen,
+    id: "education",
+    title: "Education",
+    description:
+      "PPS enrollment, test scores, graduation rates, and teacher staffing ratios.",
+    color: "text-emerald-400",
+    bg: "bg-emerald-900/20",
+  },
+  {
+    icon: Sun,
+    id: "quality",
+    title: "Quality of Life",
+    description:
+      "Park access, library services, street conditions, and 311 service request trends.",
+    color: "text-slate-300",
+    bg: "bg-slate-800/30",
+  },
+  {
+    icon: Scale,
+    id: "accountability",
+    title: "Accountability",
+    description:
+      "Elected officials, ballot measure outcomes, campaign finance, and agency performance metrics.",
+    color: "text-pink-400",
+    bg: "bg-pink-900/20",
   },
 ];
 
-const values = [
+const principles = [
   {
-    icon: Users,
-    title: "Community First",
+    icon: BarChart3,
+    title: "Real Data Only",
     description:
-      "Every decision is measured by its impact on the people who live, work, and build in Portland.",
+      "Every metric is sourced from public records, government APIs, and verified datasets. No projections, no marketing copy.",
   },
   {
-    icon: Building2,
-    title: "Radical Transparency",
+    icon: BookOpen,
+    title: "Open Methodology",
     description:
       "Open data, open methodology, open books. If we can't show the math, we won't make the claim.",
   },
   {
-    icon: FileText,
-    title: "Earned Trust",
+    icon: Users,
+    title: "Built for Portlanders",
     description:
-      "The PCB seal means something because it's hard to get. Standards without enforcement are just suggestions.",
+      "Every question on the dashboard is one Portland residents are actually asking. We measure what matters to the people who live here.",
   },
 ];
 
@@ -87,7 +131,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-3 mb-8 animate-fade-up">
               <div className="w-10 h-px bg-[var(--color-ember)]" />
               <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
-                A civic infrastructure for Portland
+                Portland civic data, in public
               </span>
             </div>
 
@@ -108,10 +152,10 @@ export default function LandingPage() {
               className="mt-6 text-[17px] sm:text-[19px] text-white/55 leading-relaxed max-w-xl animate-fade-up"
               style={{ animationDelay: "200ms" }}
             >
-              Portland Commons is a member-owned organization building the data
-              infrastructure, business network, and civic tools Portland needs
-              to thrive. We measure what matters, certify businesses that care,
-              and make the numbers public.
+              Portland Civic Lab tracks the questions that matter — climate
+              commitments, housing production, public safety, fiscal health —
+              using real data from public records and government APIs. Updated
+              automatically. No spin.
             </p>
 
             {/* CTAs */}
@@ -127,10 +171,10 @@ export default function LandingPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/apply"
+                href="/progress-report"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white text-[14px] font-medium rounded hover:bg-white/8 transition-colors"
               >
-                Apply for PCB Certification
+                Read the Reports
               </Link>
             </div>
           </div>
@@ -140,75 +184,63 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[var(--color-paper)] to-transparent" />
       </section>
 
-      {/* ── Stats Bar ── */}
-      <section className="relative z-20 -mt-8">
-        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div
-            className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm px-8 py-6 animate-fade-up"
-            style={{ animationDelay: "400ms" }}
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-[var(--color-parchment)]">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center px-4">
-                  <p className="text-[32px] sm:text-[36px] font-bold text-[var(--color-canopy)] tracking-tight font-mono">
-                    {stat.value}
-                  </p>
-                  <p className="text-[12px] text-[var(--color-ink-muted)] uppercase tracking-[0.1em] mt-1">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Three Pillars ── */}
+      {/* ── Data Views Grid ── */}
       <section className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-px bg-[var(--color-ember)]" />
             <span className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em]">
-              What We Build
+              What We Track
             </span>
             <div className="w-8 h-px bg-[var(--color-ember)]" />
           </div>
           <h2 className="font-editorial-normal text-[36px] sm:text-[48px] text-[var(--color-ink)] leading-tight">
-            Three pillars of a<br />
+            Eight questions that drive<br />
             <span className="font-editorial text-[var(--color-canopy)]">
-              stronger Portland
+              Portland&apos;s story
             </span>
           </h2>
+          <p className="mt-4 text-[15px] text-[var(--color-ink-muted)] max-w-lg mx-auto leading-relaxed">
+            Each dashboard view is built from live data — automatically updated
+            from public records, city APIs, and government data portals.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="relative bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-8 group hover:border-[var(--color-sage)] hover:shadow-[0_8px_32px_rgba(15,36,25,0.06)] transition-all duration-300"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {dataViews.map((view) => (
+            <Link
+              key={view.id}
+              href={`/dashboard/${view.id}`}
+              className="relative bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6 group hover:border-[var(--color-sage)] hover:shadow-[0_8px_32px_rgba(15,36,25,0.06)] transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-sm bg-[var(--color-canopy)] flex items-center justify-center mb-5">
-                <pillar.icon className="w-5 h-5 text-[var(--color-ember)]" />
+              <div className={`w-9 h-9 rounded-sm ${view.bg} flex items-center justify-center mb-4`}>
+                <view.icon className={`w-4.5 h-4.5 ${view.color}`} />
               </div>
-              <h3 className="text-[20px] font-semibold text-[var(--color-ink)] mb-3">
-                {pillar.title}
+              <h3 className="text-[16px] font-semibold text-[var(--color-ink)] mb-2">
+                {view.title}
               </h3>
-              <p className="text-[14px] text-[var(--color-ink-muted)] leading-relaxed mb-6">
-                {pillar.description}
+              <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed">
+                {view.description}
               </p>
-              <Link
-                href={pillar.href}
-                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-canopy)] hover:text-[var(--color-fern)] transition-colors group-hover:gap-2.5"
-              >
-                {pillar.cta}
-                <ArrowRight className="w-3.5 h-3.5 transition-all" />
-              </Link>
-            </div>
+              <div className="mt-4 flex items-center gap-1 text-[12px] font-semibold text-[var(--color-canopy)] group-hover:gap-2 transition-all">
+                View data <ArrowRight className="w-3 h-3" />
+              </div>
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-canopy)] text-white text-[14px] font-semibold rounded hover:bg-[var(--color-canopy-mid)] transition-colors"
+          >
+            Open the Full Dashboard
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
-      {/* ── Values ── */}
+      {/* ── Principles ── */}
       <section className="bg-[var(--color-canopy)] noise-overlay">
         <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
           <div className="text-center mb-14">
@@ -224,16 +256,16 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <div key={value.title} className="text-center">
+            {principles.map((p) => (
+              <div key={p.title} className="text-center">
                 <div className="w-12 h-12 mx-auto mb-4 rounded-full border border-white/15 flex items-center justify-center">
-                  <value.icon className="w-5 h-5 text-[var(--color-ember)]" />
+                  <p.icon className="w-5 h-5 text-[var(--color-ember)]" />
                 </div>
                 <h3 className="text-[18px] font-semibold text-white mb-2">
-                  {value.title}
+                  {p.title}
                 </h3>
                 <p className="text-[14px] text-white/50 leading-relaxed max-w-xs mx-auto">
-                  {value.description}
+                  {p.description}
                 </p>
               </div>
             ))}
@@ -246,18 +278,19 @@ export default function LandingPage() {
         <div className="relative bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-10 sm:p-14 text-center overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--color-ember)]" />
           <h2 className="font-editorial-normal text-[32px] sm:text-[40px] text-[var(--color-ink)] leading-tight">
-            Ready to join the Commons?
+            Have a question about Portland?
           </h2>
           <p className="text-[15px] text-[var(--color-ink-muted)] mt-4 max-w-lg mx-auto leading-relaxed">
-            Whether you&apos;re a business owner, landlord, or resident who
-            believes Portland can do better — there&apos;s a place for you here.
+            The Civic Concierge can answer questions about Portland government
+            data, permits, zoning, public services, and more — powered by AI
+            with real city data behind it.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/apply"
+              href="/concierge"
               className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-canopy)] text-white text-[14px] font-semibold rounded hover:bg-[var(--color-canopy-mid)] transition-colors"
             >
-              Apply for Certification
+              Ask the Concierge
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link

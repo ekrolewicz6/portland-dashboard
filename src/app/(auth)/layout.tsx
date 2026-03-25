@@ -35,7 +35,7 @@ export default function AuthLayout({
                 <circle cx="14" cy="14" r="2" fill="white" opacity="0.9" />
               </svg>
               <span className="text-[15px] font-semibold tracking-tight">
-                Portland Commons
+                Portland Civic Lab
               </span>
             </Link>
           </div>

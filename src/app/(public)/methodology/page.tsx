@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Methodology & Data Sources — Portland Commons",
+  title: "Methodology & Data Sources — Portland Civic Lab",
   description:
     "How we collect, verify, and present Portland's civic data. Every metric is sourced from public records, government APIs, and verified datasets.",
 };

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Portland Commons — AI Business Concierge Chat API
+// Portland Civic Lab — AI Civic Concierge Chat API
 // ---------------------------------------------------------------------------
 // Streaming chat endpoint that calls the Anthropic Claude API.
 // Falls back gracefully when ANTHROPIC_API_KEY is not configured.
@@ -28,32 +28,39 @@ interface ChatRequestBody {
 // Fallback response when no API key is configured
 // ---------------------------------------------------------------------------
 
-const FALLBACK_RESPONSE = `Welcome to the Portland Commons Business Concierge! I'm an AI advisor built to help Portland business owners navigate taxes, permits, zoning, and city incentives.
+const FALLBACK_RESPONSE = `Welcome to the Portland Civic Lab Civic Concierge! I'm an AI assistant built to help you navigate Portland's government, public data, and civic systems.
 
 **I'm currently running in demo mode** because the Anthropic API key hasn't been configured yet. Once connected, I can help you with:
 
-**Tax Guidance**
-- Portland Business License Tax (2.6% of net income)
-- Multnomah County Business Income Tax (2.0%)
-- Metro Supportive Housing Services tax
-- Preschool For All tax
-- Combined effective tax rate calculations
+**Government & Civic Information**
+- How Portland's city government works (bureaus, council, mayor)
+- How to file public records requests
+- How to participate in city decisions
 
-**Permits & Processing**
-- Current processing times (Commercial: ~54 days, Residential: ~31 days)
-- Application tips for faster approval
-- Pre-application conference scheduling
-
-**PCB Certification Benefits**
-- 2-year Business License Tax holiday
-- 50% SDC reduction
-- Expedited permitting
-- Network access and group health insurance
+**Permits & Development**
+- Building permit types and current processing times
+- Bureau of Development Services processes
+- Land use reviews and appeals
 
 **Zoning & Land Use**
-- Commercial zone types and allowed uses
-- Home occupation permits
-- Change of use requirements
+- Portland zoning code (Title 33)
+- Looking up zoning for any address
+- ADUs, home businesses, food carts, short-term rentals
+
+**Climate & Environment**
+- Portland's Climate Emergency Workplan (43 actions)
+- Portland Clean Energy Fund (PCEF) grants
+- Emissions data and 2030 goals
+
+**Housing, Homelessness & Public Services**
+- Housing production data and affordability programs
+- Shelter capacity and homelessness services
+- 311, parks, libraries, and neighborhood programs
+
+**Business & Tax Information**
+- Portland Business License Tax, Multnomah County BIT
+- SDC fees, zoning for businesses
+- How to navigate city permits
 
 To activate the full AI concierge, add your \`ANTHROPIC_API_KEY\` to the environment variables.`;
 

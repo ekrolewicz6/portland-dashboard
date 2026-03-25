@@ -234,7 +234,7 @@ async function main() {
     "",
     "We will track policy responses and measure their impact on the data in subsequent issues.",
     "",
-    "*The Portland Progress Report is published quarterly. All data is sourced from the Portland Commons Civic Dashboard, which draws from public records and government APIs.*",
+    "*The Portland Progress Report is published quarterly. All data is sourced from the Portland Civic Lab Civic Dashboard, which draws from public records and government APIs.*",
   ].join("\n");
 
   await sql`
