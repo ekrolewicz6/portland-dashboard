@@ -247,6 +247,55 @@ const CATEGORIES: CategoryInfo[] = [
       },
     ],
   },
+  {
+    name: "Climate Accountability Platform",
+    description:
+      "All 47 Climate Emergency Workplan actions, bureau performance scorecards, PCEF fund tracking, and Multnomah County emissions trajectory vs. 2030/2050 goals. Built in direct response to the February 2026 City Auditor climate justice audit — all five recommendations cross-referenced. Methodology: each workplan action is encoded with structured metadata (sector, category, lead bureaus, fiscal year, resource gap, PCEF funding status, multi-bureau flag, and current status). Bureau scorecards are computed from action assignments. PCEF interest diversions are tracked separately from allocations to surface the ~$25M redirected to the General Fund.",
+    sources: [
+      {
+        name: "Climate Emergency Workplan 2022–2025",
+        provider: "Portland Bureau of Planning & Sustainability (BPS)",
+        frequency: "Seeded from published workplan tables",
+        status: "Seeded",
+      },
+      {
+        name: "CEW Annual Progress Reports",
+        provider: "Portland Bureau of Planning & Sustainability",
+        frequency: "Annual (FY 22-23, FY 23-24 encoded)",
+        status: "Seeded",
+      },
+      {
+        name: "PCEF Climate Investment Plan",
+        provider: "Portland Clean Energy Fund",
+        frequency: "Annual allocation reports (FY 21-22 through FY 24-25)",
+        status: "Seeded",
+      },
+      {
+        name: "Multnomah County Community GHG Inventory",
+        provider: "BPS Climate & Energy Dashboard",
+        frequency: "Annual (1990–2023 actuals + 2030/2050 targets)",
+        status: "Seeded",
+      },
+      {
+        name: "City Budget Documents",
+        provider: "City of Portland Budget Office",
+        frequency: "Annual (resource gap and funding source data)",
+        status: "Seeded",
+      },
+      {
+        name: "Climate Justice Audit",
+        provider: "City Auditor's Office, February 25, 2026",
+        frequency: "One-time — 5 recommendations cross-referenced in platform",
+        status: "Seeded",
+      },
+      {
+        name: "Climate Action Plan Targets",
+        provider: "BPS / Multnomah County",
+        frequency: "Seeded from 2030 (50% below 1990) and 2050 (net-zero) goal documents",
+        status: "Seeded",
+      },
+    ],
+  },
 ];
 
 // ---------------------------------------------------------------------------

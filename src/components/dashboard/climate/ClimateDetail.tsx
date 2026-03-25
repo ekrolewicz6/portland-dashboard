@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ClipboardList, Building2, DollarSign, TrendingDown } from "lucide-react";
+import { ClipboardList, Building2, DollarSign, TrendingDown, Wind } from "lucide-react";
 import WorkplanTracker from "./WorkplanTracker";
 import BureauScorecard from "./BureauScorecard";
 import FinanceTracker from "./FinanceTracker";
 import EmissionsTrajectory from "./EmissionsTrajectory";
+import EnvironmentDetail from "../environment/EnvironmentDetail";
 
 const CLIMATE_COLOR = "#2d6a4f";
 
-type Tab = "workplan" | "bureaus" | "finance" | "emissions";
+type Tab = "workplan" | "bureaus" | "finance" | "emissions" | "airquality";
 
 const TABS: { id: Tab; label: string; shortLabel: string; Icon: React.ComponentType<{ className?: string }>; description: string }[] = [
   {
@@ -39,6 +40,13 @@ const TABS: { id: Tab; label: string; shortLabel: string; Icon: React.ComponentT
     shortLabel: "Emissions",
     Icon: TrendingDown,
     description: "Multnomah County GHG emissions vs. 2030 and 2050 targets",
+  },
+  {
+    id: "airquality",
+    label: "Air Quality",
+    shortLabel: "AQI",
+    Icon: Wind,
+    description: "Current AQI readings and PM2.5 trend from EPA AirNow",
   },
 ];
 
@@ -116,6 +124,7 @@ export default function ClimateDetail() {
           {activeTab === "bureaus" && <BureauScorecard />}
           {activeTab === "finance" && <FinanceTracker />}
           {activeTab === "emissions" && <EmissionsTrajectory />}
+          {activeTab === "airquality" && <EnvironmentDetail />}
         </div>
       </section>
 

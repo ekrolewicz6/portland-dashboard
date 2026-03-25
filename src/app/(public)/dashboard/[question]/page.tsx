@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, BookOpen, MapPin } from "lucide-react";
 import { isValidQuestion, questionMeta } from "@/lib/questions";
@@ -84,6 +84,10 @@ const detailComponents: Record<string, React.ComponentType> = {
 
 export default async function QuestionPage({ params }: PageProps) {
   const { question } = await params;
+
+  if (question === "environment") {
+    redirect("/dashboard/climate");
+  }
 
   if (!isValidQuestion(question)) {
     notFound();

@@ -13,7 +13,7 @@ const QUESTIONS = [
   { id: "homelessness", question: "Are People Getting Housed?", color: "#8b6c5c" },
   { id: "transportation", question: "Can You Get Around?", color: "#4a7f9e" },
   { id: "education", question: "Are Kids Learning?", color: "#3d7a5a" },
-  { id: "environment", question: "Are We Meeting Our Climate Goals?", color: "#5a8a6a" },
+  { id: "climate", question: "Is Portland Meeting Its Climate Commitments?", color: "#2d6a4f" },
   { id: "quality", question: "Does Portland Work as a Place to Live?", color: "#6a7f8a" },
   { id: "accountability", question: "Who Promised What?", color: "#8a5c6a" },
 ] as const;
