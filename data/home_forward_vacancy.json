@@ -1,0 +1,24 @@
+{
+  "source_note": "From news reporting — Home Forward disputes some figures. Flagged as contested.",
+  "data_points": [
+    {
+      "as_of": "2025-11-01",
+      "source": "Willamette Week",
+      "total_units": null,
+      "vacant_units": 955,
+      "vacancy_pct": 14.0,
+      "avg_days_to_fill": 185,
+      "foregone_rent": 8400000,
+      "notes": "KATU/WW investigation. Home Forward disputes figures."
+    },
+    {
+      "as_of": "2025-12-01",
+      "source": "Home Forward (response)",
+      "total_units": null,
+      "vacant_units": null,
+      "vacancy_pct": 11.0,
+      "avg_days_to_fill": null,
+      "notes": "Home Forward stated vacancy declined to ~11% after KATU report."
+    }
+  ]
+}

@@ -5,9 +5,13 @@
  * Creates and populates all tables with real published data from:
  *   - PSU 2025 Tri-County PIT Count
  *   - JOHS Shelter Capacity Reports
- *   - SHS Annual Reports
+ *   - SHS Annual Reports (Year 4 / FY2024-25)
  *   - Multnomah County Medical Examiner / Domicile Unknown reports
  *   - HMIS By-Name List
+ *   - Evicted in Oregon / HRAC PSU (circuit court data)
+ *   - Metro SHS Revenue Forecast (Fall 2025)
+ *   - HRAC/PSU Regional Prevalence Study (2019)
+ *   - Home Forward vacancy (news reports, contested)
  *
  * Usage: npx tsx scripts/seed-homelessness.ts
  */
@@ -191,34 +195,34 @@ const SHS_FUNDING = [
   {
     year: 2022,
     tax_revenue: 337_000_000,
-    spending: null as number | null,
+    spending: 55_900_000,
     psh_units_added: null as number | null,
     psh_units_cumulative: null as number | null,
-    source: "SHS Annual Report / Metro",
+    source: "SHS Annual Report / Metro (Year 1)",
   },
   {
     year: 2023,
     tax_revenue: 357_000_000,
-    spending: null as number | null,
+    spending: 149_100_000,
     psh_units_added: null as number | null,
     psh_units_cumulative: null as number | null,
-    source: "SHS Annual Report / Metro (estimated)",
+    source: "SHS Annual Report / Metro (Year 2)",
   },
   {
     year: 2024,
     tax_revenue: 255_000_000,
-    spending: 143_500_000,
+    spending: 294_100_000,
     psh_units_added: null as number | null,
     psh_units_cumulative: null as number | null,
-    source: "SHS Annual Report / Metro",
+    source: "SHS Annual Report / Metro (Year 3)",
   },
   {
     year: 2025,
     tax_revenue: null as number | null,
-    spending: null as number | null,
+    spending: 424_900_000,
     psh_units_added: 244,
     psh_units_cumulative: 1541,
-    source: "SHS Annual Report / Metro (partial year)",
+    source: "SHS Annual Report / Metro (Year 4)",
   },
 ];
 
@@ -231,6 +235,225 @@ const BY_NAME_LIST = [
     new_entries: 1277,
     exits_to_housing: 865,
     source: "HMIS By-Name List January 2025",
+  },
+];
+
+// ── 7. Eviction Filings (NEW — Evicted in Oregon / HRAC PSU) ────────────
+// Source: https://www.evictedinoregon.com/data-tables
+// Circuit court data only. Clackamas not available (justice courts).
+
+const EVICTION_FILINGS = [
+  // Multnomah County
+  { month: "2025-03-01", county: "Multnomah", filings: 896, filing_rate_per_100: 7.0 },
+  { month: "2025-04-01", county: "Multnomah", filings: 1072, filing_rate_per_100: 7.0 },
+  { month: "2025-05-01", county: "Multnomah", filings: 974, filing_rate_per_100: 7.0 },
+  { month: "2025-06-01", county: "Multnomah", filings: 929, filing_rate_per_100: 7.0 },
+  { month: "2025-07-01", county: "Multnomah", filings: 1057, filing_rate_per_100: 7.0 },
+  { month: "2025-08-01", county: "Multnomah", filings: 1083, filing_rate_per_100: 7.0 },
+  { month: "2025-09-01", county: "Multnomah", filings: 999, filing_rate_per_100: 7.0 },
+  { month: "2025-10-01", county: "Multnomah", filings: 1152, filing_rate_per_100: 7.0 },
+  { month: "2025-11-01", county: "Multnomah", filings: 786, filing_rate_per_100: 7.0 },
+  { month: "2025-12-01", county: "Multnomah", filings: 1131, filing_rate_per_100: 7.0 },
+  { month: "2026-01-01", county: "Multnomah", filings: 1132, filing_rate_per_100: 7.0 },
+  { month: "2026-02-01", county: "Multnomah", filings: 916, filing_rate_per_100: 7.0 },
+  // Washington County
+  { month: "2025-03-01", county: "Washington", filings: 385, filing_rate_per_100: 5.0 },
+  { month: "2025-04-01", county: "Washington", filings: 415, filing_rate_per_100: 5.0 },
+  { month: "2025-05-01", county: "Washington", filings: 400, filing_rate_per_100: 5.0 },
+  { month: "2025-06-01", county: "Washington", filings: 401, filing_rate_per_100: 5.0 },
+  { month: "2025-07-01", county: "Washington", filings: 406, filing_rate_per_100: 5.0 },
+  { month: "2025-08-01", county: "Washington", filings: 425, filing_rate_per_100: 5.0 },
+  { month: "2025-09-01", county: "Washington", filings: 421, filing_rate_per_100: 5.0 },
+  { month: "2025-10-01", county: "Washington", filings: 440, filing_rate_per_100: 5.0 },
+  { month: "2025-11-01", county: "Washington", filings: 327, filing_rate_per_100: 5.0 },
+  { month: "2025-12-01", county: "Washington", filings: 421, filing_rate_per_100: 5.0 },
+  { month: "2026-01-01", county: "Washington", filings: 488, filing_rate_per_100: 5.0 },
+  { month: "2026-02-01", county: "Washington", filings: 392, filing_rate_per_100: 5.0 },
+  // Oregon statewide
+  { month: "2025-03-01", county: "Oregon (statewide)", filings: 2158, filing_rate_per_100: 5.0 },
+  { month: "2025-04-01", county: "Oregon (statewide)", filings: 2426, filing_rate_per_100: 5.0 },
+  { month: "2025-05-01", county: "Oregon (statewide)", filings: 2322, filing_rate_per_100: 5.0 },
+  { month: "2025-06-01", county: "Oregon (statewide)", filings: 2258, filing_rate_per_100: 5.0 },
+  { month: "2025-07-01", county: "Oregon (statewide)", filings: 2592, filing_rate_per_100: 5.0 },
+  { month: "2025-08-01", county: "Oregon (statewide)", filings: 2521, filing_rate_per_100: 5.0 },
+  { month: "2025-09-01", county: "Oregon (statewide)", filings: 2455, filing_rate_per_100: 5.0 },
+  { month: "2025-10-01", county: "Oregon (statewide)", filings: 2660, filing_rate_per_100: 5.0 },
+  { month: "2025-11-01", county: "Oregon (statewide)", filings: 1884, filing_rate_per_100: 5.0 },
+  { month: "2025-12-01", county: "Oregon (statewide)", filings: 2574, filing_rate_per_100: 5.0 },
+  { month: "2026-01-01", county: "Oregon (statewide)", filings: 2750, filing_rate_per_100: 5.0 },
+  { month: "2026-02-01", county: "Oregon (statewide)", filings: 2241, filing_rate_per_100: 5.0 },
+];
+
+// ── 8. SHS Spending by Intervention Type (NEW) ──────────────────────────
+// Source: Metro SHS Regional Annual Report FY2024-25 (Year 4)
+// Year 4 outcome data used to construct intervention breakdown
+
+const SHS_BY_TYPE = [
+  // Year 4 (FY2025) — outcomes from the annual report
+  { fiscal_year: "FY2025", intervention_type: "psh", households_served: 1394, housing_placements: 1394, source: "Metro SHS Year 4 Annual Report" },
+  { fiscal_year: "FY2025", intervention_type: "rapid_rehousing", households_served: 1404, housing_placements: 1404, source: "Metro SHS Year 4 Annual Report" },
+  { fiscal_year: "FY2025", intervention_type: "prevention", households_served: 4064, housing_placements: null as number | null, source: "Metro SHS Year 4 Annual Report" },
+  { fiscal_year: "FY2025", intervention_type: "shelter", households_served: 2499, housing_placements: null as number | null, source: "Metro SHS Year 4 Annual Report — beds created/sustained" },
+];
+
+// ── 9. SHS by County (NEW) ──────────────────────────────────────────────
+// Source: Metro SHS Regional Annual Report FY2024-25 (Year 4)
+
+const SHS_BY_COUNTY = [
+  // FY2025 Year 4 — allocations from revenue forecast, outcomes from annual report
+  {
+    fiscal_year: "FY2025",
+    county: "Multnomah",
+    allocation: 145_900_000,
+    spent: 204_100_000, // contract value (includes multi-year)
+    households_placed: 1695, // 715 PSH + 842 RRH + 138 other permanent
+    source: "Metro SHS Year 4 Annual Report",
+  },
+  {
+    fiscal_year: "FY2025",
+    county: "Washington",
+    allocation: 107_300_000,
+    spent: null as number | null,
+    households_placed: 869, // 498 PSH + 371 RRH
+    source: "Metro SHS Year 4 Annual Report",
+  },
+  {
+    fiscal_year: "FY2025",
+    county: "Clackamas",
+    allocation: 68_600_000,
+    spent: 38_600_000, // contract value
+    households_placed: 372, // 181 PSH + 191 RRH
+    source: "Metro SHS Year 4 Annual Report",
+  },
+  // FY2026 forecast
+  {
+    fiscal_year: "FY2026",
+    county: "Multnomah",
+    allocation: 145_900_000,
+    spent: null as number | null,
+    households_placed: null as number | null,
+    source: "Metro SHS Revenue Forecast Fall 2025",
+  },
+  {
+    fiscal_year: "FY2026",
+    county: "Washington",
+    allocation: 107_300_000,
+    spent: null as number | null,
+    households_placed: null as number | null,
+    source: "Metro SHS Revenue Forecast Fall 2025",
+  },
+  {
+    fiscal_year: "FY2026",
+    county: "Clackamas",
+    allocation: 68_600_000,
+    spent: null as number | null,
+    households_placed: null as number | null,
+    source: "Metro SHS Revenue Forecast Fall 2025",
+  },
+];
+
+// ── 10. Affordable Housing Vacancy (NEW — news reporting, contested) ────
+
+const AFFORDABLE_VACANCY = [
+  {
+    as_of: "2025-11-01",
+    source: "Willamette Week / KATU investigation",
+    total_units: null as number | null,
+    vacant_units: 955,
+    vacancy_pct: 14.0,
+    avg_days_to_fill: 185,
+    notes: "Home Forward public housing. $8.4M in foregone rent. Home Forward disputes some figures.",
+  },
+  {
+    as_of: "2025-12-01",
+    source: "Home Forward (response)",
+    total_units: null as number | null,
+    vacant_units: null as number | null,
+    vacancy_pct: 11.0,
+    avg_days_to_fill: null as number | null,
+    notes: "Home Forward stated vacancy declined to ~11% after investigation coverage.",
+  },
+];
+
+// ── 11. Context Stats (HRAC prevalence, federal risks, retention) ────────
+
+const CONTEXT_STATS = [
+  {
+    metric: "hrac_annual_homeless",
+    value: "38000",
+    context: "Annual count of people experiencing homelessness in tri-county area (vs PIT single-night count). Based on 2017 data.",
+    source: "HRAC/PSU Regional Homelessness & Housing Insecurity Study (2019)",
+    as_of_date: "2019-08-01",
+  },
+  {
+    metric: "hrac_at_risk_households",
+    value: "107039",
+    context: "Households housing insecure or at risk of homelessness across Multnomah, Clackamas, Washington counties.",
+    source: "HRAC/PSU Regional Homelessness & Housing Insecurity Study (2019)",
+    as_of_date: "2019-08-01",
+  },
+  {
+    metric: "shs_cumulative_housed",
+    value: "14936",
+    context: "People moved into permanent housing through SHS-funded programs, Years 1-4 cumulative.",
+    source: "Metro SHS Regional Annual Report FY2024-25",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "shs_psh_retention",
+    value: "0.92",
+    context: "PSH retention rate — 92% remain in stable housing after 1 year. Return to homelessness rate: 3%.",
+    source: "Metro SHS Regional Annual Report FY2024-25",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "shs_rrh_retention",
+    value: "0.86",
+    context: "Rapid rehousing retention rate — 86% remain in stable housing. Return to homelessness rate: 6%.",
+    source: "Metro SHS Regional Annual Report FY2024-25",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "psh_need_regional",
+    value: "8117",
+    context: "Estimated regional PSH need (Year 4), up from 6,818 baseline in 2021. Need growing despite placements.",
+    source: "Metro SHS Regional Annual Report FY2024-25, Figure 2.3",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "federal_coc_cuts_households",
+    value: "1109",
+    context: "Federal CoC cuts will eliminate housing for ~1,109 households annually.",
+    source: "Metro SHS Regional Annual Report FY2024-25",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "federal_ehv_vouchers_eliminated",
+    value: "546",
+    context: "Emergency Housing Voucher termination eliminates ~546 vouchers regionally.",
+    source: "Metro SHS Regional Annual Report FY2024-25",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "shs_pct_poc_served",
+    value: "0.56",
+    context: "56% of people served by SHS are people of color. POC: 52% PSH, 61% RRH, 66% prevention, 41% shelter.",
+    source: "Metro SHS Regional Annual Report FY2024-25",
+    as_of_date: "2026-03-18",
+  },
+  {
+    metric: "shs_tax_expires",
+    value: "TY2030",
+    context: "SHS tax expires after Tax Year 2030 (FY2031-32 residual collections only) unless reauthorized by voters.",
+    source: "Metro SHS Revenue Forecast Fall 2025",
+    as_of_date: "2026-01-01",
+  },
+  {
+    metric: "eviction_jan_2026_statewide",
+    value: "2750",
+    context: "January 2026: highest monthly eviction filings in Oregon during the tracking period (Mar 2025 - Feb 2026). Multnomah: 1,132, Washington: 488.",
+    source: "Evicted in Oregon / HRAC PSU (circuit court data)",
+    as_of_date: "2026-03-15",
   },
 ];
 
@@ -456,6 +679,178 @@ async function main() {
     }
     console.log(`   Inserted ${bnlInserted} by-name list records.`);
 
+    // ── 7. Create and seed eviction_filings (NEW) ───────────────────────
+
+    console.log("\n7. Creating homelessness.eviction_filings...");
+    await sql.unsafe(`
+      CREATE TABLE IF NOT EXISTS homelessness.eviction_filings (
+        id SERIAL PRIMARY KEY,
+        month DATE NOT NULL,
+        county TEXT NOT NULL,
+        filings INT,
+        filing_rate_per_100 NUMERIC(5,2),
+        default_judgments INT,
+        stipulated_agreements INT,
+        source TEXT DEFAULT 'Evicted in Oregon / HRAC PSU',
+        created_at TIMESTAMPTZ DEFAULT NOW(),
+        UNIQUE(month, county)
+      )
+    `);
+
+    let evictionInserted = 0;
+    for (const row of EVICTION_FILINGS) {
+      await sql`
+        INSERT INTO homelessness.eviction_filings
+          (month, county, filings, filing_rate_per_100)
+        VALUES (
+          ${row.month}::date, ${row.county}, ${row.filings}, ${row.filing_rate_per_100}
+        )
+        ON CONFLICT (month, county) DO UPDATE SET
+          filings = EXCLUDED.filings,
+          filing_rate_per_100 = EXCLUDED.filing_rate_per_100
+      `;
+      evictionInserted++;
+    }
+    console.log(`   Inserted ${evictionInserted} eviction filing records.`);
+
+    // ── 8. Create and seed shs_spending_by_type (NEW) ───────────────────
+
+    console.log("\n8. Creating homelessness.shs_spending_by_type...");
+    await sql.unsafe(`
+      CREATE TABLE IF NOT EXISTS homelessness.shs_spending_by_type (
+        id SERIAL PRIMARY KEY,
+        fiscal_year TEXT NOT NULL,
+        intervention_type TEXT NOT NULL,
+        amount BIGINT,
+        households_served INT,
+        housing_placements INT,
+        cost_per_placement NUMERIC(10,2),
+        source TEXT DEFAULT 'Metro SHS Reports',
+        created_at TIMESTAMPTZ DEFAULT NOW(),
+        UNIQUE(fiscal_year, intervention_type)
+      )
+    `);
+
+    let typeInserted = 0;
+    for (const row of SHS_BY_TYPE) {
+      await sql`
+        INSERT INTO homelessness.shs_spending_by_type
+          (fiscal_year, intervention_type, households_served, housing_placements, source)
+        VALUES (
+          ${row.fiscal_year}, ${row.intervention_type},
+          ${row.households_served}, ${row.housing_placements}, ${row.source}
+        )
+        ON CONFLICT (fiscal_year, intervention_type) DO UPDATE SET
+          households_served = EXCLUDED.households_served,
+          housing_placements = EXCLUDED.housing_placements,
+          source = EXCLUDED.source
+      `;
+      typeInserted++;
+    }
+    console.log(`   Inserted ${typeInserted} SHS spending by type records.`);
+
+    // ── 9. Create and seed shs_by_county (NEW) ──────────────────────────
+
+    console.log("\n9. Creating homelessness.shs_by_county...");
+    await sql.unsafe(`
+      CREATE TABLE IF NOT EXISTS homelessness.shs_by_county (
+        id SERIAL PRIMARY KEY,
+        fiscal_year TEXT NOT NULL,
+        county TEXT NOT NULL,
+        allocation BIGINT,
+        spent BIGINT,
+        households_placed INT,
+        source TEXT DEFAULT 'Metro SHS Reports',
+        created_at TIMESTAMPTZ DEFAULT NOW(),
+        UNIQUE(fiscal_year, county)
+      )
+    `);
+
+    let countyInserted = 0;
+    for (const row of SHS_BY_COUNTY) {
+      await sql`
+        INSERT INTO homelessness.shs_by_county
+          (fiscal_year, county, allocation, spent, households_placed, source)
+        VALUES (
+          ${row.fiscal_year}, ${row.county}, ${row.allocation},
+          ${row.spent}, ${row.households_placed}, ${row.source}
+        )
+        ON CONFLICT (fiscal_year, county) DO UPDATE SET
+          allocation = EXCLUDED.allocation,
+          spent = EXCLUDED.spent,
+          households_placed = EXCLUDED.households_placed,
+          source = EXCLUDED.source
+      `;
+      countyInserted++;
+    }
+    console.log(`   Inserted ${countyInserted} SHS by county records.`);
+
+    // ── 10. Create and seed affordable_housing_vacancy (NEW) ────────────
+
+    console.log("\n10. Creating homelessness.affordable_housing_vacancy...");
+    await sql.unsafe(`
+      CREATE TABLE IF NOT EXISTS homelessness.affordable_housing_vacancy (
+        id SERIAL PRIMARY KEY,
+        as_of DATE NOT NULL,
+        source TEXT NOT NULL,
+        total_units INT,
+        vacant_units INT,
+        vacancy_pct NUMERIC(5,2),
+        avg_days_to_fill INT,
+        notes TEXT,
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      )
+    `);
+
+    let vacancyInserted = 0;
+    for (const row of AFFORDABLE_VACANCY) {
+      await sql`
+        INSERT INTO homelessness.affordable_housing_vacancy
+          (as_of, source, total_units, vacant_units, vacancy_pct, avg_days_to_fill, notes)
+        VALUES (
+          ${row.as_of}::date, ${row.source}, ${row.total_units},
+          ${row.vacant_units}, ${row.vacancy_pct}, ${row.avg_days_to_fill}, ${row.notes}
+        )
+      `;
+      vacancyInserted++;
+    }
+    console.log(`   Inserted ${vacancyInserted} affordable housing vacancy records.`);
+
+    // ── 11. Create and seed context_stats (NEW/UPDATED) ─────────────────
+
+    console.log("\n11. Creating homelessness.context_stats...");
+    await sql.unsafe(`
+      CREATE TABLE IF NOT EXISTS homelessness.context_stats (
+        id SERIAL PRIMARY KEY,
+        metric TEXT NOT NULL,
+        value TEXT NOT NULL,
+        context TEXT,
+        source TEXT,
+        as_of_date DATE,
+        created_at TIMESTAMPTZ DEFAULT NOW(),
+        UNIQUE(metric)
+      )
+    `);
+
+    let contextInserted = 0;
+    for (const row of CONTEXT_STATS) {
+      await sql`
+        INSERT INTO homelessness.context_stats
+          (metric, value, context, source, as_of_date)
+        VALUES (
+          ${row.metric}, ${row.value}, ${row.context},
+          ${row.source}, ${row.as_of_date}::date
+        )
+        ON CONFLICT (metric) DO UPDATE SET
+          value = EXCLUDED.value,
+          context = EXCLUDED.context,
+          source = EXCLUDED.source,
+          as_of_date = EXCLUDED.as_of_date
+      `;
+      contextInserted++;
+    }
+    console.log(`   Inserted ${contextInserted} context stat records.`);
+
     // ── Verification ────────────────────────────────────────────────────
 
     console.log("\n=============================================");
@@ -541,21 +936,80 @@ async function main() {
       console.log(`  ${r.month}: ${r.total_on_list} on list, ${r.new_entries} new, ${r.exits_to_housing} exits`);
     }
 
+    // Eviction Filings
+    const evictionRows = await sql`
+      SELECT county, COUNT(*) as months, SUM(filings) as total_filings
+      FROM homelessness.eviction_filings
+      GROUP BY county ORDER BY county
+    `;
+    console.log(`\neviction_filings (by county):`);
+    for (const r of evictionRows) {
+      console.log(`  ${r.county}: ${r.months} months, ${r.total_filings} total filings`);
+    }
+
+    // SHS by Type
+    const typeRows = await sql`
+      SELECT fiscal_year, intervention_type, households_served, housing_placements
+      FROM homelessness.shs_spending_by_type
+      ORDER BY fiscal_year, intervention_type
+    `;
+    console.log(`\nshs_spending_by_type (${typeRows.length} rows):`);
+    for (const r of typeRows) {
+      console.log(`  ${r.fiscal_year} ${r.intervention_type}: ${r.households_served} served, ${r.housing_placements ?? "N/A"} placed`);
+    }
+
+    // SHS by County
+    const countyRows = await sql`
+      SELECT fiscal_year, county, allocation, households_placed
+      FROM homelessness.shs_by_county
+      ORDER BY fiscal_year, county
+    `;
+    console.log(`\nshs_by_county (${countyRows.length} rows):`);
+    for (const r of countyRows) {
+      const alloc = r.allocation ? `$${(Number(r.allocation) / 1e6).toFixed(0)}M` : "N/A";
+      console.log(`  ${r.fiscal_year} ${r.county}: ${alloc} allocated, ${r.households_placed ?? "N/A"} placed`);
+    }
+
+    // Vacancy
+    const vacancyRows = await sql`
+      SELECT as_of, source, vacancy_pct FROM homelessness.affordable_housing_vacancy ORDER BY as_of
+    `;
+    console.log(`\naffordable_housing_vacancy (${vacancyRows.length} rows):`);
+    for (const r of vacancyRows) {
+      console.log(`  ${r.as_of}: ${r.vacancy_pct}% (${r.source})`);
+    }
+
+    // Context Stats
+    const ctxRows = await sql`
+      SELECT metric, value FROM homelessness.context_stats ORDER BY metric
+    `;
+    console.log(`\ncontext_stats (${ctxRows.length} rows):`);
+    for (const r of ctxRows) {
+      console.log(`  ${r.metric}: ${r.value}`);
+    }
+
     // Summary
     const totalRecords =
       pitRows.length + shelterRows.length + housingRows.length +
-      odRows.length + fundingRows.length + bnlRows.length;
+      odRows.length + fundingRows.length + bnlRows.length +
+      evictionInserted + typeInserted + countyInserted +
+      vacancyInserted + contextInserted;
 
     console.log("\n=============================================");
     console.log("SEED COMPLETE");
     console.log("=============================================");
-    console.log(`Total records across 6 tables: ${totalRecords}`);
-    console.log("  - pit_counts:        " + pitRows.length);
-    console.log("  - shelter_capacity:  " + shelterRows.length);
-    console.log("  - housing_placements:" + housingRows.length);
-    console.log("  - overdose_deaths:   " + odRows.length);
-    console.log("  - shs_funding:       " + fundingRows.length);
-    console.log("  - by_name_list:      " + bnlRows.length);
+    console.log(`Total records across 11 tables: ${totalRecords}`);
+    console.log("  - pit_counts:                " + pitRows.length);
+    console.log("  - shelter_capacity:          " + shelterRows.length);
+    console.log("  - housing_placements:        " + housingRows.length);
+    console.log("  - overdose_deaths:           " + odRows.length);
+    console.log("  - shs_funding:               " + fundingRows.length);
+    console.log("  - by_name_list:              " + bnlRows.length);
+    console.log("  - eviction_filings:          " + evictionInserted);
+    console.log("  - shs_spending_by_type:      " + typeInserted);
+    console.log("  - shs_by_county:             " + countyInserted);
+    console.log("  - affordable_housing_vacancy:" + vacancyInserted);
+    console.log("  - context_stats:             " + contextInserted);
 
     await sql.end();
   } catch (err: any) {

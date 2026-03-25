@@ -1,0 +1,157 @@
+{
+  "source": "Metro SHS Regional Annual Report FY2024-25 (Year 4)",
+  "url": "https://www.oregonmetro.gov/sites/default/files/2026-03/supportive-housing-services-regional-annual-report-fy2024-2025-03.18.26_0.pdf",
+  "fetched": "2026-03-25",
+
+  "spending_by_year": {
+    "FY2022": 55900000,
+    "FY2023": 149100000,
+    "FY2024": 294100000,
+    "FY2025": 424900000,
+    "cumulative": 924000000
+  },
+
+  "revenue_forecast": {
+    "source": "https://www.oregonmetro.gov/sites/default/files/2026-01/supportive-housing-services-revenue-forecast-fall-2025.pdf",
+    "by_year": {
+      "FY2026": { "gross_revenue": 351100000, "net_collections": 339100000, "to_partners": 322100000 },
+      "FY2027": { "gross_revenue": 344500000, "net_collections": 332200000, "to_partners": 315600000 },
+      "FY2028": { "gross_revenue": 343500000, "net_collections": 330900000, "to_partners": 314400000 },
+      "FY2029": { "gross_revenue": 367400000, "net_collections": 354400000, "to_partners": 336700000 },
+      "FY2030": { "gross_revenue": 397800000, "net_collections": 384500000, "to_partners": 365300000 }
+    },
+    "county_share_pct": { "Multnomah": 45.3, "Washington": 33.3, "Clackamas": 21.3 },
+    "by_county_fy26": {
+      "Multnomah": 145900000,
+      "Washington": 107300000,
+      "Clackamas": 68600000
+    },
+    "pit_collections": {
+      "FY2022": 146700000,
+      "FY2023": 184100000,
+      "FY2024": 189100000,
+      "FY2025": 203700000
+    },
+    "tax_expires_after": "TY2030",
+    "note": "SHS represents 74% of total homeless services funding in the tri-county region"
+  },
+
+  "year4_outcomes_regional": {
+    "psh_placements": 1394,
+    "psh_goal": 1025,
+    "rapid_rehousing_placements": 1404,
+    "rrh_goal": 900,
+    "homelessness_preventions": 4064,
+    "prevention_goal": 2600,
+    "shelter_beds_created_sustained": 2499,
+    "shelter_goal": 2012,
+    "supportive_housing_units_into_operation": 692,
+    "units_goal": 951,
+    "psh_retention_rate": 0.92,
+    "rrh_retention_rate": 0.86
+  },
+
+  "cumulative_outcomes_y1_y4": {
+    "people_moved_to_permanent_housing": 14936,
+    "stable_housing_after_1yr_pct": 0.85,
+    "emergency_rent_assistance_people": 33456,
+    "psh_households": 4887,
+    "psh_10yr_goal": 5000,
+    "other_permanent_housing_households": 4135,
+    "homelessness_prevention_households": 19134,
+    "prevention_10yr_goal": 10000,
+    "total_households_stabilized": 23269,
+    "returns_to_homelessness_psh": 0.03,
+    "returns_to_homelessness_rrh": 0.06,
+    "provider_contracts": 107,
+    "total_contract_value": 299800000,
+    "culturally_specific_orgs": 16,
+    "culturally_specific_value": 44400000
+  },
+
+  "year4_by_county": {
+    "Multnomah": {
+      "contracts_value": 204100000,
+      "contracted_orgs": 68,
+      "supportive_housing_units": 280,
+      "units_goal": 676,
+      "psh_placements": 715,
+      "psh_goal": 300,
+      "rapid_rehousing": 842,
+      "rrh_goal": 440,
+      "prevention": 1099,
+      "prevention_goal": 600,
+      "shelter_beds": 1876,
+      "shelter_goal": 1397,
+      "psh_retention": 0.92,
+      "rrh_retention": 0.85,
+      "outreach_engagements": 3957,
+      "outreach_goal": 1420,
+      "cumulative_psh_units": 1541,
+      "psh_10yr_goal": 2235
+    },
+    "Washington": {
+      "supportive_housing_units": 180,
+      "units_goal": 0,
+      "psh_placements": 498,
+      "psh_goal": 450,
+      "rapid_rehousing": 371,
+      "rrh_goal": 300,
+      "prevention": 1144,
+      "prevention_goal": 1000,
+      "shelter_beds": 385,
+      "shelter_goal": 385,
+      "psh_retention": 0.89,
+      "rrh_retention": 0.85
+    },
+    "Clackamas": {
+      "contracts_value": 38600000,
+      "contracted_orgs": 36,
+      "culturally_specific_contracts": 6,
+      "culturally_specific_value": 5300000,
+      "supportive_housing_units": 232,
+      "units_goal": 275,
+      "psh_placements": 181,
+      "psh_goal": 275,
+      "rapid_rehousing": 191,
+      "rrh_goal": 160,
+      "prevention": 1821,
+      "prevention_goal": 1000,
+      "shelter_beds": 238,
+      "shelter_goal": 230,
+      "psh_retention": 0.96,
+      "rrh_retention": 0.89,
+      "outreach_engagements": 877,
+      "outreach_goal": 750,
+      "cumulative_psh_households": 1111,
+      "psh_10yr_goal": 1065,
+      "cumulative_stabilized_households": 3741,
+      "stabilized_10yr_goal": 2130
+    }
+  },
+
+  "psh_need_estimate": {
+    "source": "Figure 2.3 in Annual Report",
+    "regional": { "baseline_2021": 6818, "year4_estimated": 8117 },
+    "Multnomah": { "baseline_2021": 4936, "year4_estimated": 5874 },
+    "Washington": { "baseline_2021": 885, "year4_estimated": 637 },
+    "Clackamas": { "baseline_2021": 997, "year4_estimated": 1606 },
+    "note": "For every 10 who exit homelessness, 30 new people enter the system"
+  },
+
+  "racial_equity": {
+    "pct_poc_served": 0.56,
+    "pct_white_served": 0.41,
+    "pct_not_reported": 0.03,
+    "poc_psh": 0.52,
+    "poc_rrh": 0.61,
+    "poc_prevention": 0.66,
+    "poc_shelter": 0.41
+  },
+
+  "federal_funding_risks": {
+    "coc_cuts_households_affected": 1109,
+    "ehv_vouchers_eliminated": 546,
+    "note": "Federal Continuum of Care cuts will eliminate housing for ~1,109 households annually. Emergency Housing Voucher termination eliminates ~546 vouchers."
+  }
+}

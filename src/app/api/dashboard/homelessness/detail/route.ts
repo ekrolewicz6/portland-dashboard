@@ -5,49 +5,74 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const [pitCounts, shelterCapacity, housingPlacements, overdoseDeaths, shsFunding, byNameList, contextStats] =
-      await Promise.all([
-        sql`
-          SELECT year, total_homeless, sheltered, unsheltered,
-                 chronically_homeless, veterans, families, unaccompanied_youth, source
-          FROM homelessness.pit_counts
-          ORDER BY year
-        `.catch(() => []),
-        sql`
-          SELECT quarter, total_beds, county_24hr_beds, city_overnight_beds,
-                 utilization_pct, source
-          FROM homelessness.shelter_capacity
-          ORDER BY quarter
-        `.catch(() => []),
-        sql`
-          SELECT fiscal_year, total_placements, shs_placements, rapid_rehousing,
-                 psh_placements, evictions_prevented, source
-          FROM homelessness.housing_placements
-          ORDER BY fiscal_year
-        `.catch(() => []),
-        sql`
-          SELECT year, total_od_deaths_homeless, fentanyl_deaths_homeless,
-                 total_homeless_deaths, county_wide_opioid_deaths, source
-          FROM homelessness.overdose_deaths
-          ORDER BY year
-        `.catch(() => []),
-        sql`
-          SELECT year, tax_revenue, spending, psh_units_added,
-                 psh_units_cumulative, source
-          FROM homelessness.shs_funding
-          ORDER BY year
-        `.catch(() => []),
-        sql`
-          SELECT month, total_on_list, new_entries, exits_to_housing, source
-          FROM homelessness.by_name_list
-          ORDER BY month
-        `.catch(() => []),
-        sql`
-          SELECT metric, value, context, source, as_of_date
-          FROM homelessness.context_stats
-          ORDER BY metric
-        `.catch(() => []),
-      ]);
+    const [
+      pitCounts, shelterCapacity, housingPlacements, overdoseDeaths,
+      shsFunding, byNameList, contextStats, evictionFilings,
+      shsByType, shsByCounty, affordableVacancy,
+    ] = await Promise.all([
+      sql`
+        SELECT year, total_homeless, sheltered, unsheltered,
+               chronically_homeless, veterans, families, unaccompanied_youth, source
+        FROM homelessness.pit_counts
+        ORDER BY year
+      `.catch(() => []),
+      sql`
+        SELECT quarter, total_beds, county_24hr_beds, city_overnight_beds,
+               utilization_pct, source
+        FROM homelessness.shelter_capacity
+        ORDER BY quarter
+      `.catch(() => []),
+      sql`
+        SELECT fiscal_year, total_placements, shs_placements, rapid_rehousing,
+               psh_placements, evictions_prevented, source
+        FROM homelessness.housing_placements
+        ORDER BY fiscal_year
+      `.catch(() => []),
+      sql`
+        SELECT year, total_od_deaths_homeless, fentanyl_deaths_homeless,
+               total_homeless_deaths, county_wide_opioid_deaths, source
+        FROM homelessness.overdose_deaths
+        ORDER BY year
+      `.catch(() => []),
+      sql`
+        SELECT year, tax_revenue, spending, psh_units_added,
+               psh_units_cumulative, source
+        FROM homelessness.shs_funding
+        ORDER BY year
+      `.catch(() => []),
+      sql`
+        SELECT month, total_on_list, new_entries, exits_to_housing, source
+        FROM homelessness.by_name_list
+        ORDER BY month
+      `.catch(() => []),
+      sql`
+        SELECT metric, value, context, source, as_of_date
+        FROM homelessness.context_stats
+        ORDER BY metric
+      `.catch(() => []),
+      sql`
+        SELECT month, county, filings, filing_rate_per_100, source
+        FROM homelessness.eviction_filings
+        ORDER BY month, county
+      `.catch(() => []),
+      sql`
+        SELECT fiscal_year, intervention_type, amount, households_served,
+               housing_placements, cost_per_placement, source
+        FROM homelessness.shs_spending_by_type
+        ORDER BY fiscal_year, intervention_type
+      `.catch(() => []),
+      sql`
+        SELECT fiscal_year, county, allocation, spent, households_placed, source
+        FROM homelessness.shs_by_county
+        ORDER BY fiscal_year, county
+      `.catch(() => []),
+      sql`
+        SELECT as_of, source, total_units, vacant_units, vacancy_pct,
+               avg_days_to_fill, notes
+        FROM homelessness.affordable_housing_vacancy
+        ORDER BY as_of
+      `.catch(() => []),
+    ]);
 
     return NextResponse.json({
       pitCounts: pitCounts.map((r: Record<string, unknown>) => ({
@@ -97,8 +122,41 @@ export async function GET() {
         exitsToHousing: Number(r.exits_to_housing),
       })),
       contextStats: Object.fromEntries(
-        (contextStats as Record<string, unknown>[]).map((r) => [r.metric, { value: r.value, context: r.context, source: r.source }])
+        (contextStats as Record<string, unknown>[]).map((r) => [
+          r.metric,
+          { value: r.value, context: r.context, source: r.source },
+        ]),
       ),
+      evictionFilings: (evictionFilings as Record<string, unknown>[]).map((r) => ({
+        month: String(r.month),
+        county: String(r.county),
+        filings: Number(r.filings),
+        filingRatePer100: Number(r.filing_rate_per_100 ?? 0),
+      })),
+      shsByType: (shsByType as Record<string, unknown>[]).map((r) => ({
+        fiscalYear: String(r.fiscal_year),
+        interventionType: String(r.intervention_type),
+        amount: Number(r.amount ?? 0),
+        householdsServed: Number(r.households_served ?? 0),
+        housingPlacements: Number(r.housing_placements ?? 0),
+        costPerPlacement: Number(r.cost_per_placement ?? 0),
+      })),
+      shsByCounty: (shsByCounty as Record<string, unknown>[]).map((r) => ({
+        fiscalYear: String(r.fiscal_year),
+        county: String(r.county),
+        allocation: Number(r.allocation ?? 0),
+        spent: Number(r.spent ?? 0),
+        householdsPlaced: Number(r.households_placed ?? 0),
+      })),
+      affordableVacancy: (affordableVacancy as Record<string, unknown>[]).map((r) => ({
+        asOf: String(r.as_of),
+        source: String(r.source),
+        totalUnits: Number(r.total_units ?? 0),
+        vacantUnits: Number(r.vacant_units ?? 0),
+        vacancyPct: Number(r.vacancy_pct ?? 0),
+        avgDaysToFill: Number(r.avg_days_to_fill ?? 0),
+        notes: String(r.notes ?? ""),
+      })),
       dataStatus: "live",
     });
   } catch (error) {
@@ -111,6 +169,10 @@ export async function GET() {
       shsFunding: [],
       byNameList: [],
       contextStats: {},
+      evictionFilings: [],
+      shsByType: [],
+      shsByCounty: [],
+      affordableVacancy: [],
       dataStatus: "unavailable",
     });
   }

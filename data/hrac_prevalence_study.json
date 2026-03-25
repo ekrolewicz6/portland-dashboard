@@ -1,0 +1,12 @@
+{
+  "source": "HRAC/PSU Regional Homelessness & Housing Insecurity Study",
+  "url": "https://www.pdx.edu/homelessness/regional-homelessness-housing-insecurity-study",
+  "released": "2019-08",
+  "data_year": 2017,
+  "researchers": ["Marisa Zapata", "Jenny Liu", "Lauren Everett", "Peter Hulseman", "Thomas Potiowsky", "Emma Willingham"],
+  "tri_county_annual_homeless": 38000,
+  "tri_county_at_risk_households": 107039,
+  "cost_estimate_10yr_homeless": { "low": 2600000000, "high": 4100000000 },
+  "cost_estimate_10yr_at_risk_rent_assistance": { "low": 8600000000, "high": 21000000000 },
+  "methodology_note": "Includes people living doubled up, served by the system, and annualized flow based on PIT figures. Significantly larger than a single-night PIT count."
+}
