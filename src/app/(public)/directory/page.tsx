@@ -109,7 +109,7 @@ export default function DirectoryPage() {
           <h1 className="font-[family-name:var(--font-display)] text-4xl lg:text-5xl xl:text-[3.5rem] italic leading-[1.15] mb-4">
             Portland Business Directory
           </h1>
-          <p className="text-[16px] lg:text-[17px] text-white/70 max-w-2xl leading-relaxed">
+          <p className="text-[18px] lg:text-[20px] text-white/70 max-w-2xl leading-relaxed">
             Explore the businesses that power Portland&apos;s economy. Real data from the
             Oregon Secretary of State business registry, covering recent registrations
             across all entity types.
