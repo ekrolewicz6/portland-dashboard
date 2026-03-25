@@ -20,74 +20,66 @@ const dataViews = [
   {
     icon: Leaf,
     id: "climate",
-    title: "Climate Accountability",
-    description:
-      "All 43 Climate Emergency Workplan actions, bureau performance, PCEF spending, and emissions trajectory vs. 2030 goals.",
-    color: "text-green-400",
-    bg: "bg-green-900/20",
+    question: "Is Portland Meeting Its Climate Commitments?",
+    stat: "43",
+    statLabel: "CEW actions tracked with bureau accountability",
+    accent: "#2d6a4f",
   },
   {
     icon: Home,
     id: "housing",
-    title: "Housing",
-    description:
-      "Building permits, median rents, home values, and housing completions across Portland.",
-    color: "text-rose-400",
-    bg: "bg-rose-900/20",
+    question: "Are We Building Enough?",
+    stat: "7,535",
+    statLabel: "open permits in the backlog — and growing",
+    accent: "#b85c6a",
   },
   {
     icon: Shield,
     id: "safety",
-    title: "Public Safety",
-    description:
-      "Crime data, 911 response times, officer staffing, and use-of-force trends.",
-    color: "text-amber-400",
-    bg: "bg-amber-900/20",
+    question: "Are People Safe?",
+    stat: "613K",
+    statLabel: "crime records analyzed (2016–2026)",
+    accent: "#b85c3a",
   },
   {
     icon: Users,
     id: "homelessness",
-    title: "Homelessness",
-    description:
-      "Shelter capacity, Point-in-Time counts, permanent supportive housing, and behavioral health services.",
-    color: "text-stone-300",
-    bg: "bg-stone-800/30",
+    question: "Are People Getting Housed?",
+    stat: "3,057",
+    statLabel: "unsheltered individuals (2024 PIT count)",
+    accent: "#8b6c5c",
   },
   {
     icon: Zap,
     id: "economy",
-    title: "Economy",
-    description:
-      "Business registrations, commercial vacancy, employment data, wages by sector, and downtown vitality.",
-    color: "text-orange-400",
-    bg: "bg-orange-900/20",
+    question: "Can People Make a Living?",
+    stat: "38K",
+    statLabel: "active businesses registered in Portland metro",
+    accent: "#c8956c",
   },
   {
     icon: BookOpen,
     id: "education",
-    title: "Education",
-    description:
-      "PPS enrollment, test scores, graduation rates, and teacher staffing ratios.",
-    color: "text-emerald-400",
-    bg: "bg-emerald-900/20",
+    question: "Are Kids Learning?",
+    stat: "46K",
+    statLabel: "PPS students tracked across 81 schools",
+    accent: "#3d7a5a",
   },
   {
     icon: Sun,
     id: "quality",
-    title: "Quality of Life",
-    description:
-      "Park access, library services, street conditions, and 311 service request trends.",
-    color: "text-slate-300",
-    bg: "bg-slate-800/30",
+    question: "Does Portland Work as a Place to Live?",
+    stat: "317",
+    statLabel: "parks and 25K lane-miles of pavement tracked",
+    accent: "#6a7f8a",
   },
   {
     icon: Scale,
     id: "accountability",
-    title: "Accountability",
-    description:
-      "Elected officials, ballot measure outcomes, campaign finance, and agency performance metrics.",
-    color: "text-pink-400",
-    bg: "bg-pink-900/20",
+    question: "Who Promised What?",
+    stat: "13",
+    statLabel: "elected officials and their commitments",
+    accent: "#8a5c6a",
   },
 ];
 
@@ -195,7 +187,7 @@ export default function LandingPage() {
             <div className="w-8 h-px bg-[var(--color-ember)]" />
           </div>
           <h2 className="font-editorial-normal text-[36px] sm:text-[48px] text-[var(--color-ink)] leading-tight">
-            Eight questions that drive<br />
+            The questions that drive<br />
             <span className="font-editorial text-[var(--color-canopy)]">
               Portland&apos;s story
             </span>
@@ -206,24 +198,33 @@ export default function LandingPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {dataViews.map((view) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {dataViews.map((view, i) => (
             <Link
               key={view.id}
               href={`/dashboard/${view.id}`}
-              className="relative bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6 group hover:border-[var(--color-sage)] hover:shadow-[0_8px_32px_rgba(15,36,25,0.06)] transition-all duration-300"
+              className="metric-card text-left w-full group animate-fade-up"
+              style={{ "--accent-color": view.accent, animationDelay: `${400 + i * 60}ms` } as React.CSSProperties}
             >
-              <div className={`w-9 h-9 rounded-sm ${view.bg} flex items-center justify-center mb-4`}>
-                <view.icon className={`w-4.5 h-4.5 ${view.color}`} />
+              <div className="flex items-start justify-between gap-3 mb-5">
+                <h2 className="font-editorial text-[17px] text-[var(--color-ink)] leading-snug">
+                  {view.question}
+                </h2>
+                <ArrowRight className="w-4 h-4 text-[var(--color-ink-muted)]/20 group-hover:text-[var(--color-ink-muted)] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-1" />
               </div>
-              <h3 className="text-[16px] font-semibold text-[var(--color-ink)] mb-2">
-                {view.title}
-              </h3>
-              <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed">
-                {view.description}
+
+              <p className="text-[36px] font-bold text-[var(--color-ink)] tracking-tight leading-none">
+                {view.stat}
               </p>
-              <div className="mt-4 flex items-center gap-1 text-[12px] font-semibold text-[var(--color-canopy)] group-hover:gap-2 transition-all">
-                View data <ArrowRight className="w-3 h-3" />
+              <p className="text-[13px] text-[var(--color-ink-muted)] mt-2 leading-snug">
+                {view.statLabel}
+              </p>
+
+              <div className="mt-5 pt-3 border-t border-[var(--color-parchment)] flex items-center justify-between">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-ink-muted)] group-hover:text-[var(--color-canopy)] transition-colors">
+                  Explore data
+                </span>
+                <view.icon className="w-4 h-4 text-[var(--color-ink-muted)]/30" />
               </div>
             </Link>
           ))}
