@@ -98,7 +98,7 @@ export async function GET(
     console.error("Progress report fetch error:", err);
     // Return static fallback for Q1 2026
     if (slug === "q1-2026") {
-      return NextResponse.json({ report: getStaticQ1Report() });
+      return NextResponse.json({ report: await getStaticQ1Report() });
     }
     return NextResponse.json(
       { error: "Failed to load report" },
@@ -107,14 +107,97 @@ export async function GET(
   }
 }
 
-function getStaticQ1Report(): FullReport {
+async function getStaticQ1Report(): Promise<FullReport> {
+  // Default climate values if DB is unavailable
+  let climate = {
+    totalActions: 47,
+    achievedActions: 12,
+    ongoingActions: 29,
+    delayedActions: 6,
+    latestYear: 2023,
+    latestEmissions: 7.7,
+    baseline1990: 10.4,
+    reductionPct: 26,
+    target2030: 5.2,
+    gap: 2.5,
+    totalInterestDiverted: 25100000,
+    bureauAllocations: 58600000,
+    communityGrants: 87100000,
+  };
+
+  try {
+    const [actionRows, emissionRows, diversionRows, allocationRows] = await Promise.all([
+      sql<{ status: string; count: string }[]>`
+        SELECT status, COUNT(*)::text as count FROM public.climate_workplan_actions GROUP BY status
+      `,
+      sql<{ year: number; total_mtco2e: string }[]>`
+        SELECT year, total_mtco2e::text FROM public.climate_emissions_trajectory
+        WHERE is_target = false AND total_mtco2e IS NOT NULL ORDER BY year DESC LIMIT 1
+      `,
+      sql<{ total: string }[]>`
+        SELECT COALESCE(SUM(amount_diverted), 0)::text as total FROM public.pcef_interest_diversions
+      `,
+      sql<{ recipient_type: string; total: string }[]>`
+        SELECT recipient_type, COALESCE(SUM(amount), 0)::text as total
+        FROM public.pcef_allocations GROUP BY recipient_type
+      `,
+    ]);
+
+    let achieved = 0, ongoing = 0, delayed = 0;
+    for (const r of actionRows) {
+      const n = Number(r.count);
+      if (r.status === "achieved") achieved = n;
+      else if (r.status === "ongoing") ongoing = n;
+      else if (r.status === "delayed") delayed = n;
+    }
+    const total = achieved + ongoing + delayed;
+
+    const latestEmissions = emissionRows[0] ? Number(emissionRows[0].total_mtco2e) : climate.latestEmissions;
+    const latestYear = emissionRows[0] ? Number(emissionRows[0].year) : climate.latestYear;
+    const reductionPct = Math.round(((climate.baseline1990 - latestEmissions) / climate.baseline1990) * 100);
+
+    let bureauAllocations = climate.bureauAllocations;
+    let communityGrants = climate.communityGrants;
+    for (const r of allocationRows) {
+      if (r.recipient_type === "bureau") bureauAllocations = Number(r.total);
+      if (r.recipient_type === "community") communityGrants = Number(r.total);
+    }
+
+    climate = {
+      totalActions: total || climate.totalActions,
+      achievedActions: achieved || climate.achievedActions,
+      ongoingActions: ongoing || climate.ongoingActions,
+      delayedActions: delayed || climate.delayedActions,
+      latestYear,
+      latestEmissions,
+      baseline1990: climate.baseline1990,
+      reductionPct,
+      target2030: climate.target2030,
+      gap: Math.round((latestEmissions - climate.target2030) * 10) / 10,
+      totalInterestDiverted: diversionRows[0] ? Number(diversionRows[0].total) : climate.totalInterestDiverted,
+      bureauAllocations,
+      communityGrants,
+    };
+  } catch {
+    // Use defaults — DB may be unavailable in this fallback path
+  }
+
+  const totalPcef = climate.bureauAllocations + climate.communityGrants;
+  const bureauPct = Math.round((climate.bureauAllocations / totalPcef) * 100);
+  const diverted = climate.totalInterestDiverted >= 1_000_000
+    ? `$${(climate.totalInterestDiverted / 1_000_000).toFixed(1)}M`
+    : `$${climate.totalInterestDiverted.toLocaleString()}`;
+  const totalPcefFmt = totalPcef >= 1_000_000
+    ? `$${(totalPcef / 1_000_000).toFixed(0)}M`
+    : `$${totalPcef.toLocaleString()}`;
+
   return {
     id: 1,
     title: "Portland Progress Report — Q1 2026",
     issueDate: "2026-03-15",
     slug: "q1-2026",
     summary:
-      "The inaugural Portland Progress Report combines dashboard data with narrative analysis to tell the story behind Portland's numbers. This quarter: a deep dive into the permitting crisis, the business formation landscape, and what the data means for Portland's future.",
+      "The inaugural Portland Progress Report combines dashboard data with narrative analysis to tell the story behind Portland's numbers. This quarter: the permitting bottleneck, the business formation landscape, and a new deep-dive into Portland's climate commitments following the February 2026 City Auditor audit.",
     coverImageUrl: null,
     published: true,
     sections: [
@@ -122,15 +205,15 @@ function getStaticQ1Report(): FullReport {
         id: 1,
         title: "By the Numbers",
         subtitle: "Portland's vital signs, measured.",
-        content: `Portland's civic dashboard tracks seven questions that define the city's trajectory. Here is where we stand at the close of Q1 2026.
+        content: `Portland's civic dashboard tracks the questions that define the city's trajectory. Here is where we stand at the close of Q1 2026.
 
-The headline numbers paint a city in transition. **34,307 building permits** are tracked in our system — representing everything from minor renovations to major mixed-use developments. The construction pipeline remains active but constrained by processing bottlenecks that we examine in detail below.
+The headline numbers paint a city in transition. **34,307 building permits** are tracked in our system — representing everything from minor renovations to major mixed-use developments. The construction pipeline remains active but constrained by processing bottlenecks examined in Section 2.
 
 On the business front, **362,000 active businesses** are registered with the Oregon Secretary of State in the Portland metro area. New formation rates have stabilized after the post-pandemic surge, suggesting the entrepreneurial ecosystem is finding its new equilibrium.
 
-Public safety data shows an average of **5,039 reported crimes per month** across the city. While this number demands context — property crime and person crime trend in different directions — the overall trajectory shows modest improvement from the 2023 peak.
+Public safety data shows an average of **5,039 reported crimes per month** across the city. While this number demands context, the overall trajectory shows modest improvement from the 2023 peak.
 
-The dashboard continues to evolve. This quarter we added BLS employment data, Census County Business Patterns, and improved our housing permit pipeline tracking. Every data point is sourced from public records and government APIs, updated automatically.`,
+This quarter we launched the **Climate Accountability Platform** — a direct response to the February 2026 City Auditor climate justice audit. The platform tracks all **${climate.totalActions} workplan actions** across city bureaus, PCEF fund flows, and Multnomah County's emissions trajectory. The headline finding: Portland has reduced emissions **${climate.reductionPct}% below 1990 levels** — but needs to more than triple its annual reduction rate to hit the 2030 goal. See Section 5 for the full analysis.`,
         sectionOrder: 1,
         sectionType: "data-summary",
         dataQuery: null,
@@ -141,6 +224,10 @@ The dashboard continues to evolve. This quarter we added BLS employment data, Ce
           avgProcessingDays: 127,
           medianProcessingDays: 89,
           permitBacklog: 0,
+          climateActionsTracked: climate.totalActions,
+          climateAchieved: climate.achievedActions,
+          climateDelayed: climate.delayedActions,
+          emissionsReductionPct: climate.reductionPct,
         },
       },
       {
@@ -167,12 +254,6 @@ The permit pipeline reveals a clear pattern. Hundreds of permits sit in review q
 3. **Housing supply stays constrained** precisely when the city needs more units coming online
 4. **Small projects suffer most** because the fixed costs of waiting hit smaller developments disproportionately
 
-## The permit type breakdown
-
-Not all permits are equal. Residential new construction permits — the ones that directly add housing supply — face the longest timelines. Commercial tenant improvements, which represent downtown recovery, get caught in the same queue despite being fundamentally simpler reviews.
-
-The data suggests that a tiered review system, where simpler permits receive expedited processing, could significantly reduce average wait times without compromising building safety.
-
 ## What other cities do differently
 
 Portland is not alone in facing permit backlogs, but it lags behind peers who have invested in reform:
@@ -181,13 +262,7 @@ Portland is not alone in facing permit backlogs, but it lags behind peers who ha
 - **Denver** created a dedicated small-project fast-track lane
 - **Austin** moved to same-day approvals for simple residential permits under $50,000
 
-Portland's Bureau of Development Services has acknowledged the problem and proposed staffing increases. The data will show whether those investments translate to faster processing in the quarters ahead.
-
-## Why this matters for Portland's recovery
-
-The permitting bottleneck is not just a bureaucratic inconvenience. It is a direct drag on Portland's economic recovery. Every housing unit delayed is a unit not available to address the affordability crisis. Every commercial renovation delayed is a storefront that stays dark in a downtown fighting to come back.
-
-Our dashboard will continue tracking permit processing times, and this report will revisit the data each quarter to measure whether reform efforts are producing results.`,
+Portland's Bureau of Development Services has acknowledged the problem and proposed staffing increases. The data will show whether those investments translate to faster processing in the quarters ahead.`,
         sectionOrder: 2,
         sectionType: "article",
         dataQuery: null,
@@ -241,6 +316,75 @@ We will track policy responses and measure their impact on the data in subsequen
         sectionType: "recommendation",
         dataQuery: null,
         dataSnapshot: null,
+      },
+      {
+        id: 5,
+        title: "Climate Accountability: What the Audit Found",
+        subtitle: "The February 2026 City Auditor audit reviewed Portland's climate commitments. Here is what the data shows.",
+        content: `On February 25, 2026, the City Auditor released findings from a climate justice audit — a systematic review of how Portland is delivering on its Climate Emergency Workplan. City Administrator Raymond Lee accepted all five recommendations. This section presents the data behind those findings.
+
+## The Workplan: ${climate.totalActions} Actions, Mixed Progress
+
+The Climate Emergency Workplan 2022-2025 contains ${climate.totalActions} structured actions covering decarbonization (reducing emissions) and resilience (preparing for climate impacts). As of the latest progress report: **${climate.achievedActions} actions achieved**, **${climate.ongoingActions} ongoing**, and **${climate.delayedActions} delayed**.
+
+> "The Chief Sustainability Officer does not have a direct link to bureaus." — February 2026 Audit Finding
+
+This governance gap matters. Without line authority, the Chief Sustainability Officer relies on voluntary compliance from bureaus that have competing budget priorities. Making bureau-level performance publicly visible is one way to create accountability without requiring line authority.
+
+## The Funding Gap
+
+Resource gaps are a persistent challenge. Of the ${climate.totalActions} actions:
+
+- **14 are funded or revenue-positive** (through PCEF or existing bureau budgets)
+- **At least 9 face gaps larger than $1 million**
+- **6 have gaps the city has not yet estimated**
+
+The total unfunded gap across the workplan has not been published as a single consolidated figure — a transparency gap the audit flagged specifically.
+
+## PCEF: ${totalPcefFmt} Deployed, ${bureauPct}% to Bureaus
+
+The Portland Clean Energy Fund has allocated approximately ${totalPcefFmt} across four fiscal years. Of that, roughly ${bureauPct}% went to six city bureaus and ${100 - bureauPct}% to community grants. The audit found Portland has not been transparent enough about how PCEF funding flows between city bureaus and community organizations.
+
+## PCEF Interest: ${diverted} Directed to General Fund
+
+Between FY 21-22 and FY 24-25, approximately ${diverted} in PCEF-generated interest was directed to the General Fund rather than climate programs. The audit found the City has not been transparent enough about these funding flows.
+
+These are dollars that earned interest while sitting in PCEF accounts between disbursements — funds that could have supported additional cooling units for elderly residents, tree planting in low-canopy East Portland neighborhoods, and energy retrofits for affordable housing.
+
+## Emissions: Behind Schedule
+
+Multnomah County's greenhouse gas inventory shows total emissions at approximately **${climate.latestEmissions.toFixed(1)} million MTCO₂e** as of ${climate.latestYear} — **${climate.reductionPct}% below the 1990 baseline** of 10.4 million. The 2030 goal requires cutting to 5.2 million MTCO₂e — a further reduction of **${climate.gap.toFixed(1)} million tons** in the next four years.
+
+At the current pace of reduction (approximately 0.12 million MTCO₂e per year), Portland would reach roughly 6.5 million by 2030 — still 1.3 million short. Meeting the 2030 target requires more than triple the current annual reduction rate.
+
+## The Five Audit Recommendations
+
+The City Auditor's five recommendations — accepted by City Administrator Lee — address governance, budget transparency, adaptation strategy, prioritization criteria, and community engagement. Each maps directly to a specific data gap that the climate dashboard is designed to fill:
+
+1. **Centralized leadership** — Bureau scorecard creates visibility across all 14 bureaus
+2. **Climate cost in budgets** — Finance tracker maps every action to its funding source and gap
+3. **Adaptation goals** — Workplan tracker separates decarbonization from resilience actions
+4. **Transparent prioritization** — Every action has structured metadata: bureau, timeline, gap, status
+5. **Community engagement** — Public dashboard answers: is Portland on track? Where is the money?
+
+*Source: Portland Bureau of Planning & Sustainability Climate Emergency Workplan 2022-2025; BPS Climate & Energy Dashboard — Multnomah County Community GHG Inventory; City of Portland budget documents; Portland City Auditor, Climate Justice Audit, February 25, 2026.*`,
+        sectionOrder: 5,
+        sectionType: "climate-summary",
+        dataQuery: null,
+        dataSnapshot: {
+          totalActions: climate.totalActions,
+          achievedActions: climate.achievedActions,
+          ongoingActions: climate.ongoingActions,
+          delayedActions: climate.delayedActions,
+          reductionFromBaseline: climate.reductionPct,
+          latestEmissions: climate.latestEmissions,
+          latestYear: climate.latestYear,
+          target2030: climate.target2030,
+          gap: climate.gap,
+          totalInterestDiverted: climate.totalInterestDiverted,
+          bureauAllocations: climate.bureauAllocations,
+          communityGrants: climate.communityGrants,
+        },
       },
     ],
   };
