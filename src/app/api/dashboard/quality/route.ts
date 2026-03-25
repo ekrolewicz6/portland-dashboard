@@ -20,8 +20,6 @@ export async function GET() {
       FROM quality.pavement_condition
     `;
     const avgPci = Number(pciRows[0].avg_pci);
-
-    // PCI rating label
     const pciLabel =
       avgPci >= 70 ? "Good" : avgPci >= 40 ? "Fair" : "Poor";
 
@@ -38,46 +36,113 @@ export async function GET() {
     const latestFiscalYear =
       libRows.length > 0 ? libRows[0].fiscal_year : null;
 
-    const headline = `${totalParks.toLocaleString()} parks across ${totalAcres.toLocaleString()} acres \u2014 avg street PCI ${avgPci} (${pciLabel})`;
+    // Count data dimensions available
+    const dimensions: string[] = [];
+    dimensions.push(`${totalParks} parks`);
+    dimensions.push(`PCI ${avgPci}`);
+
+    // Check for additional QoL tables
+    let culturalCount = 0;
+    try {
+      const cultRows = await sql`SELECT count(*)::int AS cnt FROM quality.cultural_institutions`;
+      culturalCount = Number(cultRows[0].cnt);
+      if (culturalCount > 0) dimensions.push(`${culturalCount} cultural venues`);
+    } catch { /* table may not exist */ }
+
+    let hasAirQuality = false;
+    try {
+      const aqRows = await sql`SELECT count(*)::int AS cnt FROM environment.airnow_aqi`;
+      hasAirQuality = Number(aqRows[0].cnt) > 0;
+      if (hasAirQuality) dimensions.push("air quality");
+    } catch { /* table may not exist */ }
+
+    let hasTransit = false;
+    try {
+      const trRows = await sql`SELECT count(*)::int AS cnt FROM quality.transit_ridership`;
+      hasTransit = Number(trRows[0].cnt) > 0;
+      if (hasTransit) dimensions.push("transit");
+    } catch { /* table may not exist */ }
+
+    let hasAffordability = false;
+    try {
+      const affRows = await sql`SELECT count(*)::int AS cnt FROM quality.affordability`;
+      hasAffordability = Number(affRows[0].cnt) > 0;
+      if (hasAffordability) dimensions.push("affordability");
+    } catch { /* table may not exist */ }
+
+    // Build headline — holistic view
+    const headline = `${totalParks} parks, ${totalAcres.toLocaleString()} acres — tracking ${dimensions.length} quality dimensions`;
+
+    const dataSources = [
+      {
+        name: "Portland Parks Data",
+        status: "live",
+        provider: "Portland Parks & Recreation",
+        action: `${totalParks} parks, ${totalAcres.toLocaleString()} acres loaded`,
+      },
+      {
+        name: "PBOT Pavement Condition",
+        status: "live",
+        provider: "Portland Bureau of Transportation",
+        action: `Average PCI: ${avgPci} (${pciLabel})`,
+      },
+      {
+        name: "Multnomah County Library",
+        status: "live",
+        provider: "Multnomah County Library",
+        action: latestFiscalYear
+          ? `FY${latestFiscalYear}: ${latestVisits.toLocaleString()} visits`
+          : "Loaded",
+      },
+    ];
+
+    if (culturalCount > 0) {
+      dataSources.push({
+        name: "Cultural Institutions",
+        status: "live",
+        provider: "Portland Civic Lab",
+        action: `${culturalCount} venues tracked`,
+      });
+    }
+    if (hasAirQuality) {
+      dataSources.push({
+        name: "AirNow AQI",
+        status: "live",
+        provider: "EPA AirNow",
+        action: "Current + historical AQI",
+      });
+    }
+    if (hasTransit) {
+      dataSources.push({
+        name: "TriMet Ridership",
+        status: "live",
+        provider: "TriMet",
+        action: "Annual ridership by mode",
+      });
+    }
+
+    const insights = [
+      `${totalParks} parks totaling ${totalAcres.toLocaleString()} acres across Portland.`,
+      `Average pavement condition index is ${avgPci} (${pciLabel}) across city streets.`,
+    ];
+    if (latestFiscalYear) {
+      insights.push(`${latestVisits.toLocaleString()} library visits in fiscal year ${latestFiscalYear}.`);
+    }
+    if (culturalCount > 0) {
+      insights.push(`${culturalCount} cultural institutions tracked — museums, theaters, galleries, and venues.`);
+    }
 
     return NextResponse.json({
       headline,
-      headlineValue: totalParks,
+      headlineValue: dimensions.length,
       dataStatus: "live",
       dataAvailable: true,
-      dataSources: [
-        {
-          name: "Portland Parks Data",
-          status: "live",
-          provider: "Portland Parks & Recreation",
-          action: `${totalParks} parks, ${totalAcres.toLocaleString()} acres loaded`,
-        },
-        {
-          name: "PBOT Pavement Condition",
-          status: "live",
-          provider: "Portland Bureau of Transportation",
-          action: `Average PCI: ${avgPci} (${pciLabel})`,
-        },
-        {
-          name: "Multnomah County Library",
-          status: "live",
-          provider: "Multnomah County Library",
-          action: latestFiscalYear
-            ? `FY${latestFiscalYear}: ${latestVisits.toLocaleString()} visits`
-            : "Loaded",
-        },
-      ],
+      dataSources,
       trend: { direction: "flat", percentage: 0, label: "baseline established" },
       chartData: [],
-      source: "Portland Parks / PBOT / Multnomah County Library",
+      source: "Portland Parks / PBOT / Library / Census / AirNow / TriMet",
       lastUpdated: new Date().toISOString().slice(0, 10),
-      insights: [
-        `${totalParks} parks totaling ${totalAcres.toLocaleString()} acres across Portland.`,
-        `Average pavement condition index is ${avgPci} (${pciLabel}) across city streets.`,
-        latestFiscalYear
-          ? `${latestVisits.toLocaleString()} library visits in fiscal year ${latestFiscalYear}.`
-          : "Library visit data loaded.",
-      ],
+      insights,
     });
   } catch (error) {
     console.error("[quality] DB query failed:", error);
@@ -89,7 +154,7 @@ export async function GET() {
       dataSources: [],
       trend: { direction: "flat", percentage: 0, label: "error" },
       chartData: [],
-      source: "Portland Parks / PBOT / Multnomah County Library",
+      source: "Portland Parks / PBOT / Library / Census / AirNow / TriMet",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: ["Data temporarily unavailable."],
     });

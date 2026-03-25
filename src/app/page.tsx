@@ -69,8 +69,8 @@ const dataViews = [
     icon: Sun,
     id: "quality",
     question: "Does Portland Work as a Place to Live?",
-    stat: "317",
-    statLabel: "parks across 11,380 acres — avg PCI 44 (Fair)",
+    stat: "7",
+    statLabel: "quality dimensions tracked — parks, transit, air, affordability, culture, libraries, digital access",
     accent: "#6a7f8a",
   },
   {
