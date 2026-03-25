@@ -576,55 +576,106 @@ export default function HomelessnessDetail() {
 
           {/* SHS spending trend */}
           {shsFunding.filter((s) => s.spending > 0).length > 0 && (
-            <>
+            <div className="mb-6">
               <h3 className="text-[12px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">
                 SHS Total Spending by Year
               </h3>
-              <BarChart
-                data={shsFunding
+              <div className="space-y-3">
+                {shsFunding
                   .filter((s) => s.spending > 0)
-                  .map((s, i) => ({
-                    name: `Year ${i + 1} (FY${String(s.year).slice(2)})`,
-                    value: Math.round(s.spending / 1e6),
-                  }))}
-                color={ACCENT}
-                height={260}
-                valuePrefix="$"
-                valueSuffix="M"
-              />
-              <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 mb-5">
+                  .map((s, i) => {
+                    const maxSpend = Math.max(
+                      ...shsFunding.filter((x) => x.spending > 0).map((x) => x.spending),
+                    );
+                    const pct = Math.round((s.spending / maxSpend) * 100);
+                    const millions = Math.round(s.spending / 1e6);
+                    return (
+                      <div key={s.year}>
+                        <div className="flex items-baseline justify-between mb-1">
+                          <span className="text-[13px] font-semibold text-[var(--color-ink)]">
+                            Year {i + 1}{" "}
+                            <span className="font-normal text-[var(--color-ink-muted)]">
+                              (FY{String(s.year).slice(2)})
+                            </span>
+                          </span>
+                          <span className="text-[14px] font-mono font-semibold text-[var(--color-ink)]">
+                            ${millions}M
+                          </span>
+                        </div>
+                        <div className="h-7 bg-[var(--color-parchment)] rounded-sm overflow-hidden">
+                          <div
+                            className="h-full rounded-sm"
+                            style={{
+                              width: `${Math.max(pct, 8)}%`,
+                              backgroundColor: ACCENT,
+                            }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+              <p className="text-[11px] text-[var(--color-ink-muted)] mt-3 mb-5">
                 Source: Metro SHS Regional Annual Reports.
               </p>
-            </>
+            </div>
           )}
 
           {/* Intervention outcomes */}
           {latestShsType.length > 0 && (
-            <>
+            <div className="mb-2">
               <h3 className="text-[12px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-3">
                 Year 4 Outcomes by Intervention Type
               </h3>
-              <BarChart
-                data={latestShsType.map((t) => {
+              <div className="space-y-3">
+                {(() => {
                   const labels: Record<string, string> = {
-                    psh: "PSH",
+                    psh: "Permanent Supportive Housing",
                     rapid_rehousing: "Rapid Rehousing",
-                    prevention: "Prevention",
-                    shelter: "Shelter Beds",
+                    prevention: "Homelessness Prevention",
+                    shelter: "Shelter Beds Created",
                   };
-                  return {
-                    name: labels[t.interventionType] ?? t.interventionType,
-                    value: t.householdsServed,
+                  const notes: Record<string, string> = {
+                    psh: "92% retention · 3% return rate",
+                    rapid_rehousing: "86% retention · 6% return rate",
+                    prevention: "households stabilized",
+                    shelter: "beds created or sustained",
                   };
-                })}
-                color={ACCENT}
-                height={260}
-              />
-              <p className="text-[11px] text-[var(--color-ink-muted)] mt-2">
-                Households served by intervention type. PSH retention: 92%. RRH
-                retention: 86%. Returns to homelessness: PSH 3%, RRH 6%.
-              </p>
-            </>
+                  const maxServed = Math.max(
+                    ...latestShsType.map((t) => t.householdsServed),
+                  );
+                  return latestShsType.map((t) => {
+                    const pct = Math.round(
+                      (t.householdsServed / maxServed) * 100,
+                    );
+                    return (
+                      <div key={t.interventionType}>
+                        <div className="flex items-baseline justify-between mb-1">
+                          <span className="text-[13px] font-semibold text-[var(--color-ink)]">
+                            {labels[t.interventionType] ?? t.interventionType}
+                          </span>
+                          <span className="text-[14px] font-mono font-semibold text-[var(--color-ink)]">
+                            {t.householdsServed.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="h-7 bg-[var(--color-parchment)] rounded-sm overflow-hidden">
+                          <div
+                            className="h-full rounded-sm"
+                            style={{
+                              width: `${Math.max(pct, 8)}%`,
+                              backgroundColor: ACCENT,
+                            }}
+                          />
+                        </div>
+                        <p className="text-[11px] text-[var(--color-ink-muted)] mt-0.5">
+                          {notes[t.interventionType] ?? ""}
+                        </p>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            </div>
           )}
 
           {/* Cumulative progress */}
