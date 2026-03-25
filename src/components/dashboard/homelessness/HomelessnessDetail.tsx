@@ -856,11 +856,11 @@ export default function HomelessnessDetail() {
               </div>
             )}
             <DataNeeded
-              title="Singleton shelter effectiveness memo"
-              description="An internal memo by Singleton analyzing shelter intervention effectiveness, including outcome data on which shelter models produce the best housing outcomes, is being located. This would answer whether current shelter investment is producing returns."
+              title="Shelter effectiveness outcomes data"
+              description="No public data currently tracks which shelter models produce the best housing outcomes — e.g., what percentage of people in 24-hour shelters vs. overnight shelters exit to permanent housing, and at what cost per placement."
               actions={[
                 {
-                  label: "Awaiting from HSD",
+                  label: "Request shelter outcome data from JOHS/HSD",
                   type: "prr",
                 },
               ]}
@@ -1266,8 +1266,8 @@ export default function HomelessnessDetail() {
             </p>
             <ul className="text-[12px] text-[var(--color-ink-muted)] space-y-1">
               <li>
-                <strong>Singleton memo</strong> — Shelter effectiveness analysis
-                (pending from HSD)
+                <strong>Shelter effectiveness data</strong> — Which models lead to
+                permanent housing (not publicly available)
               </li>
               <li>
                 <strong>Health Share crossover study</strong> — Behavioral
