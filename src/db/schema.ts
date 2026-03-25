@@ -8,6 +8,7 @@ import {
   timestamp,
   jsonb,
   doublePrecision,
+  boolean,
 } from "drizzle-orm/pg-core";
 
 // ── Safety ──────────────────────────────────────────────────────────────
@@ -162,6 +163,90 @@ export const insights = pgTable("insights", {
   ruleName: text("rule_name"),
   metricValue: doublePrecision("metric_value"),
   generatedAt: timestamp("generated_at").defaultNow(),
+});
+
+// ── Climate Accountability Platform ─────────────────────────────────
+
+export const climateWorkplanActions = pgTable("climate_workplan_actions", {
+  id: serial("id").primaryKey(),
+  actionId: text("action_id").notNull().unique(),      // "E-1", "T-3", "F-2", etc.
+  title: text("title").notNull(),
+  sector: text("sector").notNull(),                    // "electricity"|"buildings"|"transportation"|etc.
+  category: text("category").notNull(),               // "decarbonization"|"resilience"
+  leadBureaus: text("lead_bureaus").array().notNull(), // ["BPS","PBOT"]
+  isDeclarationPriority: boolean("is_declaration_priority").notNull().default(false),
+  fiscalYear: text("fiscal_year"),                    // "FY 22-25","TBD","Ongoing",etc.
+  resourceGap: text("resource_gap"),                  // "Funded","$","$$","$$$","$$$$","$$$$$","N/A","TBD","+"
+  isPcefFunded: boolean("is_pcef_funded").notNull().default(false),
+  isMultiBureau: boolean("is_multi_bureau").notNull().default(false),
+  status: text("status").notNull().default("ongoing"), // "achieved"|"ongoing"|"delayed"
+  description: text("description"),
+  externalPartners: text("external_partners"),
+  cobenefits: text("cobenefits"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const climateActionStatusHistory = pgTable("climate_action_status_history", {
+  id: serial("id").primaryKey(),
+  actionId: text("action_id").notNull(),
+  status: text("status").notNull(),
+  statusDate: date("status_date").notNull(),
+  narrative: text("narrative"),
+  source: text("source"),
+});
+
+export const climateBureauScorecard = pgTable("climate_bureau_scorecard", {
+  id: serial("id").primaryKey(),
+  bureauCode: text("bureau_code").notNull().unique(),
+  bureauName: text("bureau_name").notNull(),
+  totalActions: integer("total_actions").notNull().default(0),
+  achievedActions: integer("achieved_actions").notNull().default(0),
+  ongoingActions: integer("ongoing_actions").notNull().default(0),
+  delayedActions: integer("delayed_actions").notNull().default(0),
+  crossBureauActions: integer("cross_bureau_actions").notNull().default(0),
+  pcefFundingReceived: numeric("pcef_funding_received"),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const climateFinanceSources = pgTable("climate_finance_sources", {
+  id: serial("id").primaryKey(),
+  fiscalYear: text("fiscal_year").notNull(),
+  source: text("source").notNull(),         // "PCEF"|"General Fund"|"Federal/State"|"Unfunded"
+  allocationAmount: numeric("allocation_amount"),
+  actionCount: integer("action_count"),
+});
+
+export const pcefAllocations = pgTable("pcef_allocations", {
+  id: serial("id").primaryKey(),
+  fiscalYear: text("fiscal_year").notNull(),
+  recipient: text("recipient").notNull(),
+  recipientType: text("recipient_type").notNull(), // "bureau"|"community"
+  amount: numeric("amount").notNull(),
+  programArea: text("program_area"),
+});
+
+export const pcefInterestDiversions = pgTable("pcef_interest_diversions", {
+  id: serial("id").primaryKey(),
+  fiscalYear: text("fiscal_year").notNull().unique(),
+  amountDiverted: numeric("amount_diverted").notNull(),
+  destination: text("destination"),
+  notes: text("notes"),
+});
+
+export const climateEmissionsTrajectory = pgTable("climate_emissions_trajectory", {
+  id: serial("id").primaryKey(),
+  year: integer("year").notNull(),
+  isTarget: boolean("is_target").notNull().default(false),
+  targetType: text("target_type"),                        // "2030_goal"|"2050_goal"|null
+  totalMtco2e: numeric("total_mtco2e"),
+  electricityMtco2e: numeric("electricity_mtco2e"),
+  buildingsMtco2e: numeric("buildings_mtco2e"),
+  transportationMtco2e: numeric("transportation_mtco2e"),
+  wasteMtco2e: numeric("waste_mtco2e"),
+  industryMtco2e: numeric("industry_mtco2e"),
+  otherMtco2e: numeric("other_mtco2e"),
+  populationThousands: numeric("population_thousands"),
 });
 
 // ── Progress Reports ───────────────────────────────────────────────────

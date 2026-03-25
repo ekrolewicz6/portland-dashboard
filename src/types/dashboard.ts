@@ -23,6 +23,7 @@ export type QuestionId =
   | "environment"
   | "quality"
   | "accountability"
+  | "climate"
   // Legacy IDs — kept for API route compatibility
   | "migration"
   | "business"

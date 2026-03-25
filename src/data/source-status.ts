@@ -535,6 +535,41 @@ export const QUESTION_DATA_STATUS: Record<QuestionId, QuestionDataStatus> = {
       },
     ],
   },
+
+  // ── Climate Accountability Platform ───────────────────────────────────
+  climate: {
+    questionId: "climate",
+    overallStatus: "LIVE",
+    badgeLabel: "Live data",
+    badgeTooltip:
+      "Climate Accountability Platform. All 43 workplan actions seeded from the CEW 2022-2025. Emissions data from BPS GHG inventory. PCEF from Climate Investment Plan.",
+    sources: [
+      {
+        name: "Climate Emergency Workplan (2022-2025)",
+        status: "LIVE",
+        statusLabel: "Manually encoded",
+        provider: "Portland Bureau of Planning & Sustainability",
+      },
+      {
+        name: "BPS GHG Inventory (1990-2023)",
+        status: "LIVE",
+        statusLabel: "Manually encoded",
+        provider: "Portland Bureau of Planning & Sustainability",
+      },
+      {
+        name: "PCEF Climate Investment Plan",
+        status: "LIVE",
+        statusLabel: "Manually encoded",
+        provider: "Portland Clean Energy Fund",
+      },
+      {
+        name: "CEW Progress Reports (2023–2025)",
+        status: "LIVE",
+        statusLabel: "Status extracted",
+        provider: "Portland Bureau of Planning & Sustainability",
+      },
+    ],
+  },
 };
 
 // ---------------------------------------------------------------------------

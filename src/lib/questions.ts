@@ -11,6 +11,7 @@ export const VALID_QUESTIONS = [
   "environment",
   "quality",
   "accountability",
+  "climate",
 ] as const;
 
 export type QuestionSlug = (typeof VALID_QUESTIONS)[number];
@@ -33,4 +34,5 @@ export const questionMeta: Record<
   environment: { title: "Are We Meeting Our Climate Goals?", shortTitle: "Environment", color: "#5a8a6a" },
   quality: { title: "Does Portland Work as a Place to Live?", shortTitle: "Quality of Life", color: "#6a7f8a" },
   accountability: { title: "Who Promised What?", shortTitle: "Accountability", color: "#8a5c6a" },
+  climate: { title: "Is Portland Meeting Its Climate Commitments?", shortTitle: "Climate", color: "#2d6a4f" },
 };

@@ -16,6 +16,7 @@ import EducationDetail from "@/components/dashboard/education/EducationDetail";
 import EnvironmentDetail from "@/components/dashboard/environment/EnvironmentDetail";
 import QualityDetail from "@/components/dashboard/quality/QualityDetail";
 import AccountabilityDetail from "@/components/dashboard/accountability/AccountabilityDetail";
+import ClimateDetail from "@/components/dashboard/climate/ClimateDetail";
 
 interface PageProps {
   params: Promise<{ question: string }>;
@@ -53,6 +54,7 @@ export async function generateStaticParams() {
     { question: "environment" },
     { question: "quality" },
     { question: "accountability" },
+    { question: "climate" },
   ];
 }
 
@@ -77,6 +79,7 @@ const detailComponents: Record<string, React.ComponentType> = {
   environment: EnvironmentDetail,
   quality: QualityDetail,
   accountability: AccountabilityDetail,
+  climate: ClimateDetail,
 };
 
 export default async function QuestionPage({ params }: PageProps) {

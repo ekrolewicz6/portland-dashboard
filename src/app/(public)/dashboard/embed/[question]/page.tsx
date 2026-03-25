@@ -39,6 +39,7 @@ export async function generateStaticParams() {
     { question: "environment" },
     { question: "quality" },
     { question: "accountability" },
+    { question: "climate" },
   ];
 }
 

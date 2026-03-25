@@ -104,6 +104,15 @@ export const QUESTIONS = [
     icon: "scale",
     color: "pink",
   },
+  {
+    id: "climate",
+    title: "Is Portland Meeting Its Climate Commitments?",
+    shortTitle: "Climate",
+    description:
+      "Tracks all 43 Climate Emergency Workplan actions, bureau performance, PCEF spending, and Multnomah County emissions trajectory vs. 2030 goals.",
+    icon: "leaf",
+    color: "green",
+  },
 ] as const satisfies readonly QuestionConfig[];
 
 /** Look up a question config by its id */
