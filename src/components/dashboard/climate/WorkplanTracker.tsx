@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronUp, Star, Leaf, Shield, Filter, X } from "lucide-react";
+import { ChevronDown, Star, Leaf, Shield, Filter, X } from "lucide-react";
 
 const CLIMATE_COLOR = "#2d6a4f";
 
@@ -31,16 +31,10 @@ type WorkplanSummary = {
   delayedPct: number;
 };
 
-const STATUS_COLORS = {
-  achieved: { bg: "#1a5c3a", text: "#ffffff", dot: "#4caf82" },
-  ongoing: { bg: "#2d4a6e", text: "#ffffff", dot: "#5b8dd9" },
-  delayed: { bg: "#7a2020", text: "#ffffff", dot: "#e05c5c" },
-};
-
-const STATUS_LABELS = {
-  achieved: "Achieved",
-  ongoing: "Ongoing",
-  delayed: "Delayed",
+const STATUS_CONFIG = {
+  achieved: { label: "Achieved", color: "#1a5c3a", dot: "#4caf82", bg: "#1a5c3a" },
+  ongoing: { label: "Ongoing", color: "#2d4a6e", dot: "#5b8dd9", bg: "#2d4a6e" },
+  delayed: { label: "Delayed", color: "#7a2020", dot: "#e05c5c", bg: "#7a2020" },
 };
 
 const SECTOR_LABELS: Record<string, string> = {
@@ -74,38 +68,164 @@ const RESOURCE_GAP_LABEL: Record<string, string> = {
   "None": "No gap",
 };
 
-function StatusBadge({ status }: { status: "achieved" | "ongoing" | "delayed" }) {
-  const c = STATUS_COLORS[status];
-  return (
-    <span
-      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[10px] font-semibold uppercase tracking-wider whitespace-nowrap"
-      style={{ backgroundColor: c.bg + "22", color: c.bg === "#1a5c3a" ? "#1a5c3a" : c.bg === "#2d4a6e" ? "#2d4a6e" : "#7a2020", border: `1px solid ${c.bg}33` }}
-    >
-      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: c.dot }} />
-      {STATUS_LABELS[status]}
-    </span>
-  );
-}
-
-function GapBadge({ gap }: { gap: string | null }) {
-  if (!gap) return null;
-  const label = RESOURCE_GAP_LABEL[gap] ?? gap;
-  const isLarge = gap === "$$$$" || gap === "$$$$$";
+function gapStyle(gap: string | null) {
+  if (!gap) return { color: "var(--color-ink-muted)", bg: "transparent" };
   const isFunded = gap === "Funded" || gap === "N/A" || gap === "+" || gap === "None";
+  const isLarge = gap === "$$$$" || gap === "$$$$$";
+  return {
+    color: isFunded ? "#1a5c3a" : isLarge ? "#7a2020" : "#7a4a2a",
+    bg: isFunded ? "#1a5c3a0c" : isLarge ? "#7a20200c" : "#c8956c0c",
+    border: isFunded ? "#1a5c3a22" : isLarge ? "#7a202022" : "#c8956c22",
+  };
+}
+
+/* ── Card Component ── */
+function ActionCard({
+  action,
+  isExpanded,
+  onToggle,
+}: {
+  action: WorkplanAction;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  const sc = STATUS_CONFIG[action.status];
+  const gs = gapStyle(action.resourceGap);
+
   return (
-    <span
-      className="inline-flex items-center px-2 py-0.5 rounded-sm text-[10px] font-mono font-semibold whitespace-nowrap"
-      style={{
-        backgroundColor: isFunded ? "#1a5c3a11" : isLarge ? "#7a202011" : "#c8956c11",
-        color: isFunded ? "#1a5c3a" : isLarge ? "#7a2020" : "#7a4a2a",
-        border: `1px solid ${isFunded ? "#1a5c3a33" : isLarge ? "#7a202033" : "#c8956c33"}`,
-      }}
+    <div
+      className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm overflow-hidden transition-shadow hover:shadow-sm"
+      style={{ borderLeftWidth: "3px", borderLeftColor: sc.bg }}
     >
-      {label}
-    </span>
+      {/* Main card content */}
+      <button onClick={onToggle} className="w-full text-left p-4">
+        {/* Top row: ID + Status */}
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <span className="text-[11px] font-mono font-bold text-[var(--color-ink-muted)] bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm">
+              {action.actionId}
+            </span>
+            {action.isDeclarationPriority && (
+              <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+            )}
+          </div>
+          <span
+            className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-[10px] font-semibold uppercase tracking-wider flex-shrink-0"
+            style={{ backgroundColor: sc.bg + "18", color: sc.color, border: `1px solid ${sc.bg}30` }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: sc.dot }} />
+            {sc.label}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-[14px] font-medium text-[var(--color-ink)] leading-snug mb-3">
+          {action.title}
+        </h3>
+
+        {/* Metadata row */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px]">
+          {/* Category */}
+          <span
+            className="inline-flex items-center gap-1 font-medium px-1.5 py-0.5 rounded-sm"
+            style={{
+              backgroundColor: action.category === "decarbonization" ? "#2d6a4f0c" : "#2d4a6e0c",
+              color: action.category === "decarbonization" ? "#2d6a4f" : "#2d4a6e",
+            }}
+          >
+            {action.category === "decarbonization"
+              ? <Leaf className="w-2.5 h-2.5" />
+              : <Shield className="w-2.5 h-2.5" />}
+            {SECTOR_LABELS[action.sector] ?? action.sector}
+          </span>
+
+          {/* Bureaus */}
+          <span className="text-[var(--color-ink-muted)]">
+            {action.leadBureaus.join(" / ")}
+          </span>
+
+          {/* Divider */}
+          <span className="text-[var(--color-parchment)]" aria-hidden>|</span>
+
+          {/* Timeline */}
+          <span className="text-[var(--color-ink-muted)]">
+            {action.fiscalYear ?? "TBD"}
+          </span>
+
+          {/* Funding gap */}
+          {action.resourceGap && (
+            <>
+              <span className="text-[var(--color-parchment)]" aria-hidden>|</span>
+              <span
+                className="font-mono font-semibold px-1.5 py-0.5 rounded-sm"
+                style={{ backgroundColor: gs.bg, color: gs.color, border: `1px solid ${gs.border}` }}
+              >
+                {RESOURCE_GAP_LABEL[action.resourceGap] ?? action.resourceGap}
+              </span>
+            </>
+          )}
+
+          {/* PCEF badge */}
+          {action.isPcefFunded && (
+            <span className="font-medium text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-sm border border-emerald-200">
+              PCEF
+            </span>
+          )}
+        </div>
+
+        {/* Expand indicator */}
+        <div className="flex justify-center mt-2">
+          <ChevronDown
+            className={`w-4 h-4 text-[var(--color-ink-muted)] transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+          />
+        </div>
+      </button>
+
+      {/* Expanded detail */}
+      {isExpanded && (
+        <div className="border-t border-[var(--color-parchment)] bg-[var(--color-canopy)]/[0.03] px-4 py-4">
+          {action.description && (
+            <div className="mb-3">
+              <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">
+                Description
+              </p>
+              <p className="text-[13px] text-[var(--color-ink)] leading-relaxed">
+                {action.description}
+              </p>
+            </div>
+          )}
+
+          {action.cobenefits && (
+            <div className="mb-3">
+              <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">
+                Co-Benefits
+              </p>
+              <p className="text-[12px] text-[var(--color-ink-muted)] leading-relaxed">
+                {action.cobenefits}
+              </p>
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-3 text-[11px]">
+            {action.isDeclarationPriority && (
+              <span className="inline-flex items-center gap-1 text-yellow-700 bg-yellow-50 border border-yellow-200 rounded-sm px-2 py-1">
+                <Star className="w-3 h-3 fill-yellow-500 text-yellow-500" />
+                Climate Emergency Declaration Priority
+              </span>
+            )}
+            {action.isMultiBureau && (
+              <span className="text-[var(--color-ink-muted)] bg-[var(--color-parchment)]/50 rounded-sm px-2 py-1">
+                Multi-bureau coordination required
+              </span>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 
+/* ── Main Component ── */
 export default function WorkplanTracker() {
   const [actions, setActions] = useState<WorkplanAction[]>([]);
   const [summary, setSummary] = useState<WorkplanSummary | null>(null);
@@ -131,10 +251,8 @@ export default function WorkplanTracker() {
       .catch(() => setLoading(false));
   }, []);
 
-  // Build bureau list from actions
   const allBureaus = [...new Set(actions.flatMap((a) => a.leadBureaus))].sort();
 
-  // Apply client-side filters
   const filtered = actions.filter((a) => {
     if (filterCategory && a.category !== filterCategory) return false;
     if (filterStatus && a.status !== filterStatus) return false;
@@ -156,9 +274,9 @@ export default function WorkplanTracker() {
 
   if (loading) {
     return (
-      <div className="space-y-3 animate-pulse">
-        {[...Array(5)].map((_, i) => (
-          <div key={i} className="h-14 bg-[var(--color-parchment)]/50 rounded-sm" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 animate-pulse">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="h-28 bg-[var(--color-parchment)]/50 rounded-sm" />
         ))}
       </div>
     );
@@ -170,34 +288,34 @@ export default function WorkplanTracker() {
       {summary && (
         <div className="mb-6 bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4">
           <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider">
-                All {summary.total} Actions:
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4caf82" }} />
-              <span className="text-[13px] font-semibold" style={{ color: "#1a5c3a" }}>
-                {summary.achieved} Achieved
-              </span>
-              <span className="text-[11px] text-[var(--color-ink-muted)]">({summary.achievedPct}%)</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#5b8dd9" }} />
-              <span className="text-[13px] font-semibold" style={{ color: "#2d4a6e" }}>
-                {summary.ongoing} Ongoing
-              </span>
-              <span className="text-[11px] text-[var(--color-ink-muted)]">({summary.ongoingPct}%)</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#e05c5c" }} />
-              <span className="text-[13px] font-semibold" style={{ color: "#7a2020" }}>
-                {summary.delayed} Delayed
-              </span>
-              <span className="text-[11px] text-[var(--color-ink-muted)]">({summary.delayedPct}%)</span>
-            </div>
-            {/* Progress bar */}
-            <div className="flex-1 hidden sm:block h-2 bg-[var(--color-parchment)] rounded-full overflow-hidden min-w-[120px]">
+            <span className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider">
+              All {summary.total} Actions:
+            </span>
+            {(["achieved", "ongoing", "delayed"] as const).map((s) => {
+              const cfg = STATUS_CONFIG[s];
+              const count = summary[s];
+              const pct = summary[`${s}Pct` as keyof WorkplanSummary] as number;
+              return (
+                <button
+                  key={s}
+                  onClick={() => setFilterStatus(filterStatus === s ? "" : s)}
+                  className={`flex items-center gap-1.5 px-2 py-1 rounded-sm transition-colors ${
+                    filterStatus === s ? "ring-1" : "hover:bg-[var(--color-parchment)]/40"
+                  }`}
+                  style={{
+                    backgroundColor: filterStatus === s ? cfg.color + "0c" : undefined,
+                    outline: filterStatus === s ? `1px solid ${cfg.color}` : undefined,
+                  }}
+                >
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: cfg.dot }} />
+                  <span className="text-[13px] font-semibold" style={{ color: cfg.color }}>
+                    {count} {cfg.label}
+                  </span>
+                  <span className="text-[11px] text-[var(--color-ink-muted)]">({pct}%)</span>
+                </button>
+              );
+            })}
+            <div className="flex-1 hidden sm:block h-2 bg-[var(--color-parchment)] rounded-full overflow-hidden min-w-[100px]">
               <div className="flex h-full">
                 <div style={{ width: `${summary.achievedPct}%`, backgroundColor: "#4caf82" }} />
                 <div style={{ width: `${summary.ongoingPct}%`, backgroundColor: "#5b8dd9" }} />
@@ -218,14 +336,20 @@ export default function WorkplanTracker() {
           <Filter className="w-3.5 h-3.5" />
           Filters
           {hasFilters && (
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: CLIMATE_COLOR }}>
+            <span
+              className="inline-flex items-center justify-center w-4 h-4 rounded-full text-[9px] font-bold text-white"
+              style={{ backgroundColor: CLIMATE_COLOR }}
+            >
               {[filterCategory, filterStatus, filterBureau, filterDeclaration, filterPcef].filter(Boolean).length}
             </span>
           )}
         </button>
 
         {hasFilters && (
-          <button onClick={clearFilters} className="inline-flex items-center gap-1 text-[11px] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] transition-colors">
+          <button
+            onClick={clearFilters}
+            className="inline-flex items-center gap-1 text-[11px] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] transition-colors"
+          >
             <X className="w-3 h-3" /> Clear filters
           </button>
         )}
@@ -239,7 +363,9 @@ export default function WorkplanTracker() {
         <div className="mb-4 p-4 bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             <div>
-              <label className="block text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Category</label>
+              <label className="block text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">
+                Category
+              </label>
               <select
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
@@ -251,7 +377,9 @@ export default function WorkplanTracker() {
               </select>
             </div>
             <div>
-              <label className="block text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Status</label>
+              <label className="block text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">
+                Status
+              </label>
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
@@ -264,7 +392,9 @@ export default function WorkplanTracker() {
               </select>
             </div>
             <div>
-              <label className="block text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Bureau</label>
+              <label className="block text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">
+                Bureau
+              </label>
               <select
                 value={filterBureau}
                 onChange={(e) => setFilterBureau(e.target.value)}
@@ -305,175 +435,29 @@ export default function WorkplanTracker() {
         </div>
       )}
 
-      {/* Action table */}
-      <div className="rounded-sm border border-[var(--color-parchment)]">
-      <div>
-        {/* Header */}
-        <div className="grid grid-cols-[50px_1fr_90px_80px_80px_100px] gap-2 px-3 py-2 bg-[var(--color-canopy)] text-[10px] font-semibold text-white/70 uppercase tracking-wider">
-          <div>Action</div>
-          <div>Title</div>
-          <div className="hidden md:block">Bureau</div>
-          <div className="hidden lg:block">Timeline</div>
-          <div className="hidden lg:block">Gap</div>
-          <div>Status</div>
+      {/* Action cards */}
+      {filtered.length === 0 ? (
+        <div className="p-12 text-center text-[13px] text-[var(--color-ink-muted)] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm">
+          No actions match the current filters.
         </div>
-
-        {filtered.length === 0 && (
-          <div className="p-8 text-center text-[13px] text-[var(--color-ink-muted)]">
-            No actions match the current filters.
-          </div>
-        )}
-
-        {filtered.map((action, i) => (
-          <div key={action.actionId}>
-            {/* Row */}
-            <button
-              onClick={() => setExpandedId(expandedId === action.actionId ? null : action.actionId)}
-              className="w-full text-left"
-            >
-              <div
-                className={`grid grid-cols-[50px_1fr_100px] md:grid-cols-[50px_1fr_90px_100px] lg:grid-cols-[50px_1fr_90px_80px_80px_100px] gap-2 px-3 py-3 transition-colors ${
-                  i % 2 === 0 ? "bg-[var(--color-paper-warm)]" : "bg-white"
-                } hover:bg-[var(--color-parchment)]/30 ${expandedId === action.actionId ? "border-l-2" : ""}`}
-                style={{ borderLeftColor: expandedId === action.actionId ? CLIMATE_COLOR : undefined }}
-              >
-                {/* Action ID */}
-                <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-mono font-bold text-[var(--color-ink-muted)] bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm">
-                    {action.actionId}
-                  </span>
-                  {action.isDeclarationPriority && (
-                    <Star className="w-3 h-3 text-yellow-500 fill-yellow-500 flex-shrink-0" />
-                  )}
-                </div>
-
-                {/* Title + category */}
-                <div className="min-w-0">
-                  <div className="flex items-start gap-2">
-                    <p className="text-[13px] font-medium text-[var(--color-ink)] leading-snug">
-                      {action.title}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-                    <span
-                      className="inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-sm"
-                      style={{
-                        backgroundColor: action.category === "decarbonization" ? "#2d6a4f11" : "#2d4a6e11",
-                        color: action.category === "decarbonization" ? "#2d6a4f" : "#2d4a6e",
-                      }}
-                    >
-                      {action.category === "decarbonization" ? <Leaf className="w-2.5 h-2.5" /> : <Shield className="w-2.5 h-2.5" />}
-                      {action.category === "decarbonization" ? "Decarbonization" : "Resilience"}
-                    </span>
-                    <span className="text-[10px] text-[var(--color-ink-muted)]">
-                      {SECTOR_LABELS[action.sector] ?? action.sector}
-                    </span>
-                    {action.isPcefFunded && (
-                      <span className="text-[10px] font-medium text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-sm border border-emerald-200">PCEF</span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Bureaus — hidden on small */}
-                <div className="hidden md:flex flex-wrap gap-1 items-start">
-                  {action.leadBureaus.map((b) => (
-                    <span key={b} className="text-[10px] font-mono bg-[var(--color-parchment)] px-1.5 py-0.5 rounded-sm text-[var(--color-ink-muted)]">
-                      {b}
-                    </span>
-                  ))}
-                </div>
-
-                {/* FY — hidden on small/medium */}
-                <div className="hidden lg:flex text-[11px] text-[var(--color-ink-muted)] items-center">
-                  {action.fiscalYear ?? "—"}
-                </div>
-
-                {/* Gap — hidden on small/medium */}
-                <div className="hidden lg:flex items-center">
-                  <GapBadge gap={action.resourceGap} />
-                </div>
-
-                {/* Status + expand */}
-                <div className="flex items-center justify-between gap-2">
-                  <StatusBadge status={action.status} />
-                  {expandedId === action.actionId ? (
-                    <ChevronUp className="w-4 h-4 text-[var(--color-ink-muted)] flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-[var(--color-ink-muted)] flex-shrink-0" />
-                  )}
-                </div>
-              </div>
-            </button>
-
-            {/* Expanded detail */}
-            {expandedId === action.actionId && (
-              <div className="border-t border-[var(--color-parchment)] bg-[var(--color-canopy)]/3 px-6 py-5">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  {/* Description */}
-                  <div className="lg:col-span-2">
-                    <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-2">Description</p>
-                    <p className="text-[13px] text-[var(--color-ink)] leading-relaxed">{action.description}</p>
-
-                    {action.cobenefits && (
-                      <div className="mt-4">
-                        <p className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Co-Benefits</p>
-                        <p className="text-[12px] text-[var(--color-ink-light)]">{action.cobenefits}</p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Metadata */}
-                  <div className="space-y-3">
-                    <div>
-                      <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">All Responsible Bureaus</p>
-                      <div className="flex flex-wrap gap-1">
-                        {action.leadBureaus.map((b) => (
-                          <span key={b} className="text-[11px] font-mono bg-[var(--color-canopy)] text-white px-2 py-0.5 rounded-sm">{b}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Timeline</p>
-                        <p className="text-[12px]">{action.fiscalYear ?? "—"}</p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Resource Gap</p>
-                        <GapBadge gap={action.resourceGap} />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Status</p>
-                        <StatusBadge status={action.status} />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mb-1">Funding Source</p>
-                        <p className="text-[12px]">{action.isPcefFunded ? "PCEF" : "City / Other"}</p>
-                      </div>
-                    </div>
-                    {action.isDeclarationPriority && (
-                      <div className="flex items-center gap-1.5 text-[12px] text-yellow-700 bg-yellow-50 border border-yellow-200 rounded-sm px-2 py-1">
-                        <Star className="w-3 h-3 fill-yellow-500 text-yellow-500" />
-                        Climate Emergency Declaration Priority
-                      </div>
-                    )}
-                    {action.isMultiBureau && (
-                      <div className="text-[11px] text-[var(--color-ink-muted)] bg-[var(--color-parchment)]/60 rounded-sm px-2 py-1">
-                        Multi-bureau coordination required
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-      </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          {filtered.map((action) => (
+            <ActionCard
+              key={action.actionId}
+              action={action}
+              isExpanded={expandedId === action.actionId}
+              onToggle={() =>
+                setExpandedId(expandedId === action.actionId ? null : action.actionId)
+              }
+            />
+          ))}
+        </div>
+      )}
 
       <p className="mt-4 text-[11px] text-[var(--color-ink-muted)]">
         Source: Climate Emergency Workplan 2022-2025 / Portland Bureau of Planning & Sustainability.
         Status as of August 2025 final progress report.
-        ★ = Climate Emergency Declaration priority action.
       </p>
     </div>
   );

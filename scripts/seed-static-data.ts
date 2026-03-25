@@ -69,10 +69,12 @@ function formatMonth(year: number, month: number): string {
 // Utah:    flat 4.65% on federal taxable income (w/ credits, effective ~3-4.3%)
 //
 // Portland local (W-2 employees only):
-//   PFA: 1.5% on OR taxable income over $125K (single)
+//   PFA: 1.5% on OR taxable $125K–$250K, 3.0% above $250K (single)
 //   Metro SHS: 1.0% on OR taxable income over $125K (single)
 //   Arts Tax: $35 flat
 //   BLT/BIT: $0 (business taxes, not applicable to employees)
+//
+// Income levels: $40K, $50K, $60K, $75K, $100K, $125K, $150K, $200K, $300K
 
 async function seedTaxComparison() {
   console.log("\n=== Seeding tax_comparison ===");
@@ -87,66 +89,90 @@ async function seedTaxComparison() {
     // Local = PFA + SHS (kick in >$125K OR taxable), Other = Arts Tax
     ["Portland, OR",  40000, 14.6,  7.0, 7.4, 0.0, 0.1],
     ["Portland, OR",  50000, 15.8,  8.0, 7.7, 0.0, 0.1],
+    ["Portland, OR",  60000, 16.7,  8.7, 7.9, 0.0, 0.1],  // Arts Tax $35
     ["Portland, OR",  75000, 19.2, 11.1, 8.0, 0.0, 0.0],
     ["Portland, OR", 100000, 22.1, 13.8, 8.2, 0.0, 0.0],
+    ["Portland, OR", 125000, 23.9, 15.6, 8.3, 0.0, 0.0],  // OR taxable $122,255 < $125K threshold
     ["Portland, OR", 150000, 26.0, 17.0, 8.6, 0.4, 0.0],  // PFA $334 + SHS $223
     ["Portland, OR", 200000, 28.6, 18.8, 8.9, 0.9, 0.0],  // PFA $1,084 + SHS $723
+    ["Portland, OR", 300000, 34.3, 23.4, 9.2, 1.7, 0.0],  // PFA $3,293 + SHS $1,723
 
-    // ── San Francisco, CA (no local income tax for W-2) ──
-    ["San Francisco, CA",  40000,  9.0,  7.0, 2.0, 0.0, 0.0],
-    ["San Francisco, CA",  50000, 10.6,  8.0, 2.6, 0.0, 0.0],
-    ["San Francisco, CA",  75000, 15.3, 11.1, 4.2, 0.0, 0.0],
-    ["San Francisco, CA", 100000, 19.2, 13.8, 5.4, 0.0, 0.0],
-    ["San Francisco, CA", 150000, 23.7, 17.0, 6.7, 0.0, 0.0],
-    ["San Francisco, CA", 200000, 26.2, 18.8, 7.4, 0.0, 0.0],
+    // ── San Francisco, CA (no local income tax for W-2; includes CA SDI 1.1%) ──
+    ["San Francisco, CA",  40000, 10.1,  7.0, 3.1, 0.0, 0.0],
+    ["San Francisco, CA",  50000, 11.7,  8.0, 3.7, 0.0, 0.0],
+    ["San Francisco, CA",  60000, 12.9,  8.7, 4.2, 0.0, 0.0],
+    ["San Francisco, CA",  75000, 16.4, 11.1, 5.3, 0.0, 0.0],
+    ["San Francisco, CA", 100000, 20.3, 13.8, 6.5, 0.0, 0.0],
+    ["San Francisco, CA", 125000, 22.9, 15.6, 7.3, 0.0, 0.0],
+    ["San Francisco, CA", 150000, 24.8, 17.0, 7.8, 0.0, 0.0],
+    ["San Francisco, CA", 200000, 27.3, 18.8, 8.5, 0.0, 0.0],
+    ["San Francisco, CA", 300000, 32.5, 23.4, 9.1, 0.0, 0.0],
 
     // ── Seattle, WA (no state/local income tax) ──
     ["Seattle, WA",  40000,  7.0,  7.0, 0.0, 0.0, 0.0],
     ["Seattle, WA",  50000,  8.0,  8.0, 0.0, 0.0, 0.0],
+    ["Seattle, WA",  60000,  8.7,  8.7, 0.0, 0.0, 0.0],
     ["Seattle, WA",  75000, 11.1, 11.1, 0.0, 0.0, 0.0],
     ["Seattle, WA", 100000, 13.8, 13.8, 0.0, 0.0, 0.0],
+    ["Seattle, WA", 125000, 15.6, 15.6, 0.0, 0.0, 0.0],
     ["Seattle, WA", 150000, 17.0, 17.0, 0.0, 0.0, 0.0],
     ["Seattle, WA", 200000, 18.8, 18.8, 0.0, 0.0, 0.0],
+    ["Seattle, WA", 300000, 23.4, 23.4, 0.0, 0.0, 0.0],
 
     // ── Vancouver, WA (no state/local income tax) ──
     ["Vancouver, WA",  40000,  7.0,  7.0, 0.0, 0.0, 0.0],
     ["Vancouver, WA",  50000,  8.0,  8.0, 0.0, 0.0, 0.0],
+    ["Vancouver, WA",  60000,  8.7,  8.7, 0.0, 0.0, 0.0],
     ["Vancouver, WA",  75000, 11.1, 11.1, 0.0, 0.0, 0.0],
     ["Vancouver, WA", 100000, 13.8, 13.8, 0.0, 0.0, 0.0],
+    ["Vancouver, WA", 125000, 15.6, 15.6, 0.0, 0.0, 0.0],
     ["Vancouver, WA", 150000, 17.0, 17.0, 0.0, 0.0, 0.0],
     ["Vancouver, WA", 200000, 18.8, 18.8, 0.0, 0.0, 0.0],
+    ["Vancouver, WA", 300000, 23.4, 23.4, 0.0, 0.0, 0.0],
 
     // ── Boise, ID (flat 5.695% on federal taxable income) ──
     ["Boise, ID",  40000, 10.7,  7.0, 3.6, 0.0, 0.0],
     ["Boise, ID",  50000, 12.1,  8.0, 4.0, 0.0, 0.0],
+    ["Boise, ID",  60000, 13.0,  8.7, 4.3, 0.0, 0.0],
     ["Boise, ID",  75000, 15.7, 11.1, 4.6, 0.0, 0.0],
     ["Boise, ID", 100000, 18.7, 13.8, 4.9, 0.0, 0.0],
+    ["Boise, ID", 125000, 20.6, 15.6, 5.0, 0.0, 0.0],
     ["Boise, ID", 150000, 22.2, 17.0, 5.1, 0.0, 0.0],
     ["Boise, ID", 200000, 24.1, 18.8, 5.3, 0.0, 0.0],
+    ["Boise, ID", 300000, 28.8, 23.4, 5.4, 0.0, 0.0],
 
     // ── Denver, CO (flat 4.4% on federal taxable income) ──
     ["Denver, CO",  40000,  9.8,  7.0, 2.8, 0.0, 0.0],
     ["Denver, CO",  50000, 11.1,  8.0, 3.1, 0.0, 0.0],
+    ["Denver, CO",  60000, 12.0,  8.7, 3.3, 0.0, 0.0],
     ["Denver, CO",  75000, 14.7, 11.1, 3.5, 0.0, 0.0],
     ["Denver, CO", 100000, 17.6, 13.8, 3.8, 0.0, 0.0],
+    ["Denver, CO", 125000, 19.5, 15.6, 3.9, 0.0, 0.0],
     ["Denver, CO", 150000, 21.0, 17.0, 4.0, 0.0, 0.0],
     ["Denver, CO", 200000, 22.9, 18.8, 4.1, 0.0, 0.0],
+    ["Denver, CO", 300000, 27.6, 23.4, 4.2, 0.0, 0.0],
 
     // ── Salt Lake City, UT (4.65% flat minus credits, ~3.0-4.3% effective) ──
     ["Salt Lake City, UT",  40000, 10.1,  7.0, 3.0, 0.0, 0.0],
     ["Salt Lake City, UT",  50000, 11.3,  8.0, 3.3, 0.0, 0.0],
+    ["Salt Lake City, UT",  60000, 12.3,  8.7, 3.6, 0.0, 0.0],
     ["Salt Lake City, UT",  75000, 14.9, 11.1, 3.8, 0.0, 0.0],
     ["Salt Lake City, UT", 100000, 17.9, 13.8, 4.0, 0.0, 0.0],
+    ["Salt Lake City, UT", 125000, 19.7, 15.6, 4.1, 0.0, 0.0],
     ["Salt Lake City, UT", 150000, 21.3, 17.0, 4.2, 0.0, 0.0],
     ["Salt Lake City, UT", 200000, 23.1, 18.8, 4.3, 0.0, 0.0],
+    ["Salt Lake City, UT", 300000, 27.8, 23.4, 4.4, 0.0, 0.0],
 
     // ── Austin, TX (no state/local income tax) ──
     ["Austin, TX",  40000,  7.0,  7.0, 0.0, 0.0, 0.0],
     ["Austin, TX",  50000,  8.0,  8.0, 0.0, 0.0, 0.0],
+    ["Austin, TX",  60000,  8.7,  8.7, 0.0, 0.0, 0.0],
     ["Austin, TX",  75000, 11.1, 11.1, 0.0, 0.0, 0.0],
     ["Austin, TX", 100000, 13.8, 13.8, 0.0, 0.0, 0.0],
+    ["Austin, TX", 125000, 15.6, 15.6, 0.0, 0.0, 0.0],
     ["Austin, TX", 150000, 17.0, 17.0, 0.0, 0.0, 0.0],
     ["Austin, TX", 200000, 18.8, 18.8, 0.0, 0.0, 0.0],
+    ["Austin, TX", 300000, 23.4, 23.4, 0.0, 0.0, 0.0],
   ];
 
   for (const [city, income, eff, fed, state, local, other] of data) {
