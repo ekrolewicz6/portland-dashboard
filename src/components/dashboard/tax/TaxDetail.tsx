@@ -28,6 +28,65 @@ interface TaxDetailData {
   portlandBreakdown: PortlandBreakdownRow[];
 }
 
+/* ── Services comparison data ── */
+// All sourced from publicly verifiable data. See source citations in the component.
+type ServiceRow = {
+  city: string;
+  parkScore: number | null;       // Trust for Public Land ParkScore (0-100), 2025
+  transitScore: number | null;    // WalkScore.com Transit Score (0-100), 2025
+  policePer1k: number | null;     // Sworn officers per 1,000 residents
+  fireResponse: number | null;    // Fire/EMS avg response time in minutes
+  libraryBranches: number | null; // Public library branches
+  pavementPci: number | null;     // Pavement Condition Index (0-100) or equivalent
+};
+
+const SERVICES_DATA: ServiceRow[] = [
+  // Portland: PPB 817 sworn / 640K = 1.28; PF&R avg 5.8 min; PCI 53 (PBOT); 19 branches (MultCoLib); ParkScore #9 (TPL 2025); Transit 51 (WalkScore)
+  { city: "Portland, OR",        parkScore: 76, transitScore: 51, policePer1k: 1.3, fireResponse: 5.8, libraryBranches: 19, pavementPci: 53 },
+  // SF: SFPD ~1,475 full-duty / 808K = 1.8; SFFD ~4.5 min; PCI 75 (sf.gov); 28 branches (SFPL); ParkScore #7 (TPL 2024); Transit 80 (WalkScore)
+  { city: "San Francisco, CA",   parkScore: 77, transitScore: 80, policePer1k: 1.8, fireResponse: 4.5, libraryBranches: 28, pavementPci: 75 },
+  // Seattle: SPD ~1,053 sworn / 737K = 1.4; SFD ~5.2 min avg; 27 branches (SPL); ParkScore #6 (TPL 2024); Transit 57 (WalkScore)
+  { city: "Seattle, WA",         parkScore: 78, transitScore: 57, policePer1k: 1.4, fireResponse: 5.2, libraryBranches: 27, pavementPci: null },
+  // Denver: DPD ~1,515 sworn / 713K = 2.1; DFD ~5.5 min avg; 27 branches (DPL); ParkScore #13 (TPL 2024); Transit 45 (WalkScore)
+  { city: "Denver, CO",          parkScore: 73, transitScore: 45, policePer1k: 2.1, fireResponse: 5.5, libraryBranches: 27, pavementPci: null },
+  // Austin: APD ~1,819 sworn / 1.2M = 1.5; AFD Priority 1 avg 8.5 min; 22 branches (APL); ParkScore #44 (TPL 2024); Transit 36 (WalkScore)
+  { city: "Austin, TX",          parkScore: 55, transitScore: 36, policePer1k: 1.5, fireResponse: 8.5, libraryBranches: 22, pavementPci: null },
+  // Boise: BPD ~337 sworn / 240K = 1.4; BFD 90th pctl 12:54, avg ~7.5 min; 5 branches (BPL); Transit 23 (WalkScore)
+  { city: "Boise, ID",           parkScore: null, transitScore: 23, policePer1k: 1.4, fireResponse: 7.5, libraryBranches: 5, pavementPci: null },
+  // SLC: SLCPD ~585 sworn / 200K = 2.9; SLCFD ISO Class 1, ~4.8 min avg; 8 branches (SLCPL); Transit 44 (WalkScore)
+  { city: "Salt Lake City, UT",  parkScore: 60, transitScore: 44, policePer1k: 2.9, fireResponse: 4.8, libraryBranches: 8, pavementPci: null },
+  // Vancouver WA: VPD ~229 sworn / 195K = 1.2; VFD avg 6:21; FVRL ~7 branches in city; Transit ~26 (WalkScore)
+  { city: "Vancouver, WA",       parkScore: null, transitScore: 26, policePer1k: 1.2, fireResponse: 6.3, libraryBranches: 7, pavementPci: null },
+];
+
+const SERVICE_METRICS = [
+  { key: "parkScore" as const, label: "Park Score", unit: "/100", source: "Trust for Public Land", higherIsBetter: true },
+  { key: "transitScore" as const, label: "Transit Score", unit: "/100", source: "WalkScore.com", higherIsBetter: true },
+  { key: "policePer1k" as const, label: "Police per 1K", unit: " officers", source: "City police depts", higherIsBetter: true },
+  { key: "fireResponse" as const, label: "Fire/EMS Response", unit: " min", source: "City fire depts", higherIsBetter: false },
+  { key: "libraryBranches" as const, label: "Library Branches", unit: "", source: "City library systems", higherIsBetter: true },
+  { key: "pavementPci" as const, label: "Road Condition", unit: "/100", source: "City DOTs", higherIsBetter: true },
+];
+
+function serviceHeatColor(value: number, min: number, max: number, higherIsBetter: boolean): string {
+  const t = max === min ? 0.5 : (value - min) / (max - min);
+  const score = higherIsBetter ? t : 1 - t;
+  // green (good) → yellow (mid) → red (bad)
+  if (score >= 0.5) {
+    const s = (score - 0.5) * 2; // 0-1
+    const r = Math.round(180 - s * 50);
+    const g = Math.round(200 + s * 30);
+    const b = Math.round(150 - s * 30);
+    return `rgb(${r}, ${g}, ${b})`;
+  } else {
+    const s = score * 2; // 0-1
+    const r = Math.round(220 - s * 40);
+    const g = Math.round(160 + s * 40);
+    const b = Math.round(140 + s * 10);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+}
+
 /* ── Income tiers we want to feature ── */
 const FEATURED_LEVELS = [60_000, 75_000, 125_000, 200_000, 300_000];
 
@@ -227,6 +286,87 @@ export default function TaxDetail() {
         <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 font-mono">
           Source: IRS / Oregon DOR / state tax agencies (2024 brackets). CA includes SDI (1.1%). Darker = higher burden. Income taxes only — excludes sales tax.
         </p>
+      </section>
+
+      {/* ── Services Comparison ── */}
+      <section>
+        <SectionHeader title="What Do You Get for Those Taxes?" />
+        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-6">
+          <p className="text-[13px] text-[var(--color-ink-muted)] mb-5">
+            Portland has the highest income tax burden in this group, but does that translate to better services?
+            Here&rsquo;s how each city stacks up on key public services.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-[13px] border-collapse">
+              <thead>
+                <tr className="border-b-2 border-[var(--color-parchment)]">
+                  <th className="text-left px-3 py-2 text-[10px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.1em] min-w-[130px]">
+                    City
+                  </th>
+                  {SERVICE_METRICS.map((m) => (
+                    <th key={m.key} className="text-center px-2 py-2 min-w-[85px]">
+                      <span className="block text-[11px] font-semibold text-[var(--color-ink)]">{m.label}</span>
+                      <span className="block text-[9px] text-[var(--color-ink-muted)] font-normal">{m.source}</span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {SERVICES_DATA.map((row, i) => {
+                  const isPortland = row.city.startsWith("Portland");
+                  return (
+                    <tr
+                      key={row.city}
+                      className={`${i > 0 ? "border-t border-[var(--color-parchment)]/40" : ""} ${isPortland ? "border-t-2 border-b-2 border-[var(--color-canopy)]/40" : ""}`}
+                    >
+                      <td className={`px-3 py-2.5 whitespace-nowrap ${isPortland ? "font-bold text-[var(--color-ink)]" : "text-[var(--color-ink-muted)]"}`}>
+                        {row.city}
+                      </td>
+                      {SERVICE_METRICS.map((m) => {
+                        const val = row[m.key];
+                        if (val === null) {
+                          return (
+                            <td key={m.key} className="px-2 py-2.5 text-center text-[var(--color-ink-muted)] text-[12px]">—</td>
+                          );
+                        }
+                        const allVals = SERVICES_DATA.map((r) => r[m.key]).filter((v): v is number => v !== null);
+                        const min = Math.min(...allVals);
+                        const max = Math.max(...allVals);
+                        const bg = serviceHeatColor(val, min, max, m.higherIsBetter);
+                        const isWorst = m.higherIsBetter ? val === min : val === max;
+                        const isBest = m.higherIsBetter ? val === max : val === min;
+                        return (
+                          <td
+                            key={m.key}
+                            className="px-2 py-2.5 text-center"
+                            style={{ backgroundColor: bg + "33" }}
+                          >
+                            <span className={`text-[13px] font-mono font-bold ${isPortland && isWorst ? "text-[#7a2020]" : isPortland && isBest ? "text-[#1a5c3a]" : "text-[var(--color-ink)]"}`}>
+                              {val}{m.unit}
+                            </span>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-4 pt-3 border-t border-[var(--color-parchment)] space-y-1">
+            <p className="text-[11px] text-[var(--color-ink-muted)] font-mono">
+              Sources: Trust for Public Land ParkScore Index (2025) &middot; WalkScore.com Transit Score (2025) &middot;
+              City police department staffing reports (2024-25) &middot; City fire department annual reports (2023-24) &middot;
+              City library annual reports &middot; City DOT pavement assessments. Green = better, red = worse.
+            </p>
+            <p className="text-[11px] text-[var(--color-ink-muted)] italic">
+              Portland ranks highly on parks (#9 nationally) and library access (19 branches serving 640K),
+              but has among the fewest police officers per capita in the country (1.3 per 1,000 vs national avg 2.4)
+              and a documented road condition crisis (PCI 53 — &ldquo;poor&rdquo; threshold). Only Portland and San Francisco
+              publish citywide pavement condition scores.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* ── Key Insight Callout ── */}
