@@ -7,6 +7,10 @@ import BureauScorecard from "./BureauScorecard";
 import FinanceTracker from "./FinanceTracker";
 import EmissionsTrajectory from "./EmissionsTrajectory";
 import EnvironmentDetail from "../environment/EnvironmentDetail";
+import EnvEmissionsTrajectory from "../environment/EmissionsTrajectory";
+import EnvWorkplanTracker from "../environment/WorkplanTracker";
+import EnvBureauScorecard from "../environment/BureauScorecard";
+import EnvClimateFinanceTracker from "../environment/ClimateFinanceTracker";
 
 const CLIMATE_COLOR = "#2d6a4f";
 
@@ -120,10 +124,30 @@ export default function ClimateDetail() {
 
         {/* Active view */}
         <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 sm:p-6">
-          {activeTab === "workplan" && <WorkplanTracker />}
-          {activeTab === "bureaus" && <BureauScorecard />}
-          {activeTab === "finance" && <FinanceTracker />}
-          {activeTab === "emissions" && <EmissionsTrajectory />}
+          {activeTab === "workplan" && (
+            <div className="space-y-10">
+              <WorkplanTracker />
+              <EnvWorkplanTracker />
+            </div>
+          )}
+          {activeTab === "bureaus" && (
+            <div className="space-y-10">
+              <BureauScorecard />
+              <EnvBureauScorecard />
+            </div>
+          )}
+          {activeTab === "finance" && (
+            <div className="space-y-10">
+              <FinanceTracker />
+              <EnvClimateFinanceTracker />
+            </div>
+          )}
+          {activeTab === "emissions" && (
+            <div className="space-y-10">
+              <EmissionsTrajectory />
+              <EnvEmissionsTrajectory />
+            </div>
+          )}
           {activeTab === "airquality" && <EnvironmentDetail />}
         </div>
       </section>

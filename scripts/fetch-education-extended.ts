@@ -24,7 +24,14 @@ const DATA_DIR = path.resolve(
   "..",
   "data"
 );
-const DISTRICT_NAME = "Portland SD 1J";
+const TARGET_DISTRICTS = [
+  "Portland SD 1J",
+  "Parkrose SD 3",
+  "David Douglas SD 40",
+  "Riverdale SD 51J",
+  "Reynolds SD 7",
+  "Centennial SD 28J",
+];
 
 // ── Helpers ─────────────────────────────────────────────────────────────
 
@@ -80,33 +87,27 @@ async function downloadFirst(urls: { url: string; name: string }[]): Promise<str
 }
 
 /**
- * Find a row matching Portland SD 1J in a sheet.
- * Searches all columns for a cell containing the district name.
+ * Find all rows matching any TARGET_DISTRICTS district in a sheet.
+ * Searches all columns for cells containing a target district name.
  */
-function findPortlandRow(
+function findDistrictRows(
   rawData: any[][],
-  matchText: string = DISTRICT_NAME
-): { row: any[]; rowIndex: number; colIndex: number } | null {
-  // First try exact match
+): { districtName: string; row: any[]; rowIndex: number; colIndex: number }[] {
+  const results: { districtName: string; row: any[]; rowIndex: number; colIndex: number }[] = [];
+  const found = new Set<string>();
+
+  // Exact match pass
   for (let i = 0; i < rawData.length; i++) {
     for (let j = 0; j < (rawData[i]?.length || 0); j++) {
       const cell = String(rawData[i][j] || "").trim();
-      if (cell === matchText) {
-        return { row: rawData[i], rowIndex: i, colIndex: j };
+      if (TARGET_DISTRICTS.includes(cell) && !found.has(`${i}-${cell}`)) {
+        results.push({ districtName: cell, row: rawData[i], rowIndex: i, colIndex: j });
+        found.add(`${i}-${cell}`);
       }
     }
   }
-  // Then try partial match
-  const lower = matchText.toLowerCase();
-  for (let i = 0; i < rawData.length; i++) {
-    for (let j = 0; j < (rawData[i]?.length || 0); j++) {
-      const cell = String(rawData[i][j] || "").trim().toLowerCase();
-      if (cell.includes("portland") && (cell.includes("sd") || cell.includes("1j") || cell.includes("school"))) {
-        return { row: rawData[i], rowIndex: i, colIndex: j };
-      }
-    }
-  }
-  return null;
+
+  return results;
 }
 
 /** Find column index by searching the header row for a pattern */
@@ -226,21 +227,22 @@ async function fetchChronicAbsenteeism(): Promise<AbsenteeismRow[]> {
           continue;
         }
 
-        // Find district-level row for Portland SD 1J where student group = "All Students" or "Total"
-        let bestRow: any[] | null = null;
+        // Find district-level rows for all target districts where student group = "All Students" or "Total"
+        const foundDistricts = new Set<string>();
+
         for (let i = headerIdx + 1; i < rawData.length; i++) {
           const row = rawData[i];
           const dist = String(row[distCol] || "").trim();
-          if (dist !== DISTRICT_NAME && !dist.toLowerCase().includes("portland sd")) continue;
+          if (!TARGET_DISTRICTS.includes(dist)) continue;
+          if (foundDistricts.has(dist)) continue;
 
           // Check institution type — we want "District" level
           if (instTypeCol >= 0) {
             const instType = String(row[instTypeCol] || "").trim().toLowerCase();
             if (instType !== "district" && instType !== "dist") continue;
           } else if (instCol >= 0) {
-            // If no institution type column, look for institution matching district name
             const inst = String(row[instCol] || "").trim();
-            if (inst !== dist && inst !== DISTRICT_NAME) continue;
+            if (inst !== dist) continue;
           }
 
           // Check student group — we want "All Students" or "Total"
@@ -249,57 +251,41 @@ async function fetchChronicAbsenteeism(): Promise<AbsenteeismRow[]> {
             if (group !== "all students" && group !== "total" && group !== "all") continue;
           }
 
-          bestRow = row;
-          console.log(`    Found district-level "All Students" row at ${i + 1}`);
-          break;
-        }
+          console.log(`    Found district-level "All Students" row for "${dist}" at ${i + 1}`);
 
-        if (!bestRow) {
-          // Fallback: find any Portland district row
-          for (let i = headerIdx + 1; i < rawData.length; i++) {
-            const dist = String(rawData[i][distCol] || "").trim();
-            if (dist !== DISTRICT_NAME) continue;
-            if (instTypeCol >= 0 && String(rawData[i][instTypeCol] || "").trim().toLowerCase() === "district") {
-              bestRow = rawData[i];
-              console.log(`    Fallback: found district-level row at ${i + 1}`);
-              break;
-            }
+          const rawPct = parseNum(row[pctCol]);
+          const regularPct = rawPct > 1 ? rawPct : rawPct > 0 ? rawPct * 100 : null;
+          const totalStudents = totalCol >= 0 ? (parseNum(row[totalCol]) || null) : null;
+
+          let chronicPct: number | null = null;
+          if (chronicPctCol >= 0) {
+            const rawChronic = parseNum(row[chronicPctCol]);
+            chronicPct = rawChronic > 1 ? rawChronic : rawChronic > 0 ? rawChronic * 100 : null;
+          }
+          if (chronicPct === null && regularPct !== null) {
+            chronicPct = Math.round((100 - regularPct) * 100) / 100;
+          }
+
+          console.log(`    ${dist}: Regular Attender %: ${regularPct?.toFixed(1)}, Chronic Absent %: ${chronicPct}, Students: ${totalStudents}`);
+
+          if (regularPct !== null) {
+            results.push({
+              school_year: config.year,
+              district_name: dist,
+              regular_attenders_pct: Math.round(regularPct * 100) / 100,
+              chronic_absent_pct: chronicPct,
+              total_students: totalStudents ? Math.round(totalStudents) : null,
+            });
+            foundDistricts.add(dist);
           }
         }
 
-        if (!bestRow) {
-          console.log(`    Could not find Portland district-level row`);
+        if (foundDistricts.size === 0) {
+          console.log(`    Could not find any target district rows`);
           continue;
         }
 
-        const rawPct = parseNum(bestRow[pctCol]);
-        // The "Percent Regular Attenders" is a percentage 0-100 (e.g., 67.47)
-        const regularPct = rawPct > 1 ? rawPct : rawPct > 0 ? rawPct * 100 : null;
-        const totalStudents = totalCol >= 0 ? (parseNum(bestRow[totalCol]) || null) : null;
-
-        // Use explicit "Percent Chronically Absent" column if available, else compute
-        let chronicPct: number | null = null;
-        if (chronicPctCol >= 0) {
-          const rawChronic = parseNum(bestRow[chronicPctCol]);
-          chronicPct = rawChronic > 1 ? rawChronic : rawChronic > 0 ? rawChronic * 100 : null;
-        }
-        if (chronicPct === null && regularPct !== null) {
-          chronicPct = Math.round((100 - regularPct) * 100) / 100;
-        }
-
-        console.log(`    Regular Attender %: ${regularPct?.toFixed(1)}, Students: ${totalStudents}`);
-        console.log(`    Chronic Absent %: ${chronicPct}`);
-
-        if (regularPct !== null) {
-          results.push({
-            school_year: config.year,
-            district_name: DISTRICT_NAME,
-            regular_attenders_pct: Math.round(regularPct * 100) / 100,
-            chronic_absent_pct: chronicPct,
-            total_students: totalStudents ? Math.round(totalStudents) : null,
-          });
-        }
-
+        console.log(`    Found data for ${foundDistricts.size} districts: ${[...foundDistricts].join(", ")}`);
         break; // Found data, move to next year
       }
     } catch (err: any) {
@@ -381,41 +367,39 @@ async function fetchPerPupilSpending(): Promise<SpendingRow[]> {
         continue;
       }
 
-      // Find Portland rows and average per-pupil spending across schools
-      let totalSpending = 0;
-      let schoolCount = 0;
+      // Find rows for all target districts and average per-pupil spending per district
+      const districtSums: Map<string, { total: number; count: number }> = new Map();
 
       for (let i = headerIdx + 1; i < rawData.length; i++) {
         const dist = String(rawData[i][distCol] || "").trim();
-        if (
-          dist === DISTRICT_NAME ||
-          dist.toLowerCase().includes("portland") &&
-            (dist.toLowerCase().includes("sd") || dist.toLowerCase().includes("1j"))
-        ) {
-          if (ppCol >= 0) {
-            const val = parseNum(rawData[i][ppCol]);
-            if (val > 0) {
-              totalSpending += val;
-              schoolCount++;
-            }
+        if (!TARGET_DISTRICTS.includes(dist)) continue;
+
+        if (ppCol >= 0) {
+          const val = parseNum(rawData[i][ppCol]);
+          if (val > 0) {
+            const existing = districtSums.get(dist) || { total: 0, count: 0 };
+            existing.total += val;
+            existing.count++;
+            districtSums.set(dist, existing);
           }
         }
       }
 
-      if (schoolCount > 0) {
-        const avgPP = Math.round((totalSpending / schoolCount) * 100) / 100;
-        console.log(`    Found ${schoolCount} Portland schools, avg per-pupil: $${avgPP.toFixed(2)}`);
-        results.push({
-          school_year: config.year,
-          district_name: DISTRICT_NAME,
-          total_per_pupil: avgPP,
-        });
+      if (districtSums.size > 0) {
+        for (const [dist, { total, count }] of districtSums) {
+          const avgPP = Math.round((total / count) * 100) / 100;
+          console.log(`    ${dist}: ${count} schools, avg per-pupil: $${avgPP.toFixed(2)}`);
+          results.push({
+            school_year: config.year,
+            district_name: dist,
+            total_per_pupil: avgPP,
+          });
+        }
       } else if (ppCol < 0) {
-        // Try to find a district-level summary row with any dollar amount
         console.log(`    Could not find per-pupil column, scanning...`);
         console.log(`    Columns: ${headerRow.join(" | ")}`);
       } else {
-        console.log(`    No Portland schools found in spending data`);
+        console.log(`    No target district schools found in spending data`);
       }
     } catch (err: any) {
       console.log(`    Parse error: ${err.message}`);
@@ -490,34 +474,35 @@ async function fetchClassSize(): Promise<ClassSizeRow[]> {
         continue;
       }
 
-      // Collect all Portland rows, then aggregate by subject
-      const subjectSums: Map<string, { total: number; count: number }> = new Map();
+      // Collect rows for all target districts, then aggregate by district + subject
+      // Key: "districtName|||subject"
+      const distSubjectSums: Map<string, { district: string; subject: string; total: number; count: number }> = new Map();
 
       for (let i = headerIdx + 1; i < rawData.length; i++) {
         const dist = String(rawData[i][distCol] || "").trim();
-        if (dist !== DISTRICT_NAME && !(dist.toLowerCase().includes("portland") && dist.toLowerCase().includes("sd"))) continue;
+        if (!TARGET_DISTRICTS.includes(dist)) continue;
 
         const avgSize = parseNum(rawData[i][avgCol]);
         const subject = subjectCol >= 0 ? String(rawData[i][subjectCol] || "All").trim() : "All";
         if (avgSize <= 0 || avgSize > 100) continue; // skip invalid
 
-        const key = subject || "All";
-        const existing = subjectSums.get(key) || { total: 0, count: 0 };
+        const key = `${dist}|||${subject || "All"}`;
+        const existing = distSubjectSums.get(key) || { district: dist, subject: subject || "All", total: 0, count: 0 };
         existing.total += avgSize;
         existing.count++;
-        subjectSums.set(key, existing);
+        distSubjectSums.set(key, existing);
       }
 
-      // Compute district-wide averages per subject
-      for (const [subject, { total, count }] of subjectSums) {
+      // Compute averages per district + subject
+      for (const [, { district, subject, total, count }] of distSubjectSums) {
         const avg = Math.round((total / count) * 10) / 10;
         results.push({
           school_year: config.year,
-          district_name: DISTRICT_NAME,
+          district_name: district,
           avg_class_size: avg,
           subject,
         });
-        console.log(`    ${subject}: avg class size = ${avg} (${count} schools)`);
+        console.log(`    ${district} / ${subject}: avg class size = ${avg} (${count} schools)`);
       }
     } catch (err: any) {
       console.log(`    Parse error: ${err.message}`);
@@ -531,6 +516,7 @@ async function fetchClassSize(): Promise<ClassSizeRow[]> {
 
 interface GradRateRow {
   school_year: string;
+  district_name: string;
   rate_4yr: number | null;
   rate_5yr: number | null;
 }
@@ -578,13 +564,11 @@ async function fetchGraduationRates(): Promise<GradRateRow[]> {
       const workbook = XLSX.readFile(filePath);
       console.log(`    Sheets: ${workbook.SheetNames.join(", ")}`);
 
-      let rate4: number | null = null;
-      let rate5: number | null = null;
-
-      // Helper: find district-level "All Students" row for Portland and extract a graduation rate
-      function extractRateFromSheet(sheetName: string): number | null {
+      // Helper: find district-level "All Students" rows for all target districts and extract graduation rates
+      function extractRateFromSheet(sheetName: string): Map<string, number> {
+        const ratesByDistrict = new Map<string, number>();
         const sheet = workbook.Sheets[sheetName];
-        if (!sheet) return null;
+        if (!sheet) return ratesByDistrict;
         const rawData: any[][] = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
         const headerIdx = findHeaderRow(rawData);
@@ -602,18 +586,22 @@ async function fetchGraduationRates(): Promise<GradRateRow[]> {
         const rateCol = findCol(headerRow, /graduation rate/i, /cohort grad/i);
 
         console.log(`    Sheet "${sheetName}": distCol=${distCol}, groupCol=${groupCol}, rateCol=${rateCol}, schoolCol=${schoolCol}`);
-        if (distCol < 0) return null;
+        if (distCol < 0) return ratesByDistrict;
 
-        // Find Portland district-level row with "All Students" group
-        // District-level rows have school name = district name (e.g., "Portland SD 1J")
+        // Build a set for fast lookup
+        const targetSet = new Set(TARGET_DISTRICTS);
+
+        // Find district-level rows with "All Students" group for each target district
         for (let i = headerIdx + 1; i < rawData.length; i++) {
           const dist = String(rawData[i][distCol] || "").trim();
-          if (dist !== DISTRICT_NAME) continue;
+          if (!targetSet.has(dist)) continue;
+          // Skip if we already found a rate for this district
+          if (ratesByDistrict.has(dist)) continue;
 
           // District-level: school name should match district name exactly
           if (schoolCol >= 0) {
             const school = String(rawData[i][schoolCol] || "").trim();
-            if (school !== DISTRICT_NAME && school !== dist) continue;
+            if (school !== dist) continue;
           }
 
           // Must be "All Students" group
@@ -635,38 +623,52 @@ async function fetchGraduationRates(): Promise<GradRateRow[]> {
           for (const col of candidateCols) {
             const val = parseNum(rawData[i][col]);
             const adjusted = val > 1 ? val : val > 0 ? val * 100 : 0;
-            // Portland graduation rate should be plausible (50-100%)
+            // Graduation rate should be plausible (50-100%)
             if (adjusted >= 50 && adjusted <= 100) {
-              console.log(`    Found rate ${adjusted.toFixed(1)}% in col "${headerRow[col]}" at row ${i + 1}, group="${rawData[i][groupCol] || ""}", school="${rawData[i][schoolCol] || ""}"`);
-              return adjusted;
+              console.log(`    Found rate ${adjusted.toFixed(1)}% for "${dist}" in col "${headerRow[col]}" at row ${i + 1}, group="${rawData[i][groupCol] || ""}", school="${rawData[i][schoolCol] || ""}"`);
+              ratesByDistrict.set(dist, adjusted);
+              break;
             }
           }
         }
-        return null;
+        return ratesByDistrict;
       }
 
       // Look for 4-year rate in "4YR District and School" sheet
+      let rates4 = new Map<string, number>();
       const fourYrSheet = workbook.SheetNames.find((s: string) => s.includes("4YR") && s.includes("District"));
       if (fourYrSheet) {
-        rate4 = extractRateFromSheet(fourYrSheet);
-        if (rate4) console.log(`    4-year graduation rate: ${rate4.toFixed(1)}%`);
+        rates4 = extractRateFromSheet(fourYrSheet);
+        for (const [dist, rate] of rates4) {
+          console.log(`    4-year graduation rate for "${dist}": ${rate.toFixed(1)}%`);
+        }
       }
 
       // Look for 5-year rate in "5YR District and School" sheet
+      let rates5 = new Map<string, number>();
       const fiveYrSheet = workbook.SheetNames.find((s: string) => s.includes("5YR") && s.includes("District"));
       if (fiveYrSheet) {
-        rate5 = extractRateFromSheet(fiveYrSheet);
-        if (rate5) console.log(`    5-year graduation rate: ${rate5.toFixed(1)}%`);
+        rates5 = extractRateFromSheet(fiveYrSheet);
+        for (const [dist, rate] of rates5) {
+          console.log(`    5-year graduation rate for "${dist}": ${rate.toFixed(1)}%`);
+        }
       }
 
-      if (rate4 !== null || rate5 !== null) {
-        results.push({
-          school_year: config.year,
-          rate_4yr: rate4 !== null ? Math.round(rate4 * 10) / 10 : null,
-          rate_5yr: rate5 !== null ? Math.round(rate5 * 10) / 10 : null,
-        });
+      // Collect all districts that have at least one rate
+      const allDistricts = new Set([...rates4.keys(), ...rates5.keys()]);
+      if (allDistricts.size > 0) {
+        for (const dist of allDistricts) {
+          const r4 = rates4.get(dist) ?? null;
+          const r5 = rates5.get(dist) ?? null;
+          results.push({
+            school_year: config.year,
+            district_name: dist,
+            rate_4yr: r4 !== null ? Math.round(r4 * 10) / 10 : null,
+            rate_5yr: r5 !== null ? Math.round(r5 * 10) / 10 : null,
+          });
+        }
       } else {
-        console.log(`    No graduation rates found for Portland`);
+        console.log(`    No graduation rates found for any target district`);
       }
     } catch (err: any) {
       console.log(`    Parse error: ${err.message}`);
@@ -806,7 +808,7 @@ async function insertAllData(
             rate_5yr = COALESCE(${row.rate_5yr}, rate_5yr),
             source = 'ODE cohort media file'
           WHERE school_year = ${row.school_year}
-            AND district_name = ${DISTRICT_NAME}
+            AND district_name = ${row.district_name}
           RETURNING id
         `;
         if (updated.length === 0) {
@@ -815,7 +817,7 @@ async function insertAllData(
             INSERT INTO education.graduation_rates
               (school_year, district_name, rate_4yr, rate_5yr, source)
             VALUES (
-              ${row.school_year}, ${DISTRICT_NAME},
+              ${row.school_year}, ${row.district_name},
               ${row.rate_4yr}, ${row.rate_5yr}, 'ODE cohort media file'
             )
             ON CONFLICT (school_year, district_name)

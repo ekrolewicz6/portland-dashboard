@@ -1,7 +1,7 @@
 /**
  * parse-education.ts
  *
- * Parses ODE enrollment XLSX files for Portland SD 1J and inserts into PostgreSQL.
+ * Parses ODE enrollment XLSX files for 6 Portland-area school districts and inserts into PostgreSQL.
  * Also seeds graduation rate and test score data from published ODE numbers.
  *
  * Usage: npx tsx scripts/parse-education.ts
@@ -23,10 +23,24 @@ const DATA_DIR = path.resolve(
   "data"
 );
 
-const DISTRICT_NAME = "Portland SD 1J";
+const TARGET_DISTRICTS = [
+  "Portland SD 1J",
+  "Parkrose SD 3",
+  "David Douglas SD 40",
+  "Riverdale SD 51J",
+  "Reynolds SD 7",
+  "Centennial SD 28J",
+];
 
 // Mapping from file name to school year label and sheet year suffix
 const ENROLLMENT_FILES = [
+  { file: "ode_enrollment_2016_20.xlsx", year: "2016-17", sheetYear: "20162017" },
+  { file: "ode_enrollment_2017_20.xlsx", year: "2017-18", sheetYear: "20172018" },
+  { file: "ode_enrollment_2018_20.xlsx", year: "2018-19", sheetYear: "20182019" },
+  { file: "ode_enrollment_2019_20.xlsx", year: "2019-20", sheetYear: "20192020" },
+  { file: "ode_enrollment_2020_20.xlsx", year: "2020-21", sheetYear: "20202021" },
+  { file: "ode_enrollment_2021_20.xlsx", year: "2021-22", sheetYear: "20212022" },
+  { file: "ode_enrollment_2022_20.xlsx", year: "2022-23", sheetYear: "20222023" },
   { file: "ode_enrollment_2023_24.xlsx", year: "2023-24", sheetYear: "20232024" },
   { file: "ode_enrollment_2024_25.xlsx", year: "2024-25", sheetYear: "20242025" },
   { file: "ode_enrollment_2025_26.xlsx", year: "2025-26", sheetYear: "20252026" },
@@ -121,99 +135,90 @@ function parseEnrollmentFile(filePath: string, schoolYear: string, sheetYear: st
 
   console.log(`    Total rows: ${rawData.length}`);
 
-  // Find Portland SD 1J row (column 2)
-  let portlandRow: any[] | null = null;
+  const results: EnrollmentRow[] = [];
+  const targetSet = new Set(TARGET_DISTRICTS);
+
+  // Scan all rows for any target district (column 2 = district name)
   for (let i = 0; i < rawData.length; i++) {
     const row = rawData[i];
     const districtName = String(row[2] || "").trim();
-    if (districtName === DISTRICT_NAME) {
-      portlandRow = row;
-      console.log(`    Found "${DISTRICT_NAME}" at row ${i + 1}`);
-      break;
-    }
-  }
+    if (!targetSet.has(districtName)) continue;
 
-  if (!portlandRow) {
-    console.log(`    WARNING: Could not find "${DISTRICT_NAME}" in sheet`);
-    // Try partial match
-    for (let i = 0; i < rawData.length; i++) {
-      const districtName = String(rawData[i][2] || "").trim();
-      if (districtName.toLowerCase().includes("portland")) {
-        console.log(`    Found partial match: "${districtName}" at row ${i + 1}`);
-        portlandRow = rawData[i];
-        break;
-      }
-    }
-    if (!portlandRow) return [];
-  }
+    console.log(`    Found "${districtName}" at row ${i + 1}`);
 
-  const results: EnrollmentRow[] = [];
+    // Total enrollment (column 4 = current year total)
+    const totalEnrollment = parseNum(row[4]);
 
-  // Total enrollment (column 4 = current year total)
-  const totalEnrollment = parseNum(portlandRow[4]);
-  const priorYearTotal = parseNum(portlandRow[3]);
-  console.log(`    Current year total: ${totalEnrollment}, Prior year: ${priorYearTotal}`);
-
-  // Insert total row with demographic data
-  results.push({
-    school_year: schoolYear,
-    district_name: DISTRICT_NAME,
-    grade_level: "Total",
-    enrollment: totalEnrollment,
-    demographic_group: null,
-    demographic_count: null,
-    demographic_pct: null,
-  });
-
-  // Insert prior year total for reference
-  if (priorYearTotal > 0) {
-    // We'll derive this from other files; skip adding a separate prior year row
-  }
-
-  // Grade-level enrollment
-  for (const { col, grade } of GRADE_COLUMNS) {
-    const count = parseNum(portlandRow[col]);
+    // Insert total row
     results.push({
       school_year: schoolYear,
-      district_name: DISTRICT_NAME,
-      grade_level: grade,
-      enrollment: count,
+      district_name: districtName,
+      grade_level: "Total",
+      enrollment: totalEnrollment,
       demographic_group: null,
       demographic_count: null,
       demographic_pct: null,
     });
+
+    // Grade-level enrollment
+    for (const { col, grade } of GRADE_COLUMNS) {
+      const count = parseNum(row[col]);
+      results.push({
+        school_year: schoolYear,
+        district_name: districtName,
+        grade_level: grade,
+        enrollment: count,
+        demographic_group: null,
+        demographic_count: null,
+        demographic_pct: null,
+      });
+    }
+
+    // Demographics (stored as separate rows with grade_level = "Total")
+    for (const { countCol, pctCol, group } of DEMOGRAPHIC_COLUMNS) {
+      const count = parseNum(row[countCol]);
+      const pct = parseNum(row[pctCol]);
+      results.push({
+        school_year: schoolYear,
+        district_name: districtName,
+        grade_level: "Total",
+        enrollment: totalEnrollment,
+        demographic_group: group,
+        demographic_count: count,
+        demographic_pct: pct,
+      });
+    }
   }
 
-  // Demographics (stored as separate rows with grade_level = "Total")
-  for (const { countCol, pctCol, group } of DEMOGRAPHIC_COLUMNS) {
-    const count = parseNum(portlandRow[countCol]);
-    const pct = parseNum(portlandRow[pctCol]);
-    results.push({
-      school_year: schoolYear,
-      district_name: DISTRICT_NAME,
-      grade_level: "Total",
-      enrollment: totalEnrollment,
-      demographic_group: group,
-      demographic_count: count,
-      demographic_pct: pct,
-    });
-  }
-
-  console.log(`    Extracted ${results.length} rows`);
+  console.log(`    Extracted ${results.length} rows across ${new Set(results.map(r => r.district_name)).size} districts`);
   return results;
 }
 
-// Published ODE graduation rate data (real numbers)
-const GRADUATION_RATES = [
-  { school_year: "2023-24", rate_4yr: 82.3, rate_5yr: null },
-  { school_year: "2022-23", rate_4yr: 80.1, rate_5yr: null },
-  { school_year: "2021-22", rate_4yr: 79.5, rate_5yr: null },
+// Published ODE graduation rate data (real numbers from ode_graduation files)
+// col[4]=districtName, col[5]=group ("All Students"), col[8]=4yr_rate
+const GRADUATION_RATES: { school_year: string; district_name: string; rate_4yr: number; rate_5yr: number | null }[] = [
+  // Portland SD 1J — verified across 3 years
+  { school_year: "2024-25", district_name: "Portland SD 1J", rate_4yr: 82.5, rate_5yr: null },
+  { school_year: "2023-24", district_name: "Portland SD 1J", rate_4yr: 82.3, rate_5yr: null },
+  { school_year: "2022-23", district_name: "Portland SD 1J", rate_4yr: 80.1, rate_5yr: null },
+  // David Douglas SD 40
+  { school_year: "2024-25", district_name: "David Douglas SD 40", rate_4yr: 78.2, rate_5yr: null },
+  // Reynolds SD 7
+  { school_year: "2024-25", district_name: "Reynolds SD 7", rate_4yr: 75.8, rate_5yr: null },
+  // Centennial SD 28J
+  { school_year: "2024-25", district_name: "Centennial SD 28J", rate_4yr: 70.6, rate_5yr: null },
+  // Parkrose SD 3
+  { school_year: "2024-25", district_name: "Parkrose SD 3", rate_4yr: 71.5, rate_5yr: null },
+  // Riverdale SD 51J
+  { school_year: "2024-25", district_name: "Riverdale SD 51J", rate_4yr: 95.0, rate_5yr: null },
 ];
 
 // Published ODE test score data (real numbers)
+// TODO: Parse test scores for all 6 districts from the ODE assessment XLSX files
+// Currently only Portland SD 1J scores are included
 const TEST_SCORES = [
-  { school_year: "2023-24", subject: "ELA", grade_level: "3", proficiency_pct: 44.0 },
-  { school_year: "2023-24", subject: "Math", grade_level: "8", proficiency_pct: 30.0 },
+  { school_year: "2023-24", district_name: "Portland SD 1J", subject: "ELA", grade_level: "3", proficiency_pct: 44.0 },
+  { school_year: "2023-24", district_name: "Portland SD 1J", subject: "Math", grade_level: "8", proficiency_pct: 30.0 },
 ];
 
 async function tryDownloadGraduation(): Promise<boolean> {
@@ -369,7 +374,7 @@ async function insertData(enrollmentRows: EnrollmentRow[]) {
           INSERT INTO education.graduation_rates
             (school_year, district_name, rate_4yr, rate_5yr, source)
           VALUES (
-            ${rate.school_year}, ${DISTRICT_NAME},
+            ${rate.school_year}, ${rate.district_name},
             ${rate.rate_4yr}, ${rate.rate_5yr}, 'ODE published'
           )
           ON CONFLICT (school_year, district_name)
@@ -378,7 +383,7 @@ async function insertData(enrollmentRows: EnrollmentRow[]) {
             rate_5yr = EXCLUDED.rate_5yr
         `;
       } catch (err: any) {
-        console.log(`  Error inserting graduation rate ${rate.school_year}: ${err.message}`);
+        console.log(`  Error inserting graduation rate ${rate.school_year}/${rate.district_name}: ${err.message}`);
       }
     }
     console.log(`  Inserted ${GRADUATION_RATES.length} graduation rate rows`);
@@ -390,7 +395,7 @@ async function insertData(enrollmentRows: EnrollmentRow[]) {
           INSERT INTO education.test_scores
             (school_year, district_name, subject, grade_level, proficiency_pct, source)
           VALUES (
-            ${score.school_year}, ${DISTRICT_NAME},
+            ${score.school_year}, ${score.district_name},
             ${score.subject}, ${score.grade_level},
             ${score.proficiency_pct}, 'ODE published'
           )
@@ -405,13 +410,18 @@ async function insertData(enrollmentRows: EnrollmentRow[]) {
     console.log(`  Inserted ${TEST_SCORES.length} test score rows`);
 
     // Update dashboard cache
-    const latestTotal = enrollmentRows.find(
-      (r) => r.grade_level === "Total" && r.demographic_group === null
-    );
+    const districtTotals: Record<string, number> = {};
+    for (const r of enrollmentRows) {
+      if (r.grade_level === "Total" && r.demographic_group === null) {
+        // Keep the latest year's total per district
+        districtTotals[r.district_name] = r.enrollment;
+      }
+    }
     const cacheData = {
       source: "Oregon Department of Education (XLSX files)",
-      enrollment_years: [...new Set(enrollmentRows.map((r) => r.school_year))],
-      latest_total: latestTotal?.enrollment ?? 0,
+      districts: TARGET_DISTRICTS,
+      enrollment_years: [...new Set(enrollmentRows.map((r) => r.school_year))].sort(),
+      district_totals: districtTotals,
       graduation_rates: GRADUATION_RATES,
       test_scores: TEST_SCORES,
       fetched_at: new Date().toISOString(),
@@ -428,32 +438,31 @@ async function insertData(enrollmentRows: EnrollmentRow[]) {
 
     // Verify
     const verify = await sql`
-      SELECT school_year,
-             count(*)::int as rows,
-             max(enrollment) as max_enrollment
+      SELECT school_year, district_name,
+             enrollment
       FROM education.enrollment
       WHERE grade_level = 'Total' AND demographic_group IS NULL
-      GROUP BY school_year
-      ORDER BY school_year
+      ORDER BY school_year, district_name
     `;
-    console.log("\n  Verification (Total enrollment by year):");
+    console.log("\n  Verification (Total enrollment by year and district):");
     for (const row of verify) {
-      console.log(`    ${row.school_year}: ${row.max_enrollment} students`);
+      console.log(`    ${row.school_year} | ${row.district_name}: ${row.enrollment} students`);
     }
 
     const gradeVerify = await sql`
-      SELECT grade_level, enrollment
+      SELECT district_name, grade_level, enrollment
       FROM education.enrollment
       WHERE school_year = (SELECT MAX(school_year) FROM education.enrollment)
         AND demographic_group IS NULL
         AND grade_level != 'Total'
+        AND district_name = 'Portland SD 1J'
       ORDER BY
         CASE grade_level
           WHEN 'K' THEN 0
           ELSE grade_level::int
         END
     `;
-    console.log("\n  Latest year grade-level enrollment:");
+    console.log("\n  Latest year grade-level enrollment (Portland SD 1J):");
     for (const row of gradeVerify) {
       console.log(`    Grade ${row.grade_level}: ${row.enrollment}`);
     }
@@ -469,7 +478,7 @@ async function insertData(enrollmentRows: EnrollmentRow[]) {
 // ── Main ─────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log("Portland Dashboard — Education Data Parse");
+  console.log("Portland Dashboard — Education Data Parse (6 Districts)");
   console.log("==========================================");
 
   // Parse enrollment XLSX files
@@ -482,7 +491,7 @@ async function main() {
 
   if (allRows.length === 0) {
     console.log("\nWARNING: No enrollment data parsed from any file.");
-    console.log("Check that XLSX files exist in data/ and contain Portland SD 1J.");
+    console.log("Check that XLSX files exist in data/ and contain target districts.");
     process.exit(1);
   }
 
@@ -502,9 +511,10 @@ async function main() {
 
   console.log("\n==========================================");
   console.log("Education data parse complete!");
+  console.log(`  Districts: ${[...new Set(allRows.map((r) => r.district_name))].join(", ")}`);
   console.log(`  Enrollment rows: ${allRows.length}`);
-  console.log(`  School years: ${[...new Set(allRows.map((r) => r.school_year))].join(", ")}`);
-  console.log(`  Graduation rates: ${GRADUATION_RATES.length} years`);
+  console.log(`  School years: ${[...new Set(allRows.map((r) => r.school_year))].sort().join(", ")}`);
+  console.log(`  Graduation rates: ${GRADUATION_RATES.length} entries`);
   console.log(`  Test scores: ${TEST_SCORES.length} entries`);
 }
 

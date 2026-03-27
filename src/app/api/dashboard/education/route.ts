@@ -3,14 +3,25 @@ import sql from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
 
+const PORTLAND_DISTRICTS = [
+  'Portland SD 1J',
+  'Parkrose SD 3',
+  'David Douglas SD 40',
+  'Riverdale SD 51J',
+  'Reynolds SD 7',
+  'Centennial SD 28J',
+];
+
 export async function GET() {
   try {
-    // Get latest year total enrollment
+    // Get latest two years of total enrollment across all 6 Portland-area districts
     const latestRows = await sql`
-      SELECT school_year, enrollment
+      SELECT school_year, SUM(enrollment)::int AS enrollment
       FROM education.enrollment
       WHERE grade_level = 'Total'
         AND demographic_group IS NULL
+        AND district_name IN ('Portland SD 1J', 'Parkrose SD 3', 'David Douglas SD 40', 'Riverdale SD 51J', 'Reynolds SD 7', 'Centennial SD 28J')
+      GROUP BY school_year
       ORDER BY school_year DESC
       LIMIT 2
     `;
@@ -23,7 +34,7 @@ export async function GET() {
         dataAvailable: false,
         dataSources: [
           {
-            name: "PPS Enrollment Data",
+            name: "Portland-area Enrollment Data (6 districts)",
             status: "needed",
             provider: "Oregon Department of Education",
             action: "Run: npx tsx scripts/parse-education.ts",
@@ -50,12 +61,14 @@ export async function GET() {
     const direction = yoyChange > 0 ? "up" : yoyChange < 0 ? "down" : "flat";
     const absChange = Math.abs(yoyChange);
 
-    // Chart data: enrollment totals across years
+    // Chart data: combined enrollment totals across years for all 6 districts
     const chartRows = await sql`
-      SELECT school_year, enrollment
+      SELECT school_year, SUM(enrollment)::int AS enrollment
       FROM education.enrollment
       WHERE grade_level = 'Total'
         AND demographic_group IS NULL
+        AND district_name IN ('Portland SD 1J', 'Parkrose SD 3', 'David Douglas SD 40', 'Riverdale SD 51J', 'Reynolds SD 7', 'Centennial SD 28J')
+      GROUP BY school_year
       ORDER BY school_year ASC
     `;
 
@@ -73,7 +86,7 @@ export async function GET() {
 
     const insights: string[] = [];
     insights.push(
-      `PPS enrollment is ${totalEnrollment.toLocaleString()} students (${latest.school_year})`
+      `${totalEnrollment.toLocaleString()} students across 6 Portland-area districts (${latest.school_year})`
     );
     if (priorEnrollment) {
       insights.push(
@@ -84,7 +97,7 @@ export async function GET() {
       insights.push(`4-year graduation rate: ${latestGradRate}%`);
     }
 
-    const headline = `${totalEnrollment.toLocaleString()} students in Portland Public Schools — ${direction} ${absChange.toFixed(1)}% from last year`;
+    const headline = `${totalEnrollment.toLocaleString()} Portland-area students — ${direction} ${absChange.toFixed(1)}% from last year`;
 
     return NextResponse.json({
       headline,
@@ -93,7 +106,7 @@ export async function GET() {
       dataAvailable: true,
       dataSources: [
         {
-          name: "ODE Enrollment Data",
+          name: "ODE Enrollment Data (6 Portland-area districts)",
           status: "connected",
           provider: "Oregon Department of Education",
           action: "XLSX files parsed locally",

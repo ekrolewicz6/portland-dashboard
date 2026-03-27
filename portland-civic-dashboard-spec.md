@@ -54,47 +54,129 @@ Housing supply is the single most important variable determining whether Portlan
 
 ## 2. Homelessness: Are People Getting Housed?
 
-The only metric that ultimately matters is: are fewer people living unsheltered? Everything else is a leading indicator or a process measure.
+**Central frame: Flow-through.** The system is over-leveraged in shelter and under-leveraged in housing placement. The March 2026 quarterly joint city-county meeting consensus: "build a system that people can flow through and isn't over-leveraged in any one area." The dashboard should visualize the entire pipeline — inflow into homelessness, movement through the system (shelter, services, outreach), and outflow into permanent housing — and show where the bottlenecks are.
 
-### The Count
+### Q1: What Is Driving the Inflow?
 
-- **Point-in-time unsheltered count.** The official count happens biannually and is an undercount. The dashboard should note this limitation and supplement with proxy data.
-- **Estimated unsheltered population** (using shelter utilization, outreach contact data, and 911 call data as proxies for more frequent estimation). Updated quarterly if possible.
-- **Number of people in emergency shelter** (nightly average, by shelter type: congregate, non-congregate, safe rest villages).
-- **Number of people in transitional housing.**
-- **Number of people who exited homelessness to permanent housing in the past month/quarter/year.** This is the outcome metric. Everything else is process.
-- **Number of people who returned to homelessness within 12 months of being housed.** This measures whether housing placements stick.
+Evictions are the single biggest inflow driver that people underestimate. January 2026 had the highest number of evictions in Oregon history. The primary data source is Dr. Lisa Bates' "Evicted in Oregon" project at HRAC (PSU).
 
-### Shelter and Services
+- **Eviction filings and completions by month**, statewide and Portland metro, from the HRAC Evicted in Oregon dataset. Show trend over time, by geography, and correlate with entries into the homelessness system (by-name list new entries).
+- **Hospital discharges to homelessness** — people discharged from hospitals with no housing plan. The mayor has raised this as a policy issue ("sending people back across the river").
+- **Loss of income/benefits** — Social Security not keeping pace with rent. Track the gap between SSI/SSDI payments and median studio rent.
+- **The definitional gap** — HRAC's ~2017 regional prevalence study estimated 20,000–30,000 people experience homelessness for at least one night per year, including doubled-up populations the federal PIT definition excludes. Show the federal PIT count and the local/expanded estimate side by side so the public can see the gap.
 
-- **Total emergency shelter beds available vs. occupied** (nightly). If beds are full, the system has insufficient capacity. If beds are empty, something about the shelter model isn't working (barriers too high, conditions too poor, location too remote).
-- **Number of people on the shelter waitlist.**
-- **Average length of stay in emergency shelter.** Long stays mean people aren't moving through the system to permanent housing. The shelter is becoming warehousing.
-- **Number of permanent supportive housing (PSH) units available, occupied, and in the pipeline.** PSH is the proven intervention for chronically homeless individuals. Is the supply growing fast enough?
-- **Number of rapid rehousing placements per month.** Rapid rehousing is the intervention for people who are recently homeless and need short-term rental assistance to stabilize.
-- **Outreach contacts per month** (number of unique individuals contacted by outreach workers). Are we reaching people?
-- **Percentage of outreach contacts that result in a service connection within 7 days.** Are outreach contacts leading anywhere, or are they just documentation?
+### Q2: Where Is the System Over-Leveraged and Under-Leveraged?
 
-### Addiction and Behavioral Health
+This is the core rebalancing question. HSD has put forward a list of where they want to see shelter reduced. Shelter is "where the biggest investments are, where the most money is."
+
+- **Spending by intervention type** — shelter, rapid rehousing, PSH, outreach, transitional housing. Map spending against outcomes for each.
+- **People entering each intervention type** and **people exiting to permanent housing** from each. What's the housing placement rate per intervention?
+- **Cost per successful housing placement** by intervention type. This is the efficiency metric.
+- **System balance visualization** — a pipeline/funnel showing where people are in the system (unsheltered → outreach → shelter → transitional → permanent housing) and where the bottlenecks are.
+
+Data sources: HSD data dashboard (may only have Q2), HMIS (all county-funded providers must use it), Metro regional reporting on SHS-funded interventions ("closest thing we have to a regional story of what interventions work and what don't work").
+
+### Q3: Why Are 1,863 Affordable Housing Units Sitting Empty?
+
+Units are set at 60% and 80% AMI but people can't afford even those levels. There's never been proper investment in 0–30% AMI units. Social Security doesn't keep pace with rent. Background checks and lack of rental history block people even when affordability isn't the issue. Landlord guarantee programs exist but aren't deep enough.
+
+- **Total available affordable units by AMI level** (0-30%, 30-50%, 50-60%, 60-80%, 80%+)
+- **Vacancy rates by AMI level** — which AMI bands have the most empty units?
+- **The affordability gap** — what residents at various income levels can actually pay vs. what units at each AMI level require
+- **Cost of buying down rents** to fill empty units (Mitch Green's work)
+- **KATU vs Home Forward discrepancy** — KATU reported 1,863 empty units (7.5% of ~25,000) in December 2025; Home Forward reports 900 but is disputing its own numbers. Surface both transparently.
+
+### Q4: Which Shelters and Interventions Are Most Effective?
+
+Commissioner Singleton has been working on this question — she put out a memo or had a work session examining which shelters were most effective at housing placement.
+
+- **Per-shelter outcomes**: how many people entered, how many exited to permanent housing, median length of stay, cost per successful placement.
+- **Per-intervention-type outcomes**: same metrics aggregated by intervention (congregate shelter, non-congregate, safe rest village, rapid rehousing, PSH, transitional).
+- **Provider-level transparency** that currently doesn't exist publicly.
+
+Data sources: Singleton's shelter effectiveness memo/work session (Quinn locating), HSD internal data (Quinn connecting with contacts), HMIS system.
+
+### Q5: What's the Behavioral Health and Addiction Crossover?
+
+Health Share (manages Medicaid locally) just completed a study with HSD examining how many people on the by-name list are also enrolled Health Share members, what services they're getting, and where the crossovers are. They found correlation around high-utilizer users.
+
+- **Of people on the by-name list**: how many are enrolled in Medicaid, how many have behavioral health diagnoses, how many have addiction diagnoses
+- **Services being received across systems** — what's the overlap between homelessness services and behavioral health services?
+- **The misinformation counter** — the Trump administration claimed "75% of your people are mentally ill and have drug addiction." The Health Share data can show what the actual percentages are.
+- **Overdose trends** among homeless population (existing data from Medical Examiner)
+
+Data sources: Health Share / HSD crossover study (may not be public yet — Quinn checking), HMIS, County Health Department.
+
+### Q6: What's the Outreach Coverage?
+
+The county reorganized outreach into geographic sectors with different agencies responsible for each, plus "free agent" culturally specific and mental health orgs that cross sectors. They're using Survey 123 (Esri) to capture contact frequency. The mayor's office has its own outreach workers focused on "public space management" (camp sweeps) collecting data separately.
+
+- **Unique individuals contacted by any outreach worker**
+- **How many contacted individuals are in the by-name list**
+- **How many are receiving services**
+- **How many are in the housing placement pipeline**
+
+**Data gap flag:** Quinn was clear this is the least developed data area. Probably only one quarter of Survey 123 data exists and may not be published yet. Flag this honestly rather than pretending data exists that doesn't.
+
+### Q7: Where Are People Going When They Leave?
+
+The mayor's out-of-state relocation program (bus/plane tickets) raises the question "do they come back?" The next PIT count will also be distorted by overnight-only shelters inflating the shelter number and camping enforcement pushing people out of countable locations.
+
+- **Exits from the system by destination** — permanent housing, out-of-state relocation, return to streets, institutional (jail, hospital), unknown
+- **Return rates** for people relocated out of state
+- **PIT count methodology caveats** — how enforcement and shelter policy changes distort the count
+
+Data sources: HMIS exit records, mayor's office outreach data.
+
+### Q8: What's the Regional Picture?
+
+Metro is the convener and funder. The new Regional Policy Oversight Committee (RPAC) starting April 2026 will be the new governing body for regional coordination. Metro hosted summer 2025 case study meetings comparing Houston, San Antonio, and Canadian cities — those are available online.
+
+- **Three-county comparison** — Multnomah, Washington, Clackamas on key metrics
+- **SHS money by county** — how much each receives and how they're spending it
+- **Metro regional data vs individual county reporting** — where do the numbers disagree?
+- **National comparison** — Houston and San Antonio models (from Metro PMC case studies)
+
+### Addiction and Behavioral Health (retained from original spec)
 
 - **Number of publicly funded addiction treatment slots available** (inpatient, outpatient, MAT).
-- **Average wait time for addiction treatment intake.** If it's more than 24 hours, the system is designed to fail. People in crisis have narrow windows of motivation.
-- **Number of people receiving medication-assisted treatment (MAT)** (buprenorphine, methadone, naltrexone). MAT is the most evidence-based intervention for opioid addiction.
-- **Overdose deaths per month** (total and by substance). This is the starkest measure of whether the addiction crisis is getting better or worse.
-- **Naloxone (Narcan) administrations per month** (by EMS, by bystander). A proxy for overdose frequency.
+- **Average wait time for addiction treatment intake.** If it's more than 24 hours, the system is designed to fail.
+- **Number of people receiving medication-assisted treatment (MAT)** (buprenorphine, methadone, naltrexone).
+- **Overdose deaths per month** (total and by substance, among homeless population and countywide).
+- **Naloxone (Narcan) administrations per month** (by EMS, by bystander).
 - **Number of publicly funded psychiatric beds available vs. occupied.**
-- **Average wait time in emergency departments for psychiatric placement.** Long ED waits mean there's nowhere for people in psychiatric crisis to go.
-- **Behavioral health workforce: number of licensed providers accepting new patients** (psychiatrists, psychologists, LCSWs, addiction counselors). The workforce is the bottleneck. Track it.
+- **Average wait time in emergency departments for psychiatric placement.**
+- **Behavioral health workforce: number of licensed providers accepting new patients.**
 
 ### Who Controls These Numbers
 
 | Metric | Decision-Maker | Lever |
 |--------|---------------|-------|
-| Shelter capacity | JOHS (city-county) + Metro | Budget, contracting |
-| PSH and rapid rehousing | Metro (SHS tax) + Home Forward | Funding allocation |
+| Shelter capacity & balance | HSD (county) + Metro | Budget, contracting, shelter reduction plan |
+| PSH and rapid rehousing | Metro (SHS tax) + Home Forward | Funding allocation, unit production |
+| Eviction prevention | State Legislature + County | Tenant protections, rental assistance |
+| Affordable housing vacancies | Home Forward + OHCS + landlords | Rent buydowns, subsidy depth, barrier removal |
 | Treatment capacity | Multnomah County + OHA (state) | Medicaid, provider contracts |
 | Overdose response | County Health Department + State | Naloxone distribution, MAT access |
 | Behavioral health workforce | State Legislature + OHA | Licensing, reimbursement rates, loan forgiveness |
+| Outreach coordination | HSD + Mayor's office | Sector assignments, data sharing |
+| Regional coordination | Metro RPAC (starting April 2026) | SHS allocation, cross-county standards |
+
+### Key Data Sources
+
+| Source | What It Provides | Status |
+|--------|-----------------|--------|
+| HRAC / PSU (Dr. Marisa Zapata) | PIT methodology, prevalence estimates, eviction data (Dr. Lisa Bates) | Public |
+| HSD data dashboard | Outreach contacts, system flow, shelter data | Partial (may only have Q2) |
+| HMIS | Individual-level entries, exits, destinations for all county-funded providers | Internal; new replacement under development |
+| Metro regional reporting | SHS spending, intervention outcomes by county | Public |
+| Health Share / HSD crossover study | Medicaid enrollment, behavioral health overlap with by-name list | May not be public (Quinn checking) |
+| Singleton shelter effectiveness memo | Per-shelter housing placement rates | Quinn locating |
+| Home Forward | Housing authority vacancy data | Public but disputed (900 units) |
+| KATU / media | 1,863 empty affordable units, Dec 2025 | Published |
+| Metro RPAC meetings | Regional governance decisions | Public, starting April 2026 |
+| Metro PMC case studies (summer 2025) | Houston, San Antonio, Canadian city comparisons | Online (video) |
+| Survey 123 (Esri) | Outreach contact frequency by geographic sector | ~1 quarter, may not be published |
 
 ---
 

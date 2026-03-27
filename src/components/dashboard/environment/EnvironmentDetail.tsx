@@ -2,28 +2,11 @@
 
 import { useEffect, useState } from "react";
 import TrendChart from "@/components/charts/TrendChart";
-import WorkplanTracker from "./WorkplanTracker";
-import BureauScorecard from "./BureauScorecard";
-import ClimateFinanceTracker from "./ClimateFinanceTracker";
-import EmissionsTrajectory from "./EmissionsTrajectory";
 import {
   Wind,
-  ClipboardList,
-  Building2,
-  DollarSign,
-  TrendingDown,
 } from "lucide-react";
 
 const ENV_COLOR = "#5a8a6a";
-
-type ClimateTab = "emissions" | "workplan" | "bureaus" | "finance";
-
-const TABS: { id: ClimateTab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { id: "emissions", label: "Emissions Trajectory", icon: TrendingDown },
-  { id: "workplan", label: "Workplan Tracker", icon: ClipboardList },
-  { id: "bureaus", label: "Bureau Scorecard", icon: Building2 },
-  { id: "finance", label: "Climate Finance", icon: DollarSign },
-];
 
 interface AqiReading {
   pollutant: string;
@@ -81,7 +64,6 @@ function SectionHeader({
 export default function EnvironmentDetail() {
   const [data, setData] = useState<EnvironmentDetailData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<ClimateTab>("emissions");
 
   useEffect(() => {
     fetch("/api/dashboard/environment/detail")
@@ -156,51 +138,6 @@ export default function EnvironmentDetail() {
           </div>
         </section>
       )}
-
-      {/* Climate Accountability Platform — tab navigation */}
-      <section>
-        <div className="flex items-center gap-2.5 mb-6">
-          <div className="w-8 h-px" style={{ backgroundColor: ENV_COLOR }} />
-          <h2 className="text-[15px] font-semibold text-[var(--color-ink)] uppercase tracking-[0.12em]">
-            Climate Accountability Platform
-          </h2>
-          <div className="flex-1 h-px bg-[var(--color-parchment)]" />
-        </div>
-
-        <p className="text-[16px] text-[var(--color-ink-light)] leading-relaxed mb-6 max-w-3xl">
-          Built in response to the February 2026 Climate Justice Audit, this platform tracks
-          Portland&apos;s 47 Climate Emergency Workplan actions, bureau accountability, PCEF
-          funding, and emissions trajectory toward the 2030 and 2050 targets.
-        </p>
-
-        {/* Tab bar */}
-        <div className="flex flex-wrap gap-1 mb-8 bg-[var(--color-parchment)]/40 rounded-sm p-1">
-          {TABS.map((tab) => {
-            const isActive = activeTab === tab.id;
-            const TabIcon = tab.icon;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 text-[15px] font-medium rounded-sm transition-all ${
-                  isActive
-                    ? "bg-[var(--color-paper)] text-[var(--color-ink)] shadow-sm border border-[var(--color-parchment)]"
-                    : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-paper)]/50"
-                }`}
-              >
-                <TabIcon className="w-4 h-4" />
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Tab content */}
-        {activeTab === "emissions" && <EmissionsTrajectory />}
-        {activeTab === "workplan" && <WorkplanTracker />}
-        {activeTab === "bureaus" && <BureauScorecard />}
-        {activeTab === "finance" && <ClimateFinanceTracker />}
-      </section>
     </div>
   );
 }
