@@ -1,0 +1,348 @@
+{
+  "source": "Portland City Auditor's Office",
+  "url": "https://www.portland.gov/auditor/news",
+  "fetched": "2026-03-28",
+  "total_articles_on_site": 223,
+  "articles": [
+    {
+      "title": "Unspent housing funds show accountability isn't optional in Portland's next budget",
+      "date": "2026-03-25",
+      "url": "https://www.portland.gov/auditor/news/2026/3/25/unspent-housing-funds-show-accountability-isnt-optional-portlands-next",
+      "type": "opinion",
+      "dashboard_categories": ["housing", "fiscal", "accountability"],
+      "key_findings": [
+        "$100+ million in housing funds went unbudgeted for years without City oversight",
+        "Auditor requests budget cuts limited to 3% vs citywide 10%",
+        "Upcoming audits: 911/emergency comms, police body cameras, gun violence prevention, Portland Solutions (homelessness)"
+      ],
+      "relevance": "HIGH — Directly impacts housing and fiscal dashboards. $100M unspent housing funds is a major accountability data point. Upcoming audit topics overlap with safety and homelessness dashboards."
+    },
+    {
+      "title": "Arts Tax: City needs to make improvements to deliver on voter approved arts education and grants commitments",
+      "date": "2026-03-18",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2026/3/18/arts-tax-city-needs-make-improvements-deliver-voter-approved",
+      "type": "audit",
+      "dashboard_categories": ["education", "fiscal", "accountability"],
+      "key_findings": [
+        "Arts Tax generates ~$11.2M annually",
+        "City overpaid 5 of 6 districts $8K-$1.3M using wrong salary calculations",
+        "Could have disbursed $1.3M more in grants with corrected calculations",
+        "Only 5% of funds target underserved communities; 95% goes to general operating support",
+        "Wide variation across schools in arts instruction time and teacher-to-student ratios",
+        "12 recommendations issued"
+      ],
+      "relevance": "HIGH — Directly relevant to education dashboard (arts funding across districts) and fiscal/accountability (tax revenue mismanagement). Cross-references our 6-district education data."
+    },
+    {
+      "title": "Accessory Short-Term Rentals: Changes in City rules and enforcement methods needed to increase equity and effectiveness",
+      "date": "2026-03-04",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2026/3/4/accessory-short-term-rentals-changes-city-rules-and-enforcement",
+      "type": "ombudsman_investigation",
+      "dashboard_categories": ["housing", "accountability"],
+      "key_findings": [
+        "Portland's first-time violation fine of $27,513 is 27x higher than any other city surveyed",
+        "55% of operators fined $10K+ may be non-white, immigrants, or LGBTQ+",
+        "2024 advertising rule increased citations 9% but fines 112%",
+        "Type B permits cost $9,005 (23x more than Type A's $400)",
+        "90%+ of listings hold Type A permits, but 62% of regional housing has 3+ bedrooms",
+        "Complaint-based enforcement yields citations in only 46% of cases"
+      ],
+      "relevance": "MEDIUM — Housing policy/enforcement equity. Useful context for housing dashboard but not a primary data source."
+    },
+    {
+      "title": "Climate Justice: Clear direction, strategies, and transparency needed to follow through on the City's climate commitments",
+      "date": "2026-02-25",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2026/2/25/climate-justice-clear-direction-strategies-and-transparency",
+      "type": "audit",
+      "dashboard_categories": ["climate", "accountability"],
+      "key_findings": [
+        "79% of 47 Climate Emergency Workplan actions remain ongoing, 13% achieved, 9% delayed",
+        "~25% of planned actions have staffing/funding gap exceeding $500K",
+        "City faces $93M general fund shortfall for FY 2025-26",
+        "21% of actions lack clear timeframes, 26% lack cost estimates",
+        "100% of actions fail to identify external partners or define their roles",
+        "No specific climate adaptation targets despite heat, wildfire, flooding risks",
+        "5 recommendations issued"
+      ],
+      "relevance": "CRITICAL — We already built the Climate Accountability Platform tracking these exact 47 workplan actions. This audit is the source document. The 79%/13%/9% split should be reflected in our data."
+    },
+    {
+      "title": "Q4 2025 lobbying and political consultant disclosure reports",
+      "date": "2026-02-05",
+      "url": "https://www.portland.gov/auditor/elections/news/2026/2/5/now-available-q4-2025-city-portland-disclosure-reports-lobbying-and",
+      "type": "disclosure",
+      "dashboard_categories": ["accountability"],
+      "key_findings": ["Q4 2025 lobbying reports now available"],
+      "relevance": "LOW — Lobbying transparency data. Could feed into accountability dashboard but not a priority."
+    },
+    {
+      "title": "Portland City Archives collaborates with Don't Shoot PDX on 'Portland in Black'",
+      "date": "2026-01-07",
+      "url": "https://www.portland.gov/auditor/archives/news/2026/1/7/portland-city-archives-collaborates-dont-shoot-pdx-portland-black-0",
+      "type": "community",
+      "dashboard_categories": ["quality_of_life"],
+      "key_findings": ["Community archiving partnership for Black Portland history"],
+      "relevance": "LOW — Community engagement story, not data-driven."
+    },
+    {
+      "title": "Parks Fiscal Management: Systemwide goals and sustainability strategies needed to ensure parks for future generations",
+      "date": "2025-10-15",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2025/10/15/parks-fiscal-management-systemwide-goals-and-sustainability",
+      "type": "audit",
+      "dashboard_categories": ["quality_of_life", "fiscal", "accountability"],
+      "key_findings": [
+        "86% of Parks assets in poor or very bad condition",
+        "Maintenance backlog estimated $550-800 million",
+        "Parks manages 11,677 acres",
+        "Only 10-20% of asset lifetime costs from construction; 80-90% from maintenance",
+        "5 reviewed projects generated ~$4.7M in unfunded annual maintenance costs",
+        "6 recommendations issued, all agreed to"
+      ],
+      "relevance": "HIGH — Quality of life dashboard tracks parks. The 86% poor condition and $550-800M backlog are critical data points. Also relevant to fiscal dashboard (unfunded maintenance)."
+    },
+    {
+      "title": "2024 Audit Impact Report: Prioritization needed to implement outstanding audit recommendations",
+      "date": "2025-10-01",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2025/10/1/2024-audit-impact-report-prioritization-needed-implement",
+      "type": "audit",
+      "dashboard_categories": ["accountability"],
+      "key_findings": [
+        "49% implementation rate for recommendations (5-year monitoring period)",
+        "Down from 51% in 2022",
+        "National average is 64% among peer cities",
+        "88% response rate from city leadership (up from 77%)",
+        "Top barrier: prioritization (35 recommendations stalled)",
+        "Second barrier: coordination (19 recommendations stalled)",
+        "Unimplemented recommendations disproportionately affect vulnerable populations"
+      ],
+      "relevance": "CRITICAL — This IS the accountability dashboard. The 49% implementation rate and comparison to 64% national average should be front-and-center."
+    },
+    {
+      "title": "Asset Management: Strategic and coordinated approach needed to take on City's long-standing issues",
+      "date": "2025-04-23",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2025/4/23/asset-management-strategic-and-coordinated-approach-needed",
+      "type": "audit",
+      "dashboard_categories": ["fiscal", "accountability"],
+      "key_findings": [
+        "Over $1 billion annually needed for infrastructure maintenance (2023)",
+        "Growth: $112M (2007) to $287M (2013) to $1B+ (2023)",
+        "City owns $74+ billion in assets across major infrastructure bureaus",
+        "Nearly 25% of assets in poor/very poor condition (2021)",
+        "Parks projects face potential 20% asset failure within 15 years",
+        "Most infrastructure built mid-1900s, near/beyond useful life"
+      ],
+      "relevance": "HIGH — Infrastructure is a fiscal dashboard topic. $1B+ annual maintenance need vs actual spending is a major accountability gap."
+    },
+    {
+      "title": "2024 Ombudsman Annual Report",
+      "date": "2025-04-09",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2025/4/9/2024-ombudsman-annual-report",
+      "type": "annual_report",
+      "dashboard_categories": ["accountability"],
+      "key_findings": ["Annual overview of ombudsman activities"],
+      "relevance": "MEDIUM — General accountability context."
+    },
+    {
+      "title": "Portland Water Bureau accepts Ombudsman's recommendation to remove unfair fee",
+      "date": "2025-03-19",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2025/3/19/portland-water-bureau-accepts-ombudsmans-recommendation-remove",
+      "type": "ombudsman_investigation",
+      "dashboard_categories": ["accountability"],
+      "key_findings": ["Water Bureau and 3 other agencies will eliminate returned payment fees"],
+      "relevance": "LOW — Specific policy win, not a dashboard metric."
+    },
+    {
+      "title": "City should re-start paused Portland International Raceway-North Portland Trust Fund grant program",
+      "date": "2025-03-05",
+      "url": "https://www.portland.gov/auditor/fraud-hotline/news/2025/3/5/city-should-re-start-paused-portland-international-raceway",
+      "type": "fraud_hotline",
+      "dashboard_categories": ["accountability", "quality_of_life"],
+      "key_findings": ["No awards distributed from PIR-North Portland Trust Fund since 2020"],
+      "relevance": "LOW — Specific grant program issue."
+    },
+    {
+      "title": "Ombudsman's review finds City has partly implemented recommendations to reduce harm of complaint-driven property maintenance enforcement",
+      "date": "2025-01-29",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2025/1/29/ombudsmans-review-finds-city-has-partly-implemented",
+      "type": "ombudsman_investigation",
+      "dashboard_categories": ["housing", "accountability"],
+      "key_findings": ["Complaint-based enforcement system continues negatively affecting vulnerable homeowners"],
+      "relevance": "MEDIUM — Housing equity issue."
+    },
+    {
+      "title": "Civic Life's response to grantee non-compliance and poor communication resulted in waste and inefficiency",
+      "date": "2025-01-22",
+      "url": "https://www.portland.gov/auditor/fraud-hotline/news/2025/1/22/civic-lifes-response-grantee-non-compliance-and-poor",
+      "type": "fraud_hotline",
+      "dashboard_categories": ["accountability"],
+      "key_findings": ["Wasteful spending from poor communication and inadequate grant management"],
+      "relevance": "MEDIUM — Accountability/government efficiency."
+    },
+    {
+      "title": "2023 Audit Impact Report: Leadership on coordination, prioritization, and decision-making most needed",
+      "date": "2024-12-18",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2024/12/18/2023-audit-impact-report-leadership-coordination",
+      "type": "audit",
+      "dashboard_categories": ["accountability"],
+      "key_findings": [
+        "Less than half of audit recommendations implemented by 2023",
+        "Implementation rate below comparable municipalities",
+        "Rates varied significantly by service area"
+      ],
+      "relevance": "HIGH — Predecessor to the 2024 report. Tracks accountability over time."
+    },
+    {
+      "title": "Exit Poll - Portland voters were well informed on ranked-choice voting",
+      "date": "2024-12-03",
+      "url": "https://www.portland.gov/auditor/elections/news/2024/12/3/exit-poll-portland-voters-were-well-informed-ranked-choice-voting",
+      "type": "elections",
+      "dashboard_categories": ["accountability"],
+      "key_findings": [
+        "Most Portland voters understood ranked-choice voting",
+        "Outreach gaps for District 1 and communities of color"
+      ],
+      "relevance": "MEDIUM — Accountability/elections dashboard context."
+    },
+    {
+      "title": "Vision Zero: PBOT needs to systematically evaluate whether safety projects reduce traffic deaths",
+      "date": "2024-11-13",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2024/11/13/vision-zero-portland-bureau-transportation-needs",
+      "type": "audit",
+      "dashboard_categories": ["safety", "accountability"],
+      "key_findings": [
+        "Traffic fatalities rose to 69 in 2023 despite Vision Zero (adopted 2016)",
+        "70% of fatalities in low-light conditions (2019-2022)",
+        "65% of safety spending focused on high-equity areas (2017-2021)",
+        "22% of fatalities in low-income/BIPOC communities on streets outside High Crash Network",
+        "Speed cameras not installed as promised",
+        "Transportation wallet app delayed 32 months then cancelled"
+      ],
+      "relevance": "CRITICAL — Safety dashboard. Traffic deaths rising despite Vision Zero is a key accountability story. The 69 deaths figure and equity disparities should be in our data."
+    },
+    {
+      "title": "Technology Purchasing: Citywide strategy and guidance needed to address problems",
+      "date": "2024-10-30",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2024/10/30/technology-purchasing-citywide-strategy-and-guidance-needed",
+      "type": "audit",
+      "dashboard_categories": ["fiscal", "accountability"],
+      "key_findings": [
+        "$63 million in annual technology spending reviewed",
+        "No citywide technology purchasing strategy exists",
+        "Delays ranging 1-32 months across 7 case studies",
+        "Transportation wallet app delayed 32 months then cancelled",
+        "Can't track spending with historically disadvantaged businesses despite 20% goal",
+        "1 in 5 Portlanders speak another language at home; language access inconsistent"
+      ],
+      "relevance": "MEDIUM — Fiscal/accountability. Technology waste is a spending story."
+    },
+    {
+      "title": "Predatory towing harmed residents of low-income housing complexes",
+      "date": "2024-10-02",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2024/10/2/ombudsman-investigation-finds-predatory-towing-harmed-residents",
+      "type": "ombudsman_investigation",
+      "dashboard_categories": ["housing", "accountability"],
+      "key_findings": ["Towing practices caused financial/emotional harm to vulnerable, predominantly Latino residents"],
+      "relevance": "MEDIUM — Housing/equity story."
+    },
+    {
+      "title": "Inclusionary Housing: Housing Bureau should improve Program goals, support, and monitoring",
+      "date": "2024-05-15",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2024/5/15/inclusionary-housing-housing-bureau-should-improve-program",
+      "type": "audit",
+      "dashboard_categories": ["housing", "accountability"],
+      "key_findings": [
+        "566 affordable apartments built across 78 buildings (as of April 2023)",
+        "1,157 additional units anticipated",
+        "68% of built units in high-opportunity neighborhoods",
+        "Only 23% are family-sized units (2+ bedrooms)",
+        "44% of 3-bedroom units vacant 4-15 months after opening",
+        "Bureau 2 years behind on compliance reviews (May 2023)",
+        "$5M+ in fees collected but used only for operating costs, not building housing",
+        "Black renting families' median income often insufficient for program income-to-rent ratios"
+      ],
+      "relevance": "HIGH — Housing dashboard. The inclusionary housing pipeline (566 built, 1,157 planned) and equity gaps are critical data."
+    },
+    {
+      "title": "Joint Office of Homeless Services: Sustained focus on shelter system needed",
+      "date": "2024-04-17",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2024/4/17/joint-office-homeless-services-sustained-focus-shelter-system",
+      "type": "audit",
+      "dashboard_categories": ["homelessness", "accountability"],
+      "key_findings": [
+        "Family shelters: 300-350 families waiting for ~100 beds (1-6 month waits)",
+        "Adult shelters: waitlists of 20-100+ people per site",
+        "Shelter capacity grew from 521 beds (2015) to 2,053 (2022) but demand exceeds supply",
+        "Only 25% of shelter exits reached permanent housing (FY 2023)",
+        "More exits returned to homelessness (1,287) than housed (1,136)",
+        "Only 3 of 18 shelters met exit-to-housing goals",
+        "Black residents: 7% of population but 17% of homeless population",
+        "Indigenous peoples: 3% of population but 13% of homeless population",
+        "7 recommendations, all agreed to"
+      ],
+      "relevance": "CRITICAL — Homelessness dashboard. Shelter capacity, waitlists, housing outcomes, and racial disparities are exactly the flow-through pipeline data we discussed with Quinn Colling."
+    },
+    {
+      "title": "Fraud Hotline Report: Civic Life's mismanagement of Kenton Firehouse was wasteful",
+      "date": "2024-03-13",
+      "url": "https://www.portland.gov/auditor/fraud-hotline/news/2024/3/13/fraud-hotline-report-civic-lifes-mismanagement-kenton",
+      "type": "fraud_hotline",
+      "dashboard_categories": ["accountability"],
+      "key_findings": ["Waste and inefficiency from absent formal agreements and bypassed financial policies"],
+      "relevance": "LOW — Specific waste case."
+    },
+    {
+      "title": "Joint Office of Homeless Services: contract managers have more training but role conflicts remain",
+      "date": "2024-02-21",
+      "url": "https://www.portland.gov/auditor/fraud-hotline/news/2024/2/21/fraud-hotline-update-joint-office-homeless-services-contract",
+      "type": "fraud_hotline",
+      "dashboard_categories": ["homelessness", "accountability"],
+      "key_findings": ["Progress on training but separation of duties not implemented"],
+      "relevance": "MEDIUM — Homelessness accountability context."
+    },
+    {
+      "title": "Portland Fire & Rescue's Community Health Division programs need guidance and leadership",
+      "date": "2024-01-10",
+      "url": "https://www.portland.gov/auditor/audit-services/news/2024/1/10/audit-report-portland-fire-rescues-community-health-division",
+      "type": "audit",
+      "dashboard_categories": ["safety", "accountability"],
+      "key_findings": ["Management gaps in community health programs; improved goals and oversight recommended"],
+      "relevance": "MEDIUM — Safety/emergency services."
+    },
+    {
+      "title": "Fire safety concerns at Cherry Blossom Townhomes",
+      "date": "2025-05-07",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2025/5/7/fire-safety-concerns-cherry-blossom-townhomes",
+      "type": "ombudsman_investigation",
+      "dashboard_categories": ["housing", "safety"],
+      "key_findings": ["Fire Bureau communication gaps at affordable housing property"],
+      "relevance": "MEDIUM — Housing safety intersection."
+    },
+    {
+      "title": "Disparate towing charges when Portland Police call private tow",
+      "date": "2025-07-16",
+      "url": "https://www.portland.gov/auditor/ombudsman/news/2025/7/16/owners-disabled-vehicles-can-face-widely-disparate-charges-when",
+      "type": "ombudsman_investigation",
+      "dashboard_categories": ["safety", "accountability"],
+      "key_findings": ["Inequitable towing rates and gaps in police tow contract coverage"],
+      "relevance": "LOW — Specific enforcement issue."
+    },
+    {
+      "title": "City Auditor announces audit schedule for fiscal year 2025-26",
+      "date": "2025-06-25",
+      "url": "https://www.portland.gov/auditor/news/2025/6/25/city-auditor-announces-audit-schedule-fiscal-year-2025-26",
+      "type": "announcement",
+      "dashboard_categories": ["accountability"],
+      "key_findings": ["Planned audits announced by Auditor Simone Rede"],
+      "relevance": "MEDIUM — Forward-looking accountability context."
+    },
+    {
+      "title": "Zenith Energy resolution response",
+      "date": "2025-04-30",
+      "url": "https://www.portland.gov/auditor/news/2025/4/30/response-portland-city-councils-zenith-energy-resolution-passed-march-19",
+      "type": "response",
+      "dashboard_categories": ["climate", "accountability"],
+      "key_findings": ["Auditor response to Council resolution on Zenith Energy"],
+      "relevance": "MEDIUM — Climate/fossil fuel infrastructure."
+    }
+  ]
+}

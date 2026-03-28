@@ -11,6 +11,7 @@ import EnvEmissionsTrajectory from "../environment/EmissionsTrajectory";
 import EnvWorkplanTracker from "../environment/WorkplanTracker";
 import EnvBureauScorecard from "../environment/BureauScorecard";
 import EnvClimateFinanceTracker from "../environment/ClimateFinanceTracker";
+import NewsContext from "../NewsContext";
 
 const CLIMATE_COLOR = "#2d6a4f";
 
@@ -73,6 +74,9 @@ export default function ClimateDetail() {
 
   return (
     <div className="space-y-8">
+      {/* News Context */}
+      <NewsContext category="climate" />
+
       {/* Platform context banner */}
       <section>
         <div className="bg-[var(--color-canopy)] rounded-sm p-5 text-white/80">

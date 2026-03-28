@@ -122,7 +122,7 @@ export default function ClimateFinanceTracker() {
             Breakdown of PCEF funding flowing to city bureaus versus community organizations.
             The Feb 2026 audit found the City has not been transparent enough about PCEF use by bureaus.
           </p>
-          <BarChart data={data.pcefByRecipientType} height={200} />
+          <BarChart data={data.pcefByRecipientType} height={250} valuePrefix="$" />
         </div>
       </section>
 
@@ -134,7 +134,7 @@ export default function ClimateFinanceTracker() {
             Resource gap classification for all 47 workplan actions. The audit found ~25% of actions
             had staffing or funding gaps exceeding $500K, with most gaps substantially higher.
           </p>
-          <BarChart data={data.resourceGaps} layout="vertical" height={280} />
+          <BarChart data={data.resourceGaps} layout="vertical" height={340} />
         </div>
       </section>
 
@@ -151,7 +151,8 @@ export default function ClimateFinanceTracker() {
               value: d.allocated,
               color: "#5a8a6a",
             }))}
-            height={250}
+            height={300}
+            valuePrefix="$"
           />
         </div>
       </section>

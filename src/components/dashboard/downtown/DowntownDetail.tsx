@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import TrendChart from "@/components/charts/TrendChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
+import NewsContext from "../NewsContext";
 
 interface DowntownDetailData {
   graffitiTrend: { month: string; count: number }[] | null;
@@ -53,6 +54,9 @@ export default function DowntownDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="downtown" />
+
       {/* Graffiti Trend — REAL from Portland BPS */}
       {graffitiTrend && graffitiTrend.length > 0 && (
         <section>

@@ -8,6 +8,7 @@ import MultiLineChart from "@/components/charts/MultiLineChart";
 import TrendChart from "@/components/charts/TrendChart";
 import ComparisonBarChart from "@/components/charts/ComparisonBarChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
+import NewsContext from "../NewsContext";
 import {
   Building2,
   Clock,
@@ -194,6 +195,9 @@ export default function HousingDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="housing" />
+
       {/* ═══════════════════════════════════════════════════
           SECTION 1: THE BIG PICTURE — Is Portland Building Enough?
           ═══════════════════════════════════════════════════ */}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import StatGrid from "@/components/charts/StatGrid";
 import DataNeeded from "@/components/dashboard/DataNeeded";
+import NewsContext from "../NewsContext";
 import { Vote, Users, Lightbulb } from "lucide-react";
 
 interface BallotMeasure {
@@ -98,6 +99,9 @@ export default function AccountabilityDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="accountability" />
+
       {/* 1. Summary stats */}
       <section>
         <SectionHeader icon={Lightbulb} title="Overview" color="#8a5c6a" />

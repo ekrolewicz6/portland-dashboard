@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import StatGrid from "@/components/charts/StatGrid";
 import MultiLineChart from "@/components/charts/MultiLineChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
+import NewsContext from "../NewsContext";
 import BarChart from "@/components/charts/BarChart";
 import {
   Building2,
@@ -178,6 +179,9 @@ export default function BusinessDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="business" />
+
       {/* 0. Key Insights */}
       <section>
         <SectionHeader icon={Lightbulb} title="Key Insights" color="#3d7a5a" />

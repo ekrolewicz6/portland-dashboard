@@ -5,6 +5,7 @@ import StatGrid from "@/components/charts/StatGrid";
 import MultiLineChart from "@/components/charts/MultiLineChart";
 import TrendChart from "@/components/charts/TrendChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
+import NewsContext from "../NewsContext";
 import {
   Shield,
   AlertTriangle,
@@ -227,6 +228,9 @@ export default function SafetyDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="safety" />
+
       {/* 1. Key Insights */}
       <section>
         <SectionHeader icon={Lightbulb} title="Key Insights" color="#3d7a5a" />

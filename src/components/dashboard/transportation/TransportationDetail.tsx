@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import DataNeeded from "../DataNeeded";
+import NewsContext from "../NewsContext";
 import { Bus, MapPin, Car, Train, Lightbulb } from "lucide-react";
 
 interface RouteByType {
@@ -111,6 +112,9 @@ export default function TransportationDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="transportation" />
+
       {/* 1. Key Stats */}
       <section>
         <SectionHeader icon={Lightbulb} title="Transit Network Overview" color={COLOR} />

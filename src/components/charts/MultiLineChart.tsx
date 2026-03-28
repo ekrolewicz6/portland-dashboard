@@ -92,6 +92,7 @@ export default function MultiLineChart({
                 line?.label ?? name,
               ];
             }}
+            itemSorter={(item: { value?: number }) => -(item.value ?? 0)}
             labelStyle={{
               fontWeight: 600,
               fontFamily: "var(--font-body)",

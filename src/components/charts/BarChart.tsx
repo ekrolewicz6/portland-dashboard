@@ -39,7 +39,7 @@ export default function BarChart({
           margin={
             isVertical
               ? { top: 4, right: 32, left: 0, bottom: 4 }
-              : { top: 8, right: 8, left: 4, bottom: 20 }
+              : { top: 8, right: 8, left: 4, bottom: 40 }
           }
         >
           <CartesianGrid
@@ -82,12 +82,16 @@ export default function BarChart({
               <XAxis
                 dataKey="name"
                 tick={{
-                  fontSize: 15,
+                  fontSize: 12,
                   fill: "#44403c",
                   fontFamily: "var(--font-body)",
                 }}
                 tickLine={false}
                 axisLine={{ stroke: "#d6d3d1", strokeOpacity: 0.5 }}
+                interval={0}
+                angle={data.some((d) => d.name.length > 12) ? -25 : 0}
+                textAnchor={data.some((d) => d.name.length > 12) ? "end" : "middle"}
+                height={data.some((d) => d.name.length > 12) ? 60 : 30}
               />
               <YAxis
                 tick={{
@@ -109,15 +113,19 @@ export default function BarChart({
               backgroundColor: "#faf6f0",
               border: "1px solid #ebe5da",
               borderRadius: "2px",
-              fontSize: "16px",
+              fontSize: "14px",
               fontFamily: "var(--font-mono)",
               boxShadow: "0 4px 16px rgba(15,36,25,0.1)",
               padding: "8px 12px",
             }}
-            formatter={(value: number) => [
+            formatter={(value: number, _name: string, props: { payload?: { name?: string } }) => [
               `${valuePrefix}${value.toLocaleString()}${valueSuffix}`,
-              "",
+              props.payload?.name ?? "",
             ]}
+            labelFormatter={(label: string) => {
+              const item = data.find((d) => d.name === label);
+              return item?.name ?? label;
+            }}
             labelStyle={{
               fontWeight: 600,
               fontFamily: "var(--font-body)",

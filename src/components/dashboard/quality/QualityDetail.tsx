@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import StatGrid from "@/components/charts/StatGrid";
 import TrendChart from "@/components/charts/TrendChart";
 import DataNeeded from "@/components/dashboard/DataNeeded";
+import NewsContext from "../NewsContext";
 import {
   Trees,
   Route,
@@ -257,6 +258,9 @@ export default function QualityDetail() {
 
   return (
     <div className="space-y-10">
+      {/* News Context */}
+      <NewsContext category="quality_of_life" />
+
       {/* ── Narrative Summary ─────────────────────────────────────────── */}
       <section>
         <InfoCard>
