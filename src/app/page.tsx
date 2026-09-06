@@ -332,7 +332,7 @@ export default function HomePage() {
               <h1 className="mt-6 font-editorial-normal text-[46px] leading-[0.98] tracking-tight text-white animate-fade-up sm:text-[62px] lg:text-[70px] xl:text-[84px]">
                 Portland,
                 <span className="block font-editorial italic text-[var(--color-ember-bright)]">
-                  made legible.
+                  explained.
                 </span>
               </h1>
 
