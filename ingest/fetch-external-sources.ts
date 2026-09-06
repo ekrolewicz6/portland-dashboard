@@ -27,6 +27,54 @@ const TMP_DIR = path.join(PROJECT_ROOT, "tmp_fetch");
 fs.mkdirSync(DATA_DIR, { recursive: true });
 fs.mkdirSync(TMP_DIR, { recursive: true });
 
+// Shape of the BLS v2 timeseries response, shared by the sections below.
+// Only the fields actually read are declared; the API returns more.
+interface BLSFootnote {
+  text?: string;
+}
+
+interface BLSDataPoint {
+  year: string;
+  period: string;
+  periodName?: string;
+  value: string;
+  footnotes?: BLSFootnote[];
+}
+
+interface BLSSeries {
+  seriesID?: string;
+  data?: BLSDataPoint[];
+}
+
+interface BLSResponse {
+  status?: string;
+  message?: string[];
+  Results?: {
+    series?: BLSSeries[];
+  };
+}
+
+/** One row of the FBI Crime Data Explorer state-estimates endpoint. */
+interface FBICrimeEstimate {
+  year: number | null;
+  population: number | null;
+  violent_crime: number | null;
+  homicide: number | null;
+  rape_legacy: number | null;
+  rape_revised: number | null;
+  robbery: number | null;
+  aggravated_assault: number | null;
+  property_crime: number | null;
+  burglary: number | null;
+  larceny: number | null;
+  motor_vehicle_theft: number | null;
+  arson: number | null;
+}
+
+interface FBIEstimatesResponse {
+  results?: FBICrimeEstimate[];
+}
+
 function saveJson(filename: string, data: any) {
   const filepath = path.join(DATA_DIR, filename);
   fs.writeFileSync(filepath, JSON.stringify(data, null, 2));
@@ -136,7 +184,7 @@ async function fetchFBICrime(sql: postgres.Sql) {
         console.log(`   HTTP ${res.status} — ${ep.label} unavailable`);
         continue;
       }
-      const data = await res.json();
+      const data = (await res.json()) as FBIEstimatesResponse;
       const results = data?.results ?? [];
       if (results.length > 0) {
         console.log(`   Got ${results.length} records from ${ep.label}`);
@@ -620,7 +668,7 @@ async function fetchBLSEmployment(sql: postgres.Sql) {
       throw new Error(`BLS API returned ${res.status}`);
     }
 
-    const data = await res.json();
+    const data = (await res.json()) as BLSResponse;
     console.log(`   Status: ${data.status}`);
 
     if (data.status === "REQUEST_SUCCEEDED" && data.Results?.series) {
@@ -635,7 +683,7 @@ async function fetchBLSEmployment(sql: postgres.Sql) {
             period: d.period,
             period_name: d.periodName,
             value: parseFloat(d.value),
-            footnotes: d.footnotes?.map((f: any) => f.text).filter(Boolean).join("; ") ?? "",
+            footnotes: d.footnotes?.map((f) => f.text).filter(Boolean).join("; ") ?? "",
           });
         }
       }

@@ -45,7 +45,7 @@ async function fetchCurrentAQI(): Promise<AirNowObservation[]> {
   if (!res.ok) {
     throw new Error(`AirNow current API returned HTTP ${res.status}`);
   }
-  const data: AirNowObservation[] = await res.json();
+  const data = (await res.json()) as AirNowObservation[];
   console.log(`    Got ${data.length} current observations`);
   return data;
 }
@@ -57,7 +57,7 @@ async function fetchHistoricalAQI(dateStr: string): Promise<AirNowObservation[]>
   if (!res.ok) {
     throw new Error(`AirNow historical API returned HTTP ${res.status} for ${dateStr}`);
   }
-  return res.json();
+  return (await res.json()) as AirNowObservation[];
 }
 
 async function fetchLast7Days(): Promise<AirNowObservation[]> {

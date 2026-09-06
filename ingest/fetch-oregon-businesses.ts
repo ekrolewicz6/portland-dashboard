@@ -17,6 +17,7 @@ import fs from "node:fs";
 import path from "node:path";
 import postgres from "postgres";
 import { requireDatabaseUrl } from "./lib/db-url";
+import type { JsonValue } from "./lib/json";
 
 const DB_URL = requireDatabaseUrl();
 const DATA_DIR = path.resolve(import.meta.dirname ?? ".", "..", "data");
@@ -73,7 +74,7 @@ interface ActiveBusiness {
   [key: string]: unknown;
 }
 
-interface NewBusiness {
+type NewBusiness = {
   registry_number: string;
   business_name: string;
   entity_type: string;
@@ -87,8 +88,10 @@ interface NewBusiness {
   last_name?: string;
   entity_of_record_reg_number?: string;
   entity_of_record_name?: string;
-  [key: string]: unknown;
-}
+  // Socrata columns vary by dataset, and the whole record is stored as JSONB,
+  // so anything the API returns is accepted.
+  [key: string]: JsonValue | undefined;
+};
 
 interface YearCount {
   year: string;

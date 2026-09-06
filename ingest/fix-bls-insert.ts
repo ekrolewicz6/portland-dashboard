@@ -15,6 +15,31 @@ import { requireDatabaseUrl } from "./lib/db-url";
 const DB_URL = requireDatabaseUrl();
 const DATA_DIR = path.join(process.cwd(), "data");
 
+// Shape of the BLS v2 timeseries response. Only the fields read below are
+// declared; `Results` is always present on a REQUEST_SUCCEEDED response,
+// which is the only branch that reads it.
+interface BLSFootnote {
+  text?: string;
+}
+
+interface BLSDataPoint {
+  year: string;
+  period: string;
+  periodName?: string;
+  value: string;
+  footnotes?: BLSFootnote[];
+}
+
+interface BLSSeries {
+  seriesID?: string;
+  data?: BLSDataPoint[];
+}
+
+interface BLSResponse {
+  status?: string;
+  Results: { series: BLSSeries[] };
+}
+
 async function main() {
   console.log("=== Fix BLS Employment Insert ===\n");
 
@@ -62,7 +87,7 @@ async function main() {
       }),
     });
 
-    const data = await res.json();
+    const data = (await res.json()) as BLSResponse;
     const allData: any[] = [];
 
     if (data.status === "REQUEST_SUCCEEDED") {
@@ -76,7 +101,7 @@ async function main() {
             period: d.period,
             period_name: d.periodName,
             value: parseFloat(d.value),
-            footnotes: d.footnotes?.map((f: any) => f.text).filter(Boolean).join("; ") ?? "",
+            footnotes: d.footnotes?.map((f) => f.text).filter(Boolean).join("; ") ?? "",
           });
         }
       }

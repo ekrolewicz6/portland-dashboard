@@ -177,7 +177,7 @@ export async function GET(): Promise<
       source: "Oregon Secretary of State · Business Registry",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        "Database connection error. Check that PostgreSQL is running and tables are populated.",
+        "Business data is not available right now.",
       ],
     } as unknown as BusinessData & {
       dataStatus: string;

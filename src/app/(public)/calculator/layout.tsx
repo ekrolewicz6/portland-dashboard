@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  // Not shipped yet (see TODO.md): reachable by direct URL for the people
+  // building it, but kept out of search until it is ready to be found.
+  robots: { index: false, follow: false },
   title: "Benefits Calculator",
   description:
     "Estimate the total first-year value of Portland Civic Lab Business certification for your business.",

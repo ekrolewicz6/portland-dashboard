@@ -46,8 +46,11 @@ export async function GET(): Promise<
         censusPopulation: [],
         source: "U.S. Census Bureau · Population Estimates Program · ACS 5-Year",
         lastUpdated: new Date().toISOString().slice(0, 10),
+        // insights[] is rendered to visitors. The command that fixes this
+        // belongs in dataSources[].action above, which is where the
+        // methodology view surfaces operator detail.
         insights: [
-          "Run: npx tsx ingest/fetch-census.ts to fetch Census population data.",
+          "Census population data has not been loaded yet.",
         ],
       } as unknown as MigrationData & {
         dataStatus: string;
@@ -165,7 +168,7 @@ export async function GET(): Promise<
       source: "U.S. Census Bureau · Population Estimates Program · ACS 5-Year",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        "Database connection error. Check that PostgreSQL is running and tables are populated.",
+        "Migration data is not available right now.",
       ],
     } as unknown as MigrationData & {
       dataStatus: string;

@@ -37,6 +37,30 @@ const PORTLAND_ZIPS = [
   "97239", "97266",
 ];
 
+/**
+ * One address record from the HUD USPS vacancy API. Column names have moved
+ * between releases, so both spellings the loop reads are declared.
+ */
+interface HudUspsRecord {
+  geoid?: string | number;
+  zip?: string | number;
+  zip_code?: string | number;
+  tot_ratio?: number | string;
+  total?: number | string;
+  res_vac?: number | string;
+  residential_vacant?: number | string;
+  no_stat_ratio?: number | string;
+  no_stat?: number | string;
+  bus_vac?: number | string;
+  commercial_vacant?: number | string;
+}
+
+/** The API has nested its payload under `data` in some releases and not others. */
+interface HudUspsResponse {
+  data?: { results?: HudUspsRecord[] };
+  results?: HudUspsRecord[];
+}
+
 interface HudVacancyRow {
   quarter: string;
   zip_code: string;
@@ -104,8 +128,8 @@ async function tryHudApi(): Promise<HudVacancyRow[] | null> {
         continue;
       }
 
-      const data = await res.json();
-      const results = data.data?.results ?? data.results ?? data;
+      const data = (await res.json()) as HudUspsResponse;
+      const results: unknown = data.data?.results ?? data.results ?? data;
 
       if (!Array.isArray(results)) {
         console.log(`    Unexpected response format`);
@@ -116,7 +140,7 @@ async function tryHudApi(): Promise<HudVacancyRow[] | null> {
       const qMonth = Number(quarter.slice(0, 2));
       const qDate = `${qYear}-${String(qMonth).padStart(2, "0")}-01`;
 
-      for (const r of results) {
+      for (const r of results as HudUspsRecord[]) {
         const zip = r.geoid ?? r.zip ?? r.zip_code;
         if (!zip) continue;
 

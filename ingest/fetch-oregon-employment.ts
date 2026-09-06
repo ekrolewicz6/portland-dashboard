@@ -20,6 +20,33 @@ fs.mkdirSync(DATA_DIR, { recursive: true });
 
 // ── BLS Data ────────────────────────────────────────────────────────────
 
+// Shape of the BLS v2 timeseries response. Only the fields read below are
+// declared; the API returns considerably more.
+interface BLSFootnote {
+  text?: string;
+}
+
+interface BLSDataPoint {
+  year: string;
+  period: string;
+  periodName?: string;
+  value: string;
+  footnotes?: BLSFootnote[];
+}
+
+interface BLSSeries {
+  seriesID?: string;
+  data?: BLSDataPoint[];
+}
+
+interface BLSResponse {
+  status?: string;
+  message?: string[];
+  Results?: {
+    series?: BLSSeries[];
+  };
+}
+
 async function fetchBLSData(): Promise<any[]> {
   console.log("\n=== BLS Employment Data ===");
 
@@ -55,9 +82,10 @@ async function fetchBLSData(): Promise<any[]> {
         continue;
       }
 
-      const data = await res.json();
-      if (data.status === "REQUEST_SUCCEEDED" && data.Results?.series?.length > 0) {
-        const series = data.Results.series[0];
+      const data = (await res.json()) as BLSResponse;
+      const seriesList = data.Results?.series ?? [];
+      if (data.status === "REQUEST_SUCCEEDED" && seriesList.length > 0) {
+        const series = seriesList[0];
         console.log(`   Got ${series.data?.length ?? 0} data points for ${seriesId}`);
         for (const d of series.data ?? []) {
           allData.push({
@@ -66,7 +94,7 @@ async function fetchBLSData(): Promise<any[]> {
             period: d.period,
             period_name: d.periodName,
             value: parseFloat(d.value),
-            footnotes: d.footnotes?.map((f: any) => f.text).join("; ") ?? "",
+            footnotes: d.footnotes?.map((f) => f.text).join("; ") ?? "",
           });
         }
       } else {
@@ -94,9 +122,10 @@ async function fetchBLSData(): Promise<any[]> {
     });
 
     if (res.ok) {
-      const data = await res.json();
-      if (data.status === "REQUEST_SUCCEEDED" && data.Results?.series?.length > 0) {
-        const series = data.Results.series[0];
+      const data = (await res.json()) as BLSResponse;
+      const seriesList = data.Results?.series ?? [];
+      if (data.status === "REQUEST_SUCCEEDED" && seriesList.length > 0) {
+        const series = seriesList[0];
         console.log(`   Got ${series.data?.length ?? 0} Oregon statewide data points`);
         for (const d of series.data ?? []) {
           allData.push({
@@ -105,7 +134,7 @@ async function fetchBLSData(): Promise<any[]> {
             period: d.period,
             period_name: d.periodName,
             value: parseFloat(d.value),
-            footnotes: d.footnotes?.map((f: any) => f.text).join("; ") ?? "",
+            footnotes: d.footnotes?.map((f) => f.text).join("; ") ?? "",
           });
         }
       }

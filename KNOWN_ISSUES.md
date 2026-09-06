@@ -1,9 +1,30 @@
-# Portland Commons Dashboard — Known Data Issues & Discrepancies
+# Portland Civic Lab — Known Data Issues & Discrepancies
 
 ## Critical: Data Accuracy Rules
 1. NEVER show modeled/seeded data as real. Use "Data Needed" callouts instead.
 2. Every chart must cite its source and show "Real Data" or "Estimated" badge.
-3. The Portland Commons' credibility depends on data accuracy.
+3. Portland Civic Lab's credibility depends on data accuracy.
+
+## Data-integrity rules now enforced in code
+
+These four were each broken in production and fixed. They are written into
+`src/app/api/cron/verify-promises/route.ts` and repeated here so they are not
+re-broken. CONTRIBUTING.md carries the same list.
+
+1. **Verdicts are derived, never written.** Anything published as
+   machine-verified — a `verification_status`, a pass/fail label — must be
+   computed from the values the job just queried. If the data cannot support a
+   verdict, write `in_progress` and say why in the notes.
+2. **Comparison windows are computed at run time, anchored to the freshest
+   row, not to the clock.** A window frozen in source drifts out of date while
+   `updated_at` keeps refreshing. Ingest lags by days, so comparing a partial
+   recent window against a complete prior one manufactures a decline.
+3. **Permit timeliness is measured by application cohort, never by grouping on
+   issue date.** See "Permit Processing Times" below. Cohorts are closed a
+   fixed interval before the freshest application in the table.
+4. **A route with no data reports `dataStatus: "unavailable"`.** It never
+   substitutes a remembered figure, and the cache layer refuses to store or
+   serve an `unavailable`/`error` payload.
 
 ## ArcGIS BDS_Permit FeatureServer
 - **ISSUED dates have garbage values**: Many permits have epochs pointing to year 2109+. Filter with `epoch < 2027 epoch`.

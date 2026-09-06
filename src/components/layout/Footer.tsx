@@ -32,9 +32,10 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
       { label: "For Public Institutions", href: "/institutions" },
       { label: "Funding finder", href: "/business" },
       { label: "PCB Certification", href: "/apply" },
-      { label: "Benefits Calculator", href: "/calculator" },
-      { label: "Business Directory", href: "/directory" },
-      { label: "Commercial Spaces", href: "/spaces" },
+      // The benefits calculator, business directory and commercial spaces
+      // modules are not shipped yet (see TODO.md). They stay reachable by
+      // direct URL for the people working on them, but the site does not
+      // advertise them, and their pages are noindex.
     ],
   },
   {
@@ -44,7 +45,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
       { label: "Methodology", href: "/methodology" },
       { label: "Independence & Funding", href: "/independence" },
       { label: "Public Records", href: "/records" },
-      { label: "Civic Concierge", href: "/concierge" },
+      // Civic Concierge is likewise unshipped; see the note above.
     ],
   },
   {
@@ -139,11 +140,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-[12px] text-white/45 max-w-2xl">
+          <p className="text-[12px] text-white/60 max-w-2xl">
             &copy; {year} {LEGAL_ENTITY} &middot; Free, public civic tools — independent and not
             affiliated with the City of Portland or any government agency.
           </p>
-          <div className="flex items-center gap-5 text-[12px] text-white/45">
+          <div className="flex items-center gap-5 text-[12px] text-white/60">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>

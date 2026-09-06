@@ -3,8 +3,11 @@
  *
  * Usage: npx tsx ingest/apply-migration.ts drizzle/0003_members.sql
  *
- * Migrations in this repo are written to be idempotent (IF NOT EXISTS), so
- * re-running a file is safe.
+ * Most migrations here use IF NOT EXISTS and are safe to re-run. Two are not:
+ * 0000 creates 31 tables and a schema unguarded, and 0002 alters a table that
+ * no migration creates. Applying the whole directory in order against a fresh
+ * database fails at those two — see README.md. This script takes one file at a
+ * time, so name the file you mean.
  */
 import postgres from "postgres";
 import fs, { readFileSync } from "node:fs";

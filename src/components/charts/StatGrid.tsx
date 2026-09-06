@@ -13,14 +13,23 @@ interface StatItem {
 interface StatGridProps {
   stats: StatItem[];
   accentColor?: string;
+  /** Names the group of figures, e.g. "Key housing indicators". */
+  ariaLabel?: string;
 }
 
 export default function StatGrid({
   stats,
   accentColor = "#1a3a2a",
+  ariaLabel,
 }: StatGridProps) {
+  // Every figure here is real text, so the grid is announced as a named group
+  // rather than collapsed into a single image summary.
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div
+      role="group"
+      aria-label={ariaLabel ?? `${stats.length} key figures`}
+      className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+    >
       {stats.map((stat, i) => (
         <div
           key={i}

@@ -12,17 +12,29 @@ interface SparklineProps {
   data: { value: number }[];
   color?: string;
   height?: number;
+  /**
+   * Summary for assistive technology. Sparklines sit beside the figure they
+   * illustrate, so with nothing passed the shape is hidden as decoration
+   * rather than read out twice.
+   */
+  ariaLabel?: string;
 }
 
 export default function Sparkline({
   data,
   color = "#1a3a2a",
   height = 44,
+  ariaLabel,
 }: SparklineProps) {
   const gradientId = useId();
 
   return (
-    <div style={{ width: "100%", height }}>
+    <div
+      style={{ width: "100%", height }}
+      {...(ariaLabel
+        ? { role: "img", "aria-label": ariaLabel }
+        : { "aria-hidden": true })}
+    >
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 4, right: 0, left: 0, bottom: 0 }}>
           <defs>

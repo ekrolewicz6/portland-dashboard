@@ -43,7 +43,9 @@ export const SOURCES = {
   youmedia: { org: "U Chicago Consortium, YOUmedia evaluation", url: "https://consortium.uchicago.edu/publications/teens-digital-media-and-chicago-public-library", kind: "primary" },
   thinkMcl: { org: "MCL, Think MCL service priorities", url: "https://multcolib.org/think-mcl", kind: "primary" },
   locationsWiki: { org: "MCL branch list (Wikipedia, cross-checked against MCL)", url: "https://en.wikipedia.org/wiki/Multnomah_County_Library", kind: "news" },
-  pclReport: { org: "Portland Civic Lab, full report (PDF)", url: "/reports/portland-libraries-2026", kind: "analysis" },
+  // Served from public/reports/. The build output of reports/ is not deployed,
+  // so the published PDF is copied there rather than linked in place.
+  pclReport: { org: "Portland Civic Lab, full report (PDF)", url: "/reports/portland-libraries-2026.pdf", kind: "analysis" },
 } satisfies Record<string, Source>;
 
 export const HEADLINE = {

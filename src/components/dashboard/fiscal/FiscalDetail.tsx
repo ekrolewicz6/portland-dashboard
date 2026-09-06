@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Landmark, Receipt } from "lucide-react";
 import TaxDetail from "../tax/TaxDetail";
 import BudgetExplorer from "./BudgetExplorer";
@@ -41,8 +41,13 @@ function tabFromHash(hash: string): Tab {
 
 export default function FiscalDetail() {
   const [activeTab, setActiveTab] = useState<Tab>("budget");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const baseId = useId();
 
   const ActiveTab = TABS.find((t) => t.id === activeTab)!;
+
+  const tabId = (id: Tab) => `${baseId}-tab-${id}`;
+  const panelId = (id: Tab) => `${baseId}-panel-${id}`;
 
   useEffect(() => {
     const syncFromHash = () => setActiveTab(tabFromHash(window.location.hash));
@@ -64,6 +69,32 @@ export default function FiscalDetail() {
     }
   }
 
+  // Arrow keys move between tabs; only the selected tab is a tab stop, so Tab
+  // steps past the whole strip into the panel.
+  function handleTabKeys(event: React.KeyboardEvent, index: number) {
+    const last = TABS.length - 1;
+    let next: number;
+    switch (event.key) {
+      case "ArrowRight":
+        next = index === last ? 0 : index + 1;
+        break;
+      case "ArrowLeft":
+        next = index === 0 ? last : index - 1;
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = last;
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+    selectTab(TABS[next].id);
+    tabRefs.current[next]?.focus();
+  }
+
   return (
     <div className="space-y-8">
       {/* Tab nav */}
@@ -78,13 +109,26 @@ export default function FiscalDetail() {
           <div className="flex-1 h-px bg-[var(--color-parchment)]" />
         </div>
 
-        <div className="flex flex-wrap gap-1 mb-6">
-          {TABS.map((tab) => (
+        <div
+          role="tablist"
+          aria-label="Fiscal views"
+          className="flex flex-wrap gap-1 mb-6"
+        >
+          {TABS.map((tab, index) => (
             <button
               key={tab.id}
+              type="button"
+              role="tab"
+              id={tabId(tab.id)}
+              aria-selected={activeTab === tab.id}
+              aria-controls={panelId(tab.id)}
+              tabIndex={activeTab === tab.id ? 0 : -1}
+              ref={(el) => {
+                tabRefs.current[index] = el;
+              }}
+              onKeyDown={(event) => handleTabKeys(event, index)}
               onClick={() => selectTab(tab.id)}
               className="flex items-center gap-2 px-4 py-2 rounded-sm text-[13px] font-medium transition-all"
-              aria-pressed={activeTab === tab.id}
               style={{
                 backgroundColor:
                   activeTab === tab.id
@@ -107,8 +151,14 @@ export default function FiscalDetail() {
         </p>
 
         {/* Active view */}
-        {activeTab === "budget" && <BudgetExplorer />}
-        {activeTab === "tax" && <TaxDetail />}
+        <div
+          role="tabpanel"
+          id={panelId(activeTab)}
+          aria-labelledby={tabId(activeTab)}
+        >
+          {activeTab === "budget" && <BudgetExplorer />}
+          {activeTab === "tax" && <TaxDetail />}
+        </div>
       </section>
     </div>
   );

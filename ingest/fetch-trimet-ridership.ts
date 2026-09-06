@@ -138,7 +138,7 @@ async function fetchAllPages(
       throw new Error(`ArcGIS returned HTTP ${res.status} for ${label}`);
     }
 
-    const data: ArcGISResponse = await res.json();
+    const data = (await res.json()) as ArcGISResponse;
     const features = data.features ?? [];
     console.log(`    Got ${features.length} features`);
 
@@ -279,7 +279,7 @@ async function fetchBikeInfrastructure(sql: postgres.Sql) {
 
     // Upsert into quality.context_stats
     // Top 3 facility types for a clean subtitle
-    const topTypes = Object.entries(byFacility)
+    const topTypes = Object.entries(byType)
       .sort(([, a], [, b]) => b - a)
       .filter(([k]) => k !== "NONE" && k !== "Unknown")
       .slice(0, 3)
@@ -375,7 +375,7 @@ async function fetchTrails(sql: postgres.Sql) {
     sql,
     "trail_miles",
     totalMiles.toFixed(1),
-    `${trailFeatures.length.toLocaleString()} trail segments across Portland parks and greenways`,
+    `${trailRecords.length.toLocaleString()} trail segments across Portland parks and greenways`,
     "Portland ArcGIS Environment MapServer/27",
     new Date().toISOString().slice(0, 10)
   );

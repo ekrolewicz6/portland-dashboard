@@ -324,9 +324,18 @@ org-chart work above; consolidated here as it predates this changelog's gap.)
 - Links go directly to the source data portal (ODE, Census, BLS, ArcGIS, NTD, etc.)
 
 ### Pre-Push Verification Hook
-- `ingest/verify-api-queries.ts` runs 24 database checks before every `git push`
+- `ingest/verify-api-queries.ts` runs the dashboard API queries against the database
 - Catches column mismatches, missing tables, and broken SQL before they reach prod
-- Wired as Claude Code PreToolUse hook on `Bash(git push *)`
+- Wired as a Claude Code PreToolUse hook on `Bash(git push *)`
+
+  **Correction (September 2026):** this never ran "before every `git push`".
+  The committed `.claude/settings.json` hook pointed at one developer's
+  absolute path, reached the script only through a gitignored symlink, and its
+  matcher did not filter correctly, so on any other machine it fired on
+  ordinary commands and blocked them. It has been deleted. The check now lives
+  in `.githooks/pre-push`, which each contributor opts into with
+  `git config core.hooksPath .githooks`, and which skips cleanly when no
+  `DATABASE_URL` is available.
 
 ### Data Pipeline Memory
 - New memory file `feedback_data_pipelines.md`: rule that every data source MUST be saved as repeatable script + automated refresh

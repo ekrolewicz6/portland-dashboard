@@ -48,88 +48,36 @@
     background-color: var(--color-paper);
     color: var(--color-ink);
     line-height: 1.6;
-    /* Minimum font size for readability on large displays */
-    min-font-size: 14px;
   }
 
   /* Scale up small hardcoded font sizes on larger viewports.
-     Hardcoded text-[Npx] is treated as a MOBILE size — desktop bumps up. */
+     Hardcoded text-[Npx] is treated as a MOBILE size — desktop bumps up.
+
+     Two things matter here:
+
+     `~=` matches the class as a whole word, so `text-[10px]` is hit but
+     `sm:text-[10px]` and `lg:text-[12px]` are not. A substring match (`*=`)
+     catches responsive variants too, and then whichever of these rules came
+     last in the sheet silently won over the variant the component asked for.
+
+     clamp() replaces what used to be five stacked breakpoints per size,
+     fifty-eight rules in all, each needing to be edited in lockstep. The
+     endpoints are the same values those breakpoints set: the low end is the
+     authored size, the ceiling is what the widest breakpoint used to apply.
+
+     Still !important, and still scoped to >=1024px, because these override
+     Tailwind utilities of equal specificity and must not touch phones. */
   @media (min-width: 1024px) {
-    [class*="text-\[10px\]"] { font-size: 12px !important; }
-    [class*="text-\[11px\]"] { font-size: 13px !important; }
-    [class*="text-\[12px\]"] { font-size: 14px !important; }
-    [class*="text-\[13px\]"] { font-size: 15px !important; }
-    [class*="text-\[14px\]"] { font-size: 16px !important; }
-    [class*="text-\[15px\]"] { font-size: 17px !important; }
-    [class*="text-\[16px\]"] { font-size: 18px !important; }
-    [class*="text-\[17px\]"] { font-size: 19px !important; }
-    [class*="text-\[18px\]"] { font-size: 20px !important; }
-    [class*="text-\[19px\]"] { font-size: 21px !important; }
-  }
-
-  @media (min-width: 1280px) {
-    [class*="text-\[10px\]"] { font-size: 13px !important; }
-    [class*="text-\[11px\]"] { font-size: 14px !important; }
-    [class*="text-\[12px\]"] { font-size: 15px !important; }
-    [class*="text-\[13px\]"] { font-size: 16px !important; }
-    [class*="text-\[14px\]"] { font-size: 17px !important; }
-    [class*="text-\[15px\]"] { font-size: 18px !important; }
-    [class*="text-\[16px\]"] { font-size: 19px !important; }
-    [class*="text-\[17px\]"] { font-size: 20px !important; }
-    [class*="text-\[18px\]"] { font-size: 21px !important; }
-    [class*="text-\[19px\]"] { font-size: 22px !important; }
-  }
-
-  /* Bridge the 1280→1920 gap so text doesn't lag the fluid base on 1600px+ monitors. */
-  @media (min-width: 1600px) {
-    [class*="text-\[10px\]"] { font-size: 14px !important; }
-    [class*="text-\[11px\]"] { font-size: 15px !important; }
-    [class*="text-\[12px\]"] { font-size: 16px !important; }
-    [class*="text-\[13px\]"] { font-size: 17px !important; }
-    [class*="text-\[14px\]"] { font-size: 18px !important; }
-    [class*="text-\[15px\]"] { font-size: 20px !important; }
-    [class*="text-\[16px\]"] { font-size: 21px !important; }
-    [class*="text-\[17px\]"] { font-size: 22px !important; }
-    [class*="text-\[18px\]"] { font-size: 23px !important; }
-    [class*="text-\[19px\]"] { font-size: 24px !important; }
-  }
-
-  @media (min-width: 1920px) {
-    [class*="text-\[10px\]"] { font-size: 16px !important; }
-    [class*="text-\[11px\]"] { font-size: 17px !important; }
-    [class*="text-\[12px\]"] { font-size: 18px !important; }
-    [class*="text-\[13px\]"] { font-size: 19px !important; }
-    [class*="text-\[14px\]"] { font-size: 20px !important; }
-    [class*="text-\[15px\]"] { font-size: 22px !important; }
-    [class*="text-\[16px\]"] { font-size: 23px !important; }
-    [class*="text-\[17px\]"] { font-size: 24px !important; }
-    [class*="text-\[18px\]"] { font-size: 25px !important; }
-    [class*="text-\[19px\]"] { font-size: 26px !important; }
-  }
-
-  /* Very-high-resolution monitors (≥2304px) — keep tracking the fluid base. */
-  @media (min-width: 2304px) {
-    [class*="text-\[10px\]"] { font-size: 17px !important; }
-    [class*="text-\[11px\]"] { font-size: 18px !important; }
-    [class*="text-\[12px\]"] { font-size: 19px !important; }
-    [class*="text-\[13px\]"] { font-size: 20px !important; }
-    [class*="text-\[14px\]"] { font-size: 21px !important; }
-    [class*="text-\[15px\]"] { font-size: 23px !important; }
-    [class*="text-\[16px\]"] { font-size: 24px !important; }
-    [class*="text-\[17px\]"] { font-size: 25px !important; }
-    [class*="text-\[18px\]"] { font-size: 26px !important; }
-    [class*="text-\[19px\]"] { font-size: 27px !important; }
-  }
-
-  @media (min-width: 2560px) {
-    [class*="text-\[12px\]"] { font-size: 20px !important; }
-    [class*="text-\[13px\]"] { font-size: 21px !important; }
-    [class*="text-\[14px\]"] { font-size: 22px !important; }
-    [class*="text-\[15px\]"] { font-size: 24px !important; }
-    [class*="text-\[16px\]"] { font-size: 25px !important; }
-    [class*="text-\[17px\]"] { font-size: 26px !important; }
-    [class*="text-\[18px\]"] { font-size: 27px !important; }
-    [class*="text-\[19px\]"] { font-size: 28px !important; }
+    [class~="text-\[10px\]"] { font-size: clamp(10px, 0.391vw + 8px, 17px) !important; }
+    [class~="text-\[11px\]"] { font-size: clamp(11px, 0.391vw + 9px, 18px) !important; }
+    [class~="text-\[12px\]"] { font-size: clamp(12px, 0.391vw + 10px, 20px) !important; }
+    [class~="text-\[13px\]"] { font-size: clamp(13px, 0.391vw + 11px, 21px) !important; }
+    [class~="text-\[14px\]"] { font-size: clamp(14px, 0.391vw + 12px, 22px) !important; }
+    [class~="text-\[15px\]"] { font-size: clamp(15px, 0.469vw + 12.2px, 24px) !important; }
+    [class~="text-\[16px\]"] { font-size: clamp(16px, 0.469vw + 13.2px, 25px) !important; }
+    [class~="text-\[17px\]"] { font-size: clamp(17px, 0.469vw + 14.2px, 26px) !important; }
+    [class~="text-\[18px\]"] { font-size: clamp(18px, 0.469vw + 15.2px, 27px) !important; }
+    [class~="text-\[19px\]"] { font-size: clamp(19px, 0.469vw + 16.2px, 28px) !important; }
   }
 
   ::selection {
@@ -602,14 +550,6 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-
-  /* Line clamp utility */
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   /* ── Reduced motion ── */

@@ -21,6 +21,7 @@
  */
 
 import postgres from "postgres";
+import type { OpportunityEligibility } from "../src/lib/business";
 import { requireDatabaseUrl } from "./lib/db-url";
 
 const DB_URL = requireDatabaseUrl();
@@ -28,6 +29,18 @@ const DB_URL = requireDatabaseUrl();
 const sql = postgres(DB_URL, { prepare: false, onnotice: () => {} });
 
 // ── Opportunity catalog ─────────────────────────────────────────────────
+
+/**
+ * postgres.js's sql.json() accepts only object types that carry an index
+ * signature, which interfaces never do. Re-mapping a shared interface through
+ * this keeps src/lib as the single definition of the shape while producing a
+ * structurally identical anonymous type the driver will take.
+ */
+type JsonSafe<T> = T extends (infer U)[]
+  ? JsonSafe<U>[]
+  : T extends object
+    ? { [K in keyof T]: JsonSafe<T[K]> }
+    : T;
 
 interface OpportunitySeed {
   slug: string;
@@ -46,13 +59,12 @@ interface OpportunitySeed {
   rolling: boolean;
   url: string | null;
   description: string;
-  eligibility: {
-    geography?: string;
-    businessTypes?: string[];
-    ownershipAttributes?: string[];
-    maxEmployees?: number;
-    notes?: string;
-  };
+  /**
+   * The shape the matcher reads back out of the `eligibility` JSON column —
+   * a structured geographic gate rather than free text, so an address can
+   * actually be tested against it.
+   */
+  eligibility: JsonSafe<OpportunityEligibility>;
   verificationStatus: "verified" | "needs_verification";
   sourceNote: string;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import { ClipboardList, Building2, DollarSign, TrendingDown, Wind } from "lucide-react";
 import WorkplanTracker from "./WorkplanTracker";
 import BureauScorecard from "./BureauScorecard";
@@ -65,8 +65,39 @@ function SectionHeader({ icon: Icon, title }: { icon: React.ComponentType<{ clas
 
 export default function ClimateDetail() {
   const [activeTab, setActiveTab] = useState<Tab>("workplan");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const baseId = useId();
 
   const ActiveTab = TABS.find((t) => t.id === activeTab)!;
+
+  const tabId = (id: Tab) => `${baseId}-tab-${id}`;
+  const panelId = (id: Tab) => `${baseId}-panel-${id}`;
+
+  // Arrow keys move between tabs; only the selected tab is a tab stop, so Tab
+  // steps past the whole strip into the panel.
+  function handleTabKeys(event: React.KeyboardEvent, index: number) {
+    const last = TABS.length - 1;
+    let next: number;
+    switch (event.key) {
+      case "ArrowRight":
+        next = index === last ? 0 : index + 1;
+        break;
+      case "ArrowLeft":
+        next = index === 0 ? last : index - 1;
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = last;
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+    setActiveTab(TABS[next].id);
+    tabRefs.current[next]?.focus();
+  }
 
   return (
     <div className="space-y-8">
@@ -98,10 +129,24 @@ export default function ClimateDetail() {
         <SectionHeader icon={ActiveTab.Icon} title={ActiveTab.label} />
 
         {/* Tab nav */}
-        <div className="flex flex-wrap gap-1 mb-6">
-          {TABS.map((tab) => (
+        <div
+          role="tablist"
+          aria-label="Climate accountability views"
+          className="flex flex-wrap gap-1 mb-6"
+        >
+          {TABS.map((tab, index) => (
             <button
               key={tab.id}
+              type="button"
+              role="tab"
+              id={tabId(tab.id)}
+              aria-selected={activeTab === tab.id}
+              aria-controls={panelId(tab.id)}
+              tabIndex={activeTab === tab.id ? 0 : -1}
+              ref={(el) => {
+                tabRefs.current[index] = el;
+              }}
+              onKeyDown={(event) => handleTabKeys(event, index)}
               onClick={() => setActiveTab(tab.id)}
               className="flex items-center gap-2 px-4 py-2 rounded-sm text-[13px] font-medium transition-all"
               style={{
@@ -123,7 +168,12 @@ export default function ClimateDetail() {
         </p>
 
         {/* Active view */}
-        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 sm:p-6">
+        <div
+          role="tabpanel"
+          id={panelId(activeTab)}
+          aria-labelledby={tabId(activeTab)}
+          className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-5 sm:p-6"
+        >
           {/*
             One implementation per tab. These previously rendered a second,
             parallel set of components backed by /api/dashboard/environment/*,

@@ -53,7 +53,7 @@ async function fetchAllPages(
       throw new Error(`ArcGIS returned HTTP ${res.status} for ${label}`);
     }
 
-    const data: ArcGISResponse = await res.json();
+    const data = (await res.json()) as ArcGISResponse;
     const features = data.features ?? [];
     console.log(`    Got ${features.length} features`);
 

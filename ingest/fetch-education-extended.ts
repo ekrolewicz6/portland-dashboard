@@ -142,13 +142,13 @@ function findHeaderRow(rawData: any[][], maxSearch: number = 15): number {
 
 // ── 1. Chronic Absenteeism ─────────────────────────────────────────────
 
-interface AbsenteeismRow {
+type AbsenteeismRow = {
   school_year: string;
   district_name: string;
   regular_attenders_pct: number | null;
   chronic_absent_pct: number | null;
   total_students: number | null;
-}
+};
 
 async function fetchChronicAbsenteeism(): Promise<AbsenteeismRow[]> {
   console.log("\n=== 1. Chronic Absenteeism ===");
@@ -297,11 +297,11 @@ async function fetchChronicAbsenteeism(): Promise<AbsenteeismRow[]> {
 
 // ── 2. Per-Pupil Spending ──────────────────────────────────────────────
 
-interface SpendingRow {
+type SpendingRow = {
   school_year: string;
   district_name: string;
   total_per_pupil: number | null;
-}
+};
 
 async function fetchPerPupilSpending(): Promise<SpendingRow[]> {
   console.log("\n=== 2. Per-Pupil Spending ===");
@@ -410,12 +410,12 @@ async function fetchPerPupilSpending(): Promise<SpendingRow[]> {
 
 // ── 3. Class Size ──────────────────────────────────────────────────────
 
-interface ClassSizeRow {
+type ClassSizeRow = {
   school_year: string;
   district_name: string;
   avg_class_size: number | null;
   subject: string;
-}
+};
 
 async function fetchClassSize(): Promise<ClassSizeRow[]> {
   console.log("\n=== 3. Class Size ===");
@@ -513,12 +513,12 @@ async function fetchClassSize(): Promise<ClassSizeRow[]> {
 
 // ── 4. Graduation Rates (5-year) ───────────────────────────────────────
 
-interface GradRateRow {
+type GradRateRow = {
   school_year: string;
   district_name: string;
   rate_4yr: number | null;
   rate_5yr: number | null;
-}
+};
 
 async function fetchGraduationRates(): Promise<GradRateRow[]> {
   console.log("\n=== 4. Graduation Rates (5-year) ===");

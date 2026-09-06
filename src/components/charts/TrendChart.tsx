@@ -20,6 +20,30 @@ interface TrendChartProps {
   showGrid?: boolean;
   /** Set to "auto" to zoom Y-axis to data range instead of starting at 0 */
   yAxisDomain?: "auto" | [number, number];
+  /** Replaces the summary read out in place of the chart graphic. */
+  ariaLabel?: string;
+}
+
+function describeTrend(
+  data: { date: string; value: number }[],
+  valuePrefix: string,
+  valueSuffix: string
+): string {
+  if (data.length === 0) return "Trend chart with no data.";
+  const format = (v: number) =>
+    `${valuePrefix}${v.toLocaleString()}${valueSuffix}`;
+  const first = data[0];
+  const last = data[data.length - 1];
+  if (data.length === 1) {
+    return `Trend chart with a single point: ${first.date} at ${format(first.value)}.`;
+  }
+  const direction =
+    last.value > first.value
+      ? "rising"
+      : last.value < first.value
+        ? "falling"
+        : "flat";
+  return `Trend chart over ${data.length} points, ${direction} from ${format(first.value)} in ${first.date} to ${format(last.value)} in ${last.date}.`;
 }
 
 export default function TrendChart({
@@ -30,8 +54,13 @@ export default function TrendChart({
   valueSuffix = "",
   showGrid = true,
   yAxisDomain,
+  ariaLabel,
 }: TrendChartProps) {
   const gradientId = useId();
+
+  // The SVG itself carries no text for assistive technology, so the wrapper
+  // stands in for it with the shape of the series spelled out.
+  const label = ariaLabel ?? describeTrend(data, valuePrefix, valueSuffix);
 
   // Compute YAxis width based on largest formatted value
   const maxVal = Math.max(...data.map((d) => d.value), 0);
@@ -39,7 +68,7 @@ export default function TrendChart({
   const yAxisWidth = Math.max(56, maxFormatted.length * 9 + 8);
 
   return (
-    <div style={{ width: "100%", height }}>
+    <div role="img" aria-label={label} style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }}>
           <defs>

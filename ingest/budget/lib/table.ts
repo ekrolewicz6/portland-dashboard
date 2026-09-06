@@ -196,7 +196,9 @@ export function parseTable(
         // 2. A row above that already collected a prefix is mid-wrap and is
         //    still waiting for the tail of its name ("… Renewal Replacement"
         //    + "Fund"). Finish it before starting the next one.
-        const above = d.idx < fi ? d : best.idx < fi ? best : null;
+        // Annotated because `best` is reassigned from `above` just below, and
+        // inferring one from the other is circular.
+        const above: Draft | null = d.idx < fi ? d : best.idx < fi ? best : null;
         if (above && above.prefixes.length) {
           best = above;
           continue;

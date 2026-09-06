@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import ChatInterface from "@/components/concierge/ChatInterface";
 
 export const metadata: Metadata = {
+  // Not shipped yet (see TODO.md): reachable by direct URL for the people
+  // building it, but kept out of search until it is ready to be found.
+  robots: { index: false, follow: false },
   title: "Civic Concierge",
   description:
     "AI-powered civic data assistant for Portland, Oregon. Ask anything about city government, permits, zoning, public services, climate commitments, housing, and more.",

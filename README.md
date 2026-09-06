@@ -8,9 +8,11 @@ code is open source (AGPL-3.0), and members decide what gets built next.
 
 ## What's here
 
-- **Dashboards** (`/dashboard`) — ten topics (housing, safety, homelessness,
-  climate, fiscal, economy, education, …) with live data pipelines, honest
-  freshness labels, CSV export, and embeds
+- **Dashboards** (`/dashboard`) — eleven topics (housing, safety,
+  homelessness, climate, fiscal, economy, education, …) with live data
+  pipelines, honest freshness labels, CSV export, and embeds. `src/lib/questions.ts`
+  lists twelve slugs; `environment` is a legacy slug that redirects to
+  `/dashboard/climate`.
 - **Participation** — flag suspect numbers on any chart (`/api/data-flags`),
   propose and vote on new topics (`/proposals`), track our public records
   requests (`/records`)
@@ -25,33 +27,67 @@ cp .env.example .env.local   # fill in what you have
 npm run dev
 ```
 
-Without `DATABASE_URL` the app runs in mock-data mode — fine for UI work.
+There is no mock-data mode. Without `DATABASE_URL` every query fails fast,
+and the dashboards render with `dataStatus: "unavailable"` — the pages work,
+they just say the data is missing. That is fine for UI, layout, and docs
+work. For anything data-shaped you need a real database.
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the repo map, data ground rules,
 and how to pick up an issue.
 
 ## Stack
 
 - **App**: Next.js 15 (App Router) + TypeScript + Tailwind v4 + Recharts
-- **Database**: Supabase Postgres (+ PostGIS); Drizzle schema in `src/db/`
-  (`schema.ts` = app-owned tables, `introspected/` = full 177-table snapshot)
+- **Database**: Supabase Postgres. Routes query it with raw `postgres` tagged
+  templates through `src/lib/db-query.ts`; there is no ORM at runtime.
+  Drizzle survives as schema definitions only, consumed by `drizzle-kit`:
+  `src/db/schema.ts` (hand-maintained, app-owned tables) and
+  `src/db/introspected/` (a generated 176-table snapshot). Nothing in the app
+  or the schema uses PostGIS.
 - **Data pipelines**: TypeScript scripts in `ingest/`, scheduled as Vercel
   crons (`vercel.json`); legacy Python in `ingest/legacy/python/`
 - **Auth**: WorkOS AuthKit
 - **Hosting**: Vercel (auto-deploys from `main`)
-- **CI**: typecheck, lint, build, Playwright smoke tests (`npm test`)
+- **CI**: app typecheck, ingest typecheck, lint, build, Playwright smoke
+  tests against a Postgres service container (`.github/workflows/ci.yml`)
 
 ## Commands
 
 ```bash
 npm run dev        # dev server
 npm run build      # production build
-npm test           # Playwright smoke suite (builds first: npm run build)
-npx tsc --noEmit   # typecheck
-npm run lint       # lint
+npm test           # Playwright smoke suite against `next start`; run
+                   # `npm run build` yourself first
+npx tsc --noEmit   # typecheck the app
+npx tsc -p ingest --noEmit   # typecheck the ingest scripts
+npm run lint       # eslint .
 
-# apply a SQL migration (idempotent files in drizzle/)
+# apply one SQL migration
 npx tsx ingest/apply-migration.ts drizzle/0006_topic_proposals.sql
+npm run db:migrate -- drizzle/0006_topic_proposals.sql   # same script
 ```
+
+`db:push` was removed. It diffed the partial `src/db/schema.ts` against the
+live database and offered to drop every table the schema did not declare,
+which is most of them.
+
+### Migrations are not a runnable sequence
+
+`drizzle/` is a folder of numbered SQL files, not a migration history you can
+replay. Applying them in order to an empty database fails:
+
+- `0000_fine_dorian_gray.sql` has a bare `CREATE SCHEMA` and 31 bare
+  `CREATE TABLE` statements, so re-running it errors.
+- `0002_boec_20sec.sql` alters `safety.boec_911_monthly`, which no migration
+  creates.
+
+`0001` onward are otherwise written with `IF NOT EXISTS` and are safe to
+re-run individually, which is how they are applied in practice — one file at
+a time against a database that already exists. `ingest/ci-seed.ts` builds the
+CI database by running the files statement-by-statement and tolerating the
+failures above, then creating the fixture tables the smoke tests need. Nobody
+currently has a documented way to build the full production schema from this
+directory alone.
 
 ## Key documents
 

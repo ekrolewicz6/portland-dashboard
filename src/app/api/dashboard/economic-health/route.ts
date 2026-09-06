@@ -466,10 +466,16 @@ export async function GET() {
     return NextResponse.json(responseData);
   } catch (err) {
     console.error("Economic Health API error:", err);
+    // "unavailable", not "error": the caller's question is whether there is
+    // anything to show, and the answer is no. Every other topic route uses
+    // that value, the dashboard hub and the cache layer both key on it, and
+    // a distinct value here only meant the same condition rendered
+    // differently depending on which topic you were reading. The cause is
+    // logged above, where it is actionable.
     return NextResponse.json({
       headline: "Economic health data temporarily unavailable",
-      headlineValue: 0,
-      dataStatus: "error",
+      headlineValue: null,
+      dataStatus: "unavailable",
       dataAvailable: false,
       composite: null,
       dataSources: [],

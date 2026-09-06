@@ -27,6 +27,23 @@ interface MultiLineChartProps {
   valueSuffix?: string;
   valuePrefix?: string;
   referenceLines?: { y: number; label: string; color?: string }[];
+  /** Replaces the summary read out in place of the chart graphic. */
+  ariaLabel?: string;
+}
+
+function describeLines(
+  data: Record<string, string | number>[],
+  lines: LineConfig[],
+  xKey: string
+): string {
+  if (data.length === 0) return "Line chart with no data.";
+  const series = lines.map((l) => l.label).join(", ");
+  const first = String(data[0]?.[xKey] ?? "");
+  const last = String(data[data.length - 1]?.[xKey] ?? "");
+  const span = first && last && first !== last ? ` from ${first} to ${last}` : "";
+  return `Line chart of ${series} across ${data.length} ${
+    data.length === 1 ? "point" : "points"
+  }${span}.`;
 }
 
 export default function MultiLineChart({
@@ -37,9 +54,14 @@ export default function MultiLineChart({
   valueSuffix = "",
   valuePrefix = "",
   referenceLines = [],
+  ariaLabel,
 }: MultiLineChartProps) {
+  // The SVG itself carries no text for assistive technology, so the wrapper
+  // stands in for it with the shape of the data spelled out.
+  const label = ariaLabel ?? describeLines(data, lines, xKey);
+
   return (
-    <div style={{ width: "100%", height }}>
+    <div role="img" aria-label={label} style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}

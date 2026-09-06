@@ -32,6 +32,23 @@ interface ComparisonBarChartProps {
   positiveColor?: string;
   negativeColor?: string;
   referenceLine?: number;
+  /** Replaces the summary read out in place of the chart graphic. */
+  ariaLabel?: string;
+}
+
+function describeComparison(
+  data: Record<string, string | number>[],
+  xKey: string,
+  bars: BarConfig[]
+): string {
+  if (data.length === 0) return "Bar chart with no data.";
+  const series = bars.map((b) => b.label).join(", ");
+  const first = String(data[0]?.[xKey] ?? "");
+  const last = String(data[data.length - 1]?.[xKey] ?? "");
+  const span = first && last && first !== last ? ` from ${first} to ${last}` : "";
+  return `Grouped bar chart comparing ${series} across ${data.length} ${
+    data.length === 1 ? "category" : "categories"
+  }${span}.`;
 }
 
 export default function ComparisonBarChart({
@@ -46,9 +63,14 @@ export default function ComparisonBarChart({
   positiveColor = "#3d7a5a",
   negativeColor = "#b85c3a",
   referenceLine,
+  ariaLabel,
 }: ComparisonBarChartProps) {
+  // The SVG itself carries no text for assistive technology, so the wrapper
+  // stands in for it with the shape of the data spelled out.
+  const label = ariaLabel ?? describeComparison(data, xKey, bars);
+
   return (
-    <div style={{ width: "100%", height }}>
+    <div role="img" aria-label={label} style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }}>
           <CartesianGrid

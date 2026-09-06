@@ -293,6 +293,13 @@ interface BusinessLicense {
   api_id: string | null;
 }
 
+// The CivicApps business-licenses endpoint has been served under both a
+// `results` and a `data` key, so probing for either keeps older mirrors working.
+interface CivicAppsPage {
+  results?: unknown[];
+  data?: unknown[];
+}
+
 async function fetchBusinesses(): Promise<BusinessLicense[]> {
   console.log("\n=== Fetching Business Licenses (CivicApps) ===");
 
@@ -312,7 +319,7 @@ async function fetchBusinesses(): Promise<BusinessLicense[]> {
         console.log(`    Got HTTP ${testRes.status}, trying next...`);
         continue;
       }
-      const testData = await testRes.json();
+      const testData = (await testRes.json()) as CivicAppsPage;
       const testResults = testData.results ?? testData.data ?? [];
 
       if (!Array.isArray(testResults) || testResults.length === 0) {
@@ -822,7 +829,7 @@ async function insertIntoDb(
     const bizCache = {
       total_licenses: businesses.length,
       api_status: businesses.length > 0 ? "available" : "unavailable",
-      snapshot_date: now.toISOString().slice(0, 10),
+      snapshot_date: new Date().toISOString().slice(0, 10),
     };
 
     // Neighborhood stats

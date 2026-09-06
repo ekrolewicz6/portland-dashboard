@@ -85,7 +85,9 @@ These findings matter more than usual because **the repo is public** (`github.co
 
 ## 3. Data Infrastructure
 
-**Strengths:** 30+ tables across well-separated schemas; idempotent UPSERT pipelines for permits/campsites; 9 scheduled cron jobs; a pre-push data verification hook (`ingest/verify-api-queries.ts`); honest source-status badges on the methodology page.
+**Strengths:** 30+ tables across well-separated schemas; idempotent UPSERT pipelines for permits/campsites; 9 scheduled cron jobs; a data verification script (`ingest/verify-api-queries.ts`); honest source-status badges on the methodology page.
+
+> **Correction (September 2026):** this section originally called the verification script "a pre-push data verification hook", implying it ran on every push. It did not — the committed Claude Code hook that invoked it worked on one machine only and has been deleted. The script is now wired as `.githooks/pre-push`, which is **opt-in**: a contributor enables it with `git config core.hooksPath .githooks`. Do not assume any push has been verified.
 
 **Problems, ranked:**
 

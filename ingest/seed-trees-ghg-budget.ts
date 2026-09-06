@@ -79,10 +79,21 @@ interface NeighborhoodAgg {
   conditionPoor: number;
 }
 
+/**
+ * ArcGIS answers `f=json` queries with HTTP 200 even when the query failed,
+ * so the error envelope is part of the same shape.
+ */
+interface ArcGISQueryResponse {
+  // The query names its outFields, so the attributes are exactly a TreeRecord.
+  features?: { attributes: TreeRecord }[];
+  exceededTransferLimit?: boolean;
+  error?: { code?: number; message?: string };
+}
+
 async function fetchTreeCount(): Promise<number> {
   const url = `${TREE_ENDPOINT}?where=1%3D1&returnCountOnly=true&f=json`;
   const res = await fetch(url);
-  const data = await res.json();
+  const data = (await res.json()) as { count: number };
   return data.count;
 }
 
@@ -96,9 +107,9 @@ async function fetchTreePage(offset: number): Promise<TreeRecord[]> {
   });
   const res = await fetch(`${TREE_ENDPOINT}?${params}`);
   if (!res.ok) throw new Error(`ArcGIS HTTP ${res.status}`);
-  const data = await res.json();
+  const data = (await res.json()) as ArcGISQueryResponse;
   if (data.error) throw new Error(`ArcGIS error: ${JSON.stringify(data.error)}`);
-  return (data.features || []).map((f: any) => f.attributes as TreeRecord);
+  return (data.features || []).map((f) => f.attributes);
 }
 
 function normalizeCondition(c: string | null): "Good" | "Fair" | "Poor" | null {

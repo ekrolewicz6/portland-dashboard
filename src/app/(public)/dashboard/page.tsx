@@ -43,7 +43,7 @@ export default async function DashboardPage() {
         <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[var(--color-ember)] rounded-full blur-[160px] opacity-[0.06] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 pt-8 pb-10 sm:pt-10 sm:pb-12">
-          <div className="flex items-center gap-4 text-[10px] font-mono uppercase tracking-[0.22em] text-white/35">
+          <div className="flex items-center gap-4 text-[10px] font-mono uppercase tracking-[0.22em] text-white/60">
             <span className="text-[var(--color-ember)]/80">Live Dashboard</span>
             <div className="flex-1 h-px bg-white/10" />
             <span>{editionDate}</span>

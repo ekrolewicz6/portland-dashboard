@@ -334,7 +334,7 @@ export default function LibrariesPage() {
           <p className="max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
             The full report —{" "}
             <a
-              href="/reports/portland-libraries-2026/pdfcheck/Portland_Libraries_Deep_Dive_2026.pdf"
+              href="/reports/portland-libraries-2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-[var(--color-canopy)] underline decoration-[var(--color-sage)]/60 underline-offset-2 hover:decoration-[var(--color-canopy)]"

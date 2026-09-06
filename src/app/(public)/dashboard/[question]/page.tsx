@@ -18,7 +18,6 @@ import FiscalDetail from "@/components/dashboard/fiscal/FiscalDetail";
 import HomelessnessDetail from "@/components/dashboard/homelessness/HomelessnessDetail";
 import TransportationDetail from "@/components/dashboard/transportation/TransportationDetail";
 import EducationDetail from "@/components/dashboard/education/EducationDetail";
-import EnvironmentDetail from "@/components/dashboard/environment/EnvironmentDetail";
 import QualityDetail from "@/components/dashboard/quality/QualityDetail";
 import AccountabilityDetail from "@/components/dashboard/accountability/AccountabilityDetail";
 import ClimateDetail from "@/components/dashboard/climate/ClimateDetail";
@@ -92,7 +91,6 @@ const detailComponents: Record<string, React.ComponentType> = {
   fiscal: FiscalDetail,
   economy: EconomyDetail,
   "economic-health": EconomicHealthDetail,
-  environment: EnvironmentDetail,
   quality: QualityDetail,
   accountability: AccountabilityDetail,
   climate: ClimateDetail,

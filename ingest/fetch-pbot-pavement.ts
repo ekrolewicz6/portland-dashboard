@@ -58,7 +58,7 @@ async function fetchAllPavement(): Promise<Record<string, any>[]> {
       throw new Error(`ArcGIS returned HTTP ${res.status}`);
     }
 
-    const data: ArcGISResponse = await res.json();
+    const data = (await res.json()) as ArcGISResponse;
     const features = data.features ?? [];
     console.log(`    Got ${features.length} features`);
 

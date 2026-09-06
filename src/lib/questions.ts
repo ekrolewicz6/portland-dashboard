@@ -1,4 +1,9 @@
-/** Metadata for the 10 civic dashboard categories */
+/**
+ * Metadata for the civic dashboard categories.
+ *
+ * Twelve slugs, eleven reachable pages: /dashboard/environment redirects to
+ * /dashboard/climate, which renders the air-quality view itself.
+ */
 
 export const VALID_QUESTIONS = [
   "housing",

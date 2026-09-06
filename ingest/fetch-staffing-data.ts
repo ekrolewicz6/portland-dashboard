@@ -60,7 +60,7 @@ async function fetchDistrictYear(
       console.log(`    HTTP ${res.status} for leaid=${leaid} year=${year}`);
       return null;
     }
-    const json = await res.json();
+    const json = (await res.json()) as { results?: Record<string, unknown>[] };
     // The API wraps results in { results: [...] }
     const results = json.results;
     if (!Array.isArray(results) || results.length === 0) {

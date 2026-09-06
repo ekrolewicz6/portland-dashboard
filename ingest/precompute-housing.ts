@@ -30,7 +30,7 @@ async function warmCache(endpoint: string, cacheKey: string) {
       console.log(`    ERROR: HTTP ${res.status}`);
       return;
     }
-    const data = await res.json();
+    const data = (await res.json()) as { dataStatus?: string };
     const elapsed = ((Date.now() - start) / 1000).toFixed(1);
     const status = data.dataStatus ?? "unknown";
     console.log(`    OK (${elapsed}s, status: ${status})`);
