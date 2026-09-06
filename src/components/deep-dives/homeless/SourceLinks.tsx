@@ -2,11 +2,12 @@ import { SRC } from "@/lib/homeless/continuum";
 
 /** Inline source links for a figure: the documents it came from, by short title. */
 export default function SourceLinks({ ids, dark = false }: { ids: string[]; dark?: boolean }) {
-  if (!ids.length) return null;
+  const known = ids.filter((id) => SRC[id]);
+  if (!known.length) return null;
   return (
     <p className={`mt-1.5 font-mono text-[10px] leading-snug ${dark ? "text-white/45" : "text-[var(--color-ink-muted)]"}`}>
-      <span className="uppercase tracking-[0.1em]">Source{ids.length > 1 ? "s" : ""} · </span>
-      {ids.map((id, i) => {
+      <span className="uppercase tracking-[0.1em]">Source{known.length > 1 ? "s" : ""} · </span>
+      {known.map((id, i) => {
         const s = SRC[id];
         if (!s) return null;
         return (
