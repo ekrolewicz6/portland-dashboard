@@ -295,10 +295,10 @@ export default function HomelessnessDeepDive() {
         id="continuum"
         tone="warm"
         eyebrow="08 · The continuum"
-        title="Every step from the sidewalk to a lease, defined once"
+        title="Pick a person. See every step from the sidewalk to a lease."
         lead={
           <>
-            The region cannot say how many people are at each stage between the street and a lease, or whether they are moving. So we built the continuum: fourteen stages each defined by a number a worker can take this week, twelve evidence-backed pathways, six questions any responder can answer at the scene, and a rule for when Housing First works. None of the fourteen can be fully counted today.
+            The region cannot say how many people are at each stage between the street and a lease, or whether they are moving. So we built the continuum: fourteen stages, twelve kinds of people, each with an evidence-backed order through them. Pick one below; the stages they pass through light up in order, and the amber circle is the first door that has to exist. The full page defines every stage, gives responders six questions to pick that door, and shows how to count who is where.
           </>
         }
       >
