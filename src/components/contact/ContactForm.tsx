@@ -66,7 +66,9 @@ export default function ContactForm({
     setSuccessMessage(
       result.delivery === "local-file"
         ? "Message received locally. The server saved the submission for review."
-        : "Thanks — your message is on its way. We'll reply if you've asked something we need to follow up on."
+        : result.delivery === "database"
+          ? "Thanks. Your message is saved and we read every one. We'll reply if you've asked something we need to follow up on."
+          : "Thanks. Your message is on its way. We'll reply if you've asked something we need to follow up on."
     );
     setState("success");
   }
