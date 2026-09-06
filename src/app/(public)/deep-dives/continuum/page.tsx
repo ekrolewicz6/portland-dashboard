@@ -10,6 +10,7 @@ import { fmtNum } from "@/lib/homeless/engine";
 import PathwayExplorer from "@/components/deep-dives/homeless/PathwayExplorer";
 import StageExplorer from "@/components/deep-dives/homeless/StageExplorer";
 import LeakChart from "@/components/deep-dives/homeless/LeakChart";
+import SystemBalance from "@/components/deep-dives/homeless/SystemBalance";
 import TriageStepper from "@/components/deep-dives/homeless/TriageStepper";
 import DoorsOpen from "@/components/deep-dives/homeless/DoorsOpen";
 import WhenNo from "@/components/deep-dives/homeless/WhenNo";
@@ -168,10 +169,14 @@ export default function ContinuumPage() {
         layout="stacked"
         id="breaks"
         eyebrow="03 · Where it breaks today"
-        title="What goes in, and what comes through"
-        lead="Portland publishes enough to see the leaks even though it cannot see the stages. Each pair of bars is one transition: how many went in, how many came out the other side. The grey bar is the whole; the green bar is what made it. Where no rate exists at all, the bar is hatched, and that is the finding."
+        title="How many people are in each stage, and what is there for them"
+        lead="First the snapshot a responder would want at 2 a.m. Then, stage by stage, how many people are in it (counted, our estimate with the arithmetic, or unknown), how much support exists there in the unit that matters, and the coverage that implies. Below that, what goes into each transition and what comes through. Where nobody can say, the board says so, because that is where the system breaks first."
       >
-        <LeakChart />
+        <SystemBalance />
+        <div className="mt-8">
+          <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">And at the transitions: what goes in, what comes through</p>
+          <LeakChart />
+        </div>
       </Section>
 
       {/* 04 · Tonight */}
