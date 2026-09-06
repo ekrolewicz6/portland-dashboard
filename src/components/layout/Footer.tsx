@@ -50,6 +50,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: "About",
     links: [
+      { label: "About the Lab", href: "/about" },
       { label: "Independence & funding", href: "/independence" },
       { label: "Methodology", href: "/methodology" },
       { label: "Open data & API", href: "/open-data" },

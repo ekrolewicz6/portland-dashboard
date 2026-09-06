@@ -25,6 +25,7 @@ import {
   FileSearch,
   Mail,
   Newspaper,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -63,6 +64,7 @@ const TOOLS: NavItem[] = [
 ];
 
 const ABOUT: NavItem[] = [
+  { label: "About the Lab", href: "/about", desc: "The idea, the people, and four ways to join", icon: Users },
   { label: "Independence & funding", href: "/independence", desc: "The rules, every contract we hold, and where we're not neutral", icon: ShieldCheck },
   { label: "Methodology", href: "/methodology", desc: "How every number gets its source", icon: BookOpen },
   { label: "Open data & API", href: "/open-data", desc: "Download, embed, and build on the data", icon: Database },

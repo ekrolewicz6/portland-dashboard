@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SsoLink from "@/components/SsoLink";
+import { withPhotos } from "@/lib/team";
 import {
   ASK_PORTLAND_URL,
   COUNCIL_URL,
@@ -212,20 +213,6 @@ const PROGRAMS = [
   },
 ];
 
-const PRINCIPLES = [
-  {
-    title: "Every number has a source",
-    body: "Each figure traces to a public document, page cited. Numbers that exist only in press reporting are labeled that way. Where the record is silent, the page says so instead of guessing.",
-  },
-  {
-    title: "Anyone can hire us. Nobody buys a conclusion.",
-    body: "Governments, businesses, nonprofits, and individual supporters all pay for the Lab's work, and some of them appear in it. What keeps that honest is the rules: every contract published within a week of signature, one side per matter, public work won through open procurement, and sponsors named on the question, never the answer.",
-  },
-  {
-    title: "Built to be used, not just read",
-    body: "Calculators for your own tax bill, watch-lists with dates, records requests drafted and ready, and plans specific enough to vote on. The goal is a resident who can act.",
-  },
-];
 
 const FINISHED = [
   {
@@ -326,6 +313,7 @@ function ShowcaseTile({ t }: { t: Tile }) {
 }
 
 export default function HomePage() {
+  const founder = withPhotos()[0];
   return (
     <div className="flex min-h-screen flex-col bg-[var(--color-paper)]">
       <Header />
@@ -755,79 +743,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── The idea: a new kind of civic institution ── */}
+      {/* ── About: the idea in brief, the founder, a door to the full page ── */}
       <section id="about" className="mx-auto w-full max-w-[1400px] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24 3xl:max-w-[1800px]">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-5">
-            <Eyebrow>The idea</Eyebrow>
-            <h2 className="font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-8">
+            <Eyebrow>About the Lab</Eyebrow>
+            <h2 className="max-w-3xl font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
               A new kind of civic institution, built in Oregon, in public.
             </h2>
-            <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-              Portland runs on budgets, audits, permit records, and legislative files that are
-              public in theory and unreadable in practice. The Lab reads them, checks every figure
-              against its source, and turns them into tools a resident, a reporter, a building
-              owner, or a bureau director can use in an afternoon. There is no institution in
-              Oregon whose job that is. We are building it, one tool at a time, with the work in
-              the open from the first day.
+            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
+              A founder-owned company that gives its civic tools away, funds them with paid decision
+              work at published prices, and publishes the rules that keep the two apart. There is no
+              institution in Oregon whose job this is. We are building it.
             </p>
-            <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-              The model is as new as the work. A founder-owned company gives its civic tools away,
-              funds them with paid decision work at published prices, and publishes the rules that
-              keep the two apart. The paid work funds the public program. The public program is
-              what makes the paid work worth trusting. Neither side has to apologize for the other.
-            </p>
-            <div className="mt-8 rounded-sm border border-[var(--color-parchment)] bg-white p-5 sm:p-6">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-                Who&apos;s behind this
-              </p>
-              <p className="mt-2 font-editorial text-[22px] leading-tight text-[var(--color-ink)]">
-                Edan Krolewicz, founder
-              </p>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--color-ink-light)]">
-                Edan builds the tools, writes the deep-dives, and does the paid work, bringing in
-                specialists by engagement. The Lab was founded in Portland in 2026. Where the
-                founder is not neutral is written down in public, on the Independence page.
-              </p>
-            </div>
-
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
-                href="/independence"
+                href="/about"
                 className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-canopy)] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--color-canopy-mid)]"
               >
-                Independence and funding
+                The people building it
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/methodology"
+                href="/independence"
                 className="inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--color-parchment)] bg-white px-5 py-3 text-[15px] font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-sage)]"
               >
-                How we source the data
+                Independence and funding
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
-
-          <div className="lg:col-span-7">
-            <ol className="divide-y divide-[var(--color-parchment)] border-y border-[var(--color-parchment)]">
-              {PRINCIPLES.map((p, i) => (
-                <li key={p.title} className="flex items-start gap-4 py-6">
-                  <span className="w-8 shrink-0 font-mono text-[12px] font-bold text-[var(--color-ember)]">
-                    0{i + 1}
+          <Link href="/about" className="group block lg:col-span-4">
+            <div className="relative aspect-square w-full max-w-[320px] overflow-hidden rounded-sm bg-[var(--color-canopy)] lg:ml-auto">
+              {founder.hasPhoto && founder.photo ? (
+                <Image
+                  src={founder.photo}
+                  alt={founder.name}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 60vw"
+                  className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                />
+              ) : (
+                <div className="noise-overlay flex h-full w-full items-center justify-center">
+                  <span className="relative z-10 font-editorial text-[96px] leading-none text-[var(--color-ember-bright)]">
+                    {founder.initials}
                   </span>
-                  <div>
-                    <h3 className="font-editorial text-[24px] leading-tight text-[var(--color-ink)]">
-                      {p.title}
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
-                      {p.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+                </div>
+              )}
+            </div>
+            <div className="mt-3 max-w-[320px] lg:ml-auto">
+              <p className="font-editorial text-[20px] leading-tight text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-canopy)]">
+                {founder.name}
+              </p>
+              <p className="mt-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-ember)]">
+                {founder.title}
+              </p>
+            </div>
+          </Link>
         </div>
       </section>
 
