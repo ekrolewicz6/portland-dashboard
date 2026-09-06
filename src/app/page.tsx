@@ -340,9 +340,10 @@ export default function HomePage() {
                 className="mt-7 max-w-xl text-[17px] leading-relaxed text-white/80 animate-fade-up sm:text-[19px]"
                 style={{ animationDelay: "100ms" }}
               >
-                Every budget, permit, park, bill, and downtown block in Portland, checked against
-                the public record and turned into tools anyone can use. Free for everyone. Hired by
-                the people who decide what happens next.
+                Every decision Portland makes should start from facts anyone can check. We&apos;re
+                building the institution that makes that true: the public record opened, sourced,
+                and turned into tools for everyone. Free to use. Paid for by the work it makes
+                possible.
               </p>
 
               <div
