@@ -29,9 +29,9 @@ import SourceLinks from "@/components/deep-dives/homeless/SourceLinks";
 import { RULES_SHORT } from "@/lib/homeless/continuum-short";
 
 export const metadata: Metadata = pageMeta({
-  title: "The Continuum — Every Step From Sidewalk to Lease, Defined and Counted",
+  title: "The continuum: every step from the sidewalk to a lease",
   description:
-    "Fourteen stages, twelve pathways, one first-door protocol for outreach, police, EMS, hospitals, and jails. Where it breaks and when it doesn't, how to count each bucket, and where Portland's gaps are. Every claim sourced and adversarially checked.",
+    "The fourteen places a person can be between the street and a home, the thirteen kinds of people who travel them, and the six questions any responder can answer at 2 a.m. Where the system loses people today, what it costs, and what it would take to fix each stage. Every figure links to its source.",
   path: "/deep-dives/continuum",
   type: "article",
 });
@@ -152,7 +152,7 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 02 · Where it breaks */}
-      <Section layout="stacked" id="breaks" tone="warm" eyebrow="02 · Where it breaks today" title="How many people are at each stage, and what is actually there for them" lead="Start with tonight: what exists for the people sleeping outside on an ordinary weeknight. Then walk the fourteen stages and compare the people in each one with the beds, slots, and workers that exist there. Where nobody can say how many people are in a stage, the board says so plainly, because that silence is the first thing that is broken.">
+      <Section layout="stacked" id="breaks" tone="warm" eyebrow="02 · Where it breaks today" title="How many people are at each stage, and what is actually there for them" lead="Start with tonight: what exists for the people sleeping outside on an ordinary weeknight. Then walk the fourteen stages and compare the people in each one with the beds, slots, and workers that exist there. Where nobody can say how many people are in a stage, the board says so plainly.">
         <SystemBalance />
         <div className="mt-8">
           <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">At the transitions: what goes in, what comes through</p>
@@ -161,7 +161,7 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 03 · What it costs */}
-      <Section layout="stacked" id="money" eyebrow="03 · What it costs" title="The money is mostly in the wrong stage" lead="A year in a shelter bed costs the county about three times what a year in supportive housing costs per person, and the inexpensive steps that move people between the two were the ones cut in the last budget. For most stages nobody has ever published what a year or an episode costs, and that is a finding in itself.">
+      <Section layout="stacked" id="money" eyebrow="03 · What it costs" title="The money is mostly in the wrong stage" lead="A year in a shelter bed costs the county about three times what a year in supportive housing costs per person, and the inexpensive steps that move people between the two were the ones cut in the last budget. For most stages nobody has ever published what a year or an episode costs.">
         <CostChart />
       </Section>
 

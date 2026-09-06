@@ -98,7 +98,7 @@ export default function SystemBalance() {
           })}
         </ol>
         <p className="border-t border-[var(--color-parchment)] px-5 py-3 text-[12.5px] leading-relaxed text-[var(--color-ink-muted)] sm:px-6">
-          Five of fourteen stages cannot be placed on this board, because nobody counts the people in them. That is the first finding.
+          Five of the fourteen stages cannot be placed on this board at all, because nobody counts the people in them.
         </p>
       </div>
     </div>

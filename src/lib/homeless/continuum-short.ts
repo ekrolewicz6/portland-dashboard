@@ -25,19 +25,19 @@ export const STAGE_SHORT: Record<string, StageShort> = {
 };
 
 export const PATHWAY_SHORT: Record<string, string> = {
-  "economic-shock": "Cash inside the eviction clock beats shelter; the clinical stages are skipped on purpose.",
-  "vehicle-homeless": "Self-sheltered until towed; safe parking is the bridge, and Portland has none.",
-  families: "Same-day non-congregate placement, then a permanent subsidy; rapid rehousing alone fails.",
-  youth: "Youth-only doors, never the adult queue; only the housing step is trial-backed.",
-  "dv-trafficking": "Survivor choice: confidential placement, flexible cash, records kept out of the shared system.",
-  sud: "Medication and survival first; detox and treatment are detours, never the ticket.",
-  smi: "Street to lease with an ACT team; crisis care as a detour, not a prerequisite.",
-  "dual-diagnosis": "One team, one plan; nobody is told to fix the other thing first.",
-  "medical-fragile": "Worker attached at admission; respite before discharge; never to the street.",
-  "chronic-stable": "Verify, match within 90 days, hold in low-barrier shelter, then supportive housing.",
-  "justice-involved": "Reach in before release; a held bridge bed; supportive housing within months.",
-  "service-refusing": "The same small team, repeatedly, with an offer that takes the pet and the partner.",
-  veterans: "The VA's parallel system: its center, its bridge beds, a HUD-VASH lease.",
+  "economic-shock": "Cash arriving inside the eviction clock does more for this family than a shelter bed would, so the path skips the clinical stages entirely.",
+  "vehicle-homeless": "A working household in a vehicle is self-sheltered until it gets towed. Safe parking is the bridge, and Portland has none.",
+  families: "A family needs somewhere the same night, then a subsidy that lasts. Time-limited help leaves them roughly where they started.",
+  youth: "A young person needs a youth-specific door within a day or two. Only the housing step here has been tested in a trial.",
+  "dv-trafficking": "Everything follows the survivor's choice: a confidential place the same day, flexible cash, and records kept out of the shared system.",
+  sud: "Survival and medication come first. Detox and treatment are detours along the way, taken when they help.",
+  smi: "The shortest tested path runs from the street to a lease with an ACT team, with crisis care as a detour when it is needed.",
+  "dual-diagnosis": "One team holds one plan, so nobody gets sent away to fix the other problem first.",
+  "medical-fragile": "A worker joins at admission and respite is arranged before discharge, so the hospital door does not open onto the sidewalk.",
+  "chronic-stable": "Verify the person, match them within 90 days, and use low-barrier shelter only while the unit comes together.",
+  "justice-involved": "The work starts before release, with a bridge bed held and supportive housing a few months out.",
+  "service-refusing": "The same small team comes back again and again with an offer that takes the pet, the partner, and the belongings.",
+  veterans: "Veterans travel the VA's parallel system: its center, its bridge beds, and a HUD-VASH lease at the end.",
 };
 
 export const FIRST_DOOR_SHORT: Record<number, string> = {
@@ -50,21 +50,21 @@ export const FIRST_DOOR_SHORT: Record<number, string> = {
 };
 
 export const LADDER_SHORT: Record<number, string> = {
-  1: "Impaired tonight is a deferral, not a decline; the law names the doors for the incapacitated.",
-  2: "Most refusals are of a bad offer: code the reason against the offer, then fix the offer.",
+  1: "Someone impaired tonight is being deferred rather than refusing, and the law already names where they can go.",
+  2: "Most refusals are of a poor offer, so record what was wrong with it and then fix it.",
   3: "The same few workers come back with a real offer.",
-  4: "A clinician tells refusal from psychosis or withdrawal; a hold needs a bed at the other end.",
-  5: "Never 'service-refusing'; declines live on the offer, not the person.",
+  4: "A clinician can tell refusal apart from psychosis or withdrawal, and a hold only helps if a bed waits at the other end.",
+  5: "Write down what the person turned down and why, and leave the phrase service-refusing out of it.",
   6: "Enforcement only after a documented, usable offer, with belongings stored.",
-  7: "Publish the declines by offer and hour beside the headline.",
+  7: "Publish the declines by offer and by hour, alongside the headline count.",
 };
 
 export const POLICE_SHORT: string[] = [
   "Two statutes are the whole of their authority: a person incapacitated in public, or a danger to themselves or others.",
-  "They can open three doors tonight: sobering for someone who can agree, Unity, or an emergency department. Not a shelter, and not housing.",
-  "Their record is the dispatch disposition, matched to the receiving door each month. They never write into HMIS, and a warrant never goes into a shared row.",
+  "They can open three doors tonight: sobering for someone who can agree to go, Unity, or an emergency department. A shelter bed or a housing assessment is beyond what anyone can reach at 2 a.m.",
+  "Their record is the dispatch disposition, matched to the receiving door each month. Entering it in the housing system belongs to the site that took the person, and a warrant stays out of the shared record.",
   "Camping enforcement is a daytime step that comes after a usable offer; it is not how most people meet the system.",
-  "If police are needed at any later stage, a step has already failed, and the count says so.",
+  "If police are needed at any later stage, a step has already failed, and the count records it that way.",
 ];
 
 export const OFF_SHORT: string[] = [
@@ -93,9 +93,9 @@ export const HF_SHORT: Record<string, string> = {
 };
 
 export const LANE_SHORT: Record<string, { who: string; firstDoor: string }> = {
-  lane1: { who: "Housing loss is the problem; can hold a lease tomorrow.", firstDoor: "Cash and a conversation before any bed." },
-  lane2: { who: "Succeeds with support, fails without; assigned at handoff.", firstDoor: "A unit plus intensive case management from day one." },
-  lane3: { who: "Cannot plan across repeated contacts; frequent crisis contact.", firstDoor: "Stabilization first, the next place held, a lead who follows." },
+  lane1: { who: "Losing housing is the whole problem here. This person could hold a lease tomorrow.", firstDoor: "Cash and a conversation, before anyone offers a bed." },
+  lane2: { who: "This person does well with steady support and struggles without it. The lane is assigned at the first handoff.", firstDoor: "A unit, with intensive case management from the first day." },
+  lane3: { who: "Across repeated contacts this person cannot make a plan, and turns up often in crisis.", firstDoor: "Stabilization first, with the next place held and a worker who follows them." },
 };
 
 export const RULES_SHORT: string[] = [
