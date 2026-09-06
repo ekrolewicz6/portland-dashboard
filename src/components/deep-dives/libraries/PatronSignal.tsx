@@ -2,7 +2,7 @@ import { ADOPTED_TARGETS, PATRON_SURVEY } from "@/lib/libraries/data";
 
 /**
  * What the people who already use the library said matters — collections,
- * overwhelmingly — and the satisfaction slide, next to the targets MCL has
+ * overwhelmingly, and the satisfaction slide, next to the targets MCL has
  * already committed to in its own budget.
  */
 export default function PatronSignal() {

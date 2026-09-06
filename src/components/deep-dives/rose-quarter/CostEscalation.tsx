@@ -27,7 +27,7 @@ export default function CostEscalation() {
         <Stat
           k={fmt(HEADLINE.committedToDate)}
           t="actually spent or committed"
-          d="Phases 1A and 1B. Everything after that — the widening and the covers — is roughly $3B, and essentially unfunded."
+          d="Phases 1A and 1B. Everything after that, the widening and the covers, is roughly $3B, and essentially unfunded."
         />
       </div>
 

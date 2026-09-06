@@ -1001,7 +1001,7 @@ export const WINNERS_LOSERS: WinnerLoserGroup[] = [
     amount: Math.round(medianHome35.annualAdvantageVsCpr),
     unit: "per home, every year",
     persona: "Bought years ago; the tax bill never caught up.",
-    why: "Taxed as if the home is worth far less than it is — and the discount stays with the house when it sells.",
+    why: "Taxed as if the home is worth far less than it is, and the discount stays with the house when it sells.",
   },
   {
     name: "Landlords with older buildings",

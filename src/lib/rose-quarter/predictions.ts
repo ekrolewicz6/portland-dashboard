@@ -7,7 +7,7 @@
  * NOTHING ON THE OTHER SIDE MEETS IT, and that is a finding rather than a gap
  * to paper over. No advocacy organisation has made a public prediction about
  * this closure. Freeway-opposition groups' public posture is that the closure
- * is a necessary maintenance activity, not a test of anything — so attributing
+ * is a necessary maintenance activity, not a test of anything, so attributing
  * a forecast to them would misrepresent their position.
  *
  * What we pre-register instead is the reduced-demand hypothesis as it appears
@@ -103,7 +103,7 @@ export const PREDICTIONS: Prediction[] = [
     role: "From the transportation literature",
     quote: null,
     claim:
-      "Some trips disappear rather than move. This is the claim that actually bears on whether the corridor needs more lanes, and the hardest one to measure — which is why the method below spends most of its effort on it.",
+      "Some trips disappear rather than move. This is the claim that actually bears on whether the corridor needs more lanes, and the hardest one to measure, which is why the method below spends most of its effort on it.",
     sourceTitle: "Melo, Graham & Canavan, Effects of Road Investments on Induced Travel Demand",
     sourceUrl: "https://doi.org/10.3141/2297-20",
     publishedOn: "2012",
@@ -118,9 +118,9 @@ export const PREDICTIONS: Prediction[] = [
 export const TEMPORARY_CAVEAT = {
   heading: "This is a five-week closure, not a freeway removal.",
   body: [
-    "People behave differently when they know a disruption ends. For five weeks you can defer a trip, take vacation, work from home, or put up with a longer drive. You do not move house, change jobs, or buy a transit pass — and those are the adjustments that would matter most if these lanes were gone for good.",
+    "People behave differently when they know a disruption ends. For five weeks you can defer a trip, take vacation, work from home, or put up with a longer drive. You do not move house, change jobs, or buy a transit pass, and those are the adjustments that would matter most if these lanes were gone for good.",
     "That cuts both ways, and we do not know which way it cuts harder. A temporary closure can make traffic look like it evaporated when the trips were only postponed. It can equally understate the long-run effect, because the durable changes that drive most reduced demand never get a chance to happen in five weeks.",
-    "So this closure can settle whether either side's extreme case is wrong. It cannot settle the $2 billion question. Anyone who tells you it did — in either direction — is selling something.",
+    "So this closure can settle whether either side's extreme case is wrong. It cannot settle the $2 billion question. Anyone who tells you it did, in either direction, is selling something.",
   ],
 } as const;
 

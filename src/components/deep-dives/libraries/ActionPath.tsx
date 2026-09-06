@@ -27,7 +27,7 @@ export default function ActionPath() {
     <div className="space-y-12">
       {/* 1 · decide today */}
       <div>
-        <DarkEyebrow>What a Board can decide today — and what it can&apos;t yet</DarkEyebrow>
+        <DarkEyebrow>What a Board can decide today, and what it can&apos;t yet</DarkEyebrow>
         <ul className="mt-4 divide-y divide-white/10 overflow-hidden rounded-sm border border-white/15 bg-white/[0.04]">
           {DECIDE_NOW.map((d) => (
             <li key={d.decision} className="grid gap-x-6 gap-y-2 p-4 sm:grid-cols-[150px_minmax(0,1fr)] sm:p-5">

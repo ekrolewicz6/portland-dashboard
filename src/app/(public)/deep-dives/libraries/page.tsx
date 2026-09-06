@@ -22,7 +22,7 @@ import RoadmapGantt from "@/components/deep-dives/libraries/RoadmapGantt";
 export const metadata: Metadata = pageMeta({
   title: "Portland just rebuilt its libraries. Now it has to decide what they're for.",
   description:
-    "A $459M bond finished, 19 locations at full capacity for the first time since 2023 — and a budget that runs a deficit every year through 2031 even at the maximum levy. The numbers behind the system, the gap to 2040 in one chart, a real map of every branch, who has to approve what, and the decisions that can actually be made this year.",
+    "A $459M bond finished, 19 locations at full capacity for the first time since 2023, and a budget that runs a deficit every year through 2031 even at the maximum levy. The numbers behind the system, the gap to 2040 in one chart, a real map of every branch, who has to approve what, and the decisions that can actually be made this year.",
   path: "/deep-dives/libraries",
   type: "article",
 });
@@ -171,7 +171,7 @@ export default function LibrariesPage() {
         id="delta"
         eyebrow="01 · What we're trying to accomplish"
         title="The distance to 2040, measured"
-        lead="Every number the county's report commits to, next to where that number sits today. The orange bar is the work. Two of six have no baseline at all — which is itself the first finding."
+        lead="Every number the county's report commits to, next to where that number sits today. The orange bar is the work. Two of six have no baseline at all, which is itself the first finding."
       >
         <DeltaChart />
         <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
@@ -194,7 +194,7 @@ export default function LibrariesPage() {
           The strategic meaning is not &ldquo;digital replaces buildings.&rdquo; It is that the library
           now has two front doors and one set of books. Digital convenience reduces transactional visits
           even as rebuilt branches gain value for study, meetings, children&apos;s learning, and trusted
-          help — and every e-license is a recurring cost that a print book never was.{" "}
+          help, and every e-license is a recurring cost that a print book never was.{" "}
           <Src id="stateLibraryStats" />
         </p>
       </Section>
@@ -292,7 +292,7 @@ export default function LibrariesPage() {
         tone="warm"
         eyebrow="08 · 1864–2026"
         title="Access, widening in layers"
-        lead="Dues to taxes, downtown to countywide, shelves to networks, English-only to culturally specific teams. Each expansion corrected an older limit and created a new responsibility — and each was also a decision about who counted."
+        lead="Dues to taxes, downtown to countywide, shelves to networks, English-only to culturally specific teams. Each expansion corrected an older limit and created a new responsibility, and each was also a decision about who counted."
       >
         <EraTimeline />
       </Section>
@@ -367,7 +367,7 @@ export default function LibrariesPage() {
             closures make visit trends especially hard to read. The patron survey is self-selected.
             International examples are practice benchmarks, not a ranking. Proposed 2040 targets are
             north stars requiring a representative baseline, community deliberation, and fiscal analysis
-            before adoption — which is exactly what the readiness phase is for.
+            before adoption, which is exactly what the readiness phase is for.
           </p>
           <p className="max-w-3xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
             The full report —{" "}

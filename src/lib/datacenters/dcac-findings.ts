@@ -52,7 +52,7 @@ export const VOICES: Voice[] = [
     org: "Morrow County Assessor",
     camp: "agency",
     position:
-      "Reports the numbers without taking a side — and they are the sharpest in the record.",
+      "Reports the numbers without taking a side, and they are the sharpest in the record.",
     evidence:
       "Morrow County exempts $7.25B of data-center value against $4.20B of total certified value: $123.6M in exempted tax versus $72.3M actually collected countywide, with $23.9M coming back as fees. Umatilla exempts $119.7M and collects $14.2M in payments.",
   },
@@ -142,7 +142,7 @@ export const VOICES: Voice[] = [
     camp: "industry",
     position: "Our water use is small, efficient, and more than offset.",
     evidence:
-      "284 million gallons statewide in 2024 — 3–11% of host utilities' production — at a water-use effectiveness of 0.16 L/kWh, about 70% below the North American average, alongside roughly $400M invested in community water infrastructure.",
+      "284 million gallons statewide in 2024, 3–11% of host utilities' production, at a water-use effectiveness of 0.16 L/kWh, about 70% below the North American average, alongside roughly $400M invested in community water infrastructure.",
   },
   {
     who: "Mark Morgan",
@@ -196,7 +196,7 @@ export const VOICES: Voice[] = [
     who: "Jeff Omelchuck",
     org: "Infrastructure Masons (retired)",
     camp: "industry",
-    position: "Court traditional hyperscalers, not gigawatt AI campuses — and plan for the bust.",
+    position: "Court traditional hyperscalers, not gigawatt AI campuses, and plan for the bust.",
     evidence:
       "Oregon has ~123 data centers and zero AI-scale campuses. A Stargate-class project runs 6,000 construction jobs against 300 operating jobs. Warns to require decommissioning plans and financial surety: 'we don't want a hi-tech ghost town.'",
   },
@@ -204,7 +204,7 @@ export const VOICES: Voice[] = [
     who: "Ellen Zuckerman",
     org: "Google",
     camp: "industry",
-    position: "We'll pay full incremental cost — and Oregon's law asks for less than Minnesota's.",
+    position: "We'll pay full incremental cost, and Oregon's law asks for less than Minnesota's.",
     evidence:
       "Points to a fleet PUE of 1.06, a 24/7 carbon-free commitment, and an Xcel Minnesota deal pairing 1,400 MW of wind and 200 MW of solar with a 300 MW/30 GWh iron-air battery — estimated at $1.1B of net benefit to other customers over 15 years. Calls Oregon's POWER Act a missed opportunity.",
   },
@@ -214,7 +214,7 @@ export const VOICES: Voice[] = [
     camp: "utility",
     position: "The queue has blown past anything our planning model can handle.",
     evidence:
-      "Roughly 60 GW of generation requests, 60–65 GW of transmission service requests, and about 40 GW of line-and-load — some 30 GW of it data centers — against a Northwest peak of about 30 GW.",
+      "Roughly 60 GW of generation requests, 60–65 GW of transmission service requests, and about 40 GW of line-and-load, some 30 GW of it data centers, against a Northwest peak of about 30 GW.",
   },
   {
     who: "Elaine Hart",
@@ -222,7 +222,7 @@ export const VOICES: Voice[] = [
     camp: "academic",
     position: "Whether the region stays reliable depends on whether data centers can be curtailed.",
     evidence:
-      "E3 projects a ~9 GW regional capacity shortfall by 2030. Data-center flexibility cuts new 2030 capacity needs from 1–5 GW to 0–3 GW — but baseline growth implies 7 to 9 days of large-load curtailment in a January-2024-type winter.",
+      "E3 projects a ~9 GW regional capacity shortfall by 2030. Data-center flexibility cuts new 2030 capacity needs from 1–5 GW to 0–3 GW, but baseline growth implies 7 to 9 days of large-load curtailment in a January-2024-type winter.",
   },
   {
     who: "Pete Wyckoff",
@@ -252,7 +252,7 @@ export const VOICES: Voice[] = [
     who: "Vanessa Clark",
     org: "Oregon Dept. of Education",
     camp: "agency",
-    position: "Explains who actually loses school money — and it isn't the host district.",
+    position: "Explains who actually loses school money, and it isn't the host district.",
     evidence:
       "Equalization backfills the abating district; the loss lands on the statewide pool instead, diluting every district's per-student rate. Roughly $1.50 per weighted student for every $1M added to or removed from the State School Fund.",
   },
@@ -277,7 +277,7 @@ export const RECORD_FINDINGS: RecordFinding[] = [
   {
     claim: "The 15-year program Oregon used for nearly all data-center value barely breaks even",
     detail:
-      "Business Oregon's own table: the long-term rural enterprise zone carries $15.4B of $15.8B in investment and $233.6M of $240.9M in abated taxes — and returns 1.18. The short-term standard program returns 29.16. The state is not disputing the critics' arithmetic; it published it.",
+      "Business Oregon's own table: the long-term rural enterprise zone carries $15.4B of $15.8B in investment and $233.6M of $240.9M in abated taxes, and returns 1.18. The short-term standard program returns 29.16. The state is not disputing the critics' arithmetic; it published it.",
     attribution: "Business Oregon, June 26 session",
   },
   {
@@ -289,7 +289,7 @@ export const RECORD_FINDINGS: RecordFinding[] = [
   {
     claim: "The school 'support fee' does not add money to the school",
     detail:
-      "Oregon equalizes school funding, so when an abatement cuts a district's local revenue the state backfills that district. The loss shows up instead as a thinner statewide pool — about $1.50 per weighted student per $1M — meaning every district in Oregon pays a little for each local deal.",
+      "Oregon equalizes school funding, so when an abatement cuts a district's local revenue the state backfills that district. The loss shows up instead as a thinner statewide pool, about $1.50 per weighted student per $1M, meaning every district in Oregon pays a little for each local deal.",
     attribution: "Oregon Dept. of Education & Hermiston School District",
   },
   {
@@ -307,13 +307,13 @@ export const RECORD_FINDINGS: RecordFinding[] = [
   {
     claim: "There are 2,482 diesel generators behind the cloud",
     detail:
-      "6,328 MW of permitted backup capacity across 39 campuses — more than the state's largest power plants combined — up from 135 MW in 2012. Emission controls are not required, and DEQ's voluntary incentive to install them has had no takers.",
+      "6,328 MW of permitted backup capacity across 39 campuses, more than the state's largest power plants combined, up from 135 MW in 2012. Emission controls are not required, and DEQ's voluntary incentive to install them has had no takers.",
     attribution: "Oregon DEQ, July 31 session",
   },
   {
     claim: "Growth is moving west, where the case for subsidy is weakest",
     detail:
-      "The installed base is eastern Oregon, but the next five years of physical growth run 80% west and 12% east. Hillsboro's advantages — eight trans-Pacific cables — are exactly the ones no abatement created.",
+      "The installed base is eastern Oregon, but the next five years of physical growth run 80% west and 12% east. Hillsboro's advantages, eight trans-Pacific cables, are exactly the ones no abatement created.",
     attribution: "ECONorthwest, July 31 session",
   },
   {
@@ -337,7 +337,7 @@ export const RECORD_FINDINGS: RecordFinding[] = [
   {
     claim: "Google told Oregon its own law was the weaker model",
     detail:
-      "Presenting on energy, Google called the POWER Act a missed opportunity next to Minnesota's 2025 package — which pairs cost protection with affirmative clean-energy obligations, covers facilities from 5 MW up, and funds weatherization from a large-user fee. Oregon's law allocates cost; Minnesota's also directs what gets built.",
+      "Presenting on energy, Google called the POWER Act a missed opportunity next to Minnesota's 2025 package, which pairs cost protection with affirmative clean-energy obligations, covers facilities from 5 MW up, and funds weatherization from a large-user fee. Oregon's law allocates cost; Minnesota's also directs what gets built.",
     attribution: "Google & Minnesota Dept. of Commerce, May 29 session",
   },
   {
@@ -399,6 +399,6 @@ export const STRUCTURAL_FACTORS: StructuralFactor[] = [
   {
     title: "The labor coalition rules out the loudest option",
     detail:
-      "Building trades unions testified against any moratorium, and neither 1000 Friends nor LandWatch asked for one. With construction jobs real and concentrated, a pause has almost no constituency — which pushes the debate toward pricing and conditions instead of prohibition.",
+      "Building trades unions testified against any moratorium, and neither 1000 Friends nor LandWatch asked for one. With construction jobs real and concentrated, a pause has almost no constituency, which pushes the debate toward pricing and conditions instead of prohibition.",
   },
 ];

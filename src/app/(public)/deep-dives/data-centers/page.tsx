@@ -34,7 +34,7 @@ import { pageMeta } from "@/lib/page-meta";
 export const metadata: Metadata = pageMeta({
   title: "Oregon's Data Center Bargain — the Case For, the Case Against, and the Win-Win Test",
   description:
-    "Oregon hosts ~125 data centers and hands tech companies $450M+ a year in tax breaks. In 2026 the state hit pause. The strongest case for the deals, the strongest case against, and an honest test of when — if ever — a data center is a win-win.",
+    "Oregon hosts ~125 data centers and hands tech companies $450M+ a year in tax breaks. In 2026 the state hit pause. The strongest case for the deals, the strongest case against, and an honest test of when, if ever, a data center is a win-win.",
   path: "/deep-dives/data-centers",
   type: "article",
 });
@@ -97,7 +97,7 @@ export default function DataCentersDeepDivePage() {
                 cheap hydropower, and{" "}
                 <strong className="text-white">${HEADLINE.annualTaxBreaksM} million-plus a year</strong>{" "}
                 in tax breaks. In 2026 the bargain blew open: a moratorium, a lawsuit, a first-in-the-nation
-                rate overhaul — and a governor saying Oregon should &ldquo;stop being a cheap
+                rate overhaul, and a governor saying Oregon should &ldquo;stop being a cheap
                 date.&rdquo; This deep-dive argues both sides at full strength, then runs the test that
                 actually matters: under what conditions is a data center a win for the town next door?
               </p>
@@ -237,8 +237,7 @@ export default function DataCentersDeepDivePage() {
               The state hit pause
             </h3>
             <p className="text-[13px] text-[var(--color-ink-light)] leading-relaxed">
-              House Bill 4084 barred new data centers from enterprise-zone property tax breaks —
-              Oregon&apos;s largest incentive program — until after the 2027 session. Existing and
+              House Bill 4084 barred new data centers from enterprise-zone property tax breaks, Oregon&apos;s largest incentive program, until after the 2027 session. Existing and
               already-approved deals keep their terms (<Src id="dwtMoratorium" />). Gov. Kotek had cut
               data centers from her own tax-break expansion three months earlier (<Src id="opbEzCut" />).
             </p>
@@ -272,7 +271,7 @@ export default function DataCentersDeepDivePage() {
               The power bill got rewritten
             </h3>
             <p className="text-[13px] text-[var(--color-ink-light)] leading-relaxed">
-              Under 2025&apos;s POWER Act — the first law of its kind in the country — regulators moved
+              Under 2025&apos;s POWER Act, the first law of its kind in the country, regulators moved
               big data centers into their own rate class. PGE&apos;s version raised their bills ~30% and
               cut household bills 1.3% (<Src id="opbPowerAct" />, <Src id="tomsHardwareRates" />). The
               governor, in July: Oregon should &ldquo;stop being a cheap date&rdquo; (
@@ -309,7 +308,7 @@ export default function DataCentersDeepDivePage() {
             title="Even with the breaks, they're the biggest taxpayer by far"
           >
             AWS pays Morrow County more than ${HEADLINE.awsMorrowTaxesM} million a year in property
-            taxes — more than the next 16 largest taxpayers combined — while three of its five sites
+            taxes, more than the next 16 largest taxpayers combined, while three of its five sites
             are still fully tax-exempt. Amazon&apos;s buildings are roughly half the county&apos;s
             taxable value and a third of everything it levies. On top of that, fee-in-lieu agreements
             send tens of millions to schools, housing, and emergency services (
@@ -382,7 +381,7 @@ export default function DataCentersDeepDivePage() {
           >
             The mechanic is subtler than &ldquo;the district loses money.&rdquo; Oregon equalizes
             school funding, so when an abatement cuts local revenue the state backfills that
-            district — and the loss reappears as a thinner statewide pool, approximately $1.50 per
+            district, and the loss reappears as a thinner statewide pool, approximately $1.50 per
             weighted student for every $1M removed (<Src id="odeSchoolFunding" />). Hermiston&apos;s
             superintendent told the committee the enterprise-zone school fee is &ldquo;not additional
             support to the local district&rdquo; (<Src id="dcacIncentives" />). Districts took
@@ -398,14 +397,14 @@ export default function DataCentersDeepDivePage() {
             a 10-year income tax exemption that let Meta pay about 1.3% instead of 7.6%. The decisive
             fact Tax Fairness Oregon put before the committee:{" "}
             <strong>California and Washington offer no data-center property tax break at all</strong>{" "}
-            — and still have data centers (<Src id="taxFairness" />). Even the governor concluded
+           , and still have data centers (<Src id="taxFairness" />). Even the governor concluded
             Oregon was underpricing itself (<Src id="klccCheapDate" />).
           </AgainstCard>
           <AgainstCard
             icon={<Leaf className="w-5 h-5 text-[var(--color-clay)]" />}
             title="The climate ledger is going backwards"
           >
-            Umatilla Electric — {fmtNum(HEADLINE.uecCustomers)} customers — now emits {HEADLINE.uecEmissionsTonsM}{" "}
+            Umatilla Electric, {fmtNum(HEADLINE.uecCustomers)} customers, now emits {HEADLINE.uecEmissionsTonsM}{" "}
             million tons of CO₂ a year serving Amazon&apos;s buildout, making it Oregon&apos;s
             third-largest utility emitter; its power is 2,000% more carbon-intensive than a decade ago (
             <Src id="governingUec" />). Regional reports warn data-center gas demand could push Oregon
@@ -427,7 +426,7 @@ export default function DataCentersDeepDivePage() {
             title="When the door was closing, they went around the public"
           >
             In the weeks before the moratorium took effect, companies filed a flurry of Hillsboro
-            applications — six from one firm in a single April day — and staff approved them, the
+            applications, six from one firm in a single April day, and staff approved them, the
             lawsuit alleges, without public notice or a vote of any elected body (
             <Src id="capitalChronicleLawsuit" />). Whatever you think of the deals, that&apos;s not how
             public money is supposed to move.
@@ -444,20 +443,20 @@ export default function DataCentersDeepDivePage() {
         lead={
           <>
             Both sides are quoting real numbers. Put them side by side and the disagreement gets
-            smaller — and more useful. The evidence points to three conclusions neither campaign
+            smaller, and more useful. The evidence points to three conclusions neither campaign
             leads with.
           </>
         }
         aside={<RateShift />}
       >
         <div className="space-y-5">
-          <Finding n="01" title="Both jobs numbers are true — and that's the point">
+          <Finding n="01" title="Both jobs numbers are true, and that's the point">
             Amazon directly employs roughly {fmtNum(HEADLINE.amazonDirectJobs)} people in its eastern
             Oregon data centers; boosters&apos; {fmtNum(HEADLINE.regionalJobsFte)}-FTE figure adds
             construction, contractors, and ripple effects (<Src id="governingUec" />,{" "}
             <Src id="eastOregonianLeaders" />). A 2026 Georgia Tech study of the whole country splits
             the difference: metro counties gain ~4.1% employment after a data center opens; rural
-            counties see &ldquo;negligible&rdquo; job spillover — but wages rise ~5% where clusters
+            counties see &ldquo;negligible&rdquo; job spillover, but wages rise ~5% where clusters
             form, and electricity prices rise ~5% too (<Src id="fortuneStudy" />). Data centers are
             weak jobs programs everywhere. That was never their real value.
           </Finding>
@@ -472,7 +471,7 @@ export default function DataCentersDeepDivePage() {
           <Finding n="03" title="The POWER Act proved the win-win is buildable">
             For years the debate assumed someone had to lose: either block the industry or let
             households subsidize its grid. Then Oregon wrote the first law in the country making
-            &gt;{HEADLINE.powerActThresholdMw} MW users a separate rate class — and the industry
+            &gt;{HEADLINE.powerActThresholdMw} MW users a separate rate class, and the industry
             stayed, its bills went up ~30%, and household bills went <em>down</em> (
             <Src id="opbPowerAct" />, <Src id="tomsHardwareRates" />). Priced correctly, the
             arrangement survives. That&apos;s the template for every other term of the bargain.
@@ -496,7 +495,7 @@ export default function DataCentersDeepDivePage() {
         aside={
           <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5">
             <p className="text-[13px] text-[var(--color-ink-light)] leading-relaxed">
-              Score today: <strong>1 met, 1 partial, 4 unmet</strong>. The met one — grid costs — was
+              Score today: <strong>1 met, 1 partial, 4 unmet</strong>. The met one, grid costs, was
               considered impossible until 2025. None of the unmet four requires banning anything;
               they require pricing, disclosure, and process. Scoring updated after reading the
               committee&apos;s own record.
@@ -528,8 +527,8 @@ export default function DataCentersDeepDivePage() {
                 But &ldquo;bad deal&rdquo; is not the honest verdict either.
               </strong>{" "}
               In Morrow County, the alternative to an under-priced deal was no deal: the fees and taxes
-              are real, transformative, and bigger than anything else that region could plausibly have
-              recruited. And the POWER Act showed the terms are negotiable — Oregon raised the
+              are real, they reshape what a small county can afford, and they are bigger than anything else
+              that region could plausibly have recruited. And the POWER Act showed the terms are negotiable — Oregon raised the
               industry&apos;s power bill 30% and the industry kept building.
             </p>
             <p>
@@ -584,8 +583,7 @@ export default function DataCentersDeepDivePage() {
           <StepCard n="03" title="The break-even leverage">
             Divide №2 by №1 (plus income taxes on both sides): the deal beats holding firm only if
             the chance they&apos;d build <em>anyway</em> is below that ratio. The Morrow-style deal
-            breaks even at <strong>~21%</strong>; a Hillsboro-style deal at <strong>~64%</strong> —
-            and the fiber cables put Hillsboro&apos;s true leverage well above that.
+            breaks even at <strong>~21%</strong>; a Hillsboro-style deal at <strong>~64%</strong>, and the fiber cables put Hillsboro&apos;s true leverage well above that.
           </StepCard>
         </div>
 
@@ -595,14 +593,14 @@ export default function DataCentersDeepDivePage() {
           This is the policy insight hiding in the arithmetic: <strong>the right abatement is not a
           number, it&apos;s a curve.</strong> The scarcer a community&apos;s advantages, the more it
           can afford to give; the more unique its advantages, the less it should. A statewide flat
-          program — which is what the enterprise-zone system was — prices Boardman and Hillsboro
+          program, which is what the enterprise-zone system was, prices Boardman and Hillsboro
           identically, and therefore misprices both. Benchmarks for the cost-per-job readout come
           from the state incentive study (<Src id="governingStudy" />).
         </p>
 
         <div className="mt-6 rounded-sm border-2 border-[var(--color-canopy)]/20 bg-white p-6">
           <h4 className="text-[15px] font-semibold text-[var(--color-canopy)] mb-2">
-            Oregon already ran this calculation — and published the answer
+            Oregon already ran this calculation, and published the answer
           </h4>
           <p className="text-[13.5px] text-[var(--color-ink-light)] leading-relaxed max-w-3xl">
             In June 2026, Business Oregon handed the advisory committee its own return figures by
@@ -610,7 +608,7 @@ export default function DataCentersDeepDivePage() {
             <strong className="text-[var(--color-fern)]">{HEADLINE.roiStandard}</strong> per dollar.
             The Strategic Investment Program returns{" "}
             <strong className="text-[var(--color-ink)]">{HEADLINE.roiSip}</strong>. The 15-year rural
-            enterprise zone — which carries <strong>$15.4B of the $15.8B</strong> in data-center
+            enterprise zone, which carries <strong>$15.4B of the $15.8B</strong> in data-center
             investment and <strong>$233.6M of the $240.9M</strong> in abated taxes — returns{" "}
             <strong className="text-[var(--color-clay)]">{HEADLINE.roiLongTerm}</strong> (
             <Src id="businessOregonRoi" />). The state&apos;s economic development agency is not
@@ -620,8 +618,7 @@ export default function DataCentersDeepDivePage() {
             Morrow County&apos;s assessor put the same point in county terms: ${HEADLINE.morrowExemptTaxM}M
             of property tax exempted against ${HEADLINE.morrowCollectedTaxM}M actually collected
             countywide, with ${HEADLINE.morrowFeesM}M coming back as negotiated fees (
-            <Src id="morrowAssessor" />). The fees are transformative
-            for a county of 12,000, and the exemption is larger than the entire tax base.
+            <Src id="morrowAssessor" />). The fees change what a county of 12,000 can pay for, and the exemption is larger than the entire tax base.
           </p>
         </div>
 
@@ -643,7 +640,7 @@ export default function DataCentersDeepDivePage() {
           <p className="mt-3 text-[13.5px] text-[var(--color-ink-light)] leading-relaxed max-w-3xl">
             The transferable lesson for pricing: Minnesota converts every soft condition into a
             contract term with a number attached. That is what makes a deal checkable rather than
-            promised — and it is why the same approach works for water disclosure and abatement
+            promised, and it is why the same approach works for water disclosure and abatement
             length, not just electricity.
           </p>
         </div>
@@ -746,7 +743,7 @@ export default function DataCentersDeepDivePage() {
           <>
             Read the record and the alignments stop looking like opinions. They look like positions
             people hold because of where they sit. Eight structural features of this process explain
-            most of what gets said — and what never comes up.
+            most of what gets said, and what never comes up.
           </>
         }
       >
@@ -812,8 +809,7 @@ export default function DataCentersDeepDivePage() {
           ))}
         </div>
         <p className="mt-6 text-[13px] text-[var(--color-ink-light)] leading-relaxed max-w-2xl">
-          And if you live near a proposed site: the enterprise-zone sponsor — your city or county —
-          is where the next deal actually gets decided. The committee section above has the dates
+          And if you live near a proposed site: the enterprise-zone sponsor, your city or county, is where the next deal actually gets decided. The committee section above has the dates
           and the comment address.
         </p>
       </Section>
@@ -824,7 +820,7 @@ export default function DataCentersDeepDivePage() {
         tone="warm"
         eyebrow="Sources & method"
         title="Where these numbers come from"
-        lead="Every figure links to a public document, a named study, or on-the-record reporting, pulled in August 2026. Both cases were built from what each side's strongest advocates actually cite — and the committee sections come from reading all 77 documents and recordings it has published, indexed in full above."
+        lead="Every figure links to a public document, a named study, or on-the-record reporting, pulled in August 2026. Both cases were built from what each side's strongest advocates actually cite, and the committee sections come from reading all 77 documents and recordings it has published, indexed in full above."
         aside={
           <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5">
             <div className="flex items-center gap-2 mb-1.5">

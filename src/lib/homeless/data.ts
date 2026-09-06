@@ -441,7 +441,7 @@ export const PLAN = [
   },
   {
     n: 5,
-    title: "Housing First — where it fits",
+    title: "Housing First, where it fits",
     body: "Scattered-site housing and permanent supportive housing remain essential. But housing is one tier in a continuum, not a substitute for treatment, reentry, hospital step-down care, or structured recovery community.",
   },
 ] as const;
@@ -463,7 +463,7 @@ export const MYTHS = [
   },
   {
     myth: "“We spend over a billion dollars and nothing changes.”",
-    truth: "Spending is real — but a balance that peaked near $431 million sat unspent across fragmented budgets while the system couldn't see itself, so effort flowed to the visible lever (units built) instead of the binding one (closing the inflow, staffing beds). The highest-leverage fix is making the machine legible.",
+    truth: "Spending is real, but a balance that peaked near $431 million sat unspent across fragmented budgets while the system couldn't see itself, so effort flowed to the visible lever (units built) instead of the binding one (closing the inflow, staffing beds). The highest-leverage fix is making the machine legible.",
   },
   {
     myth: "“Housing First is either the answer or the problem.”",

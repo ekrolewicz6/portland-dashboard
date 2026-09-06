@@ -66,7 +66,7 @@ export default function MassTimberDeepDive() {
               <h1 className="mt-6 font-editorial-normal text-[40px] sm:text-[56px] lg:text-[68px] leading-[1.05] tracking-tight max-w-4xl 3xl:max-w-5xl">
                 Can we build homes out of wood
                 <span className="block font-editorial italic text-[var(--color-ember-bright)]">
-                  in a factory — and fix the housing shortage?
+                  in a factory, and fix the housing shortage?
                 </span>
               </h1>
               <p className="mt-6 max-w-2xl text-[17px] sm:text-[20px] text-white/75 leading-relaxed">
@@ -177,7 +177,7 @@ export default function MassTimberDeepDive() {
             and a 39-acre factory campus on the Portland riverfront (<Src id="portT2" />).
           </p>
           <p>
-            The machine is built. It&apos;s just idling — because nobody has assembled the one thing a
+            The machine is built. It&apos;s just idling, because nobody has assembled the one thing a
             factory needs to survive: a steady stream of committed orders. That gap is this whole story.
           </p>
         </div>
@@ -228,7 +228,7 @@ export default function MassTimberDeepDive() {
         tone="warm"
         eyebrow="The honest economics"
         title="The myth: wood is cheaper. The reality is harder."
-        lead="This is the crux. The popular pitch — that mass timber is a cheaper way to build — is wrong in a way that, if you build on it, sinks the whole effort."
+        lead="This is the crux. The popular pitch, that mass timber is a cheaper way to build, is wrong in a way that, if you build on it, sinks the whole effort."
       >
         <div className="grid md:grid-cols-2 gap-5">
           <div className="rounded-sm border-2 border-[var(--color-clay)]/25 bg-[#fbf4f0] p-6">
@@ -246,13 +246,13 @@ export default function MassTimberDeepDive() {
             <p className="mt-2 text-[15px] text-[var(--color-ink-light)] leading-relaxed">
               The <strong>material costs the same or more</strong> — a median premium around{" "}
               {fmtPct(ECON.premiumMedian)}, up to {fmtPct(ECON.premiumHigh)} (<Src id="costPhysics" />).
-              Savings come from elsewhere — but only under the right conditions.
+              Savings come from elsewhere, but only under the right conditions.
             </p>
           </div>
         </div>
 
         <div className="mt-5 grid sm:grid-cols-3 gap-4">
-          <SaveCard title="Lighter foundation" body={`Up to ~${fmtPct(ECON.lighterVsConcrete)} lighter than concrete on some projects — so foundations shrink and seismic demand drops (a real edge in earthquake country).`} src={<Src id="thinkWood" />} />
+          <SaveCard title="Lighter foundation" body={`Up to ~${fmtPct(ECON.lighterVsConcrete)} lighter than concrete on some projects, so foundations shrink and seismic demand drops (a real edge in earthquake country).`} src={<Src id="thinkWood" />} />
           <SaveCard title="Half the on-site crew" body="Prefabrication can cut the on-site labor force roughly in half — a big win where labor is expensive, and almost nothing where it's cheap." src={<Src id="thinkWood" />} />
           <SaveCard title="Faster = cheaper financing" body="Building ~25% faster (sometimes more) cuts months of construction-loan interest. Speed is, in effect, a form of financing." src={<Src id="thinkWood" />} />
         </div>
@@ -330,13 +330,13 @@ export default function MassTimberDeepDive() {
         tone="darker"
         eyebrow="The failure modes"
         title="The graveyard"
-        lead="Factory-built housing has failed repeatedly for a century, and the failures are consistent — and avoidable only if you understand them. None of these died because the buildings didn't work. They died on economics."
+        lead="Factory-built housing has failed repeatedly for a century, and the failures are consistent, and avoidable only if you understand them. None of these died because the buildings didn't work. They died on economics."
       >
         <Graveyard />
         <p className="mt-6 max-w-2xl text-[15px] text-white/70 leading-relaxed">
           The decisive lesson from the UK, which ran the closest thing to a national demand push:{" "}
           <strong className="text-white">demand is necessary but not sufficient.</strong> Diffuse
-          requirements didn&apos;t save the factories — and the UK&apos;s new 2026–2036 program dropped
+          requirements didn&apos;t save the factories, and the UK&apos;s new 2026–2036 program dropped
           its modular target entirely (
           <a href={SOURCES.sahp.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-ember-bright)] underline underline-offset-2">
             GOV.UK
@@ -362,13 +362,13 @@ export default function MassTimberDeepDive() {
       >
         <div className="grid md:grid-cols-3 gap-4">
           <LeverCard n="1" title="A demand aggregator" body="One entity signs framework deals with many buyers — 'when you build, source through us' — then smooths their lumpy orders into a steady factory calendar, because one buyer's slow year offsets another's busy one." />
-          <LeverCard n="2" title="A public demand floor" body="Government commits to buy a floor number of homes if private demand falls short. It can't go bankrupt and always needs housing — so it can hold the line through downturns. It spends creditworthiness, not cash." />
+          <LeverCard n="2" title="A public demand floor" body="Government commits to buy a floor number of homes if private demand falls short. It can't go bankrupt and always needs housing, so it can hold the line through downturns. It spends creditworthiness, not cash." />
           <LeverCard n="3" title="A private operator runs the line" body="Government guarantees the demand; a disciplined private firm runs the factory. Like public transit: the public commits to the service, a contractor operates it." />
         </div>
         <div className="mt-5 rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] p-6">
           <p className="text-[14px] text-[var(--color-ink-light)] leading-relaxed">
             <strong className="text-[var(--color-canopy)]">No one has proven this yet.</strong> The
-            most-promoted U.S. example — a California master agreement for 560+ homes — is an
+            most-promoted U.S. example, a California master agreement for 560+ homes, is an
             operational framework, not a binding guaranteed purchase, and has delivered zero units so
             far (<Src id="guerdon" />). Oregon wouldn&apos;t be copying a proven model; it would be
             building one. That&apos;s both the opportunity and the risk.
@@ -382,12 +382,12 @@ export default function MassTimberDeepDive() {
         tone="warm"
         eyebrow="Climate & jobs"
         title="The other two payoffs"
-        lead="Mass timber is rare among economic levers because it can serve housing, jobs, and climate at once. Each of those payoffs is real — and each has a catch worth stating plainly."
+        lead="Mass timber is rare among economic levers because it can serve housing, jobs, and climate at once. Each of those payoffs is real, and each has a catch worth stating plainly."
         aside={
           <p className="text-[12px] text-[var(--color-ink-muted)] leading-relaxed">
             A feedstock wrinkle: the federal government manages ~{fmtPct(CLIMATE.federalForestlandShare)} of
             Oregon&apos;s forestland but supplies only ~{fmtPct(CLIMATE.federalHarvestShare)} of the
-            harvest, and lumber is the single biggest cost in a CLT panel — so the &ldquo;rural
+            harvest, and lumber is the single biggest cost in a CLT panel, so the &ldquo;rural
             jobs&rdquo; story runs into federal forest policy (<Src id="ofriEcon" />).
           </p>
         }

@@ -48,7 +48,7 @@ export default function SubsidyPerJob() {
       <p className="mt-5 border-t border-[var(--color-parchment)] pt-4 text-[13px] text-[var(--color-ink-light)] leading-relaxed">
         The same study found the 15-year deals return{" "}
         <strong className="text-[var(--color-clay)]">16 cents of personal income tax</strong> for
-        every dollar of property tax forgone — an 84-cent loss — while standard zones return $1.35.
+        every dollar of property tax forgone, an 84-cent loss, while standard zones return $1.35.
       </p>
     </div>
   );

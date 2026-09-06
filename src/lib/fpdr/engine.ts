@@ -104,9 +104,9 @@ export function payGoAt(year: number): number {
 // years with a DECLINING-dollar contribution (level-percent-of-payroll is
 // inappropriate for a closed plan), at the NASRA peer-median 7% return. The
 // reform levy IS that contribution — benefits are paid from the invested trust
-// — so it starts above pay-go, declines every year, and drops to ~zero once
+//, so it starts above pay-go, declines every year, and drops to ~zero once
 // the liability is retired and contributions cease. Optionally seeded with a
-// pension-obligation bond, whose debt service is added to the levy — so the
+// pension-obligation bond, whose debt service is added to the levy, so the
 // bond is a leveraged bet that helps only when the trust return beats the bond
 // rate, not free money. The 2%/yr decline is calibrated so that, at 7%, the
 // curve reproduces the cited outputs: a ~$0.4B transition cost, breakeven in
@@ -158,7 +158,7 @@ export interface FundingSimResult {
  * pays benefits from the trust. We solve for the smallest starting contribution
  * that keeps the trust solvent through the entire horizon; any trust left at
  * the end is credited back (it's real money), so net lifetime savings equal
- * exactly the investment returns earned — which is why a 0% return yields $0.
+ * exactly the investment returns earned, which is why a 0% return yields $0.
  */
 export function simulateFundingPolicy(
   annualReturn: number,

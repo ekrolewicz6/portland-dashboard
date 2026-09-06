@@ -4,16 +4,16 @@
  * House rule for these pages: build each side from what that side's own most
  * capable advocates actually say, using their best evidence, not the version
  * that is easiest to knock down. A reader who agrees with either side should
- * finish that side's section thinking "yes, that's it" — and then be genuinely
+ * finish that side's section thinking "yes, that's it", and then be genuinely
  * tested by the other one.
  *
  * Two things make this fight unusual and both belong in the framing:
  *
  *   1. Almost nobody disputes the history. ODOT, Albina Vision Trust and the
- *      opposition all agree a Black neighbourhood was destroyed to build this
+ *      opposition all agree a Black neighborhood was destroyed to build this
  *      freeway and that something is owed. What is contested is really two
  *      questions tangled together: whether to widen the freeway at all — freight
- *      and labour want the lanes on their own merits — and whether the covers
+ *      and labour want the lanes on their own merits, and whether the covers
  *      can be had without the widening.
  *   2. The strongest evidence against the widening is not from advocates. It
  *      is from ODOT's own consultant, ODOT's own safety analysis, and the
@@ -246,7 +246,7 @@ export const CASE_FOR: Argument[] = [
     n: "01",
     claim: "The cap is the mitigation the freeway never paid",
     body:
-      "The community position on this project has never been a vote for the lanes — and, less noticed, never a vote against them either. It is deliberately agnostic on the widening, with one narrower demand: if the state runs a project through this neighbourhood, it must tunnel the freeway. Environmental review already forces mitigation of air and noise; the deeper injury is structural. A freeway trench organises an entire district around moving cars through it, and a walkable neighbourhood is close to impossible beside one. On this view the cap is not an amenity. It is remediation of the original harm, owed the same way air-quality mitigation is owed.",
+      "The community position on this project has never been a vote for the lanes, and, less noticed, never a vote against them either. It is deliberately agnostic on the widening, with one narrower demand: if the state runs a project through this neighborhood, it must tunnel the freeway. Environmental review already forces mitigation of air and noise; the deeper injury is structural. A freeway trench organises an entire district around moving cars through it, and a walkable neighborhood is close to impossible beside one. On this view the cap is not an amenity. It is remediation of the original harm, owed the same way air-quality mitigation is owed.",
     evidence:
       "When those terms weren't met, the trust walked out — its 2020 withdrawal demanded amends and covers engineered to carry buildings, and the project stalled for two years until it got them. The rebuilding of Albina is proceeding on acquired land regardless; the cap decides whether it happens beside an open trench or on top of a healed street grid.",
     sourceId: "avtWithdrawal2020",
@@ -273,7 +273,7 @@ export const CASE_FOR: Argument[] = [
     n: "04",
     claim: "The structures need rebuilding anyway",
     body:
-      "The overcrossings are old, seismically deficient, and sit on a viaduct whose deck was last replaced in 1985 — which is exactly why it is being torn out this September. If the bridges must come down and go back up regardless, the marginal cost of doing it in a configuration that also carries a neighbourhood is smaller than the headline number suggests.",
+      "The overcrossings are old, seismically deficient, and sit on a viaduct whose deck was last replaced in 1985, which is exactly why it is being torn out this September. If the bridges must come down and go back up regardless, the marginal cost of doing it in a configuration that also carries a neighborhood is smaller than the headline number suggests.",
     evidence:
       "Phase 1A, already under construction, is largely seismic retrofit and bridge preservation, and adds no through capacity.",
     sourceId: "odotAbout",
@@ -291,7 +291,7 @@ export const CASE_FOR: Argument[] = [
 
 /**
  * The case AGAINST. Deliberately built as far as possible from ODOT's own
- * documents and from the historical record rather than from advocacy — because
+ * documents and from the historical record rather than from advocacy, because
  * that is where this case is strongest.
  */
 export const CASE_AGAINST: Argument[] = [
@@ -317,7 +317,7 @@ export const CASE_AGAINST: Argument[] = [
     n: "03",
     claim: "The safety case does not survive ODOT's own safety analysis",
     body:
-      "ODOT quotes a crash RATE, and the crashes behind it are overwhelmingly low-speed property damage — the rear-enders congestion produces, not the collisions that kill people. ODOT's own safety policy prioritises fatal and serious-injury crashes, and by that measure the state's deadliest roads are the old orphan highways that predate the interstate era and now run through neighbourhoods while still being managed like highways: TV Highway, 82nd, Powell, Barbur. Metro has said the state never showed this section is unusually dangerous for serious crashes. More pointedly, ODOT's own modelling concedes the relocated ramp fails Highway Safety Manual standards and raises crashes.",
+      "ODOT quotes a crash RATE, and the crashes behind it are overwhelmingly low-speed property damage — the rear-enders congestion produces, not the collisions that kill people. ODOT's own safety policy prioritises fatal and serious-injury crashes, and by that measure the state's deadliest roads are the old orphan highways that predate the interstate era and now run through neighborhoods while still being managed like highways: TV Highway, 82nd, Powell, Barbur. Metro has said the state never showed this section is unusually dangerous for serious crashes. More pointedly, ODOT's own modelling concedes the relocated ramp fails Highway Safety Manual standards and raises crashes.",
     evidence:
       "ODOT's August 2022 safety technical report projects roughly a 13% crash increase from the new ramp configuration versus no-build. Spending $3.5 billion at the state's fender-bender capital while its fatality corridors wait is a choice, not a safety programme.",
     sourceId: "odotCrashRamp",
@@ -344,7 +344,7 @@ export const CASE_AGAINST: Argument[] = [
     n: "06",
     claim: "You can cover a freeway without widening it",
     body:
-      "This is the crux, and the bundle has two origin stories that are both true. The state's interest was always the freight bottleneck — the lane is the point, the neighbourhood incidental. The caps entered the project as the local price of permission, when the city, the county and Metro made clear the widening would never be permitted without them. Since then the marriage has been forced in both directions: either both things happen or neither does, which means opposing the lanes is made to look like opposing the neighbourhood, and defending the neighbourhood means carrying the lanes.",
+      "This is the crux, and the bundle has two origin stories that are both true. The state's interest was always the freight bottleneck — the lane is the point, the neighborhood incidental. The caps entered the project as the local price of permission, when the city, the county and Metro made clear the widening would never be permitted without them. Since then the marriage has been forced in both directions: either both things happen or neither does, which means opposing the lanes is made to look like opposing the neighborhood, and defending the neighborhood means carrying the lanes.",
     evidence:
       "Opponents note there is no binding obligation compelling ODOT to build the covers once the lanes are widened. AVT's counter is that the covers cannot be built without the highway work. Notably, no published document has ever priced the covers-without-widening option — it has never been analysed at all.",
     sourceId: "advocatesSpar",

@@ -34,7 +34,7 @@ export const SOURCES = {
   },
   opbEzCut: {
     id: "opbEzCut",
-    title: "Data centers are cut — for now — from a bill expanding Oregon tax breaks",
+    title: "Data centers are cut, for now, from a bill expanding Oregon tax breaks",
     org: "OPB",
     url: "https://www.opb.org/article/2026/03/02/data-centers-cut-bill-expanding-oregon-tax-breaks/",
     kind: "news",
@@ -348,7 +348,7 @@ export interface WinWinCondition {
 
 /**
  * The win-win test: conditions under which a data center is a net gain for
- * its host community — and where Oregon stands on each as of August 2026.
+ * its host community, and where Oregon stands on each as of August 2026.
  */
 export const WIN_WIN_CONDITIONS: WinWinCondition[] = [
   {
@@ -362,7 +362,7 @@ export const WIN_WIN_CONDITIONS: WinWinCondition[] = [
     condition: "New load is tied to new clean energy, not backfilled with gas",
     status: "partial",
     evidence:
-      "PGE connects new data centers only if emissions-free power is available — but HB 2021 and the POWER Act reach only about 61% of Oregon electricity sales. Co-op and PUD territory is exempt, and that is exactly where Umatilla Electric's carbon intensity rose 2,000% in a decade serving Amazon's buildout.",
+      "PGE connects new data centers only if emissions-free power is available, but HB 2021 and the POWER Act reach only about 61% of Oregon electricity sales. Co-op and PUD territory is exempt, and that is exactly where Umatilla Electric's carbon intensity rose 2,000% in a decade serving Amazon's buildout.",
     sourceId: "governingUec",
   },
   {
@@ -376,7 +376,7 @@ export const WIN_WIN_CONDITIONS: WinWinCondition[] = [
     condition: "Tax deals return more than they give up",
     status: "unmet",
     evidence:
-      "Oregon's own incentive study found 15-year rural enterprise-zone deals — the main data-center vehicle — lose 84 cents per dollar of property tax forgone and cost ~$54,500 per job, vs. $4,200 in standard zones.",
+      "Oregon's own incentive study found 15-year rural enterprise-zone deals, the main data-center vehicle, lose 84 cents per dollar of property tax forgone and cost ~$54,500 per job, vs. $4,200 in standard zones.",
     sourceId: "governingStudy",
   },
   {
@@ -390,7 +390,7 @@ export const WIN_WIN_CONDITIONS: WinWinCondition[] = [
     condition: "Deals are approved in public, with notice and a vote",
     status: "unmet",
     evidence:
-      "A June 2026 lawsuit alleges Hillsboro and Washington County staff approved ~17 enterprise-zone applications — filed in a rush before the moratorium — without required public notice or governing-body authorization.",
+      "A June 2026 lawsuit alleges Hillsboro and Washington County staff approved ~17 enterprise-zone applications, filed in a rush before the moratorium, without required public notice or governing-body authorization.",
     sourceId: "capitalChronicleLawsuit",
   },
 ];
@@ -543,7 +543,7 @@ export const REGIONS: Region[] = [
     water: "Google used >25% of city water in 2021, ~40% recently",
     grid: "Adjacent hydro; municipal water is the limit",
     verdict:
-      "Conditional. Deals can pencil at mid leverage — but only with mandatory water disclosure and caps written into the agreement.",
+      "Conditional. Deals can pencil at mid leverage, but only with mandatory water disclosure and caps written into the agreement.",
   },
   {
     id: "columbia-east",
@@ -566,7 +566,7 @@ export const REGIONS: Region[] = [
     water: "Groundwater already in a nitrate crisis",
     grid: "Co-op territory: carbon intensity up 2,000% in a decade; POWER Act doesn't apply",
     verdict:
-      "The strongest case for deals — and the weakest guardrails. Pencils at low leverage, but fees near Morrow's ~$2.7M/yr run close to the break-even line, and clean-power terms don't exist here yet.",
+      "The strongest case for deals, and the weakest guardrails. Pencils at low leverage, but fees near Morrow's ~$2.7M/yr run close to the break-even line, and clean-power terms don't exist here yet.",
   },
   {
     id: "central",
@@ -607,7 +607,7 @@ export const REGIONS: Region[] = [
       wageK: 70,
       leveragePct: 60,
     },
-    leverageNote: "No unique draw — and the land competes with farms and housing.",
+    leverageNote: "No unique draw, and the land competes with farms and housing.",
     water: "Farm and municipal demand already compete",
     grid: "Constrained; no surplus story",
     verdict:
@@ -629,7 +629,7 @@ export const REGIONS: Region[] = [
       wageK: 70,
       leveragePct: 5,
     },
-    leverageNote: "Maximum willingness, minimum leverage — and no fiber or transmission to sell.",
+    leverageNote: "Maximum willingness, minimum leverage, and no fiber or transmission to sell.",
     water: "Closed basins; some already over-allocated",
     grid: "No major fiber routes or transmission headroom",
     verdict:

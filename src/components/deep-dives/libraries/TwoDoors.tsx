@@ -146,7 +146,7 @@ export default function TwoDoors() {
           {
             big: `$${DERIVED.eSpendPerCirc.toFixed(2)} vs $${DERIVED.printSpendPerCirc.toFixed(2)}`,
             k: "materials spend per checkout, digital vs. print",
-            note: "A print book is bought once and lends for years; a license is often per-year. Digital convenience is real — and priced.",
+            note: "A print book is bought once and lends for years; a license is often per-year. Digital convenience is real, and priced.",
             tone: "ember",
           },
         ].map((t) => (

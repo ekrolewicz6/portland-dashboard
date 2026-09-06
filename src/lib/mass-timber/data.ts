@@ -131,7 +131,7 @@ export const GRAVEYARD: Grave[] = [
     where: "United Kingdom",
     year: "2023",
     whatHappened:
-      "A flagship UK modular factory that went into administration in June 2023 owing ~£319M and shedding ~1,150 jobs — while holding a roughly £1 billion order book / ~4,200-home pipeline.",
+      "A flagship UK modular factory that went into administration in June 2023 owing ~£319M and shedding ~1,150 jobs, while holding a roughly £1 billion order book / ~4,200-home pipeline.",
     lesson:
       "The decisive lesson: a paper pipeline is not survival. If you can't convert orders into delivered, profitable volume fast enough to carry the factory's overhead, you're toast.",
     sourceId: "ilke",

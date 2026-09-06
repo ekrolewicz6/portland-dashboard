@@ -59,7 +59,7 @@ type SourceEntry = (typeof SOURCES)[SourceKey];
 const SOURCE_ENTRIES = Object.entries(SOURCES) as Array<[SourceKey, SourceEntry]>;
 
 const TLDR_POINTS = [
-  "Oregon caps how fast a home's taxed value can rise — and the discount stays with the house, even after it sells.",
+  "Oregon caps how fast a home's taxed value can rise, and the discount stays with the house, even after it sells.",
   "So two nearly identical homes can owe very different taxes, and the newest homes and apartments pay the most.",
   "Renters and would-be buyers pay too: blocking new homes keeps housing scarce, and scarcity lets landlords and sellers add a hidden markup to rent and prices.",
   "Winners: owners of older, lightly taxed property. Losers: renters, newcomers, first-time buyers, and the next home that gets built.",
@@ -212,7 +212,7 @@ const TAKE_ACTION: Array<{
   {
     icon: Users,
     title: "Show up where homes are decided",
-    text: "Design reviews, appeals, and council hearings are where individual projects live or die — and they are usually dominated by people who already have a home.",
+    text: "Design reviews, appeals, and council hearings are where individual projects live or die, and they are usually dominated by people who already have a home.",
     cta: "See the city's agenda",
     href: "https://www.portland.gov/council/agenda",
   },
@@ -968,8 +968,7 @@ export default function PortlandGrowthPoliticsPage() {
                   </h2>
                   <p className="mt-3 text-[14px] leading-relaxed text-white/70">
                     Oregon caps how fast a property&apos;s taxed value can rise. So an older home worth{" "}
-                    {fmtMoney(DEFAULTS.medianHomeValue)} today can be taxed as if much less of that value counts —
-                    and the discount stays with the house when it sells. A newer home next door starts near
+                    {fmtMoney(DEFAULTS.medianHomeValue)} today can be taxed as if much less of that value counts, and the discount stays with the house when it sells. A newer home next door starts near
                     today&apos;s full value.
                   </p>
                 </div>
@@ -1032,7 +1031,7 @@ export default function PortlandGrowthPoliticsPage() {
           id="measure-50"
           eyebrow="Why it happens"
           title="One tax rule, Measure 50, sits underneath all of it."
-          lead="Measure 50 is an Oregon rule that limits how fast a property's taxed value can rise. That can protect people from sudden tax jumps. It can also mean two similar homes owe very different taxes — and the gap follows the property, not the person."
+          lead="Measure 50 is an Oregon rule that limits how fast a property's taxed value can rise. That can protect people from sudden tax jumps. It can also mean two similar homes owe very different taxes, and the gap follows the property, not the person."
           tone="warm"
         >
           <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(360px,0.42fr)]">
@@ -1107,7 +1106,7 @@ export default function PortlandGrowthPoliticsPage() {
           id="winners-losers"
           eyebrow="Who wins and who loses"
           title="The same rules quietly help some people and charge others."
-          lead="Before arguing about any fix, look at who today's rules already help and who they already cost. These are not moral labels — the same person can win one way and lose another — but the pattern is real, and it is bigger than most tax bills ever show."
+          lead="Before arguing about any fix, look at who today's rules already help and who they already cost. These are not moral labels, the same person can win one way and lose another, but the pattern is real, and it is bigger than most tax bills ever show."
         >
           <WinnersLosers />
           <div className="-mx-4 mt-6 flex flex-col gap-3 border-y border-[var(--color-parchment)] bg-white p-4 sm:mx-0 sm:flex-row sm:items-center sm:justify-between sm:rounded-sm sm:border sm:p-5">
@@ -1253,7 +1252,7 @@ export default function PortlandGrowthPoliticsPage() {
               <p className="max-w-3xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
                 You have seen the pattern. Now check one address. The tool pulls public county and PortlandMaps
                 data and tells you, in plain language, whether that property looks lightly taxed, heavily taxed,
-                or mostly caught in the shortage — and what that means whether you rent, own, might buy, or live nearby.
+                or mostly caught in the shortage, and what that means whether you rent, own, might buy, or live nearby.
               </p>
             </div>
             <ParcelCohortLookup />

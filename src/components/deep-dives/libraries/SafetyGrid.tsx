@@ -51,7 +51,7 @@ export default function SafetyGrid() {
         </div>
         <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
           The people who face the public felt <strong className="text-[var(--color-clay)]">half as safe</strong> as
-          the people who don&apos;t. By 2025 most audit recommendations were implemented or under way — and
+          the people who don&apos;t. By 2025 most audit recommendations were implemented or under way, and
           still only <strong className="text-[var(--color-ink)]">{DERIVED.involvedInChanges2025}%</strong> of
           employees felt appropriately involved in the changes made on their behalf.
         </p>
@@ -81,7 +81,7 @@ export default function SafetyGrid() {
         <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
           <strong className="text-[var(--color-ink)]">One building carries {Math.round(centralPct)}% of the load.</strong>{" "}
           That is the case for specialist partners at high-need sites rather than systemwide rules — the
-          report&apos;s San Francisco model — and for reporting severity per 10,000 visits, not raw counts,
+          report&apos;s San Francisco model, and for reporting severity per 10,000 visits, not raw counts,
           so a busier building isn&apos;t automatically a worse one.
         </p>
       </div>

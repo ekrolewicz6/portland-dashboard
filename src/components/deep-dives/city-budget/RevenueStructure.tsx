@@ -13,7 +13,7 @@ import {
  * The answer is a hole where a tax should be. Oregon bars sales taxes at both
  * state and local level, so the instrument every peer leans on is unavailable.
  * Portland substitutes a tax on business profits — a much narrower and more
- * cyclical base — and then Measures 5 and 50 cap how fast the other main
+ * cyclical base, and then Measures 5 and 50 cap how fast the other main
  * source can grow. That combination is why one federal tax change could open a
  * $32.6 million hole.
  */
@@ -29,7 +29,7 @@ export default function RevenueStructure() {
           Every peer city has a revenue tool Portland is legally denied
         </h3>
         <p className="mt-2 max-w-3xl text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
-          Oregon is one of five states with no statewide sales tax — and one of only three that
+          Oregon is one of five states with no statewide sales tax, and one of only three that
           also forbid local ones. This isn&apos;t a choice Portland makes each year; it is a
           constraint the city budgets inside.
         </p>
@@ -97,7 +97,7 @@ export default function RevenueStructure() {
           What Portland taxes instead: business profits
         </h3>
         <p className="mt-2 max-w-3xl text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
-          The business licence tax — {BLT.rate} — raises about {fmtMoney(BLT.fy2526)} and supplies
+          The business licence tax, {BLT.rate}, raises about {fmtMoney(BLT.fy2526)} and supplies
           roughly 30% of discretionary General Fund money. Trading a consumption tax for a profits
           tax is a trade of stability for volatility, and the City&apos;s own economist notes that
           no peer city has a comparable tax at this scale.
@@ -228,7 +228,7 @@ export default function RevenueStructure() {
         funds most of its government from what people buy, which tracks population and inflation.
         Portland funds a third of its flexible money from what a few hundred companies earn, and the
         rest from a property base the state constitution won&apos;t let grow much faster than 3%.
-        That is a structurally more fragile design — and it is why a change to federal depreciation
+        That is a structurally more fragile design, and it is why a change to federal depreciation
         rules, made in Washington, could open a {fmtMoney(BLT.federalHit)} hole in a Portland
         budget.
       </p>

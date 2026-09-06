@@ -72,7 +72,7 @@ export default function FpdrDeepDivePage() {
               </h1>
               <p className="mt-6 max-w-2xl text-[17px] sm:text-[20px] text-white/75 leading-relaxed">
                 Portland has promised <strong className="text-white">{fmtMoney(HEADLINE.liability)}</strong> in
-                retirement and disability benefits to its police and firefighters — and has saved almost
+                retirement and disability benefits to its police and firefighters, and has saved almost
                 none of it. Instead, the bill lands on your property taxes, a little more every year.
                 Here&apos;s how it works, what it costs you, and how it could be fixed.
               </p>
@@ -118,7 +118,7 @@ export default function FpdrDeepDivePage() {
                   {[
                     { t: "What it is", d: "A police & fire pension paid straight from property taxes, with almost nothing saved behind it." },
                     { t: "Why it matters", d: `It's ~${fmtPct(HEADLINE.shareOfCityLine, 0)} of your City of Portland tax line and grows every year, quietly squeezing other services.` },
-                    { t: "The catch", d: "The fix is known — start saving — but it costs more now to cost far less later." },
+                    { t: "The catch", d: "The fix is known, start saving, but it costs more now to cost far less later." },
                   ].map((r) => (
                     <div key={r.t}>
                       <dt className="text-[13px] font-semibold text-white">{r.t}</dt>
@@ -178,7 +178,7 @@ export default function FpdrDeepDivePage() {
           <>
             FPDR stands for <strong>Fire &amp; Police Disability and Retirement</strong>. It pays
             pensions, disability, and survivor benefits to Portland&apos;s police officers and
-            firefighters. The benefits are normal. What&apos;s strange — and expensive — is how
+            firefighters. The benefits are normal. What&apos;s strange, and expensive, is how
             Portland pays for them.
           </>
         }
@@ -207,7 +207,7 @@ export default function FpdrDeepDivePage() {
             </div>
             <p className="text-[14px] text-[var(--color-ink-light)] leading-relaxed">
               Portland saves <strong>essentially nothing</strong>. Each year, property taxes are
-              collected to cover that year&apos;s retiree checks — and that&apos;s it. There&apos;s no
+              collected to cover that year&apos;s retiree checks, and that&apos;s it. There&apos;s no
               invested piggy bank doing the work, so taxpayers are on the hook for the whole thing,
               forever. Worse, with nothing set aside the unfunded balance keeps growing instead of being
               paid down — the city falls further behind each year, the opposite of what accepted funding
@@ -236,7 +236,7 @@ export default function FpdrDeepDivePage() {
           <p className="text-[14px] text-[var(--color-ink-light)] leading-relaxed mt-2 mb-6 max-w-2xl">
             Of the roughly {fmtMoney(HEADLINE.annualLevyFY26)} collected this year, most pays pensions
             to people who already retired. A growing slice pre-funds PERS for officers and firefighters
-            hired since 2007 — so Portland is now paying for <strong>two systems at once.</strong>
+            hired since 2007, so Portland is now paying for <strong>two systems at once.</strong>
           </p>
           <SpendingChart />
           <p className="text-[12px] text-[var(--color-ink-muted)] mt-4">
@@ -259,7 +259,7 @@ export default function FpdrDeepDivePage() {
           assessed value (<Src id="county2526" />). The multi-year figure grows assessed value by the
           city&apos;s assumed ~3%/year and applies its published rate forecast through FY31
           (<Src id="fiveYearPlan2731" />), since both the rate and the assessed base keep rising. In
-          Oregon, Measure 50 caps assessed-value growth and decoupled it from market value — so assessed
+          Oregon, Measure 50 caps assessed-value growth and decoupled it from market value, so assessed
           value tracks neither a home&apos;s sale price nor how &ldquo;nice&rdquo; it is.
         </p>
       </Section>
@@ -287,7 +287,7 @@ export default function FpdrDeepDivePage() {
         <div className="mt-6 grid md:grid-cols-2 gap-5">
           <InfoCard icon={<Scale className="w-5 h-5 text-[var(--color-ember)]" />} title="It quietly squeezes other services">
             Oregon caps how much property tax can be charged. As FPDR&apos;s slice grows, it pushes the
-            city toward that cap — and when the cap is hit, other levies get cut (&ldquo;compression&rdquo;).
+            city toward that cap, and when the cap is hit, other levies get cut (&ldquo;compression&rdquo;).
           </InfoCard>
           <InfoCard icon={<Landmark className="w-5 h-5 text-[var(--color-ember)]" />} title="But it probably won't hit its ceiling">
             The fund has a legal cap of ${HEADLINE.capPer1000RMV.toFixed(2)} per $1,000 of market value.
@@ -314,7 +314,7 @@ export default function FpdrDeepDivePage() {
         id="hard"
         eyebrow="Why it's stuck"
         title={<>If everyone agrees it&apos;s a mess, why isn&apos;t it fixed?</>}
-        lead="Almost everyone — including the city's own pension director — agrees pay-as-you-go is the wrong way to fund this. It stays in place anyway, for four stubborn reasons."
+        lead="Almost everyone, including the city's own pension director, agrees pay-as-you-go is the wrong way to fund this. It stays in place anyway, for four stubborn reasons."
       >
         <div className="space-y-4">
           <ReasonRow n={1} icon={<Scale className="w-5 h-5" />} title="You can't cut the benefits">
@@ -379,7 +379,7 @@ export default function FpdrDeepDivePage() {
         id="menu"
         eyebrow="The full menu"
         title="Every option, with the catch"
-        lead="There's no free lunch. Each fix trades near-term pain for long-term savings — or avoids the pain by taking on a different risk. Here's the honest version of each."
+        lead="There's no free lunch. Each fix trades near-term pain for long-term savings, or avoids the pain by taking on a different risk. Here's the honest version of each."
       >
         <ReformMenu />
       </Section>
@@ -400,7 +400,7 @@ export default function FpdrDeepDivePage() {
               Analysts like Kevin Machiz and Marc Poris argue Portland should start pre-funding, because
               over the life of the plan it could save a quarter to a third of the cost. The city counters
               that the upfront transition cost is enormous and arrives when budgets are tightest. Both
-              are right — which is what makes it genuinely hard rather than obvious.
+              are right, which is what makes it genuinely hard rather than obvious.
             </p>
           </div>
         }

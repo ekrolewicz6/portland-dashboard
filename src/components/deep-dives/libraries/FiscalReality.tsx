@@ -52,8 +52,7 @@ export default function FiscalReality() {
         </div>
         <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-ink-light)]">
           The May 2026 five-year forecast shows ongoing expense above ongoing revenue{" "}
-          <strong className="text-[var(--color-ink)]">in every year through FY{FISCAL.deficitThroughFY}</strong> —
-          and it already assumes the levy goes to its ${HEADLINE.levyCap.toFixed(2)} maximum from FY
+          <strong className="text-[var(--color-ink)]">in every year through FY{FISCAL.deficitThroughFY}</strong>, and it already assumes the levy goes to its ${HEADLINE.levyCap.toFixed(2)} maximum from FY
           {FISCAL.forecastAssumesMaxRateFrom}. The last two cents are not headroom. They are spent.
         </p>
         <div className="mt-4 rounded-sm bg-[var(--color-paper-warm)] p-3.5">

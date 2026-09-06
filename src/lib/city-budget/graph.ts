@@ -112,7 +112,7 @@ export function buildGraph(data: BudgetDataset, opts: BuildOpts): FlowGraph {
 
   // The City's Figure 6/7 tables print only FY25-26 and FY26-27. For the two
   // actuals years, fall back to the same objects aggregated from the fund
-  // detail — which reproduces those figures exactly for FY26-27, so the two
+  // detail, which reproduces those figures exactly for FY26-27, so the two
   // sources are known to agree where they overlap.
   const fromFunds = yi < 2;
   const yearly = data.yearlyObjects;

@@ -134,7 +134,7 @@ export interface TrendRow {
 export const TREND_ROWS: TrendRow[] = [
   { metric: "Service population", fy2011: "736,785", fy2019: "813,300", fy2021: "829,560", fy2025: "799,109", note: "County population grew, then softened." },
   { metric: "Registered borrowers", fy2011: "436,949", fy2019: "416,935", fy2021: "388,868", fy2025: "369,377", note: "Registered share fell from ~59% to ~46% of population." },
-  { metric: "In-person visits", fy2011: "5.52M", fy2019: "3.61M", fy2021: "N/A", fy2025: "2.18M", note: "Down 60% since 2011 — but COVID and bond closures distort this." },
+  { metric: "In-person visits", fy2011: "5.52M", fy2019: "3.61M", fy2021: "N/A", fy2025: "2.18M", note: "Down 60% since 2011, but COVID and bond closures distort this." },
   { metric: "Physical circulation", fy2011: "23.95M*", fy2019: "14.89M", fy2021: "6.95M", fy2025: "10.15M", note: "Recovered from the pandemic but below the prior era." },
   { metric: "Digital circulation", fy2011: "N/A", fy2019: "3.46M", fy2021: "5.21M", fy2025: "7.37M", note: "More than doubled from 2019." },
   { metric: "Total circulation", fy2011: "23.95M*", fy2019: "18.35M", fy2021: "12.16M", fy2025: "17.51M", note: "Transaction volume recovered more than visits did." },
@@ -225,7 +225,7 @@ export const SCORECARD: ScorecardRow[] = [
 
 export const GAMING_RULES = [
   { title: "No averages without distribution", body: "Publish every core measure by branch/service area and, where privacy permits, by race/ethnicity, language, age, disability, income, and housing status." },
-  { title: "No outputs without outcomes", body: "Keep reporting visits, loans, programs, and hours — but pair them with what changed in residents' capability, connection, safety, or opportunity." },
+  { title: "No outputs without outcomes", body: "Keep reporting visits, loans, programs, and hours, but pair them with what changed in residents' capability, connection, safety, or opportunity." },
   { title: "No flagship exception", body: "Central or East County cannot carry a global claim while smaller branches fall below a guaranteed floor." },
 ];
 
@@ -468,7 +468,7 @@ export const APPROVALS: Approval[] = [
   { action: "Re-fund school outreach (School Corps / Books2U)", kind: "money", who: "Partners", how: "A jointly funded compact with six school districts; MCL cannot restore it from the levy alone." },
   { action: "Place specialist social workers at high-need branches", kind: "money", who: "Partners", how: "Public-health or human-services funding, working alongside library staff — the San Francisco model." },
   { action: "End late fees / change borrowing rules", kind: "policy", who: "MCL", how: "Operating policy; done administratively in 2020 within the Board-adopted budget." },
-  { action: "Close a program or change hours", kind: "policy", who: "MCL", how: "Administrative — as with School Corps in 2025 — but visible in the Board's budget." },
+  { action: "Close a program or change hours", kind: "policy", who: "MCL", how: "Administrative, as with School Corps in 2025, but visible in the Board's budget." },
   { action: "Adopt safety protocols and a joint safety council", kind: "policy", who: "MCL", how: "Library management with labor; the County Auditor tracks implementation." },
   { action: "Publish the quarterly dashboard and resident panel", kind: "policy", who: "MCL", how: "No approval barrier — a management decision the report says should come first." },
   { action: "Certify six resilience hubs", kind: "policy", who: "County Board", how: "Requires integration into County emergency plans, plus capital for backup power." },

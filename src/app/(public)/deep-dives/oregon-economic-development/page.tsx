@@ -40,7 +40,7 @@ import { pageMeta } from "@/lib/page-meta";
 export const metadata: Metadata = pageMeta({
   title: "Is Oregon serious about its own economy?",
   description:
-    "Governor Kotek's Prosperity Council wants to blow up Business Oregon and build a Department of Commerce. A data deep dive into the case against the agency — and the asterisks the headline numbers hide.",
+    "Governor Kotek's Prosperity Council wants to blow up Business Oregon and build a Department of Commerce. A data deep dive into the case against the agency, and the asterisks the headline numbers hide.",
   path: "/deep-dives/oregon-economic-development",
   type: "article",
 });
@@ -172,7 +172,7 @@ export default function OregonEconomicDevelopmentPage() {
                 </div>
               </div>
               <p className="mt-4 text-[12px] leading-relaxed text-white/55">
-                A &ldquo;win&rdquo; by eight jobs — against a bar cut by a third — the year Oregon&apos;s private
+                A &ldquo;win&rdquo; by eight jobs, against a bar cut by a third, the year Oregon&apos;s private
                 sector lost ~6,500 jobs. Source:{" "}
                 <SourceLink id="appr2025" tone="dark">Business Oregon performance report</SourceLink>.
               </p>
@@ -191,7 +191,7 @@ export default function OregonEconomicDevelopmentPage() {
                 If you read nothing else.
               </h2>
               <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-                The rest of the page shows you the primary sources behind every line — and the caveats reformers
+                The rest of the page shows you the primary sources behind every line, and the caveats reformers
                 tend to skip.
               </p>
             </div>
@@ -229,7 +229,7 @@ export default function OregonEconomicDevelopmentPage() {
           id="scorecard"
           eyebrow="The scorecard"
           title="The case against Business Oregon starts with one chart."
-          lead="The agency's headline measure is jobs created at the firms it funds. It missed that target for years — and the fix was to cut the target. Here is the evidence, straight from the state's own performance report."
+          lead="The agency's headline measure is jobs created at the firms it funds. It missed that target for years, and the fix was to cut the target. Here is the evidence, straight from the state's own performance report."
           tone="warm"
         >
           <ScorecardChart />
@@ -267,7 +267,7 @@ export default function OregonEconomicDevelopmentPage() {
               In 2025 it hit &ldquo;100% of targets.&rdquo; Read the asterisks.
             </h3>
             <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-              A fair verdict has to hold both sides. The agency does beat most of its ten measures — but several of
+              A fair verdict has to hold both sides. The agency does beat most of its ten measures, but several of
               those wins lean on one-time COVID money, a separate scorecard, or a target that was quietly lowered.
             </p>
             <div className="mt-5 grid gap-3 md:grid-cols-2">
@@ -293,7 +293,7 @@ export default function OregonEconomicDevelopmentPage() {
           id="methodology"
           eyebrow="The asterisk"
           title="Before you say “nine of ten years,” read this."
-          lead="The most-repeated line about Business Oregon — that it failed its mission nine of the past ten years — quietly mixes two different ways of counting. Here is the catch the headline skips."
+          lead="The most-repeated line about Business Oregon, that it failed its mission nine of the past ten years, quietly mixes two different ways of counting. Here is the catch the headline skips."
         >
           <MethodologyToggle />
         </Section>
@@ -303,7 +303,7 @@ export default function OregonEconomicDevelopmentPage() {
           id="metric"
           eyebrow="The hidden tools"
           title="The agency is judged on its smallest lever."
-          lead="The jobs scorecard only counts firms that get a direct check. Oregon's biggest economic-development tools — the property-tax breaks for Intel and the data-center giants — aren't in it at all. They show up somewhere else: on the property-tax bill schools never get to send."
+          lead="The jobs scorecard only counts firms that get a direct check. Oregon's biggest economic-development tools, the property-tax breaks for Intel and the data-center giants, aren't in it at all. They show up somewhere else: on the property-tax bill schools never get to send."
           tone="warm"
         >
           <div className="-mx-4 border-y border-[var(--color-parchment)] bg-[var(--color-canopy)] p-4 text-white sm:mx-0 sm:rounded-sm sm:border sm:p-6">
@@ -359,7 +359,7 @@ export default function OregonEconomicDevelopmentPage() {
               </div>
               <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
                 This is the &ldquo;diffuse focus&rdquo; the reform draft names, made concrete: the agency is graded on
-                490 directly-funded jobs while billions in tax breaks — its biggest bets — sit outside the scorecard.
+                490 directly-funded jobs while billions in tax breaks, its biggest bets, sit outside the scorecard.
               </p>
             </div>
           </div>
@@ -425,7 +425,7 @@ export default function OregonEconomicDevelopmentPage() {
           id="diagnosis"
           eyebrow="The real question"
           title="Is this a structure problem or an execution problem?"
-          lead="A reorganization can fix a broken org chart. It cannot, by itself, make an agency answer the phone, rebuild its website, or set an honest target. So it's worth sorting Business Oregon's problems into the ones a “Department of Commerce” would actually touch — and the ones it wouldn't."
+          lead="A reorganization can fix a broken org chart. It cannot, by itself, make an agency answer the phone, rebuild its website, or set an honest target. So it's worth sorting Business Oregon's problems into the ones a “Department of Commerce” would actually touch, and the ones it wouldn't."
         >
           <div className="-mx-4 mb-5 border-y border-[var(--color-parchment)] bg-white p-4 sm:mx-0 sm:rounded-sm sm:border sm:p-5">
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ink-muted)]">
@@ -494,7 +494,7 @@ export default function OregonEconomicDevelopmentPage() {
           id="peer-states"
           eyebrow="The field test"
           title="Would a “Department of Commerce” actually move the needle?"
-          lead="Reformers point to states that put economic development close to the governor with a clear strategy. They're onto something — but the same set of states is also a warning that structure is necessary, not sufficient."
+          lead="Reformers point to states that put economic development close to the governor with a clear strategy. They're onto something, but the same set of states is also a warning that structure is necessary, not sufficient."
           tone="warm"
         >
           <div className="grid gap-5 md:grid-cols-2">
@@ -625,7 +625,7 @@ export default function OregonEconomicDevelopmentPage() {
           id="decide"
           eyebrow="You decide"
           title="What would actually make Oregon serious?"
-          lead="The Prosperity Council's final report is scheduled to land June 25 (its charter deadline is June 30). Here is the proposal, the trade-offs it forces, and the bar a real fix would have to clear — so you can weigh it yourself."
+          lead="The Prosperity Council's final report is scheduled to land June 25 (its charter deadline is June 30). Here is the proposal, the trade-offs it forces, and the bar a real fix would have to clear, so you can weigh it yourself."
         >
           <div className="-mx-4 border-y border-[var(--color-parchment)] bg-white p-4 sm:mx-0 sm:rounded-sm sm:border sm:p-6">
             <MiniKicker>The proposal on the table</MiniKicker>
@@ -693,7 +693,7 @@ export default function OregonEconomicDevelopmentPage() {
             <a href="https://www.oregonlegislature.gov/citizen_engagement" target="_blank" rel="noopener noreferrer" className="group -mx-4 border-y border-white/12 bg-white/[0.055] p-4 transition-colors hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canopy-deep)] sm:mx-0 sm:rounded-sm sm:border sm:p-5">
               <Mail className="h-5 w-5 text-[var(--color-ember-bright)]" />
               <h3 className="mt-4 font-editorial text-[24px] leading-tight text-white">Tell your legislator</h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-white/70">A reorg — and the budget and incentive choices behind it — runs through the Legislature. Find yours and weigh in.</p>
+              <p className="mt-3 text-[14px] leading-relaxed text-white/70">A reorg, and the budget and incentive choices behind it, runs through the Legislature. Find yours and weigh in.</p>
               <span className="mt-4 inline-flex items-center gap-2 text-[13px] font-bold text-[var(--color-ember-bright)]">Find your legislator<ArrowRight className="h-4 w-4 motion-safe:transition-transform group-hover:translate-x-0.5" /></span>
             </a>
             <a href={SOURCES.ojp.url} target="_blank" rel="noopener noreferrer" className="group -mx-4 border-y border-white/12 bg-white/[0.055] p-4 transition-colors hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canopy-deep)] sm:mx-0 sm:rounded-sm sm:border sm:p-5">
@@ -709,7 +709,7 @@ export default function OregonEconomicDevelopmentPage() {
         <Section
           id="sources"
           eyebrow="Sources & method"
-          title="Every number, traceable — and every asterisk, in the open."
+          title="Every number, traceable, and every asterisk, in the open."
           lead="This piece extends Nigel Jaquiss's reporting for the Oregon Journalism Project with primary sources. Where a number is contested, slippery, or comes from an advocacy group, we say so."
           tone="darker"
         >

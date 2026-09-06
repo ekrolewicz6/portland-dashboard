@@ -4,9 +4,9 @@
  * Replaces the arbitrary 0.5×=0 / 1.5×=100 ratios in economic-health.ts
  * with two data-grounded signals per indicator:
  *
- *   • Portland-historical percentile — where Portland's current value sits
+ *   • Portland-historical percentile, where Portland's current value sits
  *     in its own 10+ year history. Answers "is this normal for Portland?"
- *   • Peer-current percentile — where Portland sits today against 6 peer
+ *   • Peer-current percentile, where Portland sits today against 6 peer
  *     metros (Seattle, Denver, Austin, SF, Minneapolis, Phoenix).
  *     Answers "how does Portland stack up to comparable cities?"
  *

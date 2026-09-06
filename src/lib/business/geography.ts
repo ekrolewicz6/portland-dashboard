@@ -87,7 +87,7 @@ type Ring = number[][];
 
 /**
  * Ray casting. Rings are [outer, ...holes] per GeoJSON, so a point inside a
- * hole is outside the polygon — which matters here because several districts
+ * hole is outside the polygon, which matters here because several districts
  * are genuinely doughnut-shaped around excluded parcels.
  */
 function inRing(lon: number, lat: number, ring: Ring): boolean {
@@ -184,7 +184,7 @@ async function censusTract(lon: number, lat: number): Promise<string | null> {
 
 /**
  * Cheap sanity check before spending a network round trip. The geocoder does
- * not fail fast on nonsense — it holds the connection until the timeout — so
+ * not fail fast on nonsense, it holds the connection until the timeout, so
  * without this, a typo costs the user eight seconds of blank screen.
  */
 function looksLikeStreetAddress(s: string): boolean {

@@ -24,7 +24,7 @@ import { pageMeta } from "@/lib/page-meta";
 export const metadata: Metadata = pageMeta({
   title: "Lloyd Center: Demolished on a Promise — Portland's Mall, Explained",
   description:
-    "Portland's dead mall is coming down for up to 5,141 homes — but the approval requires zero affordable units and no ice rink, and the city is building fewer homes than it has since 2009. A visual, both-sides deep-dive into the Lloyd Center fight.",
+    "Portland's dead mall is coming down for up to 5,141 homes, but the approval requires zero affordable units and no ice rink, and the city is building fewer homes than it has since 2009. A visual, both-sides deep-dive into the Lloyd Center fight.",
   path: "/deep-dives/lloyd",
   type: "article",
 });
@@ -80,7 +80,7 @@ export default function LloydDeepDivePage() {
                 Lloyd Center closes for good on {HEADLINE.closeDate} and comes down for up to{" "}
                 <strong className="text-white">{fmtNum(HEADLINE.unitsModeled)} new homes</strong>. Almost
                 everyone agrees that&apos;s the right future for the site. The fight is over what the
-                teardown takes with it — and whether the homes ever actually show up.
+                teardown takes with it, and whether the homes ever actually show up.
               </p>
               <div className="mt-9 flex flex-col sm:flex-row gap-3">
                 <a
@@ -108,7 +108,7 @@ export default function LloydDeepDivePage() {
                   {[
                     { t: "What it is", d: "Portland's 1960s mega-mall, ~90% empty, closing this summer to be demolished and rebuilt as a neighborhood." },
                     { t: "The fight", d: "Not “save it vs. demolish it” — both sides want housing. It's about the ice rink, displaced tenants, and broken promises." },
-                    { t: "The catch", d: "The approval locks in no affordable homes and no rink — and Portland is building fewer homes than any year since 2009." },
+                    { t: "The catch", d: "The approval locks in no affordable homes and no rink, and Portland is building fewer homes than any year since 2009." },
                   ].map((r) => (
                     <div key={r.t}>
                       <dt className="text-[13px] font-semibold text-white">{r.t}</dt>
@@ -221,7 +221,7 @@ export default function LloydDeepDivePage() {
         tone="warm"
         eyebrow="The two sides"
         title="Everyone wants the homes. So what's the fight?"
-        lead="There are two real, named campaigns — and they're closer than the slogans suggest. Both want housing here. They split on the building, the rink, the timing, and what gets locked in."
+        lead="There are two real, named campaigns, and they're closer than the slogans suggest. Both want housing here. They split on the building, the rink, the timing, and what gets locked in."
         aside={
           <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5">
             <p className="text-[13px] text-[var(--color-ink-light)] leading-relaxed">
@@ -244,7 +244,7 @@ export default function LloydDeepDivePage() {
         lead={
           <>
             Strip away the renderings and the approval is a flexible framework. Here&apos;s what it locks
-            in — and, more tellingly, what it doesn&apos;t.
+            in, and, more tellingly, what it doesn&apos;t.
           </>
         }
         aside={
@@ -271,7 +271,7 @@ export default function LloydDeepDivePage() {
         lead={
           <>
             The promise is ~{fmtNum(HEADLINE.unitsModeled)} homes over a decade-plus. The problem is the
-            market Portland is building into — and a funding district that&apos;s currently empty.
+            market Portland is building into, and a funding district that&apos;s currently empty.
           </>
         }
       >
@@ -303,7 +303,7 @@ export default function LloydDeepDivePage() {
         tone="warm"
         eyebrow="Who decides"
         title="Who decides, and when"
-        lead="The Design Commission's March approval only cleared the framework. The real decision is at City Council right now — and the clock is running."
+        lead="The Design Commission's March approval only cleared the framework. The real decision is at City Council right now, and the clock is running."
       >
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-7">
@@ -329,7 +329,7 @@ export default function LloydDeepDivePage() {
                 <h3 className="text-[15px] font-semibold text-[var(--color-ink)]">Why the rink, specifically</h3>
               </div>
               <p className="text-[13px] text-[var(--color-ink-light)] leading-relaxed">
-                It&apos;s the only permanent, year-round, transit-accessible ice rink in the city — where
+                It&apos;s the only permanent, year-round, transit-accessible ice rink in the city, where
                 Tonya Harding learned to skate. Olympic champion Ilia Malinin even shared the petition. The
                 approved plan offers, at most, seasonal skating (<Src id="malinin" />).
               </p>
@@ -353,7 +353,7 @@ export default function LloydDeepDivePage() {
           >
             About {fmtNum(HEADLINE.mallsNow)} enclosed malls are left in the U.S., heading toward ~
             {fmtNum(HEADLINE.malls2028)} by 2028. Lloyd is a textbook case of the next chapter:
-            demolish the dead mall, build a neighborhood. How cities do that — and what they keep — is
+            demolish the dead mall, build a neighborhood. How cities do that, and what they keep, is
             playing out everywhere (<Src id="mallStats" />).
           </BigIssue>
           <BigIssue

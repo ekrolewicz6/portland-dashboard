@@ -169,7 +169,7 @@ export const HEADLINE_STATS: Array<{ value: string; label: string; source: Sourc
 
 export const TLDR_POINTS = [
   "A confidential draft from Governor Kotek's Prosperity Council says Oregon's economic-development agency, Business Oregon, is “underperforming relative to peer states” and should become a “Department of Commerce.” The final report is scheduled to be unveiled June 25, 2026, ahead of its June 30 deadline.",
-  "The damning detail: the agency missed its job-creation goal for years, so the goal was lowered from 1,200 to 800 — and the latest public report still shows a miss (490 jobs).",
+  "The damning detail: the agency missed its job-creation goal for years, so the goal was lowered from 1,200 to 800, and the latest public report still shows a miss (490 jobs).",
   "But the headline numbers are slipperier than they look: the agency changed how it counts jobs in 2024, its biggest tools (the Intel and data-center tax breaks) aren't even in that scorecard, and “$1 billion a year” is mostly pass-through infrastructure money, not money the agency actually runs.",
   "You can also just look at the front door: Business Oregon's website is built like an org chart, not like a product a CEO deciding where to expand would ever use.",
   "Some of this is structural (Oregon never made economic development a real priority) and some is execution (missed targets, an unusable website). A reorg fixes the first. Whether it touches the second is the real question for June 25.",
@@ -223,7 +223,7 @@ export const OTHER_KPMS: OtherKpm[] = [
     name: "Jobs retained (KPM #2)",
     value: "9,640 vs 3,000 target",
     verdict: "beat",
-    note: "Far above target — but 93.5% came from two one-time COVID grant programs that are winding down.",
+    note: "Far above target, but 93.5% came from two one-time COVID grant programs that are winding down.",
   },
   {
     name: "Personal income tax (KPM #3)",
@@ -235,7 +235,7 @@ export const OTHER_KPMS: OtherKpm[] = [
     name: "Customer satisfaction (KPM #10)",
     value: "95% vs an 85% target",
     verdict: "beat",
-    note: "A record high — but the target was cut from 90% to 85%, and the survey drew a 6% response rate (340 of 5,300 sent).",
+    note: "A record high, but the target was cut from 90% to 85%, and the survey drew a 6% response rate (340 of 5,300 sent).",
   },
   {
     name: "Abatement jobs (KPM #6)",
@@ -358,7 +358,7 @@ export const STATEWIDE_INCENTIVE = {
   standardEz: 95,
   dataCentersAllPrograms: 457,
   note:
-    "Counting all taxing districts — state and local — Oregon forgoes about $617M a year in property tax to the Strategic Investment Program plus all enterprise zones, per the Department of Revenue. The $275M schools give up is a subset. Intel's SIP alone is ~$327M/yr; the rural enterprise zone that covers eastern-Oregon data centers is ~$194M/yr.",
+    "Counting all taxing districts, state and local, Oregon forgoes about $617M a year in property tax to the Strategic Investment Program plus all enterprise zones, per the Department of Revenue. The $275M schools give up is a subset. Intel's SIP alone is ~$327M/yr; the rural enterprise zone that covers eastern-Oregon data centers is ~$194M/yr.",
 };
 
 /** CNBC "America's Top States for Business" — Oregon's rank, 2019 vs 2025. */
@@ -385,7 +385,7 @@ export const COUNCIL_CAMPS: CouncilCamp[] = [
     date: "March 2026",
     tone: "business",
     frame:
-      "Oregon is in “recession-like” conditions and entering an era of population scarcity. Stagnation — not growth — is now the threat.",
+      "Oregon is in “recession-like” conditions and entering an era of population scarcity. Stagnation, not growth, is now the threat.",
     asks: [
       "A permanent growth-strategy body: a successor Prosperity Council with a public-private “backbone organization.”",
       "Land-use reform for 2027 — modernize the urban growth boundary, speed permitting, fund industrial sites.",
@@ -394,7 +394,7 @@ export const COUNCIL_CAMPS: CouncilCamp[] = [
       "Stronger talent pipelines and K-12 accountability.",
     ],
     evidence:
-      "Greater Portland Inc. counted six clean-tech and advanced-manufacturing prospects — about $5.6B of investment — lost to other states; Daimler put a battery plant in Mississippi over the Portland region.",
+      "Greater Portland Inc. counted six clean-tech and advanced-manufacturing prospects, about $5.6B of investment, lost to other states; Daimler put a battery plant in Mississippi over the Portland region.",
     source: "obcLetter",
   },
   {
@@ -446,7 +446,7 @@ export const SURVEY = {
     { area: "Workforce", n: 254 },
   ],
   note:
-    "Over 1,000 Oregonians answered. The top-ranked concern was “business climate” — but about 4 in 10 respondents were speaking for a business or organization, so the engagement leans toward employer voices more than a representative public.",
+    "Over 1,000 Oregonians answered. The top-ranked concern was “business climate”, but about 4 in 10 respondents were speaking for a business or organization, so the engagement leans toward employer voices more than a representative public.",
   source: "prosperitySurvey" as SourceKey,
 };
 
@@ -535,7 +535,7 @@ export const DIAGNOSIS: DiagnosisItem[] = [
   {
     problem: "Missed targets, then a lower bar",
     kind: "execution",
-    detail: "Years of missing the job goal, then the goal was cut from 1,200 to 800 — and the latest report still shows a miss.",
+    detail: "Years of missing the job goal, then the goal was cut from 1,200 to 800, and the latest report still shows a miss.",
     fixedByReorg: "no",
     icon: Gauge,
   },
@@ -606,7 +606,7 @@ export const PEER_STATES: PeerState[] = [
     agency: "MEDC",
     model: "A large, centralized strategic fund spending billions on incentives.",
     outcome: "The cautionary case: one analysis found projects promised ~123,000 jobs and delivered ~11,000.",
-    caution: "That 91% shortfall comes from a free-market think tank, not an official audit — but the pattern is widely reported.",
+    caution: "That 91% shortfall comes from a free-market think tank, not an official audit, but the pattern is widely reported.",
     tone: "caution",
     icon: Factory,
     source: "mackinac",
@@ -631,22 +631,22 @@ export const SERIOUS_BAR: Array<{ title: string; detail: string; icon: LucideIco
   { title: "Make it a governor-level priority", detail: "The peer-state pattern isn't a nameplate — it's the governor personally owning growth and a written strategy the whole government follows.", icon: Megaphone },
   { title: "Fix the front door", detail: "Rebuild the agency around the customer: an incentives finder, a site selector, a deal team you can actually reach.", icon: Network },
   { title: "Make the metrics honest", detail: "Count all the tools (including the Intel and data-center breaks), hold one consistent yardstick, and stop quietly lowering the bar.", icon: Gauge },
-  { title: "Decide what the incentives are for", detail: "If Oregon gives up $275M of school revenue a year, it should know what it's buying — and let schools have a seat at the table.", icon: Scale },
+  { title: "Decide what the incentives are for", detail: "If Oregon gives up $275M of school revenue a year, it should know what it's buying, and let schools have a seat at the table.", icon: Scale },
 ];
 
 export const TRADEOFFS: Array<{ tension: string; left: string; right: string }> = [
   {
-    tension: "Centralize for clout — or keep oversight tight?",
+    tension: "Centralize for clout, or keep oversight tight?",
     left: "A bigger, governor-led Department of Commerce can move faster and punch harder.",
     right: "Indiana's centralized agency got a forensic audit and a board purge. More power needs more scrutiny.",
   },
   {
-    tension: "Chase big employers — or fund schools and services?",
+    tension: "Chase big employers, or fund schools and services?",
     left: "Incentives like Intel's SIP can anchor an industry and thousands of jobs.",
     right: "Those same breaks cost schools $275M in a year, with ROI ranging from $29 to barely $1 per dollar.",
   },
   {
-    tension: "Reorganize — or just execute?",
+    tension: "Reorganize, or just execute?",
     left: "A new structure can end the fragmentation and signal that Oregon is serious.",
     right: "A rename doesn't answer the phone, rebuild the website, or set an honest target. That's a culture, not an org chart.",
   },
@@ -657,7 +657,7 @@ export const CAVEATS = [
   "The “missed nine of ten years” line is directionally fair for recent years but mixes two measurement methods: the agency changed how it counts jobs in 2024 (FTE → QCEW), so a clean ten-year comparison isn't possible.",
   "“More than $1 billion a year” is biennial total funds, and most of it is bonded infrastructure finance that passes through the agency. The agency's operating footprint is far smaller.",
   "On unemployment: Oregon's 5.2% (April 2026) was higher than all but three states — California, Delaware, and Nevada, each 5.3%. D.C. (6.2%) is a federal district, not a state, and Oregon was tied with Washington state. “All but four states” overcounts D.C. as a state.",
-  "The two studies most cited to argue Oregon must “centralize” its economic development — the UO/IPRE report and ECONorthwest's work — were commissioned and steered by Business Oregon and the business lobby (Oregon Business & Industry, the Oregon Business Council). The data is real; the prescription is also the funders' policy preference.",
+  "The two studies most cited to argue Oregon must “centralize” its economic development, the UO/IPRE report and ECONorthwest's work, were commissioned and steered by Business Oregon and the business lobby (Oregon Business & Industry, the Oregon Business Council). The data is real; the prescription is also the funders' policy preference.",
   "The “Department of Commerce” recommendation comes from a confidential draft and could change before the final report (scheduled June 25, 2026; charter deadline June 30). It is not enacted policy.",
   "Several peer-state and incentive figures come from advocacy groups (Mackinac Center, Good Jobs First, Tax Fairness Oregon) or the agency's own studies; each is labeled where it appears.",
 ];

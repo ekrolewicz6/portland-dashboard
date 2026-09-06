@@ -124,7 +124,7 @@ export default function ReformSimulator() {
           {sim.crossoverYear && (
             <>
               {" "}(until <span className="font-mono">{sim.crossoverYear}</span>), then{" "}
-              <span className="text-[var(--color-fern)] font-semibold">less every year</span> — and
+              <span className="text-[var(--color-fern)] font-semibold">less every year</span>, and
               falls away once the liability is paid off in{" "}
               <span className="font-mono">{sim.fundedYear}</span>.
             </>
