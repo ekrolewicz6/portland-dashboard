@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { HousingData, ChartPoint, PermitBreakdown } from "@/lib/types";
 
@@ -25,7 +26,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
   try {
     // Check cache first
     const cached = await getCachedData<HousingData & { dataStatus: string }>(CACHE_KEY);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     // 1. Summary: total permits and average processing days
     const summaryRows = await sql`
@@ -37,7 +38,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
     `;
 
     if (!summaryRows || summaryRows.length === 0 || Number(summaryRows[0].total) === 0) {
-      return NextResponse.json({
+      return NextResponse.json(withFreshness({
         headline: "Housing permit data temporarily unavailable",
         headlineValue: 0,
         dataStatus: "unavailable",
@@ -49,7 +50,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
         source: "Portland Bureau of Development Services · PermitsNow",
         lastUpdated: new Date().toISOString().slice(0, 10),
         insights: ["Permit data is not currently available from the database."],
-      } as unknown as HousingData & { dataStatus: string });
+      } as unknown as HousingData & { dataStatus: string }));
     }
 
     const totalPermits = Number(summaryRows[0].total);
@@ -324,15 +325,15 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
         })()),
         ...(zoriData.length >= 2
           ? [`Portland median rent (Zillow ZORI): $${zoriData[zoriData.length - 1].value.toLocaleString()}/month (${zoriData[zoriData.length - 1].date.slice(0, 7)}). ${zoriData.length} monthly data points since ${zoriData[0].date.slice(0, 7)}.`]
-          : ["Median rent data unavailable -- run: npx tsx ingest/fetch-zillow-rents.ts"]),
+          : ["Median rent data is not currently loaded."]),
       ],
     };
 
     await setCachedData(CACHE_KEY, result);
-    return NextResponse.json(result);
+    return NextResponse.json(withFreshness(result));
   } catch (error) {
     console.error("[housing] DB query failed:", error);
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Housing data temporarily unavailable",
       headlineValue: 0,
       dataStatus: "unavailable",
@@ -343,7 +344,7 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
       medianRent: [],
       source: "Portland Bureau of Development Services · PermitsNow",
       lastUpdated: new Date().toISOString().slice(0, 10),
-      insights: ["Database connection failed. Housing data is temporarily unavailable."],
-    } as unknown as HousingData & { dataStatus: string });
+      insights: ["Housing data is not available right now."],
+    } as unknown as HousingData & { dataStatus: string }));
   }
 }

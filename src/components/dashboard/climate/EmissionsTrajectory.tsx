@@ -105,14 +105,24 @@ export default function EmissionsTrajectory() {
   const [activeChart, setActiveChart] = useState<"trajectory" | "sectors" | "percapita">("trajectory");
 
   useEffect(() => {
-    fetch("/api/dashboard/climate/emissions")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/climate/emissions", { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setActuals(d.actuals ?? []);
-        setSummary(d.summary ?? null);
-        setLoading(false);
+        if (!cancelled) setActuals(d.actuals ?? []);
+        if (!cancelled) setSummary(d.summary ?? null);
+        if (!cancelled) setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   if (loading) {

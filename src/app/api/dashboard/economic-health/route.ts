@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import {
   computeEmpiricalHealth,
@@ -265,7 +266,7 @@ function buildSnapshotInput(args: {
 export async function GET() {
   try {
     const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY, CACHE_TTL);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     const result = (await sql.unsafe(COMBINED_QUERY)) as unknown as Array<{ payload: Row }>;
     const p = result[0]?.payload ?? {};
@@ -463,7 +464,7 @@ export async function GET() {
     };
 
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (err) {
     console.error("Economic Health API error:", err);
     // "unavailable", not "error": the caller's question is whether there is
@@ -472,7 +473,7 @@ export async function GET() {
     // a distinct value here only meant the same condition rendered
     // differently depending on which topic you were reading. The cause is
     // logged above, where it is actionable.
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Economic health data temporarily unavailable",
       headlineValue: null,
       dataStatus: "unavailable",
@@ -484,6 +485,6 @@ export async function GET() {
       source: "BLS LAUS · BLS QCEW · Census BFS",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [],
-    });
+    }));
   }
 }

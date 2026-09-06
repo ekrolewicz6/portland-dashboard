@@ -42,13 +42,23 @@ export default function BudgetExplorer() {
   const [cutPct, setCutPct] = useState<0 | 3 | 10>(0);
 
   useEffect(() => {
-    fetch("/api/dashboard/fiscal/budget")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/fiscal/budget", { signal: controller.signal })
       .then((r) => r.json())
       .then((d: BudgetData) => {
-        setData(d);
-        setLoading(false);
+        if (!cancelled) setData(d);
+        if (!cancelled) setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   if (loading) {

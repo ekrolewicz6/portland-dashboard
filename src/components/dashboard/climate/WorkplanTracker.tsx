@@ -241,14 +241,24 @@ export default function WorkplanTracker() {
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
-    fetch("/api/dashboard/climate/workplan")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/climate/workplan", { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setActions(d.actions ?? []);
-        setSummary(d.summary ?? null);
-        setLoading(false);
+        if (!cancelled) setActions(d.actions ?? []);
+        if (!cancelled) setSummary(d.summary ?? null);
+        if (!cancelled) setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   const allBureaus = [...new Set(actions.flatMap((a) => a.leadBureaus))].sort();

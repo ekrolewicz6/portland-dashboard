@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +11,7 @@ export async function GET() {
   try {
     // Check cache first
     const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY, CACHE_TTL);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
     // Count ballot measures and sum annual revenue
     const measureRows = await sql`
       SELECT
@@ -98,10 +99,10 @@ export async function GET() {
     };
 
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (error) {
     console.error("[accountability] DB query failed:", error);
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Accountability data temporarily unavailable",
       headlineValue: 0,
       dataStatus: "unavailable",
@@ -113,6 +114,6 @@ export async function GET() {
       insights: [
         "Database connection failed. Accountability data is temporarily unavailable.",
       ],
-    });
+    }));
   }
 }

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
@@ -60,7 +61,7 @@ export async function GET() {
   try {
     // Check cache first
     const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     const result = await sql.unsafe(COMBINED_QUERY);
     const payload = (result[0]?.payload ?? {}) as Record<string, unknown>;
@@ -71,7 +72,7 @@ export async function GET() {
     const avgProficiency = payload.avg_proficiency as { school_year: string; avg_proficiency: number } | null;
 
     if (enrollmentLatest.length === 0) {
-      return NextResponse.json({
+      return NextResponse.json(withFreshness({
         headline: "Education data not yet available",
         headlineValue: 0,
         dataStatus: "unavailable",
@@ -89,7 +90,7 @@ export async function GET() {
         source: "Oregon Department of Education · Enrollment · Assessment · Graduation",
         lastUpdated: new Date().toISOString().slice(0, 10),
         insights: ["Run parse-education.ts to load ODE enrollment data"],
-      });
+      }));
     }
 
     const latest = enrollmentLatest[0];
@@ -166,7 +167,7 @@ export async function GET() {
     };
 
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
     console.error("Education API error:", message);
@@ -176,7 +177,7 @@ export async function GET() {
     // a distinct value here only meant the same condition rendered
     // differently depending on which topic you were reading. The cause is
     // logged above, where it is actionable.
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Education data temporarily unavailable",
       headlineValue: null,
       dataStatus: "unavailable",
@@ -187,6 +188,6 @@ export async function GET() {
       source: "Oregon Department of Education · Enrollment · Assessment · Graduation",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: ["Education data is not available right now."],
-    });
+    }));
   }
 }

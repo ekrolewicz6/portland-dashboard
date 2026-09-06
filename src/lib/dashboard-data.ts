@@ -15,10 +15,27 @@ export const QUESTIONS = [
   { id: "accountability", question: "What Have Voters Approved?", color: "#8a5c6a" },
 ] as const;
 
+/**
+ * Origin for this app's server-side fetches of its own API.
+ *
+ * Prefers the configured value. The Host header is only a fallback for local
+ * development: it is client-controllable, and behind a proxy that forwards it
+ * unchanged a spoofed Host would make the server fetch an attacker's origin
+ * and render whatever JSON came back as Portland's civic data.
+ */
 export async function getBaseUrl(): Promise<string> {
+  const configured = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  if (configured) return configured.replace(/\/$/, "");
+
   const hdrs = await headers();
   const host = hdrs.get("host") ?? "localhost:3000";
   const proto = hdrs.get("x-forwarded-proto") ?? "http";
+
+  if (process.env.NODE_ENV === "production") {
+    console.warn(
+      "[dashboard] NEXT_PUBLIC_APP_URL is not set; falling back to the Host header. Set it in production.",
+    );
+  }
   return `${proto}://${host}`;
 }
 

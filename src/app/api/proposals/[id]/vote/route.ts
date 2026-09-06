@@ -35,26 +35,35 @@ export async function POST(
   }
 
   try {
-    const deleted = await sql`
-      DELETE FROM proposal_votes
-      WHERE proposal_id = ${proposalId} AND member_id = ${member.id}
-      RETURNING proposal_id
-    `;
-    if (deleted.length === 0) {
-      await sql`
-        INSERT INTO proposal_votes (proposal_id, member_id)
-        VALUES (${proposalId}, ${member.id})
-        ON CONFLICT DO NOTHING
-      `;
-    }
-    const [count] = await sql`
-      SELECT COUNT(*)::int AS votes FROM proposal_votes WHERE proposal_id = ${proposalId}
-    `;
-    return NextResponse.json({
-      ok: true,
-      voted: deleted.length === 0,
-      votes: count.votes,
+    // Toggle and count in one transaction. Run as separate statements, a
+    // failure between the delete and the insert dropped the member's vote
+    // without replacing it, and the count could be read after another
+    // member's concurrent vote landed — so the number returned to the
+    // browser did not match the toggle it was reporting.
+    const { voted, votes } = await sql.begin(async (tx) => {
+      const deleted = await tx.unsafe(
+        `DELETE FROM proposal_votes
+          WHERE proposal_id = $1 AND member_id = $2
+        RETURNING proposal_id`,
+        [proposalId, member.id],
+      );
+      const nowVoted = deleted.length === 0;
+      if (nowVoted) {
+        await tx.unsafe(
+          `INSERT INTO proposal_votes (proposal_id, member_id)
+           VALUES ($1, $2)
+           ON CONFLICT DO NOTHING`,
+          [proposalId, member.id],
+        );
+      }
+      const rows = (await tx.unsafe(
+        `SELECT COUNT(*)::int AS votes FROM proposal_votes WHERE proposal_id = $1`,
+        [proposalId],
+      )) as unknown as { votes: number }[];
+      return { voted: nowVoted, votes: rows[0]?.votes ?? 0 };
     });
+
+    return NextResponse.json({ ok: true, voted, votes });
   } catch (error) {
     console.error("[proposals/vote] failed:", error);
     return NextResponse.json(

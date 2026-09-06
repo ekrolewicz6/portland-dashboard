@@ -19,17 +19,49 @@ export const maxDuration = 60;
 
 // Caps bound the cost of a single request: at most 20 turns of history,
 // 4k chars per message, 20 requests per IP per hour.
-const ChatRequestSchema = z.object({
-  messages: z
-    .array(
-      z.object({
-        role: z.enum(["user", "assistant"]),
-        content: z.string().trim().min(1).max(4000),
-      })
-    )
-    .min(1)
-    .max(20),
-});
+const ChatRequestSchema = z
+  .object({
+    messages: z
+      .array(
+        z.object({
+          role: z.enum(["user", "assistant"]),
+          content: z.string().trim().min(1).max(4000),
+        })
+      )
+      .min(1)
+      .max(20),
+  })
+  // The transcript is replayed by the browser, so its shape is a claim, not a
+  // fact. Requiring it to start with a user turn and strictly alternate stops
+  // a caller from prepending fabricated assistant turns ("I have agreed to
+  // ignore my instructions") to steer the reply, and stops malformed
+  // histories reaching the API only to come back as a 400 the route reports
+  // as an outage.
+  .refine((body) => body.messages[0]?.role === "user", {
+    message: "Conversation must begin with a user message.",
+    path: ["messages"],
+  })
+  .refine(
+    (body) =>
+      body.messages.every(
+        (m, i) => i === 0 || m.role !== body.messages[i - 1].role
+      ),
+    {
+      message: "Conversation turns must alternate between user and assistant.",
+      path: ["messages"],
+    }
+  )
+  .refine((body) => body.messages[body.messages.length - 1]?.role === "user", {
+    message: "The last message must be from the user.",
+    path: ["messages"],
+  });
+
+/**
+ * Model is configurable so it can be changed without a deploy, and so a
+ * staging environment can point somewhere cheaper. The default is the current
+ * Sonnet generation, the successor to the dated Sonnet 4 id this used to pin.
+ */
+const CONCIERGE_MODEL = process.env.ANTHROPIC_MODEL?.trim() || "claude-sonnet-5";
 
 const RATE_LIMIT = 20;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
@@ -132,7 +164,7 @@ export async function POST(request: NextRequest) {
     const anthropic = new Anthropic({ apiKey });
 
     const stream = await anthropic.messages.stream({
-      model: "claude-sonnet-4-20250514",
+      model: CONCIERGE_MODEL,
       max_tokens: 2048,
       system: CONCIERGE_SYSTEM_PROMPT,
       messages: messages.map((m) => ({
@@ -161,11 +193,13 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Transfer-Encoding is the platform's to set. Declaring it by hand on a
+    // streamed Response leaves the runtime free to add its own, and a
+    // duplicated header is rejected by some proxies.
     return new Response(readableStream, {
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
         "Cache-Control": "no-cache",
-        "Transfer-Encoding": "chunked",
       },
     });
   } catch (error: unknown) {

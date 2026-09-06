@@ -65,13 +65,23 @@ export default function NewsContext({ category }: { category: string }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/dashboard/news?category=${encodeURIComponent(category)}`)
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch(`/api/dashboard/news?category=${encodeURIComponent(category)}`, { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setStories(d.stories ?? []);
-        setLoaded(true);
+        if (!cancelled) setStories(d.stories ?? []);
+        if (!cancelled) setLoaded(true);
       })
-      .catch(() => setLoaded(true));
+      .catch(() => { if (!cancelled) setLoaded(true); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [category]);
 
   if (!loaded || stories.length === 0) return null;

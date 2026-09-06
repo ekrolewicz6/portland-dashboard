@@ -273,14 +273,19 @@ export default async function QuestionPage({ params }: PageProps) {
                   {data?.source ?? "Data collection in progress"}
                 </p>
               </div>
+              {/*
+                "Data Through" is derived from the data itself. The route's
+                own lastUpdated is a fallback, and today's date is not one at
+                all: printing the render time under a freshness label told
+                every visitor the data was current, most loudly when the
+                fetch had just failed and there was no data at all.
+              */}
               <div className="text-right">
                 <p className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.15em] mb-1">
                   {dataAsOf ? "Data Through" : "Last Checked"}
                 </p>
                 <p className="text-[14px] text-white/80 font-mono">
-                  {dataAsOf ??
-                    data?.lastUpdated ??
-                    new Date().toISOString().slice(0, 10)}
+                  {dataAsOf ?? data?.lastUpdated ?? "—"}
                 </p>
               </div>
             </div>

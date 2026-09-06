@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
@@ -36,7 +37,7 @@ const COMBINED_QUERY = `
 export async function GET() {
   try {
     const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY, CACHE_TTL);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     const result = await sql.unsafe(COMBINED_QUERY);
     const payload = (result[0]?.payload ?? {}) as Record<string, unknown>;
@@ -104,10 +105,10 @@ export async function GET() {
     };
 
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (error) {
     console.error("[quality] DB query failed:", error);
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Quality of Life data temporarily unavailable",
       headlineValue: 0,
       dataStatus: "unavailable",
@@ -118,6 +119,6 @@ export async function GET() {
       source: "Portland Parks & Recreation · PBOT · Multnomah County Library",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: ["Data temporarily unavailable."],
-    });
+    }));
   }
 }

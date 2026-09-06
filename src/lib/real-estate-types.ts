@@ -26,7 +26,13 @@ export interface Listing {
   description: string | null;
   amenities: string[];
   floor: string | null;
-  contact_email: string | null;
+  /**
+   * Deliberately absent from the public listings API. No view renders it, and
+   * publishing a contact address for every listing hands out a scrapeable
+   * mailing list. Read it server-side from real_estate.listings when a
+   * contact flow needs it.
+   */
+  contact_email?: never;
   lat: number | null;
   lon: number | null;
 }
