@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useEffect, useId, useRef, useState } from "react";
 import { Flag, X, CheckCircle2 } from "lucide-react";
 
 interface FlagDataButtonProps {
@@ -9,10 +9,75 @@ interface FlagDataButtonProps {
 
 type FlagState = "idle" | "submitting" | "success" | "error";
 
+/** Elements that can hold focus inside the dialog, in DOM order. */
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export default function FlagDataButton({ question }: FlagDataButtonProps) {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<FlagState>("idle");
   const [error, setError] = useState("");
+
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const headingId = useId();
+
+  const close = useCallback(() => setOpen(false), []);
+
+  // Move focus into the dialog on open and hand it back to the trigger on close,
+  // so keyboard users never land behind the overlay.
+  useEffect(() => {
+    if (!open) return;
+
+    const panel = dialogRef.current;
+    const trigger = triggerRef.current;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    // Land on the first real field rather than the close button, so the
+    // dialog opens ready to type in.
+    const fields = panel
+      ? Array.from(
+          panel.querySelectorAll<HTMLElement>("input, textarea, select")
+        ).filter((el) => el.offsetParent !== null)
+      : [];
+    const first = fields[0] ?? panel?.querySelector<HTMLElement>(FOCUSABLE);
+    first?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.stopPropagation();
+        close();
+        return;
+      }
+      if (event.key !== "Tab" || !panel) return;
+
+      const focusable = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+        (el) => el.offsetParent !== null || el === document.activeElement
+      );
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstEl = focusable[0];
+      const lastEl = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === firstEl || !panel.contains(active))) {
+        event.preventDefault();
+        lastEl.focus();
+      } else if (!event.shiftKey && (active === lastEl || !panel.contains(active))) {
+        event.preventDefault();
+        firstEl.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown, true);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown, true);
+      (trigger ?? previouslyFocused)?.focus();
+    };
+  }, [open, close]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -47,6 +112,7 @@ export default function FlagDataButton({ question }: FlagDataButtonProps) {
   return (
     <>
       <button
+        ref={triggerRef}
         onClick={() => {
           setOpen(true);
           setState("idle");
@@ -61,18 +127,25 @@ export default function FlagDataButton({ question }: FlagDataButtonProps) {
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
-          onClick={() => setOpen(false)}
+          onClick={close}
         >
           <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={headingId}
             className="w-full max-w-md rounded-sm border border-[var(--color-parchment)] bg-white p-6 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
-              <h2 className="font-editorial text-[22px] leading-tight text-[var(--color-ink)]">
+              <h2
+                id={headingId}
+                className="font-editorial text-[22px] leading-tight text-[var(--color-ink)]"
+              >
                 Something look wrong?
               </h2>
               <button
-                onClick={() => setOpen(false)}
+                onClick={close}
                 aria-label="Close"
                 className="text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]"
               >

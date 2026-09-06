@@ -12,10 +12,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
+import type { JsonValue } from "./lib/json";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 const DATA_DIR = path.resolve(import.meta.dirname ?? ".", "..", "data");
 
 fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -74,18 +74,38 @@ interface EstablishmentRecord {
   size_code: string;
 }
 
-interface OregonBusiness {
+type OregonBusiness = {
   registry_number?: string;
   business_name?: string;
+  /** Some registry datasets label the name column this way instead. */
+  entity_name?: string;
   entity_type?: string;
   registry_date?: string;
   state?: string;
   associated_name_type?: string;
   city?: string;
   zip_code?: string;
-  // Socrata fields vary — accept anything
-  [key: string]: unknown;
+  // Socrata fields vary by dataset, and the whole record is stored as JSONB,
+  // so anything the API returns is accepted.
+  [key: string]: JsonValue | undefined;
+};
+
+/** The catalog search endpoint's hit list; other fields are ignored. */
+interface SocrataCatalogSearch {
+  results?: {
+    name?: string;
+    resource?: { id?: string; name?: string };
+  }[];
 }
+
+/**
+ * A resource query answers with the rows themselves, or — still under HTTP
+ * 200 — with an error envelope, so both have to be described.
+ */
+type SocrataResource = OregonBusiness[] & {
+  error?: boolean | string;
+  message?: string;
+};
 
 // ── 1. BLS API ──────────────────────────────────────────────────────────
 
@@ -288,7 +308,7 @@ async function fetchOregonBusinesses(): Promise<OregonBusiness[]> {
   try {
     const searchRes = await fetch(searchUrl);
     if (searchRes.ok) {
-      const searchData = await searchRes.json();
+      const searchData = (await searchRes.json()) as SocrataCatalogSearch;
       const results = searchData.results ?? [];
       for (const r of results) {
         const rid = r.resource?.id;
@@ -328,14 +348,18 @@ async function fetchOregonBusinesses(): Promise<OregonBusiness[]> {
           continue;
         }
 
-        const json = await res.json();
+        const json = (await res.json()) as SocrataResource;
 
         if (json.error || json.message) {
+          // `error` is usually just the boolean flag, so it only stands in as
+          // the detail when the endpoint sends text instead.
           log.record(
             "data.oregon.gov",
             url,
             "fail",
-            json.message ?? json.error ?? "Unknown error"
+            json.message ??
+              (typeof json.error === "string" ? json.error : null) ??
+              "Unknown error"
           );
           continue;
         }
@@ -607,7 +631,7 @@ async function insertIntoDb(
               (registry_number, business_name, entity_type, registry_date, city, state, zip_code, raw_data)
             VALUES (
               ${String(regNum)},
-              ${r.business_name ?? (r as any).entity_name ?? null},
+              ${r.business_name ?? r.entity_name ?? null},
               ${r.entity_type ?? null},
               ${r.registry_date ? String(r.registry_date).slice(0, 10) : null}::date,
               ${r.city ?? null},

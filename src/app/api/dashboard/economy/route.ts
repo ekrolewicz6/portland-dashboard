@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
@@ -70,7 +71,7 @@ export async function GET() {
   try {
     // Check cache first
     const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY, CACHE_TTL);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     const result = await sql.unsafe(COMBINED_QUERY);
     const payload = (result[0]?.payload ?? {}) as Record<string, unknown>;
@@ -195,20 +196,26 @@ export async function GET() {
     };
 
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (err) {
     console.error("Economy API error:", err);
-    return NextResponse.json({
+    // "unavailable", not "error": the caller's question is whether there is
+    // anything to show, and the answer is no. Every other topic route uses
+    // that value, the dashboard hub and the cache layer both key on it, and
+    // a distinct value here only meant the same condition rendered
+    // differently depending on which topic you were reading. The cause is
+    // logged above, where it is actionable.
+    return NextResponse.json(withFreshness({
       headline: "Economy data temporarily unavailable",
-      headlineValue: 0,
-      dataStatus: "error",
+      headlineValue: null,
+      dataStatus: "unavailable",
       dataAvailable: false,
       dataSources: [],
       trend: { direction: "flat" as const, percentage: 0, label: "error" },
       chartData: [],
       source: "Bureau of Labor Statistics · QCEW · LAUS · Census Bureau · CBP · SUSB",
       lastUpdated: new Date().toISOString().slice(0, 10),
-      insights: ["Database connection error."],
-    });
+      insights: ["Economy data is not available right now."],
+    }));
   }
 }

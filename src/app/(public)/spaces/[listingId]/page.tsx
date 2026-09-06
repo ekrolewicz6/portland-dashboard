@@ -31,28 +31,38 @@ export default function ListingDetailPage({ params }: PageProps) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
     async function fetchListing() {
       try {
         const res = await fetch(
           `/api/real-estate/listings?id=${listingId}`,
         );
         if (!res.ok) {
-          setError(true);
+          if (!cancelled) setError(true);
           return;
         }
         const data = await res.json();
         if (data.error) {
-          setError(true);
+          if (!cancelled) setError(true);
           return;
         }
-        setListing(data);
+        if (!cancelled) setListing(data);
       } catch {
-        setError(true);
+        if (!cancelled) setError(true);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     }
     fetchListing();
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [listingId]);
 
   if (loading) {

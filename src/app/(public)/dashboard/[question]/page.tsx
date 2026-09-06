@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, BookOpen, MapPin } from "lucide-react";
 import { isValidQuestion, questionMeta } from "@/lib/questions";
 import { deriveDataAsOf } from "@/lib/data-freshness";
+import { getTrendPillClass } from "@/lib/utils";
 import { getBaseUrl } from "@/lib/dashboard-data";
 import type { DashboardResponse } from "@/lib/types";
 import TrendChart from "@/components/charts/TrendChart";
@@ -17,7 +18,6 @@ import FiscalDetail from "@/components/dashboard/fiscal/FiscalDetail";
 import HomelessnessDetail from "@/components/dashboard/homelessness/HomelessnessDetail";
 import TransportationDetail from "@/components/dashboard/transportation/TransportationDetail";
 import EducationDetail from "@/components/dashboard/education/EducationDetail";
-import EnvironmentDetail from "@/components/dashboard/environment/EnvironmentDetail";
 import QualityDetail from "@/components/dashboard/quality/QualityDetail";
 import AccountabilityDetail from "@/components/dashboard/accountability/AccountabilityDetail";
 import ClimateDetail from "@/components/dashboard/climate/ClimateDetail";
@@ -91,7 +91,6 @@ const detailComponents: Record<string, React.ComponentType> = {
   fiscal: FiscalDetail,
   economy: EconomyDetail,
   "economic-health": EconomicHealthDetail,
-  environment: EnvironmentDetail,
   quality: QualityDetail,
   accountability: AccountabilityDetail,
   climate: ClimateDetail,
@@ -162,14 +161,14 @@ export default async function QuestionPage({ params }: PageProps) {
 
           {data?.trend && (
             <div className="mt-6 flex items-center gap-4">
+              {/*
+                Colour comes from getTrendPillClass, not from the raw
+                direction: for crime, taxes and homelessness a rise is bad
+                news, and a green "+12%" pill on those topics reads as
+                progress.
+              */}
               <span
-                className={`trend-pill ${
-                  data.trend.direction === "up"
-                    ? "trend-positive"
-                    : data.trend.direction === "down"
-                      ? "trend-negative"
-                      : "trend-neutral"
-                }`}
+                className={`trend-pill ${getTrendPillClass(data.trend.direction, question)}`}
               >
                 {data.trend.direction === "up"
                   ? "+"
@@ -274,14 +273,19 @@ export default async function QuestionPage({ params }: PageProps) {
                   {data?.source ?? "Data collection in progress"}
                 </p>
               </div>
+              {/*
+                "Data Through" is derived from the data itself. The route's
+                own lastUpdated is a fallback, and today's date is not one at
+                all: printing the render time under a freshness label told
+                every visitor the data was current, most loudly when the
+                fetch had just failed and there was no data at all.
+              */}
               <div className="text-right">
                 <p className="text-[11px] font-semibold text-[var(--color-ember)] uppercase tracking-[0.15em] mb-1">
                   {dataAsOf ? "Data Through" : "Last Checked"}
                 </p>
                 <p className="text-[14px] text-white/80 font-mono">
-                  {dataAsOf ??
-                    data?.lastUpdated ??
-                    new Date().toISOString().slice(0, 10)}
+                  {dataAsOf ?? data?.lastUpdated ?? "—"}
                 </p>
               </div>
             </div>

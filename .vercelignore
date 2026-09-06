@@ -7,6 +7,15 @@
 /.claude
 /test-results
 /coverage
+
+# Committed research corpora and published report artifacts (~42 MB).
+# Nothing under src/ reads either directory at runtime: the only references
+# are provenance comments naming a file, plus a link in the libraries deep
+# dive to /reports/... which resolves against public/ and is already broken.
+# Runtime assets belong in public/.
+/reports
+/research
+
 *.dump
 *.sql.gz
 *.pdf

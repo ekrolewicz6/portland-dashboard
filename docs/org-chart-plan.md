@@ -120,8 +120,8 @@ render, node-selection detail, API shape).
 **Design decision — reference data, not a database table.** The structure is
 hand-curated, version-controlled TS rather than DB rows because it changes only
 a few times a year, every node needs a citable source reviewable in a PR, and it
-must render with zero runtime dependencies (no DB round-trip, works in the
-mock-data path on Vercel). A DB projection can be added later if SQL querying is
+must render with zero runtime dependencies (no DB round-trip, so it renders
+even when the database is unavailable). A DB projection can be added later if SQL querying is
 needed (see §6).
 
 ## 5. Methodology & honesty rules

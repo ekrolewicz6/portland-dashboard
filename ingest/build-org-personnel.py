@@ -1,6 +1,16 @@
-import re, json, openpyxl
-budget=json.load(open("/tmp/org_personnel_budget.json"))
-XLSX="/Users/edankrolewicz/Downloads/FY-25-26-City-of-Portland-Comp-Plan_0.xlsx"
+import os, re, json, openpyxl
+budget=json.load(open(os.environ.get("ORG_PERSONNEL_BUDGET_JSON", "/tmp/org_personnel_budget.json")))
+# The Compensation Plan workbook is a manual download, so its location differs per
+# machine and per budget year; naming it here would only ever be right on one laptop.
+XLSX=os.environ.get("COMP_PLAN_XLSX")
+if not XLSX:
+    raise SystemExit(
+        "COMP_PLAN_XLSX is not set. Point it at the downloaded FY City of Portland "
+        "Compensation Plan workbook, e.g.\n"
+        "  COMP_PLAN_XLSX=~/Downloads/FY-25-26-City-of-Portland-Comp-Plan_0.xlsx "
+        "python3 ingest/build-org-personnel.py"
+    )
+XLSX=os.path.expanduser(XLSX)
 wb=openpyxl.load_workbook(XLSX, read_only=True, data_only=True); ws=wb.active
 rows=list(ws.iter_rows(values_only=True)); hdr=None
 for i,r in enumerate(rows):

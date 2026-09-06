@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import sql from "@/lib/db-query";
 import { isAuthorizedCronRequest } from "@/lib/cron-auth";
 
+/** Upper bound on one CSV download. Larger payload, so larger budget. */
+const FETCH_TIMEOUT_MS = 120_000;
+
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
 
@@ -39,7 +42,10 @@ function parseCSVRow(line: string): string[] {
 
 async function fetchYearCSV(year: number): Promise<string[][]> {
   const url = `${CSV_BASE}${year}.csv?:showVizHome=no`;
-  const res = await fetch(url);
+  // The CSV is large, so this is more generous than the ArcGIS timeouts,
+  // but it is still bounded: without it a stalled download consumes the
+  // whole function budget and the sync reports nothing at all.
+  const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
   if (!res.ok) throw new Error(`HTTP ${res.status} for year ${year}`);
   const text = await res.text();
   const lines = text.split("\n").filter((l) => l.trim());
@@ -150,18 +156,23 @@ export async function GET(request: NextRequest) {
   try {
     const [before] = await sql`SELECT COUNT(*)::int as cnt FROM safety.ppb_offenses`;
     let totalAffected = 0;
+    let rowsParsed = 0;
+    let batchErrors = 0;
 
     for (const year of yearsToSync) {
       const csvRows = await fetchYearCSV(year);
       const rows = csvRows.map(csvToRow).filter(Boolean) as OffenseRow[];
+      rowsParsed += rows.length;
       console.log(`[sync-crime] ${year}: ${rows.length} rows from CSV`);
 
       for (let i = 0; i < rows.length; i += 500) {
         const batch = rows.slice(i, i + 500);
         try {
           totalAffected += await upsertBatch(batch);
-        } catch (err: any) {
-          console.error(`[sync-crime] batch error ${year}@${i}: ${err.message}`);
+        } catch (err) {
+          batchErrors++;
+          const message = err instanceof Error ? err.message : String(err);
+          console.error(`[sync-crime] batch error ${year}@${i}: ${message}`);
         }
       }
     }
@@ -174,20 +185,32 @@ export async function GET(request: NextRequest) {
       await sql`DELETE FROM public.dashboard_cache WHERE question IN ('safety', 'safety_detail')`;
     }
 
-    return NextResponse.json({
-      ok: true,
-      ms: Date.now() - t0,
-      yearsSynced: yearsToSync,
-      before: before.cnt,
-      after: after.cnt,
-      netNew: Number(after.cnt) - Number(before.cnt),
-      rowsAffected: totalAffected,
-      latestDate: after.max_date,
-    });
-  } catch (err: any) {
-    console.error(`[sync-crime] FATAL: ${err.message}`);
+    // Parsing rows and writing none of them is a failed run — most often a
+    // missing unique constraint, which makes every ON CONFLICT batch throw.
+    // Reported as 5xx so the scheduler records it rather than showing a
+    // healthy run that moved no data.
+    const failed = rowsParsed > 0 && totalAffected === 0;
+
     return NextResponse.json(
-      { ok: false, error: err.message, ms: Date.now() - t0 },
+      {
+        ok: !failed,
+        ms: Date.now() - t0,
+        yearsSynced: yearsToSync,
+        before: before.cnt,
+        after: after.cnt,
+        netNew: Number(after.cnt) - Number(before.cnt),
+        rowsParsed,
+        rowsAffected: totalAffected,
+        batchErrors,
+        latestDate: after.max_date,
+      },
+      { status: failed ? 500 : 200 },
+    );
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`[sync-crime] FATAL: ${message}`);
+    return NextResponse.json(
+      { ok: false, error: message, ms: Date.now() - t0 },
       { status: 500 },
     );
   }

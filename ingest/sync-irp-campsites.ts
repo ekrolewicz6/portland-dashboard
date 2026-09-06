@@ -91,6 +91,16 @@ function epochToTimestamp(epoch: number | null | undefined): string | null {
   return d.toISOString();
 }
 
+/**
+ * ArcGIS answers `f=json` queries with HTTP 200 even when the query failed,
+ * so the error envelope is part of the same shape.
+ */
+interface ArcGISQueryResponse {
+  features?: { attributes: Record<string, unknown>; geometry?: unknown }[];
+  exceededTransferLimit?: boolean;
+  error?: { code?: number; message?: string };
+}
+
 async function fetchPage(
   where: string,
   offset: number,
@@ -118,7 +128,7 @@ async function fetchPage(
         }
         throw new Error(`HTTP ${res.status} after ${retries} attempts`);
       }
-      const data = await res.json();
+      const data = (await res.json()) as ArcGISQueryResponse;
       if (data.error) {
         throw new Error(`ArcGIS error: ${data.error.message}`);
       }

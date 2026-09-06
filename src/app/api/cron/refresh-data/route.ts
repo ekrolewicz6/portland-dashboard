@@ -396,21 +396,27 @@ async function refreshZillowRent(): Promise<RefreshResult> {
     };
   }
 
-  // Truncate and re-insert (matching the seed script pattern)
-  await sql`TRUNCATE public.housing_rents RESTART IDENTITY`;
-
+  // Replace the metro series in one transaction.
+  //
+  // This was a bare TRUNCATE followed by a row-at-a-time insert loop with each
+  // error swallowed. Anything that interrupted the loop — a dropped
+  // connection, the function's 300s deadline — left the table empty or half
+  // filled, and because the cache is only cleared when rows land, the rent
+  // chart served stale data for an hour and then went blank. Inside a
+  // transaction the old rows survive until the new ones are committed.
+  //
+  // Only the metro rows are removed: other geographies in this table are
+  // loaded by other jobs and are not this function's to delete.
   let inserted = 0;
-  for (const dp of dataPoints) {
-    try {
-      await sql`
-        INSERT INTO public.housing_rents (month, zip_code, zori)
-        VALUES (${dp.month}::date, 'metro', ${dp.zori})
-      `;
-      inserted++;
-    } catch {
-      // skip individual row errors
-    }
-  }
+  await sql.begin(async (tx) => {
+    await tx.unsafe(`DELETE FROM public.housing_rents WHERE zip_code = 'metro'`);
+    const result = await tx.unsafe(
+      `INSERT INTO public.housing_rents (month, zip_code, zori)
+       SELECT unnest($1::date[]), 'metro', unnest($2::numeric[])`,
+      [dataPoints.map((d) => d.month), dataPoints.map((d) => d.zori)],
+    );
+    inserted = result.count ?? dataPoints.length;
+  });
 
   // Also update zillow_metrics
   try {
@@ -997,8 +1003,14 @@ export async function GET(request: NextRequest) {
   const url = new URL(request.url);
   const scopeParam = url.searchParams.get("scope") as Scope | null;
 
-  // Two Vercel cron entries share this path; the schedule header tells us
-  // which one fired (query strings aren't reliable in cron paths).
+  // Two Vercel cron entries drive this route. They are distinguished by the
+  // ?scope= query string in vercel.json, which is part of the cron path and
+  // arrives as an ordinary search param.
+  //
+  // The schedule header below is a documented Vercel behaviour we do not rely
+  // on: it is kept only so a cron entry that predates the query strings still
+  // does the right thing rather than silently running the full monthly suite
+  // every week.
   const WEEKLY_ZILLOW_SCHEDULE = "20 7 * * 4";
   const cronSchedule = request.headers.get("x-vercel-cron-schedule");
 

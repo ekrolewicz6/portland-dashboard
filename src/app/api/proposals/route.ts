@@ -39,7 +39,7 @@ export async function GET() {
         p.created_at,
         COALESCE(m.first_name, 'A member') AS proposer,
         COUNT(v.member_id)::int AS votes,
-        BOOL_OR(v.member_id = ${member?.id ?? -1}) AS voted
+        COALESCE(BOOL_OR(v.member_id = ${member?.id ?? -1}), false) AS voted
       FROM topic_proposals p
       JOIN members m ON m.id = p.member_id
       LEFT JOIN proposal_votes v ON v.proposal_id = p.id

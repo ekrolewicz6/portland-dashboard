@@ -98,3 +98,30 @@ export function deriveDataAsOf(
   }
   return best?.label ?? null;
 }
+
+/**
+ * The most recent period in the chart data as a sortable ISO prefix
+ * ("2026-04", or "2026" when only the year is known), or null when the dates
+ * are not parseable as periods.
+ *
+ * Pairs with deriveDataAsOf: that one is for reading, this one is for the API
+ * payload, where a machine consumer needs to compare and sort.
+ */
+export function deriveDataThrough(
+  chartData?: { date: string }[] | null
+): string | null {
+  if (!chartData?.length) return null;
+  let best: ParsedPoint | null = null;
+  for (const point of chartData) {
+    const parsed = parsePoint(point.date);
+    if (parsed && (!best || parsed.sortKey > best.sortKey)) best = parsed;
+  }
+  if (!best) return null;
+
+  const year = Math.floor(best.sortKey / 12);
+  const month = (best.sortKey % 12) + 1;
+  // A whole-year label carries no month; parsePoint encodes those as January,
+  // so only emit a month when the label actually names one.
+  const namesMonth = /[A-Za-z]/.test(best.label) && !/^\d{4}$/.test(best.label.trim());
+  return namesMonth ? `${year}-${String(month).padStart(2, "0")}` : String(year);
+}

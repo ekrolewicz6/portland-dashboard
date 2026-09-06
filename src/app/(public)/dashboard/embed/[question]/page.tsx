@@ -3,6 +3,7 @@ import { isValidQuestion, questionMeta } from "@/lib/questions";
 import type { DashboardResponse } from "@/lib/types";
 import Sparkline from "@/components/charts/Sparkline";
 import { getBaseUrl } from "@/lib/dashboard-data";
+import { getTrendPillClass } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{ question: string }>;
@@ -71,12 +72,9 @@ export default async function EmbedPage({ params }: PageProps) {
 
   const sparklineData = data.chartData.map((d) => ({ value: d.value }));
 
-  const trendClass =
-    data.trend.direction === "up"
-      ? "trend-positive"
-      : data.trend.direction === "down"
-        ? "trend-negative"
-        : "trend-neutral";
+  // Same polarity rule as the full dashboard page: an embed that colours a
+  // rise in crime green would be worse than one with no colour at all.
+  const trendClass = getTrendPillClass(data.trend.direction, question);
 
   return (
     <div

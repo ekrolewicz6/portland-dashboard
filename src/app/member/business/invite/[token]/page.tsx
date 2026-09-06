@@ -30,13 +30,23 @@ export default async function AcceptInvitePage({
   const member = await getMemberByWorkOSId(user.id);
   const invite = await getInviteByToken(token);
 
+  // An invite is addressed to one email. Showing the accept button to a
+  // member signed in as somebody else would only produce a silent redirect,
+  // so tell them which account the invitation is for instead.
+  const addressedToViewer =
+    invite !== null &&
+    member !== null &&
+    invite.email.trim().toLowerCase() === member.email.trim().toLowerCase();
+
   async function handleAccept() {
     "use server";
     const { user: u } = await withAuth({ ensureSignedIn: true });
     const m = await getMemberByWorkOSId(u.id);
     if (!m || m.status !== "active") redirect("/member");
 
-    const accepted = await acceptInvite(token, m.id);
+    // The invite is bound to the address it was sent to; holding the link is
+    // not enough. acceptInvite returns null when it was addressed elsewhere.
+    const accepted = await acceptInvite(token, m.id, m.email);
     redirect(
       accepted ? `/member/business/${accepted.business_slug}` : "/member"
     );
@@ -47,7 +57,25 @@ export default async function AcceptInvitePage({
       <Header member={toHeaderMember(user, member)} />
 
       <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-8 py-16 sm:py-24">
-        {invite ? (
+        {invite && !addressedToViewer ? (
+          <>
+            <h1 className="font-editorial-normal text-[34px] text-[var(--color-ink)] leading-tight">
+              This invitation is for a different account
+            </h1>
+            <p className="mt-4 text-[15px] text-[var(--color-ink-light)] leading-relaxed">
+              It was sent to {invite.email}, and you are signed in as{" "}
+              {member?.email ?? "another account"}. Sign in with the invited
+              address to accept it, or ask whoever invited you to send a new
+              invitation to the address you use here.
+            </p>
+            <Link
+              href="/member"
+              className="mt-6 inline-block text-[14px] font-semibold text-[var(--color-canopy)] hover:underline"
+            >
+              Back to your member area
+            </Link>
+          </>
+        ) : invite ? (
           <>
             <div className="flex items-center gap-3 mb-5">
               <div className="w-8 h-px bg-[var(--color-ember)]" />

@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import sql from "@/lib/db-query";
 import { isAuthorizedCronRequest } from "@/lib/cron-auth";
 
+/** Upper bound on any single upstream request. */
+const FETCH_TIMEOUT_MS = 30_000;
+
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
 
@@ -74,7 +77,10 @@ async function fetchPage(
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(`${ARCGIS_URL}?${params}`);
+      // Bounded so a hung upstream cannot eat the entire maxDuration budget.
+      const res = await fetch(`${ARCGIS_URL}?${params}`, {
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      });
       if (!res.ok) {
         if (attempt < retries) {
           await new Promise((r) => setTimeout(r, attempt * 3000));
@@ -194,12 +200,15 @@ export async function GET(request: NextRequest) {
       .filter(Boolean) as CampsiteRow[];
 
     let totalAffected = 0;
+    let batchErrors = 0;
     for (let i = 0; i < rows.length; i += INSERT_BATCH) {
       const batch = rows.slice(i, i + INSERT_BATCH);
       try {
         totalAffected += await upsertBatch(batch);
-      } catch (err: any) {
-        console.error(`[sync-campsites] batch error at ${i}: ${err.message}`);
+      } catch (err) {
+        batchErrors++;
+        const message = err instanceof Error ? err.message : String(err);
+        console.error(`[sync-campsites] batch error at ${i}: ${message}`);
       }
     }
 
@@ -218,12 +227,16 @@ export async function GET(request: NextRequest) {
       `;
     }
 
+    // Rows fetched but none written is a failed run, not a quiet one.
+    const failed = rows.length > 0 && totalAffected === 0;
+
     const result = {
-      ok: true,
+      ok: !failed,
       ms: Date.now() - t0,
       fetched: allFeatures.length,
       upserted: rows.length,
       affected: totalAffected,
+      batchErrors,
       before: state.total,
       after: after.total,
       netNew: Number(after.total) - Number(state.total),
@@ -233,11 +246,12 @@ export async function GET(request: NextRequest) {
     console.log(
       `[sync-campsites] Done: +${result.netNew} new, ${totalAffected} affected, ${Date.now() - t0}ms`,
     );
-    return NextResponse.json(result);
-  } catch (err: any) {
-    console.error(`[sync-campsites] FATAL: ${err.message}`);
+    return NextResponse.json(result, { status: failed ? 500 : 200 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`[sync-campsites] FATAL: ${message}`);
     return NextResponse.json(
-      { ok: false, error: err.message, ms: Date.now() - t0 },
+      { ok: false, error: message, ms: Date.now() - t0 },
       { status: 500 },
     );
   }

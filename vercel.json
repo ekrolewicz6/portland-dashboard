@@ -33,8 +33,12 @@
       "schedule": "0 7 3 * *"
     },
     {
-      "path": "/api/cron/refresh-data",
+      "path": "/api/cron/refresh-data?scope=zillow",
       "schedule": "20 7 * * 4"
+    },
+    {
+      "path": "/api/cron/sync-performance",
+      "schedule": "0 9 * * 1"
     }
   ]
 }

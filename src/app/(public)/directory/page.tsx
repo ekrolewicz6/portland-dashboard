@@ -181,6 +181,7 @@ export default function DirectoryPage() {
                   <button
                     disabled={page === 1}
                     onClick={() => setPage(page - 1)}
+                    aria-label="Previous page"
                     className="w-11 h-11 flex items-center justify-center rounded-sm border border-[var(--color-parchment)] text-[var(--color-ink-muted)] hover:border-[var(--color-sage)] hover:text-[var(--color-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
                   >
                     <ChevronLeft className="w-4 h-4" />
@@ -212,6 +213,7 @@ export default function DirectoryPage() {
                   <button
                     disabled={page === totalPages}
                     onClick={() => setPage(page + 1)}
+                    aria-label="Next page"
                     className="w-11 h-11 flex items-center justify-center rounded-sm border border-[var(--color-parchment)] text-[var(--color-ink-muted)] hover:border-[var(--color-sage)] hover:text-[var(--color-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
                   >
                     <ChevronRight className="w-4 h-4" />

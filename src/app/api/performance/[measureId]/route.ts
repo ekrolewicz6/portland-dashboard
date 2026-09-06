@@ -27,7 +27,9 @@ export async function GET(
     return NextResponse.json(
       {
         ok: false,
-        error: error instanceof Error ? error.message : "Performance metric failed",
+        // A fixed message. Internal error text names tables, upstream
+        // hosts and query fragments, none of which the caller can act on.
+        error: "Performance metric failed",
       },
       { status: 500 },
     );

@@ -8,10 +8,9 @@
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 const PARKS_URL =
   "https://www.portlandmaps.com/arcgis/rest/services/Public/Parks_Misc/MapServer/2/query";
@@ -54,7 +53,7 @@ async function fetchAllPages(
       throw new Error(`ArcGIS returned HTTP ${res.status} for ${label}`);
     }
 
-    const data: ArcGISResponse = await res.json();
+    const data = (await res.json()) as ArcGISResponse;
     const features = data.features ?? [];
     console.log(`    Got ${features.length} features`);
 

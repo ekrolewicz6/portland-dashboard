@@ -61,6 +61,7 @@ export default function DirectorySearch({
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[var(--color-ink-muted)]" />
         <input
           type="text"
+          aria-label="Search Portland businesses by name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search Portland businesses by name..."
@@ -69,6 +70,7 @@ export default function DirectorySearch({
         {search && (
           <button
             onClick={() => setSearch("")}
+            aria-label="Clear search"
             className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] transition-colors"
           >
             <X className="w-3.5 h-3.5" />
@@ -117,6 +119,7 @@ export default function DirectorySearch({
             </h4>
             <button
               onClick={() => setFilterOpen(false)}
+              aria-label="Close entity type filter"
               className="p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]"
             >
               <X className="w-3.5 h-3.5" />

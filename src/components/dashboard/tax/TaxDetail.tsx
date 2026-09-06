@@ -236,10 +236,20 @@ export default function TaxDetail() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("/api/dashboard/tax/detail")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/tax/detail", { signal: controller.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then(setData)
-      .catch(() => setError(true));
+      .catch(() => { if (!cancelled) setError(true); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   if (error) {

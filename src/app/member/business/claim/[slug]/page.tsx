@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { toHeaderMember } from "@/lib/member-nav";
 import { getMemberByWorkOSId } from "@/lib/membership";
 import {
+  canMemberClaimBusiness,
   claimBusiness,
   formatUsd,
   getBusinessBySlug,
@@ -45,7 +46,16 @@ export default async function ClaimBusinessPage({
     redirect(`/member/business/${business.slug}`);
   }
 
-  const matches = business.claimed ? [] : await getMatchesForBusiness(business.id);
+  // Slugs are derived from business names, so reaching this URL proves
+  // nothing. Only a member this business was actually prepared for sees its
+  // researched funding pipeline, and only they are offered the claim button.
+  const mayClaim =
+    member !== null &&
+    member.status === "active" &&
+    (await canMemberClaimBusiness(business.id, member.email));
+
+  const matches =
+    !business.claimed && mayClaim ? await getMatchesForBusiness(business.id) : [];
   const summary = summarizeMatches(matches);
 
   async function handleClaim() {
@@ -55,8 +65,10 @@ export default async function ClaimBusinessPage({
     if (!m || m.status !== "active") redirect("/member");
     if (!business) redirect("/member");
 
-    const claimed = await claimBusiness(business.id, m.id);
-    redirect(claimed ? `/member/business/${business.slug}` : "/member");
+    // claimBusiness re-checks authorization and claim state inside one
+    // transaction; the page-level check above only decides what to render.
+    const result = await claimBusiness(business.id, m.id, m.email);
+    redirect(result.ok ? `/member/business/${business.slug}` : "/member");
   }
 
   return (
@@ -73,6 +85,25 @@ export default async function ClaimBusinessPage({
               Someone on the team claimed this profile already. If that
               wasn&apos;t you and it should have been, get in touch and
               we&apos;ll sort it out.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-block text-[14px] font-semibold text-[var(--color-canopy)] hover:underline"
+            >
+              Contact Portland Civic Lab →
+            </Link>
+          </>
+        ) : !mayClaim ? (
+          <>
+            <h1 className="font-editorial-normal text-[34px] text-[var(--color-ink)] leading-tight">
+              This profile isn&apos;t open for you to claim
+            </h1>
+            <p className="mt-4 text-[15px] text-[var(--color-ink-light)] leading-relaxed">
+              Claiming a business makes you its owner on Portland Civic Lab and
+              opens its funding pipeline, so we only open it to the address we
+              have on file for the owner. You are signed in as {user.email}. If
+              this is your business, get in touch and we&apos;ll open the claim
+              to the address you use here.
             </p>
             <Link
               href="/contact"

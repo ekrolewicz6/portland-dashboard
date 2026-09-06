@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import type { MigrationData } from "@/lib/types";
 import sql from "@/lib/db-query";
 
@@ -26,7 +27,7 @@ export async function GET(): Promise<
     const hasData = censusRows.length > 0;
 
     if (!hasData) {
-      return NextResponse.json({
+      return NextResponse.json(withFreshness({
         headline: "Migration data not yet available",
         headlineValue: 0,
         dataStatus: "unavailable",
@@ -46,13 +47,16 @@ export async function GET(): Promise<
         censusPopulation: [],
         source: "U.S. Census Bureau · Population Estimates Program · ACS 5-Year",
         lastUpdated: new Date().toISOString().slice(0, 10),
+        // insights[] is rendered to visitors. The command that fixes this
+        // belongs in dataSources[].action above, which is where the
+        // methodology view surfaces operator detail.
         insights: [
-          "Run: npx tsx ingest/fetch-census.ts to fetch Census population data.",
+          "Census population data has not been loaded yet.",
         ],
       } as unknown as MigrationData & {
         dataStatus: string;
         dataAvailable: boolean;
-      });
+      }));
     }
 
     // Build population data — prefer ACS5 for consistency, fill with PEP
@@ -120,7 +124,7 @@ export async function GET(): Promise<
       "Water Bureau net activation data requires a public records request for finer-grained migration tracking."
     );
 
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline,
       headlineValue: latest.population,
       dataStatus: "partial",
@@ -149,10 +153,10 @@ export async function GET(): Promise<
     } as unknown as MigrationData & {
       dataStatus: string;
       dataAvailable: boolean;
-    });
+    }));
   } catch (err) {
     console.error("Migration API error:", err);
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Migration data temporarily unavailable",
       headlineValue: 0,
       dataStatus: "error",
@@ -165,11 +169,11 @@ export async function GET(): Promise<
       source: "U.S. Census Bureau · Population Estimates Program · ACS 5-Year",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        "Database connection error. Check that PostgreSQL is running and tables are populated.",
+        "Migration data is not available right now.",
       ],
     } as unknown as MigrationData & {
       dataStatus: string;
       dataAvailable: boolean;
-    });
+    }));
   }
 }

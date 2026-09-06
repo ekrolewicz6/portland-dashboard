@@ -168,8 +168,11 @@ export default function CalculatorPage() {
 
             <div className="space-y-5">
               <div>
-                <label className={labelClasses}>Business Type</label>
+                <label className={labelClasses} htmlFor="calc-sector">
+                  Business Type
+                </label>
                 <select
+                  id="calc-sector"
                   className={selectClasses}
                   value={form.sector}
                   onChange={(e) => updateForm("sector", e.target.value)}
@@ -185,10 +188,11 @@ export default function CalculatorPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className={labelClasses}>
+                  <label className={labelClasses} htmlFor="calc-square-footage">
                     Estimated Square Footage
                   </label>
                   <input
+                    id="calc-square-footage"
                     type="number"
                     className={inputClasses}
                     placeholder="2,000"
@@ -200,10 +204,11 @@ export default function CalculatorPage() {
                   />
                 </div>
                 <div>
-                  <label className={labelClasses}>
+                  <label className={labelClasses} htmlFor="calc-buildout-cost">
                     Estimated Buildout Cost ($)
                   </label>
                   <input
+                    id="calc-buildout-cost"
                     type="number"
                     className={inputClasses}
                     placeholder="150,000"
@@ -216,10 +221,11 @@ export default function CalculatorPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className={labelClasses}>
+                  <label className={labelClasses} htmlFor="calc-year1-revenue">
                     Estimated Year 1 Revenue ($)
                   </label>
                   <input
+                    id="calc-year1-revenue"
                     type="number"
                     className={inputClasses}
                     placeholder="500,000"
@@ -229,10 +235,11 @@ export default function CalculatorPage() {
                   />
                 </div>
                 <div>
-                  <label className={labelClasses}>
+                  <label className={labelClasses} htmlFor="calc-owner-income">
                     Estimated Owner Income ($)
                   </label>
                   <input
+                    id="calc-owner-income"
                     type="number"
                     className={inputClasses}
                     placeholder="80,000"
@@ -245,10 +252,11 @@ export default function CalculatorPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className={labelClasses}>
+                  <label className={labelClasses} htmlFor="calc-num-owners">
                     Number of Founders / Owners
                   </label>
                   <input
+                    id="calc-num-owners"
                     type="number"
                     className={inputClasses}
                     placeholder="1"
@@ -258,10 +266,11 @@ export default function CalculatorPage() {
                   />
                 </div>
                 <div>
-                  <label className={labelClasses}>
+                  <label className={labelClasses} htmlFor="calc-num-employees">
                     Number of Planned Employees
                   </label>
                   <input
+                    id="calc-num-employees"
                     type="number"
                     className={inputClasses}
                     placeholder="8"
@@ -273,8 +282,14 @@ export default function CalculatorPage() {
               </div>
 
               <div>
-                <label className={labelClasses}>Taking New Space?</label>
-                <div className="flex gap-4">
+                <span id="calc-taking-new-space" className={labelClasses}>
+                  Taking New Space?
+                </span>
+                <div
+                  role="radiogroup"
+                  aria-labelledby="calc-taking-new-space"
+                  className="flex gap-4"
+                >
                   {[
                     { value: true, label: "Yes — new or relocated space" },
                     { value: false, label: "No — existing space" },

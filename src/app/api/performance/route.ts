@@ -12,7 +12,12 @@ export async function GET(request: NextRequest) {
   const includeTools = request.nextUrl.searchParams.get("includeTools") === "1";
 
   try {
-    const snapshot = await getPerformanceSnapshot();
+    // Cache only. A live fallback here walks every ClearImpact scorecard,
+    // container and measure with sequential requests: an anonymous visitor
+    // arriving while the cache is cold would make this site hammer a third
+    // party from a request that then times out anyway. Refreshing the cache
+    // is the sync cron's job.
+    const snapshot = await getPerformanceSnapshot({ allowLiveFallback: false });
     return NextResponse.json({
       ok: true,
       snapshot,
@@ -22,7 +27,9 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       {
         ok: false,
-        error: error instanceof Error ? error.message : "Performance snapshot failed",
+        // A fixed message. Internal error text names tables, upstream
+        // hosts and query fragments, none of which the caller can act on.
+        error: "Performance snapshot failed",
       },
       { status: 500 },
     );

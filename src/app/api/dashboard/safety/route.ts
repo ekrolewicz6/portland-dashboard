@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { SafetyData } from "@/lib/types";
 
@@ -11,7 +12,7 @@ export async function GET(): Promise<NextResponse<SafetyData & { dataStatus: str
   try {
     // Check cache first
     const cached = await getCachedData<SafetyData & { dataStatus: string }>(CACHE_KEY);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     // Monthly totals from real PPB offenses (613K records)
     const monthlyRows = await sql`
@@ -113,7 +114,7 @@ export async function GET(): Promise<NextResponse<SafetyData & { dataStatus: str
     };
 
     await setCachedData(CACHE_KEY, result);
-    return NextResponse.json(result);
+    return NextResponse.json(withFreshness(result));
   } catch (error) {
     console.error("[safety] DB query failed:", error);
     return NextResponse.json({

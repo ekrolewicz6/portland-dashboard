@@ -9,6 +9,8 @@ import {
 } from "@/lib/dashboard-data";
 import { PERMITS_URL } from "@/lib/site";
 import SsoLink from "@/components/SsoLink";
+import DataSourceBadge from "@/components/cards/DataSourceBadge";
+import { getQuestionStatusBySlug } from "@/data/source-status";
 
 export const dynamic = "force-dynamic";
 
@@ -41,7 +43,7 @@ export default async function DashboardPage() {
         <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[var(--color-ember)] rounded-full blur-[160px] opacity-[0.06] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 pt-8 pb-10 sm:pt-10 sm:pb-12">
-          <div className="flex items-center gap-4 text-[10px] font-mono uppercase tracking-[0.22em] text-white/35">
+          <div className="flex items-center gap-4 text-[10px] font-mono uppercase tracking-[0.22em] text-white/60">
             <span className="text-[var(--color-ember)]/80">Live Dashboard</span>
             <div className="flex-1 h-px bg-white/10" />
             <span>{editionDate}</span>
@@ -119,6 +121,10 @@ export default async function DashboardPage() {
               ? extractHeadlineLabel(api?.headline)
               : "Data collection in progress";
             const sourceText = hasData ? api?.source : "Pending";
+            // Provenance badge. Several topics are only partially live, and a
+            // card that shows a headline number with a source line but no
+            // status reads as fully live regardless.
+            const status = getQuestionStatusBySlug(q.id);
 
             return (
               <Link
@@ -159,7 +165,17 @@ export default async function DashboardPage() {
                   {label}
                 </p>
 
-                <div className="mt-4 pt-3 border-t border-[var(--color-parchment)] flex items-center justify-between gap-2">
+                {status && (
+                  <div className="mt-4">
+                    <DataSourceBadge
+                      status={status.overallStatus}
+                      label={status.badgeLabel}
+                      tooltip={status.badgeTooltip}
+                    />
+                  </div>
+                )}
+
+                <div className="mt-3 pt-3 border-t border-[var(--color-parchment)] flex items-center justify-between gap-2">
                   <span className="text-[11px] sm:text-[12px] font-mono uppercase tracking-[0.1em] text-[var(--color-ink-muted)] truncate">
                     {sourceText}
                   </span>

@@ -1,7 +1,8 @@
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Share2, BookOpen } from "lucide-react";
+import { ArrowLeft, Calendar, BookOpen } from "lucide-react";
+import ShareButton from "@/components/progress-report/ShareButton";
 import ArticleRenderer from "@/components/progress-report/ArticleRenderer";
 import type { FullReport } from "@/app/api/progress-report/[slug]/route";
 import type { Metadata } from "next";
@@ -236,18 +237,5 @@ export default async function ProgressReportPage({
         </div>
       </div>
     </div>
-  );
-}
-
-// Client component for share button
-function ShareButton({ title }: { title: string }) {
-  return (
-    <button
-      className="flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-medium text-white/50 hover:text-white border border-white/10 hover:border-white/25 rounded-sm transition-all"
-      title={`Share: ${title}`}
-    >
-      <Share2 className="w-3.5 h-3.5" />
-      Share
-    </button>
   );
 }

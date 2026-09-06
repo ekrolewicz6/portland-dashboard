@@ -43,6 +43,8 @@ export const SOURCES = {
   youmedia: { org: "U Chicago Consortium, YOUmedia evaluation", url: "https://consortium.uchicago.edu/publications/teens-digital-media-and-chicago-public-library", kind: "primary" },
   thinkMcl: { org: "MCL, Think MCL service priorities", url: "https://multcolib.org/think-mcl", kind: "primary" },
   locationsWiki: { org: "MCL branch list (Wikipedia, cross-checked against MCL)", url: "https://en.wikipedia.org/wiki/Multnomah_County_Library", kind: "news" },
+  // Served from public/reports/, not from the repo-root reports/ directory,
+  // which is not deployed.
   pclReport: { org: "Portland Civic Lab, full report (PDF)", url: "/reports/portland-libraries-2026/Portland_Libraries_Deep_Dive_2026.pdf", kind: "analysis" },
   districtPresentation: { org: "Multnomah County, FY2027 Library District budget presentation & May 2026 work-session follow-up", url: "https://www.multco.us/budget", kind: "primary" },
 } satisfies Record<string, Source>;

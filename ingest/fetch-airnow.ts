@@ -10,10 +10,9 @@
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 const API_KEY = process.env.AIRNOW_API_KEY;
 if (!API_KEY) {
@@ -46,7 +45,7 @@ async function fetchCurrentAQI(): Promise<AirNowObservation[]> {
   if (!res.ok) {
     throw new Error(`AirNow current API returned HTTP ${res.status}`);
   }
-  const data: AirNowObservation[] = await res.json();
+  const data = (await res.json()) as AirNowObservation[];
   console.log(`    Got ${data.length} current observations`);
   return data;
 }
@@ -58,7 +57,7 @@ async function fetchHistoricalAQI(dateStr: string): Promise<AirNowObservation[]>
   if (!res.ok) {
     throw new Error(`AirNow historical API returned HTTP ${res.status} for ${dateStr}`);
   }
-  return res.json();
+  return (await res.json()) as AirNowObservation[];
 }
 
 async function fetchLast7Days(): Promise<AirNowObservation[]> {

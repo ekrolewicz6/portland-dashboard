@@ -28,9 +28,16 @@ export async function GET(request: NextRequest) {
   // Single listing by ID
   const idParam = params.get("id");
   if (idParam) {
+    // Reject a non-numeric id here rather than letting NaN reach Postgres,
+    // which answers with a type error the route reported as a 500. A bad id
+    // in the request is the caller's mistake, not the server's.
+    const listingId = Number(idParam);
+    if (!Number.isInteger(listingId) || listingId <= 0) {
+      return NextResponse.json({ error: "Invalid listing id" }, { status: 400 });
+    }
     try {
       const rows = await sql`
-        SELECT * FROM real_estate.listings WHERE id = ${parseInt(idParam, 10)}
+        SELECT * FROM real_estate.listings WHERE id = ${listingId}
       `;
       if (rows.length === 0) {
         return NextResponse.json({ error: "Listing not found" }, { status: 404 });
@@ -159,14 +166,20 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error("[real-estate/listings] DB error:", error);
 
-    // Return fallback with empty results
-    return NextResponse.json({
-      listings: [],
-      total: 0,
-      neighborhoods: [],
-      filters_applied: filters,
-      error: "Database unavailable — please run the seed script",
-    } as ListingsResponse & { error: string });
+    // 503, not 200. Answering "OK, here are zero listings" made an outage
+    // indistinguishable from an empty market to every caller, monitoring
+    // included. The message says what the visitor can do about it; the cause
+    // is logged above.
+    return NextResponse.json(
+      {
+        listings: [],
+        total: 0,
+        neighborhoods: [],
+        filters_applied: filters,
+        error: "Listings are unavailable right now. Please try again shortly.",
+      } as ListingsResponse & { error: string },
+      { status: 503 },
+    );
   }
 }
 
@@ -189,7 +202,6 @@ function rowToListing(row: Record<string, unknown>): Listing {
     description: (row.description as string) || null,
     amenities: (row.amenities as string[]) || [],
     floor: (row.floor as string) || null,
-    contact_email: (row.contact_email as string) || null,
     lat: row.lat != null ? Number(row.lat) : null,
     lon: row.lon != null ? Number(row.lon) : null,
   };

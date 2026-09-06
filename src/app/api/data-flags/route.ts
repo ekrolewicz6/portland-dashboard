@@ -4,25 +4,16 @@ import { withAuth } from "@workos-inc/authkit-nextjs";
 import sql from "@/lib/db-query";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getMemberByWorkOSId, isWorkOSConfigured } from "@/lib/membership";
+import { isValidQuestion } from "@/lib/questions";
 
 export const dynamic = "force-dynamic";
 
-const VALID_QUESTIONS = new Set([
-  "climate",
-  "housing",
-  "safety",
-  "homelessness",
-  "fiscal",
-  "economy",
-  "economic-health",
-  "education",
-  "quality",
-  "accountability",
-  "transportation",
-]);
-
+// Topics come from the same list the dashboard routes and the flag button
+// use. This was a second, hand-maintained copy that had drifted: it omitted
+// "environment", so anyone flagging a number on that page was told to
+// describe the issue in 10-2000 characters, which they already had.
 const FlagSchema = z.object({
-  question: z.string().refine((q) => VALID_QUESTIONS.has(q), "Unknown topic"),
+  question: z.string().refine(isValidQuestion, "Unknown topic"),
   metric: z.string().trim().max(200).optional().or(z.literal("")),
   message: z.string().trim().min(10).max(2000),
   email: z.string().trim().email().max(200).optional().or(z.literal("")),
@@ -66,8 +57,18 @@ export async function POST(request: NextRequest) {
 
   const parsed = FlagSchema.safeParse(raw);
   if (!parsed.success) {
+    // Report the field that actually failed. A single canned message about
+    // message length sends people looking in the wrong place when the real
+    // problem is the topic or the email address.
+    const issue = parsed.error.issues[0];
+    const message =
+      issue?.path[0] === "question"
+        ? "That topic is not one we track."
+        : issue?.path[0] === "email"
+          ? "That email address does not look valid."
+          : "Please describe the issue in 10-2000 characters.";
     return NextResponse.json(
-      { ok: false, error: "Please describe the issue in 10-2000 characters." },
+      { ok: false, error: message },
       { status: 400 }
     );
   }

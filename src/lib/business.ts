@@ -275,27 +275,97 @@ export async function isBusinessMember(
   return rows.length > 0;
 }
 
+/** Why a claim was refused, for the caller to render. */
+export type ClaimRefusal = "already_claimed" | "not_authorized" | "not_found";
+
+export type ClaimResult =
+  | { ok: true }
+  | { ok: false; reason: ClaimRefusal };
+
+/**
+ * May this email claim this business?
+ *
+ * Two ways to qualify: the address Civic Lab recorded as the owner's during
+ * outreach (businesses.claim_email), or the environment-level allowlist used
+ * while onboarding someone whose sign-in address we did not know in advance.
+ * Both comparisons are case-insensitive.
+ */
+function emailMayClaim(email: string, claimEmail: string | null): boolean {
+  const normalized = email.trim().toLowerCase();
+  if (!normalized) return false;
+  if (claimEmail && claimEmail.trim().toLowerCase() === normalized) return true;
+  return canClaimPreparedBusinesses(normalized);
+}
+
 /**
  * Claim a pre-seeded (unclaimed) business: mark it claimed and attach the
- * claiming member as owner. Fails if already claimed — the demo path is
- * "PCL researched your business before you signed up; claim it."
+ * claiming member as owner.
+ *
+ * Authorization is enforced HERE rather than in the pages, because there are
+ * two entry points (the member page card and the direct /claim/[slug] link)
+ * and a check in only one of them is not a check. Claiming is irreversible
+ * without an admin, it hands over the business's funding pipeline, and slugs
+ * are derived from business names — so an unauthorized member who guesses a
+ * slug must not be able to take a business over.
+ *
+ * The read and both writes run in one transaction so two simultaneous claims
+ * cannot both succeed.
  */
 export async function claimBusiness(
   businessId: number,
-  memberId: number
+  memberId: number,
+  memberEmail: string
+): Promise<ClaimResult> {
+  // tx.unsafe with bound parameters rather than tagged templates: postgres.js
+  // builds TransactionSql with Omit<Sql, ...>, which drops the template call
+  // signature, so `tx`...`` does not typecheck. Values are still parameterized.
+  return sql.begin(async (tx) => {
+    const rows = (await tx.unsafe(
+      `SELECT id, claimed, claim_email FROM businesses WHERE id = $1 FOR UPDATE`,
+      [businessId],
+    )) as unknown as { id: number; claimed: boolean; claim_email: string | null }[];
+
+    const business = rows[0];
+    if (!business) return { ok: false as const, reason: "not_found" as const };
+    if (business.claimed) return { ok: false as const, reason: "already_claimed" as const };
+    if (!emailMayClaim(memberEmail, business.claim_email)) {
+      return { ok: false as const, reason: "not_authorized" as const };
+    }
+
+    await tx.unsafe(
+      `UPDATE businesses
+          SET claimed = true,
+              claimed_by_member_id = $1,
+              claimed_at = now(),
+              updated_at = now()
+        WHERE id = $2`,
+      [memberId, businessId],
+    );
+    await tx.unsafe(
+      `INSERT INTO business_members (business_id, member_id, role, title)
+       VALUES ($1, $2, 'owner', 'Owner')
+       ON CONFLICT DO NOTHING`,
+      [businessId, memberId],
+    );
+    return { ok: true as const };
+  });
+}
+
+/**
+ * Whether this member could claim this specific business, for deciding what
+ * to show before they press the button. Never a substitute for the check
+ * inside claimBusiness.
+ */
+export async function canMemberClaimBusiness(
+  businessId: number,
+  memberEmail: string
 ): Promise<boolean> {
-  const rows = await sql`
-    UPDATE businesses SET claimed = true, updated_at = now()
-    WHERE id = ${businessId} AND claimed = false
-    RETURNING id
-  `;
-  if (rows.length === 0) return false;
-  await sql`
-    INSERT INTO business_members (business_id, member_id, role, title)
-    VALUES (${businessId}, ${memberId}, 'owner', 'Owner')
-    ON CONFLICT DO NOTHING
-  `;
-  return true;
+  const rows = (await sql`
+    SELECT claimed, claim_email FROM businesses WHERE id = ${businessId} LIMIT 1
+  `) as unknown as { claimed: boolean; claim_email: string | null }[];
+  const business = rows[0];
+  if (!business || business.claimed) return false;
+  return emailMayClaim(memberEmail, business.claim_email);
 }
 
 /**
@@ -316,10 +386,34 @@ export function canClaimPreparedBusinesses(email: string): boolean {
     .includes(email.toLowerCase());
 }
 
-/** Unclaimed seeded businesses, shown on the member page as claimable. */
-export async function getUnclaimedBusinesses(): Promise<Business[]> {
+/**
+ * Unclaimed businesses this member is actually allowed to claim, shown on the
+ * member page.
+ *
+ * Scoped by email rather than returning every unclaimed row: a member being on
+ * the onboarding allowlist is not a reason to show them somebody else's
+ * researched business, and each card carries a one-press claim button.
+ */
+export async function getUnclaimedBusinesses(
+  memberEmail: string
+): Promise<Business[]> {
+  const normalized = memberEmail.trim().toLowerCase();
+  if (!normalized) return [];
+
+  // The env allowlist is a blunt onboarding tool; when a member is on it they
+  // may claim any unclaimed profile, which is the behaviour it exists for.
+  // Otherwise they see only profiles prepared for their own address.
+  if (canClaimPreparedBusinesses(normalized)) {
+    return (await sql`
+      SELECT * FROM businesses WHERE claimed = false ORDER BY name LIMIT 20
+    `) as unknown as Business[];
+  }
+
   return (await sql`
-    SELECT * FROM businesses WHERE claimed = false ORDER BY name LIMIT 20
+    SELECT * FROM businesses
+    WHERE claimed = false
+      AND lower(claim_email) = ${normalized}
+    ORDER BY name LIMIT 20
   `) as unknown as Business[];
 }
 
@@ -388,13 +482,27 @@ export async function getInviteByToken(
   return rows[0] ?? null;
 }
 
-/** Accept an invite: attach the signed-in member and consume the token. */
+/**
+ * Accept an invite: attach the signed-in member and consume the token.
+ *
+ * The invite is bound to the address it was sent to. Without that check the
+ * token alone confers co-ownership, so anyone who saw the link — a forwarded
+ * mail, a shared inbox, a leaked referrer — could join the business instead
+ * of the person who was invited. Returns null when the token is unknown,
+ * expired, or addressed to someone else; the caller cannot distinguish these,
+ * which is deliberate.
+ */
 export async function acceptInvite(
   token: string,
-  memberId: number
+  memberId: number,
+  memberEmail: string
 ): Promise<InviteWithBusiness | null> {
   const invite = await getInviteByToken(token);
   if (!invite) return null;
+
+  const invitedTo = invite.email.trim().toLowerCase();
+  if (!invitedTo || invitedTo !== memberEmail.trim().toLowerCase()) return null;
+
   await sql`
     INSERT INTO business_members (business_id, member_id, role, title)
     VALUES (${invite.business_id}, ${memberId}, ${invite.role},

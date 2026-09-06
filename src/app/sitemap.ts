@@ -1,20 +1,21 @@
 import type { MetadataRoute } from "next";
 import { bureauIds } from "@/lib/org/bureau";
+import { VALID_QUESTIONS } from "@/lib/questions";
 
 const BASE_URL = "https://www.portlandciviclab.org";
 
-const DASHBOARD_QUESTIONS = [
-  "housing",
-  "homelessness",
-  "safety",
-  "transportation",
-  "education",
-  "fiscal",
-  "economy",
-  "climate",
-  "quality",
-  "accountability",
-];
+/**
+ * Question slugs that redirect rather than render, and so must not be listed.
+ * /dashboard/environment redirects to /dashboard/climate.
+ */
+const REDIRECTING_QUESTIONS = new Set(["environment"]);
+
+// Derived from the canonical list rather than hand-maintained. The previous
+// hard-coded copy had drifted and omitted /dashboard/economic-health, a live
+// page that was therefore never submitted.
+const DASHBOARD_QUESTIONS = VALID_QUESTIONS.filter(
+  (q) => !REDIRECTING_QUESTIONS.has(q),
+);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

@@ -117,16 +117,26 @@ export default function HousingDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
     Promise.all([
-      fetch("/api/dashboard/housing/detail").then((r) => r.json()),
-      fetch("/api/dashboard/housing/bottleneck").then((r) => r.json()).catch(() => null),
-      fetch("/api/dashboard/housing/journey").then((r) => r.json()).catch(() => null),
+      fetch("/api/dashboard/housing/detail", { signal: controller.signal }).then((r) => r.json()),
+      fetch("/api/dashboard/housing/bottleneck", { signal: controller.signal }).then((r) => r.json()).catch(() => null),
+      fetch("/api/dashboard/housing/journey", { signal: controller.signal }).then((r) => r.json()).catch(() => null),
     ]).then(([d, b, j]) => {
-      setData(d);
-      if (b && b.dataStatus !== "unavailable") setBottleneckData(b);
-      if (j && j.dataStatus !== "unavailable") setJourneyData(j);
-      setLoading(false);
-    }).catch(() => setLoading(false));
+      if (!cancelled) setData(d);
+      if (!cancelled && b && b.dataStatus !== "unavailable") setBottleneckData(b);
+      if (!cancelled && j && j.dataStatus !== "unavailable") setJourneyData(j);
+      if (!cancelled) setLoading(false);
+    }).catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   if (loading) {

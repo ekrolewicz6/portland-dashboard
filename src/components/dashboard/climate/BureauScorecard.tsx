@@ -71,13 +71,23 @@ export default function BureauScorecard() {
   const [loadingActions, setLoadingActions] = useState(false);
 
   useEffect(() => {
-    fetch("/api/dashboard/climate/bureaus")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/climate/bureaus", { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setBureaus(d.bureaus ?? []);
-        setLoading(false);
+        if (!cancelled) setBureaus(d.bureaus ?? []);
+        if (!cancelled) setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   function handleBureauClick(bureauCode: string) {

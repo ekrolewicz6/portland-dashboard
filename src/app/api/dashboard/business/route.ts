@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import type { BusinessData } from "@/lib/types";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
@@ -63,7 +64,7 @@ export async function GET(): Promise<
 > {
   try {
     const cached = await getCachedData<BusinessData & { dataStatus: string; dataAvailable: boolean }>(CACHE_KEY, CACHE_TTL);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     const result = await sql.unsafe(COMBINED_QUERY);
     const payload = (result[0]?.payload ?? {}) as Record<string, unknown>;
@@ -160,10 +161,10 @@ export async function GET(): Promise<
       dataAvailable: boolean;
     };
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (err) {
     console.error("Business API error:", err);
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Business data temporarily unavailable",
       headlineValue: 0,
       dataStatus: "error",
@@ -177,11 +178,11 @@ export async function GET(): Promise<
       source: "Oregon Secretary of State · Business Registry",
       lastUpdated: new Date().toISOString().slice(0, 10),
       insights: [
-        "Database connection error. Check that PostgreSQL is running and tables are populated.",
+        "Business data is not available right now.",
       ],
     } as unknown as BusinessData & {
       dataStatus: string;
       dataAvailable: boolean;
-    });
+    }));
   }
 }

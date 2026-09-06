@@ -18,6 +18,25 @@ interface BarChartProps {
   layout?: "vertical" | "horizontal";
   valuePrefix?: string;
   valueSuffix?: string;
+  /** Replaces the summary read out in place of the chart graphic. */
+  ariaLabel?: string;
+}
+
+function describeBars(
+  data: { name: string; value: number }[],
+  valuePrefix: string,
+  valueSuffix: string
+): string {
+  if (data.length === 0) return "Bar chart with no data.";
+  const format = (v: number) =>
+    `${valuePrefix}${v.toLocaleString()}${valueSuffix}`;
+  const ranked = [...data].sort((a, b) => b.value - a.value);
+  const highest = ranked[0];
+  const lowest = ranked[ranked.length - 1];
+  if (data.length === 1) {
+    return `Bar chart with one bar: ${highest.name} at ${format(highest.value)}.`;
+  }
+  return `Bar chart comparing ${data.length} categories, ranging from ${highest.name} at ${format(highest.value)} down to ${lowest.name} at ${format(lowest.value)}.`;
 }
 
 export default function BarChart({
@@ -27,11 +46,16 @@ export default function BarChart({
   layout = "horizontal",
   valuePrefix = "",
   valueSuffix = "",
+  ariaLabel,
 }: BarChartProps) {
   const isVertical = layout === "vertical";
 
+  // The SVG itself carries no text for assistive technology, so the wrapper
+  // stands in for it with the shape of the data spelled out.
+  const label = ariaLabel ?? describeBars(data, valuePrefix, valueSuffix);
+
   return (
-    <div style={{ width: "100%", height }}>
+    <div role="img" aria-label={label} style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
         <RechartsBarChart
           data={data}

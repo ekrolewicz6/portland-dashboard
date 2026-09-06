@@ -893,7 +893,13 @@ ORPCPI — Per Capita Personal Income: Portland MSA (if available)
 ## Portland Maps Detail API (CONFIRMED WORKING 2026-03-15)
 
 ### API Key
-`7D700138A0EA40349E799EA216BF82F9` (found in public portlandmaps.com JavaScript)
+Set `PORTLAND_MAPS_API_KEY`. The scraper requires it and has no default.
+
+The key this section used to print was read out of portlandmaps.com's own
+public JavaScript rather than issued to Civic Lab. Committing it meant every
+clone carried a working key, and any scraping done with it reached the City
+under the City's own credential. Request a key, or ask the Bureau of
+Development Services for bulk access to the same data.
 
 ### Required Headers
 ```
@@ -1205,10 +1211,9 @@ Dashboard. Each source is tagged with one of:
 |-------|-------|
 | **Status** | STATIC — 2023 FiSC workbook loaded and transformed |
 | **Sources** | [Lincoln Institute of Land Policy FiSC full dataset, 2023 update](https://www.lincolninst.edu/app/uploads/2026/01/FiSC-Full-Dataset-2023-Update.xlsx) |
-| **Canonical dataset** | `data/datasets/tax/fisc/FiSC-Full-Dataset-2023-Update.xlsx` |
-| **Processed dataset** | `data/datasets/tax/fisc/fisc-2023-portland-burden-summary.json` |
-| **App snapshot** | `src/data/fisc-tax-burden-2023.json` |
-| **Code location** | `src/components/dashboard/tax/TaxDetail.tsx`, `src/lib/mock-data.ts` (taxData) |
+| **Canonical dataset** | The FiSC workbook itself, downloaded from the source URL above. There is no `data/datasets/` tree in this repo; keep the workbook in `runtime-data/`. |
+| **App snapshot** | `src/data/fisc-tax-burden-2023.json` (full extract) and `src/data/tax-burden.ts` (the comparison the dashboard renders, with provenance and a `TAX_BURDEN_VERIFIED_AT` date) |
+| **Code location** | `src/components/dashboard/tax/TaxDetail.tsx`, `src/data/tax-burden.ts`. The route reports this as reference data with a `verifiedAt` date, not as live data. |
 | **Methodology** | Uses FiSC totals across city, county, independent school district, and special district governments. Values are real per-capita dollars in 2022 dollars. The dashboard compares Portland against the 150 largest FiSC central cities by 2023 population. |
 | **Action needed** | Refresh when Lincoln publishes the next FiSC update. Add household-income normalization if a reliable income-normalized methodology is available. |
 
@@ -1234,16 +1239,16 @@ Dashboard. Each source is tagged with one of:
 | **Records** | ~77 permits (filtered to 2023+, up to 200K total in system) |
 | **Used in** | Housing route for pipeline counts and processing time |
 
-### Zillow ZORI (Observed Rent Index) — `NEEDS_DOWNLOAD`
+### Zillow ZORI (Observed Rent Index) — `LIVE`
 
 | Field | Value |
 |-------|-------|
-| **Current status** | MOCK — fabricated rent values in mock-data.ts |
+| **Current status** | AUTOMATED — `/api/cron/refresh-data` downloads the direct CSV below and writes the Portland metro row to `public.housing_rents` (`zip_code = 'metro'`) inside a transaction. Scheduled monthly (`0 7 3 * *`) and weekly for the Zillow scope alone (`?scope=zillow`, `20 7 * * 4`). The former fabricated-rent fallback (`src/lib/mock-data.ts`) is deleted; with no rows the housing route reports `dataStatus: "unavailable"`. |
 | **Download URL** | https://www.zillow.com/research/data/ (look for "ZORI" under Rentals) |
 | **Direct CSV URL** | `https://files.zillowstatic.com/research/public_csvs/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv` (metro-level, smoothed) |
 | **Format** | CSV with monthly columns, one row per metro |
 | **Metro to filter** | "Portland-Vancouver-Hillsboro, OR-WA" |
-| **Action** | 1. Download CSV. 2. Filter to Portland metro row. 3. Parse monthly columns into `housing.median_rent` table. 4. Set up monthly cron to re-download. |
+| **Action** | None outstanding. The steps below are what the cron does: download the CSV, filter to the Portland metro row, parse the monthly columns, replace the `zip_code = 'metro'` rows in `public.housing_rents`. |
 | **License** | Free for non-commercial and research use |
 
 ### Portland Housing Bureau Reports — `NEEDS_INVESTIGATION`

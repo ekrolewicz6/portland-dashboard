@@ -8,10 +8,9 @@
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 const PAVEMENT_URL =
   "https://www.portlandmaps.com/od/rest/services/COP_OpenData_Transportation/MapServer/71/query";
@@ -59,7 +58,7 @@ async function fetchAllPavement(): Promise<Record<string, any>[]> {
       throw new Error(`ArcGIS returned HTTP ${res.status}`);
     }
 
-    const data: ArcGISResponse = await res.json();
+    const data = (await res.json()) as ArcGISResponse;
     const features = data.features ?? [];
     console.log(`    Got ${features.length} features`);
 

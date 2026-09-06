@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Pre-push data verification.
+#
+# Runs every dashboard API query against a real database and refuses the push
+# if any of them errors. Enable it once per clone with:
+#
+#     git config core.hooksPath .githooks
+#
+# The check needs a database. When DATABASE_URL is not set (and no .env.local
+# supplies one) the hook skips rather than failing, so contributors doing UI
+# or docs work are never blocked by a database they do not have.
+
+set -e
+
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root"
+
+# Load .env.local if present, without clobbering variables already exported.
+if [ -z "$DATABASE_URL" ] && [ -f .env.local ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . ./.env.local
+  set +a
+fi
+
+if [ -z "$DATABASE_URL" ]; then
+  echo "pre-push: DATABASE_URL not set, skipping API query verification."
+  exit 0
+fi
+
+echo "pre-push: verifying dashboard API queries against the database..."
+npx tsx ingest/verify-api-queries.ts

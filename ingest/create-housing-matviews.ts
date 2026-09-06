@@ -14,10 +14,9 @@
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 async function main() {
   const sql = postgres(DB_URL, {

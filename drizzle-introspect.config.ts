@@ -1,10 +1,11 @@
 import { defineConfig } from "drizzle-kit";
+import { requireDatabaseUrl } from "./ingest/lib/db-url";
 
 export default defineConfig({
   out: "./src/db/introspected",
   dialect: "postgresql",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: requireDatabaseUrl(),
   },
   schemaFilter: [
     "public", "safety", "housing", "homelessness", "education", "economy",

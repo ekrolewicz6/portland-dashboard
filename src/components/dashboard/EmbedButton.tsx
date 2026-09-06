@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Code2, X, Check } from "lucide-react";
 
 interface EmbedButtonProps {
@@ -10,8 +10,27 @@ interface EmbedButtonProps {
 export default function EmbedButton({ question }: EmbedButtonProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelId = useId();
 
   const embedCode = `<iframe src="https://www.portlandciviclab.org/dashboard/embed/${question}" width="400" height="300" frameborder="0" title="Portland Civic Lab - ${question}"></iframe>`;
+
+  const close = useCallback(() => setOpen(false), []);
+
+  // Escape dismisses the panel and returns focus to the button that opened it.
+  useEffect(() => {
+    if (!open) return;
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        close();
+        triggerRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open, close]);
 
   const handleCopy = async () => {
     try {
@@ -34,7 +53,10 @@ export default function EmbedButton({ question }: EmbedButtonProps) {
   return (
     <div className="relative">
       <button
+        ref={triggerRef}
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-wide text-[var(--color-ink-muted)] bg-[var(--color-parchment)]/50 hover:bg-[var(--color-parchment)] rounded-sm transition-colors"
       >
         <Code2 className="w-3.5 h-3.5" />
@@ -42,13 +64,20 @@ export default function EmbedButton({ question }: EmbedButtonProps) {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-[420px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm shadow-lg z-50 animate-slide-down">
+        <div
+          id={panelId}
+          className="absolute right-0 top-full mt-2 w-[420px] bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm shadow-lg z-50 animate-slide-down"
+        >
           <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-parchment)]">
             <h4 className="text-[11px] font-semibold text-[var(--color-ink-muted)] uppercase tracking-[0.15em]">
               Embed This Metric
             </h4>
             <button
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                close();
+                triggerRef.current?.focus();
+              }}
+              aria-label="Close embed code"
               className="p-1 text-[var(--color-ink-muted)]/50 hover:text-[var(--color-ink)] rounded-sm transition-colors"
             >
               <X className="w-4 h-4" />
@@ -64,7 +93,7 @@ export default function EmbedButton({ question }: EmbedButtonProps) {
               </pre>
               <button
                 onClick={handleCopy}
-                className="absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium uppercase tracking-wide text-white/70 bg-white/10 hover:bg-white/20 rounded-sm transition-colors"
+                className="absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium uppercase tracking-wide text-white/90 bg-white/10 hover:bg-white/20 rounded-sm transition-colors"
               >
                 {copied ? (
                   <>

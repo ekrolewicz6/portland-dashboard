@@ -48,15 +48,6 @@ function formatDate(value: string): string {
   });
 }
 
-async function activeAdminCount(): Promise<number> {
-  const [row] = (await sql`
-    SELECT COUNT(*)::int AS count
-    FROM members
-    WHERE role = 'admin' AND status = 'active'
-  `) as unknown as { count: number }[];
-  return Number(row?.count ?? 0);
-}
-
 async function updateMemberAccess(formData: FormData) {
   "use server";
 
@@ -73,31 +64,43 @@ async function updateMemberAccess(formData: FormData) {
     redirect("/admin/users?error=invalid");
   }
 
-  const [target] = (await sql`
-    SELECT id, role, status, email
-    FROM members
-    WHERE id = ${memberId}
-    LIMIT 1
-  `) as unknown as Pick<MemberAdminRow, "id" | "role" | "status" | "email">[];
+  // Read, check and write in one transaction, locking the admin rows.
+  //
+  // Run as separate statements, two admins demoting each other at the same
+  // moment both saw a count of 2, both passed the guard, and the account was
+  // left with no active admin and no way back in short of a database edit.
+  // SELECT ... FOR UPDATE makes the second transaction wait and re-read.
+  const outcome = await sql.begin(async (tx) => {
+    const targets = (await tx.unsafe(
+      `SELECT id, role, status, email FROM members WHERE id = $1 LIMIT 1 FOR UPDATE`,
+      [memberId],
+    )) as unknown as Pick<MemberAdminRow, "id" | "role" | "status" | "email">[];
+    const target = targets[0];
+    if (!target) return "missing" as const;
 
-  if (!target) {
-    redirect("/admin/users?error=missing");
-  }
+    const wouldRemoveActiveAdmin =
+      target.role === "admin" &&
+      target.status === "active" &&
+      (role !== "admin" || status !== "active");
 
-  const wouldRemoveActiveAdmin =
-    target.role === "admin" &&
-    target.status === "active" &&
-    (role !== "admin" || status !== "active");
+    if (wouldRemoveActiveAdmin) {
+      const rows = (await tx.unsafe(
+        `SELECT COUNT(*)::int AS count FROM members
+          WHERE role = 'admin' AND status = 'active'
+          FOR UPDATE`,
+      )) as unknown as { count: number }[];
+      if (Number(rows[0]?.count ?? 0) <= 1) return "last-admin" as const;
+    }
 
-  if (wouldRemoveActiveAdmin && (await activeAdminCount()) <= 1) {
-    redirect("/admin/users?error=last-admin");
-  }
+    await tx.unsafe(
+      `UPDATE members SET role = $1, status = $2 WHERE id = $3`,
+      [role, status, memberId],
+    );
+    return "ok" as const;
+  });
 
-  await sql`
-    UPDATE members
-    SET role = ${role}, status = ${status}
-    WHERE id = ${memberId}
-  `;
+  if (outcome === "missing") redirect("/admin/users?error=missing");
+  if (outcome === "last-admin") redirect("/admin/users?error=last-admin");
 
   revalidatePath("/admin");
   revalidatePath("/admin/users");

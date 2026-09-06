@@ -1,9 +1,25 @@
 {
+  // Ingest scripts are excluded from the root tsconfig, so without this they
+  // were never typechecked at all — including the ones the Vercel crons and
+  // the npm scripts depend on. Run with: npx tsc -p ingest --noEmit
   "compilerOptions": {
     "target": "ES2022",
+    "lib": ["ES2022"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "strict": true
-  }
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    // @types/geojson declares the GeoJSON namespace as a UMD global, so it has
+    // to be named here alongside node for the boundary scripts to see it.
+    "types": ["node", "geojson"],
+    // A couple of scripts reuse app-side helpers, which import via the same
+    // "@/" alias the root tsconfig defines.
+    "paths": {
+      "@/*": ["../src/*"]
+    }
+  },
+  "include": ["**/*.ts"]
 }

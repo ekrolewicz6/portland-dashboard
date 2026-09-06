@@ -11,10 +11,9 @@
  * Run: npx tsx ingest/fetch-sos-all-active.ts
  */
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 const BASE = "https://data.oregon.gov/resource/tckn-sxa6.json";
 const PAGE_SIZE = 50000;
@@ -64,7 +63,7 @@ async function main() {
       const url = `${BASE}?$where=upper(city)='PORTLAND'&$limit=${PAGE_SIZE}&$offset=${offset}&$order=:id`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Socrata HTTP ${res.status} at offset ${offset}`);
-      const records: Record<string, string>[] = await res.json();
+      const records = (await res.json()) as Record<string, string>[];
       if (records.length === 0) break;
       for (let i = 0; i < records.length; i += 1000) {
         const chunk = records.slice(i, i + 1000).map((r) => {

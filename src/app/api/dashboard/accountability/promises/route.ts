@@ -23,6 +23,8 @@ const CATEGORIES = [
 ] as const;
 
 interface PromiseRow {
+  /** Last time the verification cron wrote this row. Drives freshness. */
+  updated_at: string | null;
   promise_id: number;
   speaker: string;
   speech: string;
@@ -81,29 +83,24 @@ export async function GET(request: NextRequest) {
   const categoryFilter = searchParams.get("category");
   const statusFilter = searchParams.get("status");
 
-  // Build a cache key that incorporates filters so filtered views are cached separately
-  const filterSuffix = [
-    categoryFilter ? `cat:${categoryFilter}` : "",
-    statusFilter ? `st:${statusFilter}` : "",
-  ]
-    .filter(Boolean)
-    .join("|");
-  const cacheKey = filterSuffix
-    ? `${CACHE_KEY}:${filterSuffix}`
-    : CACHE_KEY;
+  // One cache key, always.
+  //
+  // The key used to embed the raw filter strings, so every distinct value a
+  // caller sent wrote another dashboard_cache row carrying the full payload —
+  // an unbounded table, writable by anyone with a query string. Filtering
+  // happens in memory below anyway, over a single unfiltered query, so the
+  // per-filter keys bought nothing.
+  const cacheKey = CACHE_KEY;
 
   try {
-    // Check cache first
-    const cached = await getCachedData<Record<string, unknown>>(
+    // The cache holds the unfiltered row set, not a rendered response, so a
+    // hit can still serve any filter combination.
+    const cached = await getCachedData<{ rows: PromiseRow[] }>(
       cacheKey,
       CACHE_TTL,
     );
-    if (cached) {
-      return NextResponse.json(cached);
-    }
 
-    // Single query — no Promise.all (Supabase pooler deadlocks under max:1)
-    const rows = (await sql`
+    const rows = cached?.rows ?? ((await sql`
       SELECT
         promise_id,
         speaker,
@@ -127,12 +124,17 @@ export async function GET(request: NextRequest) {
         data_source_query,
         data_source_name,
         data_needed,
-        display_order
+        display_order,
+        updated_at::text AS updated_at
       FROM accountability.promises
       ORDER BY display_order
-    `) as unknown as PromiseRow[];
+    `) as unknown as PromiseRow[]);
 
-    // Apply filters in JS (keeps a single SQL query)
+    if (!cached) {
+      await setCachedData(cacheKey, { rows });
+    }
+
+    // Filters are applied after caching, so they never reach the cache key.
     let filtered = rows;
     if (categoryFilter) {
       filtered = filtered.filter((r) => r.category === categoryFilter);
@@ -159,17 +161,23 @@ export async function GET(request: NextRequest) {
       byCategory[cat] = filtered.filter((r) => r.category === cat).length;
     }
 
+    // Freshness is the newest verification this job recorded, not the moment
+    // the request was served — those differ by however long the verification
+    // cron has been failing.
+    const lastVerified = rows
+      .map((r) => r.updated_at)
+      .filter((d): d is string => typeof d === "string" && d.length > 0)
+      .sort()
+      .at(-1);
+
     const payload = {
       promises,
       summary,
       byCategory,
       source: "2026 State of the City Address \u00b7 Mayor Keith Wilson",
-      lastUpdated: new Date().toISOString().slice(0, 10),
+      lastUpdated: lastVerified ? lastVerified.slice(0, 10) : null,
       dataStatus: "available" as const,
     };
-
-    // Cache the response
-    await setCachedData(cacheKey, payload);
 
     return NextResponse.json(payload);
   } catch (error) {

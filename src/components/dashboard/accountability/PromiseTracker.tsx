@@ -260,16 +260,26 @@ export default function PromiseTracker() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/dashboard/accountability/promises")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/accountability/promises", { signal: controller.signal })
       .then((r) => r.json())
       .then((d: PromisesPayload) => {
-        setData(d);
-        setLoading(false);
+        if (!cancelled) setData(d);
+        if (!cancelled) setLoading(false);
       })
       .catch(() => {
-        setError(true);
-        setLoading(false);
+        if (!cancelled) setError(true);
+        if (!cancelled) setLoading(false);
       });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   if (loading) {

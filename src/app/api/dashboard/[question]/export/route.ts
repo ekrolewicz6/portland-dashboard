@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import sql from "@/lib/db-query";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
+// Building a 50k-row CSV in memory takes time; give it room rather than
+// letting the platform kill the function mid-response.
+export const maxDuration = 60;
 
-// Maximum rows for large tables to avoid timeouts
+// Every query here is bounded. An unbounded SELECT on the larger tables
+// materialises the whole result as strings in memory, and a handful of
+// concurrent requests would exhaust both the heap and the connection pool.
 const ROW_LIMIT = 50_000;
+
+/** Exports per IP per hour. Each one is a multi-megabyte CSV. */
+const RATE_LIMIT = 20;
+const RATE_WINDOW_MS = 60 * 60 * 1000;
 
 /**
  * Escape a value for CSV: wrap in quotes if it contains commas, quotes, or newlines.
@@ -74,6 +84,7 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
       const rows = await sql`
         SELECT incident_date, is_vehicle, is_duplicate, lat, lon
         FROM homelessness.irp_campsite_reports
+        LIMIT ${ROW_LIMIT}
       `;
       return { rows: rows as unknown as QueryResult };
     }
@@ -82,12 +93,15 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
       // Join enrollment, graduation, and test scores for a combined export
       const enrollment = await sql`
         SELECT * FROM education.enrollment
+        LIMIT ${ROW_LIMIT}
       `;
       const graduation = await sql`
         SELECT * FROM education.graduation_rates
+        LIMIT ${ROW_LIMIT}
       `;
       const testScores = await sql`
         SELECT * FROM education.test_scores
+        LIMIT ${ROW_LIMIT}
       `;
       // Export each as a labeled section
       const sections: string[] = [];
@@ -112,14 +126,15 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
     case "economy": {
       const rows = await sql`
         SELECT * FROM economy.msa_employment_wages
+        LIMIT ${ROW_LIMIT}
       `;
       return { rows: rows as unknown as QueryResult };
     }
 
     case "transportation": {
-      const ridership = await sql`SELECT * FROM transportation.ridership`;
-      const crashes = await sql`SELECT * FROM transportation.crashes`;
-      const commute = await sql`SELECT * FROM transportation.commute_mode`;
+      const ridership = await sql`SELECT * FROM transportation.ridership LIMIT ${ROW_LIMIT}`;
+      const crashes = await sql`SELECT * FROM transportation.crashes LIMIT ${ROW_LIMIT}`;
+      const commute = await sql`SELECT * FROM transportation.commute_mode LIMIT ${ROW_LIMIT}`;
 
       const sections: string[] = [];
       if (ridership.length > 0) {
@@ -142,6 +157,7 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
     case "quality": {
       const rows = await sql`
         SELECT * FROM quality.library_stats
+        LIMIT ${ROW_LIMIT}
       `;
       return { rows: rows as unknown as QueryResult };
     }
@@ -149,6 +165,7 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
     case "accountability": {
       const rows = await sql`
         SELECT * FROM accountability.promises
+        LIMIT ${ROW_LIMIT}
       `;
       return { rows: rows as unknown as QueryResult };
     }
@@ -175,8 +192,8 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
 
     case "environment":
     case "climate": {
-      const trajectory = await sql`SELECT * FROM climate_emissions_trajectory`;
-      const actions = await sql`SELECT * FROM climate_workplan_actions`;
+      const trajectory = await sql`SELECT * FROM climate_emissions_trajectory LIMIT ${ROW_LIMIT}`;
+      const actions = await sql`SELECT * FROM climate_workplan_actions LIMIT ${ROW_LIMIT}`;
 
       const sections: string[] = [];
       if (trajectory.length > 0) {
@@ -191,7 +208,7 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
     }
 
     case "economic-health": {
-      const metros = await sql`SELECT * FROM metro_metadata`;
+      const metros = await sql`SELECT * FROM metro_metadata LIMIT ${ROW_LIMIT}`;
       const unemployment = await sql`
         SELECT * FROM metro_unemployment_monthly ORDER BY metro_code, year, month LIMIT ${ROW_LIMIT}
       `;
@@ -228,10 +245,17 @@ async function queryCategory(question: string): Promise<{ rows: QueryResult; not
 }
 
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ question: string }> }
 ) {
   const { question } = await params;
+
+  if (!checkRateLimit(`export:${getClientIp(request)}`, RATE_LIMIT, RATE_WINDOW_MS)) {
+    return NextResponse.json(
+      { error: "Too many exports. Please try again later." },
+      { status: 429 },
+    );
+  }
 
   try {
     const result = await queryCategory(question);

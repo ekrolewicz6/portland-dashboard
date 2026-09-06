@@ -225,19 +225,29 @@ export default function EducationDetail() {
   const [activeDistricts, setActiveDistricts] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    fetch("/api/dashboard/education/detail")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/education/detail", { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setData(d);
+        if (!cancelled) setData(d);
         if (d.districts) {
-          setActiveDistricts(new Set(d.districts.map((dd: District) => dd.name)));
+          if (!cancelled) setActiveDistricts(new Set(d.districts.map((dd: District) => dd.name)));
         }
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       })
       .catch(() => {
-        setError(true);
-        setLoading(false);
+        if (!cancelled) setError(true);
+        if (!cancelled) setLoading(false);
       });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   const toggleDistrict = (name: string) => {

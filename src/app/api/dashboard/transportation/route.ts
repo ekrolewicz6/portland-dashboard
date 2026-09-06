@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
@@ -9,7 +10,7 @@ const CACHE_TTL = 6 * 60 * 60 * 1000; // 6h
 export async function GET() {
   // Check cache first
   const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY, CACHE_TTL);
-  if (cached) return NextResponse.json(cached);
+  if (cached) return NextResponse.json(withFreshness(cached));
 
   let totalRoutes = 0;
   let totalStops = 0;
@@ -241,5 +242,5 @@ export async function GET() {
   if (dataAvailable) {
     await setCachedData(CACHE_KEY, responseData);
   }
-  return NextResponse.json(responseData);
+  return NextResponse.json(withFreshness(responseData));
 }

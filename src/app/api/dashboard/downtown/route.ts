@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 import type { DowntownData } from "@/lib/types";
 
@@ -10,7 +11,7 @@ export async function GET(): Promise<NextResponse<DowntownData & { dataStatus: s
   try {
     // Check cache first
     const cached = await getCachedData<DowntownData & { dataStatus: string }>(CACHE_KEY);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     // Real data: graffiti reports from Portland BPS
     const graffitiRows = await sql`
@@ -232,7 +233,7 @@ export async function GET(): Promise<NextResponse<DowntownData & { dataStatus: s
     };
 
     await setCachedData(CACHE_KEY, result);
-    return NextResponse.json(result);
+    return NextResponse.json(withFreshness(result));
   } catch (error) {
     console.error("[downtown] DB query failed:", error);
     return NextResponse.json({

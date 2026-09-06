@@ -17,6 +17,23 @@ interface StackedAreaChartProps {
   areas: { key: string; label: string; color: string }[];
   xKey?: string;
   height?: number;
+  /** Replaces the summary read out in place of the chart graphic. */
+  ariaLabel?: string;
+}
+
+function describeAreas(
+  data: Record<string, string | number>[],
+  areas: { key: string; label: string }[],
+  xKey: string
+): string {
+  if (data.length === 0) return "Stacked area chart with no data.";
+  const series = areas.map((a) => a.label).join(", ");
+  const first = String(data[0]?.[xKey] ?? "");
+  const last = String(data[data.length - 1]?.[xKey] ?? "");
+  const span = first && last && first !== last ? ` from ${first} to ${last}` : "";
+  return `Stacked area chart of ${series} across ${data.length} ${
+    data.length === 1 ? "point" : "points"
+  }${span}.`;
 }
 
 export default function StackedAreaChart({
@@ -24,11 +41,16 @@ export default function StackedAreaChart({
   areas,
   xKey = "month",
   height = 320,
+  ariaLabel,
 }: StackedAreaChartProps) {
   const baseId = useId();
 
+  // The SVG itself carries no text for assistive technology, so the wrapper
+  // stands in for it with the shape of the data spelled out.
+  const label = ariaLabel ?? describeAreas(data, areas, xKey);
+
   return (
-    <div style={{ width: "100%", height }}>
+    <div role="img" aria-label={label} style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }}>
           <defs>

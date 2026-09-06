@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { withFreshness } from "@/lib/dashboard-response";
 import sql, { getCachedData, setCachedData } from "@/lib/db-query";
 
 export const dynamic = "force-dynamic";
@@ -68,7 +69,7 @@ export async function GET() {
   try {
     // Check cache first
     const cached = await getCachedData<Record<string, unknown>>(CACHE_KEY, CACHE_TTL);
-    if (cached) return NextResponse.json(cached);
+    if (cached) return NextResponse.json(withFreshness(cached));
 
     const t0 = Date.now();
     const result = await sql.unsafe(COMBINED_QUERY);
@@ -83,7 +84,7 @@ export async function GET() {
     const irpTotal = payload.irp_total as { unique_total: number; earliest: string } | null;
 
     if (pitRows.length === 0) {
-      return NextResponse.json({
+      return NextResponse.json(withFreshness({
         headline: "No homelessness data loaded yet",
         headlineValue: 0,
         dataStatus: "unavailable",
@@ -93,7 +94,7 @@ export async function GET() {
         source: "HUD Point-in-Time Count · JOHS · Metro SHS · Multnomah County Health",
         lastUpdated: new Date().toISOString().slice(0, 10),
         insights: ["Homelessness data not yet available."],
-      });
+      }));
     }
 
     const latest = pitRows[pitRows.length - 1];
@@ -173,10 +174,10 @@ export async function GET() {
     };
 
     await setCachedData(CACHE_KEY, responseData);
-    return NextResponse.json(responseData);
+    return NextResponse.json(withFreshness(responseData));
   } catch (error) {
     console.error("[homelessness] DB query failed:", error);
-    return NextResponse.json({
+    return NextResponse.json(withFreshness({
       headline: "Homelessness data temporarily unavailable",
       headlineValue: 0,
       dataStatus: "unavailable",
@@ -188,6 +189,6 @@ export async function GET() {
       insights: [
         "Database connection failed. Homelessness data is temporarily unavailable.",
       ],
-    });
+    }));
   }
 }

@@ -1,5 +1,16 @@
-import json
-wf=json.load(open("/private/tmp/claude-501/-Users-edankrolewicz-Code-Active-portland-civic-dashboard/f74d164f-a942-4e3e-9620-d4c6e1cc7a6e/tasks/w0leblvnh.output"))
+import os, json
+
+# The per-bureau "Bureau Programs" extraction is produced out-of-band and lands in a
+# scratch path that is unique to each run, so the caller has to say where it is.
+WORKFLOW_JSON=os.environ.get("ORG_FINANCE_WORKFLOW_JSON")
+if not WORKFLOW_JSON:
+    raise SystemExit(
+        "ORG_FINANCE_WORKFLOW_JSON is not set. Point it at the bureau-programs "
+        "extraction output, e.g.\n"
+        "  ORG_FINANCE_WORKFLOW_JSON=/path/to/extraction.json "
+        "python3 ingest/build-org-finance.py"
+    )
+wf=json.load(open(os.path.expanduser(WORKFLOW_JSON)))
 results={r["id"]:r for r in wf["result"]["results"]}
 OPTOT={"city-attorney":22300219,"city-auditor":14185501,"cbo":4437127,"office-city-administrator":95342565,
 "childrens-levy":29157997,"city-council":19548454,"office-city-operations":49715513,"fpdr":310269063,

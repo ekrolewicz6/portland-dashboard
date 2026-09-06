@@ -19,10 +19,9 @@
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 // ── DB connection (Supabase pooler-safe) ────────────────────────────────
 
@@ -92,7 +91,7 @@ async function fetchArcGISPages(
     const res = await fetch(url);
     if (!res.ok) throw new Error(`ArcGIS HTTP ${res.status} for ${label}`);
 
-    const data: ArcGISResponse = await res.json();
+    const data = (await res.json()) as ArcGISResponse;
     if (data.error) throw new Error(`ArcGIS error: ${data.error.message}`);
 
     const features = data.features ?? [];
@@ -454,7 +453,7 @@ async function fetchLibraryRows(): Promise<LibraryRow[]> {
     throw new Error(`Socrata HTTP ${res.status}: ${text.slice(0, 300)}`);
   }
 
-  const raw: Record<string, any>[] = await res.json();
+  const raw = (await res.json()) as Record<string, any>[];
   console.log(`  Got ${raw.length} year-rows from Socrata`);
 
   return raw.map((r) => {

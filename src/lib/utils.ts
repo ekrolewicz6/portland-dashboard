@@ -125,14 +125,47 @@ export function getTrendColor(
   direction: TrendDirection,
   questionId?: QuestionId,
 ): string {
-  if (direction === "flat") return "text-gray-500";
+  const polarity = getTrendPolarity(direction, questionId);
+  if (polarity === "neutral") return "text-gray-500";
+  return polarity === "good" ? "text-green-600" : "text-red-600";
+}
+
+/**
+ * Is this movement good, bad, or neither, for this particular question?
+ *
+ * This is the single place that decides trend polarity. Colouring "up" green
+ * everywhere makes rising homelessness or rising crime read as progress, so
+ * every surface that colours a trend goes through here rather than branching
+ * on the raw direction.
+ */
+export function getTrendPolarity(
+  direction: TrendDirection,
+  questionId?: QuestionId,
+): "good" | "bad" | "neutral" {
+  if (direction === "flat") return "neutral";
 
   const inverted = questionId != null && INVERTED_QUESTIONS.has(questionId);
-  const isPositive = inverted
-    ? direction === "down"
-    : direction === "up";
+  const isGood = inverted ? direction === "down" : direction === "up";
+  return isGood ? "good" : "bad";
+}
 
-  return isPositive ? "text-green-600" : "text-red-600";
+/**
+ * The `trend-pill` modifier class for a direction, in the question's context.
+ * Pairs with getTrendPolarity; see the note there on why direction alone is
+ * not enough to pick a colour.
+ */
+export function getTrendPillClass(
+  direction: TrendDirection,
+  questionId?: QuestionId,
+): string {
+  switch (getTrendPolarity(direction, questionId)) {
+    case "good":
+      return "trend-positive";
+    case "bad":
+      return "trend-negative";
+    default:
+      return "trend-neutral";
+  }
 }
 
 /**

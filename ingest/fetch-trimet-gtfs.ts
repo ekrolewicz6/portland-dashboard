@@ -11,8 +11,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL = "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 const DATA_DIR = path.resolve(import.meta.dirname ?? ".", "..", "data");
 const TMP_DIR = path.resolve(import.meta.dirname ?? ".", "..", "tmp_gtfs");
 

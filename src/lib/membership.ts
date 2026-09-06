@@ -105,10 +105,12 @@ export async function resolveMemberFromWorkOS(user: WorkOSUserLike): Promise<Mem
     `;
   } catch (error) {
     // A new WorkOS user id carrying an email that already belongs to a member.
-    // Relink only when WorkOS attests the email is verified; otherwise an
-    // attacker who registered someone else's address could capture their
-    // account.
-    if (!isUniqueViolationOnEmail(error) || user.emailVerified === false) {
+    // Relinking hands the existing account — including an admin role — to the
+    // new identity, so it requires a positive attestation that the address is
+    // verified. An absent flag is not an attestation: a caller that simply
+    // omits the field must not be able to take over an account by claiming
+    // its email.
+    if (!isUniqueViolationOnEmail(error) || user.emailVerified !== true) {
       throw error;
     }
     await sql`

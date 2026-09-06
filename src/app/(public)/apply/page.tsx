@@ -302,8 +302,11 @@ export default function ApplyPage() {
 
             <div className="space-y-5">
               <div>
-                <label className={labelClasses}>Business Name</label>
+                <label className={labelClasses} htmlFor="apply-business-name">
+                  Business Name
+                </label>
                 <input
+                  id="apply-business-name"
                   type="text"
                   className={inputClasses}
                   placeholder="e.g. Canopy Coffee Co."
@@ -313,8 +316,11 @@ export default function ApplyPage() {
               </div>
 
               <div>
-                <label className={labelClasses}>Business Address</label>
+                <label className={labelClasses} htmlFor="apply-address">
+                  Business Address
+                </label>
                 <input
+                  id="apply-address"
                   type="text"
                   className={inputClasses}
                   placeholder="123 SW Main St, Portland, OR 97204"
@@ -325,8 +331,11 @@ export default function ApplyPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className={labelClasses}>Entity Type</label>
+                  <label className={labelClasses} htmlFor="apply-entity-type">
+                    Entity Type
+                  </label>
                   <select
+                    id="apply-entity-type"
                     className={selectClasses}
                     value={info.entityType}
                     onChange={(e) => updateInfo("entityType", e.target.value)}
@@ -340,8 +349,11 @@ export default function ApplyPage() {
                   </select>
                 </div>
                 <div>
-                  <label className={labelClasses}>Sector</label>
+                  <label className={labelClasses} htmlFor="apply-sector">
+                    Sector
+                  </label>
                   <select
+                    id="apply-sector"
                     className={selectClasses}
                     value={info.sector}
                     onChange={(e) => updateInfo("sector", e.target.value)}
@@ -357,8 +369,11 @@ export default function ApplyPage() {
               </div>
 
               <div>
-                <label className={labelClasses}>Owner Name(s)</label>
+                <label className={labelClasses} htmlFor="apply-owner-names">
+                  Owner Name(s)
+                </label>
                 <input
+                  id="apply-owner-names"
                   type="text"
                   className={inputClasses}
                   placeholder="Jane Doe, John Smith"
@@ -369,8 +384,11 @@ export default function ApplyPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className={labelClasses}>Email</label>
+                  <label className={labelClasses} htmlFor="apply-email">
+                    Email
+                  </label>
                   <input
+                    id="apply-email"
                     type="email"
                     className={inputClasses}
                     placeholder="you@business.com"
@@ -379,8 +397,11 @@ export default function ApplyPage() {
                   />
                 </div>
                 <div>
-                  <label className={labelClasses}>Phone</label>
+                  <label className={labelClasses} htmlFor="apply-phone">
+                    Phone
+                  </label>
                   <input
+                    id="apply-phone"
                     type="tel"
                     className={inputClasses}
                     placeholder="(503) 555-0100"
@@ -392,8 +413,11 @@ export default function ApplyPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className={labelClasses}>Number of Employees</label>
+                  <label className={labelClasses} htmlFor="apply-num-employees">
+                    Number of Employees
+                  </label>
                   <input
+                    id="apply-num-employees"
                     type="number"
                     className={inputClasses}
                     placeholder="12"
@@ -403,10 +427,14 @@ export default function ApplyPage() {
                   />
                 </div>
                 <div>
-                  <label className={labelClasses}>
+                  <label
+                    className={labelClasses}
+                    htmlFor="apply-pct-oregon-residents"
+                  >
                     % Oregon-Resident Employees
                   </label>
                   <input
+                    id="apply-pct-oregon-residents"
                     type="number"
                     className={inputClasses}
                     placeholder="85"
@@ -421,10 +449,11 @@ export default function ApplyPage() {
               </div>
 
               <div>
-                <label className={labelClasses}>
+                <label className={labelClasses} htmlFor="apply-year-founded">
                   Year Founded / Planned Opening
                 </label>
                 <input
+                  id="apply-year-founded"
                   type="text"
                   className={inputClasses}
                   placeholder="2024 or March 2025"
@@ -434,8 +463,11 @@ export default function ApplyPage() {
               </div>
 
               <div>
-                <label className={labelClasses}>Business Description</label>
+                <label className={labelClasses} htmlFor="apply-description">
+                  Business Description
+                </label>
                 <textarea
+                  id="apply-description"
                   className={`${inputClasses} min-h-[100px] resize-y`}
                   placeholder="What does your business do? Who do you serve?"
                   value={info.description}

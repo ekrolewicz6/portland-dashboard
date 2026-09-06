@@ -10,7 +10,13 @@ set -euo pipefail
 BASE="https://files.zillowstatic.com/research/public_csvs"
 DIR="data/zillow"
 PORTLAND="Portland, OR"
-DB="${DATABASE_URL:-portland_dashboard}"
+if [ -z "${DATABASE_URL:-}" ]; then
+  echo "DATABASE_URL is not set — this script has no default database." >&2
+  echo "  Set DATABASE_URL=postgresql://... in .env.local and export it before running:" >&2
+  echo "    set -a && source .env.local && set +a && ./ingest/refresh-zillow-data.sh" >&2
+  exit 1
+fi
+DB="$DATABASE_URL"
 
 echo "$(date) — Zillow Monthly Data Refresh"
 echo "========================================"
@@ -101,7 +107,7 @@ datasets = {
     "Metro_market_temp_index_uc_sfrcondo_month.csv": "market_temp",
 }
 
-sql = ["TRUNCATE public.zillow_metrics;"]
+sql = ["BEGIN;", "TRUNCATE public.zillow_metrics;"]
 total = 0
 
 for filename, metric in datasets.items():
@@ -122,16 +128,18 @@ for filename, metric in datasets.items():
                             pass
                 break
 
+sql.append("COMMIT;")
+
 with open("/tmp/zillow_refresh.sql", "w") as f:
     f.write("\n".join(sql))
 
 print(f"  Generated {total} rows for PostgreSQL")
 PYTHON_EOF
 
-psql "$DB" < /tmp/zillow_refresh.sql > /dev/null 2>&1
+psql -v ON_ERROR_STOP=1 "$DB" -q -f /tmp/zillow_refresh.sql
 echo "  ✓ Database updated"
 
-psql "$DB" > /dev/null 2>&1 <<'SQL'
+psql -v ON_ERROR_STOP=1 "$DB" -q <<'SQL'
 DELETE FROM public.dashboard_cache
 WHERE question IN ('housing', 'housing_detail', 'housing_journey', 'housing_bottleneck');
 SQL

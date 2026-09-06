@@ -34,13 +34,14 @@ type FinanceData = {
   }>;
   pcefAllocations: PcefAllocation[];
   pcefInterestDiversions: PcefDiversion[];
+  /** null when no PCEF allocation rows are loaded. */
   summary: {
     totalBureauAllocations: number;
     totalCommunityGrants: number;
     totalInterestDiverted: number;
     allocationSplit: AllocationSplitRow[];
     bureauTotals: Record<string, number>;
-  };
+  } | null;
 };
 
 function formatMoney(n: number, decimals = 0): string {
@@ -64,13 +65,23 @@ export default function FinanceTracker() {
   const [activeSection, setActiveSection] = useState<"gaps" | "pcef" | "diversions">("gaps");
 
   useEffect(() => {
-    fetch("/api/dashboard/climate/finance")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/climate/finance", { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setData(d);
-        setLoading(false);
+        if (!cancelled) setData(d);
+        if (!cancelled) setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   if (loading) {
@@ -81,7 +92,15 @@ export default function FinanceTracker() {
     );
   }
 
-  if (!data) return <p className="text-[var(--color-ink-muted)] text-[14px]">Finance data unavailable.</p>;
+  // The route returns summary: null when no allocation rows are loaded, rather
+  // than standing in remembered dollar totals. Say so instead of rendering.
+  if (!data || !data.summary) {
+    return (
+      <p className="text-[var(--color-ink-muted)] text-[14px]">
+        Climate finance data unavailable.
+      </p>
+    );
+  }
 
   const { summary } = data;
   const totalPcef = summary.totalBureauAllocations + summary.totalCommunityGrants;

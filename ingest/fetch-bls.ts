@@ -14,10 +14,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 const DATA_DIR = path.resolve(
   new URL(".", import.meta.url).pathname,
   "..",
@@ -79,6 +78,33 @@ interface BLSDataPoint {
   footnotes: string;
 }
 
+// Shape of the BLS v1 timeseries response. Only the fields this script reads
+// are declared; everything the API returns beyond these is ignored.
+interface BLSFootnote {
+  text?: string;
+}
+
+interface BLSResponseDataPoint {
+  year: string;
+  period: string;
+  periodName?: string;
+  value: string;
+  footnotes?: BLSFootnote[];
+}
+
+interface BLSResponseSeries {
+  seriesID: string;
+  data?: BLSResponseDataPoint[];
+}
+
+interface BLSResponse {
+  status?: string;
+  message?: string[];
+  Results?: {
+    series?: BLSResponseSeries[];
+  };
+}
+
 async function fetchBLSSeries(
   seriesList: BLSSeries[],
   startYear: string,
@@ -107,7 +133,7 @@ async function fetchBLSSeries(
     throw new Error(`BLS API returned HTTP ${res.status}`);
   }
 
-  const json = await res.json();
+  const json = (await res.json()) as BLSResponse;
 
   if (json.status !== "REQUEST_SUCCEEDED") {
     console.log(`  BLS API status: ${json.status}`);
@@ -134,7 +160,7 @@ async function fetchBLSSeries(
       if (isNaN(value)) continue;
 
       const footnoteTexts = (dp.footnotes ?? [])
-        .map((fn: any) => fn.text ?? "")
+        .map((fn) => fn.text ?? "")
         .filter(Boolean)
         .join("; ");
 
@@ -160,11 +186,13 @@ async function fetchAllBLS(): Promise<BLSDataPoint[]> {
   // BLS v1 API: max 10 series per request, max 10 years
   // We'll do 3 requests to cover all series
 
+  // BLS v1 allows at most 10 years per request; track the current year.
+  // Every batch below shares this window, so it lives outside the try blocks.
+  const endYear = String(new Date().getFullYear());
+  const startYear = String(new Date().getFullYear() - 9);
+
   // Request 1: First batch of employment series (10 series), 2016-2025
   try {
-    // BLS v1 allows at most 10 years per request; track the current year.
-    const endYear = String(new Date().getFullYear());
-    const startYear = String(new Date().getFullYear() - 9);
     const batch1 = await fetchBLSSeries(EMPLOYMENT_SERIES, startYear, endYear);
     allData.push(...batch1);
     console.log(`  Batch 1: ${batch1.length} data points`);

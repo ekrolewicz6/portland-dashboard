@@ -78,13 +78,23 @@ export default function EnvironmentDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/dashboard/environment/detail")
+    // Guarded against unmount, and against a slower earlier request
+    // landing after a newer one. Switching topics quickly used to let a
+    // stale response overwrite fresher state.
+    let cancelled = false;
+    const controller = new AbortController();
+    fetch("/api/dashboard/environment/detail", { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => {
-        setData(d);
-        setLoading(false);
+        if (!cancelled) setData(d);
+        if (!cancelled) setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   const hasAqi = data?.dataStatus === "live" && (data?.currentAqi?.length ?? 0) > 0;

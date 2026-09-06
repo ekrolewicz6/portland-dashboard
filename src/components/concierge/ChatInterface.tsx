@@ -224,6 +224,7 @@ export default function ChatInterface() {
               <button
                 type="button"
                 onClick={handleReset}
+                aria-label="Start a new conversation"
                 className="shrink-0 w-10 h-10 flex items-center justify-center text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-parchment)] rounded transition-colors"
                 title="New conversation"
               >

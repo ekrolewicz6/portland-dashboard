@@ -26,7 +26,7 @@ import FinancingSources from "@/components/deep-dives/venues/FinancingSources";
 import InstitutionModel from "@/components/deep-dives/venues/InstitutionModel";
 import OwnerDataModel from "@/components/deep-dives/venues/OwnerDataModel";
 import DoctrineCard from "@/components/deep-dives/venues/DoctrineCard";
-import Debate from "@/components/deep-dives/venues/Debate";
+import Debate from "@/components/deep-dives/Debate";
 import LiveStatus from "@/components/deep-dives/venues/LiveStatus";
 import AffordabilityCalculator from "@/components/deep-dives/venues/AffordabilityCalculator";
 import PortfolioQuadrant from "@/components/deep-dives/venues/PortfolioQuadrant";
