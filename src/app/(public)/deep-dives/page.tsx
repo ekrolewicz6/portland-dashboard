@@ -39,11 +39,11 @@ const DIVES: DeepDive[] = [
   {
     href: "/deep-dives/libraries",
     eyebrow: "Libraries & public knowledge infrastructure",
-    title: "Portland just finished rebuilding its libraries. Now what?",
+    title: "Portland just rebuilt its libraries. Now it has to decide what they're for.",
     blurb:
-      "A $387 million bond finished nineteen locations, culminating in a 95,000-square-foot flagship in Gresham, and checkouts are near record highs. Only 38% of households have an active card, and staff safety collapsed after reopening. The full history back to 1864, the honest gap, a map of every branch, who has to approve what, and a plan to 2040.",
-    stat: "19",
-    statLabel: "locations, and a 38% active-cardholder household rate",
+      "A $459 million bond is finished and all nineteen locations are open at full capacity. The district that owns them runs a deficit every year through 2031, even at the maximum levy. Fewer than four in ten households have a card; one building generates half the incident reports. The gap to 2040 in one chart, a real map of every branch, who has to approve what, and the decisions that can actually be made this year.",
+    stat: "38%",
+    statLabel: "of households have an active card; the 2040 target is 70%",
     icon: Library,
     available: true,
   },
@@ -155,6 +155,17 @@ const DIVES: DeepDive[] = [
     stat: "491,347",
     statLabel: "homes Oregon needs in 20 years",
     icon: TreePine,
+    available: true,
+  },
+  {
+    href: "/deep-dives/continuum",
+    eyebrow: "Homelessness · The continuum",
+    title: "Every step from the sidewalk to a lease, defined once.",
+    blurb:
+      "Fourteen stages, twelve kinds of people each with an evidence-backed path, six questions a police officer, paramedic, or outreach worker can answer at 2 a.m., and a rule for when Housing First works and when something has to come first. Plus how to count who is where without a form nobody fills in, and Portland's gap at every stage.",
+    stat: "14",
+    statLabel: "stages, none of which the region can fully count today",
+    icon: Route,
     available: true,
   },
   {

@@ -111,11 +111,6 @@ export default function EsserCliff() {
         <h3 className="mt-2 font-editorial text-[20px] leading-snug text-[var(--color-ink)]">
           Four years of federal aid hid the deficit. Now it surfaces as cuts, bigger every year.
         </h3>
-        <p className="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
-          The green bar is temporary pandemic money, spent on ongoing programs. While it flowed,
-          the district avoided serious cuts and the underlying deficit grew quietly. The clay bars
-          are what happened once it stopped: the same deficit, surfacing one budget at a time.
-        </p>
 
         <div className="mt-6 space-y-2.5">
           {/* The relief, full width: the reference bar */}
@@ -127,7 +122,7 @@ export default function EsserCliff() {
             fill={{ color: "var(--color-sage)" }}
             bold
           />
-          <p className="py-1 pl-[88px] font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-clay)] sm:pl-[112px]">
+          <p className="py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-clay)] sm:pl-[112px]">
             The money runs out. The cuts begin. ↓
           </p>
           {/* One row per cut year, same scale */}
@@ -199,14 +194,6 @@ export default function EsserCliff() {
             </span>
           </span>
         </div>
-
-        {/* The takeaway, spelled out */}
-        <p className="mt-4 border-t border-[var(--color-parchment)] pt-4 text-[14.5px] font-semibold leading-relaxed text-[var(--color-ink)]">
-          Read the chart as one sentence: the district used ${ESSER_TIMELINE.esserTotalM} million
-          of temporary money to avoid cutting, the money ran out, and the cuts it delayed arrived
-          larger, more than ${CUTS_SO_FAR_M} million in three years, with next year&apos;s
-          projected to be the biggest bar yet.
-        </p>
       </div>
 
       {/* ── The committee saw it coming ── */}
@@ -218,29 +205,9 @@ export default function EsserCliff() {
           {ESSER_TIMELINE.cliffNote}
         </blockquote>
       </div>
-
-      {/* ── Year by year, what each cut was ── */}
-      <div className="rounded-sm border border-[var(--color-parchment)] bg-white">
-        <div className="divide-y divide-[var(--color-parchment)]">
-          {ESSER_TIMELINE.cuts.map((cut) => (
-            <div key={cut.fy} className="flex items-baseline gap-3 px-4 py-3 sm:px-5">
-              <span className="w-16 shrink-0 font-mono text-[11px] font-semibold tabular-nums text-[var(--color-ink-muted)]">
-                {cut.fy}
-              </span>
-              <span className="w-14 shrink-0 text-right font-mono text-[11px] font-semibold tabular-nums text-[var(--color-clay)]">
-                {cut.gapM === null ? "–" : `${fmtM(cut.gapM)}${isProjected(cut) ? "+" : ""}`}
-              </span>
-              <span className="min-w-0 text-[13px] leading-snug text-[var(--color-ink-light)]">
-                {cut.label}
-              </span>
-            </div>
-          ))}
-        </div>
-        <p className="border-t border-[var(--color-parchment)] px-4 py-3 font-mono text-[10px] text-[var(--color-ink-muted)] sm:px-5">
-          Sources: Tax Supervising and Conservation Commission reviews; PPS Community Budget Review
-          Committee, spring 2023 and 2026-27 reports; PPS adopted budget FY2023-24, Vol. 1.
-        </p>
-      </div>
+      <p className="font-mono text-[10px] leading-relaxed text-[var(--color-ink-muted)]">
+        Sources: TSCC reviews; PPS Community Budget Review Committee, spring 2023 and 2026-27; PPS adopted budget FY2023-24.
+      </p>
     </div>
   );
 }

@@ -182,7 +182,7 @@ export default function PeerCities() {
         <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 text-[12.5px] leading-relaxed text-[var(--color-ink-light)]">
           Among the four structurally comparable cities, Portland sits between Austin and
           Minneapolis and well above Seattle. But Portland&apos;s figure is a share of{" "}
-          <em>discretionary</em> general fund — a narrower slice than any peer quotes — so if
+          <em>discretionary</em> general fund, a narrower slice than any peer quotes, so if
           anything it understates how comparable the three are. Only Austin publishes its own
           percentage; the rest are ours.
         </p>

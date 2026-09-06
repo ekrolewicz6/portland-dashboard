@@ -618,6 +618,33 @@ export default function MethodologyPage() {
           </div>
         </section>
 
+        {/* ━━━ Paid work ━━━ */}
+        <section className="mb-16">
+          <div className="section-divider mb-8">
+            <h2 className="font-editorial-normal text-xl text-[var(--color-ink)]">
+              Paid Work &amp; Independence
+            </h2>
+          </div>
+          <div className="bg-[var(--color-parchment)]/40 border border-[var(--color-parchment)]/60 rounded-sm p-6">
+            <p className="text-[14px] text-[var(--color-ink-muted)] leading-relaxed">
+              Governments, businesses, nonprofits, and individual supporters pay
+              for some of the Lab&apos;s work, and some of them appear in it. The
+              sourcing standard on this page does not change when a client is
+              paying. What keeps that honest is a set of published rules: every
+              contract listed within a week of signature, one side per matter,
+              public work won through open procurement, and sponsors named on
+              the question, never the answer. They live on the{" "}
+              <Link
+                href="/independence"
+                className="font-semibold text-[var(--color-canopy)] hover:underline"
+              >
+                Independence page
+              </Link>
+              , where anyone can check them.
+            </p>
+          </div>
+        </section>
+
         {/* ━━━ Contact / Contribute ━━━ */}
         <section>
           <div className="section-divider mb-8">

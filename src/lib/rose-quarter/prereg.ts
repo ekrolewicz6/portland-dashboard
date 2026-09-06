@@ -101,7 +101,7 @@ export const CORRIDORS: Corridor[] = [
     name: "I-5 northbound — the control direction",
     highwayId: HIGHWAY.I5_NB,
     role: "control",
-    why: "Same viaduct, same weather, same events, same school calendar — and it stays open. Every headline number is a difference against this, not a raw before-and-after.",
+    why: "Same viaduct, same weather, same events, same school calendar, and it stays open. Every headline number is a difference against this, not a raw before-and-after.",
     stations: [
       { id: 3171, mp: 303.47, length: 0.39, label: "at I-405" },
       { id: 10641, mp: 302.8, length: 0.29, label: "Russell" },
@@ -301,11 +301,11 @@ export const THRESHOLDS = {
  * Conditions under which ODOT's forecast is testable at all.
  *
  * ODOT's number came with a condition attached — "if every driver sticks to
- * their normal travel patterns" — which as written makes it close to
+ * their normal travel patterns", which as written makes it close to
  * unfalsifiable. Scoring it as though the condition weren't there would be a
  * cheap shot. So we test the condition first, with numbers fixed in advance. If
  * drivers changed behaviour, the honest verdict is that the forecast was never
- * put to the test — and the size of the change is itself the finding.
+ * put to the test, and the size of the change is itself the finding.
  */
 export const ANTECEDENT = {
   sameTrips: { metric: "Columbia cordon southbound weekday volume", tolerancePct: 2 },

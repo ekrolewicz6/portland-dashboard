@@ -416,7 +416,7 @@ export const LEDGER_TAGS = [
   {
     id: "unknown",
     label: "Unknown",
-    definition: "The public record cannot tell. That is a finding, not a footnote.",
+    definition: "The public record cannot tell.",
     tone: "sage",
   },
 ] as const;
@@ -499,7 +499,7 @@ export const BOND_LEDGER = [
   { project: "Benson Polytechnic", bond: "2017", ballotM: 202, latestM: 421.2, status: "over", note: "+108% vs ballot; auditors named a $14M 'budgeting error' inside the jump" }, // [y6 p13-14; y4 p14]
   { project: "Jefferson HS", bond: "2020", ballotM: 311, latestM: 491, status: "paused", note: "Design paused at the $491M schematic estimate; opening slipped two years" }, // [y6 p21-22]
   { project: "Grant HS", bond: "2012", ballotM: 88.3, latestM: 158.7, status: "over", note: "+80%; the 2012 program finished only because $115.8M of non-bond money absorbed overruns" }, // [2012 audit 4; y1p2 p14]
-  { project: "Lincoln HS", bond: "2017", ballotM: 187, latestM: 223.6, status: "under-revised", note: "Finished $16.9M UNDER its revised budget. The machine can hit honest numbers" }, // [y6 p13]
+  { project: "Lincoln HS", bond: "2017", ballotM: 187, latestM: 223.6, status: "under-revised", note: "Finished $16.9M under its revised budget." }, // [y6 p13]
   { project: "McDaniel HS", bond: "2017", ballotM: 146, latestM: 200.5, status: "near-revised", note: "Completed near its revised target" }, // [y6 p13]
   { project: "Center for Black Student Excellence", bond: "2020", ballotM: 60, latestM: 0, status: "unspent", note: "$60M allocated in 2020; zero dollars spent through February 2025; flagged by auditors three years running" }, // [y6 p21, p33-34]
 ] as const;
@@ -516,7 +516,7 @@ export const WASTE_VERDICTS = [
     defense:
       "Construction prices jumped nationwide from 2020 to 2023, earthquake-safety work genuinely grew, and Lincoln High finished under budget, which proves the district can build on budget when the starting number is honest.",
     bottomLine:
-      "The takeaway: hundreds of millions were lost, but bond money can legally buy only buildings, so the loss came out of Portland's borrowing power and its trust in the next bond, not out of classrooms.",
+      "Hundreds of millions were lost, but bond money can legally buy only buildings, so the loss came out of Portland's borrowing power and its trust in the next bond, not out of classrooms.",
   },
   {
     id: "W2",
@@ -528,7 +528,7 @@ export const WASTE_VERDICTS = [
     defense:
       "Small schools are something Portland pays extra for on purpose: walkability and belonging. And the last round of closures fell hardest on Black and brown neighborhoods, so the hesitation was not irrational.",
     bottomLine:
-      "The takeaway: keeping a small school open is a legitimate choice. Taking five years to make the choice, while classrooms paid for the delay, is the waste.",
+      "Keeping a small school open is a legitimate choice. Taking five years to make the choice, while classrooms paid for the delay, is the waste.",
   },
   {
     id: "W3",
@@ -540,7 +540,7 @@ export const WASTE_VERDICTS = [
     defense:
       "Some spending labeled support is counselors and campus safety, not executives. State and federal mandates grew all decade. And two-thirds of the contract surge is bond construction, not overhead.",
     bottomLine:
-      "The takeaway: nobody can prove the central office is bloated, and nobody can prove it is not, because the district has never published the numbers that would settle it. The state audit asked for exactly those numbers in 2019. They still do not exist.",
+      "Nobody can prove the central office is bloated, and nobody can prove it is not, because the district has never published the numbers that would settle it. The state audit asked for exactly those numbers in 2019. They still do not exist.",
   },
   {
     id: "W4",
@@ -552,7 +552,7 @@ export const WASTE_VERDICTS = [
     defense:
       "The money was meant for pandemic recovery, which means hiring people to help children in crisis, immediately. A district that banked it instead would have been attacked for hoarding aid.",
     bottomLine:
-      "The takeaway: spending temporary money on children was a reasonable choice. Letting the public believe that spending level was sustainable was not. The district's own citizen committee said the money was 'hiding the looming shortfall' a year before the strike.",
+      "Spending temporary money on children was a reasonable choice. Letting the public believe that spending level was sustainable was not. The district's own citizen committee said the money was 'hiding the looming shortfall' a year before the strike.",
   },
   {
     id: "W5",
@@ -564,7 +564,7 @@ export const WASTE_VERDICTS = [
     defense:
       "This district did plan ahead. It adopted a reserve policy in 2019 targeting up to 10 percent, built a balance above the floor, and spent it down through the deficit years rather than laying off staff sooner, over a teachers union arguing throughout that the money should be spent faster. That reserve is a real reason Portland avoided mass layoffs two years ago. State revenue is genuinely hard to forecast inside a year, the budget office itself has been cut, and the fixes big enough to close a structural gap are politically brutal in every district that faces them.",
     bottomLine:
-      "The takeaway: the failure here is not blindness, it is speed. The district built a cushion for this and then spent it in a single year against a multi-year cliff, in its own FAQ's words a one-year solution to a multi-year challenge. Late decisions buy less than early ones, which is why every other problem on this page cost more than it had to. The cheapest available fix is a rule the district can adopt for itself: grade the forecasts in public, and require a named response the quarter one moves.",
+      "The failure here is not blindness, it is speed. The district built a cushion for this and then spent it in a single year against a multi-year cliff, in its own FAQ's words a one-year solution to a multi-year challenge. Late decisions buy less than early ones, which is why every other problem on this page cost more than it had to. The cheapest available fix is a rule the district can adopt for itself: grade the forecasts in public, and require a named response the quarter one moves.",
   },
 ] as const;
 

@@ -60,7 +60,7 @@ export default function DoctrineCard() {
 
         {/* ── (b) The answer, as a way of operating ── */}
         <p className="mt-7 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ember)]">
-          How a city gets to a good answer, in one sentence
+          How a city gets to a good answer
         </p>
         <blockquote className="mx-auto mt-3 max-w-3xl text-center font-editorial text-[19px] leading-[1.3] text-[var(--color-ink)] [text-wrap:balance] sm:text-[22px]">
           {DOCTRINE_SENTENCE}

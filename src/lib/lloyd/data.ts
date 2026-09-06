@@ -4,7 +4,7 @@
  * Every figure here is sourced. The load-bearing facts were pulled from primary
  * documents in June 2026 — the City's Final Findings (land-use case
  * LU 25-091308), Prosper Portland's TIF page, the ZGF master plan, and the two
- * campaign sites — and cross-checked against local reporting. Where a figure is
+ * campaign sites, and cross-checked against local reporting. Where a figure is
  * a modeled ceiling or an estimate, it is labeled as such.
  *
  * This story is LIVE: the City Council appeal was pending as of late June 2026
@@ -264,7 +264,7 @@ export const FAULT_LINES: { issue: string; save: string; redevelop: string }[] =
   {
     issue: "The ice rink",
     save: "Guarantee a permanent, year-round rink before any demolition.",
-    redevelop: "Maybe a seasonal rink — and only if a third party chooses to build it.",
+    redevelop: "Maybe a seasonal rink, and only if a third party chooses to build it.",
   },
   {
     issue: "Timing & risk",

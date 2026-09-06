@@ -358,7 +358,7 @@ export const ALBINA_WAVES: Wave[] = [
     what: "Veterans Memorial Coliseum",
     toll: "~450 homes",
     detail:
-      "The arena and its parking took the heart of a neighbourhood that held the largest concentration of Black residents in Oregon — a concentration produced by racial covenants and redlining, not by choice.",
+      "The arena and its parking took the heart of a neighborhood that held the largest concentration of Black residents in Oregon — a concentration produced by racial covenants and redlining, not by choice.",
     sourceId: "urbanRenewal",
   },
   {
@@ -374,7 +374,7 @@ export const ALBINA_WAVES: Wave[] = [
     what: "Emanuel Hospital urban renewal",
     toll: "171 households",
     detail:
-      "About three-quarters Black, a third of them homeowners, taken by eminent domain across 55 acres. The federal money never arrived — but the demolition went ahead anyway, and the land sat vacant for decades.",
+      "About three-quarters Black, a third of them homeowners, taken by eminent domain across 55 acres. The federal money never arrived, but the demolition went ahead anyway, and the land sat vacant for decades.",
     sourceId: "emanuel",
   },
 ];
@@ -414,7 +414,7 @@ export const DESIGN_ERAS: DesignEra[] = [
     year: "2022–24",
     label: "Hybrid 3, after the cover assessment",
     cost: "$1.9B → $2.1B",
-    flint: "Flint restored as a neighbourhood street on the cover",
+    flint: "Flint restored as a neighborhood street on the cover",
     covers: "One continuous buildable cover, ~7 acres",
     ramps: "Southbound off-ramp moved south to Wheeler, plus a new flyover to Weidler",
     note: "Redesign followed the community trust's 2020 walkout and its two public demands: make amends, and make the covers buildable. The flyover came later, after the Blazers objected.",
@@ -465,7 +465,7 @@ export const CASES: LegalCase[] = [
     claim:
       "The project is incompatible with Portland's Comprehensive Plan and Metro's Regional Transportation Plan. The Central City Plan requires congestion-pricing analysis before I-5 is expanded; the regional plan requires showing that demand management cannot solve the problem first. Petitioners say ODOT produced neither. They also argue the ramps have moved so far from what Council adopted in 2012 that the plan must be amended before this can be built.",
     ifTheyWin:
-      "ODOT must either conform the project to the plan or get the City to amend the plan to describe what is actually being built — which would force a City Council vote the project has so far avoided.",
+      "ODOT must either conform the project to the plan or get the City to amend the plan to describe what is actually being built, which would force a City Council vote the project has so far avoided.",
     status:
       "ODOT withdrew its finding of compatibility 11 days before the July 2025 trial, then let the 30-day window to refile lapse, and re-executed findings that August. The trial was reset to January 2026. We could not verify what has happened since.",
     statusIsUncertain: true,
@@ -522,11 +522,16 @@ export const WHATS_NEXT: NextEvent[] = [
   {
     when: "2027 session",
     what: "The Legislature decides the project's fate",
-    why: "About $400M is spent or committed; the remaining ~$3B is unfunded. The covers' federal grant — the largest its program ever made — was rescinded, and restoring it would take a different federal administration. The state decides whether to carry the project until that question is answered.",
+    why: "About $400M is spent or committed; the remaining ~$3B is unfunded. The covers' federal grant, the largest its program ever made, was rescinded, and restoring it would take a different federal administration. The state decides whether to carry the project until that question is answered.",
+  },
+  {
+    when: "Ripe for decision",
+    what: "A ruling in the comprehensive-plan case (Multnomah County Circuit Court, No. 24CV23141)",
+    why: "The parties have filed their written closing arguments, so the case awaits the judge. A ruling for the plaintiffs could force a City Council vote on whether the project conforms to the city's plans. Flagged to the Lab by a reader on August 18, 2026; the docket is the source of record.",
   },
   {
     when: "Unscheduled",
-    what: "Rulings in both lawsuits",
-    why: "The comprehensive-plan case could force a City Council vote. The NEPA case could send the project back to environmental review.",
+    what: "A ruling in the NEPA case",
+    why: "The federal case could send the project back to environmental review.",
   },
 ];

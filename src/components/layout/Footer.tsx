@@ -1,6 +1,14 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { ASK_PORTLAND_URL, LEGAL_ENTITY, PARKS_URL, PERMITS_URL } from "@/lib/site";
+import {
+  ASK_PORTLAND_URL,
+  COUNCIL_URL,
+  DOWNTOWN_URL,
+  LEGAL_ENTITY,
+  OREGON_GOVERNANCE_URL,
+  PARKS_URL,
+  PERMITS_URL,
+} from "@/lib/site";
 import SsoLink from "@/components/SsoLink";
 
 type FooterLink = { label: string; href: string; external?: boolean; sso?: boolean };
@@ -11,49 +19,42 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: "Dashboards", href: "/dashboard" },
       { label: "Deep-Dives", href: "/deep-dives" },
-      { label: "Portfolio Brief", href: "/brief" },
+      { label: "Decisions register", href: "/decisions" },
       { label: "Org Chart", href: "/org-chart" },
+      { label: "Business Directory", href: "/directory" },
+      { label: "Civic Concierge", href: "/concierge" },
     ],
   },
   {
     title: "Civic tools",
     links: [
+      { label: "Portland Possible", href: DOWNTOWN_URL, external: true },
       { label: "Parks Atlas", href: PARKS_URL, external: true },
+      { label: "Oregon Governance Atlas", href: OREGON_GOVERNANCE_URL, external: true },
+      { label: "City Council", href: COUNCIL_URL, external: true },
       { label: "Ask Portland", href: ASK_PORTLAND_URL, external: true },
-      { label: "Permitting", href: PERMITS_URL, external: true, sso: true },
-      { label: "Zoning Check", href: `${PERMITS_URL}/zoning`, external: true, sso: true },
-      { label: "Fee Calculator", href: `${PERMITS_URL}/fees`, external: true, sso: true },
-      { label: "Timeline Estimator", href: `${PERMITS_URL}/timeline`, external: true, sso: true },
+      { label: "Portland Permits", href: PERMITS_URL, external: true, sso: true },
     ],
   },
   {
     title: "Work with us",
     links: [
-      { label: "For Public Institutions", href: "/institutions" },
-      { label: "Funding finder", href: "/business" },
-      { label: "PCB Certification", href: "/apply" },
-      // The benefits calculator, business directory and commercial spaces
-      // modules are not shipped yet (see TODO.md). They stay reachable by
-      // direct URL for the people working on them, but the site does not
-      // advertise them, and their pages are noindex.
-    ],
-  },
-  {
-    title: "Data & docs",
-    links: [
-      { label: "Open Data & API", href: "/open-data" },
-      { label: "Methodology", href: "/methodology" },
-      { label: "Independence & Funding", href: "/independence" },
-      { label: "Public Records", href: "/records" },
-      // Civic Concierge is likewise unshipped; see the note above.
-    ],
-  },
-  {
-    title: "Get involved",
-    links: [
-      { label: "Support the work", href: "/donate" },
+      { label: "Property owners & developers", href: "/property" },
+      { label: "Public institutions", href: "/institutions" },
+      { label: "Small businesses", href: "/business" },
+      { label: "Founding support", href: "/donate" },
       { label: "Volunteer", href: "/volunteer" },
-      { label: "Topic Proposals", href: "/proposals" },
+      { label: "Propose a topic", href: "/proposals" },
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      { label: "About the Lab", href: "/about" },
+      { label: "Independence & funding", href: "/independence" },
+      { label: "Methodology", href: "/methodology" },
+      { label: "Open data & API", href: "/open-data" },
+      { label: "Public records tracker", href: "/records" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -97,9 +98,9 @@ export default function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-[var(--color-ember)]/40 to-transparent" />
 
       <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-12 pt-16 pb-10 sm:pt-20">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-y-10 gap-x-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 lg:grid-cols-12">
           {/* Brand */}
-          <div className="col-span-2 lg:col-span-4 lg:pr-8">
+          <div className="col-span-2 md:col-span-4 lg:col-span-4 lg:pr-10">
             <div className="flex items-center gap-2.5">
               <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
                 <path d="M14 2L6 8v12l8 6 8-6V8l-8-6z" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[var(--color-sage)]" />
@@ -109,10 +110,9 @@ export default function Footer() {
               <h3 className="font-editorial-normal text-[22px] text-white leading-none">Portland Civic Lab</h3>
               <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-ember)]/70">Est. 2026</span>
             </div>
-            <p className="mt-4 text-[13px] leading-relaxed max-w-sm text-white/55">
-              A company that builds free, public tools to help Portlanders understand their
-              city — dashboards, deep-dives, the parks atlas, and practical civic tools, all
-              free to use and built from primary public data.
+            <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-white/55">
+              Free, source-linked tools for understanding Portland, and paid decision work for
+              the owners and institutions who run it, at published prices.
             </p>
             <Link
               href="/donate"
@@ -125,7 +125,7 @@ export default function Footer() {
 
           {/* Link columns */}
           {COLUMNS.map((col) => (
-            <div key={col.title} className="lg:col-span-2">
+            <div key={col.title} className="md:col-span-1 lg:col-span-2">
               <h4 className="text-[10px] font-mono font-semibold text-[var(--color-ember)] uppercase tracking-[0.2em] mb-4">
                 {col.title}
               </h4>
@@ -140,11 +140,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-[12px] text-white/60 max-w-2xl">
+          <p className="text-[12px] text-white/45 max-w-2xl">
             &copy; {year} {LEGAL_ENTITY} &middot; Free, public civic tools — independent and not
             affiliated with the City of Portland or any government agency.
           </p>
-          <div className="flex items-center gap-5 text-[12px] text-white/60">
+          <div className="flex items-center gap-5 text-[12px] text-white/45">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>

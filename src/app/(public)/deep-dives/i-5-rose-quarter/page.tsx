@@ -85,7 +85,7 @@ export default function RoseQuarterPage() {
               </h1>
               <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/75">
                 On September 11 the state closes southbound I-5 through the Rose Quarter for five
-                weeks and sends the traffic to I-405 and I-205 — which is very nearly what
+                weeks and sends the traffic to I-405 and I-205, which is very nearly what
                 freeway-removal advocates have been proposing permanently. Both sides have said what
                 they expect to happen. This page publishes those predictions, and the test that
                 decides them, <em>before</em> the closure begins.
@@ -114,7 +114,7 @@ export default function RoseQuarterPage() {
                 <div>
                   <dt className="text-[14px] font-semibold text-white">What everyone agrees on</dt>
                   <dd className="mt-1 text-[14px] leading-relaxed text-white/65">
-                    A Black neighbourhood was destroyed to build this freeway, and something is owed.
+                    A Black neighborhood was destroyed to build this freeway, and something is owed.
                   </dd>
                 </div>
                 <div>
@@ -153,7 +153,7 @@ export default function RoseQuarterPage() {
             ))}
           </dl>
           <p className="mt-3 max-w-3xl text-[12px] leading-relaxed text-white/45">
-About $400M has been spent or committed. The rest — roughly $3&nbsp;billion — is
+About $400M has been spent or committed. The rest, roughly $3&nbsp;billion, is
             essentially unfunded. ODOT&apos;s own website still shows an older $1.96–2.08B figure.
           </p>
         </div>
@@ -201,12 +201,12 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
         id="albina"
         tone="dark"
         eyebrow="Before any of this"
-        title="Three times, the same neighbourhood"
+        title="Three times, the same neighborhood"
         lead={
           <>
             You cannot understand why Albina Vision Trust supports a freeway project, or why its
             opponents are so careful about how they say no, without this. The land under and beside
-            I-5 was a Black neighbourhood, and it was taken three separate times in fifteen years.
+            I-5 was a Black neighborhood, and it was taken three separate times in fifteen years.
           </>
         }
         aside={
@@ -226,9 +226,9 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
               organisation that carries Albina&apos;s interests is not for the freeway and not
               against it — it is deliberately agnostic on the lanes (<Src id="avtPosition" />
               ). Every other actor in these rooms is solving for something else: freight throughput,
-              climate, congestion, an arena. &ldquo;Is this good for the neighbourhood?&rdquo; is
+              climate, congestion, an arena. &ldquo;Is this good for the neighborhood?&rdquo; is
               the question that has historically landed at the bottom of the list — that is how the
-              neighbourhood was destroyed the first time — and holding it first, to the exclusion of
+              neighborhood was destroyed the first time, and holding it first, to the exclusion of
               every other cause, is the entire strategy.
             </p>
           </div>
@@ -263,7 +263,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
             </h3>
             <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
               A landscaped lid over a freeway is a park. A lid engineered to carry buildings is a
-              neighbourhood. Under the current design the cover creates about{" "}
+              neighborhood. Under the current design the cover creates about{" "}
               {HEADLINE.coverAcresTotal} acres of new surface, of which roughly{" "}
               {HEADLINE.coverAcresBuildable} are buildable — three storeys at the north end, up to
               six at the south. That gap between total and buildable is the thing Albina Vision
@@ -292,7 +292,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
             <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
               By that measure the state&apos;s deadliest facilities are not interstates at all. They
               are the old &ldquo;orphan highways&rdquo; that predate the interstate era and now run
-              as arterials through neighbourhoods while still being managed like highways — TV
+              as arterials through neighborhoods while still being managed like highways — TV
               Highway, 82nd Avenue, Powell, Barbur. Those roads have the fatalities. The Rose Quarter
               has the fender-benders and the headline.
             </p>
@@ -329,7 +329,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
                 The ramp the Blazers got
               </h4>
               <p className="mt-2 text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-                In January 2023 Rip City Management — which runs the Moda Center and hosts roughly
+                In January 2023 Rip City Management, which runs the Moda Center and hosts roughly
                 250 events a year, about half of whose visitors arrive on foot or by bike — filed a
                 twenty-page objection to the relocated off-ramp, warning of a 210-degree turn and
                 four extra crossings through crowds. They hired an architecture firm and a law firm
@@ -382,7 +382,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
         lead={
           <>
             Built, as far as possible, from ODOT&apos;s own file and the historical record rather
-            than from advocacy — because that is where this case is strongest. Its best evidence is
+            than from advocacy, because that is where this case is strongest. Its best evidence is
             the agency&apos;s own consultant, the agency&apos;s own safety report, and the Eisenhower
             administration&apos;s own public works planner.
           </>
@@ -410,7 +410,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
             <p className="max-w-3xl text-[17px] leading-relaxed text-white">
               A July 2022 memorandum attached to this project&apos;s own environmental assessment
               found that <strong>pricing the road would cut traffic and raise speeds more than the
-              widening would</strong> — and cost more than a billion dollars less. The environmental
+              widening would</strong>, and cost more than a billion dollars less. The environmental
               review then stated that congestion pricing was not considered.
             </p>
             <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/65">
@@ -456,7 +456,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
               Pricing is the alternative everyone argues about. But there is another one that has
               never been costed in any published document: <strong className="text-white">build the
               covers without widening the freeway.</strong> If the goal is reconnecting Albina, that
-              is the option that delivers it most directly — and no environmental review, no design
+              is the option that delivers it most directly, and no environmental review, no design
               report and no funding request has ever priced it.
             </p>
             <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-white/70">
@@ -472,7 +472,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
             <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-white/70">
               Nothing in the engineering requires the covers and the extra lanes to be one project.
               The bundle is political, and it was tied from both ends. In Salem the project has
-              always been about freight — the lane is the point, the neighbourhood incidental.
+              always been about freight — the lane is the point, the neighborhood incidental.
               Locally, the caps became the price of permission: the community trust walked out in
               2020 demanding amends and buildable covers (<Src id="avtWithdrawal2020" />
               ), the city withdrew the same day, and Portland only rejoined two years later with the
@@ -481,11 +481,11 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
             </p>
             <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-white/70">
               So the forced marriage cuts both ways: either both things happen or neither does.
-              Opposing the lanes is made to look like opposing the neighbourhood; defending the
-              neighbourhood means carrying the lanes. One camp answers that nothing legally obliges
+              Opposing the lanes is made to look like opposing the neighborhood; defending the
+              neighborhood means carrying the lanes. One camp answers that nothing legally obliges
               ODOT to build the covers once the lanes are in; the other, that the covers cannot be
               built without the highway work and that six years of community process should count
-              for something. Both are right about the thing they are pointing at — and the camps are
+              for something. Both are right about the thing they are pointing at, and the camps are
               closer than the public sparring suggests: in 2019 they were jointly demanding a full
               environmental review (<Src id="avtEis2019" />
               ).
@@ -502,7 +502,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
         lead={
           <>
             Every cost figure below is dated and attributed, because the number has moved so often
-            that quoting it without a date is meaningless — and because ODOT&apos;s published
+            that quoting it without a date is meaningless, and because ODOT&apos;s published
             estimate and its internal draft estimates are currently more than a billion dollars
             apart.
           </>
@@ -568,7 +568,7 @@ About $400M has been spent or committed. The rest — roughly $3&nbsp;billion �
               a generation. If that bill is coming regardless, the honest comparison is not
               &ldquo;spend billions to remove a freeway&rdquo; but &ldquo;spend billions to rebuild
               one, or spend less and not have it.&rdquo; That reframing is what turns removal from a
-              utopian proposal into a budgeting question — and it is the strongest version of the
+              utopian proposal into a budgeting question, and it is the strongest version of the
               case advocates make.
             </p>
           </div>

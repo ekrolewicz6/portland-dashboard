@@ -28,7 +28,7 @@ function Row({ s }: { s: (typeof SCHOOL_UTILIZATION)[number] }) {
   return (
     <div className="grid grid-cols-[minmax(0,128px)_minmax(0,1fr)_40px] items-center gap-x-2">
       <p
-        className={`truncate font-mono text-[10px] leading-[15px] ${
+        className={`truncate font-mono text-[11px] leading-[16px] sm:text-[10px] sm:leading-[15px] ${
           under ? "font-bold text-[var(--color-ink)]" : "text-[var(--color-ink-muted)]"
         }`}
         title={`${s.n} (${levelShort(s.lv)}): ${s.enr} students in a building sized for ${s.cap}${s.t1 ? " · Title I" : ""}${s.urm ? " · unreinforced masonry" : ""}${s.bc ? " · boundary redrawn since 2018" : ""}`}
@@ -46,7 +46,7 @@ function Row({ s }: { s: (typeof SCHOOL_UTILIZATION)[number] }) {
         />
       </div>
       <p
-        className={`text-right font-mono text-[10px] tabular-nums leading-[15px] ${
+        className={`text-right font-mono text-[11px] tabular-nums leading-[16px] sm:text-[10px] sm:leading-[15px] ${
           under ? "font-bold text-[var(--color-clay)]" : "text-[var(--color-ink-muted)]"
         }`}
       >
@@ -124,61 +124,23 @@ export default function SchoolUtilization() {
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
             Who a closure list would touch
           </p>
-          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
-            Of the {S.under50} schools under half full,{" "}
-            <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">
-              {S.under50TitleI}
-            </span>{" "}
-            are Title I, a higher share than the district overall ({S.titleITotal} of {S.schools}
-            ). A closure list drawn purely by emptiness would again land hardest on
-            lower-income schools, which is the history the last closure round left behind, and
-            the reason emptiness alone cannot be the test.
-          </p>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">Of the {S.under50} schools under half full, <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">{S.under50TitleI}</span> are Title I. A list drawn by emptiness alone lands on lower-income schools again.</p>
         </div>
         <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
             The seismic wrinkle nobody prices in
           </p>
-          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
-            {S.urmBuildings} schools are unreinforced masonry, the building type most likely to
-            collapse in an earthquake, and roughly{" "}
-            <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">
-              ${S.seismicUnfundedM}M
-            </span>{" "}
-            of retrofit work, by the district&apos;s own engineers&apos; rough estimates, is
-            funded by no current bond. Five of the emptiest schools are on that list. Every
-            keep-it-open decision for one of those buildings is quietly also a decision about an
-            unfunded retrofit.
-          </p>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">{S.urmBuildings} schools are unreinforced masonry with <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">${S.seismicUnfundedM}M</span> of retrofit work no bond funds. Keeping one open is quietly a retrofit decision.</p>
         </div>
         <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
             How far is the next school?
           </p>
-          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
-            For {S.transportCandidates} of the 20 smallest schools, the nearest same-grade
-            neighborhood school is a median{" "}
-            <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">
-              {S.medianDriveMi} miles
-            </span>{" "}
-            away by road. The exceptions are real: closing {S.driveOutliers[0].school} would put
-            the nearest school {S.driveOutliers[0].mi} miles away, and{" "}
-            {S.driveOutliers[1].school} {S.driveOutliers[1].mi}. Distance is an argument
-            school-by-school, not district-wide.
-          </p>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">For the smallest schools, the next same-grade school is a median <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">{S.medianDriveMi} miles</span> away. Skyline is the exception at {S.driveOutliers[0].mi}.</p>
         </div>
       </div>
 
-      <p className="font-mono text-[10px] leading-relaxed text-[var(--color-ink-muted)]">
-        Data: ppsdata.info (Alex Meub, open source), compiling Oregon ODE Fall Membership
-        2025-26, the district&apos;s 2021 Long-Range Facility Plan capacity numbers, NCES, and
-        the Holmes 2024 seismic assessments. We verified samples of each against the primary
-        documents: enrollment, capacity, and retrofit figures all matched exactly · Caveats:
-        capacity predates recent bond expansions; retrofit costs are the engineers&apos;
-        rough-order estimates and exclude soft costs; 19 schools had boundaries or grades
-        redrawn since 2018, so some enrollment change reflects redraws; high schools are outside
-        this dataset&apos;s scope.
-      </p>
+      <p className="font-mono text-[10px] leading-relaxed text-[var(--color-ink-muted)]">Data: ppsdata.info (Alex Meub, open source) compiling ODE Fall Membership 2025-26, the district&apos;s 2021 facility plan capacities, and the Holmes 2024 seismic estimates; samples of each verified against the primary documents. Capacity predates recent bond expansions; retrofit costs are rough-order; high schools out of scope.</p>
     </div>
   );
 }

@@ -23,46 +23,43 @@ const SCORECARD = [
   {
     ask: "More than nine days to review the budget",
     asked: "4 straight years",
-    outcome:
-      "Unanswered. The committee's own words a year after first asking: “remains unaddressed.”",
+    outcome: "Unanswered, four years running.",
     acted: false,
   },
   {
     ask: "Drop the paid MAP testing contract; the state offers assessments free",
     asked: "3 reports since 2023",
-    outcome: "Still paying, about $218,000 a year on average.",
+    outcome: "Still paying, ~$218,000 a year.",
     acted: false,
   },
   {
     ask: "Publish central-office spending where the public can check it",
     asked: "3 straight years",
-    outcome: "Not published. The central-office argument still runs on faith.",
+    outcome: "Not published.",
     acted: false,
   },
   {
     ask: "Measure whether the equity allocation works before changing it",
     asked: "2023 and 2024",
-    outcome: "Never produced. The allocation was halved anyway.",
+    outcome: "Never produced; allocation halved anyway.",
     acted: false,
   },
   {
     ask: "Report back on which recommendations were acted on",
     asked: "2026",
-    outcome: "The ask exists because no such report has ever existed.",
+    outcome: "No such report has ever existed.",
     acted: false,
   },
   {
     ask: "Adopt a long-term fiscal strategy with milestones",
     asked: "2025",
-    outcome:
-      "Adopted. The 2026 report commends “a concerted effort” and calls it a first step.",
+    outcome: "Adopted; committee calls it a first step.",
     acted: true,
   },
   {
     ask: "Evaluate blended classrooms before expanding them",
     asked: "2025",
-    outcome:
-      "Done: an outside evaluation arrived for the 2026 review, though it interviewed no families.",
+    outcome: "Done: outside evaluation delivered 2026.",
     acted: true,
   },
 ] as const;
@@ -165,20 +162,11 @@ export default function EmptyChair() {
           <div className="border-t border-[var(--color-parchment)] pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-1">
             <blockquote className="space-y-4">
               <p className="font-editorial text-[18px] sm:text-[20px] leading-snug text-[var(--color-ink)]">
-                &ldquo;This timeline provided nine working days to evaluate a
-                budget of $2.8 billion.&rdquo;
-              </p>
-              <p className="font-editorial text-[18px] sm:text-[20px] leading-snug text-[var(--color-ink)]">
                 &ldquo;Budget oversight that cannot be conducted thoroughly
                 risks becoming symbolic rather than substantive.&rdquo;
               </p>
             </blockquote>
-            <p className="mt-4 text-[13px] text-[var(--color-ink-light)]">
-              The district&rsquo;s own Community Budget Review Committee, 2026.
-              Portland does have citizen reviewers. They sit outside the
-              committee, advisory only, and this is how much time they were
-              given.
-            </p>
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">The district&rsquo;s own citizen review committee, 2026</p>
           </div>
         </div>
       </div>
@@ -189,13 +177,7 @@ export default function EmptyChair() {
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
             The advice, and what happened to it
           </p>
-          <p className="mt-2 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-light)]">
-            Who are these reviewers? Seventeen volunteers the board convenes: parents, staff,
-            community members, and five students. They read the budget, write recommendations,
-            and hand them to the seven people who wrote it. Acting on them belongs to the
-            superintendent and the board, and no law requires either to answer. Here is the
-            running score, from the committee&apos;s own 2023&ndash;2026 reports.
-          </p>
+          <p className="mt-2 max-w-3xl text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">Seventeen volunteers, advisory only. What they asked for, 2023–2026, and what happened.</p>
         </div>
         <ul className="divide-y divide-[var(--color-parchment)]">
           {SCORECARD.map((row) => (

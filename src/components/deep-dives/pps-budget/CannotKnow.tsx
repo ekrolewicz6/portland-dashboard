@@ -1,48 +1,48 @@
 import { GAPS } from "@/lib/pps-budget/data";
 
 /**
- * Act IV close (document.md section 13, "What we cannot know"): the census of
- * what the public record cannot answer about the PPS budget. One row per
- * missing document: what it would settle, who holds it, and the specific ask
- * that would produce it.
+ * The eight missing documents. Visible: the document and who holds it.
+ * One tap: what it would settle and how to get it.
  */
 
 type GapRow = (typeof GAPS)[number];
 
-function Ask({ text }: { text: string }) {
+function GapCard({ r, i }: { r: GapRow; i: number }) {
   return (
-    <p className="text-[12.5px] leading-snug text-[var(--color-ink)]">
-      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-fern)]">
-        How to get it ·{" "}
-      </span>
-      {text}
-    </p>
-  );
-}
-
-function Holder({ text }: { text: string }) {
-  return (
-    <p className="text-[12.5px] leading-snug text-[var(--color-ink-light)]">
-      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
-        Who has it ·{" "}
-      </span>
-      {text}
-    </p>
-  );
-}
-
-function GapCard({ r }: { r: GapRow }) {
-  return (
-    <li className="px-4 py-4 sm:px-5">
-      <p className="text-[14.5px] font-semibold leading-snug text-[var(--color-ink)]">{r.gap}</p>
-      <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
-        <span className="font-semibold text-[var(--color-ink)]">{"What it would settle: "}</span>
-        {r.settles}
-      </p>
-      <div className="mt-2.5 space-y-1.5 border-t border-[var(--color-parchment)] pt-2.5">
-        <Holder text={r.holder} />
-        <Ask text={r.ask} />
-      </div>
+    <li>
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-start gap-3 px-4 py-3.5 sm:px-5">
+          <span className="mt-0.5 shrink-0 font-mono text-[11px] font-bold tabular-nums text-[var(--color-ember)]">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[15px] font-semibold leading-snug text-[var(--color-ink)]">
+              {r.gap}
+            </span>
+            <span className="mt-1 block text-[12.5px] leading-snug text-[var(--color-ink-muted)]">
+              <span className="font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em]">
+                Who has it ·{" "}
+              </span>
+              {r.holder}
+            </span>
+          </span>
+          <span aria-hidden className="shrink-0 font-mono text-[16px] text-[var(--color-ink-muted)] transition-transform group-open:rotate-90">
+            ›
+          </span>
+        </summary>
+        <div className="space-y-2 border-t border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-4 py-3.5 text-[13.5px] leading-relaxed text-[var(--color-ink-light)] sm:px-5 sm:pl-[52px]">
+          <p>
+            <span className="font-semibold text-[var(--color-ink)]">What it would settle: </span>
+            {r.settles}
+          </p>
+          <p>
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-fern)]">
+              How to get it ·{" "}
+            </span>
+            {r.ask}
+          </p>
+        </div>
+      </details>
     </li>
   );
 }
@@ -50,35 +50,23 @@ function GapCard({ r }: { r: GapRow }) {
 export default function CannotKnow() {
   return (
     <div className="mt-8">
-      <h3 className="font-editorial text-[20px] sm:text-[22px] leading-snug text-[var(--color-ink)]">
-        Eight missing documents, and who holds each one
-      </h3>
-      <p className="mt-3 max-w-3xl border-l-2 border-[var(--color-fern)] pl-4 font-editorial text-[16px] leading-snug text-[var(--color-ink)]">
-        What a public body declines to publish is a decision about the public.
-      </p>
-      <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-        Most of the fights on this page cannot be settled, and this is why: the settling document
-        has never been published. Each entry below names the document, the argument it would end,
-        who has it, and the specific request that would produce it. Four sit in district files
-        today. One belongs to the state. Three do not exist yet and would each take one vote to
-        create.
-      </p>
-
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+        <h3 className="font-editorial text-[22px] leading-snug text-[var(--color-ink)]">
+          Eight missing documents, and who holds each one
+        </h3>
+        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
+          4 in district files · 1 with the state · 3 need a vote to exist
+        </p>
+      </div>
       <div className="mt-4 rounded-sm border border-[var(--color-parchment)] bg-white">
         <ul className="divide-y divide-[var(--color-parchment)]">
-          {GAPS.map((r) => (
-            <GapCard key={r.gap} r={r} />
+          {GAPS.map((r, i) => (
+            <GapCard key={r.gap} r={r} i={i} />
           ))}
         </ul>
       </div>
-
       <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
-        Our records requests for the district-held documents are drafted and unsent; the district
-        can moot every one of them by publishing.
-      </p>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
-        Portland Public Schools financial reports page, inspected directly · MSRB EMMA · Oregon
-        Secretary of State audits division
+        Our records requests are drafted and unsent. The district can moot every one by publishing.
       </p>
     </div>
   );

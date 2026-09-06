@@ -103,9 +103,10 @@ export default function PrivacyPage() {
             </h2>
             <p>
               This site is operated by Portland Civic Lab LLC, a for-profit
-              company in Portland, Oregon that builds free, public civic tools.
-              We&apos;re independent and not affiliated with the City of
-              Portland. We&apos;ll update this policy as the project grows;
+              company in Portland, Oregon that builds free, public civic tools
+              and does paid decision work for property owners, public
+              institutions, and other clients. We&apos;re independent and not
+              affiliated with the City of Portland. We&apos;ll update this policy as the project grows;
               material changes will be noted on this page with a new effective
               date.
             </p>

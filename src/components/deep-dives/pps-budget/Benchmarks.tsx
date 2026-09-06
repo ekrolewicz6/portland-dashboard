@@ -127,14 +127,14 @@ export default function Benchmarks() {
       <div className="grid gap-4 lg:grid-cols-2">
         <BarPanel
           title="Against Oregon, on Oregon's books"
-          basis="Operating spending per student, 2023-24, on the state's identical chart of accounts. The one true apples-to-apples comparison."
+          basis="Operating spending per student in 2023-24, using the state's own accounting."
           rows={OREGON_PEERS}
           max={16503}
           footer="Portland spends 27 percent above the state average. Every other large district sits within 2 percent of it."
         />
         <BarPanel
           title="Against big cities, on federal books"
-          basis="Per-pupil current spending, FY2024, U.S. Census accounting (all funds, no construction or debt). A different measure; never compare across the two panels."
+          basis="Current spending per pupil in FY2024, using federal accounting. The two panels use different rules and should not be compared with each other."
           rows={NATIONAL_PEERS}
           max={25173}
           footer="26 percent above the national average, in a dead heat with Seattle, below San Francisco and Minneapolis, far above Denver."
@@ -154,24 +154,9 @@ export default function Benchmarks() {
               model says schools need, statewide
             </p>
           </div>
-          <div className="space-y-3 text-[13.5px] leading-relaxed text-[var(--color-ink-light)] md:border-l md:border-[var(--color-parchment)] md:pl-6">
-            <p>
-              Oregon is the rare state with an official answer to &ldquo;how much should a
-              student cost?&rdquo; The legislature&apos;s own Quality Education Model prices a
-              fully adequate school system every two years, and the legislature has never once
-              funded it. The 2026 model puts full funding near{" "}
-              <span className="font-mono font-semibold tabular-nums text-[var(--color-ink)]">
-                $24,900
-              </span>{" "}
-              per student per year statewide, all sources, our arithmetic from the model&apos;s
-              published totals.
-            </p>
-            <p className="font-semibold text-[var(--color-ink)]">
-              Here is the uncomfortable part: on the district&apos;s own all-funds operating
-              measure, about $26,300 per student, PPS already spends past what the state&apos;s
-              adequacy model asks. &ldquo;Underfunded&rdquo; describes Oregon&apos;s system.
-              It does not describe Portland&apos;s total.
-            </p>
+          <div className="space-y-3 text-[14.5px] leading-relaxed text-[var(--color-ink)] md:border-l md:border-[var(--color-parchment)] md:pl-6">
+            <p>Oregon&apos;s own Quality Education Model prices an adequate system at about <span className="font-mono font-semibold tabular-nums">$24,900</span> per student. The legislature has never funded it.</p>
+            <p className="font-semibold">PPS, at about $26,300 per student all-funds operating, already spends past it. &ldquo;Underfunded&rdquo; describes Oregon. It does not describe Portland&apos;s total.</p>
           </div>
         </div>
         <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 text-[13px] leading-relaxed text-[var(--color-ink)]">
@@ -186,18 +171,16 @@ export default function Benchmarks() {
       <div>
         <Eyebrow>Teacher pay, adjusted for what it costs to live there</Eyebrow>
         <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-          Salary schedules for 2025-26, then the same numbers divided by each metro&apos;s
-          federal cost-of-living index. Sorted by what a career teacher&apos;s top salary is
-          actually worth. Portland is last.
+          Published 2025-26 schedules, adjusted by each metro&apos;s federal cost-of-living index. Portland is last.
         </p>
         <div className="mt-4 overflow-x-auto rounded-sm border border-[var(--color-parchment)] bg-white">
-          <table className="w-full min-w-[640px] text-left">
+          <table className="w-full sm:min-w-[640px] text-left">
             <thead>
               <tr className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
                 <th className={TH}>District</th>
-                <th className={`${TH} text-right`}>Starting salary</th>
+                <th className={`${TH} hidden text-right sm:table-cell`}>Starting salary</th>
                 <th className={`${TH} text-right`}>Top of scale</th>
-                <th className={`${TH} text-right`}>Cost of living</th>
+                <th className={`${TH} hidden text-right sm:table-cell`}>Cost of living</th>
                 <th className={`${TH} text-right`}>Top, adjusted</th>
               </tr>
             </thead>
@@ -223,9 +206,9 @@ export default function Benchmarks() {
                         </span>
                       ) : null}
                     </td>
-                    <td className={cell}>{fmtK(row.start)}</td>
+                    <td className={`${cell} hidden sm:table-cell`}>{fmtK(row.start)}</td>
                     <td className={cell}>{fmtK(row.top)}</td>
-                    <td className={cell}>{row.rpp.toFixed(1)}</td>
+                    <td className={`${cell} hidden sm:table-cell`}>{row.rpp.toFixed(1)}</td>
                     <td className={cell}>{fmtK(row.adjTop)}</td>
                   </tr>
                 );
@@ -233,29 +216,11 @@ export default function Benchmarks() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-[11px] leading-relaxed text-[var(--color-ink-muted)]">
-          Cost of living = federal Regional Price Parity for each metro, 2024 (100 = national
-          average); adjusted salary = salary &divide; index &times; 100. &dagger; Seattle figures
-          include nine supplemental days and a stipend most teachers receive (base schedule:
-          $63,117 to $121,632). &Dagger; Denver and Minneapolis top lanes require a doctorate;
-          Portland&apos;s scale tops out at a master&apos;s plus 45 credits. &sect; San
-          Francisco&apos;s schedule took effect January 2025 and includes local parcel-tax
-          add-ons. Contract years run 184 to 193 days; Portland&apos;s is the longest.
-        </p>
+        <details className="mt-2 group"><summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]">Method and caveats <span aria-hidden className="inline-block transition-transform group-open:rotate-90">›</span></summary><p className="mt-2 text-[11.5px] leading-relaxed text-[var(--color-ink-muted)]">Cost of living = federal Regional Price Parity for each metro, 2024 (100 = national average); adjusted salary = salary &divide; index &times; 100. &dagger; Seattle figures include nine supplemental days and a stipend most teachers receive (base: $63,117 to $121,632). &Dagger; Denver and Minneapolis top lanes require a doctorate; Portland tops out at a master&apos;s plus 45 credits. &sect; San Francisco&apos;s schedule took effect January 2025 and includes parcel-tax add-ons. Contract years run 184 to 193 days; Portland&apos;s is the longest.</p></details>
 
         {/* The wedge */}
         <div className="mt-4 rounded-sm border-l-2 border-[var(--color-clay)] bg-[var(--color-paper-warm)] p-4">
-          <p className="text-[14px] leading-relaxed text-[var(--color-ink)]">
-            <span className="font-semibold">
-              So Portland&apos;s teachers are expensive without being especially well paid.
-            </span>{" "}
-            The district&apos;s cost for an average levy-funded teacher is about $152,000 a year;
-            the top of the salary schedule is $111,314. The difference is benefits and,
-            above all, pensions: the district&apos;s PERS bill is climbing from about 4 percent of
-            salary toward 23 as its rate-relief accounts expire. That wedge, not paychecks, is
-            what makes an Oregon teacher cost more here than her adjusted salary would suggest,
-            and it is set in Salem, not at the bargaining table.
-          </p>
+          <p className="text-[15px] leading-relaxed text-[var(--color-ink)]"><span className="font-semibold">Expensive without being well paid.</span> A levy-funded teacher costs the district about $152,000; the top of the salary scale is $111,314. The wedge is pensions and benefits, set in Salem, not paychecks.</p>
         </div>
       </div>
     </div>

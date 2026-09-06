@@ -67,6 +67,26 @@ export const SOURCES: Record<string, Source> = {
   shelterReview: { id: "shelterReview", title: "Adult Shelter Review FY25 (per-bed shelter costs)", org: "Multnomah County HSD", url: "https://hsd.multco.us/wp-content/uploads/2026/01/Adult-Shelter-Review-FY25.pdf", kind: "primary" },
   masterLeaseNofa: { id: "masterLeaseNofa", title: "Master Leasing & Landlord Engagement NOFA (per-unit cost)", org: "Multnomah County JOHS", url: "https://multco.us/file/master_leasing_and_landlord_engagement_nofa_announcement/download", kind: "primary" },
   treatmentCost: { id: "treatmentCost", title: "Cost of residential substance-abuse treatment (per week)", org: "French, Popovici & Tapsell, J. Subst. Abuse Treat. (2008)", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2614666/", kind: "research" },
+
+  // Who pays, and the doors to federal dollars (September 2026 research memo)
+  kffFmap: { id: "kffFmap", title: "Federal Medical Assistance Percentage (FMAP) and multiplier, FY2027", org: "KFF", url: "https://www.kff.org/medicaid/state-indicator/federal-matching-rate-and-multiplier/", kind: "research" },
+  ohaWaiver: { id: "ohaWaiver", title: "2022–2027 Medicaid 1115 Demonstration Waiver", org: "Oregon Health Authority", url: "https://www.oregon.gov/oha/hsd/medicaid-policy/pages/waiver-renewal.aspx", kind: "primary" },
+  ohaHrsn: { id: "ohaHrsn", title: "Health-Related Social Needs (HRSN) covered services", org: "Oregon Health Authority", url: "https://www.oregon.gov/oha/hsd/medicaid-policy/pages/hrsn.aspx", kind: "primary" },
+  cmsRescission: { id: "cmsRescission", title: "Rescission of Guidance on Health-Related Social Needs (CMCS Informational Bulletin, Mar. 4, 2025)", org: "CMS", url: "https://www.medicaid.gov/federal-policy-guidance/2025-03-03/177006", kind: "primary" },
+  lundHrsn: { id: "lundHrsn", title: "'Administrative collapse': advocates blame evictions on new OHA housing program", org: "OPB / The Lund Report", url: "https://www.opb.org/article/2025/05/05/portland-oregon-homelessness-low-income-eviction-health-social-workers-housing/", kind: "news" },
+  ohaFederalChanges: { id: "ohaFederalChanges", title: "Oregon Health Plan changes in late 2026 to 2028 (H.R. 1)", org: "Oregon Health Authority", url: "https://www.oregon.gov/oha/hsd/ohp/pages/federal-changes.aspx", kind: "primary" },
+  orpcaHr1: { id: "orpcaHr1", title: "OHA analysis of H.R. 1: 100,000–200,000 Oregonians could lose coverage", org: "Oregon Primary Care Association (reproducing OHA)", url: "https://orpca.org/wp-content/uploads/2025/09/H.R-1-Medicaid-Cuts-OHA-Analysis.pdf", kind: "primary" },
+  shareGuidance: { id: "shareGuidance", title: "2026 SHARE Guidance (CCO reinvestment formula, OAR 410-141-3735)", org: "Oregon Health Authority", url: "https://www.oregon.gov/oha/HPA/dsi-tc/Documents/SHARE-Initiative-Guidance-Document.pdf", kind: "primary" },
+  ohaHousingMedicaid: { id: "ohaHousingMedicaid", title: "CCO Guidance: Housing and Medicaid Spending Programs (Dec. 2025)", org: "Oregon Health Authority", url: "https://www.oregon.gov/oha/HPA/dsi-tc/Documents/Housing-and-Medicaid-Spending-Programs.pdf", kind: "primary" },
+  hudCocOr: { id: "hudCocOr", title: "FY2024 Continuum of Care award report, Oregon (OR-501 $37.7M)", org: "U.S. Department of Housing and Urban Development", url: "https://www.hud.gov/sites/dfiles/CPD/documents/CoC/CoC-2024-OR_Press.pdf", kind: "primary" },
+  nacoFy26: { id: "nacoFy26", title: "Court vacates FY2026 Continuum of Care grant changes", org: "National Association of Counties", url: "https://www.naco.org/news/court-vacates-fy-2026-continuum-care-grant-changes", kind: "news" },
+  crsHudFy27: { id: "crsHudFy27", title: "HUD FY2027 Budget Request: In Brief", org: "Congressional Research Service", url: "https://www.congress.gov/crs-product/R48927", kind: "primary" },
+  multcoFy27: { id: "multcoFy27", title: "County adopts FY2027 budget: $67M Homeless Services gap, 605 shelter units closed", org: "Multnomah County", url: "https://multco.us/news/news-release-multnomah-county-board-commissioners-closes-significant-spending-gap-adopts", kind: "primary" },
+  randH4h: { id: "randH4h", title: "Evaluation of Housing for Health Permanent Supportive Housing Program (LA County)", org: "RAND", url: "https://www.rand.org/pubs/research_reports/RR1694.html", kind: "research" },
+  providenceCore: { id: "providenceCore", title: "Housing is Health: Medicaid outcomes for 1,600 Portland residents", org: "Providence Center for Outcomes Research & Education", url: "https://blog.providence.org/center-for-outcomes-research-education/core-study-shows-benefits-of-major-local-housing-for-health-initiative", kind: "research" },
+  urbanDenver: { id: "urbanDenver", title: "Denver Supportive Housing Social Impact Bond: final outcome payments", org: "Urban Institute", url: "https://www.urban.org/research/publication/denver-supportive-housing-social-impact-bond-initiative-final-outcome-payments", kind: "research" },
+  ncHop: { id: "ncHop", title: "Healthy Opportunities Pilots reduce Medicaid costs $164/member/month; program suspended", org: "North Carolina DHHS", url: "https://www.ncdhhs.gov/news/press-releases/2026/06/02/healthy-opportunities-pilots-lead-healthier-outcomes-and-reduce-nc-medicaid-costs", kind: "primary" },
+  waFcs: { id: "waFcs", title: "Foundational Community Supports (Medicaid-billed supportive housing services)", org: "Washington State Health Care Authority", url: "https://www.hca.wa.gov/about-hca/programs-and-initiatives/medicaid-transformation-project-mtp/foundational-community-supports", kind: "primary" },
 };
 
 // ── Headline figures (verified) ───────────────────────────────────
@@ -318,7 +338,7 @@ export const FIELD_TRIAGE = [
   {
     step: "No crime, no hold",
     route: "Voluntary shelter or treatment referral",
-    reality: "This is the gap Bed Finder targets: if the person says yes now, the worker needs an eligible option, phone confirmation, hold, and transport before the window closes.",
+    reality: "This is the gap PDX Help targets: if the person says yes now, the worker needs an eligible option, phone confirmation, hold, and transport before the window closes.",
   },
 ] as const;
 
@@ -407,7 +427,7 @@ export const PLAN = [
   {
     n: 2,
     title: "Make field triage immediate",
-    body: "When someone says yes right now, a worker needs an eligible option in minutes: anonymous criteria, live or phone-confirmed availability, name check by phone, hold, transport, and outcome. That is the product gap Bed Finder is built to close.",
+    body: "When someone says yes right now, a worker needs an eligible option in minutes: anonymous criteria, live or phone-confirmed availability, name check by phone, hold, transport, and outcome. That is the product gap PDX Help is built to close.",
   },
   {
     n: 3,
@@ -421,7 +441,7 @@ export const PLAN = [
   },
   {
     n: 5,
-    title: "Housing First — where it fits",
+    title: "Housing First, where it fits",
     body: "Scattered-site housing and permanent supportive housing remain essential. But housing is one tier in a continuum, not a substitute for treatment, reentry, hospital step-down care, or structured recovery community.",
   },
 ] as const;
@@ -443,10 +463,116 @@ export const MYTHS = [
   },
   {
     myth: "“We spend over a billion dollars and nothing changes.”",
-    truth: "Spending is real — but a balance that peaked near $431 million sat unspent across fragmented budgets while the system couldn't see itself, so effort flowed to the visible lever (units built) instead of the binding one (closing the inflow, staffing beds). The highest-leverage fix is making the machine legible.",
+    truth: "Spending is real, but a balance that peaked near $431 million sat unspent across fragmented budgets while the system couldn't see itself, so effort flowed to the visible lever (units built) instead of the binding one (closing the inflow, staffing beds). The highest-leverage fix is making the machine legible.",
   },
   {
     myth: "“Housing First is either the answer or the problem.”",
     truth: "Wrong frame. Housing First is a strong tool for people whose binding constraint is housing instability or chronic disability with services. It is not a detox bed, a jail-reentry plan, a hospital step-down unit, or a recovery community.",
   },
 ] as const;
+
+// ── Presentation metadata (visual layer only; no new claims) ─────
+
+/**
+ * How fast each plan step can start producing results. Editorial reading of
+ * the PLAN text itself: prevention and discharge rules are policy/admin
+ * changes (weeks), triage software and funnel measurement are build-and-ship
+ * work (months), the continuum and supportive housing are capital (years).
+ */
+export const PLAN_SPEED: Record<number, { horizon: "weeks" | "months" | "years"; costTag: string }> = {
+  1: { horizon: "weeks", costTag: "cheapest per person kept housed" },
+  2: { horizon: "months", costTag: "software + protocol, not construction" },
+  3: { horizon: "years", costTag: "capital and staffing" },
+  4: { horizon: "months", costTag: "reporting rules, near-zero cost" },
+  5: { horizon: "years", costTag: "capital and ongoing services" },
+};
+
+/** Deadline buckets that order the cohort ladder, fastest first. */
+export const DEADLINE_BUCKETS = [
+  { key: "same-day", label: "Same day", sub: "hours", ids: ["families", "dv-trafficking", "smi", "sud", "dual-diagnosis"] },
+  { key: "72h", label: "24–72 hours", sub: "days", ids: ["youth"] },
+  { key: "before-exit", label: "Before discharge or release", sub: "the institution's clock", ids: ["medical-fragile", "justice-involved"] },
+  { key: "1-3mo", label: "30–90 days", sub: "weeks", ids: ["economic-shock", "vehicle-homeless"] },
+  { key: "3-6mo", label: "90–180 days", sub: "months", ids: ["chronic-stable"] },
+  { key: "repeated", label: "Repeated, documented offers", sub: "no single deadline", ids: ["service-refusing"] },
+] as const;
+
+/** The deflection funnel, FY26 Q3, derived only by subtraction from STATS. */
+export const DEFLECTION_FUNNEL = {
+  referrals: STATS.deflectionQ3LawEnforcementReferrals,
+  reachedWindow: STATS.deflectionQ3Exited90DayWindow,
+  notYetAtWindow: STATS.deflectionQ3LawEnforcementReferrals - STATS.deflectionQ3Exited90DayWindow,
+  completed: STATS.deflectionQ3Successful90DayCompletions,
+  didNotComplete: STATS.deflectionQ3Exited90DayWindow - STATS.deflectionQ3Successful90DayCompletions,
+  split: [
+    { label: "SUD / recovery only", value: STATS.deflectionQ3SuccessfulSUDOnly },
+    { label: "SUD / recovery + care coordination", value: STATS.deflectionQ3SuccessfulSUDPlusCareCoordination },
+    { label: "Care coordination only", value: STATS.deflectionQ3SuccessfulCareCoordinationOnly },
+  ],
+} as const;
+
+// ── Who pays for the street, and the doors to federal dollars ─────
+// Distilled from research/homelessness-funding/document.md (Sept 2026).
+
+export const FUNDING = {
+  fmapRegular: 0.5818, // Oregon FY2027 (kffFmap)
+  fmapExpansion: 0.9, // ACA expansion adults, statutory
+  hrsnRentMonths: 6,
+  hrsnMembersThroughJun2025: 4_490,
+  ccoHousingInvest2018to2024: 104_000_000, // statewide, SHARE + flexible services (ohaHousingMedicaid)
+  cocOr501Fy2024: 37_660_187, // hudCocOr
+  hsdStructuralGapFy27: 67_000_000, // multcoFy27
+  ohpCoverageLoss: [100_000, 200_000] as const, // orpcaHr1
+  waiverEnds: "Sept. 30, 2027",
+  workRequirementsStart: "Jan. 1, 2027",
+} as const;
+
+export interface Payer {
+  id: string;
+  name: string;
+  pays: string;
+  captures: string;
+  /** Can this payer actually be made to fund the fix? */
+  lever: "obligated" | "willing" | "conditional" | "none";
+  leverNote: string;
+}
+
+export const PAYERS: Payer[] = [
+  { id: "federal", name: "Federal Medicaid", pays: "ER visits and hospital stays billed to the Oregon Health Plan", captures: "58¢ of every avoided OHP dollar, 90¢ for expansion adults", lever: "none", leverNote: "No local reinvestment mechanism except the waiver and CCO contracts. It is not a pot anyone can ask for." },
+  { id: "cco", name: "Health Share (the CCO)", pays: "The rest of OHP costs, inside a capped global budget", captures: "The remaining 42¢, kept as margin", lever: "obligated", leverNote: "State rule requires 0–20% of net income be reinvested, with housing as the designated priority. SHARE can even fund capital." },
+  { id: "hospital", name: "Hospitals", pays: "Uncompensated emergency and inpatient care", captures: "Avoided uncompensated care", lever: "willing", leverNote: "Six Portland health systems put $21.5M into Central City Concern housing in 2016 and measured a 12% drop in Medicaid spend." },
+  { id: "county", name: "Multnomah County", pays: "Jail nights, county clinics, the homeless-services budget", captures: "Only if a jail dorm or clinic capacity actually closes", lever: "conditional", leverNote: "Avoided cost is not cashable savings. A dorm that stays open saves nothing." },
+  { id: "city", name: "City of Portland", pays: "EMS, police, Portland Street Response, camp cleanup", captures: "Same caveat: only if capacity is decommissioned", lever: "conditional", leverNote: "This is the cost that is genuinely local, and the honest case for it is deaths and public space, not payback." },
+];
+
+export interface Evidence {
+  place: string;
+  source: keyof typeof SOURCES;
+  figure: string;
+  unit: string;
+  what: string;
+  cautionary?: boolean;
+}
+
+export const PAYER_EVIDENCE: Evidence[] = [
+  { place: "Los Angeles County", source: "randH4h", figure: "$1.20", unit: "saved per $1, year one", what: "County costs per person fell from $38,146 to $15,358; housing cost $15,288. The county health department paid for the housing because it was the payer that saved." },
+  { place: "Portland", source: "providenceCore", figure: "−12%", unit: "Medicaid spend per resident", what: "1,600 members across 145 properties after six health systems funded Central City Concern. ER visits −18%, inpatient −15%, primary care +20%." },
+  { place: "Denver", source: "urbanDenver", figure: "81%", unit: "still housed at two years", what: "250 frequent jail users, $8.6M private capital. Services cost $6,876 a year less than the control group. The city repaid investors on outcomes because jail days are its cost." },
+  { place: "North Carolina", source: "ncHop", figure: "−$164", unit: "per member per month", what: "31,000 people, verified savings, federal authorization through 2029. The legislature declined the state share in 2025 and the program suspended anyway.", cautionary: true },
+];
+
+export interface Door {
+  n: number;
+  title: string;
+  body: string;
+  durability: "most durable" | "durable" | "time-limited" | "least controllable";
+  deadline: string;
+  source: keyof typeof SOURCES;
+}
+
+export const DOORS: Door[] = [
+  { n: 1, title: "Bill what is billable, move local dollars off it", body: "Tenancy support, case management, and behavioral health delivered in supportive housing are Medicaid-reimbursable through CCO contracts. Every local dollar paying for those today could draw a 58–90% federal match, freeing it for rent past month six, shelter, and capital, which Medicaid cannot buy. Washington bills these services for 20,000+ people.", durability: "most durable", deadline: "Available now; does not depend on the waiver", source: "waFcs" },
+  { n: 2, title: "Make the CCO pay for what it saves", body: "Health Share's reinvestment obligation is a formula on its own reserves, and housing is the required priority. The ask is a co-funding agreement that makes the county's supportive-housing pipeline the CCO's housing vehicle. CCOs statewide have put $104M into housing since 2018; how much of it is aligned with the county pipeline is a records request.", durability: "durable", deadline: "In state rule and CCO contracts; sized to the CCO's margin", source: "shareGuidance" },
+  { n: 3, title: "Use the waiver rent benefit at scale, then fight for renewal", body: "OHP will pay six months of rent to stop an eviction, the cheapest lever in the flow model, and the state funded eviction prevention at a fifth of the governor's request. But the rollout was described to the state's own advisory committee as an administrative collapse. Fixing intake is near-free with a federal match behind it.", durability: "time-limited", deadline: "Waiver ends Sept. 30, 2027; CMS reviews renewals case by case", source: "lundHrsn" },
+  { n: 4, title: "Defend the federal housing grant, and plan for its loss", body: "The $37.7M Continuum of Care grant is the region's permanent-supportive-housing backbone. Two 2026 court rulings blocked HUD's attempts to cap it. The FY2027 budget request would abolish the program; the House bill keeps it with a cut.", durability: "least controllable", deadline: "HUD weighing appeal; 2027 appropriation pending", source: "nacoFy26" },
+];

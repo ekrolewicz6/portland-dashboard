@@ -1,5 +1,5 @@
 /**
- * Sankey layout. Pure functions, no React, no DOM — so the numbers can be
+ * Sankey layout. Pure functions, no React, no DOM, so the numbers can be
  * checked directly.
  *
  * Two pieces are worth explaining because no off-the-shelf layout does them:

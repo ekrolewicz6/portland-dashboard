@@ -184,7 +184,7 @@ export default function ChatInterface() {
             </h2>
             <p className="text-[14px] text-[var(--color-ink-muted)] text-center max-w-md mb-8 leading-relaxed">
               I&apos;m your Portland business advisor. Ask me about taxes,
-              permits, zoning, SDC fees, or PCB certification benefits.
+              permits, zoning, SDC fees, or the city budget.
             </p>
 
             {/* Starter questions */}

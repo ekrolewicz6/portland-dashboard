@@ -38,15 +38,6 @@ export default function DecadeSpine() {
           <span className="font-mono tabular-nums">{PCT_DOWN}</span> percent from the{" "}
           {PEAK.fy} peak.
         </h3>
-        <p className="mt-2 text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-          The General Fund grew from{" "}
-          <span className="font-mono tabular-nums">{fmtMillionsFromK(DECADE[0].gfK)}</span> to{" "}
-          <span className="font-mono tabular-nums">{fmtMillionsFromK(LAST.gfK)}</span> over the
-          decade. Put every year in 2026 dollars and the fund has been shrinking since{" "}
-          {PEAK.fy}, while enrollment fell from{" "}
-          <span className="font-mono tabular-nums">{fmtCount(DECADE[0].enrollment)}</span> to a
-          forecast <span className="font-mono tabular-nums">{fmtCount(LAST.enrollment)}</span>.
-        </p>
       </div>
 
       {/* ── The decade chart ── */}
@@ -62,7 +53,7 @@ export default function DecadeSpine() {
           </span>
         </div>
         <div className="overflow-x-auto">
-          <div className="min-w-[640px] px-4 pb-4 pt-9">
+          <div className="min-w-0 px-2 pb-4 pt-9 sm:min-w-[640px] sm:px-4">
             <div className="flex items-end gap-1.5 border-b border-[var(--color-parchment)]">
               {DECADE.map((d) => {
                 const barPct = (d.gfK / CHART_MAX) * 100;
@@ -92,10 +83,10 @@ export default function DecadeSpine() {
             <div className="mt-1.5 flex gap-1.5">
               {DECADE.map((d) => (
                 <div key={d.fy} className="flex-1 text-center">
-                  <p className="font-mono text-[10px] tabular-nums text-[var(--color-ink)]">
+                  <p className="font-mono text-[9px] sm:text-[10px] tabular-nums text-[var(--color-ink)]">
                     {shortFy(d.fy)}
                   </p>
-                  <p className="font-mono text-[9px] tabular-nums text-[var(--color-ink-muted)]">
+                  <p className="hidden sm:block font-mono text-[9px] tabular-nums text-[var(--color-ink-muted)]">
                     {fmtCount(d.enrollment)}
                     {d.forecast ? " (f)" : ""}
                   </p>
@@ -103,7 +94,7 @@ export default function DecadeSpine() {
               ))}
             </div>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
-              Bars from zero · October enrollment under each year · (f) = forecast
+              Bars from zero · <span className="hidden sm:inline">October enrollment under each year · </span>(f) = forecast
             </p>
           </div>
         </div>
@@ -111,25 +102,25 @@ export default function DecadeSpine() {
 
       {/* ── Full data table ── */}
       <div className="mt-6 overflow-x-auto rounded-sm border border-[var(--color-parchment)] bg-white">
-        <table className="w-full min-w-[760px] text-left">
+        <table className="w-full sm:min-w-[760px] text-left">
           <thead>
             <tr className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
-              <th className="px-4 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              <th className="px-2 sm:px-4 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
                 Fiscal year
               </th>
-              <th className="px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              <th className="px-2 sm:px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
                 General Fund
               </th>
-              <th className="px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              <th className="hidden sm:table-cell px-2 sm:px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
                 All funds
               </th>
-              <th className="px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              <th className="px-2 sm:px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
                 Enrollment
               </th>
-              <th className="px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              <th className="px-2 sm:px-4 py-3 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
                 GF in 2026 $
               </th>
-              <th className="px-4 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              <th className="hidden sm:table-cell px-2 sm:px-4 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
                 Notes
               </th>
             </tr>
@@ -139,21 +130,21 @@ export default function DecadeSpine() {
               const note = rowNote(d);
               return (
                 <tr key={d.fy} className={d.fy === PEAK.fy ? "bg-[var(--color-paper-warm)]" : undefined}>
-                  <td className="px-4 py-2.5 font-mono text-[12px] tabular-nums text-[var(--color-ink)]">
+                  <td className="px-2 sm:px-4 py-2.5 font-mono text-[12px] tabular-nums text-[var(--color-ink)]">
                     {d.fy}
                     {d.forecast ? " (f)" : ""}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-light)]">
+                  <td className="px-2 sm:px-4 py-2.5 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-light)]">
                     {fmtMillionsFromK(d.gfK)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-light)]">
+                  <td className="hidden sm:table-cell px-2 sm:px-4 py-2.5 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-light)]">
                     {fmtMillionsFromK(d.allFundsK)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-light)]">
+                  <td className="px-2 sm:px-4 py-2.5 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-light)]">
                     {fmtCount(d.enrollment)}
                   </td>
                   <td
-                    className={`px-4 py-2.5 text-right font-mono text-[12px] tabular-nums ${
+                    className={`px-2 sm:px-4 py-2.5 text-right font-mono text-[12px] tabular-nums ${
                       d.fy === PEAK.fy
                         ? "font-bold text-[var(--color-ember)]"
                         : "text-[var(--color-ink-light)]"
@@ -161,7 +152,7 @@ export default function DecadeSpine() {
                   >
                     {fmtMillionsFromK(d.realGfK)}
                   </td>
-                  <td className="min-w-[220px] px-4 py-2.5 text-[12px] leading-snug text-[var(--color-ink-light)]">
+                  <td className="hidden sm:table-cell min-w-[220px] px-4 py-2.5 text-[12px] leading-snug text-[var(--color-ink-light)]">
                     {note ?? ""}
                   </td>
                 </tr>

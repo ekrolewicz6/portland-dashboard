@@ -54,11 +54,14 @@ function TripwireRow({
       <p className="mt-1.5 max-w-2xl text-[14px] leading-snug text-[var(--color-ink-light)]">
         {tripwire.tripwire}
       </p>
-      {/* What to do about it, and what a good answer sounds like */}
-      <p className="mt-2 max-w-2xl border-l-2 border-[var(--color-ember)]/50 pl-3 text-[13px] leading-snug text-[var(--color-ink)]">
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ember)]">Your move · </span>
-        {tripwire.action}
-      </p>
+      <details className="group mt-2 max-w-2xl">
+        <summary className="cursor-pointer list-none font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ember)] hover:text-[var(--color-ink)]">
+          Your move <span aria-hidden className="inline-block transition-transform group-open:rotate-90">›</span>
+        </summary>
+        <p className="mt-1.5 border-l-2 border-[var(--color-ember)]/50 pl-3 text-[13.5px] leading-snug text-[var(--color-ink)]">
+          {tripwire.action}
+        </p>
+      </details>
     </li>
   );
 }
@@ -66,10 +69,6 @@ function TripwireRow({
 export default function Tripwires() {
   return (
     <div>
-      <p className="max-w-2xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
-        Six things decide whether the next decade repeats the last one. Each
-        has one number that will tell you which way it broke.
-      </p>
 
       <ol className="mt-7">
         {TRIPWIRES.map((t, i) => (

@@ -192,13 +192,13 @@ export default function CedPortfolio() {
         <p>
           This portfolio view is assembled from council records, city and agency
           publications, and on-record reporting; it is refreshed manually, and
-          the date on each entry tells you how current it is. It also powers our
-          weekly{" "}
+          the date on each entry tells you how current it is. Its open decisions
+          are also listed in the{" "}
           <Link
-            href="/brief"
+            href="/decisions"
             className="font-semibold text-[var(--color-canopy)] hover:underline"
           >
-            Portland Portfolio Brief
+            decisions register
           </Link>
           .
         </p>

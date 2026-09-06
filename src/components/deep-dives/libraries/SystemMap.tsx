@@ -17,14 +17,14 @@ export default function SystemMap() {
     <div className="space-y-6">
       <div className="overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-white">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-4">
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
+          <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
             Multnomah County, dotted with every location
           </p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             {(Object.keys(TIER_META) as Array<keyof typeof TIER_META>).map((tier) => (
               <span
                 key={tier}
-                className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-ink-muted)]"
+                className="flex items-center gap-1.5 font-mono text-[12px] uppercase tracking-[0.1em] text-[var(--color-ink-muted)]"
               >
                 <span
                   className="h-2 w-2 rounded-full"
@@ -67,12 +67,12 @@ export default function SystemMap() {
                 </Tooltip>
                 <Popup>
                   <div className="min-w-[180px] font-sans">
-                    <p className="text-[13px] font-semibold text-[#1c1917]">{loc.name}</p>
-                    <p className="mt-0.5 text-[12px] text-[#44403c]">
+                    <p className="text-[15px] font-semibold text-[#1c1917]">{loc.name}</p>
+                    <p className="mt-0.5 text-[14px] text-[#44403c]">
                       {loc.address}, {loc.neighborhood}
                     </p>
                     {loc.note ? (
-                      <p className="mt-1 text-[11.5px] text-[#78716c]">{loc.note}</p>
+                      <p className="mt-1 text-[13.5px] text-[#78716c]">{loc.note}</p>
                     ) : null}
                   </div>
                 </Popup>
@@ -84,8 +84,8 @@ export default function SystemMap() {
         <div className="border-t border-[var(--color-parchment)] px-5 py-4">
           <ol className="grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-3">
             {LOCATIONS.map((loc, i) => (
-              <li key={loc.id} className="flex items-baseline gap-2 text-[12.5px] leading-snug text-[var(--color-ink)]">
-                <span className="w-4 shrink-0 text-right font-mono text-[10px] tabular-nums text-[var(--color-ink-muted)]">
+              <li key={loc.id} className="flex items-baseline gap-2 text-[14px] leading-snug text-[var(--color-ink)]">
+                <span className="w-4 shrink-0 text-right font-mono text-[12px] tabular-nums text-[var(--color-ink-muted)]">
                   {i + 1}
                 </span>
                 <span
@@ -100,7 +100,7 @@ export default function SystemMap() {
               </li>
             ))}
           </ol>
-          <p className="mt-3 border-t border-[var(--color-parchment)] pt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
+          <p className="mt-3 border-t border-[var(--color-parchment)] pt-3 font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
             Pan and drag to explore · click a dot for its address · scroll-zoom is off so the map
             doesn&apos;t trap your page scroll — use the +/− controls or double-click to zoom
           </p>

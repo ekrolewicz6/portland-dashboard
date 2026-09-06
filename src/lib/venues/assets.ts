@@ -151,7 +151,7 @@ export const ASSETS: VenueAsset[] = [
     id: "keller",
     name: "Keller Auditorium",
     kicker: "A successful venue in an unsustainable building",
-    role: "It opened on the Fourth of July, 1917, as the Public Auditorium. A 1968 modernization kept only seventeen percent of the original structure (mostly two walls) and produced what the critic Ada Louise Huxtable called \"a building of unrelieved blandness.\" The blandness works: Keller is the economic engine of Portland'5, with 179 events, 395,255 attendees, and $10.7 million in charges-for-services revenue in FY2024–25 (more than half the system's earned revenue), inside a building that needs major work for decades to come. That is the crucial distinction the debate keeps missing: Keller is not an unsuccessful venue. It is a successful venue in a building that, over the long run, may be too expensive to keep standing.",
+    role: "It opened on the Fourth of July, 1917, as the Public Auditorium. A 1968 modernization kept only seventeen percent of the original structure (mostly two walls) and produced what the critic Ada Louise Huxtable called \"a building of unrelieved blandness.\" The blandness works: Keller is the economic engine of Portland'5, with 179 events, 395,255 attendees, and $10.7 million in charges-for-services revenue in FY2024–25 (more than half the system's earned revenue), inside a building that needs major work for decades to come. That is the distinction the debate keeps missing: Keller is not an unsuccessful venue. It is a successful venue in a building that, over the long run, may be too expensive to keep standing.",
     strengths: [
       "Earns more than any other Portland'5 venue",
       "179 events, 395,255 attendees (FY2024–25)",

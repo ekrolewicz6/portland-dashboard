@@ -20,28 +20,28 @@ const SEGMENTS = [
     label: "Locked",
     valueK: 1_661_384,
     display: "$1.66B",
-    detail: "Bond money voters approved for specific buildings, plus payments owed on past bonds. Spending it on teachers would break the ballot promise and the law. Only a new bond measure changes what gets locked.",
+    detail: "Bond money and bond debt. Voters locked it in, and only a new bond measure can change it.",
     color: "var(--color-canopy)",
   },
   {
     label: "Restricted grants",
     valueK: 223_936,
     display: "$224M",
-    detail: "Title I, special education, and similar programs. Congress and the state legislature set the strings; the district spends as directed or gives the money back.",
+    detail: "Title I, special education, and similar grants. Congress and the legislature set the rules.",
     color: "var(--color-clay)",
   },
   {
     label: "Committed",
     valueK: 701_659,
     display: "$702M",
-    detail: "Salaries, benefits, and pensions under contracts the district itself signed. Changeable, but at the bargaining table over years, not in one budget vote.",
+    detail: "Payroll and pensions under contracts already signed. It can move, but only at the bargaining table.",
     color: "var(--color-ember)",
   },
   {
     label: "The movable slice",
     valueK: 181_612,
     display: "$182M",
-    detail: "What is left, and the only money this year's board votes actually decide. Utilities and buses live here too.",
+    detail: "What is left. This is the only money this year's board votes actually decide.",
     color: "var(--color-fern)",
   },
 ] as const;
@@ -52,21 +52,21 @@ const FINDINGS = [
     stat: "9",
     statLabel: "working days given to citizen reviewers of a $2.8B budget",
     title: "No one checks the work",
-    body: "In most Oregon districts, the law puts regular citizens on the committee that approves the school budget. Portland is exempt: the board approves its own work, and the volunteer committee that reviews it instead got nine working days. That is how bad assumptions survive to become next year's crisis.",
+    body: "Everywhere else in Oregon, citizens sit on the budget committee with a vote. In Portland the board approves its own work.",
   },
   {
     href: "#the-levy-leak",
     stat: "$1.51",
     statLabel: "of every $1.99 voters approved actually arrives",
     title: "The teachers levy leaks",
-    body: "Portlanders pay a special tax that exists only to fund teachers. Old state tax limits cancel about a quarter of it before it arrives, and the loss grows every year. The result: the same levy pays for about 200 fewer teachers than in 2019, and only the state legislature can fix it.",
+    body: "Tax caps from the 1990s erase about a quarter of the teachers levy before it arrives. The same levy now pays for about 200 fewer teachers than it did in 2019.",
   },
   {
     href: "#waste",
     stat: "$41M→$18M",
     statLabel: "the district's own guess at its year-end cash, months apart",
     title: "Big surprises, no required response",
-    body: "Four times a year the district publishes how much money it expects to have left. Last year that number swung from $41M down to $18M and back to $35M, and a deficit opened mid-year anyway. Nothing requires anyone to explain a swing like that in public or act on it, so the district decides late, and late decisions cost more than early ones.",
+    body: "The district's year-end forecast swung by $23 million within a single year. Nothing requires anyone to explain that or act on it, so decisions come late.",
   },
 ] as const;
 
@@ -75,7 +75,7 @@ export default function TheWholeStory() {
     <div className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
       <div className="mx-auto w-full max-w-[1400px] 3xl:max-w-[1800px] px-5 sm:px-8 lg:px-12 py-10 sm:py-12">
         <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-          The whole story in one screen
+          The short version
         </p>
 
         {/* (a) The one-page budget the district has never published */}
@@ -122,15 +122,8 @@ export default function TheWholeStory() {
             ))}
           </div>
 
-          <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-            Every real fight about this budget is a fight about that green $182M slice, and most of the
-            loudest claims are about money that cannot legally reach it. The operating fund
-            itself fell <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">$6.5M</span>{" "}
-            this year, the first drop in eleven years, while the headline total grew{" "}
-            <span className="font-mono tabular-nums">$733M</span>. Both are true. That is the
-            story. And each lock has an owner: voters locked the bonds, Congress and the
-            legislature locked the grants, past contracts locked the payroll. Only the green
-            slice is this year&apos;s choice.
+          <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 text-[15px] leading-relaxed text-[var(--color-ink)]">
+            Every real fight about this budget is a fight over the green slice. This year the operating fund fell <span className="font-mono font-semibold tabular-nums">$6.5M</span> while the headline total grew <span className="font-mono tabular-nums">$733M</span>.
           </p>
         </div>
 
@@ -160,12 +153,6 @@ export default function TheWholeStory() {
             </a>
           ))}
         </div>
-
-        {/* (c) The annual question */}
-        <p className="mt-6 text-center font-editorial text-[18px] sm:text-[20px] italic text-[var(--color-ink)]">
-          One question runs through everything below: &ldquo;Does the next dollar reach a
-          student, and can you show me?&rdquo;
-        </p>
       </div>
     </div>
   );

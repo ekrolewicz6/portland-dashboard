@@ -74,11 +74,11 @@ export function ScorecardChart() {
         Jobs created vs. the goal
       </p>
       <h3 className="mt-2 font-editorial text-[26px] leading-tight text-[var(--color-ink)] sm:text-[30px]">
-        The bars never reach the line — so the line came down to meet them.
+        The bars never reach the line, so the line came down to meet them.
       </h3>
       <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
         Each bar is the jobs Business Oregon takes credit for that year. The dashed line is the goal it was
-        measured against. After years of missing, the goal dropped from 1,200 to 800 in 2024 — and in 2025 the
+        measured against. After years of missing, the goal dropped from 1,200 to 800 in 2024, and in 2025 the
         agency finally cleared it, by eight jobs, in a year Oregon&apos;s private sector lost about 6,500.
       </p>
 
@@ -289,7 +289,7 @@ export function IncentiveRoiChart() {
       </h3>
       <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
         By the agency&apos;s own 2022 study, a dollar abated through a standard enterprise zone returned about $29
-        in output — but Intel&apos;s flagship program returned $6, and rural zones barely more than the dollar
+        in output, but Intel&apos;s flagship program returned $6, and rural zones barely more than the dollar
         given up.
       </p>
 

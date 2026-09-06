@@ -21,32 +21,27 @@ const WATERFALL = [
   {
     total: 202,
     label: "May 2017 · the ballot",
-    cause:
-      "What voters saw. The district's own professionals had priced the program ~$100M higher; leadership trimmed the estimates before the ballot with, the auditors found, no documented rationale.",
+    cause: "This is the number voters saw. It was about $100 million below the district's own cost model, trimmed before the ballot with no documented reason.",
   },
   {
     total: 330,
-    label: "June 2019 · first honest re-estimate",
-    cause:
-      "The single biggest jump, +$128M, two years after the vote and before most construction. Not inflation: the real cost surfacing once the project was priced for building rather than for passing.",
+    label: "June 2019 · first re-estimate after the vote",
+    cause: "The biggest single jump, and it came before most of the construction. This is the real cost surfacing.",
   },
   {
     total: 357.7,
     label: "January 2020 · the board adds scope",
-    cause:
-      "+$27.7M for additions the board chose: the Multiple Pathways to Graduation programs and a swing site for students during construction.",
+    cause: "The board added scope here: new programs, and a temporary site for students during construction.",
   },
   {
     total: 410.2,
     label: "March 2022 · the one step auditors decomposed",
-    cause:
-      "+$52.4M, and for this step alone the audit names shares: $21.2M market escalation, $17M more scope, and a $14M arithmetic error in the budget itself.",
+    cause: "The one step the auditors broke down: $21.2 million of inflation, $17 million of added scope, and a $14 million arithmetic error.",
   },
   {
     total: 421.2,
     label: "February 2025 · estimate at completion",
-    cause:
-      "+108% over the ballot. Who pays for how much of it is now in litigation between the district and its contractor.",
+    cause: "That is 108 percent over the ballot number. Who pays for it is now in litigation.",
   },
 ] as const;
 
@@ -54,27 +49,27 @@ const CAUSES = [
   {
     rank: "1",
     name: "The ballot number itself",
-    body: "The largest cause was not construction at all. The program went to voters ~$100M below the district's own cost model, and Benson's first honest post-vote estimate added $128M before serious building began. Part of the \"overrun\" was never an overrun; it was an underpriced promise.",
+    body: "The program went to voters about $100 million below the district's own cost model. Part of the overrun was never an overrun; it was an underpriced promise.",
   },
   {
     rank: "2",
     name: "Construction inflation",
-    body: "Real, national, and bounded: the industry's benchmark index rose about 17 percent from 2020 to 2023. That explains a sixth of Benson's +108%, not the rest, and Lincoln High, built by the same district in the same market, finished under budget.",
+    body: "The industry cost index rose about 17 percent from 2020 to 2023, which explains roughly a sixth of Benson's overrun. Lincoln High, built in the same market, finished under budget.",
   },
   {
     rank: "3",
     name: "Added scope",
-    body: "Seismic and hazmat work grows in century-old buildings once walls open, and the board added programs mid-project. Together, tens of millions at Benson, real but documented and chosen.",
+    body: "Seismic and hazmat surprises inside century-old buildings, plus programs the board chose to add mid-project. Tens of millions, all documented.",
   },
   {
     rank: "4",
     name: "Plain error",
-    body: "A $14 million arithmetic mistake inside the Benson budget, named by the auditors as a budgeting error.",
+    body: "A $14 million arithmetic mistake inside the budget itself, which the auditors named.",
   },
   {
     rank: "✕",
     name: "Not the teachers union",
-    body: "Bond money legally cannot pay teacher salaries; they come from different funds, and no audit or news report ties labor agreements to these overruns. Whatever the strike cost, it is not in these numbers.",
+    body: "Bond money cannot legally pay teacher salaries, and no audit or news report ties labor agreements to these overruns.",
   },
 ] as const;
 
@@ -170,11 +165,7 @@ export default function OverrunAnatomy() {
       <div className="overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-white">
         <div className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-4">
           <Eyebrow tone="ember">So what causes the overruns, and how much each?</Eyebrow>
-          <p className="mt-2 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-light)]">
-            Nobody can give you clean percentages, because in eight years and four audit cycles
-            the district has never published a breakdown of its overruns by cause. That absence
-            is a finding of its own. What the record does support is a ranking:
-          </p>
+          <p className="mt-2 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-light)]">No public document breaks these overruns down by cause, so nobody can give you clean percentages. What the record does support is a ranking:</p>
         </div>
         <ul className="divide-y divide-[var(--color-parchment)]">
           {CAUSES.map((c) => (
@@ -205,16 +196,7 @@ export default function OverrunAnatomy() {
       <div className="rounded-sm border-l-2 border-[var(--color-ember)] bg-[var(--color-paper-warm)] p-5">
         <Eyebrow tone="ember">Is this a Portland problem?</Eyebrow>
         <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink)]">
-          <span className="font-semibold">The direction is universal; the size is not.</span>{" "}
-          Across 16,000 large public projects worldwide, nine in ten run over budget, a rate
-          unchanged for seventy years. San Francisco&apos;s 2016 school bond left seven promised
-          projects unfunded, and Seattle quietly absorbs its overruns by folding them into the
-          next levy. So overruns themselves are the norm, everywhere. What is not normal is the
-          size: Benson&apos;s +108 percent is several times what market inflation can explain,
-          and the best-documented Portland-specific cause is a choice, the decision to put a
-          number on the ballot that the district&apos;s own professionals had said was ~$100
-          million too low.
-        </p>
+          <span className="font-semibold">The direction is universal; the size is not.</span> Nine in ten large public projects overrun, worldwide, for seventy years. Benson&apos;s +108% is several times what the market explains, and the best-documented local cause was a choice: the ballot number.</p>
       </div>
     </div>
   );

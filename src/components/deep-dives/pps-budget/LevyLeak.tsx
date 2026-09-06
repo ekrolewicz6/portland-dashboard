@@ -89,17 +89,11 @@ export default function LevyLeak() {
       {/* ── 1. The compression ramp ── */}
       <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5 sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <Eyebrow>The compression ramp</Eyebrow>
+          <Eyebrow>Compression, district-wide: the money deleted each year</Eyebrow>
           <span className="font-mono text-[10px] tabular-nums text-[var(--color-ink-muted)]">
             full width = {fmtLoss(MAX_LOSS)}
           </span>
         </div>
-        <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-          Oregon&apos;s Measure 5 caps what any property tax bill can charge for schools. Every
-          dollar over the cap is simply never collected. The loss across all PPS tax lines has
-          grown from {fmtLoss(HEADLINE.compressionFy20M)} to a projected{" "}
-          {fmtLoss(HEADLINE.compressionFy27M)} a year, and most of it lands on the teachers levy.
-        </p>
         <div className="mt-4 space-y-1.5">
           {COMPRESSION_SERIES.map((row) => (
             <RampRow key={row.fy} row={row} />
@@ -109,7 +103,7 @@ export default function LevyLeak() {
           <span className="flex items-center gap-1.5">
             <Swatch fill="var(--color-clay)" />
             <span className="font-mono text-[10px] text-[var(--color-ink-muted)]">
-              actual loss
+              deleted before collection
             </span>
           </span>
           <span className="flex items-center gap-1.5">
@@ -127,13 +121,6 @@ export default function LevyLeak() {
         <h3 className="font-editorial text-[20px] leading-snug text-[var(--color-ink)]">
           Voters said yes to $1.99. About $1.51 arrives.
         </h3>
-        <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-          The teachers levy is written as ${HEADLINE.levyVotedRate.toFixed(2)} per $1,000 of
-          assessed value. After compression, the rate that actually reaches the district is $
-          {HEADLINE.levyEffectiveRate.toFixed(4)}. Roughly{" "}
-          {Math.round((LOST_RATE / HEADLINE.levyVotedRate) * 100)} cents of every levy dollar
-          leaks out before it touches a classroom.
-        </p>
         <div className="mt-5">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <Eyebrow>What voters approved</Eyebrow>
@@ -171,20 +158,8 @@ export default function LevyLeak() {
       {/* ── 3. The positions table ── */}
       <div>
         <Eyebrow>More money in, fewer teachers out</Eyebrow>
-        <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-          Levy receipts rose from ${FIRST_LEVY.receiptsM.toFixed(1)}M to $
-          {LAST_LEVY.receiptsM.toFixed(1)}M. The teacher positions the levy funds fell from{" "}
-          <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">
-            {FIRST_LEVY.positions}
-          </span>{" "}
-          to{" "}
-          <span className="font-mono font-bold tabular-nums text-[var(--color-ink)]">
-            {LAST_LEVY.positions}
-          </span>
-          , because the average cost of one teacher climbed faster than the money.
-        </p>
         <div className="mt-4 overflow-x-auto rounded-sm border border-[var(--color-parchment)] bg-white">
-          <table className="w-full min-w-[560px] text-left">
+          <table className="w-full sm:min-w-[560px] text-left">
             <thead>
               <tr className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
                 <th className={TH}>Year</th>

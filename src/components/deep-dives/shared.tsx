@@ -81,6 +81,7 @@ export function Section({
   children,
   tone = "default",
   aside,
+  layout = "rail",
 }: {
   id?: string;
   eyebrow: React.ReactNode;
@@ -89,8 +90,34 @@ export function Section({
   children: React.ReactNode;
   tone?: Tone;
   aside?: React.ReactNode;
+  /**
+   * "rail" (default): sticky heading column beside a wide body, the classic
+   * editorial layout. "stacked": a short two-column header (title left, lead
+   * right) with the body running the full container width beneath it, for
+   * pages whose visuals need every pixel and should be seen in one view.
+   */
+  layout?: "rail" | "stacked";
 }) {
   const isDark = tone === "dark" || tone === "darker";
+  if (layout === "stacked") {
+    return (
+      <section id={id} className={`scroll-mt-24 py-14 sm:py-16 xl:py-20 ${TONE_BG[tone]}`}>
+        <div className={DIVE_CONTAINER}>
+          <div className="grid gap-x-12 gap-y-4 xl:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] xl:items-start">
+            <div>
+              <Eyebrow>{eyebrow}</Eyebrow>
+              <H2 tone={isDark ? "dark" : "light"}>{title}</H2>
+            </div>
+            <div>
+              {lead ? <Lead tone={isDark ? "dark" : "light"} className="xl:mt-0 max-w-3xl">{lead}</Lead> : null}
+              {aside ? <div className="mt-4">{aside}</div> : null}
+            </div>
+          </div>
+          <div className="mt-8 min-w-0">{children}</div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section id={id} className={`scroll-mt-24 py-16 sm:py-20 xl:py-24 ${TONE_BG[tone]}`}>
       <div className={DIVE_CONTAINER}>

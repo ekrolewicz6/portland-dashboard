@@ -142,8 +142,8 @@ export default function DonationForm() {
 
         <p className="mt-3 rounded-sm border border-[var(--color-parchment)] bg-white px-4 py-2.5 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
           {frequency === "monthly"
-            ? "Monthly support gives us predictable runway to keep dashboards current and launch the next Civic Lab tools."
-            : "One-time donations help fund data updates, public records work, and new tools when a project needs a push."}
+            ? "Predictable runway: keeps the dashboards current and funds the next tool."
+            : "A one-time push for data updates, records requests, and new tools."}
         </p>
 
         <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(82px,1fr))] gap-2">
@@ -221,9 +221,7 @@ export default function DonationForm() {
 
         <p className="mt-4 flex gap-2 text-[12px] leading-relaxed text-[var(--color-ink-muted)]">
           <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--color-canopy)]" />
-          Secure payment runs through Stripe Checkout — we never store card numbers.
-          Your support isn&apos;t a tax-deductible donation; you&apos;re backing a company
-          that gives its tools away free.
+          Secure checkout by Stripe. Cancel anytime. Not tax-deductible.
         </p>
       </div>
     </div>

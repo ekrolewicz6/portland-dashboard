@@ -48,18 +48,10 @@ function StandardBand() {
         </p>
         <p className="mt-4 max-w-3xl border-t border-[var(--color-parchment)] pt-4 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
           {
-            "This page never sums a waste headline. Anyone who gives you one number for PPS waste is doing false precision on purpose."
+            "These findings do not add up to one waste number, and anyone who gives you one is guessing."
           }
         </p>
       </div>
-
-      {/* What the examination found, in one breath */}
-      <p className="mt-4 max-w-3xl text-[14.5px] leading-relaxed text-[var(--color-ink)]">
-        <strong>What it finds:</strong> hundreds of millions in avoidable bond overruns, years of paying full costs on emptying buildings, central overhead nobody
-        can check because the numbers were never published, and money lost because forecasts
-        were not acted on. <strong>What it does not find:</strong> a hidden pot. There is none big enough to
-        matter.
-      </p>
     </div>
   );
 }
@@ -104,24 +96,14 @@ function VerdictCard({ v }: { v: WasteVerdict }) {
         </p>
       </div>
 
-      <div className={`mt-4 ${isLargest ? "grid gap-6 sm:grid-cols-2" : "space-y-4"}`}>
-        <div>
-          <Eyebrow>The evidence</Eyebrow>
-          <p className="mt-2 text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-            {v.evidence}
-          </p>
+      <details className="group mt-4">
+        <summary className="cursor-pointer list-none font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-canopy)] hover:text-[var(--color-ink)]">Evidence, the strongest defense, and the takeaway <span aria-hidden className="inline-block transition-transform group-open:rotate-90">›</span></summary>
+        <div className="mt-3 space-y-3 border-t border-[var(--color-parchment)] pt-3 text-[14px] leading-relaxed text-[var(--color-ink-light)]">
+          <p><span className="font-semibold text-[var(--color-ink)]">The evidence: </span>{v.evidence}</p>
+          <p><span className="font-semibold text-[var(--color-ink)]">The strongest defense: </span>{v.defense}</p>
+          <p className="font-semibold text-[var(--color-ink)]">{v.bottomLine}</p>
         </div>
-        <p className="text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-          <span className="font-semibold text-[var(--color-ink)]">
-            {"The strongest defense: "}
-          </span>
-          {v.defense}
-        </p>
-      </div>
-
-      <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 text-[14px] font-semibold leading-relaxed text-[var(--color-ink)]">
-        {v.bottomLine}
-      </p>
+      </details>
     </article>
   );
 }

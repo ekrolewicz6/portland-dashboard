@@ -7,8 +7,7 @@ import { fmtExact, fmtMoney, CLASS_LABEL } from "@/lib/city-budget/types";
  *
  * The headline "budget is down 5.5%" invites the wrong inference, that
  * Portland's tax base collapsed. It didn't. Taxes, fees and permits all rose.
- * What fell was intergovernmental aid — the end of federal pandemic money —
- * and the size of the reserve the City was drawing on. Separating those two
+ * What fell was intergovernmental aid, the end of federal pandemic money, * and the size of the reserve the City was drawing on. Separating those two
  * things is the whole point of this section.
  */
 

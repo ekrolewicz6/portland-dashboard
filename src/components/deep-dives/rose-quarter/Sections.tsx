@@ -251,7 +251,7 @@ export function LandValue() {
         </dl>
         <p className="mt-4 border-t border-[var(--color-fern)]/20 pt-3 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
           A ten-to-one return, and the traffic did not gridlock. That is the precedent removal
-          advocates point to — though Rochester removed a lightly-used downtown loop, not a stretch
+          advocates point to, though Rochester removed a lightly-used downtown loop, not a stretch
           of the west coast&apos;s primary freight route, and the difference is real.
         </p>
       </div>

@@ -30,8 +30,6 @@ function DecisionCard({ d }: { d: PlanDecision }) {
         {d.title}
       </h3>
 
-      <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/80">{d.motion}</p>
-
       <p className="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[11px] tabular-nums text-white/60">
         <span>
           <span className="font-semibold uppercase tracking-[0.14em] text-white/40">Cost </span>
@@ -47,11 +45,11 @@ function DecisionCard({ d }: { d: PlanDecision }) {
 
       {/* Objection and answer, expandable so the decision leads */}
       <details className="group mt-5">
-        <summary className="cursor-pointer list-none font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50 transition-colors hover:text-[var(--color-ember-bright)]">
-          <span className="mr-2 inline-block transition-transform group-open:rotate-90">▸</span>
-          The strongest counterargument, and the answer
-        </summary>
+        <summary className="cursor-pointer list-none font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50 transition-colors hover:text-[var(--color-ember-bright)]">The motion, the strongest objection, and the answer <span aria-hidden className="inline-block transition-transform group-open:rotate-90">›</span></summary>
         <div className="mt-3 rounded-sm border border-[var(--color-clay)]/40 bg-[var(--color-clay)]/15 p-4 sm:p-5">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember-bright)]">The motion</p>
+          <p className="mt-2 text-[14px] leading-relaxed text-white/85">{d.motion}</p>
+          <div className="mt-4 border-t border-white/15 pt-4" />
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
             What {d.objection.from} would say
           </p>
@@ -110,10 +108,6 @@ export default function PlanDecisions() {
             </li>
           ))}
         </ol>
-        <p className="mt-4 max-w-3xl text-[12.5px] leading-relaxed text-white/55">
-          Each decision below says what to do, what it costs, and who has the power to do it.
-          Under each one, the strongest counterargument we could find, and the answer.
-        </p>
       </div>
 
       {/* ── The ten decisions, single column ── */}

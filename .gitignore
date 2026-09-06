@@ -69,3 +69,8 @@ runtime-data/
 # Per-developer Claude Code settings (machine-specific paths belong here,
 # never in the committed .claude/settings.json).
 .claude/settings.local.json
+
+# reports/: client deliverables and drafts stay local. Files already tracked
+# (the published libraries deep-dive) stay tracked; add a new published
+# report deliberately with `git add -f`.
+/reports/

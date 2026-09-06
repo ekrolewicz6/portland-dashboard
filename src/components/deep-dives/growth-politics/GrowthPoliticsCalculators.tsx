@@ -375,7 +375,7 @@ export function ScarcityTransferCalculator() {
             </p>
             <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
               The three cards above are one household. This chart is the citywide total — every renter household
-              added up — which is far larger and would dwarf the per-household number on a shared axis.
+              added up, which is far larger and would dwarf the per-household number on a shared axis.
             </p>
           </div>
           <div
@@ -426,13 +426,13 @@ export function ProjectFeasibilityCalculator() {
       ? {
           label: "Likely does not get built",
           tone: "border-[#df9b86] bg-[#fff7f2] text-[#8c3d25]",
-          text: `This project would need about ${fmtMoney(addedRent)} more rent per home every month just to cover these costs. Above roughly $250 per home each month — more than a tenth of a typical Portland rent — many projects simply stall.`,
+          text: `This project would need about ${fmtMoney(addedRent)} more rent per home every month just to cover these costs. Above roughly $250 per home each month, more than a tenth of a typical Portland rent, many projects simply stall.`,
         }
       : addedRent > 150
         ? {
             label: "Right on the edge",
             tone: "border-[#d6a15f] bg-[#fff8ea] text-[#80511b]",
-            text: `About ${fmtMoney(addedRent)} more rent per home every month is where projects start to pencil out — or not, depending on the market.`,
+            text: `About ${fmtMoney(addedRent)} more rent per home every month is where projects start to pencil out, or not, depending on the market.`,
           }
         : {
             label: "More likely to pencil",
@@ -636,7 +636,7 @@ export function PropertyTaxMiniChart() {
         <p className="text-[13px] leading-relaxed text-white/85">
           The older home pays{" "}
           <span className="font-mono font-bold text-[var(--color-ember-bright)]">{fmtMoney(gap)}</span> less every
-          year for the same house — and that discount passes to whoever buys it next.
+          year for the same house, and that discount passes to whoever buys it next.
         </p>
       </div>
     </div>

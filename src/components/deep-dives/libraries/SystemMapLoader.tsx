@@ -11,7 +11,7 @@ const SystemMap = dynamic(() => import("@/components/deep-dives/libraries/System
   ssr: false,
   loading: () => (
     <div className="flex h-[440px] w-full items-center justify-center rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] sm:h-[560px]">
-      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
+      <p className="font-mono text-[13px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
         Loading map…
       </p>
     </div>

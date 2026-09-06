@@ -90,7 +90,7 @@ export const PEERS: PeerCity[] = [
     total: 4_942_000_000,
     population: 672_973,
     includes:
-      "Includes $1.73B of public schools — 35% of the budget — but no water or sewer: those sit in a separate state-chartered commission.",
+      "Includes $1.73B of public schools, 35% of the budget, but no water or sewer: those sit in a separate state-chartered commission.",
     water: "out",
     electric: "out",
     schools: "in",

@@ -55,7 +55,7 @@ export const DEBATES: Debate[] = [
       ],
     },
     adjudication: {
-      headline: "The deficit is real, and the fat-years scrutiny never happened. Both fit in one sentence.",
+      headline: "The deficit is real, and the fat-years scrutiny never happened.",
       body: "The reserve arithmetic settles the hidden-pot claim: there is none, and the cushion that did exist was built on purpose and spent buying time. The central-growth claim is directionally supported but unverifiable without position-control records the district has never published, which is why releasing them is one of this project's drafted records requests. An argument that could be settled by one report has instead run for three years on faith.",
     },
   },
@@ -155,7 +155,7 @@ export const DEBATES: Debate[] = [
 /** Live litigation: rendered as a case file, no merits verdict. */
 export const CASE_FILE = {
   title: "The equity staffing formula and the federal lawsuit",
-  status: "This lawsuit is ongoing. This page takes no position on who should win. Court details here are current as of August 2026.",
+  status: "This lawsuit is ongoing. We take no position on who should win. Court details here are current as of August 2026.",
   mechanics:
     "Since at least FY2016-17 PPS has set aside a share of school staffing, once 8 percent, halved to 4 percent for K-8 in 2024-25, for schools serving concentrated poverty and historically underserved students, with race among the qualifying categories.",
   allegation:

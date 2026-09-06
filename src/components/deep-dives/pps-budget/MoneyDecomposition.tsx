@@ -89,16 +89,6 @@ export default function MoneyDecomposition() {
 
   return (
     <div className="mt-8">
-      <h3 className="font-editorial text-[20px] sm:text-[22px] leading-snug text-[var(--color-ink)]">
-        Four kinds of money
-      </h3>
-      <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
-        The {allFunds} headline is five funds that move for different legal
-        reasons. One fund exploded because voters passed a bond. One fund fell
-        for the first time in eleven years, and it is the only fund that pays
-        teachers. Before any argument about waste or cuts, look at which pile
-        grew, which shrank, and which piles the board can even touch.
-      </p>
 
       <div className="mt-4 rounded-sm border border-[var(--color-parchment)] bg-white">
         <ul className="divide-y divide-[var(--color-parchment)]">

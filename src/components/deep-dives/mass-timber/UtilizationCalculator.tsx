@@ -32,7 +32,7 @@ const ZONE = {
   },
   parity: {
     label: "Break-even",
-    sub: "Cheaper than site-built — but not yet a sustaining business",
+    sub: "Cheaper than site-built, but not yet a sustaining business",
     color: "var(--color-ember)",
     chip: "bg-[#f6ecdf] text-[#9a6b34]",
   },

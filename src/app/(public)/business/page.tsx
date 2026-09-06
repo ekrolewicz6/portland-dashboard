@@ -55,6 +55,12 @@ export default function BusinessPage() {
           and the paperwork. You review what we wrote and click submit.
         </p>
 
+        <p className="mt-5 max-w-2xl text-[17px] sm:text-[19px] text-[var(--color-ink-light)] leading-relaxed">
+          Free for Portland businesses during the pilot. If that changes, the
+          price appears on this page first, the way it does for the rest of our
+          work.
+        </p>
+
         <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-[var(--color-ink-muted)]">
           Start with the address. Some of Portland&apos;s largest grants are gated on district
           boundaries you can&apos;t see from the street — that check takes twenty seconds and
@@ -137,7 +143,7 @@ export default function BusinessPage() {
             Funding is where we start
           </h2>
           <p className="mt-4 max-w-3xl text-[16px] text-[var(--color-ink-light)] leading-relaxed">
-            The goal is simpler than it sounds: one place that handles the
+            The goal is one place that handles the
             administrative weight of running a small business in Portland. The
             same profile powers all of it, so you never fill anything out twice.
             Estimates below are typical ranges, not promises.

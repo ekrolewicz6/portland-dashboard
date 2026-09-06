@@ -112,7 +112,7 @@ export default function CityBudgetPage() {
               <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/80">
                 The City publishes its budget as {SOURCE_DOCS.reduce((s, d) => s + (d.pages ?? 0), 0)}{" "}
                 pages of PDF. We parsed all of it — {FUND_COUNT} funds, {PROGRAM_COUNT} programs,
-                four fiscal years — and reconciled it to the dollar against the City&apos;s own
+                four fiscal years, and reconciled it to the dollar against the City&apos;s own
                 published totals. This page traces every dollar from where it comes from to what it
                 buys, and you can read the exact figure for any line.
               </p>
@@ -126,7 +126,7 @@ export default function CityBudgetPage() {
                 <div>
                   <dt className="text-[13px] font-semibold text-white">The headline number</dt>
                   <dd className="text-[14px] leading-relaxed text-white/70">
-                    {fmtExact(GROSS_TOTAL)} — but it counts a dollar again every time it moves
+                    {fmtExact(GROSS_TOTAL)}, but it counts a dollar again every time it moves
                     between city funds.
                   </dd>
                 </div>
@@ -233,7 +233,7 @@ export default function CityBudgetPage() {
             Quote {fmtMoney(GROSS_TOTAL)} and you&apos;re using the City&apos;s official figure.
             Quote {fmtMoney(EXTERNAL_REVENUE)} and you&apos;re describing money that actually
             arrives. Quote {fmtMoney(BUREAU_EXPENSE)} and you mean what bureaus spend doing things.
-            Here is the arithmetic between them.
+            The arithmetic between them:
           </>
         }
         aside={
@@ -303,7 +303,7 @@ export default function CityBudgetPage() {
             {
               k: fmtMoney(pcef),
               t: "sits in the Clean Energy Fund",
-              d: "The Portland Clean Energy Community Benefits Fund — a voter-created surcharge on large retailers — is now larger than the entire Transportation operating budget. Few American cities have anything like it.",
+              d: "The Portland Clean Energy Community Benefits Fund, a voter-created surcharge on large retailers, is now larger than the entire Transportation operating budget. Few American cities have anything like it.",
             },
           ].map((c) => (
             <div key={c.t} className="rounded-sm border border-[var(--color-parchment)] bg-white p-6">
@@ -356,12 +356,12 @@ export default function CityBudgetPage() {
       <Section
         id="peers"
         eyebrow="Against other cities"
-        title="Portland spends more per resident than Seattle — which owns a power company"
+        title="Portland spends more per resident than Seattle, which owns a power company"
         lead={
           <>
             Every per-capita comparison of city budgets is a trap, because cities draw their
             boundaries in different places. But one comparison survives the caveats: Portland
-            budgets about $13,500 per resident against Seattle&apos;s $11,400 — and Seattle&apos;s
+            budgets about $13,500 per resident against Seattle&apos;s $11,400, and Seattle&apos;s
             number carries a $1.8&nbsp;billion municipal electric utility that Portland
             doesn&apos;t own at all. Owning the water pipes explains why Portland outspends Denver
             or Boston. It does not explain Seattle.
@@ -581,7 +581,7 @@ export default function CityBudgetPage() {
             <p className="mb-3 max-w-3xl text-[12.5px] leading-relaxed text-[var(--color-ink-light)]">
               They differ by up to $9.2 million. None is wrong; they are drawn at different moments
               and on slightly different bases. We use the second because our independently parsed
-              fund detail reproduces it to the dollar — but a reader quoting the ordinance is also
+              fund detail reproduces it to the dollar, but a reader quoting the ordinance is also
               quoting an official figure, and should not be told they are mistaken.
             </p>
             <ul className="mb-5 space-y-2">

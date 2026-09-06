@@ -46,7 +46,7 @@ export default function ExperimentTracker({ now = new Date() }: { now?: Date }) 
         <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
           Everything below — the thresholds, the {stationCount} traffic detectors, the baseline
           method — was published <strong className="text-[var(--color-ink)]">before</strong> the
-          closure began. That is the whole point. A test written afterwards proves nothing, because
+          closure began. A test written afterwards proves nothing, because
           whoever writes it already knows the answer.
         </p>
       </div>
@@ -123,7 +123,7 @@ export default function ExperimentTracker({ now = new Date() }: { now?: Date }) 
       {/* ── how we tell diversion from evaporation ── */}
       <div className="rounded-sm bg-[var(--color-paper-warm)] p-5 sm:p-6">
         <h4 className="text-[15px] font-semibold text-[var(--color-ink)]">
-          Telling diversion from evaporation — and why it is hard here
+          Telling diversion from evaporation, and why it is hard here
         </h4>
         <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-[var(--color-ink-light)]">
           If traffic simply moves to I-405 and I-205, that tells us the road network has slack — it

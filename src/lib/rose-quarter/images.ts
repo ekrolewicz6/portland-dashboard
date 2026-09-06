@@ -9,7 +9,7 @@
  * They are archived rather than hotlinked for the same reason the budget PDFs
  * and the advisory-committee documents are: ODOT has already moved this
  * project's web presence once (i5rosequarter.oregon.gov → i5rosequarter.org),
- * so hotlinks rot — and a page scrutinising an agency should not depend on
+ * so hotlinks rot, and a page scrutinising an agency should not depend on
  * that agency to keep hosting the evidence.
  *
  * Originals in runtime-data/rose-quarter/images/ (gitignored); the copies in
@@ -55,7 +55,7 @@ export const RENDERINGS = {
     file: `${BASE}/map-auxiliary.jpg`,
     alt: "ODOT map showing where auxiliary lanes and full shoulders would be added to I-5 in each direction.",
     caption:
-      "The lanes. ODOT is careful to call these auxiliary lanes — ramp-to-ramp connections — rather than through lanes, and the distinction is the centre of the dispute.",
+      "The lanes. ODOT is careful to call these auxiliary lanes, ramp-to-ramp connections, rather than through lanes, and the distinction is the centre of the dispute.",
     omits: "It does not show total paved width, which is what critics say makes the roadway stripeable to ten lanes.",
     sourceUrl: "https://www.i5rosequarter.org/media/awzbqwyw/map_auxiliary-2x.png",
     retrieved: RETRIEVED,
@@ -98,7 +98,7 @@ export const RENDERINGS = {
     file: `${BASE}/closure-map.jpg`,
     alt: "ODOT map of the September 2026 southbound I-5 closure, showing the closed section between I-405 and I-84 and the detour routes onto I-405 and I-205.",
     caption:
-      "The September closure. Southbound traffic goes to I-405; regional traffic is sent to I-205 — which is, near enough, what removal advocates propose permanently.",
+      "The September closure. Southbound traffic goes to I-405; regional traffic is sent to I-205, which is, near enough, what removal advocates propose permanently.",
     sourceUrl:
       "https://www.i5rosequarter.org/media/wkqd4vft/2026_closure-map_southbound_07132026_mappluslegend.jpg",
     retrieved: RETRIEVED,

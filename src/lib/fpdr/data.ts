@@ -329,7 +329,7 @@ export const REFORM_OPTIONS: ReformOption[] = [
     id: "pob",
     name: "Pension obligation bonds",
     oneLiner: "Borrow money now to seed the trust.",
-    how: "Issue bonds, drop the proceeds into an invested trust, and bet that investment returns beat the interest rate on the bonds. Best used in modest size — one analysis models a ~$200M issuance — as a complement to a real funding policy, not a standalone fix.",
+    how: "Issue bonds, drop the proceeds into an invested trust, and bet that investment returns beat the interest rate on the bonds. Best used in modest size, one analysis models a ~$200M issuance, as a complement to a real funding policy, not a standalone fix.",
     nearTerm: "higher",
     lifetime: "lower",
     pros: [
