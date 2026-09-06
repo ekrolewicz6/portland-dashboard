@@ -1,4 +1,5 @@
 import { DOORS_HOURS } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 const KIND: Record<string, { label: string; cls: string }> = {
   "walk-in": { label: "Walk in or drop off", cls: "bg-[var(--color-fern)]" },
@@ -49,7 +50,7 @@ export default function DoorsOpen() {
                   ))}
                   {d.segments.length === 0 ? <span className="absolute inset-y-1 left-0 right-0 rounded-[2px] border border-dashed border-[var(--color-ink-muted)]/60" /> : null}
                 </div>
-                <p className="pb-2 text-[12.5px] leading-snug text-[var(--color-ink-light)] md:col-start-2 xl:col-start-3 xl:pb-0 xl:pt-1">{d.note}</p>
+                <div className="pb-2 md:col-start-2 xl:col-start-3 xl:pb-0 xl:pt-1"><p className="text-[12.5px] leading-snug text-[var(--color-ink-light)]">{d.note}</p><SourceLinks ids={d.src} /></div>
               </div>
             );
           })}

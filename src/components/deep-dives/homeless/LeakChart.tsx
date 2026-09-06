@@ -1,4 +1,5 @@
 import { CONTINUUM, LEAKS } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 /** Where the continuum leaks today: what goes into each transition and what comes through, from published counts. */
 export default function LeakChart() {
@@ -9,7 +10,7 @@ export default function LeakChart() {
       <div className="rounded-sm border border-[var(--color-parchment)] bg-white">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-[var(--color-parchment)] px-5 pt-4 pb-3 sm:px-6">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">What goes in, what comes through</p>
-          <p className="font-mono text-[11px] text-[var(--color-ink-muted)]">every number is one the county, the city, or a provider published</p>
+          <p className="font-mono text-[11px] text-[var(--color-ink-muted)]">every number links to the document it came from</p>
         </div>
         <ol className="divide-y divide-[var(--color-parchment)]">
           {LEAKS.map((l) => {
@@ -22,6 +23,7 @@ export default function LeakChart() {
                   <p className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">{String(s?.n ?? 0).padStart(2, "0")} · {s?.name}</p>
                   <p className="mt-0.5 text-[14px] font-semibold leading-snug text-[var(--color-canopy)]">{l.title}</p>
                   <p className="text-[11.5px] text-[var(--color-ink-muted)]">{l.period}</p>
+                  <SourceLinks ids={l.src} />
                 </div>
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-3">

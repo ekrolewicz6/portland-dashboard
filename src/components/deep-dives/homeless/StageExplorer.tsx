@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ACCOUNTABILITY, CONTINUUM, GAP_SIGNALS, PHASES, STAGE_BARS, STAGE_COSTS, STAGE_MODES, STAGE_ROLES } from "@/lib/homeless/continuum";
+import { ACCOUNTABILITY, BALANCE, CONTINUUM, GAP_SIGNALS, PHASES, STAGE_BARS, STAGE_COSTS, STAGE_MODES, STAGE_ROLES } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import type { CountStatus } from "@/lib/homeless/continuum-types";
 
@@ -49,6 +50,8 @@ export default function StageExplorer() {
   const cost = STAGE_COSTS.find((c) => c.stageId === sel);
   const gap = GAP_SIGNALS.find((g) => g.stageId === sel);
   const bars = STAGE_BARS[sel] ?? [];
+  const bal = BALANCE.find((b) => b.stageId === sel);
+  const stageSrc = Array.from(new Set([...(bal?.people.src ?? []), ...(bal?.support.src ?? []), s.gapSource].filter((x): x is string => Boolean(x))));
   const cohortName = new Map(PLACEMENT_COHORTS.map((c) => [c.id, c.cohort]));
   let n = 0;
 
@@ -109,6 +112,7 @@ export default function StageExplorer() {
             <div className={`rounded-sm px-4 py-3 ${st.bg}`}>
               <p className={`font-mono text-[10px] font-semibold uppercase tracking-[0.12em] ${st.cls}`}>{st.label} · Portland today</p>
               <p className="mt-0.5 text-[17px] font-semibold leading-snug text-[var(--color-ink)] tabular-nums">{s.count.portlandToday}</p>
+              <SourceLinks ids={stageSrc} />
             </div>
             {bars.map((b) => {
               const pct = Math.max(0, Math.min(100, (b.value / b.of) * 100));
@@ -185,7 +189,7 @@ export default function StageExplorer() {
             <div className="space-y-3">
               <div className="grid gap-3 md:grid-cols-2">
                 <Tile k="What exists">{s.exists}</Tile>
-                <Tile k="The documented gap" tone="bad">{s.gap}</Tile>
+                <Tile k="The documented gap" tone="bad">{s.gap}<SourceLinks ids={stageSrc} /></Tile>
               </div>
               <div className="grid gap-3 md:grid-cols-3">
                 <Tile k="The signal in the counts">{gap.signal}</Tile>

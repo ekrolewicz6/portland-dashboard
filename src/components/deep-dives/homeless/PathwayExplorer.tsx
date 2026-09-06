@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { CONTINUUM, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
+import SourceLinks from "./SourceLinks";
 
 /**
  * Pick a person; see their path. Twelve cohorts, each an ordered chain of
@@ -74,6 +75,7 @@ export default function PathwayExplorer() {
           strongest evidence for this order: <span className="text-[var(--color-fern)]">{path.evidence}</span>
           <span className="ml-3 normal-case tracking-normal">· the <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-ember)] align-middle font-mono text-[9px] font-bold text-[var(--color-canopy)]">1</span> is the door that has to exist first</span>
         </p>
+        <SourceLinks ids={path.evidenceSource ? [path.evidenceSource] : []} />
       </div>
     </div>
   );

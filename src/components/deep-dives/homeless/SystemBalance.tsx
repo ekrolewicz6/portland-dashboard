@@ -1,5 +1,6 @@
 import { BALANCE, CONTINUUM, PHASES, TONIGHT } from "@/lib/homeless/continuum";
 import type { Basis } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 const BASIS: Record<Basis, { label: string; cls: string }> = {
   counted: { label: "counted", cls: "bg-[var(--color-sage-tint)] text-[var(--color-fern)]" },
@@ -31,6 +32,7 @@ export default function SystemBalance() {
               <p className={`font-mono text-[30px] font-bold leading-none tabular-nums ${t.value === "0" ? "text-[var(--color-clay)]" : "text-[var(--color-ember-bright)]"}`}>{t.value}</p>
               <p className="mt-1.5 text-[13.5px] font-semibold leading-snug text-white">{t.label}</p>
               <p className="mt-0.5 text-[11.5px] leading-snug text-white/55">{t.sub}</p>
+              <SourceLinks ids={t.src} dark />
             </li>
           ))}
         </ol>
@@ -68,6 +70,7 @@ export default function SystemBalance() {
                     <Chip b={b.people.basis} />
                   </div>
                   <p className="mt-1 text-[12px] leading-snug text-[var(--color-ink-light)]">{b.people.how}</p>
+                  <SourceLinks ids={b.people.src} />
                 </div>
                 <div>
                   <div className="flex flex-wrap items-baseline gap-x-2">
@@ -76,6 +79,7 @@ export default function SystemBalance() {
                     <Chip b={b.support.basis} />
                   </div>
                   <p className="mt-1 text-[12px] leading-snug text-[var(--color-ink-light)]">{b.support.how}</p>
+                  <SourceLinks ids={b.support.src} />
                 </div>
                 <div>
                   <div className="flex items-center gap-3">
@@ -96,7 +100,7 @@ export default function SystemBalance() {
           })}
         </ol>
         <p className="border-t border-[var(--color-parchment)] px-5 py-3 text-[12.5px] leading-relaxed text-[var(--color-ink-muted)] sm:px-6">
-          Five of fourteen stages cannot be put on this board at all, because nobody counts the people in them. That is not a gap in the board; it is the first finding. Sources for every figure are on the stage&apos;s card in section 02 and in the memo.
+          Five of fourteen stages cannot be put on this board at all, because nobody counts the people in them. That is not a gap in the board; it is the first finding. Every figure links to the document it came from; the memo carries the full registry.
         </p>
       </div>
     </div>

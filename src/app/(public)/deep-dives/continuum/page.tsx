@@ -24,6 +24,7 @@ import FailureLadder from "@/components/deep-dives/homeless/FailureLadder";
 import CaveatsAccordion from "@/components/deep-dives/homeless/CaveatsAccordion";
 import FrontLine from "@/components/deep-dives/homeless/FrontLine";
 import SourcesList from "@/components/deep-dives/homeless/SourcesList";
+import SourceLinks from "@/components/deep-dives/homeless/SourceLinks";
 
 export const metadata: Metadata = pageMeta({
   title: "The Continuum — Every Step From Sidewalk to Lease, Defined and Counted",
@@ -112,15 +113,16 @@ export default function ContinuumPage() {
       <section className="border-t border-white/10 bg-[var(--color-canopy-mid)] text-white">
         <div className={`${DIVE_CONTAINER} grid grid-cols-2 gap-6 py-9 lg:grid-cols-4`}>
           {[
-            { v: String(CONTINUUM.length), l: "stages from sidewalk to lease", s: `${partial} partly counted today, ${unknown} not counted at all, none fully` },
-            { v: `${SCORECARD.score}/${SCORECARD.of}`, l: "the county's own by-name-list score", s: `${misses} unmet conditions, all about knowing who is where` },
-            { v: "54%", l: "of shelter exits go nowhere anyone recorded", s: "2,800 of 5,213 exits in FY2025" },
-            { v: fmtNum(STATS.deaths2024), l: "died homeless in 2024", s: "the number the highest-acuity lane is judged on" },
+            { v: String(CONTINUUM.length), l: "stages from sidewalk to lease", s: `${partial} partly counted today, ${unknown} not counted at all, none fully`, src: [] as string[] },
+            { v: `${SCORECARD.score}/${SCORECARD.of}`, l: "the county's own by-name-list score", s: `${misses} unmet conditions, all about knowing who is where`, src: ["multco-bfz-scorecard"] },
+            { v: "54%", l: "of shelter exits go nowhere anyone recorded", s: "2,800 of 5,213 exits in FY2025", src: ["multco-shelter-review"] },
+            { v: fmtNum(STATS.deaths2024), l: "died homeless in 2024", s: "the number the highest-acuity lane is judged on", src: ["domicile-unknown"] },
           ].map((s) => (
             <div key={s.l}>
               <p className="font-mono text-[30px] font-bold leading-none tabular-nums text-[var(--color-ember-bright)] sm:text-[36px]">{s.v}</p>
               <p className="mt-2 text-[13px] font-semibold leading-snug">{s.l}</p>
               <p className="mt-0.5 text-[12px] text-white/55">{s.s}</p>
+              <SourceLinks ids={s.src} dark />
             </div>
           ))}
         </div>
@@ -219,7 +221,7 @@ export default function ContinuumPage() {
         <div className="mt-6">
           <HousingFirstBoard />
         </div>
-        <Note>Lane volumes and costs are a 2026 county turnaround proposal&apos;s planning assumptions, labeled as such. Nine of the thirteen Housing First evidence strings were adversarially checked and corrected; the other four stand unrefuted rather than verified.</Note>
+        <Note>Lane volumes and costs come from Sharon Meieran&apos;s 2026 Multnomah County turnaround proposal, a county-chair campaign document, and are planning assumptions, labeled as such wherever they appear. Nine of the thirteen Housing First evidence strings were adversarially checked and corrected; the other four stand unrefuted rather than verified.</Note>
       </Section>
 
       {/* 07 · Counting */}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, RotateCcw } from "lucide-react";
 import { CONTINUUM, FIRST_DOOR, FIRST_DOOR_RULES } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 /** Walk the six questions the way a responder would: answer yes or no, in order, and land on a door. */
 export default function TriageStepper() {
@@ -50,6 +51,7 @@ export default function TriageStepper() {
           <div className="mt-3 rounded-sm border border-dashed border-[var(--color-clay)] bg-[var(--color-clay-tint)] px-4 py-3">
             <p className="font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] text-[var(--color-clay)]">That door in Portland tonight</p>
             <p className="mt-1 text-[13px] leading-relaxed text-[var(--color-ink)]">{q.today}</p>
+            <SourceLinks ids={q.src ?? []} />
           </div>
         </div>
       </div>

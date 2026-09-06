@@ -1,4 +1,5 @@
 import { OFF_THE_STREET, POLICE_ROLE, REFUSAL_LADDER } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 /** What happens when someone says no, where police belong, and how people actually get off the street. */
 export default function WhenNo() {
@@ -15,6 +16,7 @@ export default function WhenNo() {
               <p className="text-[15px] font-semibold leading-snug text-[var(--color-canopy)]">{s.title}</p>
               <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">{s.body}</p>
               {s.law ? <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">Law · {s.law}</p> : null}
+              <SourceLinks ids={s.src ?? []} />
             </div>
           </li>
         ))}

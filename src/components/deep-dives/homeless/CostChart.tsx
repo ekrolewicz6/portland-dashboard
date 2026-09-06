@@ -1,4 +1,5 @@
 import { COST_SUMMARY, UNIT_COSTS, UNPUBLISHED_COSTS } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 const STATUS: Record<string, { label: string; cls: string }> = {
   published: { label: "published", cls: "bg-[var(--color-fern)]" },
@@ -23,6 +24,7 @@ function Bars({ kind, title }: { kind: "year" | "episode"; title: string }) {
               <div>
                 <p className="text-[13px] font-medium leading-snug text-[var(--color-ink)]">{r.label}</p>
                 <p className="font-mono text-[10px] text-[var(--color-ink-muted)]">{r.source}</p>
+                <SourceLinks ids={r.src} />
               </div>
               <div className="flex items-center gap-3">
                 <div className="relative h-6 flex-1">

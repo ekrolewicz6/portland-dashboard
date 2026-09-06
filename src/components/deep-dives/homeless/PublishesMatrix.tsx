@@ -1,4 +1,5 @@
 import { KNOWLEDGE_MATRIX, type Knows } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 const CELL: Record<Knows, { cls: string; label: string }> = {
   yes: { cls: "bg-[var(--color-fern)]", label: "yes" },
@@ -32,7 +33,7 @@ export default function PublishesMatrix() {
               <tr key={r.question} className="border-b border-[var(--color-parchment)] last:border-b-0 hover:bg-[var(--color-paper-warm)]">
                 <td className="px-4 py-3 font-medium leading-snug text-[var(--color-canopy)] sm:px-6">{r.question}</td>
                 {cols.map((c) => <td key={c.k} className="px-2 py-3 text-center"><span className={`inline-block h-4 w-4 rounded-full ${CELL[r[c.k]].cls}`} title={CELL[r[c.k]].label} /></td>)}
-                <td className="px-4 py-3 text-[12.5px] leading-snug text-[var(--color-ink-light)]">{r.note}</td>
+                <td className="px-4 py-3 text-[12.5px] leading-snug text-[var(--color-ink-light)]">{r.note}<SourceLinks ids={r.src} /></td>
               </tr>
             ))}
           </tbody>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { HOUSING_FIRST } from "@/lib/homeless/continuum";
+import SourceLinks from "./SourceLinks";
 
 const GROUPS = [
   { verdict: "works", label: "Works", sub: "offer the lease now", color: "var(--color-fern)", tint: "var(--color-sage-tint)" },
@@ -35,7 +36,7 @@ export default function HousingFirstBoard() {
                   <li key={r.who} className="px-5 py-4">
                     <p className="text-[14.5px] font-semibold leading-tight text-[var(--color-ink)]">{r.who}</p>
                     <p className="mt-1.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{r.finding}</p>
-                    {ev ? <p className="mt-2 rounded-sm px-2.5 py-2 text-[12px] leading-snug text-[var(--color-ink-light)]" style={{ backgroundColor: g.tint }}><span className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">Evidence · </span>{r.evidence}</p> : null}
+                    {ev ? <div className="mt-2 rounded-sm px-2.5 py-2" style={{ backgroundColor: g.tint }}><p className="text-[12px] leading-snug text-[var(--color-ink-light)]"><span className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">Evidence · </span>{r.evidence}</p><SourceLinks ids={[r.source]} /></div> : null}
                   </li>
                 ))}
               </ul>
