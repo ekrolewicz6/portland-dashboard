@@ -28,13 +28,13 @@ export default async function MemberPage() {
     [user.firstName, user.lastName].filter(Boolean).join(" ") || user.email;
 
   const myBusinesses = member ? await getBusinessesForMember(member.id) : [];
-  // Claiming has no self-service undo, so only invited owners are offered a
-  // pre-researched profile — not every member who happens to sign in.
+  // Claiming has no self-service undo and hands over a funding pipeline, so a
+  // member is only offered profiles prepared for their own address (or any
+  // profile, if they are on the onboarding allowlist). getUnclaimedBusinesses
+  // applies that scoping; claimBusiness re-checks it before writing.
   const claimable =
-    member &&
-    myBusinesses.length === 0 &&
-    canClaimPreparedBusinesses(member.email)
-      ? await getUnclaimedBusinesses()
+    member && myBusinesses.length === 0
+      ? await getUnclaimedBusinesses(member.email)
       : [];
 
   async function handleSignOut() {
@@ -62,8 +62,11 @@ export default async function MemberPage() {
     const slug = String(formData.get("slug") ?? "");
     if (!Number.isFinite(businessId) || !slug) redirect("/member");
 
-    const claimed = await claimBusiness(businessId, m.id);
-    redirect(claimed ? `/member/business/${slug}` : "/member");
+    // businessId arrives from the form, so it is not evidence of anything.
+    // claimBusiness re-checks that this member is authorized for this
+    // particular business before writing.
+    const result = await claimBusiness(businessId, m.id, m.email);
+    redirect(result.ok ? `/member/business/${slug}` : "/member");
   }
 
   return (

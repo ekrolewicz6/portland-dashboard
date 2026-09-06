@@ -34,12 +34,11 @@ import { createHash } from "node:crypto";
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { requireDatabaseUrl } from "./lib/db-url";
 
 // ── DB connection (Supabase pooler-safe) ────────────────────────────────
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 function makeSQL() {
   const isPooled = DB_URL.includes("pooler.supabase.com");

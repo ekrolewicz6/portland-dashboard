@@ -77,7 +77,12 @@ export async function POST(request: NextRequest) {
     typeof body.workosUserId !== "string" ||
     !body.workosUserId ||
     typeof body.email !== "string" ||
-    !body.email.includes("@")
+    !body.email.includes("@") ||
+    // Required, not optional. This flag decides whether an existing account
+    // may be relinked to a new identity by email alone, so a caller must
+    // state what its identity provider actually attested rather than leaving
+    // it out and getting the permissive path by default.
+    typeof body.emailVerified !== "boolean"
   ) {
     return NextResponse.json({ error: "invalid_body" }, { status: 400 });
   }

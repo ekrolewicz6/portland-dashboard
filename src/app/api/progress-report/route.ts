@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import sql from "@/lib/db-query";
+import { isEditor } from "@/lib/editor-access";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +17,10 @@ export interface ProgressReportSummary {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const includeUnpublished = searchParams.get("drafts") === "true";
+  // Drafts are staff-only. This used to be a bare query parameter, so any
+  // visitor could list unpublished reports by asking for them.
+  const includeUnpublished =
+    searchParams.get("drafts") === "true" && (await isEditor());
 
   try {
     const rows = await sql<

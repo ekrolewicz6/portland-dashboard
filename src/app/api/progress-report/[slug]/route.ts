@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import sql from "@/lib/db-query";
+import { isEditor } from "@/lib/editor-access";
 
 export const dynamic = "force-dynamic";
 
@@ -55,6 +56,14 @@ export async function GET(
 
     const report = reportRows[0];
 
+    // An unpublished report is working copy — unchecked numbers, findings not
+    // yet put to the people they name. Fetching one by slug used to return it
+    // to anyone, which made the publish flag decorative. Answer 404 rather
+    // than 403 so the response does not confirm that a draft exists.
+    if (!report.published && !(await isEditor())) {
+      return NextResponse.json({ error: "Report not found" }, { status: 404 });
+    }
+
     const sectionRows = await sql<
       {
         id: number;
@@ -107,22 +116,39 @@ export async function GET(
   }
 }
 
+/**
+ * Adopted policy targets, not measurements.
+ *
+ * The 1990 Multnomah County inventory baseline and the 2030 goal of halving
+ * it are published commitments; they are constants because they are fixed by
+ * policy, not because a measurement was unavailable. Everything else in the
+ * climate snapshot below is read from the database and left undefined when it
+ * cannot be read — the renderer omits any card whose field is missing rather
+ * than printing a remembered figure under a BPS citation.
+ */
+const CLIMATE_BASELINE_1990_MTCO2E = 10.4;
+const CLIMATE_TARGET_2030_MTCO2E = 5.2;
+
+interface ClimateSnapshot {
+  totalActions?: number;
+  achievedActions?: number;
+  ongoingActions?: number;
+  delayedActions?: number;
+  latestYear?: number;
+  latestEmissions?: number;
+  baseline1990: number;
+  reductionPct?: number;
+  target2030: number;
+  gap?: number;
+  totalInterestDiverted?: number;
+  bureauAllocations?: number;
+  communityGrants?: number;
+}
+
 async function getStaticQ1Report(): Promise<FullReport> {
-  // Default climate values if DB is unavailable
-  let climate = {
-    totalActions: 47,
-    achievedActions: 12,
-    ongoingActions: 29,
-    delayedActions: 6,
-    latestYear: 2023,
-    latestEmissions: 7.7,
-    baseline1990: 10.4,
-    reductionPct: 26,
-    target2030: 5.2,
-    gap: 2.5,
-    totalInterestDiverted: 25100000,
-    bureauAllocations: 58600000,
-    communityGrants: 87100000,
+  const climate: ClimateSnapshot = {
+    baseline1990: CLIMATE_BASELINE_1990_MTCO2E,
+    target2030: CLIMATE_TARGET_2030_MTCO2E,
   };
 
   try {
@@ -152,44 +178,96 @@ async function getStaticQ1Report(): Promise<FullReport> {
     }
     const total = achieved + ongoing + delayed;
 
-    const latestEmissions = emissionRows[0] ? Number(emissionRows[0].total_mtco2e) : climate.latestEmissions;
-    const latestYear = emissionRows[0] ? Number(emissionRows[0].year) : climate.latestYear;
-    const reductionPct = Math.round(((climate.baseline1990 - latestEmissions) / climate.baseline1990) * 100);
-
-    let bureauAllocations = climate.bureauAllocations;
-    let communityGrants = climate.communityGrants;
-    for (const r of allocationRows) {
-      if (r.recipient_type === "bureau") bureauAllocations = Number(r.total);
-      if (r.recipient_type === "community") communityGrants = Number(r.total);
+    if (total > 0) {
+      climate.totalActions = total;
+      climate.achievedActions = achieved;
+      climate.ongoingActions = ongoing;
+      climate.delayedActions = delayed;
     }
 
-    climate = {
-      totalActions: total || climate.totalActions,
-      achievedActions: achieved || climate.achievedActions,
-      ongoingActions: ongoing || climate.ongoingActions,
-      delayedActions: delayed || climate.delayedActions,
-      latestYear,
-      latestEmissions,
-      baseline1990: climate.baseline1990,
-      reductionPct,
-      target2030: climate.target2030,
-      gap: Math.round((latestEmissions - climate.target2030) * 10) / 10,
-      totalInterestDiverted: diversionRows[0] ? Number(diversionRows[0].total) : climate.totalInterestDiverted,
-      bureauAllocations,
-      communityGrants,
-    };
+    if (emissionRows[0]) {
+      const latestEmissions = Number(emissionRows[0].total_mtco2e);
+      climate.latestEmissions = latestEmissions;
+      climate.latestYear = Number(emissionRows[0].year);
+      climate.reductionPct = Math.round(
+        ((climate.baseline1990 - latestEmissions) / climate.baseline1990) * 100,
+      );
+      climate.gap = Math.round((latestEmissions - climate.target2030) * 10) / 10;
+    }
+
+    for (const r of allocationRows) {
+      if (r.recipient_type === "bureau") climate.bureauAllocations = Number(r.total);
+      if (r.recipient_type === "community") climate.communityGrants = Number(r.total);
+    }
+    if (diversionRows[0]) {
+      climate.totalInterestDiverted = Number(diversionRows[0].total);
+    }
   } catch {
-    // Use defaults — DB may be unavailable in this fallback path
+    // Leave the snapshot fields unset. The renderer omits any card whose
+    // field is missing, which is the honest outcome when the climate tables
+    // cannot be read.
   }
 
-  const totalPcef = climate.bureauAllocations + climate.communityGrants;
-  const bureauPct = Math.round((climate.bureauAllocations / totalPcef) * 100);
-  const diverted = climate.totalInterestDiverted >= 1_000_000
-    ? `$${(climate.totalInterestDiverted / 1_000_000).toFixed(1)}M`
-    : `$${climate.totalInterestDiverted.toLocaleString()}`;
-  const totalPcefFmt = totalPcef >= 1_000_000
-    ? `$${(totalPcef / 1_000_000).toFixed(0)}M`
-    : `$${totalPcef.toLocaleString()}`;
+  const hasPcefTotals =
+    climate.bureauAllocations !== undefined && climate.communityGrants !== undefined;
+  const totalPcef = hasPcefTotals
+    ? climate.bureauAllocations! + climate.communityGrants!
+    : null;
+  const bureauPct =
+    totalPcef !== null && totalPcef > 0
+      ? Math.round((climate.bureauAllocations! / totalPcef) * 100)
+      : null;
+  const diverted =
+    climate.totalInterestDiverted === undefined
+      ? null
+      : climate.totalInterestDiverted >= 1_000_000
+        ? `$${(climate.totalInterestDiverted / 1_000_000).toFixed(1)}M`
+        : `$${climate.totalInterestDiverted.toLocaleString()}`;
+  const totalPcefFmt =
+    totalPcef === null
+      ? null
+      : totalPcef >= 1_000_000
+        ? `$${(totalPcef / 1_000_000).toFixed(0)}M`
+        : `$${totalPcef.toLocaleString()}`;
+
+  // Each prose block is written only when the figures it quotes were actually
+  // read. A paragraph is dropped rather than published with a placeholder,
+  // because a sentence naming a dollar total reads as reported either way.
+  const pcefSection =
+    totalPcefFmt !== null && bureauPct !== null
+      ? `## PCEF: ${totalPcefFmt} Deployed, ${bureauPct}% to Bureaus
+
+The Portland Clean Energy Fund has allocated approximately ${totalPcefFmt} across four fiscal years. Of that, roughly ${bureauPct}% went to six city bureaus and ${100 - bureauPct}% to community grants. The audit found Portland has not been transparent enough about how PCEF funding flows between city bureaus and community organizations.
+`
+      : `## PCEF Allocations
+
+PCEF allocation totals are not currently loaded, so the split between bureau allocations and community grants cannot be reported here. The audit found Portland has not been transparent enough about how PCEF funding flows between city bureaus and community organizations.
+`;
+
+  const pcefInterestSection =
+    diverted !== null
+      ? `## PCEF Interest: ${diverted} Directed to General Fund
+
+Between FY 21-22 and FY 24-25, approximately ${diverted} in PCEF-generated interest was directed to the General Fund rather than climate programs. The audit found the City has not been transparent enough about these funding flows.
+
+These are dollars that earned interest while sitting in PCEF accounts between disbursements — funds that could have supported additional cooling units for elderly residents, tree planting in low-canopy East Portland neighborhoods, and energy retrofits for affordable housing.
+`
+      : "";
+
+  const emissionsSection =
+    climate.latestEmissions !== undefined &&
+    climate.reductionPct !== undefined &&
+    climate.gap !== undefined
+      ? `## Emissions: Behind Schedule
+
+Multnomah County's greenhouse gas inventory shows total emissions at approximately **${climate.latestEmissions.toFixed(1)} million MTCO₂e** as of ${climate.latestYear} — **${climate.reductionPct}% below the 1990 baseline** of ${climate.baseline1990} million. The 2030 goal requires cutting to ${climate.target2030} million MTCO₂e — a further reduction of **${climate.gap.toFixed(1)} million tons** in the next four years.
+
+At the current pace of reduction (approximately 0.12 million MTCO₂e per year), Portland would reach roughly 6.5 million by 2030 — still 1.3 million short. Meeting the 2030 target requires more than triple the current annual reduction rate.
+`
+      : `## Emissions
+
+The Multnomah County greenhouse gas inventory is not currently loaded, so progress against the ${climate.baseline1990} million MTCO₂e 1990 baseline and the ${climate.target2030} million 2030 goal cannot be reported here.
+`;
 
   return {
     id: 1,
@@ -341,21 +419,9 @@ Resource gaps are a persistent challenge. Of the ${climate.totalActions} actions
 
 The total unfunded gap across the workplan has not been published as a single consolidated figure — a transparency gap the audit flagged specifically.
 
-## PCEF: ${totalPcefFmt} Deployed, ${bureauPct}% to Bureaus
-
-The Portland Clean Energy Fund has allocated approximately ${totalPcefFmt} across four fiscal years. Of that, roughly ${bureauPct}% went to six city bureaus and ${100 - bureauPct}% to community grants. The audit found Portland has not been transparent enough about how PCEF funding flows between city bureaus and community organizations.
-
-## PCEF Interest: ${diverted} Directed to General Fund
-
-Between FY 21-22 and FY 24-25, approximately ${diverted} in PCEF-generated interest was directed to the General Fund rather than climate programs. The audit found the City has not been transparent enough about these funding flows.
-
-These are dollars that earned interest while sitting in PCEF accounts between disbursements — funds that could have supported additional cooling units for elderly residents, tree planting in low-canopy East Portland neighborhoods, and energy retrofits for affordable housing.
-
-## Emissions: Behind Schedule
-
-Multnomah County's greenhouse gas inventory shows total emissions at approximately **${climate.latestEmissions.toFixed(1)} million MTCO₂e** as of ${climate.latestYear} — **${climate.reductionPct}% below the 1990 baseline** of 10.4 million. The 2030 goal requires cutting to 5.2 million MTCO₂e — a further reduction of **${climate.gap.toFixed(1)} million tons** in the next four years.
-
-At the current pace of reduction (approximately 0.12 million MTCO₂e per year), Portland would reach roughly 6.5 million by 2030 — still 1.3 million short. Meeting the 2030 target requires more than triple the current annual reduction rate.
+${pcefSection}
+${pcefInterestSection}
+${emissionsSection}
 
 ## The Five Audit Recommendations
 

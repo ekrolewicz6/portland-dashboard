@@ -11,10 +11,9 @@
  * Run: npx tsx ingest/fetch-sos-all-active.ts
  */
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 const BASE = "https://data.oregon.gov/resource/tckn-sxa6.json";
 const PAGE_SIZE = 50000;

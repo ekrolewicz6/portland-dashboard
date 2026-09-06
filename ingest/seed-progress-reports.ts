@@ -4,11 +4,9 @@
  * Usage:  npx tsx ingest/seed-progress-reports.ts
  */
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const sql = postgres(
-  process.env.DATABASE_URL ||
-    "postgresql://edankrolewicz@localhost:5432/portland_dashboard",
-);
+const sql = postgres(requireDatabaseUrl());
 
 async function main() {
   console.log("Creating content schema and tables...");

@@ -18,6 +18,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
 // Load .env.local for DATABASE_URL
 const envPath = path.resolve(import.meta.dirname ?? ".", "..", ".env.local");
@@ -28,7 +29,7 @@ if (fs.existsSync(envPath)) {
   }
 }
 
-const DB_URL = process.env.DATABASE_URL || "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 console.log(`DB: ${DB_URL.includes("supabase") ? "Supabase" : "Local"} (${DB_URL.substring(0, 40)}...)`);
 const isPooled = DB_URL.includes("pooler.supabase.com");
 const API_KEY = process.env.PORTLAND_MAPS_API_KEY || "7D700138A0EA40349E799EA216BF82F9";

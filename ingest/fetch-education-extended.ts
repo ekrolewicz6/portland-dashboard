@@ -13,12 +13,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
 const XLSX = require("xlsx");
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 const DATA_DIR = path.resolve(
   new URL(".", import.meta.url).pathname,
   "..",

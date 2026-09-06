@@ -12,7 +12,9 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
 
 
-ROOT = Path("/Users/edankrolewicz/portland-civic-lab/reports/portland-libraries-2026")
+# Resolve relative to this file so the report builds from any checkout,
+# not only the machine it was first written on.
+ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "report-source.md"
 OUTPUT = ROOT / "Portland_Libraries_Deep_Dive_2026.docx"
 

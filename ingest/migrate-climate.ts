@@ -1,14 +1,13 @@
 /**
  * Climate Accountability Platform — Schema Migration
  * Creates all 7 new climate tables in the target database.
- * Run via: DATABASE_URL=... npx tsx src/db/migrate-climate.ts
+ * Run via: npx tsx --env-file=.env.local ingest/migrate-climate.ts
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const databaseUrl =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const databaseUrl = requireDatabaseUrl();
 
 const isPooled = databaseUrl.includes("pooler.supabase.com");
 

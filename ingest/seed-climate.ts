@@ -5,14 +5,13 @@
  * Multnomah County emissions trajectory data (1990-2023 + targets),
  * PCEF allocation data, and bureau scorecard bootstrap data.
  *
- * Run via: npx tsx src/db/seed-climate.ts
+ * Run via: npx tsx --env-file=.env.local ingest/seed-climate.ts
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const databaseUrl =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const databaseUrl = requireDatabaseUrl();
 
 const isPooled = databaseUrl.includes("pooler.supabase.com");
 

@@ -16,8 +16,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL = "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 // Use process.cwd() which is reliable
 const PROJECT_ROOT = process.cwd();
 const DATA_DIR = path.join(PROJECT_ROOT, "data");

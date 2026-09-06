@@ -13,10 +13,9 @@
  */
 
 import postgres from "postgres";
+import { requireDatabaseUrl } from "./lib/db-url";
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 const BIKE_NETWORK_URL =
   "https://www.portlandmaps.com/od/rest/services/COP_OpenData_Transportation/MapServer/75/query";

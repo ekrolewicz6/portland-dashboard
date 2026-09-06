@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "seed": "npx tsx ingest/seed-real-data.ts",
     "fetch:external": "npx tsx ingest/fetch-external-sources.ts",
@@ -27,7 +26,8 @@
     "business:boundaries": "npx tsx ingest/business/fetch-boundaries.ts",
     "pps:harvest": "tsx ingest/pps-budget/harvest-index.ts",
     "pps:archive": "tsx ingest/pps-budget/archive.ts",
-    "pps:fetch": "tsx ingest/pps-budget/fetch.ts --tier 2"
+    "pps:fetch": "tsx ingest/pps-budget/fetch.ts --tier 2",
+    "db:migrate": "npx tsx ingest/apply-migration.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",

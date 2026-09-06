@@ -1,8 +1,20 @@
 import postgres from "postgres";
 
-const databaseUrl =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+/**
+ * There is no default connection string.
+ *
+ * A fallback pointing at a local database turned "DATABASE_URL is missing in
+ * production" into a ten-second connect timeout on every request, and on a
+ * developer machine running Postgres it silently read and wrote the wrong
+ * database. With no fallback, a missing variable is reported as itself.
+ *
+ * Running without DATABASE_URL is still supported for UI and docs work: every
+ * query rejects immediately, and the dashboard routes already turn a query
+ * failure into `dataStatus: "unavailable"`. Pages render, and they say the
+ * data is missing instead of showing numbers that are not there.
+ */
+const databaseUrl = process.env.DATABASE_URL?.trim() ?? "";
+export const DATABASE_CONFIGURED = databaseUrl.length > 0;
 const isPooled = databaseUrl.includes("pooler.supabase.com");
 
 // Parse connection string explicitly to avoid URL parser issues with special
@@ -25,13 +37,27 @@ function parseConnectionOptions(url: string) {
 
 const explicitOpts = isPooled ? parseConnectionOptions(databaseUrl) : undefined;
 
-if (explicitOpts) {
+if (!DATABASE_CONFIGURED) {
+  console.warn(
+    "[db] DATABASE_URL is not set. Every query will fail fast and dashboards will report data as unavailable.",
+  );
+} else if (explicitOpts) {
+  // Host and database only. The username is a credential half and ends up in
+  // log aggregation, where it has no diagnostic value the host does not
+  // already give.
   console.log(
-    `[db] Connecting to Supabase pooler: ${explicitOpts.host}:${explicitOpts.port}/${explicitOpts.database} (user: ${explicitOpts.username})`,
+    `[db] Connecting to Supabase pooler: ${explicitOpts.host}:${explicitOpts.port}/${explicitOpts.database}`,
   );
 } else {
-  const safeUrl = databaseUrl.replace(/:([^@]+)@/, ":***@");
-  console.log(`[db] Connecting via URL: ${safeUrl}`);
+  const parsed = (() => {
+    try {
+      const u = new URL(databaseUrl);
+      return `${u.hostname}:${u.port || 5432}${u.pathname}`;
+    } catch {
+      return "<unparseable DATABASE_URL>";
+    }
+  })();
+  console.log(`[db] Connecting to ${parsed}`);
 }
 
 // Serverless-safe connection settings.
@@ -76,6 +102,11 @@ let _client: SqlClient | null = null;
 let _createdAt = 0;
 
 function makeClient(): SqlClient {
+  if (!DATABASE_CONFIGURED) {
+    throw new Error(
+      "DATABASE_URL is not set, so this query cannot run. Set it in .env.local to work against real data.",
+    );
+  }
   return explicitOpts
     ? postgres({ ...explicitOpts, ...SERVERLESS_OPTS })
     : postgres(databaseUrl, SERVERLESS_OPTS);
@@ -85,15 +116,37 @@ function getClient(): SqlClient {
   const now = Date.now();
   if (!_client || now - _createdAt > MAX_CLIENT_AGE_MS) {
     if (_client) {
-      // Fire-and-forget cleanup of the stale client. If its socket is
-      // already dead, end() will throw — we don't care.
+      // Retire the old client by draining it, not by destroying it on a
+      // deadline. Recycling is age-based and fires on whichever request
+      // happens to arrive first, which may be while a long statement — a
+      // CONCURRENTLY matview refresh, a large export — is still running on
+      // the previous client. A forced close would abort that statement
+      // server-side. end() lets in-flight work finish and then closes; a
+      // socket that is already dead settles immediately either way.
       const stale = _client;
-      stale.end({ timeout: 5 }).catch(() => {});
+      stale.end().catch(() => {});
     }
     _client = makeClient();
     _createdAt = now;
   }
   return _client;
+}
+
+/**
+ * A client that is never recycled underneath the caller, for jobs that run a
+ * single statement for longer than MAX_CLIENT_AGE_MS. The caller owns it and
+ * must end() it. Request handlers should use the default export instead.
+ */
+export function createDedicatedClient(
+  options?: Partial<typeof SERVERLESS_OPTS>,
+): SqlClient {
+  if (!DATABASE_CONFIGURED) {
+    throw new Error("DATABASE_URL is not set, so no database client can be created.");
+  }
+  const opts = { ...SERVERLESS_OPTS, max: 1, max_lifetime: 0, ...options };
+  return explicitOpts
+    ? postgres({ ...explicitOpts, ...opts })
+    : postgres(databaseUrl, opts);
 }
 
 // Proxy that transparently delegates to the current client. Routes can
@@ -123,7 +176,7 @@ export async function resetDbClient(): Promise<void> {
     const stale = _client;
     _client = null;
     _createdAt = 0;
-    await stale.end({ timeout: 5 }).catch(() => {});
+    await stale.end().catch(() => {});
   }
 }
 

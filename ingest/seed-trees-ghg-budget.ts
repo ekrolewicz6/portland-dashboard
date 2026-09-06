@@ -20,6 +20,7 @@ import postgres from "postgres";
 import * as XLSX from "xlsx";
 import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
+import { requireDatabaseUrl } from "./lib/db-url";
 
 // ── CLI flags ──────────────────────────────────────────────────────────────
 
@@ -31,9 +32,7 @@ const runAll = !treesOnly && !ghgOnly && !budgetOnly;
 
 // ── DB connection ──────────────────────────────────────────────────────────
 
-const DB_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://edankrolewicz@localhost:5432/portland_dashboard";
+const DB_URL = requireDatabaseUrl();
 
 function makeSQL() {
   const isPooled = DB_URL.includes("pooler.supabase.com");

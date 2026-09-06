@@ -1,8 +1,13 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+/** Checkout sessions per IP per hour. Nobody donates ten times in an hour. */
+const RATE_LIMIT = 10;
+const RATE_WINDOW_MS = 60 * 60 * 1000;
 
 const checkoutSchema = z.object({
   amount: z.coerce
@@ -12,9 +17,23 @@ const checkoutSchema = z.object({
   frequency: z.enum(["monthly", "once"]),
 });
 
+/**
+ * Origin for Stripe's success and cancel URLs.
+ *
+ * Prefers the configured value. The request-derived fallback comes from the
+ * Host header, which a proxy can forward unchanged from the client, so it is
+ * only acceptable in local development — in production a spoofed Host would
+ * put an attacker's origin into the URL a donor is returned to after paying.
+ */
 function getBaseUrl(request: Request) {
   const configured = process.env.NEXT_PUBLIC_APP_URL?.trim();
   if (configured) return configured.replace(/\/$/, "");
+
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(
+      "NEXT_PUBLIC_APP_URL must be set in production; refusing to build Stripe redirect URLs from the Host header.",
+    );
+  }
 
   const url = new URL(request.url);
   return `${url.protocol}//${url.host}`;
@@ -27,6 +46,13 @@ function getStripe() {
 }
 
 export async function POST(request: Request) {
+  if (!checkRateLimit(`donate-checkout:${getClientIp(request)}`, RATE_LIMIT, RATE_WINDOW_MS)) {
+    return NextResponse.json(
+      { error: "Too many checkout attempts. Please try again shortly." },
+      { status: 429 },
+    );
+  }
+
   const stripe = getStripe();
 
   if (!stripe) {
@@ -59,7 +85,12 @@ export async function POST(request: Request) {
   const baseUrl = getBaseUrl(request);
   const isMonthly = frequency === "monthly";
 
-  const session = await stripe.checkout.sessions.create({
+  // Stripe can fail for reasons outside our control (network, API outage, a
+  // declined key). Uncaught, that surfaced as a generic framework 500 with no
+  // JSON body, so the donate form had nothing to show the donor.
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
     mode: isMonthly ? "subscription" : "payment",
     submit_type: isMonthly ? undefined : "pay",
     billing_address_collection: "auto",
@@ -88,7 +119,14 @@ export async function POST(request: Request) {
         },
       },
     ],
-  });
+    });
+  } catch (error) {
+    console.error("[donate/checkout] Stripe session creation failed:", error);
+    return NextResponse.json(
+      { error: "Could not start checkout just now. Please try again in a moment." },
+      { status: 502 },
+    );
+  }
 
   if (!session.url) {
     return NextResponse.json(
