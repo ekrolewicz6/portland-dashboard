@@ -139,7 +139,7 @@ export default function ContinuumPage() {
         id="map"
         eyebrow="01 · The map"
         title="Fourteen stages, and how many of them anyone can count"
-        lead="Left to right, from keeping the door shut to staying housed. Each stage carries its clock, whether anyone can say who is in it right now, and the best number Portland has. Section 02 defines every stage in full. Below the map, which kinds of people pass through which stages, in what order."
+        lead="Two pictures. First, the fourteen stages a person can be in, grouped into six phases and numbered in the order most people pass through them, each with its clock, whether anyone can count who is there today, and the best number Portland has. Second, which kinds of people pass through which stages, and in what order, with the first door that has to exist for each."
       >
         <ContinuumMap />
         <Note>

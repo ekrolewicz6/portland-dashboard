@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { CONTINUUM, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
-import { shy } from "@/lib/homeless/shy";
 
 /**
  * Pick a person; see their path. Twelve cohorts, each an ordered chain of
@@ -41,15 +40,16 @@ export default function PathwayExplorer() {
       </div>
 
       {/* All 14 stages as a track; the path lights up */}
-      <div className="overflow-x-auto px-4 pt-5 pb-2 sm:px-5">
-        <ol className="flex min-w-[1000px] items-stretch gap-1 xl:min-w-0">
+      <div className="px-4 pt-5 pb-2 sm:px-5">
+        <p className="mb-3 text-[12.5px] leading-relaxed text-[var(--color-ink-light)]">The fourteen stages in order, left to right then down. The ones this person passes through light up with their step number; the amber circle is the first door.</p>
+        <ol className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:grid-cols-7">
           {CONTINUUM.map((s) => {
             const n = inPath.get(s.id);
             const p = phase.get(s.phase);
             return (
-              <li key={s.id} className={`flex min-w-0 flex-1 flex-col rounded-sm border px-1.5 py-2 text-center transition-opacity ${n ? "border-[var(--color-canopy)] bg-white" : "border-[var(--color-parchment)] bg-[var(--color-paper-warm)] opacity-45"}`}>
+              <li key={s.id} className={`flex min-h-[96px] flex-col rounded-sm border px-3 py-2.5 text-center transition-opacity ${n ? "border-[var(--color-canopy)] bg-white" : "border-[var(--color-parchment)] bg-[var(--color-paper-warm)] opacity-45"}`}>
                 <span className={`mx-auto flex h-6 w-6 items-center justify-center rounded-full font-mono text-[11px] font-bold ${n === 1 ? "bg-[var(--color-ember)] text-[var(--color-canopy)]" : n ? "bg-[var(--color-canopy)] text-white" : "bg-transparent text-transparent"}`}>{n ?? "·"}</span>
-                <span className="mt-1.5 text-[10.5px] font-semibold leading-tight text-[var(--color-ink)]">{shy(s.name)}</span>
+                <span className="mt-1.5 text-[12.5px] font-semibold leading-snug text-[var(--color-ink)]">{s.name}</span>
                 <span className="mt-auto pt-1 font-mono text-[9px] uppercase tracking-[0.1em]" style={{ color: p?.color }}>{p?.label}</span>
               </li>
             );

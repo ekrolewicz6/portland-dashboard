@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CONTINUUM, PHASES, PRINCIPLES } from "@/lib/homeless/continuum";
 import type { CountStatus } from "@/lib/homeless/continuum-types";
-import { shy } from "@/lib/homeless/shy";
 
 /**
  * The short version for the homelessness deep dive: the fourteen stages as a
@@ -28,18 +27,19 @@ export default function ContinuumTldr() {
             {known} counted · {CONTINUUM.length - known - unknown} partly · <span className="text-[var(--color-clay)]">{unknown} not counted at all</span>
           </p>
         </div>
-        <div className="overflow-x-auto px-5 py-4 sm:px-6">
-          <ol className="flex min-w-[900px] gap-1 xl:min-w-0">
+        <p className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-2.5 text-[12.5px] leading-relaxed text-[var(--color-ink-light)] sm:px-6">Read in number order, left to right then down: each card is one place a person can physically be, from keeping the door shut to staying housed. The dot says whether anyone can count who is there today.</p>
+        <div className="px-5 py-4 sm:px-6">
+          <ol className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:grid-cols-7">
             {CONTINUUM.map((s, i) => {
               const p = phase.get(s.phase);
               return (
-                <li key={s.id} className="flex min-w-0 flex-1 flex-col rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-1.5 py-2">
+                <li key={s.id} className="flex min-h-[92px] flex-col rounded-sm border border-[var(--color-parchment)] border-t-[3px] bg-[var(--color-paper-warm)] px-3 py-2.5" style={{ borderTopColor: p?.color }}>
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[10px] font-bold text-[var(--color-ink-muted)]">{String(i + 1).padStart(2, "0")}</span>
                     <span className={`h-2 w-2 rounded-full ${DOT[s.count.status]}`} title={s.count.status} />
                   </div>
-                  <span className="mt-1 text-[10.5px] font-semibold leading-tight text-[var(--color-ink)]">{shy(s.name)}</span>
-                  <span className="mt-auto pt-1.5 font-mono text-[9px] uppercase tracking-[0.1em]" style={{ color: p?.color }}>{p?.label}</span>
+                  <span className="mt-1.5 text-[13px] font-semibold leading-snug text-[var(--color-ink)]">{s.name}</span>
+                  <span className="mt-auto pt-2 font-mono text-[9.5px] uppercase tracking-[0.12em]" style={{ color: p?.color }}>{p?.label}</span>
                 </li>
               );
             })}
