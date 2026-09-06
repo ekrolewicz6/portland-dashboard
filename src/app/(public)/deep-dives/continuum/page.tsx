@@ -21,7 +21,7 @@ import HeadlineMetrics from "@/components/deep-dives/homeless/HeadlineMetrics";
 import PublishesMatrix from "@/components/deep-dives/homeless/PublishesMatrix";
 import CostChart from "@/components/deep-dives/homeless/CostChart";
 import FailureLadder from "@/components/deep-dives/homeless/FailureLadder";
-import CaveatsAccordion from "@/components/deep-dives/homeless/CaveatsAccordion";
+import Critique from "@/components/deep-dives/homeless/Critique";
 import FrontLine from "@/components/deep-dives/homeless/FrontLine";
 import SourcesList from "@/components/deep-dives/homeless/SourcesList";
 import SourceLinks from "@/components/deep-dives/homeless/SourceLinks";
@@ -262,10 +262,10 @@ export default function ContinuumPage() {
         layout="stacked"
         id="risks"
         eyebrow="09 · What could go wrong"
-        title="The critique we kept, and what the front line will say"
-        lead="A completeness critic listed what the design misses, and seven front-line, clinical, and legal readers said what breaks at 2 a.m. We changed the design where they were right and kept every objection here with its answer, so the people who will hear them next have it in hand."
+        title="We asked what this plan misses, then fixed what we could"
+        lead="A plan that hides its weak points gets found out by the first person who works a night shift with it. So before publishing, a completeness critic read the design against the source record and listed everything it missed, and seven front-line, clinical, and legal readers said what breaks at 2 a.m. Most of what they found is now built into the plan, and each finding below says exactly how. A few need a document or a decision that nobody has produced, and the ledger names it. A few are risks no design removes, and the plan publishes the number that would show them. Then the objections themselves, kept with their answers."
       >
-        <CaveatsAccordion />
+        <Critique />
         <div className="mt-6">
           <FrontLine />
         </div>

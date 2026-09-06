@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ACCOUNTABILITY, BALANCE, CONTINUUM, GAP_SIGNALS, PHASES, STAGE_BARS, STAGE_COSTS, STAGE_MODES, STAGE_ROLES } from "@/lib/homeless/continuum";
+import { ACCOUNTABILITY, BALANCE, CONTINUUM, EXTRA_COHORTS, GAP_SIGNALS, PHASES, STAGE_BARS, STAGE_COSTS, STAGE_MODES, STAGE_ROLES } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import type { CountStatus } from "@/lib/homeless/continuum-types";
@@ -150,7 +150,7 @@ export default function StageExplorer() {
               <div className="rounded-sm bg-[var(--color-paper-warm)] px-4 py-3">
                 <p className="font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Who passes through</p>
                 <div className="mt-1.5 flex flex-wrap gap-1.5">
-                  {s.cohorts.map((c) => <span key={c} className="rounded-full border border-[var(--color-parchment)] bg-white px-2.5 py-0.5 text-[12px] text-[var(--color-ink-light)]">{cohortName.get(c) ?? c}</span>)}
+                  {s.cohorts.map((c) => <span key={c} className="rounded-full border border-[var(--color-parchment)] bg-white px-2.5 py-0.5 text-[12px] text-[var(--color-ink-light)]">{cohortName.get(c) ?? EXTRA_COHORTS[c] ?? c}</span>)}
                 </div>
               </div>
             </div>

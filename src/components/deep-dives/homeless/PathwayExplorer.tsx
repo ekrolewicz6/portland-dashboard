@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { CONTINUUM, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
+import { CONTINUUM, EXTRA_COHORTS, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import SourceLinks from "./SourceLinks";
 
@@ -34,7 +34,7 @@ export default function PathwayExplorer() {
               aria-pressed={on}
               className={`min-h-[34px] rounded-sm border px-2.5 text-[12px] font-medium transition-colors ${on ? "border-[var(--color-canopy)] bg-[var(--color-canopy)] text-white" : "border-[var(--color-parchment)] bg-white text-[var(--color-ink-light)] hover:border-[var(--color-sage)]"}`}
             >
-              {cohortName.get(p.cohort) ?? p.cohort}
+              {cohortName.get(p.cohort) ?? EXTRA_COHORTS[p.cohort] ?? p.cohort}
             </button>
           );
         })}

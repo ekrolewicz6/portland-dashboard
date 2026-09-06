@@ -1,4 +1,4 @@
-import { LANES } from "@/lib/homeless/continuum";
+import { EXTRA_COHORTS, LANES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import SourceLinks from "./SourceLinks";
 
@@ -53,7 +53,7 @@ export default function LanesVisual() {
               <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Housing First here</p><p className="mt-0.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{l.housingFirst}</p></div>
               <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Success looks like</p><p className="mt-0.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{l.successLooksLike}</p></div>
               <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Scale</p><p className="mt-0.5 text-[12.5px] leading-snug text-[var(--color-ink-light)]">{l.scale}</p><SourceLinks ids={l.src ?? []} /></div>
-              <div className="flex flex-wrap gap-1.5 pt-1">{l.cohorts.map((c) => <span key={c} className="rounded-full border border-[var(--color-parchment)] px-2 py-0.5 text-[11px] text-[var(--color-ink-muted)]">{cohortName.get(c) ?? c}</span>)}</div>
+              <div className="flex flex-wrap gap-1.5 pt-1">{l.cohorts.map((c) => <span key={c} className="rounded-full border border-[var(--color-parchment)] px-2 py-0.5 text-[11px] text-[var(--color-ink-muted)]">{cohortName.get(c) ?? EXTRA_COHORTS[c] ?? c}</span>)}</div>
             </div>
           </div>
         ))}

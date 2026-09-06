@@ -1,4 +1,4 @@
-import { CONTINUUM, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
+import { CONTINUUM, EXTRA_COHORTS, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import type { CountStatus } from "@/lib/homeless/continuum-types";
 import { EVIDENCE_LABEL, shortName } from "@/lib/homeless/stage-labels";
@@ -133,7 +133,7 @@ export default function ContinuumMap() {
                 return (
                   <tr key={p.cohort} className="border-b border-[var(--color-parchment)] last:border-b-0 hover:bg-[var(--color-paper-warm)]">
                     <td className="sticky left-0 z-10 bg-white px-3 py-3 text-[13px] font-semibold leading-tight text-[var(--color-ink)]">
-                      {cohortNames.get(p.cohort) ?? p.cohort}
+                      {cohortNames.get(p.cohort) ?? EXTRA_COHORTS[p.cohort] ?? p.cohort}
                     </td>
                     {CONTINUUM.map((s) => {
                       const k = order.get(s.id);
