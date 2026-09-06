@@ -218,8 +218,9 @@ export default function AboutPage() {
             </h2>
           </div>
           <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
-            Staff, partners, advisors, volunteers, and the supporters who fund the public program.
-            Two names today. The rest of this page is how the list grows.
+            Staff, partners, advisors, volunteers, and the supporters who fund the public program.{" "}
+            {people.length === 1 ? "One name" : `${people.length} names`} today. The rest of this
+            page is how the list grows.
           </p>
         </div>
 

@@ -25,12 +25,13 @@ export const PEOPLE: Person[] = [
     initials: "EK",
     photo: "/images/team/edan-krolewicz.jpg",
   },
-  {
-    name: "Jonathan Pulvers",
-    title: "Partnerships & Development",
-    line: "Opens the doors: introductions, meetings, and the funding conversations that follow.",
-    initials: "JP",
-  },
+  // Jonathan Pulvers is listed once he confirms his title and line.
+  // {
+  //   name: "Jonathan Pulvers",
+  //   title: "Partnerships & Development",
+  //   line: "Opens the doors: introductions, meetings, and the funding conversations that follow.",
+  //   initials: "JP",
+  // },
 ];
 
 export function photoExists(publicPath?: string): boolean {
