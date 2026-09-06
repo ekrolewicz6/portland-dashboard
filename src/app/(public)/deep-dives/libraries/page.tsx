@@ -371,7 +371,7 @@ export default function LibrariesPage() {
           </p>
           <p className="max-w-3xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
             The full report —{" "}
-            <a href="/reports/portland-libraries-2026/pdfcheck/Portland_Libraries_Deep_Dive_2026.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--color-canopy)] underline decoration-[var(--color-sage)]/60 underline-offset-2 hover:decoration-[var(--color-canopy)]">
+            <a href="/reports/portland-libraries-2026/Portland_Libraries_Deep_Dive_2026.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--color-canopy)] underline decoration-[var(--color-sage)]/60 underline-offset-2 hover:decoration-[var(--color-canopy)]">
               Portland Public Knowledge Commons (PDF)
             </a>{" "}
             — carries the full text, every citation, and the claim-source ledger behind this page.

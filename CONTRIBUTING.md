@@ -30,6 +30,22 @@ migrations in `drizzle/` (e.g. `npx tsx ingest/apply-migration.ts drizzle/0003_m
 | `ingest/` | Data ingestion / seed / sync scripts (TypeScript) |
 | `docs/` | Data source inventory, storage strategy, audit & roadmap |
 
+## What's open to contribution, and what isn't
+
+- **Code, data pipelines, design, and accessibility fixes:** yes, by pull
+  request. The tools are the shared part of this project.
+- **Corrections to any figure or claim:** yes, by issue. Say which page, what
+  the number is now, what it should be, and the public source. Corrections
+  are logged in public.
+- **Deep-dives, memos, and editorial copy:** written by the Lab. We don't
+  accept pull requests that add or rewrite editorial content, and editorial
+  decisions aren't put to a vote. If you have a topic in mind, propose it at
+  https://www.portlandciviclab.org/proposals or pick one at
+  https://www.portlandciviclab.org/about#topics and tell us what you can do.
+
+The code is AGPL-3.0. The writing and curated data have their own terms; see
+`LICENSE-CONTENT.md`.
+
 ## Ground rules
 
 1. **Never present estimated or mock data as real.** Every chart cites its

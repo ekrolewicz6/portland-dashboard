@@ -140,7 +140,10 @@ export default function OpenDataPage() {
               >
                 github.com/ekrolewicz6/portland-civic-lab
               </a>
-              .
+              . The code is AGPL. The writing is CC BY-ND, so share it whole
+              with a link, but don&apos;t publish altered versions under our
+              name. The curated datasets are CC BY: use them, build on them,
+              credit the Lab and the original public source.
             </p>
           </div>
         </div>

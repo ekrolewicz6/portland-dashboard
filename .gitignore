@@ -66,3 +66,8 @@ runtime-data/
 /test-results/
 /playwright-report/
 .env*
+
+# reports/: client deliverables and drafts stay local. Files already tracked
+# (the published libraries deep-dive) stay tracked; add a new published
+# report deliberately with `git add -f`.
+/reports/

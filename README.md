@@ -4,7 +4,7 @@ Public dashboards, civic data, and participation tools for Portland, Oregon —
 live at **[portlandciviclab.org](https://www.portlandciviclab.org)**.
 
 Every number links to its public source. Every method is documented. The
-code is open source (AGPL-3.0), and members decide what gets built next.
+code is open source (AGPL-3.0; the writing and curated data are CC BY-ND and CC BY, see `LICENSE-CONTENT.md`), and members decide what gets built next.
 
 ## What's here
 
