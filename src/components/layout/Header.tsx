@@ -88,6 +88,7 @@ const TOOLS: NavItem[] = [
 ];
 
 const WORK: NavItem[] = [
+  { label: "Commission research or a build", href: "/contact?topic=Commission%20research%20or%20a%20build", desc: "A question, a decision, or a tool, scoped from the record", icon: FileSearch },
   { label: "Property owners & developers", href: "/property", desc: "Screening and decision packets, from $7,500", icon: Building2 },
   { label: "Public institutions", href: "/institutions", desc: "Portfolio intelligence at published prices", icon: Gauge },
   { label: "Small businesses", href: "/business", desc: "Find the money your business qualifies for", icon: Store },
@@ -128,8 +129,8 @@ const MENUS: MenuDef[] = [
     notes: ["One side per matter", "Public work competed", "Every contract listed"],
     featured: {
       eyebrow: "Published prices",
-      title: "Screening from $7,500. Diagnostics from $15,000.",
-      body: "A property or a portfolio against the public record in about three weeks, or a decision diagnostic for a public body, competed and itemized.",
+      title: "Research, decisions, and builds.",
+      body: "Evidence reviews from $5,000, property screening from $7,500, diagnostics from $15,000, builds scoped from the days. If it can be answered from the record or built from it, it is in scope.",
       cta: "See the paid work",
       href: "/#work-with-us",
       img: { src: "/images/home/dashboards-b.jpg", alt: "A performance dashboard", position: "object-left-top" },

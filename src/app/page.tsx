@@ -220,6 +220,56 @@ const DOORS: Door[] = [
   },
 ];
 
+const COMMISSION = "/contact?topic=Commission%20research%20or%20a%20build";
+
+const CAPABILITIES = [
+  {
+    key: "research",
+    accent: "bg-[var(--color-ember)]",
+    eyebrow: "Research",
+    title: "Answer a question from the record.",
+    examples: [
+      "A deep-dive on a topic you name, every figure sourced to the page",
+      "An evidence review before a board, council, or investment vote",
+      "An independent evaluation of whether a program worked",
+    ],
+    price: "From $5,000 for an evidence review · from $15,000 for a six-week deep-dive",
+    cta: { label: "Commission research", href: COMMISSION },
+    links: [{ label: "The public version: thirteen deep-dives", href: "/deep-dives" }],
+  },
+  {
+    key: "decisions",
+    accent: "bg-[var(--color-sage)]",
+    eyebrow: "Decisions",
+    title: "Diligence for the decision in front of you.",
+    examples: [
+      "Which building or portfolio deserves the next dollar of diligence",
+      "Technical diligence on a project, a vendor, a model, or a plan",
+      "What a portfolio's next quarter depends on, briefed weekly",
+    ],
+    price: "From $7,500 for a property · from $15,000 for a diagnostic · pilots $40,000–$90,000",
+    cta: { label: "Bring us the decision", href: COMMISSION },
+    links: [
+      { label: "Owners and developers", href: "/property" },
+      { label: "Public institutions", href: "/institutions" },
+    ],
+  },
+  {
+    key: "builds",
+    accent: "bg-[var(--color-river)]",
+    eyebrow: "Builds",
+    title: "Build the tool, the dataset, or the model.",
+    examples: [
+      "An atlas or dashboard for your domain, built the way we build ours",
+      "A working model of a system: a budget, a pipeline, a continuum",
+      "A public tool, sponsored by a foundation and free to everyone",
+    ],
+    price: "Scoped from the days · maintained from $2,500 a month",
+    cta: { label: "Scope a build", href: COMMISSION },
+    links: [{ label: "The public version: eight tools", href: "#work" }],
+  },
+];
+
 const PROGRAMS = [
   {
     n: "01",
@@ -524,104 +574,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Work with the Lab: two practices, prices in public ── */}
+      {/* ── Work with the Lab: research, decisions, builds ── */}
       <section id="work-with-us" className="scroll-mt-20 bg-[var(--color-canopy)] noise-overlay">
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24 3xl:max-w-[1800px]">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <Eyebrow light>Work with the Lab · published prices</Eyebrow>
               <h2 className="font-editorial text-[32px] leading-tight text-white sm:text-[44px]">
-                Two kinds of paid work. Both priced in public.
+                Bring us a question, a decision, or a build.
               </h2>
             </div>
             <p className="max-w-md text-[14.5px] leading-relaxed text-white/65 md:text-right">
-              Floors and bands, not quotes. The number is in writing before any work starts, and
-              this page is what every client sees.
+              Floors, not quotes. If it can be answered from the public record or built from it,
+              it is in scope. The number is in writing before any work starts.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
-            {/* Property */}
-            <Link
-              href="/property"
-              className="group relative flex flex-col overflow-hidden rounded-sm border border-white/12 bg-white/[0.04] p-7 transition-colors hover:border-[var(--color-ember)]/50 hover:bg-white/[0.06] sm:p-9"
-            >
-              <div className="absolute left-0 right-0 top-0 h-[3px] bg-[var(--color-ember)]" />
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember-bright)]">
-                Property owners and developers
-              </p>
-              <h3 className="mt-3 max-w-md font-editorial text-[28px] leading-tight text-white sm:text-[32px]">
-                Which building deserves the next dollar of diligence?
-              </h3>
-              <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/75">
-                We screen a property or a portfolio against the public record: parcel, zoning,
-                historic status, development capacity, permit history, and the programs that apply.
-                You get an evidence packet that names what is known, what is missing, and the next
-                three moves, every claim cited. It is the step before you pay an architect or an
-                engineer to look. The public version is the downtown map and the Lloyd Center
-                deep-dive.
-              </p>
-              <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-white/12 pt-6">
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/55">
-                    One property
-                  </p>
-                  <p className="mt-1 font-mono text-[26px] font-bold tabular-nums leading-none text-white">
-                    From $7,500
-                  </p>
-                  <p className="mt-2 text-[13px] text-white/55">
-                    Scoped to the decision · portfolios of about ten from $20,000 · maintained
-                    record from $2,500 a month
-                  </p>
+          <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {CAPABILITIES.map((c) => (
+              <div
+                key={c.key}
+                className="relative flex flex-col overflow-hidden rounded-sm border border-white/12 bg-white/[0.04] p-7 sm:p-8"
+              >
+                <div className={`absolute left-0 right-0 top-0 h-[3px] ${c.accent}`} />
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember-bright)]">
+                  {c.eyebrow}
+                </p>
+                <h3 className="mt-3 font-editorial text-[26px] leading-tight text-white sm:text-[28px]">{c.title}</h3>
+                <ul className="mt-5 space-y-2.5">
+                  {c.examples.map((e) => (
+                    <li key={e} className="flex items-start gap-2.5 text-[14.5px] leading-snug text-white/75">
+                      <span className="mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-ember)]" />
+                      {e}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex-1" />
+                <p className="min-h-[4.25rem] border-t border-white/12 pt-5 font-mono text-[12.5px] leading-relaxed text-white/60">
+                  {c.price}
+                </p>
+                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Link
+                    href={c.cta.href}
+                    className="inline-flex items-center gap-2 rounded-sm bg-[var(--color-ember)] px-4 py-2.5 text-[14px] font-semibold text-[var(--color-canopy)] transition-colors hover:bg-[var(--color-ember-bright)]"
+                  >
+                    {c.cta.label}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  {c.links.map((l) =>
+                    l.href.startsWith("#") ? (
+                      <a key={l.label} href={l.href} className="inline-flex items-center gap-1 text-[13.5px] font-semibold text-white hover:underline">
+                        {l.label} <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
+                    ) : (
+                      <Link key={l.label} href={l.href} className="inline-flex items-center gap-1 text-[13.5px] font-semibold text-white hover:underline">
+                        {l.label} <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    ),
+                  )}
                 </div>
-                <span className="inline-flex items-center gap-2 rounded-sm bg-[var(--color-ember)] px-4 py-2.5 text-[14px] font-semibold text-[var(--color-canopy)] transition-colors group-hover:bg-[var(--color-ember-bright)]">
-                  For property owners
-                  <ArrowRight className="h-4 w-4" />
-                </span>
               </div>
-            </Link>
-
-            {/* Institutions */}
-            <Link
-              href="/institutions"
-              className="group relative flex flex-col overflow-hidden rounded-sm border border-white/12 bg-white/[0.04] p-7 transition-colors hover:border-[var(--color-sage)]/60 hover:bg-white/[0.06] sm:p-9"
-            >
-              <div className="absolute left-0 right-0 top-0 h-[3px] bg-[var(--color-sage)]" />
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-sage)]">
-                Public institutions
-              </p>
-              <h3 className="mt-3 max-w-md font-editorial text-[28px] leading-tight text-white sm:text-[32px]">
-                The decisions cross bureau lines. The information doesn&apos;t.
-              </h3>
-              <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/75">
-                Portfolio intelligence, decision diagnostics, civic data products, and independent
-                evaluation for agencies and institutions. Delivered as a service your staff can use
-                next month, and won through normal procurement, never sole-sourced.
-              </p>
-              <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-white/12 pt-6">
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/55">
-                    Diagnostic
-                  </p>
-                  <p className="mt-1 font-mono text-[26px] font-bold tabular-nums leading-none text-white">
-                    $15,000<span className="text-white/45">–</span>$25,000
-                  </p>
-                  <p className="mt-2 text-[13px] text-white/55">
-                    Pilots $40,000–$90,000 · ongoing service $100,000–$180,000 a year
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-2 rounded-sm border border-white/20 bg-white/[0.06] px-4 py-2.5 text-[14px] font-semibold text-white transition-colors group-hover:bg-white/[0.12]">
-                  For public institutions
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </div>
-            </Link>
+            ))}
           </div>
 
           <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-white/70">
-            Nonprofits, foundations, and consulting teams hire the Lab for the same kinds of work:
-            sponsored research, data products, dashboards, and software. Same published bands,
-            same rules, and the sponsor named on the work.
+            Owners and developers, public bodies, nonprofits and foundations, firms and consulting
+            teams, and people who want one question answered all hire the Lab. Same published
+            floors, same rules, and the sponsor named on the work.
           </p>
 
           <div className="mt-6 flex flex-col gap-4 rounded-sm border border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">

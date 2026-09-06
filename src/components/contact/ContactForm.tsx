@@ -7,6 +7,7 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 const TOPICS = [
   "General note",
+  "Commission research or a build",
   "Property screening",
   "Institutional work",
   "Founding support",
