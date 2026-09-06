@@ -19,7 +19,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: "Dashboards", href: "/dashboard" },
       { label: "Deep-Dives", href: "/deep-dives" },
-      { label: "Portfolio Brief", href: "/brief" },
+      { label: "Decisions register", href: "/decisions" },
       { label: "Org Chart", href: "/org-chart" },
       { label: "Business Directory", href: "/directory" },
       { label: "Civic Concierge", href: "/concierge" },

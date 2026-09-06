@@ -26,7 +26,7 @@ import {
   Database,
   FileSearch,
   Mail,
-  Newspaper,
+  CalendarClock,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -84,7 +84,7 @@ const TOOLS: NavItem[] = [
   { label: "Ask Portland", href: ASK_PORTLAND_URL, desc: "Independent surveys, weighted to the whole city", icon: ClipboardList, external: true },
   { label: "Portland Permits", href: PERMITS_URL, desc: "Zoning, likely permits, fees, and timelines", icon: MapPinned, external: true },
   { label: "Org Chart", href: "/org-chart", desc: "Who runs what at the City, bureau by bureau", icon: Network },
-  { label: "Portfolio Brief", href: "/brief", desc: "The weekly public-source brief", icon: Newspaper },
+  { label: "Decisions register", href: "/decisions", desc: "Every open decision in the City's portfolio, dated and sourced", icon: CalendarClock },
 ];
 
 const WORK: NavItem[] = [

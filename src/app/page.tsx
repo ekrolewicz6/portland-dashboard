@@ -245,7 +245,7 @@ const CAPABILITIES = [
     examples: [
       "Which building or portfolio deserves the next dollar of diligence",
       "Technical diligence on a project, a vendor, a model, or a plan",
-      "What a portfolio's next quarter depends on, briefed weekly",
+      "One kept record of what a bureau owns, promised, and owes",
     ],
     price: "From $7,500 for a property · from $15,000 for a diagnostic · pilots $40,000–$90,000",
     cta: { label: "Bring us the decision", href: COMMISSION },

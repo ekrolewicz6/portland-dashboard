@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
       { source: "/calculator", destination: "/business", permanent: false },
       { source: "/spaces", destination: "/business", permanent: false },
       { source: "/spaces/:path*", destination: "/business", permanent: false },
+      // The weekly Portfolio Brief became the decisions register.
+      { source: "/brief", destination: "/decisions", permanent: true },
     ];
   },
 };

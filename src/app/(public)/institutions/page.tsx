@@ -11,6 +11,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { pageMeta } from "@/lib/page-meta";
+import { PARKS_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -25,8 +26,8 @@ const OFFERINGS = [
   {
     icon: Gauge,
     eyebrow: "Flagship service",
-    title: "Portfolio Intelligence",
-    body: "We track your portfolio — initiatives, milestones, unresolved decisions, cross-team dependencies — from public and provided records, and deliver a weekly brief: the five things that need executive attention, ranked, with decisions due and dates that moved. Your monthly portfolio review runs from it. We do the data-chasing; your staff never maintains a second tracking system.",
+    title: "The maintained record",
+    body: "One record of what your bureau owns, promised, and owes: assets, agreements, decisions, and dates, reconciled from public and provided records and kept current, with every line sourced. Your monthly review runs from it. We do the reconciling; your staff never maintain a second tracking system.",
     primary: true,
   },
   {
@@ -60,20 +61,20 @@ const PRICING = [
       "Four to six weeks on one question. Complete in itself — evidence, options, and a recommendation you can act on with or without us.",
   },
   {
-    name: "Portfolio Intelligence pilot",
+    name: "Maintained-record pilot",
     price: "$40,000–$90,000",
     detail:
-      "A bounded pilot sized to your portfolio: unified baseline, weekly briefs, facilitated portfolio reviews, and a written evaluation at the end. Every pilot closes with our honest recommendation — continue, change, or stop.",
+      "A bounded pilot sized to one portfolio: the reconciled baseline, the kept record, facilitated monthly reviews, and a written evaluation at the end. Every pilot closes with our honest recommendation — continue, change, or stop.",
   },
   {
-    name: "Ongoing Portfolio Intelligence",
+    name: "Ongoing maintained record",
     price: "$100,000–$180,000 / year",
     detail:
       "Competitively procured and itemized into three components, so you buy only what you use. The components below add up to the annual band; priced by portfolio size and scope after a pilot has proven the value.",
     components: [
       { label: "Software license & hosting", range: "$20–40K" },
       { label: "Portfolio data stewardship", range: "$30–60K" },
-      { label: "Executive intelligence service", range: "$50–80K" },
+      { label: "Review and briefing service", range: "$50–80K" },
     ],
   },
 ];
@@ -304,10 +305,11 @@ export default function InstitutionsPage() {
           The demo is already public
         </h2>
         <p className="mt-4 max-w-2xl text-[16px] text-[var(--color-ink-light)] leading-relaxed">
-          We don&apos;t ask institutions to imagine what we&apos;d build. Our
-          dashboards, performance cockpits, deep-dives, and the Parks Atlas are
-          all live, free, and built entirely from public data — the same craft
-          we bring to paid work.
+          We don&apos;t ask institutions to imagine what we&apos;d build. The
+          Parks Atlas is a kept record of 316 assets and their partners. The
+          decisions register is a kept record of every open decision in one
+          service area. Both are live, free, and built entirely from public
+          data — the same craft we bring to paid work.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
@@ -317,12 +319,19 @@ export default function InstitutionsPage() {
             See the performance cockpits
             <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link
-            href="/deep-dives"
+          <a
+            href={PARKS_URL}
             className="inline-flex items-center gap-2 rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-3 text-[15px] font-semibold text-[var(--color-ink)] transition-colors hover:bg-[var(--color-paper)]"
           >
-            Read a deep-dive
+            Open the Parks Atlas
             <ArrowUpRight className="w-4 h-4" />
+          </a>
+          <Link
+            href="/decisions"
+            className="inline-flex items-center gap-2 rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-3 text-[15px] font-semibold text-[var(--color-ink)] transition-colors hover:bg-[var(--color-paper)]"
+          >
+            The decisions register
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
