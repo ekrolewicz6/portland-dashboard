@@ -12,10 +12,15 @@ export const metadata: Metadata = {
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ topic?: string | string[] }>;
+  searchParams: Promise<{ topic?: string | string[]; project?: string | string[] }>;
 }) {
   const params = await searchParams;
   const topic = Array.isArray(params.topic) ? params.topic[0] : params.topic;
+  const rawProject = Array.isArray(params.project) ? params.project[0] : params.project;
+  const project = rawProject?.trim().slice(0, 120);
+  const defaultMessage = project
+    ? `I'd like to work on ${project}.\n\nWhat I can do (research, data, code, design, records requests, a professional skill):\n\nHow much time I have:\n`
+    : undefined;
   return (
     <div className="bg-[var(--color-paper)]">
       <section className="relative overflow-hidden bg-[var(--color-canopy)] noise-overlay">
@@ -42,7 +47,7 @@ export default async function ContactPage({
 
       <section className="mx-auto grid max-w-[1400px] 3xl:max-w-[1800px] grid-cols-1 gap-8 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-12 lg:px-12">
         <div className="lg:col-span-7">
-          <ContactForm defaultTopic={topic} />
+          <ContactForm defaultTopic={topic} defaultMessage={defaultMessage} />
         </div>
 
         <aside className="lg:col-span-5">

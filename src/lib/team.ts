@@ -21,7 +21,6 @@ export const PEOPLE: Person[] = [
   {
     name: "Edan Krolewicz",
     title: "Founder",
-    line: "Builds the tools, writes the deep-dives, and does the paid work, bringing in specialists by engagement.",
     initials: "EK",
     photo: "/images/team/edan-krolewicz.jpg",
   },

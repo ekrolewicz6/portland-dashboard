@@ -1,31 +1,77 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Handshake, HeartHandshake, Lightbulb, Users } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BadgeCheck,
+  Handshake,
+  HeartHandshake,
+  Landmark,
+  Lightbulb,
+  Users,
+  Wrench,
+} from "lucide-react";
 import { pageMeta } from "@/lib/page-meta";
 import { withPhotos } from "@/lib/team";
+import { QUESTIONS, TOOLS, workOnHref, type Topic } from "@/lib/topics";
 
 export const dynamic = "force-static";
 
 export const metadata: Metadata = pageMeta({
   title: "About the Lab",
   description:
-    "Portland Civic Lab is a new kind of civic institution, built in Oregon, in public: free, source-linked tools funded by paid decision work at published prices. The people building it, the rules they work under, and how to join them.",
+    "How Portland Civic Lab is built: a small studio core, three lines of work, and the specialists, partners, advisors, supporters, and volunteers each engagement pulls in. The rules for every one of those relationships, every topic you can work on, and how to join.",
   path: "/about",
 });
+
+const LINES = [
+  { title: "Public program", body: "Free tools and deep-dives, every figure sourced." },
+  { title: "Property practice", body: "Screening and decision packets for owners and developers." },
+  { title: "Institutional practice", body: "Portfolio intelligence for public bodies, competed." },
+];
+
+const PLUG_INS = ["Specialists", "Partners", "Advisors", "Supporters", "Volunteers"];
+
+const RELATIONSHIPS = [
+  {
+    icon: Wrench,
+    title: "Specialists, by engagement",
+    body: "Engineers, architects, actuaries, researchers, and lawyers are brought in for the engagement that needs them, scoped and priced separately, and named in the deliverable. The Lab keeps no bench it has to feed.",
+    rule: "Named in the work. Never implied by the platform.",
+  },
+  {
+    icon: Handshake,
+    title: "Partners and primes",
+    body: "Design, strategy, and consulting firms that bring a client, or that the Lab brings into one. One lead contract, written responsibilities. Whoever brings the client holds the relationship; the Lab keeps the record and the sourcing standard.",
+    rule: "One side per matter, always.",
+  },
+  {
+    icon: Landmark,
+    title: "Public bodies",
+    body: "Small one-time engagements go through an agency's normal small-procurement process. Anything ongoing, or above the informal threshold, is won through a process someone else could win.",
+    rule: "Spec-writer or bidder. Never both.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Supporters and sponsors",
+    body: "Individuals and foundations fund named programs for a year. They are credited on the program page and the work it produces, get a quarterly update and an annual public account, and have no say over conclusions.",
+    rule: "Sponsors fund the question, never the answer.",
+  },
+];
 
 const PRINCIPLES = [
   {
     title: "Every number has a source",
-    body: "Each figure traces to a public document, page cited. Numbers that exist only in press reporting are labeled that way. Where the record is silent, the page says so instead of guessing.",
+    body: "Each figure traces to a public document, page cited. Where the record is silent, the page says so instead of guessing.",
   },
   {
     title: "Anyone can hire us. Nobody buys a conclusion.",
-    body: "Governments, businesses, nonprofits, and individual supporters all pay for the Lab's work, and some of them appear in it. What keeps that honest is the rules: every contract published within a week of signature, one side per matter, public work won through open procurement, and sponsors named on the question, never the answer.",
+    body: "Every contract is published within a week of signature, public work is won through open procurement, and paid work never changes a finding.",
   },
   {
     title: "Built to be used, not just read",
-    body: "Calculators for your own tax bill, watch-lists with dates, records requests drafted and ready, and plans specific enough to vote on. The goal is a resident who can act.",
+    body: "Calculators, watch-lists with dates, records requests drafted and ready, and plans specific enough to vote on.",
   },
 ];
 
@@ -71,72 +117,158 @@ function Avatar({
   photo,
   hasPhoto,
   name,
-  size = "md",
 }: {
   initials: string;
   photo?: string;
   hasPhoto: boolean;
   name: string;
-  size?: "md" | "lg";
 }) {
-  const box = "aspect-square";
-  const text = size === "lg" ? "text-[96px] sm:text-[128px]" : "text-[40px]";
   return (
-    <div className={`relative w-full overflow-hidden rounded-sm bg-[var(--color-canopy)] ${box}`}>
+    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-sm bg-[var(--color-canopy)]">
       {hasPhoto && photo ? (
-        <Image
-          src={photo}
-          alt={name}
-          fill
-          sizes={size === "lg" ? "(min-width: 1024px) 40vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-          className="object-cover object-top"
-          priority={size === "lg"}
-        />
+        <Image src={photo} alt={name} fill sizes="56px" className="object-cover object-top" />
       ) : (
-        <div className="noise-overlay flex h-full w-full items-center justify-center">
-          <span className={`relative z-10 font-editorial ${text} leading-none text-[var(--color-ember-bright)]`}>
-            {initials}
-          </span>
+        <div className="flex h-full w-full items-center justify-center">
+          <span className="font-editorial text-[18px] leading-none text-[var(--color-ember-bright)]">{initials}</span>
         </div>
       )}
     </div>
   );
 }
 
+function Connector() {
+  return <div className="mx-auto h-5 w-px bg-[var(--color-sage)]" aria-hidden />;
+}
+
+function StudioDiagram({ names }: { names: { name: string; title: string }[] }) {
+  return (
+    <div className="rounded-sm border border-[var(--color-parchment)] bg-white p-5 sm:p-6">
+      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
+        How the Lab is built
+      </p>
+
+      <div className="mt-4 rounded-sm bg-[var(--color-canopy)] p-4 text-white">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ember-bright)]">
+          The studio · a small core
+        </p>
+        <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+          {names.map((n) => (
+            <li key={n.name} className="text-[14px]">
+              <span className="font-semibold text-white">{n.name}</span>
+              <span className="text-white/60"> · {n.title}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-2 text-[12.5px] leading-snug text-white/65">
+          Originates the work, sets the sourcing standard, keeps the archive and the rules.
+        </p>
+      </div>
+
+      <Connector />
+
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+        {LINES.map((l) => (
+          <div key={l.title} className="rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] p-3">
+            <p className="text-[13.5px] font-semibold text-[var(--color-ink)]">{l.title}</p>
+            <p className="mt-1 text-[12.5px] leading-snug text-[var(--color-ink-light)]">{l.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <Connector />
+
+      <div className="rounded-sm border border-dashed border-[var(--color-sage)] p-3">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+          Pulled in per engagement, named in the work
+        </p>
+        <ul className="mt-2 flex flex-wrap gap-2">
+          {PLUG_INS.map((p) => (
+            <li
+              key={p}
+              className="rounded-full border border-[var(--color-parchment)] bg-white px-3 py-1 text-[12.5px] font-medium text-[var(--color-ink)]"
+            >
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--color-ink-muted)]">
+        Every engagement assembles the people it needs, with roles written down before work
+        starts. Every contract, sponsor, and partner is listed on the Independence page.
+      </p>
+    </div>
+  );
+}
+
+function TopicRow({ t }: { t: Topic }) {
+  return (
+    <li className="flex items-center justify-between gap-3 rounded-sm border border-[var(--color-parchment)] bg-white px-4 py-3">
+      <span className="min-w-0 text-[14px] font-medium leading-snug text-[var(--color-ink)]">{t.name}</span>
+      <span className="flex shrink-0 items-center gap-3">
+        {t.external ? (
+          <a
+            href={t.href}
+            className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]"
+          >
+            Open <ArrowUpRight className="h-3 w-3" />
+          </a>
+        ) : (
+          <Link
+            href={t.href}
+            className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]"
+          >
+            Open <ArrowRight className="h-3 w-3" />
+          </Link>
+        )}
+        <Link
+          href={workOnHref(t.name)}
+          className="inline-flex items-center gap-1 rounded-sm bg-[var(--color-canopy)] px-2.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[var(--color-canopy-mid)]"
+        >
+          Work on this
+        </Link>
+      </span>
+    </li>
+  );
+}
+
 export default function AboutPage() {
   const people = withPhotos();
-  const founder = people[0];
 
   return (
     <div className="bg-[var(--color-paper)]">
-      {/* ── The idea, with the founder ── */}
+      {/* ── The idea, and how the Lab is built ── */}
       <section className="mx-auto w-full max-w-[1400px] px-5 pb-16 pt-14 sm:px-8 sm:pt-20 lg:px-12 lg:pb-20 3xl:max-w-[1800px]">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <div className="mb-6 flex items-center gap-3">
               <div className="h-px w-8 bg-[var(--color-ember)]" />
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
                 About the Lab
               </span>
             </div>
-            <h1 className="max-w-3xl font-editorial-normal text-[40px] leading-[1.03] text-[var(--color-ink)] sm:text-[56px] lg:text-[64px]">
-              A new kind of civic institution, built in Oregon, in public.
+            <h1 className="max-w-3xl font-editorial-normal text-[40px] leading-[1.03] text-[var(--color-ink)] sm:text-[56px] lg:text-[60px]">
+              A studio, not a firm.
             </h1>
             <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-[var(--color-ink-light)] sm:text-[19px]">
               Portland runs on budgets, audits, permit records, and legislative files that are
               public in theory and unreadable in practice. The Lab reads them, checks every figure
               against its source, and turns them into tools a resident, a reporter, a building
               owner, or a bureau director can use in an afternoon. There is no institution in
-              Oregon whose job that is. We are building it, one tool at a time, with the work in
-              the open from the first day.
+              Oregon whose job that is. We are building it, in public.
             </p>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-[var(--color-ink-light)] sm:text-[19px]">
-              The model is as new as the work. Portland Civic Lab is a for-profit company, not a
-              nonprofit, by choice: a company that sells its expertise can keep the free tools
-              running on its own earnings, so no foundation&apos;s calendar decides whether the
-              archive stays up. The paid work funds the public program. The public program is
-              what makes the paid work worth trusting. Neither side has to apologize for the
-              other.
+              It is built as a studio on purpose. A small core originates the work, sets the
+              standard, and keeps the archive. Each engagement assembles the specialists,
+              partners, and advisors it needs, with roles written down and names in the
+              deliverable. The paid work funds the public program. The public program is what
+              makes the paid work worth trusting.
+            </p>
+            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
+              Portland Civic Lab is a for-profit company, not a nonprofit, by choice: a company that
+              sells its expertise can keep the free tools running on its own earnings, so no
+              foundation&apos;s calendar decides whether the archive stays up. The trade-off is
+              that support is not tax-deductible.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -156,41 +288,15 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 lg:pt-6">
-            <div className="max-w-[400px] lg:ml-auto">
-            <Avatar
-              initials={founder.initials}
-              photo={founder.photo}
-              hasPhoto={founder.hasPhoto}
-              name={founder.name}
-              size="lg"
-            />
-            </div>
-            <div className="mt-4 flex items-baseline justify-between gap-4 lg:ml-auto lg:max-w-[400px]">
-              <div>
-                <p className="font-editorial text-[24px] leading-tight text-[var(--color-ink)]">{founder.name}</p>
-                <p className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
-                  {founder.title}
-                </p>
-              </div>
-            </div>
-            <p className="mt-3 max-w-[400px] text-[14.5px] leading-relaxed text-[var(--color-ink-light)] lg:ml-auto">
-              {founder.line} Where the founder is not neutral is written down on the Independence
-              page.
-            </p>
+          <div className="lg:col-span-6 lg:pt-8">
+            <StudioDiagram names={people.map((p) => ({ name: p.name, title: p.title }))} />
           </div>
         </div>
       </section>
 
       {/* ── Principles ── */}
       <section className="border-y border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
-        <div className="mx-auto w-full max-w-[1400px] px-5 py-14 sm:px-8 sm:py-16 lg:px-12 3xl:max-w-[1800px]">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="h-px w-8 bg-[var(--color-ember)]" />
-            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-              How the work is done
-            </span>
-          </div>
+        <div className="mx-auto w-full max-w-[1400px] px-5 py-12 sm:px-8 sm:py-14 lg:px-12 3xl:max-w-[1800px]">
           <ol className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-3">
             {PRINCIPLES.map((p, i) => (
               <li key={p.title} className="border-t-2 border-[var(--color-canopy)] pt-4">
@@ -203,40 +309,124 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── The people ── */}
+      {/* ── How we work with others ── */}
       <section className="mx-auto w-full max-w-[1400px] px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20 3xl:max-w-[1800px]">
+        <div className="max-w-3xl">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="h-px w-8 bg-[var(--color-ember)]" />
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
+              How we work with others
+            </span>
+          </div>
+          <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
+            Four kinds of relationship. One rule for each.
+          </h2>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {RELATIONSHIPS.map((r) => (
+            <div key={r.title} className="flex flex-col rounded-sm border border-[var(--color-parchment)] bg-white p-6">
+              <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[var(--color-canopy)]/7 text-[var(--color-canopy)]">
+                <r.icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 font-editorial text-[22px] leading-tight text-[var(--color-ink)]">{r.title}</h3>
+              <p className="mt-2 flex-1 text-[14.5px] leading-relaxed text-[var(--color-ink-light)]">{r.body}</p>
+              <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ember)]">
+                {r.rule}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── The people ── */}
+      <section className="border-y border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
+        <div className="mx-auto w-full max-w-[1400px] px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20 3xl:max-w-[1800px]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-5">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="h-px w-8 bg-[var(--color-ember)]" />
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
+                  The people
+                </span>
+              </div>
+              <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
+                Everyone who builds the Lab is listed here.
+              </h2>
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
+                Staff, partners, advisors, volunteers, and the supporters who fund the public
+                program. {people.length === 1 ? "One name" : `${people.length} names`} today. The
+                rest of this page is how the list grows.
+              </p>
+            </div>
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-7">
+              {people.map((p) => (
+                <li key={p.name} className="flex items-center gap-4 rounded-sm border border-[var(--color-parchment)] bg-white p-4">
+                  <Avatar initials={p.initials} photo={p.photo} hasPhoto={p.hasPhoto} name={p.name} />
+                  <div>
+                    <p className="font-editorial text-[20px] leading-tight text-[var(--color-ink)]">{p.name}</p>
+                    <p className="mt-1 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
+                      {p.title}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pick a topic ── */}
+      <section id="topics" className="mx-auto w-full max-w-[1400px] scroll-mt-20 px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20 3xl:max-w-[1800px]">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
             <div className="mb-5 flex items-center gap-3">
               <div className="h-px w-8 bg-[var(--color-ember)]" />
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-                The people
+                Pick a topic
               </span>
             </div>
             <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
-              Everyone who builds the Lab is listed here.
+              Want to work on something specific? Point at it.
             </h2>
           </div>
           <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
-            Staff, partners, advisors, volunteers, and the supporters who fund the public program.{" "}
-            {people.length === 1 ? "One name" : `${people.length} names`} today. The rest of this
-            page is how the list grows.
+            Every tool and every open question is something a person can pick up. Tell us what you
+            can do and how much time you have, and we reply with a specific piece of work.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {people.map((p) => (
-            <div key={p.name}>
-              <Avatar initials={p.initials} photo={p.photo} hasPhoto={p.hasPhoto} name={p.name} />
-              <p className="mt-4 font-editorial text-[22px] leading-tight text-[var(--color-ink)]">{p.name}</p>
-              <p className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
-                {p.title}
-              </p>
-              {p.line && (
-                <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--color-ink-light)]">{p.line}</p>
-              )}
-            </div>
-          ))}
+        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-5">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              Tools that need hands
+            </p>
+            <ul className="mt-3 space-y-2">
+              {TOOLS.map((t) => (
+                <TopicRow key={t.name} t={t} />
+              ))}
+            </ul>
+          </div>
+          <div className="lg:col-span-7">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
+              Questions in progress
+            </p>
+            <ul className="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              {QUESTIONS.map((t) => (
+                <TopicRow key={t.name} t={t} />
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[var(--color-parchment)] pt-5 text-[14px] text-[var(--color-ink-light)]">
+          <span>Not here yet?</span>
+          <Link href="/proposals" className="inline-flex items-center gap-1 font-semibold text-[var(--color-canopy)] hover:underline">
+            Propose a topic <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <Link href="/volunteer" className="inline-flex items-center gap-1 font-semibold text-[var(--color-canopy)] hover:underline">
+            Volunteer without a topic in mind <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
       </section>
 
@@ -260,28 +450,23 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {ROLES.map((r) => {
-              const inner = (
-                <>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-white/10 text-[var(--color-ember-bright)]">
-                    <r.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 font-editorial text-[24px] leading-tight text-white">{r.title}</h3>
-                  <p className="mt-2 text-[14.5px] leading-relaxed text-white/70">{r.body}</p>
-                  <p className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-white">
-                    {r.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </p>
-                </>
-              );
-              const cls =
-                "group flex flex-col rounded-sm border border-white/12 bg-white/[0.04] p-6 transition-colors hover:border-[var(--color-ember)]/50 hover:bg-white/[0.07]";
-              return (
-                <Link key={r.title} href={r.href} className={cls}>
-                  {inner}
-                </Link>
-              );
-            })}
+            {ROLES.map((r) => (
+              <Link
+                key={r.title}
+                href={r.href}
+                className="group flex flex-col rounded-sm border border-white/12 bg-white/[0.04] p-6 transition-colors hover:border-[var(--color-ember)]/50 hover:bg-white/[0.07]"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-white/10 text-[var(--color-ember-bright)]">
+                  <r.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 font-editorial text-[24px] leading-tight text-white">{r.title}</h3>
+                <p className="mt-2 flex-1 text-[14.5px] leading-relaxed text-white/70">{r.body}</p>
+                <p className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-white">
+                  {r.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

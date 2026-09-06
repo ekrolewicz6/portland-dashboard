@@ -313,7 +313,7 @@ function ShowcaseTile({ t }: { t: Tile }) {
 }
 
 export default function HomePage() {
-  const founder = withPhotos()[0];
+  const team = withPhotos();
   return (
     <div className="flex min-h-screen flex-col bg-[var(--color-paper)]">
       <Header />
@@ -773,32 +773,40 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <Link href="/about" className="group block lg:col-span-4">
-            <div className="relative aspect-square w-full max-w-[320px] overflow-hidden rounded-sm bg-[var(--color-canopy)] lg:ml-auto">
-              {founder.hasPhoto && founder.photo ? (
-                <Image
-                  src={founder.photo}
-                  alt={founder.name}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, 60vw"
-                  className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                />
-              ) : (
-                <div className="noise-overlay flex h-full w-full items-center justify-center">
-                  <span className="relative z-10 font-editorial text-[96px] leading-none text-[var(--color-ember-bright)]">
-                    {founder.initials}
+          <Link
+            href="/about"
+            className="group block rounded-sm border border-[var(--color-parchment)] bg-white p-5 transition-colors hover:border-[var(--color-sage)] lg:col-span-4"
+          >
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
+              A studio, not a firm
+            </p>
+            <ul className="mt-3 space-y-2.5">
+              {team.map((p) => (
+                <li key={p.name} className="flex items-center gap-3">
+                  <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-sm bg-[var(--color-canopy)]">
+                    {p.hasPhoto && p.photo ? (
+                      <Image src={p.photo} alt={p.name} fill sizes="36px" className="object-cover object-top" />
+                    ) : (
+                      <span className="flex h-full w-full items-center justify-center font-editorial text-[13px] text-[var(--color-ember-bright)]">
+                        {p.initials}
+                      </span>
+                    )}
                   </span>
-                </div>
-              )}
-            </div>
-            <div className="mt-3 max-w-[320px] lg:ml-auto">
-              <p className="font-editorial text-[20px] leading-tight text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-canopy)]">
-                {founder.name}
-              </p>
-              <p className="mt-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-ember)]">
-                {founder.title}
-              </p>
-            </div>
+                  <span>
+                    <span className="block text-[15px] font-semibold leading-tight text-[var(--color-ink)]">{p.name}</span>
+                    <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-ink-muted)]">{p.title}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
+              A small core, plus the specialists, partners, and advisors each engagement needs, named
+              in the work.
+            </p>
+            <p className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-canopy)]">
+              How the Lab is built
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </p>
           </Link>
         </div>
       </section>

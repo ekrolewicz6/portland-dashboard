@@ -12,6 +12,7 @@ const TOPICS = [
   "Founding support",
   "Backing the company",
   "Advising the Lab",
+  "Work on a topic",
   "Partnership",
   "Data correction",
   "Volunteering",
@@ -19,7 +20,10 @@ const TOPICS = [
   "Dashboard or analysis request",
 ];
 
-export default function ContactForm({ defaultTopic }: { defaultTopic?: string } = {}) {
+export default function ContactForm({
+  defaultTopic,
+  defaultMessage,
+}: { defaultTopic?: string; defaultMessage?: string } = {}) {
   const initialTopic = TOPICS.includes(defaultTopic ?? "") ? defaultTopic : TOPICS[0];
   const [state, setState] = useState<FormState>("idle");
   const [error, setError] = useState("");
@@ -139,6 +143,7 @@ export default function ContactForm({ defaultTopic }: { defaultTopic?: string } 
           required
           name="message"
           rows={7}
+          defaultValue={defaultMessage}
           className="mt-2 w-full rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper)] px-4 py-3 text-[15px] text-[var(--color-ink)] outline-none transition-colors placeholder:text-[var(--color-ink-light)]/55 focus:border-[var(--color-sage)]"
           placeholder="What should Portland Civic Lab know?"
         />
