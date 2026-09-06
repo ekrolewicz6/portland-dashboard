@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SsoLink from "@/components/SsoLink";
 import { withPhotos } from "@/lib/team";
+import AudienceDoors, { type Door } from "@/components/home/AudienceDoors";
 import {
   ASK_PORTLAND_URL,
   COUNCIL_URL,
@@ -166,28 +167,56 @@ const PROOF = [
   { v: "134", k: "documents behind one school budget" },
 ];
 
-const DOORS = [
+const DOORS: Door[] = [
   {
+    key: "residents",
+    pill: "I live here",
     eyebrow: "For residents",
     title: "Use the tools. They're free.",
-    body: "No account, no paywall, no charge. Dashboards, deep-dives, two atlases, a guide to Council, and a permits tool, all built from the public record.",
-    cta: "Open a tool",
-    href: "#work",
+    body: "No account, no paywall, no charge. Eight tools built from the public record, with every figure linked to the document it came from.",
+    cta: { label: "Explore the tools", href: "#work" },
+    secondary: { label: "Read a deep-dive", href: "/deep-dives" },
+    img: { src: "/images/home/parks-b.jpg", alt: "The Parks Atlas map of Portland", caption: "Parks Atlas · 316 parks" },
   },
   {
-    eyebrow: "For owners and institutions",
-    title: "Hire the Lab for the decision.",
-    body: "Property screening for owners and development teams. Portfolio intelligence for public institutions. Prices published, public work competed.",
-    cta: "See the paid work",
-    href: "#work-with-us",
-    accent: true,
+    key: "owners",
+    pill: "I own or develop property",
+    eyebrow: "For owners and developers",
+    title: "Know which building deserves the next dollar.",
+    body: "A property or a portfolio screened against the public record: what is known, what is missing, and the next three moves. From $7,500, in about three weeks.",
+    cta: { label: "For property owners", href: "/property" },
+    secondary: { label: "See the downtown map", href: DOWNTOWN_URL, external: true },
+    img: { src: "/images/home/downtown.jpg", alt: "The downtown parcel map", position: "object-center", caption: "Portland Possible · 5,275 parcels" },
   },
   {
+    key: "institutions",
+    pill: "I run a public institution",
+    eyebrow: "For public institutions",
+    title: "The decisions cross bureau lines. The information doesn't.",
+    body: "Portfolio intelligence, decision diagnostics, and data products, delivered as a service your staff can use next month and won through open procurement. Diagnostics from $15,000.",
+    cta: { label: "For public institutions", href: "/institutions" },
+    secondary: { label: "How we contract", href: "/independence" },
+    img: { src: "/images/home/dashboards-b.jpg", alt: "A performance dashboard", position: "object-left-top", caption: "Dashboards · every source linked" },
+  },
+  {
+    key: "supporters",
+    pill: "I want to back this",
     eyebrow: "For supporters",
     title: "Fund what gets built next.",
-    body: "Founding support keeps one named program running for a year, with the supporter credited on the work. Monthly support keeps the archive checkable.",
-    cta: "Back a program",
-    href: "#support",
+    body: "Founding support keeps one named program running for a year, with your name on the work and no say over its conclusions. Monthly support keeps the archive checkable.",
+    cta: { label: "Back a program", href: "/donate" },
+    secondary: { label: "Talk about founding support", href: "/contact?topic=Founding%20support" },
+    img: { src: "/images/home/continuum.jpg", alt: "The homelessness continuum, stage by stage", caption: "The continuum · every figure sourced" },
+  },
+  {
+    key: "builders",
+    pill: "I want to help build it",
+    eyebrow: "For builders and volunteers",
+    title: "Pick a topic and point at it.",
+    body: "Every tool and every open question is something a person can pick up. Tell us what you can do and how much time you have, and we reply with a specific piece of work.",
+    cta: { label: "Pick a topic", href: "/about#topics" },
+    secondary: { label: "How the Lab is built", href: "/about" },
+    img: { src: "/images/home/oregon.jpg", alt: "The Oregon Governance Atlas", caption: "Oregon Atlas · every bill's next step" },
   },
 ];
 
@@ -433,34 +462,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Three doors: who this is for ── */}
+      {/* ── Pick your door ── */}
       <section className="mx-auto w-full max-w-[1400px] px-5 pb-16 pt-14 sm:px-8 sm:pb-20 lg:px-12 lg:pt-20 3xl:max-w-[1800px]">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-[var(--color-parchment)]">
-          {DOORS.map((d) => (
-            <div key={d.eyebrow} className="md:px-8 md:first:pl-0 md:last:pr-0">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-                {d.eyebrow}
-              </p>
-              <h2 className="mt-3 font-editorial text-[26px] leading-tight text-[var(--color-ink)] sm:text-[28px]">
-                {d.title}
-              </h2>
-              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[var(--color-ink-light)]">
-                {d.body}
-              </p>
-              <a
-                href={d.href}
-                className={`mt-5 inline-flex items-center gap-2 text-[14px] font-semibold ${
-                  d.accent
-                    ? "rounded-sm bg-[var(--color-canopy)] px-4 py-2.5 text-white transition-colors hover:bg-[var(--color-canopy-mid)]"
-                    : "text-[var(--color-canopy)] hover:underline"
-                }`}
-              >
-                {d.cta}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          ))}
+        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Eyebrow>Start here</Eyebrow>
+            <h2 className="font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
+              Pick your door.
+            </h2>
+          </div>
+          <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
+            The same public record, put to work for whoever you are.
+          </p>
         </div>
+        <AudienceDoors doors={DOORS} />
       </section>
 
       {/* ── The work: eight tools, each shown ── */}
