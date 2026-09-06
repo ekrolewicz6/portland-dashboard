@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import sql from "@/lib/db-query";
 import { isAuthorizedCronRequest } from "@/lib/cron-auth";
 
+/** Upper bound on any single upstream request. */
+const FETCH_TIMEOUT_MS = 30_000;
+
 export const dynamic = "force-dynamic";
 // ArcGIS pagination + batched upserts can take a while.
 // Vercel Pro allows up to 300s.
@@ -83,7 +86,12 @@ async function fetchPage(
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(`${ARCGIS_URL}?${params}`);
+      // A hung upstream socket would otherwise consume the whole 300s
+      // maxDuration, and the function is killed before it can invalidate
+      // caches or report anything.
+      const res = await fetch(`${ARCGIS_URL}?${params}`, {
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      });
       if (!res.ok) {
         if (attempt < retries) {
           await new Promise((r) => setTimeout(r, attempt * 3000));
@@ -274,6 +282,7 @@ export async function GET(request: NextRequest) {
     // 5. Upsert in batches
     let totalAffected = 0;
     let errors = 0;
+    let rowsRejected = 0;
     for (let i = 0; i < rows.length; i += INSERT_BATCH) {
       const batch = rows.slice(i, i + INSERT_BATCH);
       try {
@@ -283,12 +292,15 @@ export async function GET(request: NextRequest) {
         console.error(
           `[sync-permits] Batch error at ${i}: ${err.message}`,
         );
-        // Row-by-row fallback
+        // Row-by-row fallback so one malformed record cannot drop a whole
+        // batch. Rows that fail individually are counted, not silently
+        // discarded — a rising count is the signal that upstream changed
+        // shape.
         for (const row of batch) {
           try {
             totalAffected += await upsertBatch([row]);
           } catch {
-            // skip
+            rowsRejected++;
           }
         }
       }
@@ -311,8 +323,12 @@ export async function GET(request: NextRequest) {
       `;
     }
 
+    // Fetching rows and writing none of them is a failure, however cleanly
+    // each individual error was caught.
+    const failed = rows.length > 0 && totalAffected === 0;
+
     const result = {
-      ok: true,
+      ok: !failed,
       ms: Date.now() - t0,
       before: { total: state.total, maxOid: state.max_oid },
       after: {
@@ -324,16 +340,18 @@ export async function GET(request: NextRequest) {
       rowsAffected: totalAffected,
       rowsProcessed: rows.length,
       batchErrors: errors,
+      rowsRejected,
       timestamp: new Date().toISOString(),
     };
 
     console.log(`[sync-permits] Done: +${result.netNew} new, ${totalAffected} affected, ${Date.now() - t0}ms`);
 
-    return NextResponse.json(result);
-  } catch (err: any) {
-    console.error(`[sync-permits] FATAL: ${err.message}`);
+    return NextResponse.json(result, { status: failed ? 500 : 200 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`[sync-permits] FATAL: ${message}`);
     return NextResponse.json(
-      { ok: false, error: err.message, ms: Date.now() - t0 },
+      { ok: false, error: message, ms: Date.now() - t0 },
       { status: 500 },
     );
   }

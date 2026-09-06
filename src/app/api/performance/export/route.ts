@@ -12,7 +12,12 @@ export async function GET(request: NextRequest) {
     rawMeasureId && /^[\w.-]+$/.test(rawMeasureId) ? rawMeasureId : undefined;
 
   try {
-    const snapshot = await getPerformanceSnapshot();
+    // Cache only. A live fallback here walks every ClearImpact scorecard,
+    // container and measure with sequential requests: an anonymous visitor
+    // arriving while the cache is cold would make this site hammer a third
+    // party from a request that then times out anyway. Refreshing the cache
+    // is the sync cron's job.
+    const snapshot = await getPerformanceSnapshot({ allowLiveFallback: false });
     const csv = snapshotToCsv(snapshot, measureId);
     const filename = measureId
       ? `performance-portland-${measureId}.csv`
@@ -26,9 +31,16 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error("[performance/export]", error);
+    const empty =
+      error instanceof Error && error.message.includes("cache is empty");
     return NextResponse.json(
-      { ok: false, error: "Performance CSV export failed" },
-      { status: 500 },
+      {
+        ok: false,
+        error: empty
+          ? "Performance data has not been loaded yet. Try again after the next sync."
+          : "Performance CSV export failed",
+      },
+      { status: empty ? 503 : 500 },
     );
   }
 }

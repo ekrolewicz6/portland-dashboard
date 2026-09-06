@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import sql from "@/lib/db-query";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +25,29 @@ interface EntityTypeRow {
   count: number;
 }
 
+/** Words beyond this are ignored; each one costs a scan condition. */
+const MAX_SEARCH_WORDS = 8;
+
+/** Neutralise POSIX regex metacharacters in user input. */
+function escapeRegex(input: string): string {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Neutralise LIKE wildcards so a search for "%" is a search for a percent sign. */
+function escapeLike(input: string): string {
+  return input.replace(/[%_\\]/g, "\\$&");
+}
+
 export async function GET(request: NextRequest) {
+  // Each search runs a count plus a page query over a few hundred thousand
+  // registry rows, and the UI queries as the user types.
+  if (!checkRateLimit(`directory:${getClientIp(request)}`, 60, 60_000)) {
+    return NextResponse.json(
+      { error: "Too many searches. Please slow down." },
+      { status: 429 },
+    );
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const search = searchParams.get("search")?.trim() || "";
@@ -38,18 +61,28 @@ export async function GET(request: NextRequest) {
     const values: unknown[] = [];
 
     if (search) {
-      const words = search.split(/\s+/).filter(Boolean);
-      for (const word of words) {
+      // Cap the term count: each word adds a scan condition over a table of
+      // several hundred thousand rows, and a long query string would
+      // otherwise let one request queue an arbitrary amount of work.
+      const words = search.split(/\s+/).filter(Boolean).slice(0, MAX_SEARCH_WORDS);
+      for (const rawWord of words) {
+        // Short words are matched with a POSIX regex, so metacharacters in
+        // the user's input have to be escaped. Unescaped, "(" is an invalid
+        // expression and Postgres raises an error the route turns into a 500,
+        // while ".*" forces a full regex scan of the table.
+        const word = escapeRegex(rawWord);
         // For short words (<=4 chars), require word boundary match to avoid false positives
-        // "eem" should match "EEM LLC" but not "Freeman"
-        if (word.length <= 4) {
+        // "eem" should match "EEM LLC" but not "Freeman". Length is measured
+        // on the raw word; escaping changes it.
+        if (rawWord.length <= 4) {
           // Match start of name, or after a space/punctuation
           conditions.push(`(business_name ~* $${values.length + 1} OR address ILIKE $${values.length + 2})`);
           values.push(`(^|[\\s'&,.-])${word}`);  // regex: word boundary at start
-          values.push(`%${word}%`);
+          values.push(`%${escapeLike(rawWord)}%`);
         } else {
-          // For longer words, strip trailing 's' for possessive matching
-          const stem = word.replace(/s$/i, "");
+          // ILIKE, not regex: use the raw word. Only % and _ are special
+          // here, and escapeLike neutralises them.
+          const stem = escapeLike(rawWord).replace(/s$/i, "");
           conditions.push(`(business_name ILIKE $${values.length + 1} OR address ILIKE $${values.length + 1})`);
           values.push(`%${stem}%`);
         }

@@ -167,11 +167,20 @@ export async function GET(request: NextRequest) {
   const ms = Date.now() - t0;
   console.log(`[sync-aqi] Done in ${ms}ms`);
 
-  return NextResponse.json({
-    ok: errors.length === 0,
-    ms,
-    current: currentCount,
-    forecast: forecastCount,
-    ...(errors.length > 0 ? { errors } : {}),
-  });
+  // A run that wrote nothing while collecting errors is a failed run, and the
+  // scheduler only sees the status code. Returning 200 with ok:false meant a
+  // cron could be broken for weeks and still look healthy.
+  const wroteNothing = currentCount === 0 && forecastCount === 0;
+  const failed = errors.length > 0 && wroteNothing;
+
+  return NextResponse.json(
+    {
+      ok: errors.length === 0,
+      ms,
+      current: currentCount,
+      forecast: forecastCount,
+      ...(errors.length > 0 ? { errors } : {}),
+    },
+    { status: failed ? 500 : 200 },
+  );
 }
