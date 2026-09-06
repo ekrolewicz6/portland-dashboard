@@ -31,15 +31,15 @@ const RULES = [
   },
   {
     title: "Nothing public comes down for a client",
-    body: "Data and code stay open. Clients buy the work, not exclusivity. No engagement pulls a dataset, a score, a map, or a tool off the site, and no client gets a public figure about them changed except by a correction anyone could ask for.",
+    body: "Our data and code stay open. Clients are paying for the work, not for exclusivity. No engagement takes a dataset, a score, a map, or a tool off the site, and no client gets a public figure about them changed except through a correction anyone could ask for.",
   },
   {
     title: "We compete for public work",
     body: "Small one-time engagements go through an agency's normal small-procurement process. Anything ongoing, or above the informal threshold, we win through a process someone else could win. No sole-source awards for ongoing work, no pricing engineered to slip under a threshold, and the same diagnostic costs the same whether the buyer is a bureau, a foundation, or a firm.",
   },
   {
-    title: "Spec-writer or bidder, never both",
-    body: "If we help a public body scope a solicitation, we disclose that in writing and accept that we may be barred from bidding on the result. Understanding the problem is not a license to write our own shopping list.",
+    title: "We don't write the spec and then bid on it",
+    body: "If we help a public body scope a solicitation, we say so in writing and accept that we may be barred from bidding on the result.",
   },
   {
     title: "Conflicts are flagged in the work itself",
@@ -51,7 +51,7 @@ const RULES = [
   },
   {
     title: "Supporters see findings when the public does",
-    body: "Sponsors fund the question, never the answer. A supporter is named on the program they fund, gets no preview and no veto, and reads the findings when everyone else does. Every sponsored program is on the register.",
+    body: "Sponsors pay for the question, not the answer. A supporter is named on the program they fund, gets no preview and no veto, and reads the findings when everyone else does. Every sponsored program is on the register.",
   },
   {
     title: "Advocacy is disclosed and walled off",
@@ -104,8 +104,8 @@ export default function IndependencePage() {
       <PageHero
         eyebrow="Independence & funding"
         title="Don't take our word for it."
-        lede="Portland Civic Lab publishes analysis about the same governments, owners, and institutions that can hire it. That only works if the rules, the money, and the conflicts are public. So they live on this page, where anyone can check them."
-        actions={<QuietAction href="/contact">Catch us breaking one</QuietAction>}
+        lede="We publish analysis about the same governments, owners, and institutions that can hire us. That only works if the rules, the money, and the conflicts are out in the open, so they are all on this page."
+        actions={<QuietAction href="/contact">Report a problem</QuietAction>}
         aside={<RegisterCard />}
       />
 
@@ -114,8 +114,8 @@ export default function IndependencePage() {
         <div className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
           <SectionHead
             eyebrow="The rules"
-            title="The rules we operate under."
-            lede="These aren't aspirations. They're operating rules, and if you catch us breaking one, we want to hear about it."
+            title="The rules we work under."
+            lede="If you catch us breaking one of these, we want to hear about it."
           />
           <div className="mt-10">
             <NumberedList items={RULES} columns={2} />
@@ -128,7 +128,7 @@ export default function IndependencePage() {
         <SectionHead
           eyebrow="The register"
           title="Every contract we hold, public and private."
-          lede="Anyone can hire the Lab: governments, businesses, nonprofits, and individual supporters. This register is what makes that safe to say. Each engagement appears here within a week of signature."
+          lede="Anyone can hire the Lab, including governments, businesses, nonprofits, and individuals. This register is how you can check that it hasn't changed what we publish. Each engagement goes up within a week of signing."
         />
         <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-3">
           {REGISTER.map((r) => (
@@ -159,12 +159,12 @@ export default function IndependencePage() {
                   The model is the one an economics consultancy or a research firm uses: we take
                   paid work from governments, businesses, nonprofits, foundations, and individuals,
                   for policy analysis, data products, dashboards, and software, at published prices.
-                  What we don&apos;t do is let the source of the money shape the finding.
+                  What we won&apos;t do is let where the money came from shape what we find.
                 </p>
                 <p>
                   When a supporter funds a piece of public research, the sponsor is named on the
-                  work itself. Sponsors fund the question, never the answer, and paid work of any
-                  kind never buys a conclusion. Every engagement we take preserves our right to
+                  work itself. They pay for the question, not the answer, and no paid work of any
+                  kind changes what we conclude. Every engagement we take keeps our right to
                   publish disagreement.
                 </p>
               </div>
@@ -237,8 +237,8 @@ export default function IndependencePage() {
 
       <ClosingCta
         eyebrow="Hold us to it"
-        title="If you catch us breaking a rule, we want to hear about it."
-        body="Questions about anything on this page, or something you think belongs on it: write to us. Corrections are logged in public."
+        title="If you catch us breaking a rule, tell us."
+        body="If you have a question about anything on this page, or think something belongs on it that isn't, write to us. Corrections are logged in public."
         primary={{ label: "Ask us directly", href: "/contact" }}
         secondary={{ label: "The methodology", href: "/methodology" }}
       />

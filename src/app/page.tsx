@@ -173,7 +173,7 @@ const DOORS: Door[] = [
     pill: "I live here",
     eyebrow: "For residents",
     title: "Use the tools. They're free.",
-    body: "No account, no paywall, no charge. Eight tools built from the public record, with every figure linked to the document it came from.",
+    body: "There is no account to make and nothing to pay. Eight tools, all built from public records, and every number links back to the document it came from.",
     cta: { label: "Explore the tools", href: "#work" },
     secondary: { label: "Read a deep-dive", href: "/deep-dives" },
     img: { src: "/images/home/parks-b.jpg", alt: "The Parks Atlas map of Portland", caption: "Parks Atlas · 316 parks" },
@@ -182,8 +182,8 @@ const DOORS: Door[] = [
     key: "owners",
     pill: "I own or develop property",
     eyebrow: "For owners and developers",
-    title: "Know which building deserves the next dollar.",
-    body: "A property or a portfolio screened against the public record: what is known, what is missing, and the next three moves. From $7,500, in about three weeks.",
+    title: "Find out which building is worth a closer look.",
+    body: "We check a property, or a whole portfolio, against the public record and tell you what is known, what isn't, and what to do next. It starts at $7,500 and takes about three weeks.",
     cta: { label: "For property owners", href: "/property" },
     secondary: { label: "See the downtown map", href: DOWNTOWN_URL, external: true },
     img: { src: "/images/home/downtown.jpg", alt: "The downtown parcel map", position: "object-center", caption: "Portland Possible · 5,275 parcels" },
@@ -193,7 +193,7 @@ const DOORS: Door[] = [
     pill: "I run a public institution",
     eyebrow: "For public institutions",
     title: "The decisions cross bureau lines. The information doesn't.",
-    body: "Portfolio intelligence, decision diagnostics, and data products, delivered as a service your staff can use next month and won through open procurement. Diagnostics from $15,000.",
+    body: "We keep one reliable record of what a bureau owns, has promised, and owes, and we run the monthly review from it, so your staff never have to feed a second system. We compete for the work through normal procurement. A diagnostic starts at $15,000.",
     cta: { label: "For public institutions", href: "/institutions" },
     secondary: { label: "How we contract", href: "/independence" },
     img: { src: "/images/home/dashboards-b.jpg", alt: "A performance dashboard", position: "object-left-top", caption: "Dashboards · every source linked" },
@@ -203,7 +203,7 @@ const DOORS: Door[] = [
     pill: "I want to back this",
     eyebrow: "For supporters",
     title: "Fund what gets built next.",
-    body: "Founding support keeps one named program running for a year, with your name on the work and no say over its conclusions. Monthly support keeps the archive checkable.",
+    body: "A founding supporter pays for one program for a year and is named on it. Monthly supporters keep the tools running and the archive online.",
     cta: { label: "Back a program", href: "/donate" },
     secondary: { label: "Talk about founding support", href: "/contact?topic=Founding%20support" },
     img: { src: "/images/home/continuum.jpg", alt: "The homelessness continuum, stage by stage", caption: "The continuum · every figure sourced" },
@@ -212,8 +212,8 @@ const DOORS: Door[] = [
     key: "builders",
     pill: "I want to help build it",
     eyebrow: "For builders and volunteers",
-    title: "Pick a topic and point at it.",
-    body: "Every tool and every open question is something a person can pick up. Tell us what you can do and how much time you have, and we reply with a specific piece of work.",
+    title: "Pick something and help build it.",
+    body: "Every tool and every open question on the site could use another pair of hands. Tell us what you are good at and how much time you have, and we will come back with something specific.",
     cta: { label: "Pick a topic", href: "/about#topics" },
     secondary: { label: "How the Lab is built", href: "/about" },
     img: { src: "/images/home/oregon.jpg", alt: "The Oregon Governance Atlas", caption: "Oregon Atlas · every bill's next step" },
@@ -227,7 +227,7 @@ const CAPABILITIES = [
     key: "research",
     accent: "bg-[var(--color-ember)]",
     eyebrow: "Research",
-    title: "Answer a question from the record.",
+    title: "Get a question answered from the record.",
     examples: [
       "A deep-dive on a topic you name, every figure sourced to the page",
       "An evidence review before a board, council, or investment vote",
@@ -241,7 +241,7 @@ const CAPABILITIES = [
     key: "decisions",
     accent: "bg-[var(--color-sage)]",
     eyebrow: "Decisions",
-    title: "Diligence for the decision in front of you.",
+    title: "Due diligence for a decision you are about to make.",
     examples: [
       "Which building or portfolio deserves the next dollar of diligence",
       "Technical diligence on a project, a vendor, a model, or a plan",
@@ -258,9 +258,9 @@ const CAPABILITIES = [
     key: "builds",
     accent: "bg-[var(--color-river)]",
     eyebrow: "Builds",
-    title: "Build the tool, the dataset, or the model.",
+    title: "Have us build the tool, the dataset, or the model.",
     examples: [
-      "An atlas or dashboard for your domain, built the way we build ours",
+      "An atlas or dashboard for your subject, built the same way as ours",
       "A working model of a system: a budget, a pipeline, a continuum",
       "A public tool, sponsored by a foundation and free to everyone",
     ],
@@ -274,20 +274,20 @@ const PROGRAMS = [
   {
     n: "01",
     title: "The homelessness continuum",
-    body: "Where the system breaks, stage by stage, built so front-line workers, hospitals, police, and the county can argue from the same page. A year funds the front-line verification of every \"that door tonight\" string, the evidence review, and a quarterly refresh of every figure.",
+    body: "A map of where the homelessness system breaks down, stage by stage, written so that outreach workers, hospitals, police, and the county are looking at the same page. A year of support pays for checking the details about which doors are open tonight with the people at those doors, reviewing the evidence, and refreshing the figures every quarter.",
     href: "/deep-dives/continuum",
   },
   {
     n: "02",
     title: "The Parks Atlas",
-    body: "All 316 parks: conditions, maintenance backlogs, events, and the partners caring for each one. A year funds the record reconciliation, the events and partner data kept current, and the access analysis the atlas still lacks.",
+    body: "All 316 parks, with their condition, maintenance backlog, events, and the groups that look after them. A year of support pays for reconciling the records, keeping the events and partner data current, and adding the access analysis the atlas is still missing.",
     href: PARKS_URL,
     external: true,
   },
   {
     n: "03",
     title: "The deep-dive calendar",
-    body: "Thirteen topics so far, from the PPS budget to the I-5 Rose Quarter. A year funds the next deep-dives on questions supporters and readers propose, each sourced to the page and kept checkable in the archive.",
+    body: "Thirteen so far, from the school budget to the I-5 Rose Quarter. A year of support pays for the next ones, on questions readers and supporters propose.",
     href: "/deep-dives",
   },
 ];
@@ -303,16 +303,16 @@ const FINISHED = [
     body: "The person or committee that controls what happens next to every measure, drawn from the chamber rules, kept current through the session.",
   },
   {
-    title: "One map the city's owners and bureaus argue from",
-    body: "Every downtown parcel modeled, so a building owner, a lender, and a planner start from the same evidence about what a block could become.",
+    title: "One downtown map that owners and the City both use",
+    body: "Every downtown parcel modeled, so a building owner, a lender, and a city planner are looking at the same information about what a block could become.",
   },
   {
-    title: "The continuum adopted on the front line",
+    title: "The continuum in use on the front line",
     body: "The homelessness system, stage by stage, used by outreach workers, hospitals, police, jails, and the county as the shared page for tonight.",
   },
   {
-    title: "The same model in a second Oregon city",
-    body: "The tools, the sourcing standard, and the independence rules, rebuilt for the next city that wants its numbers checkable.",
+    title: "A second Oregon city",
+    body: "The same tools, sourcing standard, and rules, rebuilt for the next city that wants them.",
   },
 ];
 
@@ -320,21 +320,21 @@ const JOIN = [
   {
     eyebrow: "Founding supporter",
     title: "Fund one program for a year.",
-    body: "The continuum, the Parks Atlas, or the next deep-dive. Named on the work, never on its conclusions.",
+    body: "The continuum, the Parks Atlas, or the next deep-dive. Your name goes on the work.",
     href: "/contact?topic=Founding%20support",
     cta: "Talk about a program",
   },
   {
     eyebrow: "Partner",
     title: "Build a tool with us, or sponsor a question.",
-    body: "Institutions, firms, and foundations that want a piece of the public record made usable, at published prices and under the same rules.",
+    body: "For institutions, firms, and foundations that want part of the public record made usable. Published prices, and the same rules as everyone else.",
     href: "/contact?topic=Partnership",
     cta: "Propose a partnership",
   },
   {
     eyebrow: "Back the company",
     title: "Help build the institution itself.",
-    body: "If what you want to be part of is the Lab, not only one of its programs, we would rather have that conversation in person than on a page.",
+    body: "If you are interested in the Lab itself and not just one of its programs, let's talk in person.",
     href: "/contact?topic=Backing%20the%20company",
     cta: "Start the conversation",
     accent: true,
@@ -420,9 +420,9 @@ export default function HomePage() {
                 style={{ animationDelay: "100ms" }}
               >
                 Every decision Portland makes should start from facts anyone can check. We&apos;re
-                building the institution that makes that true: the public record opened, sourced,
-                and turned into tools for everyone. Free to use. Funded by philanthropy and paid
-                work. Built to make Portland better.
+                building the institution that makes that possible: we open up the public record,
+                source it, and turn it into tools anyone can use for free. Philanthropy and paid
+                work cover the cost, and all of it goes toward a better Portland.
               </p>
 
               <div
@@ -497,15 +497,16 @@ export default function HomePage() {
             <div className="lg:col-span-7">
               <Eyebrow>Why now</Eyebrow>
               <h2 className="font-editorial text-[26px] leading-tight text-[var(--color-ink)] sm:text-[34px]">
-                Portland changed its form of government, is deciding what its downtown becomes,
-                and is choosing what its schools cut, all at once.
+                Portland changed its form of government last year. At the same time it is
+                deciding what to do with a half-empty downtown and how much to cut from its
+                schools.
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pt-10">
               <p className="text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-                Every one of those decisions rests on a public record that almost nobody can
-                read. The Lab exists so that the people making them, and the people living with
-                them, can argue from the same checkable facts.
+                All of that gets decided on a public record that most people never manage to
+                read. We want the people making those decisions, and the people who have to live
+                with them, to be looking at the same facts.
               </p>
             </div>
           </div>
@@ -518,11 +519,11 @@ export default function HomePage() {
           <div>
             <Eyebrow>Start here</Eyebrow>
             <h2 className="font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
-              Pick your door.
+              Start here.
             </h2>
           </div>
           <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
-            The same public record, put to work for whoever you are.
+            Tell us who you are and we&apos;ll show you the part that&apos;s for you.
           </p>
         </div>
         <AudienceDoors doors={DOORS} />
@@ -537,11 +538,11 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <Eyebrow>The work · eight public tools</Eyebrow>
             <h2 className="font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
-              Every one built from the public record. Every one free.
+              Eight tools, all free, all built from public records.
             </h2>
           </div>
           <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
-            No account, no paywall, and no charge on any of them.
+            Open any of them. There is nothing to sign up for.
           </p>
         </div>
 
@@ -584,8 +585,9 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="max-w-md text-[14.5px] leading-relaxed text-white/65 md:text-right">
-              Floors, not quotes. If it can be answered from the public record or built from it,
-              it is in scope. The number is in writing before any work starts.
+              The prices below are starting points. If it can be answered from the public record,
+              or built from it, we can probably do it, and you get the number in writing before
+              anything starts.
             </p>
           </div>
 
@@ -637,9 +639,9 @@ export default function HomePage() {
           </div>
 
           <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-white/70">
-            Owners and developers, public bodies, nonprofits and foundations, firms and consulting
-            teams, and people who want one question answered all hire the Lab. Same published
-            floors, same rules, and the sponsor named on the work.
+            Property owners, public agencies, nonprofits, foundations, consulting teams, and
+            individuals can all hire us. The prices and the rules are the same for everyone, and if
+            you sponsor a piece of research, your name goes on it.
           </p>
 
           <div className="mt-6 flex flex-col gap-4 rounded-sm border border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -674,20 +676,18 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <Eyebrow>The public program</Eyebrow>
               <h2 className="font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
-                The tools stay free. Support decides what gets built next.
+                The tools stay free. Supporters decide what we build next.
               </h2>
               <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-                Everything the Lab publishes is free to every resident. Supporters fund the
-                maintenance and the next build. Founding support keeps one named program running
-                for a year, with the supporter credited on the work itself, and never on its
-                conclusions.
+                Everything we publish is free. Supporters pay for the upkeep and for whatever comes
+                next. A founding supporter funds one program for a year and is credited on that
+                program&apos;s work. Supporters don&apos;t get a say in what the work concludes.
               </p>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
-                Portland Civic Lab is a for-profit company, not a nonprofit, by choice. A nonprofit
-                lives from grant to grant. A company that sells its expertise can keep the free
-                tools running on its own earnings, so no foundation&apos;s calendar decides whether
-                the archive stays up. The trade-off is that support is not tax-deductible, and we
-                say so everywhere we ask.
+                We set the Lab up as a company rather than a nonprofit because a nonprofit lives
+                from grant to grant, and we wanted the free tools to survive on our own earnings.
+                The downside is that support isn&apos;t tax-deductible, which we mention everywhere
+                we ask for it.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -720,7 +720,7 @@ export default function HomePage() {
                     From $10
                   </p>
                   <p className="mt-2 text-[13px] leading-snug text-[var(--color-ink-light)]">
-                    a month, keeps the archive checkable and the dashboards current
+                    a month, keeps the dashboards current and the archive online
                   </p>
                   <p className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-canopy)]">
                     Support the work
@@ -769,9 +769,9 @@ export default function HomePage() {
                 })}
               </ul>
               <p className="mt-5 text-[14px] leading-relaxed text-[var(--color-ink-muted)]">
-                Every founding supporter is named on the program page, receives a quarterly
-                two-page update, and sees an annual public account of what the money produced.
-                Nobody gets a say over conclusions, by design.
+                Founding supporters are named on the program page, get a short update each
+                quarter, and see a public accounting once a year of what the money went to. They
+                don&apos;t get a say over what the work concludes.
               </p>
             </div>
           </div>
@@ -784,12 +784,12 @@ export default function HomePage() {
           <div className="lg:col-span-8">
             <Eyebrow>About the Lab</Eyebrow>
             <h2 className="max-w-3xl font-editorial text-[32px] leading-tight text-[var(--color-ink)] sm:text-[44px]">
-              A new kind of civic institution, built in Oregon, in public.
+              A different kind of civic institution.
             </h2>
             <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-              A founder-owned company that gives its civic tools away, funds them with paid decision
-              work at published prices, and publishes the rules that keep the two apart. There is no
-              institution in Oregon whose job this is. We are building it.
+              Portland Civic Lab is a small company that gives its civic tools away, pays for them
+              with research and analysis work at published prices, and publishes the rules that keep
+              the two from mixing. Nobody in Oregon has this job, so we took it.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
@@ -813,7 +813,7 @@ export default function HomePage() {
             className="group block rounded-sm border border-[var(--color-parchment)] bg-white p-5 transition-colors hover:border-[var(--color-sage)] lg:col-span-4"
           >
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-              A studio, not a firm
+              How we&apos;re set up
             </p>
             <ul className="mt-3 space-y-2.5">
               {team.map((p) => (
@@ -835,8 +835,8 @@ export default function HomePage() {
               ))}
             </ul>
             <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-ink-light)]">
-              A small core, plus the specialists, partners, and advisors each engagement needs, named
-              in the work.
+              Two people at the center, plus whichever specialists, partners, and advisors a given
+              project needs, all named in the work.
             </p>
             <p className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-canopy)]">
               How the Lab is built
@@ -853,11 +853,10 @@ export default function HomePage() {
             <div className="lg:col-span-6">
               <Eyebrow light>Where this goes</Eyebrow>
               <h2 className="font-editorial text-[32px] leading-tight text-white sm:text-[44px]">
-                What a finished Portland Civic Lab looks like.
+                Where this is going.
               </h2>
               <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white/70">
-                Eight tools exist today. These are the five things the Lab is being built to
-                finish, in the order the public record lets us reach them.
+                Eight tools are live. This is what we are working toward next, roughly in order.
               </p>
               <ol className="mt-8 divide-y divide-white/10 border-y border-white/10">
                 {FINISHED.map((f, i) => (
@@ -877,7 +876,7 @@ export default function HomePage() {
             <div className="lg:col-span-6">
               <Eyebrow light>Join the people building it</Eyebrow>
               <h2 className="font-editorial text-[32px] leading-tight text-white sm:text-[44px]">
-                Three ways in.
+                How to get involved.
               </h2>
               <div className="mt-8 flex flex-col gap-4">
                 {JOIN.map((j) => (

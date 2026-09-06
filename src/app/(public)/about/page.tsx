@@ -37,26 +37,26 @@ const RELATIONSHIPS = [
   {
     icon: Wrench,
     title: "Specialists, by engagement",
-    body: "Engineers, architects, actuaries, researchers, and lawyers are brought in for the engagement that needs them, scoped and priced separately, and named in the deliverable. The Lab keeps no bench it has to feed.",
-    rule: "Named in the work. Never implied by the platform.",
+    body: "Engineers, architects, actuaries, researchers, and lawyers are brought in for the project that needs them, scoped and priced separately, and named in the deliverable. We don't keep a bench of staff we have to keep busy.",
+    rule: "Named in the work.",
   },
   {
     icon: Handshake,
     title: "Partners and primes",
     body: "Design, strategy, and consulting firms that bring a client, or that the Lab brings into one. One lead contract, written responsibilities. Whoever brings the client holds the relationship; the Lab keeps the record and the sourcing standard.",
-    rule: "One side per matter, always.",
+    rule: "One side per matter.",
   },
   {
     icon: Landmark,
     title: "Public bodies",
     body: "Small one-time engagements go through an agency's normal small-procurement process. Anything ongoing, or above the informal threshold, is won through a process someone else could win.",
-    rule: "Spec-writer or bidder. Never both.",
+    rule: "We don't write the spec and then bid on it.",
   },
   {
     icon: HeartHandshake,
     title: "Supporters and sponsors",
     body: "Individuals and foundations fund named programs for a year. They are credited on the program page and the work it produces, get a quarterly update and an annual public account, and have no say over conclusions.",
-    rule: "Sponsors fund the question, never the answer.",
+    rule: "Sponsors pay for the question, not the answer.",
   },
 ];
 
@@ -66,11 +66,11 @@ const PRINCIPLES = [
     body: "Each figure traces to a public document, page cited. Where the record is silent, the page says so instead of guessing.",
   },
   {
-    title: "Anyone can hire us. Nobody buys a conclusion.",
+    title: "Anyone can hire us, and nobody can buy a conclusion.",
     body: "Every contract is published within a week of signature, public work is won through open procurement, and paid work never changes a finding.",
   },
   {
-    title: "Built to be used, not just read",
+    title: "Built to be used",
     body: "Calculators, watch-lists with dates, records requests drafted and ready, and plans specific enough to vote on.",
   },
 ];
@@ -79,7 +79,7 @@ const ROLES = [
   {
     icon: Lightbulb,
     title: "Advisors",
-    body: "People who know procurement, public finance, housing, health systems, or research methods, and will tell us when we are wrong. A few hours a quarter, in writing, credited here.",
+    body: "People who know procurement, public finance, housing, health systems, or research methods well enough to tell us when we are wrong. A few hours a quarter, and you are credited here.",
     cta: "Offer to advise",
     href: "/contact?topic=Advising%20the%20Lab",
   },
@@ -93,7 +93,7 @@ const ROLES = [
   {
     icon: HeartHandshake,
     title: "Founding supporters",
-    body: "People and foundations that fund one named program for a year. Credited on the program page and the work it produces, never on its conclusions.",
+    body: "People and foundations that fund one program for a year. Credited on the program page and on the work.",
     cta: "Talk about founding support",
     href: "/contact?topic=Founding%20support",
   },
@@ -149,7 +149,7 @@ function StudioDiagram({ names }: { names: { name: string; title: string }[] }) 
 
       <div className="mt-4 rounded-sm bg-[var(--color-canopy)] p-4 text-white">
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ember-bright)]">
-          The studio · a small core
+          The core
         </p>
         <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
           {names.map((n) => (
@@ -160,7 +160,7 @@ function StudioDiagram({ names }: { names: { name: string; title: string }[] }) 
           ))}
         </ul>
         <p className="mt-2 text-[12.5px] leading-snug text-white/65">
-          Originates the work, sets the sourcing standard, keeps the archive and the rules.
+          Starts the work, sets the standard, keeps the archive.
         </p>
       </div>
 
@@ -179,7 +179,7 @@ function StudioDiagram({ names }: { names: { name: string; title: string }[] }) 
 
       <div className="rounded-sm border border-dashed border-[var(--color-sage)] p-3">
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
-          Pulled in per engagement, named in the work
+          Brought in for each project, named in the work
         </p>
         <ul className="mt-2 flex flex-wrap gap-2">
           {PLUG_INS.map((p) => (
@@ -194,8 +194,8 @@ function StudioDiagram({ names }: { names: { name: string; title: string }[] }) 
       </div>
 
       <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--color-ink-muted)]">
-        Every engagement assembles the people it needs, with roles written down before work
-        starts. Every contract, sponsor, and partner is listed on the Independence page.
+        Each project brings in the people it needs, with roles agreed in writing before work
+        starts. Contracts, sponsors, and partners are all listed on the Independence page.
       </p>
     </div>
   );
@@ -248,27 +248,26 @@ export default function AboutPage() {
               </span>
             </div>
             <h1 className="max-w-3xl font-editorial-normal text-[40px] leading-[1.03] text-[var(--color-ink)] sm:text-[56px] lg:text-[60px]">
-              A studio, not a firm.
+              How the Lab works.
             </h1>
             <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-[var(--color-ink-light)] sm:text-[19px]">
               Portland runs on budgets, audits, permit records, and legislative files that are
               public in theory and unreadable in practice. The Lab reads them, checks every figure
               against its source, and turns them into tools a resident, a reporter, a building
-              owner, or a bureau director can use in an afternoon. There is no institution in
-              Oregon whose job that is. We are building it, in public.
+              owner, or a bureau director can use in an afternoon. Nobody in Oregon has that as
+              their job, so we took it.
             </p>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-[var(--color-ink-light)] sm:text-[19px]">
-              It is built as a studio on purpose. A small core originates the work, sets the
-              standard, and keeps the archive. Each engagement assembles the specialists,
-              partners, and advisors it needs, with roles written down and names in the
-              deliverable. The paid work funds the public program. The public program is what
-              makes the paid work worth trusting.
+              We run it like a studio. A small core starts the work, sets the standard, and keeps
+              the archive, and each project brings in the specialists, partners, and advisors it
+              needs, with everyone&apos;s role written down and their name on the deliverable. The
+              paid work pays for the public work, and the public work is the reason anyone trusts
+              the paid work.
             </p>
             <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-              Portland Civic Lab is a for-profit company, not a nonprofit, by choice: a company that
-              sells its expertise can keep the free tools running on its own earnings, so no
-              foundation&apos;s calendar decides whether the archive stays up. The trade-off is
-              that support is not tax-deductible.
+              We chose to be a company rather than a nonprofit because we wanted the free tools to
+              run on our own earnings instead of on grant cycles. The downside is that support
+              isn&apos;t tax-deductible.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -319,7 +318,7 @@ export default function AboutPage() {
             </span>
           </div>
           <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
-            Four kinds of relationship. One rule for each.
+            Who we work with, and the rule for each.
           </h2>
         </div>
 
@@ -386,12 +385,13 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
-              Want to work on something specific? Point at it.
+              Want to work on something specific?
             </h2>
           </div>
           <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
-            Every tool and every open question is something a person can pick up. Tell us what you
-            can do and how much time you have, and we reply with a specific piece of work.
+            Every tool and every open question on this site could use another pair of hands. Tell
+            us what you are good at and how much time you have, and we will come back with
+            something specific.
           </p>
         </div>
 
@@ -440,11 +440,11 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="font-editorial text-[30px] leading-tight text-white sm:text-[40px]">
-              Four ways onto this page.
+              How to get on this page.
             </h2>
             <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-white/70">
-              Names appear here the week they sign, and on the Independence page. Nobody is listed
-              for a conversation, an intention, or a logo on a slide.
+              Names go up the week an agreement is signed, here and on the Independence page.
+              Nobody gets listed for a good conversation.
             </p>
           </div>
 
@@ -481,13 +481,12 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
-              Empty on purpose.
+              Nobody yet.
             </h2>
             <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-[var(--color-ink-light)]">
-              This list holds only people and organizations that have actually signed. When
-              Oregon&apos;s foundations, firms, and municipal teams join, you will see them here
-              first, with what they funded or built, and on the contract register the same week.
-              An empty list you can trust is worth more than a full one you can&apos;t.
+              This list only includes people and organizations that have signed something. As
+              foundations, firms, and city teams come on board, they will show up here and on the
+              contract register the same week. We would rather show an empty list than pad it.
             </p>
             <Link
               href="/independence"

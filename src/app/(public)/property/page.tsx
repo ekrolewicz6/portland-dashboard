@@ -27,10 +27,10 @@ export const metadata: Metadata = pageMeta({
 });
 
 const PACKET = [
-  { n: "01", title: "The record, assembled", body: "Parcel and ownership history, zoning and overlays, historic status, development capacity, permit history, assessment, and the programs that apply. Every claim cited to its document." },
-  { n: "02", title: "The uncertainty register", body: "Every material claim graded by what supports it, and the specialist each open question needs, so the next dollar of diligence goes where it changes the decision." },
-  { n: "03", title: "The decision, framed", body: "The uses that are plausible, the constraints that bind, and the approvals in sequence. Written for the owner, the lender, and the design team to read the same way." },
-  { n: "04", title: "The next three moves, dated", body: "What to do first, second, and third, with the date each one turns on." },
+  { n: "01", title: "The public record, assembled", body: "Parcel and ownership history, zoning and overlays, historic status, development capacity, permit history, assessment, and the programs that apply. Every claim is cited to its document." },
+  { n: "02", title: "What we're unsure of", body: "Each material claim is graded by how well it is supported, and where a specialist is needed we say which one, so the next dollar of diligence goes where it matters." },
+  { n: "03", title: "The decision, laid out", body: "The uses that are plausible, the constraints that actually bind, and the approvals in order. Written so the owner, the lender, and the design team read it the same way." },
+  { n: "04", title: "The next three moves, with dates", body: "What to do first, second, and third, and the date each one depends on." },
 ];
 
 const DELIVERABLES = [
@@ -39,12 +39,12 @@ const DELIVERABLES = [
     body: "Parcel and ownership history, zoning and overlays, historic status, development capacity, permit history, assessment, and the incentive programs that apply to this address. One packet, every claim cited to the document it came from.",
   },
   {
-    title: "An uncertainty register",
-    body: "Every material claim graded by what supports it. The questions only a specialist can answer are named, along with which specialist, so the next dollar of diligence goes where it changes the decision.",
+    title: "A register of what we're unsure of",
+    body: "Each material claim is graded by how well it is supported. The questions only a specialist can answer are listed, along with which specialist, so the next dollar of diligence goes where it matters.",
   },
   {
-    title: "The decision, framed",
-    body: "The uses that are plausible, the constraints that bind, the approvals in sequence, and the next three moves with dates. Written for the owner, the lender, and the design team to read the same way.",
+    title: "The decision, laid out",
+    body: "The uses that are plausible, the constraints that actually bind, the approvals in order, and the next three moves with dates. Written so the owner, the lender, and the design team read it the same way.",
   },
   {
     title: "A maintained record, if the decision keeps moving",
@@ -104,7 +104,7 @@ const RULES = [
   },
   {
     title: "Public data is not our asset",
-    body: "Everything we screen against is public, and much of our code is open. What you pay for is the assembly, the judgment, and the accountability for getting it right.",
+    body: "Everything we screen against is public, and most of our code is open source. What you pay for is the work of pulling it together, the judgment, and someone accountable for getting it right.",
   },
 ];
 
@@ -125,7 +125,7 @@ export default function PropertyPage() {
           <Document
             header={{ left: "Evidence packet", right: "One property · 2 to 3 weeks" }}
             rows={PACKET}
-            footer={<span>Every claim cited · every gap named · from $7,500</span>}
+            footer={<span>Every claim cited · from $7,500</span>}
           />
         }
       />
@@ -135,8 +135,8 @@ export default function PropertyPage() {
         <div className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
           <SectionHead
             eyebrow="What you get"
-            title="An evidence packet, not a map."
-            lede="Our public downtown model shows what every parcel could become. A screening turns that into a decision about yours."
+            title="What you get back."
+            lede="Our public downtown model shows what every parcel could become. A screening turns that into an answer about your building."
           />
           <div className="mt-10">
             <NumberedList items={DELIVERABLES} columns={2} />
@@ -168,8 +168,8 @@ export default function PropertyPage() {
       <section className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
         <SectionHead
           eyebrow="Published pricing"
-          title="The same starting point for every client, so nobody wonders about the deal next door."
-          lede="Floors, not quotes. The number depends on the size of the site or portfolio and how hard the decision is, and you have it in writing before any work starts. Private work is billed with a deposit at commencement and milestones after."
+          title="The same starting prices for every client."
+          lede="These are starting points rather than quotes. The final number depends on the size of the site or portfolio and how hard the decision is, and you have it in writing before any work starts. Private work is billed with a deposit up front and milestones after that."
         />
         <div className="mt-10">
           <Ledger rows={PRICING} />
@@ -183,7 +183,7 @@ export default function PropertyPage() {
       {/* How it works */}
       <section className="border-y border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
         <div className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
-          <SectionHead eyebrow="How it works" title="Four steps, three weeks." />
+          <SectionHead eyebrow="How it works" title="Four steps, about three weeks." />
           <div className="mt-10">
             <NumberedList items={STEPS} columns={4} />
           </div>
@@ -196,7 +196,7 @@ export default function PropertyPage() {
           <SectionHead
             light
             eyebrow="How we work for private clients"
-            title="The Lab publishes about downtown. Here is how that stays honest when you hire us."
+            title="We also publish about downtown. Here is how we keep that honest when you hire us."
           />
           <div className="mt-10">
             <NumberedList items={RULES} columns={2} light />
@@ -215,8 +215,8 @@ export default function PropertyPage() {
       <section className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
         <SectionHead
           eyebrow="Proof"
-          title="The public version is already live."
-          lede="We don't ask owners to imagine the work. The downtown model and the permits tool are free and built from the same record we screen against."
+          title="You can try the public version now."
+          lede="The downtown model and the permits tool are free, and they are built from the same records we screen against."
         />
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           <div>
@@ -234,7 +234,7 @@ export default function PropertyPage() {
             <div>
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-ember-bright)]">Deep-dive · Lloyd Center</p>
               <p className="mt-3 font-editorial text-[24px] leading-tight">The closest public example of a packet.</p>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/70">One property, the record assembled, the gaps named, the next moves dated.</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-white/70">One property, with the record pulled together, the open questions listed, and the next moves dated.</p>
             </div>
             <p className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold">
               Read it <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -245,8 +245,8 @@ export default function PropertyPage() {
 
       <ClosingCta
         eyebrow="Start here"
-        title="Bring the address and the decision."
-        body="Tell us the property, what you are deciding, and when. We reply within two working days with whether a screening is the right purchase and, if it is, a fixed scope inside the band."
+        title="Send us the address and the decision."
+        body="Tell us which property, what you are trying to decide, and when you need to decide it. We will reply within two working days and say whether a screening makes sense and, if it does, exactly what it would cost."
         primary={{ label: "Start with a property", href: "/contact?topic=Property%20screening" }}
         secondary={{ label: "Public institutions", href: "/institutions" }}
       />

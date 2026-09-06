@@ -110,7 +110,7 @@ const MENUS: MenuDef[] = [
     label: "Tools",
     title: "Civic tools · free, every figure sourced",
     items: TOOLS,
-    notes: ["No account", "No paywall", "Every figure linked to its source"],
+    notes: ["Free", "No account needed", "Every figure linked to its source"],
     featured: {
       eyebrow: "The flagship",
       title: "Portland Possible",
@@ -130,7 +130,7 @@ const MENUS: MenuDef[] = [
     featured: {
       eyebrow: "Published prices",
       title: "Research, decisions, and builds.",
-      body: "Evidence reviews from $5,000, property screening from $7,500, diagnostics from $15,000, builds scoped from the days. If it can be answered from the record or built from it, it is in scope.",
+      body: "Evidence reviews from $5,000, property screening from $7,500, diagnostics from $15,000, and builds priced by the day. If it can be answered from the public record, or built from it, we can probably do it.",
       cta: "See the paid work",
       href: "/#work-with-us",
       img: { src: "/images/home/dashboards-b.jpg", alt: "A performance dashboard", position: "object-left-top" },
@@ -141,11 +141,11 @@ const MENUS: MenuDef[] = [
     label: "About",
     title: "About the Lab",
     items: ABOUT,
-    notes: ["Founded in Portland, 2026", "For-profit by choice", "Anyone can hire us, nobody buys a conclusion"],
+    notes: ["Founded in Portland, 2026", "A company, not a nonprofit", "Anyone can hire us"],
     featured: {
-      eyebrow: "A studio, not a firm",
-      title: "How the Lab is built",
-      body: "A small core, three lines of work, and the specialists, partners, and advisors each engagement pulls in, named in the work.",
+      eyebrow: "How we're set up",
+      title: "How the Lab works",
+      body: "A small core, three kinds of work, and whichever specialists, partners, and advisors each project needs, all named in the work.",
       cta: "Meet the people",
       href: "/about",
       img: { src: "/images/home/continuum.jpg", alt: "The homelessness continuum, stage by stage", position: "object-top" },

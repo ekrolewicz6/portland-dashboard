@@ -30,14 +30,14 @@ const PROGRAMS = [
   {
     n: "01",
     title: "The homelessness continuum",
-    line: "Every figure re-verified with the people at the door, quarterly.",
+    line: "Every figure checked again each quarter with the people at the door.",
     href: "/deep-dives/continuum",
     img: { src: "/images/home/continuum.jpg", alt: "The homelessness continuum page, showing where the system breaks stage by stage", position: "object-top" },
   },
   {
     n: "02",
     title: "The Parks Atlas",
-    line: "316 parks, records reconciled and events kept current, all year.",
+    line: "All 316 parks, with records reconciled and events kept current through the year.",
     href: PARKS_URL,
     external: true,
     img: { src: "/images/home/parks-b.jpg", alt: "The Parks Atlas map of Portland", position: "object-top" },
@@ -45,7 +45,7 @@ const PROGRAMS = [
   {
     n: "03",
     title: "The next deep-dives",
-    line: "Six weeks of sourced research on the question readers propose next.",
+    line: "Six weeks of sourced research on whatever question readers propose next.",
     href: "/deep-dives",
     img: { src: "/images/home/pps-b.jpg", alt: "The PPS budget deep-dive", position: "object-top" },
   },
@@ -55,14 +55,14 @@ const RECEIVE = [
   "Named on the program page and the work",
   "A quarterly two-page update",
   "An annual public account of what it produced",
-  "No say over conclusions, by design",
+  "No say over what the work concludes",
 ];
 
 const TRUST = [
   { icon: ShieldCheck, text: "Stripe Checkout. We never see your card." },
   { icon: Repeat2, text: "Monthly support cancels anytime." },
   { icon: Eye, text: "Every sponsored program is listed on the Independence page." },
-  { icon: BadgeCheck, text: "Sponsors fund the question, never the answer." },
+  { icon: BadgeCheck, text: "Sponsors pay for the question, not the answer." },
 ];
 
 export default function DonatePage() {
@@ -81,8 +81,8 @@ export default function DonatePage() {
               Keep Portland&apos;s numbers checkable.
             </h1>
             <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-white/75 sm:text-[19px]">
-              Eight free civic tools, every figure linked to its source. Support keeps them free,
-              current, and independent, and funds what gets built next.
+              Eight free civic tools, with every figure linked to its source. Support keeps them
+              free and current, and pays for whatever we build next.
             </p>
 
             <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/12 pt-6 sm:grid-cols-4">
@@ -128,9 +128,9 @@ export default function DonatePage() {
             </div>
 
             <p className="mt-6 max-w-2xl text-[13.5px] leading-relaxed text-white/55">
-              Portland Civic Lab is a for-profit company, not a nonprofit, by choice: paid work
-              keeps the free tools running without waiting on a grant. The trade-off is that
-              support is not tax-deductible.
+              We set the Lab up as a company rather than a nonprofit so the free tools could run
+              on our own earnings instead of grant cycles. The downside is that support
+              isn&apos;t tax-deductible.
             </p>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function DonatePage() {
                 </span>
               </div>
               <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
-                Fund one program for a year. Be named on it.
+                Fund one program for a year, and be named on it.
               </h2>
             </div>
             <Link

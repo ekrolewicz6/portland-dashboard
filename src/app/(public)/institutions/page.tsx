@@ -78,12 +78,12 @@ const CONTRACT_RULES = [
     body: "Small one-time engagements go through your normal small-procurement process. Anything ongoing, or above the informal threshold, we win through a process someone else could win. We never price work to slip under a threshold.",
   },
   {
-    title: "Spec-writer or bidder, never both",
-    body: "If we helped scope your solicitation, we disclose it in writing and accept that we may be ineligible to bid on it.",
+    title: "We don't write the spec and then bid on it",
+    body: "If we helped scope your solicitation, we say so in writing and accept that we may not be able to bid on it.",
   },
   {
     title: "No back channels",
-    body: "During a live solicitation we might bid on, we don't contact the sponsoring office outside the process.",
+    body: "While a solicitation we might bid on is open, we don't contact the sponsoring office outside the process.",
   },
   {
     title: "Conflicts flagged in the document",
@@ -113,7 +113,7 @@ function RecordSample() {
   return (
     <div className="overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-white shadow-[0_2px_4px_rgba(15,36,25,0.05),0_24px_48px_-24px_rgba(15,36,25,0.25)]">
       <div className="flex items-center justify-between gap-4 border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
-        <span className="text-[var(--color-ember)]">The kept record · live rows</span>
+        <span className="text-[var(--color-ember)]">Sample rows, live data</span>
         <span>One service area</span>
       </div>
       <ol className="divide-y divide-[var(--color-parchment)]">
@@ -144,7 +144,7 @@ export default function InstitutionsPage() {
       <PageHero
         eyebrow="For public institutions"
         title={<>The decisions cross bureau lines. The information doesn&apos;t.</>}
-        lede="Where the money goes, which projects slip, what waits on whom: the choices that matter most span teams, systems, and bureaus, and the record for them rarely does. Portland reorganized its bureaus into service areas in 2025; the records they run on did not reorganize with them. The Lab keeps the record your decisions run on, as a service you can use next month."
+        lede="Where the money goes, which projects slip, and what is waiting on whom are questions that cut across teams, systems, and bureaus, and the records for them rarely do. Portland reorganized its bureaus into service areas in 2025, but the records they run on stayed where they were. We keep the record your decisions depend on, as a service you can start using next month."
         actions={
           <>
             <PrimaryAction href="/contact?topic=Institutional%20work">Start a conversation</PrimaryAction>
@@ -160,7 +160,7 @@ export default function InstitutionsPage() {
           <SectionHead
             eyebrow="What we do"
             title="Four things we do for institutions."
-            lede="One is the flagship. The other three are how it starts, what it produces, and how it is checked."
+            lede="The first one is the main service. The others are how an engagement usually starts, what it produces, and how the results get checked."
           />
           <div className="mt-10">
             <NumberedList items={OFFERINGS} columns={2} />
@@ -172,8 +172,8 @@ export default function InstitutionsPage() {
       <section className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
         <SectionHead
           eyebrow="Published pricing"
-          title="The same band for every buyer, so no client wonders about the deal next door."
-          lede="Bands, not quotes. The number depends on portfolio size and scope and lands inside the band. Priced to the value of the work, never to a procurement threshold."
+          title="The same prices for every buyer."
+          lede="These are ranges rather than quotes. Where the number lands depends on the size of the portfolio and the scope, and it stays inside the range. We price to what the work is worth, not to a procurement threshold."
         />
         <div className="mt-10">
           <Ledger rows={PRICING} />
@@ -195,8 +195,8 @@ export default function InstitutionsPage() {
           <SectionHead
             light
             eyebrow="How we contract"
-            title="Rules we hold ourselves to before you ask."
-            lede="If your organization is subject to procurement rules, bring your procurement office in early. We prefer it."
+            title="How we contract."
+            lede="If your organization has procurement rules, bring your procurement office in early. We would rather that than a surprise later."
           />
           <div className="mt-10">
             <NumberedList items={CONTRACT_RULES} columns={2} light />
@@ -215,8 +215,8 @@ export default function InstitutionsPage() {
       <section className={`${SHELL} py-14 sm:py-16 lg:py-20`}>
         <SectionHead
           eyebrow="Proof"
-          title="The kept record is already public."
-          lede="The Parks Atlas keeps 316 assets and their partners. The downtown model keeps 5,275 parcels. The performance cockpits keep the City's own measures. Same craft as the paid work, free, and built entirely from public data."
+          title="You can see the same kind of record on this site."
+          lede="The Parks Atlas tracks 316 parks and their partners. The downtown model covers 5,275 parcels. The performance cockpits follow the City's own measures. All of it is free and built from public data, using the same methods we use for paid work."
         />
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           <div>
@@ -236,8 +236,8 @@ export default function InstitutionsPage() {
 
       <ClosingCta
         eyebrow="Start here"
-        title="Bring the decision, the owner, and the process you buy through."
-        body="Tell us the decision your bureau needs better information for, who owns it, and how your organization procures. We reply within two working days with whether a diagnostic is the right purchase and, if it is, a fixed scope inside the band."
+        title="Tell us about the decision."
+        body="Tell us what your bureau is trying to decide, who owns that decision, and how your organization buys outside help. We will reply within two working days and say whether a diagnostic makes sense and, if it does, what it would cost."
         primary={{ label: "Start a conversation", href: "/contact?topic=Institutional%20work" }}
         secondary={{ label: "Property owners and developers", href: "/property" }}
       />
