@@ -50,7 +50,7 @@ export default function TriageStepper() {
           <p className="mt-1 text-[18px] font-semibold leading-snug text-[var(--color-canopy)]">{q.door}</p>
           <p className="mt-2 text-[13px] leading-snug text-[var(--color-ink-light)]">{q.ifYes.split(". ")[0]}.<More label="the full instruction">{q.ifYes}</More></p>
           <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">stage {String(CONTINUUM.findIndex((s) => s.id === q.stageId) + 1).padStart(2, "0")} · {stage?.name}</p>
-          <div className="mt-3 rounded-sm border border-dashed border-[var(--color-clay)] bg-[var(--color-clay-tint)] px-4 py-3">
+          <div className="mt-3 rounded-sm border border-[var(--color-parchment)] bg-[var(--color-clay-tint)] px-4 py-3">
             <p className="font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] text-[var(--color-clay)]">That door in Portland tonight</p>
             <p className="mt-1 text-[13.5px] font-medium leading-snug text-[var(--color-ink)]">{FIRST_DOOR_SHORT[q.n] ?? q.today}<More label="all the doors">{q.today}</More></p>
             <SourceLinks ids={q.src ?? []} />

@@ -38,7 +38,7 @@ export default function Critique() {
         </div>
       </div>
       {/* groups */}
-      <div className="grid gap-[1px] border-t border-[var(--color-parchment)] bg-[var(--color-parchment)] xl:grid-cols-3">
+      <div className="grid gap-[1px] border-t border-[var(--color-parchment)] bg-[var(--color-parchment)] xl:grid-cols-3 xl:items-start">
         {STATUS.map((s) => {
           const items = CAVEATS.filter((c) => c.status === s.key);
           return (

@@ -26,6 +26,7 @@ import Critique from "@/components/deep-dives/homeless/Critique";
 import FrontLine from "@/components/deep-dives/homeless/FrontLine";
 import SourcesList from "@/components/deep-dives/homeless/SourcesList";
 import SourceLinks from "@/components/deep-dives/homeless/SourceLinks";
+import { RULES_SHORT } from "@/lib/homeless/continuum-short";
 
 export const metadata: Metadata = pageMeta({
   title: "The Continuum — Every Step From Sidewalk to Lease, Defined and Counted",
@@ -64,54 +65,62 @@ export default function ContinuumPage() {
       <section className="relative overflow-hidden bg-[var(--color-canopy)] text-white noise-overlay">
         <div className="pointer-events-none absolute right-0 top-0 h-[760px] w-[760px] -translate-y-1/3 translate-x-1/4 rounded-full bg-[var(--color-canopy-light)] opacity-25 blur-[190px]" />
         <div className={`relative z-10 ${DIVE_CONTAINER} py-16 sm:py-24`}>
-          <div className="grid items-end gap-10 xl:grid-cols-12 xl:gap-16">
-            <div className="xl:col-span-7">
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-ember)]/90">
-                <Link href="/deep-dives" className="transition-colors hover:text-[var(--color-ember-bright)]">Policy Deep-Dive</Link>
-                <div className="h-px w-8 bg-[var(--color-ember)]/50" />
-                <Link href="/deep-dives/homelessness" className="transition-colors hover:text-[var(--color-ember-bright)]">Homelessness</Link>
-                <div className="h-px w-8 bg-[var(--color-ember)]/50" />
-                <span>The continuum</span>
-              </div>
-              <h1 className="mt-6 max-w-4xl font-editorial-normal text-[40px] leading-[1.04] tracking-tight sm:text-[56px] lg:text-[64px]">
-                Every step from the sidewalk to a lease
-                <span className="block font-editorial italic text-[var(--color-ember-bright)]">defined once, so no one falls through.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/75 sm:text-[19px]">Fourteen stages. Thirteen kinds of people. Six questions for 2 a.m. A price and an owner for every stage.</p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="#pathways" className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-ember)] px-5 py-3 text-[15px] font-semibold text-[var(--color-canopy)] transition-colors hover:bg-[var(--color-ember-bright)]">
-                  Pick a person <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href="#breaks" className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-white/10">
-                  Where it breaks
-                </a>
-              </div>
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-ember)]/90">
+              <Link href="/deep-dives" className="transition-colors hover:text-[var(--color-ember-bright)]">Policy Deep-Dive</Link>
+              <div className="h-px w-8 bg-[var(--color-ember)]/50" />
+              <Link href="/deep-dives/homelessness" className="transition-colors hover:text-[var(--color-ember-bright)]">Homelessness</Link>
+              <div className="h-px w-8 bg-[var(--color-ember)]/50" />
+              <span>The continuum</span>
             </div>
-            <div className="xl:col-span-5">
-              <div className="rounded-sm border border-white/12 bg-white/[0.05] p-5 backdrop-blur sm:p-6">
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">The four rules</p>
-                <ol className="mt-4 space-y-2.5">
-                  {PRINCIPLES.map((p, i) => (
-                    <li key={p.rule} className="flex gap-3">
-                      <span className="font-mono text-[13px] font-bold text-[var(--color-ember-bright)]">{i + 1}</span>
-                      <p className="text-[14px] font-semibold leading-snug text-white">{p.rule}</p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+            <h1 className="mt-6 max-w-3xl font-editorial-normal text-[38px] leading-[1.06] tracking-tight [text-wrap:balance] sm:text-[52px] lg:text-[58px]">
+              Every step from the sidewalk to a lease,
+              <span className="block font-editorial italic text-[var(--color-ember-bright)]">so that nobody is lost between them.</span>
+            </h1>
+            <p className="mt-7 max-w-3xl text-[18px] leading-relaxed text-white/80 sm:text-[20px]">
+              About seven thousand people in Multnomah County will sleep outside tonight. Most of them will meet the system through someone doing their best with a partial map: an outreach worker, a police officer, a paramedic, a nurse, a jail release desk. Each of those people uses a different one.
+            </p>
+            <p className="mt-4 max-w-3xl text-[17px] leading-relaxed text-white/70 sm:text-[18px]">
+              This page draws a single map they could share. It shows the fourteen places a person can be between the street and a home, who the people are and what each of them needs first, where the system loses them today and what that costs, and what it would take to fix every stage.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#pathways" className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-ember)] px-5 py-3 text-[15px] font-semibold text-[var(--color-canopy)] transition-colors hover:bg-[var(--color-ember-bright)]">
+                Follow one person&apos;s path <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#breaks" className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-white/10">
+                See where it breaks today
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Stat band ── */}
+      {/* ── The four rules, as a strip ── */}
       <section className="border-t border-white/10 bg-[var(--color-canopy-mid)] text-white">
+        <div className={`${DIVE_CONTAINER} py-8`}>
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">Four rules make it one system instead of fourteen programs</p>
+          <ol className="mt-4 grid gap-x-8 gap-y-4 md:grid-cols-2 xl:grid-cols-4">
+            {PRINCIPLES.map((p, i) => (
+              <li key={p.rule} className="flex gap-3">
+                <span className="font-editorial-normal text-[28px] leading-none text-[var(--color-ember-bright)]">{i + 1}</span>
+                <div>
+                  <p className="text-[15px] font-semibold leading-snug text-white">{p.rule}</p>
+                  <p className="mt-1 text-[13px] leading-snug text-white/65">{RULES_SHORT[i]}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ── Stat band ── */}
+      <section className="border-t border-white/10 bg-[var(--color-canopy)] text-white">
         <div className={`${DIVE_CONTAINER} grid grid-cols-2 gap-6 py-9 lg:grid-cols-4`}>
           {[
-            { v: String(CONTINUUM.length), l: "stages from sidewalk to lease", s: `${partial} partly counted today, ${unknown} not counted at all, none fully`, src: [] as string[] },
-            { v: `${SCORECARD.score}/${SCORECARD.of}`, l: "the county's own by-name-list score", s: `${misses} unmet conditions, all about knowing who is where`, src: ["multco-bfz-scorecard"] },
-            { v: "54%", l: "of shelter exits go nowhere anyone recorded", s: "2,800 of 5,213 exits in FY2025", src: ["multco-shelter-review"] },
-            { v: fmtNum(STATS.deaths2024), l: "died homeless in 2024", s: "the number the highest-acuity lane is judged on", src: ["domicile-unknown"] },
+            { v: String(CONTINUUM.length), l: "places a person can be, from the sidewalk to a lease", s: `${partial} partly counted today, ${unknown} not counted at all, none fully`, src: [] as string[] },
+            { v: `${SCORECARD.score}/${SCORECARD.of}`, l: "the county's own score for knowing who is where", s: `${misses} conditions unmet, all about seeing people`, src: ["multco-bfz-scorecard"] },
+            { v: "54%", l: "of people leaving shelter go somewhere nobody recorded", s: "2,800 of 5,213 exits in FY2025", src: ["multco-shelter-review"] },
+            { v: fmtNum(STATS.deaths2024), l: "people died homeless in 2024", s: "the number the whole system is finally judged on", src: ["domicile-unknown"] },
           ].map((s) => (
             <div key={s.l}>
               <p className="font-mono text-[30px] font-bold leading-none tabular-nums text-[var(--color-ember-bright)] sm:text-[36px]">{s.v}</p>
@@ -138,12 +147,12 @@ export default function ContinuumPage() {
       </nav>
 
       {/* 01 · The journey */}
-      <Section layout="stacked" id="pathways" eyebrow="01 · The journey" title="Pick a person. See their path." lead="Fourteen stages from the sidewalk to a lease. Everyone the system meets is one of thirteen kinds of people, each with an evidence-backed order through them. Pick one.">
+      <Section layout="stacked" id="pathways" eyebrow="01 · The journey" title="Pick a person, and follow their path." lead="Nobody arrives at the system as a case number. They arrive as a mother with two kids and an eviction notice, a young man in withdrawal, a veteran who has been outside for years. Each kind of person needs a different first door and a different order of steps, and the research is clear about most of them. Pick one and watch the path light up.">
         <PathwayExplorer />
       </Section>
 
       {/* 02 · Where it breaks */}
-      <Section layout="stacked" id="breaks" tone="warm" eyebrow="02 · Where it breaks today" title="How many people are at each stage, and what is there for them" lead="Tonight's snapshot first. Then, stage by stage, people against support, and at each transition what goes in and what comes through. Where nobody can say, the board says so.">
+      <Section layout="stacked" id="breaks" tone="warm" eyebrow="02 · Where it breaks today" title="How many people are at each stage, and what is actually there for them" lead="Start with tonight: what exists for the people sleeping outside on an ordinary weeknight. Then walk the fourteen stages and compare the people in each one with the beds, slots, and workers that exist there. Where nobody can say how many people are in a stage, the board says so plainly, because that silence is the first thing that is broken.">
         <SystemBalance />
         <div className="mt-8">
           <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">At the transitions: what goes in, what comes through</p>
@@ -152,12 +161,12 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 03 · What it costs */}
-      <Section layout="stacked" id="money" eyebrow="03 · What it costs" title="The money is mostly in the wrong stage" lead="A shelter bed costs three times what supportive housing costs per person, and the cheap steps between them were the ones cut. Eight of fourteen stages have no published unit cost at all.">
+      <Section layout="stacked" id="money" eyebrow="03 · What it costs" title="The money is mostly in the wrong stage" lead="A year in a shelter bed costs the county about three times what a year in supportive housing costs per person, and the inexpensive steps that move people between the two were the ones cut in the last budget. For most stages nobody has ever published what a year or an episode costs, and that is a finding in itself.">
         <CostChart />
       </Section>
 
       {/* 04 · The fix */}
-      <Section layout="stacked" id="fix" tone="warm" eyebrow="04 · How to fix it" title="Four rules, and one thing to do at every stage" lead="The rules make the continuum one system instead of fourteen programs. Under them, for each stage: the thing to do in the next budget, the one number to publish, and who answers for it.">
+      <Section layout="stacked" id="fix" tone="warm" eyebrow="04 · How to fix it" title="Four rules, and one clear thing to do at every stage" lead="The rules are what turn fourteen programs into one system a person can travel through. Under them, each stage gets the plainest possible instruction: the one thing to fund or change in the next budget, the one number to publish so everyone can see whether it worked, and the one office that answers for it.">
         <FixBoard />
         <div className="mt-8">
           <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">When a stage fails, and who enforces it</p>
@@ -166,12 +175,12 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 05 · Each stage */}
-      <Section layout="stacked" id="stages" eyebrow="05 · Each stage, in depth" title="Pick a stage." lead="Everything the page knows about one stage: the overview, what it is, when it works and how it fails, who does what, who answers and what it costs, and Portland today with the gap.">
+      <Section layout="stacked" id="stages" eyebrow="05 · Each stage, in depth" title="Pick a stage, and see everything we know about it" lead="Each stage opens on a short overview: what exists there, where it falls short, what to do now, the number to watch, and who answers. The tabs hold the full definition, what the stage looks like when it works and how it fails the person in it, who does what, what it costs, and Portland\u2019s numbers today.">
         <StageExplorer />
       </Section>
 
       {/* 06 · Tonight */}
-      <Section layout="stacked" id="tonight" tone="warm" eyebrow="06 · Tonight, at the scene" title="Six questions, then the doors that are actually open" lead="Answer them in order from what you can see. Then every door on a 24-hour clock, because most of the system closes at dusk and the hardest hour is 2 a.m.">
+      <Section layout="stacked" id="tonight" tone="warm" eyebrow="06 · Tonight, at the scene" title="Six questions at the scene, then the doors that are actually open" lead="At 2 a.m. an officer, a medic, or an outreach worker has to decide where a person goes next with only what they can see in front of them. These six questions, in this order, get to the right first door. Below them is every door in the county on a 24-hour clock, because most of the system closes at dusk and the hardest hour is the middle of the night.">
         <TriageStepper />
         <div className="mt-6">
           <DoorsOpen />
@@ -179,12 +188,12 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 07 · Saying no */}
-      <Section layout="stacked" id="saying-no" eyebrow="07 · When someone says no" title="A no is information. Find out what kind." lead="Seven steps, in order. The law draws two lines; below them nobody can make anyone go anywhere, so the answer to a no is a better offer, a return visit, and enforcement last.">
+      <Section layout="stacked" id="saying-no" eyebrow="07 · When someone says no" title="When someone says no, find out what kind of no it is" lead="Most people who refuse are turning down a specific offer, or are in no state to accept any offer tonight. The law lets nobody be moved unless they are in danger or incapacitated, so the honest response to a no is a better offer, a return visit by the same worker, and enforcement only as the last step and only on the record.">
         <WhenNo />
       </Section>
 
       {/* 08 · Lanes and Housing First */}
-      <Section layout="stacked" id="lanes" tone="warm" eyebrow="08 · Three lanes, and when Housing First works" title="Intensity follows acuity; the lease does not wait for treatment" lead="Three lanes set how much support a person gets, never which doors they may use. Thirteen cases where Housing First works, works with conditions, or is not enough by itself.">
+      <Section layout="stacked" id="lanes" tone="warm" eyebrow="08 · Three lanes, and when Housing First works" title="Support follows need, and the lease does not wait for treatment" lead="Three lanes decide how much help a person gets, never which doors they may use. Most people need cash and a conversation; a small group needs ongoing support; a tenth of the people, who account for half the shelter nights, need to be stabilized first and then housed with a team. Housing First is the rule for most of them, and thirteen cases say exactly when it works, when it works only with conditions, and when it is not enough on its own.">
         <LanesVisual />
         <div className="mt-6">
           <HousingFirstBoard />
@@ -193,7 +202,7 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 09 · Counting */}
-      <Section layout="stacked" id="count" eyebrow="09 · Counting each bucket" title="Seven fields, nine numbers, and who can say what today" lead="One living-situation code and one referral result per contact; capacity comes with the bill; silence degrades to unknown, never to housed.">
+      <Section layout="stacked" id="count" eyebrow="09 · Counting each bucket" title="Seven fields, nine numbers, and who can say what today" lead="Counting who is where does not need a new form. It needs one living-situation code and one referral result from each contact, entered where the worker already enters the contact, and a rule that when a provider goes quiet the count degrades to unknown instead of pretending people were housed. The matrix at the end shows how little of this the county, the city, or the Sheriff can say right now.">
         <CountCompact />
         <div className="mt-6">
           <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">The nine headline numbers</p>
@@ -205,7 +214,7 @@ export default function ContinuumPage() {
       </Section>
 
       {/* 10 · Risks */}
-      <Section layout="stacked" id="risks" tone="warm" eyebrow="10 · What could go wrong" title="We asked what this plan misses, then fixed what we could" lead="A critic listed what the design misses; seven front-line, clinical, and legal readers said what breaks at 2 a.m. Most is now built in. The rest is named, with what would settle it.">
+      <Section layout="stacked" id="risks" tone="warm" eyebrow="10 · What could go wrong" title="We asked what this plan misses, then fixed what we could" lead="Before publishing, a critic listed everything the design leaves out, and seven people who work the front line at night said what would break in the first week. Most of what they found is now built into the plan, and each finding below says how. What remains is named honestly, with the document or the decision that would settle it.">
         <Critique />
         <div className="mt-6">
           <FrontLine />

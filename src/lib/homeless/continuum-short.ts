@@ -8,20 +8,20 @@
 export interface StageShort { purpose: string; exists: string; gap: string; doNow: string; metric: string; owner: string }
 
 export const STAGE_SHORT: Record<string, StageShort> = {
-  prevention: { purpose: "Keep the household housed before it enters the system.", exists: "1,806 people helped in FY2026; a Medicaid rent benefit statewide.", gap: "No speed, first-time, or 12-month measure; the state funded a fifth of the ask.", doNow: "Pay per household kept housed; publish speed and 12-month stability.", metric: "Payment in 5 days; 85% housed at 12 months", owner: "County HSD; the county board" },
-  diversion: { purpose: "A conversation and a small payment so no one enters a bed or a queue.", exists: "Nothing. Intake runs door by door.", gap: "No stage and no count for the largest, cheapest cohort.", doNow: "Fund a cash pool and one adult entry point; record every attempt.", metric: "Share of first-timers diverted", owner: "Nobody today; the county entry point" },
-  "unsheltered-active": { purpose: "Know everyone outside by name; give each a lead and a next step.", exists: "Street Response, 113 camp workers, contracted outreach; navigators cut to zero.", gap: "Contacts counted, conversions not; unusable offers coded as refusals.", doNow: "Restore navigators; one named lead per person; write city offers into the shared row.", metric: "Named lead in 7 days for 90%; yes-to-arrival by hour", owner: "County HSD and the city, one coordinator" },
-  "institutional-exit": { purpose: "Find people inside jail and hospital; arrange the next place before the door opens.", exists: "In-reach for people on supervision only; a reentry hub unbuilt.", gap: "No housing question at booking, no release destination; median stay one day.", doNow: "Ask living situation at booking; in-reach staff inside jail and hospitals.", metric: "Arrival within 7 days of release", owner: "Sheriff, courts, hospitals; the public-safety council" },
-  "intake-match": { purpose: "Turn a known person into a referral and a move-in date.", exists: "Coordinated Access: 484 placed of 4,853 assessed (FY2024).", gap: "Nine in ten wait; funding cut from $9.3M to $4.7M.", doNow: "Restore $9.3M; publish the queue in days; code every rejection.", metric: "Waiting over 90 days; placed per assessed", owner: "County HSD; Home Forward; the board" },
-  "crisis-sobering": { purpose: "Resolve a crisis somewhere other than an ED or a cell, then hand off.", exists: "13 sobering stations, referral-only; Unity's emergency room.", gap: "The door refuses anyone who cannot consent; no walk-in, ED, or jail path.", doNow: "Open the door to walk-in, ED, and jail referrals; publish dispositions.", metric: "Arrival within 7 days of exit; admissions by source", owner: "County; Legacy Health (Unity); the city" },
-  "withdrawal-management": { purpose: "Supervised withdrawal with medication, and the next bed held.", exists: "Hooper, one intake hour on weekday mornings; 139 beds region-wide.", gap: "A third of the beds needed; 17% of those recommended for treatment get placed.", doNow: "Extend intake hours; hold the next bed; publish open beds.", metric: "Recommended-to-placed match within 7 days", owner: "Central City Concern; OHA; the county" },
-  "residential-treatment": { purpose: "Clinical care that cannot happen in housing, with step-down planned.", exists: "639 residential, 311 inpatient, 127 secure beds, licensed.", gap: "A third of need; licensed beds nobody can place into; no step-down.", doNow: "Staff the licensed beds; publish staffed versus licensed.", metric: "Ready-to-discharge days; exits by destination", owner: "OHA; care organizations; providers" },
-  "medical-respite": { purpose: "A bed with clinical oversight for people too sick for shelter.", exists: "84 beds, weekday referrals; the step-down motel closed.", gap: "Discharges coded self-care 73% of the time; no protocol, no payer.", doNow: "Replace the step-down capacity; a hospital destination log.", metric: "Discharges by destination, per hospital", owner: "Hospitals; Central City Concern; the state" },
-  "emergency-shelter": { purpose: "Short-term safety with a documented exit plan.", exists: "About 2,965 beds and units after the cuts; county sites 88% full.", gap: "Half of exits go nowhere recorded; 16% reach housing; motels closed first.", doNow: "Pay for exits and exit data, not beds; convert poor performers first.", metric: "Exits to housing per bed; unknown destinations under 10%", owner: "County; city; each operator" },
-  "bridge-transition": { purpose: "A staffed, non-congregate place between treatment or jail and a lease.", exists: "About 333 known beds; no inventory.", gap: "The largest hole in the stabilize-first lane; nobody owns it.", doNow: "A registry first; then bridge beds for detox and jail exits.", metric: "Share arriving at a lease", owner: "Nobody today; the county" },
-  "rapid-rehousing": { purpose: "A lease plus a stepping-down subsidy and light help.", exists: "938 placed in FY2026 after an $8.7M cut.", gap: "Retention after the subsidy ends is unreported.", doNow: "Restore the $8.7M; check month 25; convert families to permanent subsidies.", metric: "Retention at 12 and 24 months", owner: "County HSD; the board" },
-  "permanent-supportive-housing": { purpose: "A lease with services attached, no treatment precondition.", exists: "6,973 beds tri-county; 439 newly placed in FY2026.", gap: "Vacancy, fidelity, and acuity match unpublished; the federal grant in litigation.", doNow: "Fill vacancies; fund ACT teams and a risk fund; protect the subsidy line.", metric: "Retention 85/80/75; vacancy days", owner: "Providers; Home Forward; the county; HUD" },
-  retention: { purpose: "Verify people stay housed; catch trouble before eviction.", exists: "Case management inside contracts; no retention line.", gap: "Sustained counts with no denominator; returns have no target.", doNow: "A quarterly cohort table; a 72-hour tenancy-response team.", metric: "Returns 20% or less at 6 months", owner: "The placing program; then the county" },
+  prevention: { purpose: "Keep a household in its home before it ever enters the system.", exists: "The county helped 1,806 people avoid eviction in FY2026, and the state runs a Medicaid rent benefit.", gap: "Nobody measures how fast the money arrives, how many households were first-timers, or whether they were still housed a year later, and the state funded a fifth of what was asked.", doNow: "Pay providers for each household kept housed, and publish how fast the money lands and who is still housed a year on.", metric: "Payment in 5 days; 85% housed at 12 months", owner: "County HSD; the county board" },
+  diversion: { purpose: "A real conversation and a small payment, so a person never has to enter a bed or a queue.", exists: "Nothing exists. Every intake runs on its own rules, door by door.", gap: "The largest and cheapest group of people has no stage built for them and no count of how many they are.", doNow: "Fund a flexible cash pool and one front door for adults, and record every diversion attempt and how it turned out.", metric: "Share of first-timers diverted", owner: "Nobody today; the county entry point" },
+  "unsheltered-active": { purpose: "Know everyone sleeping outside by name, and give each of them a worker and a next step.", exists: "Street Response, 113 city camp workers, and contracted outreach teams are on the street; the county's ten navigators were cut to zero.", gap: "Contacts are counted but conversions are not, and offers nobody could accept get written down as the person refusing.", doNow: "Bring back the navigators, give every person one named lead, and write the city's offers into the same record as the county's.", metric: "Named lead in 7 days for 90%; yes-to-arrival by hour", owner: "County HSD and the city, one coordinator" },
+  "institutional-exit": { purpose: "Find people who are homeless while they are still inside a jail or a hospital, and arrange the next place before they walk out.", exists: "In-reach exists only for people already on supervision; the planned reentry hub is not built.", gap: "Nobody asks about housing at booking or records where people go at release, and the median jail stay is about one day.", doNow: "Ask about living situation at booking, and put in-reach workers inside the jail and the hospitals.", metric: "Arrival within 7 days of release", owner: "Sheriff, courts, hospitals; the public-safety council" },
+  "intake-match": { purpose: "Turn a person the system knows into a housing referral with a move-in date.", exists: "Coordinated Access assessed 4,853 people and placed 484 of them in FY2024.", gap: "Nine in ten people who complete an assessment are still waiting, and the county cut the program's budget nearly in half.", doNow: "Restore the $9.3M, publish the queue in days waiting, and record who rejected each referral and why.", metric: "Waiting over 90 days; placed per assessed", owner: "County HSD; Home Forward; the board" },
+  "crisis-sobering": { purpose: "Get a person through a crisis somewhere other than an emergency room or a cell, then hand them to the next stage.", exists: "Thirteen sobering stations that only referral partners can open, and Unity's psychiatric emergency room.", gap: "The sobering door refuses anyone who cannot consent, and there is no way in from the street, an emergency room, or the jail.", doNow: "Open the sobering door to walk-ins and to emergency-room and jail referrals, and publish where people go when they leave.", metric: "Arrival within 7 days of exit; admissions by source", owner: "County; Legacy Health (Unity); the city" },
+  "withdrawal-management": { purpose: "Supervised withdrawal with medication started, and the next bed already held.", exists: "Hooper admits people for one hour on weekday mornings; the region has 139 withdrawal beds.", gap: "That is a third of the beds the state says are needed, and only 17 of every 100 people recommended for treatment get a bed afterward.", doNow: "Extend intake hours, hold the next bed before discharge, and publish how many beds are open each morning.", metric: "Recommended-to-placed match within 7 days", owner: "Central City Concern; OHA; the county" },
+  "residential-treatment": { purpose: "Clinical care that cannot happen at home, with the step down planned from the day of admission.", exists: "The region licenses 639 residential, 311 inpatient, and 127 secure beds.", gap: "That is about a third of what the state says is needed, many licensed beds are not staffed, and there is nowhere to step down to.", doNow: "Staff the beds that are already licensed, and publish how many are staffed and open.", metric: "Ready-to-discharge days; exits by destination", owner: "OHA; care organizations; providers" },
+  "medical-respite": { purpose: "A bed with nursing care for someone too sick for a shelter and not sick enough for a hospital.", exists: "One program with 84 beds takes referrals on weekdays; the only step-down motel closed this year.", gap: "Hospitals send housing-insecure patients out under a routine 'self-care' code most of the time, with no protocol and no payer.", doNow: "Replace the step-down beds that closed, and require every hospital to log where each patient actually went.", metric: "Discharges by destination, per hospital", owner: "Hospitals; Central City Concern; the state" },
+  "emergency-shelter": { purpose: "A safe place for a short while, with a plan for where the person goes next.", exists: "About 2,965 beds and units remain after this year's cuts, and county sites run 88% full.", gap: "Half of the people who leave shelter go somewhere nobody recorded, one in six reaches housing, and the motels that worked best were closed first.", doNow: "Pay shelters for exits and for exit data rather than for beds, and convert the weakest sites before closing the strong ones.", metric: "Exits to housing per bed; unknown destinations under 10%", owner: "County; city; each operator" },
+  "bridge-transition": { purpose: "A staffed, private place to stay between treatment or jail and a lease.", exists: "About 333 beds are known to exist, and there is no inventory.", gap: "This is the biggest hole in the stabilize-first lane, and no agency owns it.", doNow: "Build the registry first, then add bridge beds for people leaving detox and jail.", metric: "Share arriving at a lease", owner: "Nobody today; the county" },
+  "rapid-rehousing": { purpose: "A lease in the person's name, a subsidy that steps down over time, and light help along the way.", exists: "The county placed 938 people in FY2026 after an $8.7M mid-year cut.", gap: "Nobody reports whether people are still housed after the subsidy ends.", doNow: "Restore the $8.7M, check on every household at month 25, and move families onto permanent subsidies.", metric: "Retention at 12 and 24 months", owner: "County HSD; the board" },
+  "permanent-supportive-housing": { purpose: "A lease with support attached for as long as it is needed, with no treatment required first.", exists: "The region has 6,973 supportive-housing beds and placed 439 people in FY2026.", gap: "Vacancy, program fidelity, and whether the right people get the units are all unpublished, and the federal subsidy is in litigation.", doNow: "Fill the vacant units, fund the ACT teams and a landlord risk fund, and protect the subsidy line.", metric: "Retention 85/80/75; vacancy days", owner: "Providers; Home Forward; the county; HUD" },
+  retention: { purpose: "Make sure people who were housed stay housed, and catch trouble before it becomes an eviction.", exists: "Case management sits inside the housing contracts; there is no retention budget and no rate.", gap: "The county counts people as 'sustained' with no denominator, and returns to homelessness have no target.", doNow: "Publish a quarterly table of who is still housed, and fund a team that responds to trouble within 72 hours.", metric: "Returns 20% or less at 6 months", owner: "The placing program; then the county" },
 };
 
 export const PATHWAY_SHORT: Record<string, string> = {
@@ -41,12 +41,12 @@ export const PATHWAY_SHORT: Record<string, string> = {
 };
 
 export const FIRST_DOOR_SHORT: Record<number, string> = {
-  1: "911 or any ED. Unity for adults 18–70. Under 18: the state hotline or an ED.",
-  2: "Sobering only if they can consent (referral-only). Otherwise Unity or an ED. Detox opens 6:45 a.m. weekdays.",
-  3: "After midnight: crisis line 503-988-4888 or Unity. Street Response 6 a.m. to midnight.",
-  4: "Families: 211, callback in 72 hours. Youth 16–24: Porch Light, 9 p.m.–5 a.m. Survivors: Call to Safety 24/7. Under 16: 855-503-7233.",
-  5: "No diversion door exists tonight.",
-  6: "No adult shelter intake at night; city overnight sites first-come. Veterans: 1-877-424-3838.",
+  1: "Call 911 or go to any emergency department. Unity takes adults 18 to 70. For a child under 18, the state hotline or an emergency department.",
+  2: "Sobering will take an adult who can agree to go, by referral only. Anyone else goes to Unity or an emergency department. Detox opens at 6:45 on weekday mornings.",
+  3: "After midnight, call the crisis line at 503-988-4888 or bring the person to Unity. Portland Street Response runs from 6 a.m. to midnight.",
+  4: "Families reach 211 and get a call back within 72 hours. Youth aged 16 to 24 can walk into Porch Light from 9 p.m. to 5 a.m. Survivors can call Call to Safety any hour. For a child under 16, call 855-503-7233.",
+  5: "There is no diversion door tonight. The closest tools open in the morning.",
+  6: "No adult shelter takes walk-ins at night; the city's overnight sites are first come. Veterans can call 1-877-424-3838 any hour.",
 };
 
 export const LADDER_SHORT: Record<number, string> = {
@@ -60,36 +60,36 @@ export const LADDER_SHORT: Record<number, string> = {
 };
 
 export const POLICE_SHORT: string[] = [
-  "Two statutes are their whole authority: incapacitated in public, or a danger to self or others.",
-  "Three doors tonight: sobering (if consenting), Unity, an emergency department. Not shelter, not housing.",
-  "Their record is a dispatch disposition, matched monthly. Never HMIS, never a warrant in a shared row.",
-  "Camping enforcement is a day-unit step after a usable offer, not the model contact.",
-  "Police at any later stage means a step failed, and it is counted that way.",
+  "Two statutes are the whole of their authority: a person incapacitated in public, or a danger to themselves or others.",
+  "They can open three doors tonight: sobering for someone who can agree, Unity, or an emergency department. Not a shelter, and not housing.",
+  "Their record is the dispatch disposition, matched to the receiving door each month. They never write into HMIS, and a warrant never goes into a shared row.",
+  "Camping enforcement is a daytime step that comes after a usable offer; it is not how most people meet the system.",
+  "If police are needed at any later stage, a step has already failed, and the count says so.",
 ];
 
 export const OFF_SHORT: string[] = [
-  "Know who is outside, with a named lead.",
-  "The right first door for the person, not the open bed.",
-  "A real offer: pet, partner, belongings, a ride, a held bed.",
-  "Hold the next place before they leave this one.",
-  "Highest acuity: stabilize for hours to weeks, then a lease with a team.",
-  "Enforcement last, on the record, with the lead present.",
+  "Know who is outside, by name, and give each person one worker who owns their case.",
+  "Offer the right first door for the person in front of you, not the bed that happens to be open.",
+  "Make the offer real: a place that takes the pet, the partner, and the belongings, with a ride there and a bed held.",
+  "Hold the next place before the person leaves this one; that is where people are lost.",
+  "For the sickest few, stabilize first, for hours or weeks, then a lease with a team behind it.",
+  "Enforce last, on the record, with the person's worker present.",
 ];
 
 export const HF_SHORT: Record<string, string> = {
-  "Serious mental illness with long or repeated homelessness": "Lease now, ACT team for high need; housed in 73 days versus 220.",
-  "Co-occurring mental illness and substance use": "Housing without prerequisites, one integrated team.",
-  "Frequent jail users": "Reach in, a held bridge bed, supportive housing within months.",
-  "Young adults 18–24 with mental illness": "An immediate lease with case management; youth tailoring untested.",
-  "Families with children": "Works with a permanent subsidy, not a time-limited one.",
-  "Any program calling itself Housing First": "Only at fidelity: a real lease, no readiness test, staffed at one to ten.",
-  "The highest-acuity few in a scarce market": "Master leasing, a risk fund, a response team, capped volume.",
-  "As a treatment for substance use": "Keeps people housed; does not change use. Add medication.",
-  "Someone who cannot plan tonight": "Stabilize first, hours to weeks; offer from the bed; the system holds the lease.",
-  "Someone too sick for a shelter": "Respite first, arranged before discharge.",
-  "Time-limited rapid rehousing as a Housing First substitute": "The subsidy ends before income recovers; track month 25.",
-  "Compulsory treatment as the route in": "An order without a bed and a team is a discharge.",
-  "A region with no units": "A placement rule, not a plan; the constraint is supply.",
+  "Serious mental illness with long or repeated homelessness": "Offer the lease now with an ACT team behind it; in the trial, people were housed in 73 days instead of 220.",
+  "Co-occurring mental illness and substance use": "Housing with no prerequisites and one integrated team, so nobody is told to fix the other problem first.",
+  "Frequent jail users": "Reach the person before release, hold a bridge bed, and get them into supportive housing within a few months.",
+  "Young adults 18–24 with mental illness": "An immediate lease with case management works; youth-specific tailoring has never been tested.",
+  "Families with children": "It works when the subsidy is permanent; time-limited help leaves families no better off.",
+  "Any program calling itself Housing First": "Only when it is the real thing: a normal lease, no readiness test, and enough staff for ten people each.",
+  "The highest-acuity few in a scarce market": "It takes master leasing, a fund for damage and vacancy, a rapid-response team, and a cap on how many at once.",
+  "As a treatment for substance use": "It keeps people housed and out of emergency rooms, but it does not change drug use on its own; medication does.",
+  "Someone who cannot plan tonight": "Stabilize first, for hours or weeks, then make the offer from that bed; the system can hold the lease if signing is in doubt.",
+  "Someone too sick for a shelter": "Medical respite first, arranged before the hospital lets them go.",
+  "Time-limited rapid rehousing as a Housing First substitute": "The subsidy runs out before income recovers; if nobody checks at month 25, the failure stays invisible.",
+  "Compulsory treatment as the route in": "A court order with no bed and no team behind it produces a discharge, not a recovery.",
+  "A region with no units": "It is a rule for placing people, not a plan for building; where there are no units, the constraint is supply.",
 };
 
 export const LANE_SHORT: Record<string, { who: string; firstDoor: string }> = {
@@ -99,10 +99,10 @@ export const LANE_SHORT: Record<string, { who: string; firstDoor: string }> = {
 };
 
 export const RULES_SHORT: string[] = [
-  "Counted where they physically are; queues never add to a headcount.",
-  "Nobody has left until the receiving site writes the arrival.",
-  "Sobering, detox, treatment, respite come first for some; none is the ticket to a lease.",
-  "Every exit carries a named lead, a held next place, a handoff within 7 days.",
+  "A person is counted where they physically are, and a place on a waiting list never adds to the headcount.",
+  "Nobody has left a stage until the place receiving them writes down that they arrived.",
+  "Sobering, detox, treatment, or respite may come first for some people, but none of them is the price of a lease.",
+  "Every exit from an institution carries a named worker, a next place already held, and a handoff within seven days.",
 ];
 
 export const FAIL_SHORT: Record<number, string> = {

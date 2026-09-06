@@ -38,7 +38,7 @@ export default function WhenNo() {
             {OFF_THE_STREET.map((t, i) => (
               <li key={t.slice(0, 40)} className="flex gap-3 px-5 py-3 text-[13.5px] leading-snug text-white/85 sm:px-6">
                 <span className="font-mono text-[12px] font-bold text-[var(--color-ember-bright)]">{i + 1}</span>
-                <span>{OFF_SHORT[i] ?? t}<More>{t}</More></span>
+                <span>{OFF_SHORT[i] ?? t}<More dark>{t}</More></span>
               </li>
             ))}
           </ol>

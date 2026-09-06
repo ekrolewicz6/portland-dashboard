@@ -41,7 +41,7 @@ function Bars({ kind, title }: { kind: "year" | "episode"; title: string }) {
   );
 }
 
-/** What a year, or an episode, costs at each stage where anyone has published it; and the stages where nobody has. */
+/** What a year, or an episode, costs at each stage where anyone has published it; the stages where nobody has; and what to do with the money. */
 export default function CostChart() {
   return (
     <div className="space-y-4">
@@ -52,27 +52,24 @@ export default function CostChart() {
         <Bars kind="year" title="What a year costs, per bed or per person" />
         <Bars kind="episode" title="What one episode costs" />
       </div>
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <div className="rounded-sm border border-dashed border-[var(--color-clay)] bg-[var(--color-clay-tint)] px-5 py-4">
+      <div className="grid gap-[1px] overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-[var(--color-parchment)] md:grid-cols-3">
+        <div className="min-w-0 bg-[var(--color-clay-tint)] px-5 py-5">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-clay)]">Never published: {UNPUBLISHED_COSTS.length} unit costs</p>
-          <ul className="mt-2 grid gap-1 text-[13px] leading-snug text-[var(--color-ink)] sm:grid-cols-2">{UNPUBLISHED_COSTS.map((u) => <li key={u}>{u}</li>)}</ul>
-          <p className="mt-2 text-[12px] text-[var(--color-ink-light)]">First deliverable for these: the unit cost, not an appropriation.</p>
+          <ul className="mt-2 space-y-1 text-[13px] leading-snug text-[var(--color-ink)]">{UNPUBLISHED_COSTS.map((u) => <li key={u}>{u}</li>)}</ul>
+          <p className="mt-3 text-[12px] leading-snug text-[var(--color-ink-light)]">For these, the first thing to ask for is the unit cost, not an appropriation.</p>
         </div>
-        <div className="grid gap-[1px] rounded-sm border border-[var(--color-parchment)] bg-[var(--color-parchment)] sm:grid-cols-2">
-          <div className="bg-white px-5 py-5">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ink-muted)]">A year, per person</p>
-            <div className="mt-2 flex items-end gap-4">
-              <div><p className="font-mono text-[34px] font-bold leading-none text-[var(--color-clay)]">$47,000</p><p className="mt-1 text-[12.5px] text-[var(--color-ink-light)]">a shelter bed</p></div>
-              <span className="pb-4 font-mono text-[18px] text-[var(--color-ink-muted)]">vs</span>
-              <div><p className="font-mono text-[34px] font-bold leading-none text-[var(--color-fern)]">$16,000</p><p className="mt-1 text-[12.5px] text-[var(--color-ink-light)]">supportive housing</p></div>
-            </div>
-            <p className="mt-3 text-[13px] leading-snug text-[var(--color-ink)]">The cheap steps between them (assessment, navigators, rapid rehousing) are the ones that were cut.</p>
-          </div>
-          <div className="bg-[var(--color-canopy)] px-5 py-5 text-white">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ember-bright)]">Now, then later</p>
-            <p className="mt-2 text-[14px] font-semibold leading-snug">Now: restore the defunded doors and build the cheap missing stages. Staff and rules, not buildings.</p>
-            <p className="mt-2 text-[13px] leading-snug text-white/75">Later: shift shelter money toward exits and supportive housing. The big capital (detox, treatment, crisis beds) is state and payer money; the county publishes the need and holds the next bed.</p>
-          </div>
+        <div className="min-w-0 bg-white px-5 py-5">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ink-muted)]">A year, per person</p>
+          <p className="mt-3 font-mono text-[34px] font-bold leading-none tabular-nums text-[var(--color-clay)]">$47,000</p>
+          <p className="mt-1 text-[13px] text-[var(--color-ink-light)]">in a shelter bed</p>
+          <p className="mt-4 font-mono text-[34px] font-bold leading-none tabular-nums text-[var(--color-fern)]">$16,000</p>
+          <p className="mt-1 text-[13px] text-[var(--color-ink-light)]">in supportive housing</p>
+          <p className="mt-4 text-[13px] leading-snug text-[var(--color-ink)]">The inexpensive steps between the two, assessment, navigators, and rapid rehousing, were the ones cut.</p>
+        </div>
+        <div className="min-w-0 bg-[var(--color-canopy)] px-5 py-5 text-white">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ember-bright)]">Now, then later</p>
+          <p className="mt-3 text-[14.5px] font-semibold leading-snug">Now: restore the doors that were defunded and build the missing stages that are cheap. That is staff and rules, not buildings.</p>
+          <p className="mt-3 text-[13px] leading-snug text-white/75">Later: move shelter money toward exits and supportive housing as the front of the continuum starts to work. The expensive capital, detox, treatment, and crisis beds, is state and payer money; the county publishes the need and holds the next bed.</p>
         </div>
       </div>
     </div>
