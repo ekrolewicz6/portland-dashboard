@@ -34,13 +34,14 @@ type FinanceData = {
   }>;
   pcefAllocations: PcefAllocation[];
   pcefInterestDiversions: PcefDiversion[];
+  /** null when no PCEF allocation rows are loaded. */
   summary: {
     totalBureauAllocations: number;
     totalCommunityGrants: number;
     totalInterestDiverted: number;
     allocationSplit: AllocationSplitRow[];
     bureauTotals: Record<string, number>;
-  };
+  } | null;
 };
 
 function formatMoney(n: number, decimals = 0): string {
@@ -81,7 +82,15 @@ export default function FinanceTracker() {
     );
   }
 
-  if (!data) return <p className="text-[var(--color-ink-muted)] text-[14px]">Finance data unavailable.</p>;
+  // The route returns summary: null when no allocation rows are loaded, rather
+  // than standing in remembered dollar totals. Say so instead of rendering.
+  if (!data || !data.summary) {
+    return (
+      <p className="text-[var(--color-ink-muted)] text-[14px]">
+        Climate finance data unavailable.
+      </p>
+    );
+  }
 
   const { summary } = data;
   const totalPcef = summary.totalBureauAllocations + summary.totalCommunityGrants;

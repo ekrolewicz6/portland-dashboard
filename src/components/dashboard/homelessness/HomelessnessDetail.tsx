@@ -47,6 +47,8 @@ interface ShelterQuarter {
   county24hrBeds: number;
   cityOvernightBeds: number;
   utilizationPct: number;
+  /** Citation for this quarter's capacity report, when the row carries one. */
+  source: string | null;
 }
 
 interface HousingPlacement {
@@ -292,8 +294,21 @@ export default function HomelessnessDetail() {
   const multEvictions = evictionFilings.filter((e) => e.county === "Multnomah");
 
   const shelterExitPct = contextStats?.shelter_exit_to_housing_pct;
-  const cityBeds = latestShelter?.cityOvernightBeds ?? Number(contextStats?.city_overnight_beds?.value ?? 1566);
-  const countyBeds = latestShelter?.county24hrBeds ?? 0;
+  // Bed counts come from JOHS quarterly capacity reports, with the
+  // context-stats table as a secondary source. When neither has a value we
+  // render "--" rather than substituting a remembered number: an unsourced
+  // figure displayed beside a citation reads as sourced.
+  const contextCityBeds = Number(contextStats?.city_overnight_beds?.value);
+  const cityBeds =
+    latestShelter?.cityOvernightBeds ??
+    (Number.isFinite(contextCityBeds) && contextCityBeds > 0 ? contextCityBeds : null);
+  const countyBeds = latestShelter?.county24hrBeds ?? null;
+  /**
+   * System-wide occupancy from the JOHS capacity report. The source publishes
+   * one utilization figure for the whole shelter system, not a city/county
+   * split, so this is reported once rather than attributed to either column.
+   */
+  const shelterUtilizationPct = latestShelter?.utilizationPct ?? null;
 
   // Shelter bed inventory
   const sbiTyped = shelterBedInventory as { county: string; totalBeds: number; totalHomeless: number; bedsPctOfPit: number; yearRound: number }[];
@@ -336,10 +351,12 @@ export default function HomelessnessDetail() {
             <div className="flex-1 min-w-[140px]">
               <p className="text-[12px] uppercase tracking-wider opacity-70 mb-1">Promised Beds</p>
               <p className="text-[28px] font-mono font-bold leading-none">
-                {cityBeds.toLocaleString()}
+                {cityBeds !== null ? cityBeds.toLocaleString() : "--"}
               </p>
               <p className="text-[13px] opacity-60 mt-1">
-                {latestShelter ? `${latestShelter.utilizationPct}% utilization` : "city overnight"}
+                {shelterUtilizationPct !== null
+                  ? `${shelterUtilizationPct}% system utilization`
+                  : "city overnight"}
               </p>
             </div>
 
@@ -651,27 +668,49 @@ export default function HomelessnessDetail() {
         <SectionHeader icon={BedDouble} title="The Shelter Paradox" color="#d97706" />
 
         {/* Two boxes: city vs county */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        {/*
+          The JOHS capacity report gives bed counts split by city overnight vs
+          county 24-hour, but publishes only one system-wide utilization
+          figure. The two bed counts are shown per category; occupancy is
+          reported once, below, so neither column carries a rate the source
+          does not break out.
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="bg-amber-50 border border-amber-200 rounded-sm p-5 text-center">
             <p className="text-[11px] font-semibold text-amber-800/60 uppercase tracking-wider mb-1">
               City Overnight Shelters
             </p>
-            <p className="text-[36px] font-mono font-bold text-amber-700 leading-none">50%</p>
-            <p className="text-[13px] text-amber-600/70 mt-1">utilization</p>
-            <p className="text-[12px] text-amber-600/50 mt-0.5">
-              {cityBeds.toLocaleString()} beds
+            <p className="text-[36px] font-mono font-bold text-amber-700 leading-none">
+              {cityBeds !== null ? cityBeds.toLocaleString() : "--"}
             </p>
+            <p className="text-[13px] text-amber-600/70 mt-1">beds</p>
           </div>
           <div className="bg-green-50 border border-green-200 rounded-sm p-5 text-center">
             <p className="text-[11px] font-semibold text-green-800/60 uppercase tracking-wider mb-1">
               County 24-Hour Shelters
             </p>
-            <p className="text-[36px] font-mono font-bold text-green-700 leading-none">87%</p>
-            <p className="text-[13px] text-green-600/70 mt-1">utilization</p>
-            <p className="text-[12px] text-green-600/50 mt-0.5">
-              {countyBeds > 0 ? countyBeds.toLocaleString() : "--"} beds
+            <p className="text-[36px] font-mono font-bold text-green-700 leading-none">
+              {countyBeds !== null && countyBeds > 0 ? countyBeds.toLocaleString() : "--"}
             </p>
+            <p className="text-[13px] text-green-600/70 mt-1">beds</p>
           </div>
+        </div>
+        <div className="bg-[var(--color-paper-warm)] border border-[var(--color-parchment)] rounded-sm p-4 mb-6">
+          {shelterUtilizationPct !== null ? (
+            <p className="text-[13px] text-[var(--color-ink)] leading-relaxed">
+              <strong>System-wide occupancy: {shelterUtilizationPct}%</strong>{" "}
+              across all shelter types in {latestShelter?.quarter ?? "the latest quarter"}.
+              The source reports one occupancy rate for the whole system, so it
+              cannot be split between the two columns above.
+            </p>
+          ) : (
+            <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed">
+              Occupancy rate unavailable for the latest quarter.
+            </p>
+          )}
+          <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 font-mono">
+            Source: {latestShelter?.source ?? "JOHS Shelter Capacity Report"}.
+          </p>
         </div>
 
         {/* By-name list: total on list + net monthly change */}
@@ -903,13 +942,15 @@ export default function HomelessnessDetail() {
         {/* Hidden homelessness callout */}
         <div className="bg-[var(--color-parchment)]/40 border border-[var(--color-parchment)] rounded-sm p-4">
           <p className="text-[13px] text-[var(--color-ink)] leading-relaxed">
-            <strong>Hidden homelessness:</strong> The PIT count misses
-            ~{duStatewide?.estimate.toLocaleString() ?? "21,500"} people doubled up and{" "}
+            <strong>Hidden homelessness:</strong> The PIT count misses people
+            who are doubled up and students experiencing homelessness
+            statewide. Doubled up:{" "}
+            {duStatewide ? `~${duStatewide.estimate.toLocaleString()}` : "not available"}. Students:{" "}
             {(() => {
               const stateTotal = shTyped.reduce((s, r) => s + r.count202425, 0);
-              return stateTotal > 0 ? stateTotal.toLocaleString() : "21,122";
-            })()} students
-            experiencing homelessness statewide. The true scope exceeds 60,000 Oregonians.
+              return stateTotal > 0 ? stateTotal.toLocaleString() : "not available";
+            })()}
+            .
           </p>
           <p className="text-[11px] text-[var(--color-ink-muted)] mt-2 font-mono">
             Source: PSU HRAC 2025 Tables 19-20 &middot; ACS 2024 &middot; ODE Report Card 2024-25.

@@ -107,17 +107,35 @@ export async function GET() {
     };
   });
 
+  // Empty tables mean the PCEF sync has not run. Report that rather than
+  // filling in remembered dollar totals, which would be indistinguishable
+  // from measured ones once rendered beside the PCEF citation.
+  const hasAllocations = pcefAllocations.length > 0 || financeSources.length > 0;
+  if (!hasAllocations) {
+    return NextResponse.json({
+      financeSources: [],
+      pcefAllocations: [],
+      pcefInterestDiversions: [],
+      summary: null,
+      dataStatus: "unavailable",
+      note: "No PCEF allocation rows are loaded. Run the climate sync to populate pcef_allocations.",
+      source: "Portland Clean Energy Fund · Bureau of Planning & Sustainability",
+      lastUpdated: null,
+    });
+  }
+
   return NextResponse.json({
     financeSources,
     pcefAllocations,
     pcefInterestDiversions,
     summary: {
-      totalBureauAllocations: totalBureauAllocations || 740000000,
-      totalCommunityGrants: totalCommunityGrants || 120000000,
-      totalInterestDiverted: totalInterestDiverted || 25000000,
+      totalBureauAllocations,
+      totalCommunityGrants,
+      totalInterestDiverted,
       allocationSplit,
       bureauTotals,
     },
+    dataStatus: "live",
     source: "Portland Clean Energy Fund · Bureau of Planning & Sustainability",
     lastUpdated: new Date().toISOString().slice(0, 10),
     auditNote: "The February 2026 audit found Portland has not been transparent enough about how PCEF funding is used when allocated to bureaus. This tracker makes every dollar visible.",

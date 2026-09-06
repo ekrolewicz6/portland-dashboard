@@ -505,40 +505,54 @@ function ClimateSection({ section }: { section: ReportSection }) {
     <>
       {data && (
         <div className="my-8 space-y-6">
-          {/* Workplan status cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <DataCallout label="Actions Tracked" value={total.toString()} detail="Climate Emergency Workplan" color="#2d6a4f" />
-            <DataCallout label="Achieved" value={`${achieved} (${achievedPct}%)`} detail="Completed as of latest report" color="#4caf82" />
-            <DataCallout label="Ongoing" value={`${ongoing} (${ongoingPct}%)`} detail="Active and on schedule" color="#2d4a6e" />
-            <DataCallout label="Delayed" value={`${delayed} (${delayedPct}%)`} detail="Behind schedule" color="#c84040" />
-          </div>
+          {/* Workplan status cards — only meaningful once actions are tracked. */}
+          {total > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <DataCallout label="Actions Tracked" value={total.toString()} detail="Climate Emergency Workplan" color="#2d6a4f" />
+              <DataCallout label="Achieved" value={`${achieved} (${achievedPct}%)`} detail="Completed as of latest report" color="#4caf82" />
+              <DataCallout label="Ongoing" value={`${ongoing} (${ongoingPct}%)`} detail="Active and on schedule" color="#2d4a6e" />
+              <DataCallout label="Delayed" value={`${delayed} (${delayedPct}%)`} detail="Behind schedule" color="#c84040" />
+            </div>
+          )}
 
-          {/* Emissions stats */}
+          {/*
+            Emissions stats. Each card renders only when the snapshot actually
+            carries its field: a callout that falls back to a remembered
+            constant is indistinguishable, to the reader, from a measured one.
+          */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <DataCallout
-              label={`${data.latestYear ?? 2023} Emissions`}
-              value={`${(data.latestEmissions ?? 7.7).toFixed(1)}M`}
-              detail="MTCO₂e — Multnomah County"
-              color="var(--color-ink)"
-            />
-            <DataCallout
-              label="vs. 1990 Baseline"
-              value={`−${data.reductionFromBaseline ?? 26}%`}
-              detail="1990 baseline: 10.4M MTCO₂e"
-              color="#2d6a4f"
-            />
-            <DataCallout
-              label="2030 Target"
-              value={`${(data.target2030 ?? 5.2).toFixed(1)}M`}
-              detail="50% below 1990 — required by 2030"
-              color="#2d4a6e"
-            />
-            <DataCallout
-              label="Gap to 2030 Goal"
-              value={`${(data.gap ?? 2.5).toFixed(1)}M`}
-              detail="Additional tons to cut in 4 years"
-              color="#c84040"
-            />
+            {data.latestEmissions !== undefined && (
+              <DataCallout
+                label={`${data.latestYear ?? "Latest"} Emissions`}
+                value={`${data.latestEmissions.toFixed(1)}M`}
+                detail="MTCO₂e — Multnomah County"
+                color="var(--color-ink)"
+              />
+            )}
+            {data.reductionFromBaseline !== undefined && (
+              <DataCallout
+                label="vs. 1990 Baseline"
+                value={`−${data.reductionFromBaseline}%`}
+                detail="1990 baseline: 10.4M MTCO₂e"
+                color="#2d6a4f"
+              />
+            )}
+            {data.target2030 !== undefined && (
+              <DataCallout
+                label="2030 Target"
+                value={`${data.target2030.toFixed(1)}M`}
+                detail="50% below 1990 — required by 2030"
+                color="#2d4a6e"
+              />
+            )}
+            {data.gap !== undefined && (
+              <DataCallout
+                label="Gap to 2030 Goal"
+                value={`${data.gap.toFixed(1)}M`}
+                detail="Additional tons still to cut"
+                color="#c84040"
+              />
+            )}
           </div>
 
           {/* PCEF bar */}

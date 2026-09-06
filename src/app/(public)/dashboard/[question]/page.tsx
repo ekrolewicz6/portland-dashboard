@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, BookOpen, MapPin } from "lucide-react";
 import { isValidQuestion, questionMeta } from "@/lib/questions";
 import { deriveDataAsOf } from "@/lib/data-freshness";
+import { getTrendPillClass } from "@/lib/utils";
 import { getBaseUrl } from "@/lib/dashboard-data";
 import type { DashboardResponse } from "@/lib/types";
 import TrendChart from "@/components/charts/TrendChart";
@@ -162,14 +163,14 @@ export default async function QuestionPage({ params }: PageProps) {
 
           {data?.trend && (
             <div className="mt-6 flex items-center gap-4">
+              {/*
+                Colour comes from getTrendPillClass, not from the raw
+                direction: for crime, taxes and homelessness a rise is bad
+                news, and a green "+12%" pill on those topics reads as
+                progress.
+              */}
               <span
-                className={`trend-pill ${
-                  data.trend.direction === "up"
-                    ? "trend-positive"
-                    : data.trend.direction === "down"
-                      ? "trend-negative"
-                      : "trend-neutral"
-                }`}
+                className={`trend-pill ${getTrendPillClass(data.trend.direction, question)}`}
               >
                 {data.trend.direction === "up"
                   ? "+"

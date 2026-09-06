@@ -246,10 +246,15 @@ export async function GET(): Promise<NextResponse<HousingData & { dataStatus: st
     // 12. Zillow ZORI rent data
     let zoriData: ChartPoint[] = [];
     try {
+      // Restricted to the metro-level series that the Zillow loaders write.
+      // The table is keyed (month, zip_code); selecting every zip_code and
+      // labelling the result "Median Rent (ZORI)" would plot a mixture of
+      // series under one metro-level caption.
       const zoriRows = await sql`
         SELECT month::text as date, zori::float as value
         FROM public.housing_rents
         WHERE zori IS NOT NULL
+          AND zip_code = 'metro'
         ORDER BY month
       `;
       zoriData = zoriRows.map((r) => ({

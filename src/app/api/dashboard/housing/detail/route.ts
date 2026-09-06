@@ -159,11 +159,14 @@ export async function GET(): Promise<NextResponse<HousingDetailResponse>> {
       commercial: Number(r.commercial),
     }));
 
-    // 4. Rent trend — REAL Zillow ZORI data
+    // 4. Rent trend — Zillow ZORI, metro-level series only. See the note on
+    // the same query in ../route.ts: the table holds one row per
+    // (month, zip_code), so an unfiltered read mixes geographies.
     const rentRows = await sql`
       SELECT TO_CHAR(month, 'YYYY-MM') AS month, zori::numeric AS rent
       FROM public.housing_rents
       WHERE zori IS NOT NULL
+        AND zip_code = 'metro'
       ORDER BY month
     `;
     const rentTrendData = rentRows.length > 0

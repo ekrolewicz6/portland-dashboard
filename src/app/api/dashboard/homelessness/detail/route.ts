@@ -221,6 +221,7 @@ export async function GET() {
         county24hrBeds: Number(r.county_24hr_beds),
         cityOvernightBeds: Number(r.city_overnight_beds),
         utilizationPct: Number(r.utilization_pct),
+        source: r.source ? String(r.source) : null,
       })),
       housingPlacements: housingPlacements.map((r) => ({
         fiscalYear: String(r.fiscal_year),

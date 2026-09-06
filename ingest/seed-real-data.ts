@@ -519,8 +519,12 @@ async function insertIntoDb(
       ALTER TABLE housing.permits ADD COLUMN IF NOT EXISTS neighborhood TEXT
     `);
 
-    // Truncate to avoid stale data on re-run
-    await sql.unsafe(`TRUNCATE housing.permits RESTART IDENTITY`);
+    // No TRUNCATE here. housing.permits is maintained incrementally by
+    // /api/cron/sync-permits, which upserts daily and holds history this
+    // one-shot ArcGIS pull does not cover (it applies a 2023 cutoff and only
+    // sees a subset of statuses). Wiping the table would silently discard
+    // that. The insert below is idempotent via ON CONFLICT, so re-running
+    // this seeder tops up missing rows instead of replacing the table.
 
     console.log(`  Inserting ${permits.length} permits ...`);
     let permitCount = 0;
@@ -555,47 +559,21 @@ async function insertIntoDb(
     }
     console.log(`    Inserted ${permitCount} permits`);
 
-    // ── Crime monthly aggregates table ──────────────────────────────────
-    await sql.unsafe(`
-      CREATE TABLE IF NOT EXISTS safety.crime_monthly (
-        id                SERIAL PRIMARY KEY,
-        month             DATE NOT NULL,
-        category          TEXT NOT NULL,
-        count             INTEGER NOT NULL DEFAULT 0,
-        created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
-        UNIQUE (month, category)
-      )
-    `);
+    // Crime aggregates are deliberately NOT written here.
+    //
+    // The three Crime MapServer layers fetched above return one feature per
+    // GRID CELL, not per offence. Counting features and storing the result as
+    // a monthly crime total is the exact mistake KNOWN_ISSUES.md warns about
+    // ("Grid layers count CELLS, not crimes"), and stamping a point-in-time
+    // snapshot with the current month compounds it — the same layer re-read
+    // tomorrow is not a second month of data.
+    //
+    // Offence-level crime data comes from /api/cron/sync-crime, which loads
+    // the PPB open-data CSV into safety.ppb_offenses. That is what every
+    // safety route reads. Nothing consumed safety.crime_monthly.
 
-    console.log("  Inserting crime monthly aggregates ...");
-    const now = new Date();
-    const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-01`;
-    const crimeCounts: Record<string, number> = {};
-    for (const r of crime) {
-      crimeCounts[r.category] = (crimeCounts[r.category] ?? 0) + 1;
-    }
-    for (const [cat, count] of Object.entries(crimeCounts)) {
-      await sql`
-        INSERT INTO safety.crime_monthly (month, category, count)
-        VALUES (${currentMonth}::date, ${cat}, ${count})
-        ON CONFLICT (month, category) DO UPDATE SET count = ${count}
-      `;
-    }
-    console.log(
-      `    Inserted ${Object.keys(crimeCounts).length} crime category aggregates`
-    );
+    const currentMonth = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}-01`;
 
-    // ── Graffiti monthly table ──────────────────────────────────────────
-    await sql.unsafe(`
-      CREATE TABLE IF NOT EXISTS safety.graffiti_monthly (
-        id                SERIAL PRIMARY KEY,
-        month             DATE NOT NULL UNIQUE,
-        count             INTEGER NOT NULL DEFAULT 0,
-        created_at        TIMESTAMPTZ NOT NULL DEFAULT now()
-      )
-    `);
-
-    console.log("  Inserting graffiti monthly aggregate ...");
     await sql`
       INSERT INTO safety.graffiti_monthly (month, count)
       VALUES (${currentMonth}::date, ${graffiti.length})
@@ -818,11 +796,19 @@ async function insertIntoDb(
       },
     };
 
-    // Crime stats
+    // Crime stats. These are GRID CELL counts from the Crime MapServer, not
+    // offence counts — the key names say so, so nothing downstream can mistake
+    // a cell tally for a crime tally. See the note above.
+    const crimeGridCellsByCategory: Record<string, number> = {};
+    for (const r of crime) {
+      crimeGridCellsByCategory[r.category] =
+        (crimeGridCellsByCategory[r.category] ?? 0) + 1;
+    }
     const crimeCache = {
-      total_records: crime.length,
-      by_category: crimeCounts,
-      snapshot_month: currentMonth,
+      grid_cells_total: crime.length,
+      grid_cells_by_category: crimeGridCellsByCategory,
+      snapshot_date: new Date().toISOString().slice(0, 10),
+      note: "Grid cell counts from the Portland Maps Crime MapServer. NOT offence counts. Offence-level data lives in safety.ppb_offenses.",
     };
 
     // Graffiti stats

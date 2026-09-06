@@ -98,25 +98,51 @@ export async function GET(req: NextRequest) {
   if (filterPcef === "true") filtered = filtered.filter((a) => a.isPcefFunded);
 
   // Summary stats from full (unfiltered) action list
-  const allActions = actions as Array<{ status: string }>;
+  const allActions = actions as Array<{ status: string; updatedAt: unknown }>;
+  // Freshness comes from the newest row we actually read, not from the clock
+  // and not from a date frozen in source.
+  const latestUpdatedAt =
+    allActions
+      .map((a) => (a.updatedAt ? new Date(String(a.updatedAt)) : null))
+      .filter((d): d is Date => d !== null && !Number.isNaN(d.getTime()))
+      .sort((a, b) => b.getTime() - a.getTime())[0]
+      ?.toISOString()
+      .slice(0, 10) ?? null;
   const achieved = allActions.filter((a) => a.status === "achieved").length;
   const ongoing = allActions.filter((a) => a.status === "ongoing").length;
   const delayed = allActions.filter((a) => a.status === "delayed").length;
   const total = allActions.length;
 
+  // An empty climate_workplan_actions table means the sync has not run or has
+  // failed. Report that, rather than substituting remembered counts: a summary
+  // reading "43 actions, 6 achieved" beside a BPS citation is indistinguishable
+  // from a measured one.
+  if (total === 0) {
+    return NextResponse.json({
+      actions: [],
+      summary: null,
+      statusHistory: [],
+      dataStatus: "unavailable",
+      note: "No Climate Emergency Workplan actions are loaded. Run the climate sync to populate climate_workplan_actions.",
+      source: "Portland Bureau of Planning & Sustainability · Climate Emergency Workplan",
+      lastUpdated: null,
+    });
+  }
+
   return NextResponse.json({
     actions: filtered,
     summary: {
-      total: total || 43,
-      achieved: achieved || 6,
-      ongoing: ongoing || 33,
-      delayed: delayed || 4,
-      achievedPct: total > 0 ? Math.round((achieved / total) * 100) : 13,
-      ongoingPct: total > 0 ? Math.round((ongoing / total) * 100) : 79,
-      delayedPct: total > 0 ? Math.round((delayed / total) * 100) : 9,
+      total,
+      achieved,
+      ongoing,
+      delayed,
+      achievedPct: Math.round((achieved / total) * 100),
+      ongoingPct: Math.round((ongoing / total) * 100),
+      delayedPct: Math.round((delayed / total) * 100),
     },
     statusHistory,
+    dataStatus: "live",
     source: "Portland Bureau of Planning & Sustainability · Climate Emergency Workplan",
-    lastUpdated: "2025-08-01",
+    lastUpdated: latestUpdatedAt,
   });
 }

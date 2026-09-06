@@ -88,13 +88,30 @@ export async function GET() {
       }
     : null;
 
+  // Without an inventory row there is nothing to summarise. Reporting
+  // "unavailable" is the honest answer; the remembered 2023 figures that used
+  // to stand in here would render as a live measurement.
+  if (!latest || !baseline1990) {
+    return NextResponse.json({
+      actuals: actualsWithPerCapita,
+      targets,
+      summary: null,
+      dataStatus: "unavailable",
+      note: !latest
+        ? "No greenhouse gas inventory rows are loaded. Run the climate sync to populate climate_emissions_trajectory."
+        : "The 1990 baseline row is missing, so reductions against baseline cannot be computed.",
+      source: "Bureau of Planning & Sustainability · Multnomah County Greenhouse Gas Inventory",
+      lastUpdated: null,
+    });
+  }
+
   return NextResponse.json({
     actuals: actualsWithPerCapita,
     targets,
     summary: {
-      latestYear: latest?.year ?? 2023,
-      latestTotalMtco2e: latest?.totalMtco2e ?? 7.7,
-      baseline1990Mtco2e: baseline1990?.totalMtco2e ?? 10.4,
+      latestYear: latest.year,
+      latestTotalMtco2e: latest.totalMtco2e,
+      baseline1990Mtco2e: baseline1990.totalMtco2e,
       reductionFromBaseline,
       target2030Mtco2e: 5.2,
       target2050Mtco2e: 0,
@@ -102,7 +119,10 @@ export async function GET() {
       sectorSummary,
       currentTrajectoryNote: "At the current pace of reduction (~0.12M MTCO2e/year), Portland will reach only ~6.5M MTCO2e by 2030. The 2030 goal requires ~0.42M MTCO2e/year — more than 3× the current rate.",
     },
+    dataStatus: "live",
     source: "Bureau of Planning & Sustainability · Multnomah County Greenhouse Gas Inventory",
-    lastUpdated: "2025-08-01",
+    // The inventory is annual; freshness is the latest inventory year, not a
+    // date frozen in source.
+    lastUpdated: String(latest.year),
   });
 }

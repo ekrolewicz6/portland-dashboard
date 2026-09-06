@@ -653,6 +653,18 @@ export function getQuestionStatus(questionId: QuestionId): QuestionDataStatus {
   return QUESTION_DATA_STATUS[questionId];
 }
 
+/**
+ * Look up a question's data status from an untrusted slug (a route param, or
+ * an id carried on a fetched payload). Returns null when the slug is not a
+ * known question, so callers can omit the badge rather than render an
+ * undefined one.
+ */
+export function getQuestionStatusBySlug(slug: string): QuestionDataStatus | null {
+  return Object.prototype.hasOwnProperty.call(QUESTION_DATA_STATUS, slug)
+    ? QUESTION_DATA_STATUS[slug as QuestionId]
+    : null;
+}
+
 /** Get a user-friendly badge variant for the UI */
 export function getBadgeVariant(
   status: DataSourceStatus,

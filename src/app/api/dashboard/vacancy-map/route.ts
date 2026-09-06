@@ -12,8 +12,8 @@ const SOURCE =
  *
  * GeoJSON FeatureCollection of available commercial spaces, built from
  * real_estate.listings (the same table that powers /api/real-estate/listings
- * and the /spaces browse view). Previously this route returned a hardcoded
- * mock snapshot from src/lib/mock-data.ts, frozen at 2026-03-07.
+ * and the /spaces browse view). This route previously returned a hardcoded
+ * snapshot frozen at 2026-03-07; that fixture module has since been deleted.
  *
  * Response keys are kept stable for the map consumer:
  *   features[].properties.{address,type,sqft,vacantSince,askingRent,neighborhood}
