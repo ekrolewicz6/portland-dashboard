@@ -1,6 +1,7 @@
 import { BALANCE, CONTINUUM, PHASES, TONIGHT } from "@/lib/homeless/continuum";
 import type { Basis } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
+import More from "./More";
 
 const BASIS: Record<Basis, { label: string; cls: string }> = {
   counted: { label: "counted", cls: "bg-[var(--color-sage-tint)] text-[var(--color-fern)]" },
@@ -46,10 +47,7 @@ export default function SystemBalance() {
             {(Object.keys(BASIS) as Basis[]).map((b) => <li key={b}><Chip b={b} /></li>)}
           </ul>
         </div>
-        <p className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-3 text-[13px] leading-relaxed text-[var(--color-ink-light)] sm:px-6">
-          <span className="mr-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ink-muted)]">How to read this</span>
-          One row per stage. Left: how many people are in it, or the best figure that exists, with a chip saying whether it is counted, our estimate (with the arithmetic), or unknown. Middle: the support that exists there, in the unit that matters (beds, slots, staff, placements). Right: the coverage that implies, on the basis stated. Red means under one in five, or that nobody can say. The units differ by stage on purpose; a sobering station is not a lease.
-        </p>
+        <p className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-2.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[var(--color-ink-muted)] sm:px-6">left: people in the stage · middle: support that exists · right: coverage · red = under one in five, or nobody can say</p>
         <ol className="divide-y divide-[var(--color-parchment)]">
           {BALANCE.map((b) => {
             const s = stage.get(b.stageId);
@@ -69,7 +67,7 @@ export default function SystemBalance() {
                     <span className="text-[13px] font-medium text-[var(--color-ink)]">{b.people.label}</span>
                     <Chip b={b.people.basis} />
                   </div>
-                  <p className="mt-1 text-[12px] leading-snug text-[var(--color-ink-light)]">{b.people.how}</p>
+                  <More label="how">{b.people.how}</More>
                   <SourceLinks ids={b.people.src} />
                 </div>
                 <div>
@@ -78,7 +76,7 @@ export default function SystemBalance() {
                     <span className="text-[13px] font-medium text-[var(--color-ink)]">{b.support.label}</span>
                     <Chip b={b.support.basis} />
                   </div>
-                  <p className="mt-1 text-[12px] leading-snug text-[var(--color-ink-light)]">{b.support.how}</p>
+                  <More label="how">{b.support.how}</More>
                   <SourceLinks ids={b.support.src} />
                 </div>
                 <div>
@@ -100,7 +98,7 @@ export default function SystemBalance() {
           })}
         </ol>
         <p className="border-t border-[var(--color-parchment)] px-5 py-3 text-[12.5px] leading-relaxed text-[var(--color-ink-muted)] sm:px-6">
-          Five of fourteen stages cannot be put on this board at all, because nobody counts the people in them. That is not a gap in the board; it is the first finding. Every figure links to the document it came from; the memo carries the full registry.
+          Five of fourteen stages cannot be placed on this board, because nobody counts the people in them. That is the first finding.
         </p>
       </div>
     </div>

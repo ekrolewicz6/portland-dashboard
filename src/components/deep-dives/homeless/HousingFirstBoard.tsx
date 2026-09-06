@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { HOUSING_FIRST } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
+import { HF_SHORT } from "@/lib/homeless/continuum-short";
 
 const GROUPS = [
   { verdict: "works", label: "Works", sub: "offer the lease now", color: "var(--color-fern)", tint: "var(--color-sage-tint)" },
@@ -17,7 +18,7 @@ export default function HousingFirstBoard() {
     <div className="space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">A placement rule, case by case</p>
-        <button type="button" onClick={() => setEv(!ev)} aria-pressed={ev} className={`min-h-[36px] rounded-sm border px-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${ev ? "border-[var(--color-canopy)] bg-[var(--color-canopy)] text-white" : "border-[var(--color-parchment)] bg-white text-[var(--color-ink-light)] hover:border-[var(--color-sage)]"}`}>{ev ? "Hide the evidence" : "Show the evidence"}</button>
+        <button type="button" onClick={() => setEv(!ev)} aria-pressed={ev} className={`min-h-[36px] rounded-sm border px-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${ev ? "border-[var(--color-canopy)] bg-[var(--color-canopy)] text-white" : "border-[var(--color-parchment)] bg-white text-[var(--color-ink-light)] hover:border-[var(--color-sage)]"}`}>{ev ? "Hide the full rule and evidence" : "Show the full rule and evidence"}</button>
       </div>
       <div className="grid gap-4 xl:grid-cols-3 xl:items-start">
         {GROUPS.map((g) => {
@@ -35,7 +36,8 @@ export default function HousingFirstBoard() {
                 {rules.map((r) => (
                   <li key={r.who} className="px-5 py-4">
                     <p className="text-[14.5px] font-semibold leading-tight text-[var(--color-ink)]">{r.who}</p>
-                    <p className="mt-1.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{r.finding}</p>
+                    <p className="mt-1 text-[13px] leading-snug text-[var(--color-ink-light)]">{HF_SHORT[r.who] ?? r.finding}</p>
+                    {ev ? <p className="mt-1.5 text-[12.5px] leading-snug text-[var(--color-ink-light)]">{r.finding}</p> : null}
                     {ev ? <div className="mt-2 rounded-sm px-2.5 py-2" style={{ backgroundColor: g.tint }}><p className="text-[12px] leading-snug text-[var(--color-ink-light)]"><span className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">Evidence · </span>{r.evidence}</p><SourceLinks ids={[r.source]} /></div> : null}
                   </li>
                 ))}

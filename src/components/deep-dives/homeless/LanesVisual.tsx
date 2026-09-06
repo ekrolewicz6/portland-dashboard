@@ -1,6 +1,8 @@
 import { EXTRA_COHORTS, LANES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import SourceLinks from "./SourceLinks";
+import More from "./More";
+import { LANE_SHORT } from "@/lib/homeless/continuum-short";
 
 const SHARE = [80, 10, 10];
 const PEOPLE = ["14,000–17,000", "4,000–5,000", "900–1,200"];
@@ -42,17 +44,16 @@ export default function LanesVisual() {
           <div key={l.id} className="rounded-sm border border-[var(--color-parchment)] bg-white">
             <div className="border-b-[3px] px-5 pt-4 pb-3" style={{ borderColor: l.color }}>
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: l.color }}>{l.name}</p>
-              <p className="mt-1 text-[15px] font-semibold leading-snug text-[var(--color-canopy)]">{l.who}</p>
+              <p className="mt-1 text-[15px] font-semibold leading-snug text-[var(--color-canopy)]">{LANE_SHORT[l.id]?.who ?? l.who}</p>
             </div>
             <div className="space-y-3 px-5 py-4">
               <div>
                 <p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">You can see or ask</p>
                 <ul className="mt-1 flex flex-wrap gap-1.5">{l.criteria.map((c) => <li key={c} className="rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-2 py-0.5 text-[12px] text-[var(--color-ink-light)]">{c}</li>)}</ul>
               </div>
-              <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">First door</p><p className="mt-0.5 text-[13.5px] font-medium leading-snug text-[var(--color-ink)]">{l.firstDoor}</p></div>
-              <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Housing First here</p><p className="mt-0.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{l.housingFirst}</p></div>
+              <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">First door</p><p className="mt-0.5 text-[13.5px] font-medium leading-snug text-[var(--color-ink)]">{LANE_SHORT[l.id]?.firstDoor ?? l.firstDoor}</p></div>
               <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Success looks like</p><p className="mt-0.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{l.successLooksLike}</p></div>
-              <div><p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Scale</p><p className="mt-0.5 text-[12.5px] leading-snug text-[var(--color-ink-light)]">{l.scale}</p><SourceLinks ids={l.src ?? []} /></div>
+              <p className="text-[12.5px] text-[var(--color-ink-muted)]"><More label="Housing First here, and scale">{l.housingFirst} {l.scale}</More><SourceLinks ids={l.src ?? []} /></p>
               <div className="flex flex-wrap gap-1.5 pt-1">{l.cohorts.map((c) => <span key={c} className="rounded-full border border-[var(--color-parchment)] px-2 py-0.5 text-[11px] text-[var(--color-ink-muted)]">{cohortName.get(c) ?? EXTRA_COHORTS[c] ?? c}</span>)}</div>
             </div>
           </div>

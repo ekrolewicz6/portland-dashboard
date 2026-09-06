@@ -1,5 +1,7 @@
 import { OFF_THE_STREET, POLICE_ROLE, REFUSAL_LADDER } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
+import More from "./More";
+import { LADDER_SHORT, OFF_SHORT, POLICE_SHORT } from "@/lib/homeless/continuum-short";
 
 /** What happens when someone says no, where police belong, and how people actually get off the street. */
 export default function WhenNo() {
@@ -14,7 +16,7 @@ export default function WhenNo() {
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-canopy)] font-mono text-[13px] font-bold text-white">{s.n}</span>
             <div>
               <p className="text-[15px] font-semibold leading-snug text-[var(--color-canopy)]">{s.title}</p>
-              <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">{s.body}</p>
+              <p className="mt-1 text-[13.5px] leading-snug text-[var(--color-ink-light)]">{LADDER_SHORT[s.n] ?? s.body}<More>{s.body}</More></p>
               {s.law ? <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">Law · {s.law}</p> : null}
               <SourceLinks ids={s.src ?? []} />
             </div>
@@ -25,8 +27,8 @@ export default function WhenNo() {
         <div className="rounded-sm border border-[var(--color-parchment)] bg-white">
           <p className="border-b border-[var(--color-parchment)] px-5 pt-4 pb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-clay)] sm:px-6">Where police belong</p>
           <ul className="divide-y divide-[var(--color-parchment)]">
-            {POLICE_ROLE.map((t) => (
-              <li key={t.slice(0, 40)} className="px-5 py-3 text-[13.5px] leading-relaxed text-[var(--color-ink-light)] sm:px-6">{t}</li>
+            {POLICE_ROLE.map((t, i) => (
+              <li key={t.slice(0, 40)} className="px-5 py-3 text-[13.5px] leading-snug text-[var(--color-ink)] sm:px-6">{POLICE_SHORT[i] ?? t}<More>{t}</More></li>
             ))}
           </ul>
         </div>
@@ -34,9 +36,9 @@ export default function WhenNo() {
           <p className="border-b border-white/10 px-5 pt-4 pb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember-bright)] sm:px-6">How people actually get off the street</p>
           <ol className="divide-y divide-white/10">
             {OFF_THE_STREET.map((t, i) => (
-              <li key={t.slice(0, 40)} className="flex gap-3 px-5 py-3 text-[13.5px] leading-relaxed text-white/80 sm:px-6">
+              <li key={t.slice(0, 40)} className="flex gap-3 px-5 py-3 text-[13.5px] leading-snug text-white/85 sm:px-6">
                 <span className="font-mono text-[12px] font-bold text-[var(--color-ember-bright)]">{i + 1}</span>
-                <span>{t}</span>
+                <span>{OFF_SHORT[i] ?? t}<More>{t}</More></span>
               </li>
             ))}
           </ol>

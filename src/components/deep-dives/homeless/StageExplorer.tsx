@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ACCOUNTABILITY, BALANCE, CONTINUUM, EXTRA_COHORTS, GAP_SIGNALS, PHASES, STAGE_BARS, STAGE_COSTS, STAGE_MODES, STAGE_ROLES } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
+import { STAGE_SHORT } from "@/lib/homeless/continuum-short";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import type { CountStatus } from "@/lib/homeless/continuum-types";
 
@@ -19,6 +20,7 @@ const STATUS: Record<CountStatus, { label: string; cls: string; dot: string; bg:
   unknown: { label: "Not counted", cls: "text-[var(--color-clay)]", dot: "bg-[var(--color-clay)]", bg: "bg-[var(--color-clay-tint)]" },
 };
 const TABS = [
+  { id: "overview", label: "Overview" },
   { id: "what", label: "What it is" },
   { id: "modes", label: "Works / fails" },
   { id: "who", label: "Who does what" },
@@ -39,7 +41,7 @@ function Tile({ k, children, tone = "plain" }: { k: string; children: React.Reac
 
 export default function StageExplorer() {
   const [sel, setSel] = useState("unsheltered-active");
-  const [tab, setTab] = useState<Tab>("what");
+  const [tab, setTab] = useState<Tab>("overview");
   const idx = CONTINUUM.findIndex((s) => s.id === sel);
   const s = CONTINUUM[idx];
   const phase = PHASES.find((p) => p.key === s.phase);
@@ -50,6 +52,7 @@ export default function StageExplorer() {
   const cost = STAGE_COSTS.find((c) => c.stageId === sel);
   const gap = GAP_SIGNALS.find((g) => g.stageId === sel);
   const bars = STAGE_BARS[sel] ?? [];
+  const sh = STAGE_SHORT[sel];
   const bal = BALANCE.find((b) => b.stageId === sel);
   const stageSrc = Array.from(new Set([...(bal?.people.src ?? []), ...(bal?.support.src ?? []), s.gapSource].filter((x): x is string => Boolean(x))));
   const cohortName = new Map(PLACEMENT_COHORTS.map((c) => [c.id, c.cohort]));
@@ -60,7 +63,7 @@ export default function StageExplorer() {
       {/* navigator */}
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-[var(--color-parchment)] px-5 pt-4 pb-3 sm:px-6">
         <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">Pick a stage</p>
-        <p className="font-mono text-[11px] text-[var(--color-ink-muted)]">six phases, fourteen stages, in order · dot = whether anyone can count who is there today</p>
+        <p className="font-mono text-[11px] text-[var(--color-ink-muted)]">fourteen stages in order · dot = can anyone count who is there today</p>
       </div>
       <ol className="divide-y divide-[var(--color-parchment)] border-b border-[var(--color-parchment)]">
         {PHASES.map((p) => {
@@ -105,8 +108,8 @@ export default function StageExplorer() {
           <div>
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em]" style={{ color: phase?.color }}>{String(idx + 1).padStart(2, "0")} · {phase?.label} · {phase?.sub}</p>
             <h3 className="mt-1 font-editorial-normal text-[28px] leading-tight text-[var(--color-canopy)] sm:text-[32px]">{s.name}</h3>
-            <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">{s.purpose}</p>
-            <p className="mt-2 text-[12.5px] text-[var(--color-ink-muted)]"><span className="font-mono text-[9.5px] uppercase tracking-[0.12em]">Clock · </span>{s.duration}</p>
+            <p className="mt-2 max-w-3xl text-[15px] leading-snug text-[var(--color-ink-light)]">{sh.purpose}</p>
+            <p className="mt-2 text-[12.5px] text-[var(--color-ink-muted)]"><span className="font-mono text-[9.5px] uppercase tracking-[0.12em]">Clock · </span>{s.duration.split(";")[0].split(". ")[0]}</p>
           </div>
           <div className="space-y-3">
             <div className={`rounded-sm px-4 py-3 ${st.bg}`}>
@@ -140,6 +143,16 @@ export default function StageExplorer() {
         </div>
 
         <div className="mt-4">
+          {tab === "overview" ? (
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+              <Tile k="What exists">{sh.exists}</Tile>
+              <Tile k="The gap" tone="bad">{sh.gap}</Tile>
+              <Tile k="Do now" tone="dark">{sh.doNow}</Tile>
+              <Tile k="The number to publish" tone="good">{sh.metric}</Tile>
+              <Tile k="Who answers" tone={sh.owner.startsWith("Nobody") ? "bad" : "plain"}>{sh.owner}</Tile>
+              {modes ? <Tile k="How it fails"><ul className="space-y-1">{modes.failure.slice(0, 3).map((x) => <li key={x}>{x}</li>)}</ul></Tile> : null}
+            </div>
+          ) : null}
           {tab === "what" ? (
             <div className="space-y-3">
               <div className="grid gap-3 md:grid-cols-3">

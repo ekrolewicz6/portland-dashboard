@@ -1,22 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import { SRC } from "@/lib/homeless/continuum";
 
-/** Inline source links for a figure: the documents it came from, by short title. */
+/** Sources for a figure: a small count by default, the linked documents on tap. */
 export default function SourceLinks({ ids, dark = false }: { ids: string[]; dark?: boolean }) {
-  const known = ids.filter((id) => SRC[id]);
+  const [on, setOn] = useState(false);
+  const known = Array.from(new Set(ids.filter((id) => SRC[id])));
   if (!known.length) return null;
+  const base = dark ? "text-white/50 hover:text-white" : "text-[var(--color-ink-muted)] hover:text-[var(--color-canopy)]";
   return (
-    <p className={`mt-1.5 font-mono text-[10px] leading-snug ${dark ? "text-white/45" : "text-[var(--color-ink-muted)]"}`}>
-      <span className="uppercase tracking-[0.1em]">Source{known.length > 1 ? "s" : ""} · </span>
-      {known.map((id, i) => {
-        const s = SRC[id];
-        if (!s) return null;
-        return (
-          <span key={id}>
-            {i > 0 ? "; " : ""}
-            <a href={s.u} target="_blank" rel="noopener noreferrer" className={`underline decoration-dotted underline-offset-2 ${dark ? "hover:text-white" : "hover:text-[var(--color-canopy)]"}`}>{s.t}</a>
-          </span>
-        );
-      })}
-    </p>
+    <span className="mt-1.5 block font-mono text-[10px] leading-snug">
+      <button type="button" onClick={() => setOn(!on)} aria-expanded={on} className={`underline decoration-dotted underline-offset-2 uppercase tracking-[0.1em] ${base}`}>
+        {known.length === 1 ? "source" : `${known.length} sources`}
+      </button>
+      {on ? (
+        <span className={`mt-1 block ${dark ? "text-white/60" : "text-[var(--color-ink-light)]"}`}>
+          {known.map((id, i) => (
+            <span key={id}>{i > 0 ? "; " : ""}<a href={SRC[id].u} target="_blank" rel="noopener noreferrer" className={`underline decoration-dotted underline-offset-2 ${base}`}>{SRC[id].t}</a></span>
+          ))}
+        </span>
+      ) : null}
+    </span>
   );
 }

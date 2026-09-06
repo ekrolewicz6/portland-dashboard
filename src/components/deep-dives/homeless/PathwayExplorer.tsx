@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { CONTINUUM, EXTRA_COHORTS, PATHWAYS, PHASES } from "@/lib/homeless/continuum";
 import { PLACEMENT_COHORTS } from "@/lib/homeless/data";
 import SourceLinks from "./SourceLinks";
+import More from "./More";
+import { PATHWAY_SHORT } from "@/lib/homeless/continuum-short";
 
 /**
  * Pick a person; see their path. Twelve cohorts, each an ordered chain of
@@ -42,7 +44,7 @@ export default function PathwayExplorer() {
 
       {/* All 14 stages as a track; the path lights up */}
       <div className="px-4 pt-5 pb-2 sm:px-5">
-        <p className="mb-3 text-[12.5px] leading-relaxed text-[var(--color-ink-light)]">The fourteen stages in order, left to right then down. The ones this person passes through light up with their step number; the amber circle is the first door.</p>
+        <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[var(--color-ink-muted)]">the fourteen stages in order · lit = on this path · amber = first door</p>
         <ol className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:grid-cols-7">
           {CONTINUUM.map((s) => {
             const n = inPath.get(s.id);
@@ -70,7 +72,7 @@ export default function PathwayExplorer() {
             </li>
           ))}
         </ol>
-        <p className="mt-3 max-w-4xl text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">{path.why}</p>
+        <p className="mt-3 max-w-4xl text-[14px] leading-snug text-[var(--color-ink)]">{PATHWAY_SHORT[path.cohort] ?? path.why}<More label="why this order">{path.why}</More></p>
         <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">
           strongest evidence for this order: <span className="text-[var(--color-fern)]">{path.evidence}</span>
           <span className="ml-3 normal-case tracking-normal">· the <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-ember)] align-middle font-mono text-[9px] font-bold text-[var(--color-canopy)]">1</span> is the door that has to exist first</span>

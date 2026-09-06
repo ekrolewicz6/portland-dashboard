@@ -1,4 +1,6 @@
 import { ACCOUNTABILITY_LADDER, NEVER_A_FAILURE, WHO_ENFORCES } from "@/lib/homeless/continuum";
+import More from "./More";
+import { ENFORCER_SHORT, FAIL_SHORT } from "@/lib/homeless/continuum-short";
 
 /** What happens when a stage fails, who enforces it, and what is never counted as a worker's failure. */
 export default function FailureLadder() {
@@ -13,7 +15,7 @@ export default function FailureLadder() {
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-clay)] font-mono text-[13px] font-bold text-white">{s.n}</span>
             <div>
               <p className="text-[15px] font-semibold leading-snug text-[var(--color-canopy)]">{s.title}</p>
-              <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">{s.body}</p>
+              <p className="mt-1 text-[13.5px] leading-snug text-[var(--color-ink-light)]">{FAIL_SHORT[s.n] ?? s.body}<More>{s.body}</More></p>
             </div>
           </li>
         ))}
@@ -30,13 +32,13 @@ export default function FailureLadder() {
           {WHO_ENFORCES.map((w) => (
             <li key={w.body} className="px-5 py-3.5 sm:px-6">
               <p className="text-[14px] font-semibold leading-snug text-[var(--color-canopy)]">{w.body}</p>
-              <p className="mt-0.5 text-[13px] leading-relaxed text-[var(--color-ink-light)]">{w.holds}</p>
+              <p className="mt-0.5 text-[13px] leading-snug text-[var(--color-ink-light)]">{ENFORCER_SHORT[w.body] ?? w.holds}<More>{w.holds}</More></p>
             </li>
           ))}
         </ul>
         <p className="border-t border-[var(--color-parchment)] bg-[var(--color-canopy)] px-5 py-4 text-[13.5px] leading-relaxed text-white/85 sm:px-6">
           <span className="mr-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ember-bright)]">The missing owner</span>
-          No one answers for the whole continuum today. The design asks for one system director, accountable to a joint city-county body, whose only product is the weekly table. Houston and Hennepin County both run that way.
+          No one answers for the whole continuum today. The design asks for one system director, accountable to a joint city-county body, whose product is the weekly table.
         </p>
       </div>
     </div>

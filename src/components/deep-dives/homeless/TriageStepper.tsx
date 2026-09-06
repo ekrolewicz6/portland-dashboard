@@ -4,6 +4,8 @@ import { useState } from "react";
 import { ArrowRight, RotateCcw } from "lucide-react";
 import { CONTINUUM, FIRST_DOOR, FIRST_DOOR_RULES } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
+import More from "./More";
+import { FIRST_DOOR_SHORT } from "@/lib/homeless/continuum-short";
 
 /** Walk the six questions the way a responder would: answer yes or no, in order, and land on a door. */
 export default function TriageStepper() {
@@ -46,11 +48,11 @@ export default function TriageStepper() {
         <div className={`rounded-sm border p-4 transition-opacity sm:p-5 ${done == null ? "border-dashed border-[var(--color-parchment)] opacity-60" : "border-[var(--color-canopy)]"}`}>
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-fern)]">{done == null ? "If yes, the first door is" : "The first door"}</p>
           <p className="mt-1 text-[18px] font-semibold leading-snug text-[var(--color-canopy)]">{q.door}</p>
-          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">{q.ifYes}</p>
+          <p className="mt-2 text-[13px] leading-snug text-[var(--color-ink-light)]">{q.ifYes.split(". ")[0]}.<More label="the full instruction">{q.ifYes}</More></p>
           <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">stage {String(CONTINUUM.findIndex((s) => s.id === q.stageId) + 1).padStart(2, "0")} · {stage?.name}</p>
           <div className="mt-3 rounded-sm border border-dashed border-[var(--color-clay)] bg-[var(--color-clay-tint)] px-4 py-3">
             <p className="font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] text-[var(--color-clay)]">That door in Portland tonight</p>
-            <p className="mt-1 text-[13px] leading-relaxed text-[var(--color-ink)]">{q.today}</p>
+            <p className="mt-1 text-[13.5px] font-medium leading-snug text-[var(--color-ink)]">{FIRST_DOOR_SHORT[q.n] ?? q.today}<More label="all the doors">{q.today}</More></p>
             <SourceLinks ids={q.src ?? []} />
           </div>
         </div>

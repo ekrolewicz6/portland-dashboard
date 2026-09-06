@@ -1,4 +1,4 @@
-import { COST_SUMMARY, UNIT_COSTS, UNPUBLISHED_COSTS } from "@/lib/homeless/continuum";
+import { UNIT_COSTS, UNPUBLISHED_COSTS } from "@/lib/homeless/continuum";
 import SourceLinks from "./SourceLinks";
 
 const STATUS: Record<string, { label: string; cls: string }> = {
@@ -56,16 +56,24 @@ export default function CostChart() {
         <div className="rounded-sm border border-dashed border-[var(--color-clay)] bg-[var(--color-clay-tint)] px-5 py-4">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-clay)]">Never published: {UNPUBLISHED_COSTS.length} unit costs</p>
           <ul className="mt-2 grid gap-1 text-[13px] leading-snug text-[var(--color-ink)] sm:grid-cols-2">{UNPUBLISHED_COSTS.map((u) => <li key={u}>{u}</li>)}</ul>
-          <p className="mt-2 text-[12px] text-[var(--color-ink-light)]">Capacity comes with the bill in this design, so for these stages the first deliverable is the unit cost, not a new appropriation.</p>
+          <p className="mt-2 text-[12px] text-[var(--color-ink-light)]">First deliverable for these: the unit cost, not an appropriation.</p>
         </div>
-        <ol className="grid gap-[1px] rounded-sm border border-[var(--color-parchment)] bg-[var(--color-parchment)] sm:grid-cols-2">
-          {COST_SUMMARY.slice(0, 4).map((t, i) => (
-            <li key={t.slice(0, 30)} className="bg-white px-4 py-3.5">
-              <span className="font-mono text-[12px] font-bold text-[var(--color-ember)]">{i + 1}</span>
-              <p className="mt-1 text-[13px] leading-relaxed text-[var(--color-ink-light)]">{t}</p>
-            </li>
-          ))}
-        </ol>
+        <div className="grid gap-[1px] rounded-sm border border-[var(--color-parchment)] bg-[var(--color-parchment)] sm:grid-cols-2">
+          <div className="bg-white px-5 py-5">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ink-muted)]">A year, per person</p>
+            <div className="mt-2 flex items-end gap-4">
+              <div><p className="font-mono text-[34px] font-bold leading-none text-[var(--color-clay)]">$47,000</p><p className="mt-1 text-[12.5px] text-[var(--color-ink-light)]">a shelter bed</p></div>
+              <span className="pb-4 font-mono text-[18px] text-[var(--color-ink-muted)]">vs</span>
+              <div><p className="font-mono text-[34px] font-bold leading-none text-[var(--color-fern)]">$16,000</p><p className="mt-1 text-[12.5px] text-[var(--color-ink-light)]">supportive housing</p></div>
+            </div>
+            <p className="mt-3 text-[13px] leading-snug text-[var(--color-ink)]">The cheap steps between them (assessment, navigators, rapid rehousing) are the ones that were cut.</p>
+          </div>
+          <div className="bg-[var(--color-canopy)] px-5 py-5 text-white">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-ember-bright)]">Now, then later</p>
+            <p className="mt-2 text-[14px] font-semibold leading-snug">Now: restore the defunded doors and build the cheap missing stages. Staff and rules, not buildings.</p>
+            <p className="mt-2 text-[13px] leading-snug text-white/75">Later: shift shelter money toward exits and supportive housing. The big capital (detox, treatment, crisis beds) is state and payer money; the county publishes the need and holds the next bed.</p>
+          </div>
+        </div>
       </div>
     </div>
   );
