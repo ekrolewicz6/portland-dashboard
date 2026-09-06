@@ -232,7 +232,9 @@ export default function AboutPage() {
               <p className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">
                 {p.title}
               </p>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--color-ink-light)]">{p.line}</p>
+              {p.line && (
+                <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--color-ink-light)]">{p.line}</p>
+              )}
             </div>
           ))}
         </div>
