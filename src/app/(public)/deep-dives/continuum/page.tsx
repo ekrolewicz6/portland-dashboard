@@ -27,11 +27,11 @@ export const metadata: Metadata = pageMeta({
 });
 
 const NAV = [
-  { id: "map", label: "01 The map" },
-  { id: "stages", label: "02 Every stage" },
-  { id: "first-door", label: "03 First door" },
-  { id: "lanes", label: "04 Three lanes" },
-  { id: "pathways", label: "05 Pathways" },
+  { id: "pathways", label: "01 Pick a person" },
+  { id: "map", label: "02 The map" },
+  { id: "stages", label: "03 Every stage" },
+  { id: "first-door", label: "04 First door" },
+  { id: "lanes", label: "05 Three lanes" },
   { id: "housing-first", label: "06 Housing First" },
   { id: "count", label: "07 Counting" },
   { id: "gaps", label: "08 The gaps" },
@@ -73,8 +73,8 @@ export default function ContinuumPage() {
                 first. And a way to count who is where without a form nobody fills in.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="#first-door" className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-ember)] px-5 py-3 text-[15px] font-semibold text-[var(--color-canopy)] transition-colors hover:bg-[var(--color-ember-bright)]">
-                  The six questions <ArrowRight className="h-4 w-4" />
+                <a href="#pathways" className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-ember)] px-5 py-3 text-[15px] font-semibold text-[var(--color-canopy)] transition-colors hover:bg-[var(--color-ember-bright)]">
+                  Pick a person <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href="#housing-first" className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-white/10">
                   When Housing First works
@@ -133,11 +133,22 @@ export default function ContinuumPage() {
         </div>
       </nav>
 
+      {/* 05 */}
+      <Section
+        layout="stacked"
+        id="pathways"
+        eyebrow="01 · Start here"
+        title="Pick a person. See their path."
+        lead="Start here. Every person the system meets is one of twelve kinds, and each kind has an evidence-backed order of stages from the street to a lease. Pick one: the stages they pass through light up in order, the amber circle is the first door that has to exist, and the note below says why that order and how strong the evidence is. The rest of the page defines the stages, the questions that pick the first door, and how to count who is where."
+      >
+        <PathwayExplorer />
+      </Section>
+
       {/* 01 */}
       <Section
         layout="stacked"
         id="map"
-        eyebrow="01 · The map"
+        eyebrow="02 · The map"
         title="Fourteen stages, and how many of them anyone can count"
         lead="Two pictures. First, the fourteen stages a person can be in, grouped into six phases and numbered in the order most people pass through them, each with its clock, whether anyone can count who is there today, and the best number Portland has. Second, which kinds of people pass through which stages, and in what order, with the first door that has to exist for each."
       >
@@ -152,7 +163,7 @@ export default function ContinuumPage() {
         layout="stacked"
         id="stages"
         tone="warm"
-        eyebrow="02 · Every stage, defined"
+        eyebrow="03 · Every stage, defined"
         title="The shared vocabulary"
         lead="A stage is defined by a number a worker can take this week, not by a program or a building: who enters, how they leave, how long they stay, who belongs, how to count it, and what Portland has and lacks there. If police, outreach, the emergency department, and the jail use the same fourteen words, they can hand a person to each other."
       >
@@ -163,7 +174,7 @@ export default function ContinuumPage() {
       <Section
         layout="stacked"
         id="first-door"
-        eyebrow="03 · The first door"
+        eyebrow="04 · The first door"
         title="Six questions any responder can answer at the scene"
         lead="In order. Safety, then stabilization, then population, then history. Each yes names the first door, the stage it maps to, and what that door actually is in Portland tonight, including where there isn't one. The order matters: most failures are the wrong first door, not the wrong last one."
       >
@@ -175,7 +186,7 @@ export default function ContinuumPage() {
         layout="stacked"
         id="lanes"
         tone="warm"
-        eyebrow="04 · Three lanes"
+        eyebrow="05 · Three lanes"
         title="Intensity follows acuity, and the highest-acuity group is small"
         lead="Three lanes sort people by acuity. Lane 3 can be scored at the scene from what a responder can observe; Lane 2 is assigned from history at the first handoff, never on the street; a person impaired tonight is not laned until re-approached. The lane decides the first door and the intensity of support, never eligibility for a later door. The chronic tenth of shelter users consumes half of shelter nights; that is who Lane 3 is for."
       >
@@ -183,17 +194,6 @@ export default function ContinuumPage() {
         <Note>
           The three-lane structure and the per-lane volumes and costs are Meieran&apos;s (14,000–17,000 people at $5,000–6,000; 4,000–5,000 at $18,000–24,000; 900–1,200 at $45,000–65,000, on a flat budget). The observable criteria and the Housing First guardrail on Lane 3 are ours, from the trial evidence in section 06.
         </Note>
-      </Section>
-
-      {/* 05 */}
-      <Section
-        layout="stacked"
-        id="pathways"
-        eyebrow="05 · Pathways"
-        title="Pick a person. See their path."
-        lead="Twelve kinds of people, each an ordered chain of stages with the evidence for that order. The economic-shock path skips every clinical stage on purpose; the severe-substance-use path passes through four before a lease and never requires completing one. What all twelve share is the last stage: someone still checking at month 24."
-      >
-        <PathwayExplorer />
       </Section>
 
       {/* 06 */}

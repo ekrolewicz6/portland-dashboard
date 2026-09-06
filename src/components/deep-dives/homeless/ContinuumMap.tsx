@@ -98,7 +98,7 @@ export default function ContinuumMap() {
         <p className="border-t border-[var(--color-parchment)] px-5 py-3 text-[12.5px] leading-relaxed text-[var(--color-ink-muted)] sm:px-6">
           <span className="font-semibold text-[var(--color-fern)]">Counted</span> means a published figure exists for who is in the stage now.{" "}
           <span className="font-semibold text-[#a9784f]">Partly counted</span> means capacity or annual throughput is published but not who is there today.{" "}
-          <span className="font-semibold text-[var(--color-clay)]">Not counted</span> means nobody can say. Section 02 defines every stage in full.
+          <span className="font-semibold text-[var(--color-clay)]">Not counted</span> means nobody can say. Section 03 defines every stage in full.
         </p>
       </div>
 
@@ -111,7 +111,7 @@ export default function ContinuumMap() {
         <HowToRead>
           Each row is one kind of person; each column is a stage, in the same order as above. A number means that person passes through that stage, and the number is the step order.{" "}
           <span className="mx-0.5 inline-flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[var(--color-ember)] align-middle font-mono text-[10px] font-bold text-[var(--color-canopy)]">1</span>{" "}
-          marks the first door, the one that has to exist for that person; most failures are the wrong first door. Blank means the stage is skipped on purpose. The last column is the strongest study behind that order. Pick a person in section 05 to see one path at a time.
+          marks the first door, the one that has to exist for that person; most failures are the wrong first door. Blank means the stage is skipped on purpose. The last column is the strongest study behind that order. Section 01 above shows one path at a time.
         </HowToRead>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[960px] border-collapse text-[12px] xl:min-w-0 xl:table-fixed">
