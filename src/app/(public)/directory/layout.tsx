@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  // Not shipped yet (see TODO.md): reachable by direct URL for the people
-  // building it, but kept out of search until it is ready to be found.
-  robots: { index: false, follow: false },
   title: "Portland Business Directory",
   description:
     "Search 100,000+ registered businesses in Portland, Oregon. Filter by entity type, location, and registration date. Sourced from Oregon Secretary of State records.",
