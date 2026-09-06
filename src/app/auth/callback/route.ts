@@ -24,5 +24,10 @@ export async function GET(request: NextRequest) {
   if (!isWorkOSConfigured()) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
+  // A visit without an authorization code (a bookmark, a crawler, a stale
+  // tab) is not an error worth a 500. Start the sign-in over instead.
+  if (!request.nextUrl.searchParams.get("code")) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
   return authHandler(request);
 }
