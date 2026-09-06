@@ -8,7 +8,10 @@ import {
   FileSearch,
   Handshake,
   Building2,
+  HeartHandshake,
+  LockOpen,
   Megaphone,
+  Newspaper,
   Scale,
   ShieldCheck,
 } from "lucide-react";
@@ -27,17 +30,22 @@ const RULES = [
   {
     icon: Handshake,
     title: "One side per matter",
-    body: "We never take money from two parties with opposing interests in the same transaction. If we're advising a public body on a deal, nobody across the table is paying us anything.",
+    body: "We never take money from two parties with opposing interests in the same transaction. If we're advising a public body on a deal, nobody across the table is paying us anything. If we're screening a property for its owner, the same is true of the buyer, the lender, and the City.",
   },
   {
     icon: Building2,
     title: "Private clients are on the register too",
-    body: "Property owners, developers, and firms who hire us appear on this page by client, scope, and dates, the same as public bodies. We don't publish new analysis of a property while its owner is paying us, nothing already public comes down, and any later public work that touches that property says we were paid on it.",
+    body: "Property owners, developers, and firms who hire us appear on this page by client, scope, and dates, the same as public bodies. We don't publish new analysis of a property while its owner is paying us, and any later public work that touches that property says we were paid on it.",
+  },
+  {
+    icon: LockOpen,
+    title: "Nothing public comes down for a client",
+    body: "Data and code stay open. Clients buy the work, not exclusivity. No engagement pulls a dataset, a score, a map, or a tool off the site, and no client gets a public figure about them changed except by a correction anyone could ask for.",
   },
   {
     icon: Scale,
     title: "We compete for public work",
-    body: "Small one-time engagements go through an agency's normal small-procurement process. Anything ongoing, or above the informal threshold, we win through a process someone else could win. No sole-source awards for ongoing work, and no pricing engineered to slip under a threshold.",
+    body: "Small one-time engagements go through an agency's normal small-procurement process. Anything ongoing, or above the informal threshold, we win through a process someone else could win. No sole-source awards for ongoing work, no pricing engineered to slip under a threshold, and the same diagnostic costs the same whether the buyer is a bureau, a foundation, or a firm.",
   },
   {
     icon: FileSearch,
@@ -47,7 +55,7 @@ const RULES = [
   {
     icon: Eye,
     title: "Conflicts are flagged in the work itself",
-    body: "When a finding or recommendation touches something we sell, the document says so, in place — and recommends independent validation before any procurement. You should never need this page to spot the conflict.",
+    body: "When a finding or recommendation touches something we sell or own, the document says so, in place — and recommends independent validation before any procurement. You should never need this page to spot the conflict.",
   },
   {
     icon: ShieldCheck,
@@ -55,7 +63,17 @@ const RULES = [
     body: "We don't evaluate programs whose systems or data pipelines we built unless an outside evaluator of record signs the result.",
   },
   {
+    icon: HeartHandshake,
+    title: "Supporters see findings when the public does",
+    body: "Sponsors fund the question, never the answer. A supporter is named on the program they fund, gets no preview and no veto, and reads the findings when everyone else does. Every sponsored program is on the register.",
+  },
+  {
     icon: Megaphone,
+    title: "Advocacy is disclosed and walled off",
+    body: "When someone at the Lab campaigns on an issue, this page says so. Our public analysis covers that issue the way it covers everything else, and we take no paid work touching the live matter while the campaign runs.",
+  },
+  {
+    icon: Newspaper,
     title: "Written for the public record",
     body: "We assume every message we send a public official will be read by the public — under Oregon law, it usually can be. We write accordingly, and we'd be comfortable with any of it on a front page.",
   },
@@ -106,7 +124,7 @@ export default function IndependencePage() {
             {RULES.map((rule) => (
               <div
                 key={rule.title}
-                className="rounded-sm border border-[var(--color-parchment)] bg-white p-6 sm:last:col-span-2"
+                className="rounded-sm border border-[var(--color-parchment)] bg-white p-6"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[var(--color-canopy)]/7 text-[var(--color-canopy)]">
                   <rule.icon className="h-5 w-5" />
@@ -218,28 +236,23 @@ export default function IndependencePage() {
             Where we&apos;re not neutral
           </div>
           <h2 className="mt-4 font-editorial text-[26px] sm:text-[32px] text-white leading-tight max-w-2xl">
-            Our founder campaigns on the Moda Center deal
+            The Moda Center deal
           </h2>
           <div className="mt-5 max-w-3xl space-y-4 text-[15.5px] leading-relaxed text-white/80">
             <p>
-              Portland Civic Lab&apos;s founder publicly runs{" "}
+              Portland Civic Lab&apos;s founder runs{" "}
               <span className="font-semibold text-white">
                 Rip City Not Rip Off
               </span>
               , an advocacy campaign about the City&apos;s Moda Center arena
-              deal. We&apos;d rather tell you than have you find out.
+              deal.
             </p>
             <p>
-              Two commitments follow from it. Our public analysis covers the
-              arena the way it covers everything else — built from public
-              sources, with every source labeled. And our paid work excludes
-              it: while the campaign runs, Portland Civic Lab will not accept
-              payment from the City, the team, or any other financially
-              interested party for work touching the live arena negotiation.
-            </p>
-            <p>
-              Advocacy in the open, analysis in the open, and a bright line
-              between them — drawn here, in public, where it can be checked.
+              Two things follow. Our public analysis covers the arena the way
+              it covers everything else, from public sources with every source
+              labeled. And while the campaign runs, the Lab takes no paid work
+              touching the live arena negotiation from the City, the team, or
+              any other financially interested party.
             </p>
           </div>
         </div>
