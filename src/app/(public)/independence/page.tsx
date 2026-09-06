@@ -7,6 +7,7 @@ import {
   Eye,
   FileSearch,
   Handshake,
+  Building2,
   Megaphone,
   Scale,
   ShieldCheck,
@@ -18,7 +19,7 @@ export const dynamic = "force-static";
 export const metadata: Metadata = pageMeta({
   title: "Independence & Funding",
   description:
-    "How Portland Civic Lab stays independent while working near government: the rules we operate under, every government contract we hold, how we're funded, and where we're not neutral.",
+    "How Portland Civic Lab stays independent while taking paid work from governments, businesses, nonprofits, and supporters: the rules we operate under, every contract we hold, how we're funded, and where we're not neutral.",
   path: "/independence",
 });
 
@@ -29,9 +30,14 @@ const RULES = [
     body: "We never take money from two parties with opposing interests in the same transaction. If we're advising a public body on a deal, nobody across the table is paying us anything.",
   },
   {
+    icon: Building2,
+    title: "Private clients are on the register too",
+    body: "Property owners, developers, and firms who hire us appear on this page by client, scope, and dates, the same as public bodies. We don't publish analysis on a property while its owner is paying us, and the engagement is disclosed on any related public work afterward.",
+  },
+  {
     icon: Scale,
     title: "We compete for public work",
-    body: "No sole-source awards, and no pricing engineered to slip under procurement thresholds. If a government wants ongoing work from us, it should run a process someone else could win.",
+    body: "Small one-time engagements go through an agency's normal small-procurement process. Anything ongoing, or above the informal threshold, we win through a process someone else could win. No sole-source awards for ongoing work, and no pricing engineered to slip under a threshold.",
   },
   {
     icon: FileSearch,
@@ -72,10 +78,10 @@ export default function IndependencePage() {
         </h1>
 
         <p className="mt-7 max-w-2xl text-[17px] sm:text-[19px] text-[var(--color-ink-light)] leading-relaxed">
-          Portland Civic Lab publishes analysis about the same governments that
-          can hire it. That only works if the rules, the money, and the
-          conflicts are public — so they live on this page, where anyone can
-          check them.
+          Portland Civic Lab publishes analysis about the same governments,
+          owners, and institutions that can hire it. That only works if the
+          rules, the money, and the conflicts are public — so they live on this
+          page, where anyone can check them.
         </p>
       </section>
 
@@ -100,7 +106,7 @@ export default function IndependencePage() {
             {RULES.map((rule) => (
               <div
                 key={rule.title}
-                className="rounded-sm border border-[var(--color-parchment)] bg-white p-6"
+                className="rounded-sm border border-[var(--color-parchment)] bg-white p-6 sm:last:col-span-2"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[var(--color-canopy)]/7 text-[var(--color-canopy)]">
                   <rule.icon className="h-5 w-5" />
@@ -126,22 +132,44 @@ export default function IndependencePage() {
           </span>
         </div>
         <h2 className="font-editorial text-[28px] sm:text-[36px] text-[var(--color-ink)] leading-tight max-w-2xl">
-          Every government contract we hold
+          Every contract we hold, public and private
         </h2>
+        <p className="mt-4 max-w-2xl text-[16px] text-[var(--color-ink-light)] leading-relaxed">
+          Anyone can hire the Lab: governments, businesses, nonprofits, and
+          individual supporters. This register is what makes that safe to say.
+          Each engagement appears here within a week of signature.
+        </p>
 
-        <div className="mt-8 rounded-sm border border-[var(--color-parchment)] bg-white p-8 sm:p-10 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-sm bg-[var(--color-canopy)]/7 text-[var(--color-canopy)]">
-            <CircleDollarSign className="h-6 w-6" />
-          </div>
-          <p className="mt-5 font-editorial text-[24px] text-[var(--color-ink)]">
-            None.
-          </p>
-          <p className="mx-auto mt-3 max-w-xl text-[15px] text-[var(--color-ink-light)] leading-relaxed">
-            As of August 2026, Portland Civic Lab holds no contract with any
-            government. When that changes, the contract appears here — client,
-            scope, dollar value, and dates — within a week of signature.
-          </p>
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {[
+            {
+              label: "Government contracts",
+              note: "Client, scope, dollar value, dates, and the procurement it was won through.",
+            },
+            {
+              label: "Private engagements",
+              note: "Client, scope, and dates. Where a client requires confidentiality, the property type and scope are listed and the fact of the engagement is disclosed.",
+            },
+            {
+              label: "Sponsored programs",
+              note: "The supporter, the program funded, the amount, and the period, with the supporter credited on the work.",
+            },
+          ].map((r) => (
+            <div key={r.label} className="rounded-sm border border-[var(--color-parchment)] bg-white p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-[var(--color-canopy)]/7 text-[var(--color-canopy)]">
+                <CircleDollarSign className="h-5 w-5" />
+              </div>
+              <p className="mt-4 text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[var(--color-ember)]">
+                {r.label}
+              </p>
+              <p className="mt-2 font-editorial text-[26px] text-[var(--color-ink)]">None.</p>
+              <p className="mt-2 text-[14px] text-[var(--color-ink-light)] leading-relaxed">{r.note}</p>
+            </div>
+          ))}
         </div>
+        <p className="mt-4 text-[13px] text-[var(--color-ink-muted)]">
+          Current as of September 2026.
+        </p>
       </section>
 
       {/* Funding */}
@@ -165,11 +193,17 @@ export default function IndependencePage() {
               everywhere we ask.
             </p>
             <p>
-              If an institution ever sponsors a piece of public research, the
-              sponsor is named on the work itself. Sponsors fund the question,
-              never the answer — and paid work of any kind never buys a
-              conclusion. Every engagement we take preserves our right to
-              publish disagreement.
+              The model is the one an economics consultancy or a research firm
+              uses: we take paid work from governments, businesses, nonprofits,
+              foundations, and individuals, for policy analysis, data products,
+              dashboards, and software, at published prices. What we don&apos;t
+              do is let the source of the money shape the finding.
+            </p>
+            <p>
+              When a supporter funds a piece of public research, the sponsor is
+              named on the work itself. Sponsors fund the question, never the
+              answer — and paid work of any kind never buys a conclusion. Every
+              engagement we take preserves our right to publish disagreement.
             </p>
           </div>
         </div>

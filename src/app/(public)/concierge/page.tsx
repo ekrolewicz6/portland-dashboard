@@ -32,8 +32,9 @@ export default function ConciergePage() {
           </h1>
           <p className="text-white/60 text-[14px] max-w-lg mx-auto leading-relaxed">
             Questions about city government, permits, zoning, public services,
-            climate data, or any Portland civic topic &mdash; answered with real
-            data.
+            and climate data, answered from the Lab&apos;s public datasets. Every
+            answer links its source or says it has none, and it can still be
+            wrong: check the source before you act on it.
           </p>
         </div>
       </section>

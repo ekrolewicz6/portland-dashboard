@@ -3,23 +3,78 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Trees, ClipboardList, Landmark, MapPinned, ArrowUpRight } from "lucide-react";
-import { ASK_PORTLAND_URL, COUNCIL_URL, PARKS_URL, PERMITS_URL } from "@/lib/site";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Trees,
+  ClipboardList,
+  Landmark,
+  MapPinned,
+  ArrowUpRight,
+  Building2,
+  Gauge,
+  Store,
+  HeartHandshake,
+  Map,
+  Vote,
+  Network,
+  ShieldCheck,
+  BookOpen,
+  Database,
+  FileSearch,
+  Mail,
+  Newspaper,
+  type LucideIcon,
+} from "lucide-react";
+import {
+  ASK_PORTLAND_URL,
+  COUNCIL_URL,
+  DOWNTOWN_URL,
+  OREGON_GOVERNANCE_URL,
+  PARKS_URL,
+  PERMITS_URL,
+} from "@/lib/site";
 import { withSsoHint } from "@/components/SsoLink";
 import type { HeaderMember } from "@/lib/member-nav";
+
+type NavItem = {
+  label: string;
+  href: string;
+  desc: string;
+  icon: LucideIcon;
+  external?: boolean;
+};
 
 const PRIMARY = [
   { label: "Dashboards", href: "/dashboard" },
   { label: "Deep-Dives", href: "/deep-dives" },
-  { label: "Org Chart", href: "/org-chart" },
-  { label: "For Business", href: "/business" },
 ];
 
-const TOOLS = [
-  { label: "City Council", href: COUNCIL_URL, desc: "An independent guide to Portland City Council", icon: Landmark, external: true },
-  { label: "Parks Atlas", href: PARKS_URL, desc: "Every Portland park, mapped", icon: Trees, external: true },
-  { label: "Ask Portland", href: ASK_PORTLAND_URL, desc: "Independent civic surveys", icon: ClipboardList, external: true },
-  { label: "Permitting", href: PERMITS_URL, desc: "Zoning, fees & timelines", icon: MapPinned, external: true },
+const TOOLS: NavItem[] = [
+  { label: "Portland Possible", href: DOWNTOWN_URL, desc: "Every downtown parcel, and what it could become", icon: Map, external: true },
+  { label: "Parks Atlas", href: PARKS_URL, desc: "All 316 parks, searchable by what you want to do", icon: Trees, external: true },
+  { label: "Oregon Governance Atlas", href: OREGON_GOVERNANCE_URL, desc: "Who controls the next step of every bill", icon: Vote, external: true },
+  { label: "City Council", href: COUNCIL_URL, desc: "What Council takes up next, and how to testify", icon: Landmark, external: true },
+  { label: "Ask Portland", href: ASK_PORTLAND_URL, desc: "Independent surveys, weighted to the whole city", icon: ClipboardList, external: true },
+  { label: "Portland Permits", href: PERMITS_URL, desc: "Zoning, likely permits, fees, and timelines", icon: MapPinned, external: true },
+  { label: "Org Chart", href: "/org-chart", desc: "Who runs what at the City, bureau by bureau", icon: Network },
+  { label: "Portfolio Brief", href: "/brief", desc: "The weekly public-source brief on the city's portfolio", icon: Newspaper },
+];
+
+const ABOUT: NavItem[] = [
+  { label: "Independence & funding", href: "/independence", desc: "The rules, every contract we hold, and where we're not neutral", icon: ShieldCheck },
+  { label: "Methodology", href: "/methodology", desc: "How every number gets its source", icon: BookOpen },
+  { label: "Open data & API", href: "/open-data", desc: "Download, embed, and build on the data", icon: Database },
+  { label: "Public records tracker", href: "/records", desc: "Every request we've filed, and what came back", icon: FileSearch },
+  { label: "Contact", href: "/contact", desc: "A note, a correction, or a project", icon: Mail },
+];
+
+const WORK: NavItem[] = [
+  { label: "Property owners & developers", href: "/property", desc: "Screening and decision packets, from $7,500", icon: Building2 },
+  { label: "Public institutions", href: "/institutions", desc: "Portfolio intelligence at published prices", icon: Gauge },
+  { label: "Small businesses", href: "/business", desc: "Find the money your business qualifies for", icon: Store },
+  { label: "Supporters", href: "/donate", desc: "Founding and monthly support for the public program", icon: HeartHandshake },
 ];
 
 function Wordmark() {
@@ -92,10 +147,8 @@ function MemberBadge({ member, compact = false }: { member: HeaderMember; compac
 export default function Header({ member: initialMember = null }: { member?: HeaderMember | null }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [member, setMember] = useState<HeaderMember | null>(initialMember);
-  const toolsRef = useRef<HTMLDivElement>(null);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -130,26 +183,15 @@ export default function Header({ member: initialMember = null }: { member?: Head
   // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
-    setToolsOpen(false);
   }, [pathname]);
 
-  // Click-outside + Escape for the Tools dropdown
+  // Escape closes the mobile menu
   useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) setToolsOpen(false);
-    };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setToolsOpen(false);
-        setMobileOpen(false);
-      }
+      if (e.key === "Escape") setMobileOpen(false);
     };
-    document.addEventListener("mousedown", onClick);
     document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onClick);
-      document.removeEventListener("keydown", onKey);
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   return (
@@ -163,55 +205,28 @@ export default function Header({ member: initialMember = null }: { member?: Head
           <Wordmark />
 
           {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center gap-4 2xl:gap-7">
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7">
             {PRIMARY.map((l) => (
               <NavLink key={l.href} label={l.label} href={l.href} active={isActive(l.href)} />
             ))}
-
-            {/* Tools dropdown */}
-            <div
-              ref={toolsRef}
-              className="relative"
-              onMouseEnter={() => setToolsOpen(true)}
-              onMouseLeave={() => setToolsOpen(false)}
-            >
-              <button
-                onClick={() => setToolsOpen((v) => !v)}
-                className="group flex items-center gap-1 whitespace-nowrap py-1 text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-sage)] hover:text-white transition-colors"
-                aria-expanded={toolsOpen}
-              >
-                Tools
-                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${toolsOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              {toolsOpen && (
-                <div className="absolute right-0 top-full pt-3 w-[320px] animate-fade-up" style={{ animationDuration: "0.18s" }}>
-                  <div className="overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] shadow-[0_16px_48px_rgba(15,36,25,0.22)]">
-                    <div className="px-4 pt-3 pb-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-ember)]">
-                      Civic tools
-                    </div>
-                    {tools.map((t) => (
-                      <a
-                        key={t.label}
-                        href={t.href}
-                        className="group flex items-center gap-3 px-4 py-2.5 hover:bg-white transition-colors"
-                      >
-                        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-sm bg-[var(--color-canopy)]/[0.06] text-[var(--color-canopy)] group-hover:bg-[var(--color-ember)]/15 group-hover:text-[var(--color-clay)] transition-colors">
-                          <t.icon className="w-4 h-4" />
-                        </span>
-                        <span className="flex-1 min-w-0">
-                          <span className="flex items-center gap-1 text-[14px] font-semibold text-[var(--color-ink)]">
-                            {t.label}
-                            <ArrowUpRight className="w-3 h-3 text-[var(--color-ink-muted)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                          </span>
-                          <span className="block text-[12px] text-[var(--color-ink-muted)] leading-snug">{t.desc}</span>
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <Dropdown
+              label="Tools"
+              title="Civic tools"
+              items={tools}
+              active={TOOLS.some((t) => !t.external && isActive(t.href))}
+            />
+            <Dropdown
+              label="Work with us"
+              title="Work with the Lab"
+              items={WORK}
+              active={WORK.some((w) => isActive(w.href))}
+            />
+            <Dropdown
+              label="About"
+              title="About the Lab"
+              items={ABOUT}
+              active={ABOUT.some((a) => isActive(a.href))}
+            />
 
             <span className="h-4 w-px bg-white/15" />
 
@@ -225,21 +240,15 @@ export default function Header({ member: initialMember = null }: { member?: Head
             >
               Support
             </Link>
-            <Link
-              href="/contact"
-              className={`text-[11px] font-mono uppercase tracking-[0.16em] transition-colors ${
-                isActive("/contact") ? "text-white" : "text-white/55 hover:text-white"
-              }`}
-            >
-              Contact
-            </Link>
             {member ? (
               <MemberBadge member={member} />
             ) : (
               <Link
                 href="/signup"
                 prefetch={false}
-                className="rounded-sm bg-[var(--color-ember)] px-3.5 py-1.5 text-[11px] font-mono font-semibold uppercase tracking-[0.12em] text-[var(--color-canopy)] hover:bg-[var(--color-ember-bright)] transition-colors"
+                className={`text-[11px] font-mono uppercase tracking-[0.16em] transition-colors ${
+                  isActive("/signup") ? "text-white" : "text-white/55 hover:text-white"
+                }`}
               >
                 Join
               </Link>
@@ -252,11 +261,10 @@ export default function Header({ member: initialMember = null }: { member?: Head
               <MemberBadge member={member} compact />
             ) : (
               <Link
-                href="/signup"
-                prefetch={false}
+                href="/donate"
                 className="inline-flex min-h-[44px] items-center rounded-sm bg-[var(--color-ember)] px-4 py-2.5 text-[11px] font-mono font-semibold uppercase tracking-[0.12em] text-[var(--color-canopy)]"
               >
-                Join
+                Support
               </Link>
             )}
             <button
@@ -282,12 +290,21 @@ export default function Header({ member: initialMember = null }: { member?: Head
             </MobileGroup>
             <MobileGroup title="Civic tools">
               {tools.map((t) => (
-                <MobileLink key={t.label} href={t.href} label={t.label} desc={t.desc} external />
+                <MobileLink key={t.label} href={t.href} label={t.label} desc={t.desc} external={t.external} active={!t.external && isActive(t.href)} />
+              ))}
+            </MobileGroup>
+            <MobileGroup title="Work with the Lab">
+              {WORK.map((w) => (
+                <MobileLink key={w.label} href={w.href} label={w.label} desc={w.desc} active={isActive(w.href)} />
+              ))}
+            </MobileGroup>
+            <MobileGroup title="About">
+              {ABOUT.map((a) => (
+                <MobileLink key={a.label} href={a.href} label={a.label} active={isActive(a.href)} />
               ))}
             </MobileGroup>
             <MobileGroup title="Connect">
               <MobileLink href="/donate" label="Support the work" active={isActive("/donate")} />
-              <MobileLink href="/contact" label="Contact" active={isActive("/contact")} />
               {member ? (
                 <MobileLink
                   href={member.role === "admin" ? "/admin" : "/member"}
@@ -350,5 +367,94 @@ function MobileLink({
     <Link href={href} prefetch={prefetch} className={cls}>
       {inner}
     </Link>
+  );
+}
+
+type DropdownItem = NavItem;
+
+function Dropdown({
+  label,
+  title,
+  items,
+  active = false,
+}: {
+  label: string;
+  title: string;
+  items: DropdownItem[];
+  active?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className={`group flex items-center gap-1 whitespace-nowrap py-1 text-[11px] font-mono uppercase tracking-[0.16em] transition-colors ${
+          active ? "text-white" : "text-[var(--color-sage)] hover:text-white"
+        }`}
+        aria-expanded={open}
+      >
+        {label}
+        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      {open && (
+        <div className="absolute right-0 top-full pt-3 w-[360px] animate-fade-up" style={{ animationDuration: "0.18s" }}>
+          <div className="overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] shadow-[0_16px_48px_rgba(15,36,25,0.22)]">
+            <div className="px-4 pt-3 pb-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--color-ember)]">
+              {title}
+            </div>
+            {items.map((t) => {
+              const inner = (
+                <>
+                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-sm bg-[var(--color-canopy)]/[0.06] text-[var(--color-canopy)] group-hover:bg-[var(--color-ember)]/15 group-hover:text-[var(--color-clay)] transition-colors">
+                    <t.icon className="w-4 h-4" />
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span className="flex items-center gap-1 text-[14px] font-semibold text-[var(--color-ink)]">
+                      {t.label}
+                      <ArrowUpRight className="w-3 h-3 text-[var(--color-ink-muted)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </span>
+                    <span className="block text-[12px] text-[var(--color-ink-muted)] leading-snug">{t.desc}</span>
+                  </span>
+                </>
+              );
+              const cls = "group flex items-center gap-3 px-4 py-2.5 hover:bg-white transition-colors";
+              return t.external ? (
+                <a key={t.label} href={t.href} className={cls}>
+                  {inner}
+                </a>
+              ) : (
+                <Link key={t.label} href={t.href} className={cls}>
+                  {inner}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

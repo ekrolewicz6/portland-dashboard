@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("home page renders with hero and project cards", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Portland, decoded"
+    "made legible"
   );
   await expect(page.getByText("Portland Parks Atlas")).toBeVisible();
 });

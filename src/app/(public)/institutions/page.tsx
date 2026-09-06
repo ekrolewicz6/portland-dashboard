@@ -69,17 +69,17 @@ const PRICING = [
     name: "Ongoing Portfolio Intelligence",
     price: "$100,000–$180,000 / year",
     detail:
-      "Competitively procured, itemized so you buy only what you use. Priced by portfolio size and scope after a pilot has proven the value.",
+      "Competitively procured and itemized into three components, so you buy only what you use. The components below add up to the annual band; priced by portfolio size and scope after a pilot has proven the value.",
     components: [
-      { label: "Software license & hosting", range: "$25–50K" },
-      { label: "Portfolio data stewardship", range: "$40–75K" },
-      { label: "Executive intelligence service", range: "$60–120K" },
+      { label: "Software license & hosting", range: "$20–40K" },
+      { label: "Portfolio data stewardship", range: "$30–60K" },
+      { label: "Executive intelligence service", range: "$50–80K" },
     ],
   },
 ];
 
 const CONTRACT_RULES = [
-  "We compete. We don't seek sole-source awards, and we don't price work to slip under procurement thresholds.",
+  "We compete. Small one-time engagements go through your normal small-procurement process; anything ongoing, or above the informal threshold, we win through a process someone else could win. We never price work to slip under a threshold.",
   "If we helped scope your solicitation, we disclose it in writing — and accept that we may be ineligible to bid on it.",
   "During a live solicitation we might bid on, we don't contact the sponsoring office outside the process.",
   "Any recommendation that touches something we sell carries a conflict flag in the document itself.",
@@ -106,8 +106,10 @@ export default function InstitutionsPage() {
           The choices that matter most in public institutions — where the money
           goes, which projects slip, what waits on whom — span teams, systems,
           and bureaus. The information for those choices rarely does. Portland
-          Civic Lab builds the connective tissue: as a service you can use next
-          month, not a software project your staff has to feed.
+          reorganized its bureaus into service areas in 2025; the records they
+          run on did not reorganize with them. Portland Civic Lab builds the
+          connective tissue: as a service you can use next month, not a
+          software project your staff has to feed.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -245,7 +247,12 @@ export default function InstitutionsPage() {
 
         <p className="mt-5 text-[13px] text-[var(--color-ink-light)]">
           Custom analysis and new modules are scoped and priced separately —
-          and appear here when they become standard offerings.
+          and appear here when they become standard offerings. Property owners
+          and development teams have their own practice and price list on the{" "}
+          <Link href="/property" className="font-semibold text-[var(--color-canopy)] hover:underline">
+            property page
+          </Link>
+          .
         </p>
       </section>
 

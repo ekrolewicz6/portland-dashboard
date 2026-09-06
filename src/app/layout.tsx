@@ -36,11 +36,11 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.portlandciviclab.org"),
   title: {
-    default: "Portland Civic Lab — Portland, by the numbers",
+    default: "Portland Civic Lab — Free, source-linked tools for understanding Portland",
     template: "%s · Portland Civic Lab",
   },
   description:
-    "A live civic dashboard for Portland, Oregon. Eight questions, answered with real public data — housing, safety, homelessness, economy, education, climate, quality of life, and government accountability. Sourced from city APIs, county records, and government datasets. Updated automatically. Every number linked to its source.",
+    "Free, public, source-linked tools that show how Portland actually works: dashboards, deep-dives, a parks atlas, a downtown plan, a guide to City Council, an atlas of Oregon government, surveys, and permitting tools. And the lab that property owners and public institutions hire when a decision needs evidence.",
   applicationName: "Portland Civic Lab",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   creator: "Portland Civic Lab",
   publisher: "Portland Civic Lab",
   openGraph: {
-    title: "Portland Civic Lab — Portland, by the numbers",
+    title: "Portland Civic Lab — Free, source-linked tools for understanding Portland",
     description:
-      "Eight questions held to public record. Housing, safety, homelessness, economy, education, climate, quality of life, and accountability — answered with real public data, updated automatically.",
+      "How the city actually works: what the numbers say, what residents think, and what could change. Eight free public tools, every figure linked to its source, and paid decision work at published prices.",
     url: "https://www.portlandciviclab.org",
     siteName: "Portland Civic Lab",
     type: "website",
@@ -77,9 +77,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portland Civic Lab — Portland, by the numbers",
+    title: "Portland Civic Lab — Free, source-linked tools for understanding Portland",
     description:
-      "A live civic dashboard for Portland, Oregon. Eight questions, real public data, every number linked to its source.",
+      "Eight free, source-linked civic tools for Portland, and paid decision work at published prices.",
     creator: "@portlandciviclab",
   },
   robots: {
@@ -137,7 +137,7 @@ export default function RootLayout({
               slogan: TAGLINE,
               url: "https://www.portlandciviclab.org",
               description:
-                "Open civic data dashboard for Portland, Oregon. Real-time metrics on housing, public safety, budget, homelessness, climate, and more.",
+                "Free, public, source-linked civic tools for Portland, Oregon, and paid decision work for property owners and public institutions at published prices.",
               areaServed: {
                 "@type": "City",
                 name: "Portland",

@@ -9,7 +9,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.portlandciviclab.org/contact" },
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ topic?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const topic = Array.isArray(params.topic) ? params.topic[0] : params.topic;
   return (
     <div className="bg-[var(--color-paper)]">
       <section className="relative overflow-hidden bg-[var(--color-canopy)] noise-overlay">
@@ -36,7 +42,7 @@ export default function ContactPage() {
 
       <section className="mx-auto grid max-w-[1400px] 3xl:max-w-[1800px] grid-cols-1 gap-8 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-12 lg:px-12">
         <div className="lg:col-span-7">
-          <ContactForm />
+          <ContactForm defaultTopic={topic} />
         </div>
 
         <aside className="lg:col-span-5">
@@ -76,6 +82,20 @@ export default function ContactPage() {
                   <span>
                     For permitting questions, describe the property or workflow
                     problem rather than sending private documents.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[var(--color-ember)]" />
+                  <span>
+                    For a property screening, give the address or the list, the
+                    decision you are making, and when you need to make it.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[var(--color-ember)]" />
+                  <span>
+                    For institutional work, name the decision, who owns it, and
+                    the process your organization buys through.
                   </span>
                 </li>
                 <li className="flex gap-3">

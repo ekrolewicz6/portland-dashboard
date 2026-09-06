@@ -5,7 +5,21 @@ import { AlertCircle, CheckCircle2, Send } from "lucide-react";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
-export default function ContactForm() {
+const TOPICS = [
+  "General note",
+  "Property screening",
+  "Institutional work",
+  "Founding support",
+  "Backing the company",
+  "Partnership",
+  "Data correction",
+  "Volunteering",
+  "Permitting tools",
+  "Dashboard or analysis request",
+];
+
+export default function ContactForm({ defaultTopic }: { defaultTopic?: string } = {}) {
+  const initialTopic = TOPICS.includes(defaultTopic ?? "") ? defaultTopic : TOPICS[0];
   const [state, setState] = useState<FormState>("idle");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -104,16 +118,14 @@ export default function ContactForm() {
           </span>
           <select
             name="topic"
+            defaultValue={initialTopic}
             className="mt-2 w-full rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper)] px-4 py-3 text-[15px] text-[var(--color-ink)] outline-none transition-colors focus:border-[var(--color-sage)]"
           >
-            <option value="General note">General note</option>
-            <option value="Data correction">Data correction</option>
-            <option value="Partnership">Partnership</option>
-            <option value="Volunteering">Volunteering</option>
-            <option value="Permitting tools">Permitting tools</option>
-            <option value="Dashboard or analysis request">
-              Dashboard or analysis request
-            </option>
+            {TOPICS.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
           </select>
         </label>
       </div>
