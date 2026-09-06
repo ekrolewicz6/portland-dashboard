@@ -233,7 +233,7 @@ export default function CityBudgetPage() {
             Quote {fmtMoney(GROSS_TOTAL)} and you&apos;re using the City&apos;s official figure.
             Quote {fmtMoney(EXTERNAL_REVENUE)} and you&apos;re describing money that actually
             arrives. Quote {fmtMoney(BUREAU_EXPENSE)} and you mean what bureaus spend doing things.
-            Here is the arithmetic between them.
+            The arithmetic between them:
           </>
         }
         aside={

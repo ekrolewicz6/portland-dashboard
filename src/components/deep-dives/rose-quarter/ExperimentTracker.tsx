@@ -46,7 +46,7 @@ export default function ExperimentTracker({ now = new Date() }: { now?: Date }) 
         <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
           Everything below — the thresholds, the {stationCount} traffic detectors, the baseline
           method — was published <strong className="text-[var(--color-ink)]">before</strong> the
-          closure began. That is the whole point. A test written afterwards proves nothing, because
+          closure began. A test written afterwards proves nothing, because
           whoever writes it already knows the answer.
         </p>
       </div>

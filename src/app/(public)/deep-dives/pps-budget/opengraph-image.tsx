@@ -14,7 +14,7 @@ export default function Image() {
       headline: "Where the next dollar goes.",
       accent: "#3d7a5a",
       description:
-        "PPS cut 322 positions the year its budget hit $2.77 billion. Both are true. Eleven years of budget books, every audit, and the ten decisions that would change it.",
+        "PPS cut 322 positions the year its budget hit $2.77 billion. Eleven years of budget books, every audit, and the ten decisions that would change it.",
     }),
     { ...OG_SIZE },
   );

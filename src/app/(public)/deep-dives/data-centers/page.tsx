@@ -620,7 +620,7 @@ export default function DataCentersDeepDivePage() {
             Morrow County&apos;s assessor put the same point in county terms: ${HEADLINE.morrowExemptTaxM}M
             of property tax exempted against ${HEADLINE.morrowCollectedTaxM}M actually collected
             countywide, with ${HEADLINE.morrowFeesM}M coming back as negotiated fees (
-            <Src id="morrowAssessor" />). Both things are true at once — the fees are transformative
+            <Src id="morrowAssessor" />). The fees are transformative
             for a county of 12,000, and the exemption is larger than the entire tax base.
           </p>
         </div>

@@ -110,7 +110,7 @@ export default function WhoBenefits() {
 
       <p className="text-[12px] text-[var(--color-ink-muted)] leading-relaxed">
         These are real benefits earned by people who ran toward danger for a
-        living — the question this page is about is not whether they should be
+        living — the question is not whether they should be
         paid, but <span className="italic">how Portland chooses to pay for them.</span>{" "}
         Counts and averages are from the city actuary&apos;s June 30, 2024 valuation.
       </p>

@@ -122,8 +122,8 @@ export default function PpsBudgetPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/85 sm:text-[19px]">
             Portland Public Schools just cut 322 positions, its sixth straight year of cuts, in the
-            same year its budget hit a record $2.77 billion. Both things are true. This page
-            explains how, in twelve pictures, and what could be done about it.
+            same year its budget hit a record $2.77 billion. This page explains how, and what
+            could be done about it.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -186,7 +186,7 @@ export default function PpsBudgetPage() {
         id="salems-machine"
         n={1}
         act="The rules from Salem"
-        claim="The budget hit a record, and the district still cut teachers. Both are true."
+        claim="The budget hit a record, and the district still cut teachers."
         sub={
           <>
             The $2.77 billion headline mixes five separate pots of money, and the law keeps them
@@ -224,7 +224,7 @@ export default function PpsBudgetPage() {
         n={2}
         act="The rules from Salem"
         claim="Voters approved $1.99 for teachers. About $1.51 arrives."
-        sub="The gap has a name, compression, and it is simpler than it sounds. Your school taxes are figured on your home's assessed value, but a 1990 cap limits them by its market value. Whatever lands over the cap is deleted, and the teachers levy is deleted first."
+        sub="The gap is called compression. Your school taxes are figured on your home's assessed value, but a 1990 cap limits them by its market value. Whatever lands over the cap is deleted, and the teachers levy is deleted first."
         tone="warm"
         number="48¢"
         numberLabel="of every levy dollar never reaches a classroom, and the leak grows yearly"
@@ -249,8 +249,7 @@ export default function PpsBudgetPage() {
             extra money only from whatever room the $5 ceiling left. The levy was born as the
             overflow. For two decades rising home prices kept that room wide; since 2022, flat
             prices against assessed values still ratcheting up 3 percent a year have closed it
-            on thousands of properties at once. Only the legislature can change it. The
-            sentence to carry to the 2029 renewal: print the effective rate next to the $1.99.
+            on thousands of properties at once. Only the legislature can change it. For the 2029 renewal, print the effective rate next to the $1.99.
           </p>
         </Depth>
         <div className="mt-6">
@@ -287,7 +286,7 @@ export default function PpsBudgetPage() {
             nothing.
           </p>
           <p className="font-semibold text-[var(--color-ink)]">
-            The rule this page reads everything by: judge the district by how it handles the
+            One rule: judge the district by how it handles the
             problems it can control. &ldquo;Salem did it&rdquo; cannot excuse the choices the
             district makes for itself.
           </p>
@@ -385,7 +384,7 @@ export default function PpsBudgetPage() {
             the rest of support services, so the argument runs on faith in both directions.
           </p>
           <p>
-            One paradox to carry: real dollars per student are <em>up</em> 24 percent over the
+            Real dollars per student are <em>up</em> 24 percent over the
             decade, because enrollment fell faster than inflation, and the institution still
             feels poorer every year, because its fixed footprint never shrank.
           </p>
@@ -426,8 +425,8 @@ export default function PpsBudgetPage() {
             there every day, a librarian, a full set of electives. Portland now has a lot of
             schools on the wrong side of that line. The district began consolidating in fall 2026,
             with up to 20 schools reported on the table (<Src id="wwTwentySchools" />, press).
-            Here is every school, from an open-source compilation we checked against the original
-            records (<Src id="ppsdataInfo" />).
+            Every school below comes from an open-source compilation we checked against the
+            original records (<Src id="ppsdataInfo" />).
           </>
         }
         tone="warm"
@@ -440,8 +439,7 @@ export default function PpsBudgetPage() {
           <p>
             Small schools are something Portland pays extra for on purpose, and the last closures
             fell hardest on Black and brown North and Northeast Portland. But per-building savings
-            of one to two million dollars will not close a $65 million gap, so savings is not
-            the honest test. Two documents should exist before any vote: what closing saves, and
+            of one to two million dollars will not close a $65 million gap, so savings is the wrong test. Two documents should exist before any vote: what closing saves, and
             what students at the receiving school gain, in named programs and positions. Neither
             does.
           </p>
@@ -460,7 +458,7 @@ export default function PpsBudgetPage() {
         n={8}
         act="The judgment calls"
         claim="There is no hidden pot of money. The waste is in overruns, delay, and numbers nobody outside can check."
-        sub="We looked for it. Reserves sit at the legal floor and the pension reserve is already spent. What the record does show is construction projects that cost double their ballot price, five years of not deciding what to do with emptying buildings, and a district that reacts to its own numbers late."
+        sub="Reserves sit at the legal floor and the pension reserve is already spent. What the record does show is construction projects that cost double their ballot price, five years of not deciding what to do with emptying buildings, and a district that reacts to its own numbers late."
         number="$219M"
         numberLabel="Benson's overrun. Most of it was the ballot number, not construction."
         next={{ href: "#arguments", question: "Who is right in the four fights Portland keeps having?" }}
@@ -550,10 +548,10 @@ export default function PpsBudgetPage() {
         n={11}
         act="Your part"
         claim="Six questions, six dates, and one rule to read every budget by."
-        sub="You do not need to read 500 pages to hold the district accountable. You need to know what to ask, when to show up, and what a good answer sounds like."
+        sub="What to ask, when to show up, and what a good answer sounds like."
         number="6"
         numberLabel="questions that end most school-budget arguments. Use them on anyone, including us."
-        next={{ href: "#method", question: "How does this page know what it claims?" }}
+        next={{ href: "#method", question: "Where do these numbers come from?" }}
       >
         <FieldKit />
         <div className="mt-10">
@@ -571,7 +569,7 @@ export default function PpsBudgetPage() {
         id="method"
         n={12}
         act="Method"
-        claim="How this page knows what it claims."
+        claim="Where the numbers come from."
         sub="Every number here comes from one of 134 public documents we fetched, checksummed, and archived, or from two working papers that were fact-checked page by page before anything was published."
         tone="warm"
       >
@@ -602,7 +600,7 @@ export default function PpsBudgetPage() {
             The official Oregon record disagrees with itself: our extraction logged nineteen
             contradictions between the oversight bodies&apos; own published tables, and the
             district&apos;s audited annual report carries an impossible enrollment figure. Where
-            sources conflict, this page shows the conflict.
+            sources conflict, we show the conflict.
           </p>
         </Depth>
         <div className="mt-10">

@@ -351,12 +351,11 @@ export default function AboutPage() {
                 </span>
               </div>
               <h2 className="font-editorial text-[30px] leading-tight text-[var(--color-ink)] sm:text-[40px]">
-                Everyone who builds the Lab is listed here.
+                The people who build the Lab.
               </h2>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--color-ink-light)]">
                 Staff, partners, advisors, volunteers, and the supporters who fund the public
-                program. {people.length === 1 ? "One name" : `${people.length} names`} today. The
-                rest of this page is how the list grows.
+                program.
               </p>
             </div>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-7">

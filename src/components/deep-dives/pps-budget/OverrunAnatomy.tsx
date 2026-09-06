@@ -25,7 +25,7 @@ const WATERFALL = [
   },
   {
     total: 330,
-    label: "June 2019 · first honest re-estimate",
+    label: "June 2019 · first re-estimate after the vote",
     cause: "The biggest single jump, and it came before most of the construction. This is the real cost surfacing.",
   },
   {
@@ -165,7 +165,7 @@ export default function OverrunAnatomy() {
       <div className="overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-white">
         <div className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-4">
           <Eyebrow tone="ember">So what causes the overruns, and how much each?</Eyebrow>
-          <p className="mt-2 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-light)]">No public document breaks these overruns down by cause, so nobody can give you clean percentages. That absence is a finding in itself. What the record does support is a ranking:</p>
+          <p className="mt-2 max-w-3xl text-[13px] leading-relaxed text-[var(--color-ink-light)]">No public document breaks these overruns down by cause, so nobody can give you clean percentages. What the record does support is a ranking:</p>
         </div>
         <ul className="divide-y divide-[var(--color-parchment)]">
           {CAUSES.map((c) => (

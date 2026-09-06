@@ -75,7 +75,7 @@ export default function TheWholeStory() {
     <div className="border-b border-[var(--color-parchment)] bg-[var(--color-paper-warm)]">
       <div className="mx-auto w-full max-w-[1400px] 3xl:max-w-[1800px] px-5 sm:px-8 lg:px-12 py-10 sm:py-12">
         <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-ember)]">
-          The whole story in one screen
+          The short version
         </p>
 
         {/* (a) The one-page budget the district has never published */}
@@ -123,7 +123,7 @@ export default function TheWholeStory() {
           </div>
 
           <p className="mt-4 border-t border-[var(--color-parchment)] pt-3 text-[15px] leading-relaxed text-[var(--color-ink)]">
-            Every real fight about this budget is a fight over the green slice. This year the operating fund fell <span className="font-mono font-semibold tabular-nums">$6.5M</span> while the headline total grew <span className="font-mono tabular-nums">$733M</span>. Both are true.
+            Every real fight about this budget is a fight over the green slice. This year the operating fund fell <span className="font-mono font-semibold tabular-nums">$6.5M</span> while the headline total grew <span className="font-mono tabular-nums">$733M</span>.
           </p>
         </div>
 
@@ -153,12 +153,6 @@ export default function TheWholeStory() {
             </a>
           ))}
         </div>
-
-        {/* (c) The annual question */}
-        <p className="mt-6 text-center font-editorial text-[18px] sm:text-[20px] italic text-[var(--color-ink)]">
-          One question runs through everything below: &ldquo;Does the next dollar reach a
-          student, and can you show me?&rdquo;
-        </p>
       </div>
     </div>
   );

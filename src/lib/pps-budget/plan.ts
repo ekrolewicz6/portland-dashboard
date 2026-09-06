@@ -96,7 +96,7 @@ export const PLAN_DECISIONS: PlanDecision[] = [
     title: "Move real dollars toward students, on a metric that cannot be gamed",
     motion:
       "Commission the peer benchmarking study and let it set the target. Measure 'dollars reaching schools and students' (instruction plus direct student supports) on a frozen, auditor-certified crosswalk. Start with an honest verified list, likely $2-5M, routed highest-need schools first. Apply the same rollback teeth to central administration lines as to anything touching a classroom.",
-    cost: "Negative, but honestly small at first",
+    cost: "Negative, but small at first",
     authority: "Board budget authority; the superintendent returns executable plans",
     objection: {
       from: "a skeptical budget director",
@@ -111,7 +111,7 @@ export const PLAN_DECISIONS: PlanDecision[] = [
     title: "The footprint correction: one decision, phased execution, promises sized to audited savings",
     motion:
       "Criteria adopted in public before any list, with historic under-investment as a counterweight and a cap on concentration in any one cluster. The savings model independently validated to the same standard as bond estimates, published for a 45-day review with per-school hearings. A racial-equity impact analysis under the board's own 2011 policy. Phased effective dates, no school before 2028-29. Savings split 70% to the deficit, 30% escrowed to named positions in receiving schools first, with a tripwire: future phases suspend if escrowed positions go unfunded.",
-    cost: "Transition budget named before the vote; net savings honest, likely $1-2M per elementary",
+    cost: "Transition budget named before the vote; net savings likely $1-2M per elementary",
     authority: "The board's alone",
     objection: {
       from: "a parent fighting closures",
@@ -126,14 +126,14 @@ export const PLAN_DECISIONS: PlanDecision[] = [
     title: "Run enrollment as the long game it actually is",
     motion:
       "An enrollment function missioned on kindergarten capture rate, disaggregated by race and cluster, targets set on closing the gaps, with the methodology produced outside the office that is graded on it. An intergovernmental agreement with Multnomah County on Preschool for All transitions. Exit interviews offered to every departing family, published in aggregate. Librarians and arts protected universally; TAG protected only paired with universal screening and demographic reporting.",
-    cost: "Low single-digit millions, honestly scored as an investment",
+    cost: "Low single-digit millions, scored as an investment",
     authority: "Board and superintendent; the county agreement is negotiated, not assumed",
     objection: {
       from: "a skeptical budget director",
       text: "Enrollment recovery pays nothing for years. Oregon funds the higher of this year's or last year's count, and PPS is already paid on the prior year, so a recovered kindergartner adds zero formula revenue until recovery outruns the annual decline of roughly 800 students. Why fund an office now for money that arrives in 2030?",
     },
     answer:
-      "Because the payback clock only starts when the work does. The decision sells itself on the honest math: near-zero marginal revenue in years one and two, then compounding for a decade as recovered cohorts prop up every future count. A recovered kindergartner is thirteen years of enrollment. This is the strongest long play the district has, and it is priced here as an investment, never a budget patch.",
+      "Because the payback clock only starts when the work does. The math: near-zero marginal revenue in years one and two, then compounding for a decade as recovered cohorts prop up every future count. A recovered kindergartner is thirteen years of enrollment. This is the strongest long play the district has, and it is priced here as an investment, never a budget patch.",
     status: "changed",
   },
   {
@@ -163,7 +163,7 @@ export const PLAN_DECISIONS: PlanDecision[] = [
       text: "Measure 5 compression is in the Oregon Constitution. No bill fixes it, and a board that walks into Salem demanding a statutory fix to a constitutional provision forfeits exactly the credibility this decision was designed to buy.",
     },
     answer:
-      "Accepted: the ask is now a joint resolution and a statewide campaign with the coalition of compression-losing districts, honestly priced at two to three biennia, with the backfill bill as the achievable near-term metric. The $53.4M leak did not change; the vehicle did.",
+      "Accepted: the ask is now a joint resolution and a statewide campaign with the coalition of compression-losing districts, priced at two to three biennia, with the backfill bill as the achievable near-term metric. The $53.4M leak did not change; the vehicle did.",
     status: "changed",
   },
   {

@@ -541,8 +541,7 @@ export default function HomePage() {
             </h2>
           </div>
           <p className="max-w-md text-[14.5px] leading-relaxed text-[var(--color-ink-light)] md:text-right">
-            Pictures from the tools themselves. Open any of them; there is no account, no paywall,
-            and no charge.
+            No account, no paywall, and no charge on any of them.
           </p>
         </div>
 

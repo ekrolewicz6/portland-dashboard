@@ -143,7 +143,7 @@ export default function BusinessPage() {
             Funding is where we start
           </h2>
           <p className="mt-4 max-w-3xl text-[16px] text-[var(--color-ink-light)] leading-relaxed">
-            The goal is simpler than it sounds: one place that handles the
+            The goal is one place that handles the
             administrative weight of running a small business in Portland. The
             same profile powers all of it, so you never fill anything out twice.
             Estimates below are typical ranges, not promises.

@@ -381,7 +381,7 @@ export default function MassTimberDeepDive() {
         id="climate"
         tone="warm"
         eyebrow="Climate & jobs"
-        title="The other two payoffs — honestly"
+        title="The other two payoffs"
         lead="Mass timber is rare among economic levers because it can serve housing, jobs, and climate at once. Each of those payoffs is real — and each has a catch worth stating plainly."
         aside={
           <p className="text-[12px] text-[var(--color-ink-muted)] leading-relaxed">

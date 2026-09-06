@@ -48,7 +48,7 @@ function StandardBand() {
         </p>
         <p className="mt-4 max-w-3xl border-t border-[var(--color-parchment)] pt-4 text-[13.5px] leading-relaxed text-[var(--color-ink-light)]">
           {
-            "This page never sums a waste headline. Anyone who gives you one number for PPS waste is doing false precision on purpose."
+            "These findings do not add up to one waste number, and anyone who gives you one is guessing."
           }
         </p>
       </div>
