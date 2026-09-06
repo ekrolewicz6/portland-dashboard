@@ -1,10 +1,34 @@
-import type { Debate as DebateModel } from "@/lib/pps-budget/arguments";
-
 /**
  * A steelmanned two-sided debate panel with an adjudication band.
- * Server component; rendered inline within the section where its
- * subject lives, per the rose-quarter Cases grammar.
+ * Server component; rendered inline within the section where its subject
+ * lives, per the rose-quarter Cases grammar.
+ *
+ * The prop type is structural rather than an import from one deep dive's
+ * argument module. Each dive defines its own Debate shape — venues carries
+ * source ids the PPS one does not — and they are free to keep diverging in
+ * ways this panel never reads. Two byte-identical copies of this file, one
+ * per dive, differed only in which module they imported the type from.
  */
+
+interface DebatePoint {
+  claim: string;
+  body: string;
+}
+
+interface DebateSide {
+  label: string;
+  points: readonly DebatePoint[];
+}
+
+export interface DebateModel {
+  id: string;
+  title: string;
+  stakes: string;
+  a: DebateSide;
+  b: DebateSide;
+  adjudication: { headline: string; body: string };
+}
+
 export default function Debate({ debate }: { debate: DebateModel }) {
   return (
     <div id={debate.id} className="mt-8 overflow-hidden rounded-sm border border-[var(--color-parchment)] bg-white">

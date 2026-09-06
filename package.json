@@ -14,7 +14,7 @@
     "fetch:fbi": "npx tsx ingest/fetch-fbi-crime.ts",
     "fetch:housing": "npx tsx ingest/fetch-housing-data.ts",
     "fetch:employment": "npx tsx ingest/fetch-oregon-employment.ts",
-    "scrape:permits": "npx tsx ingest/scrape-permit-details.ts",
+    "scrape:permits": "npx tsx --env-file=.env.local ingest/scrape-permit-details.ts --fetch --parse",
     "analyze:bottlenecks": "npx tsx ingest/analyze-permit-bottlenecks.ts",
     "test": "playwright test",
     "budget:fetch": "npx tsx ingest/budget/fetch-books.ts",

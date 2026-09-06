@@ -1,13 +1,18 @@
 /**
  * scrape-permit-details.ts
  *
- * Scrapes Portland Maps permit detail pages for activity-level review data.
- * Parses HTML responses to extract permit metadata and all review activity rows.
- * Saves to PostgreSQL (housing.permit_details + housing.permit_activities) and
- * raw JSON files in data/permit-details/.
+ * Two-phase pipeline:
+ *   Phase 1 (--fetch):  Fetch HTML from Portland Maps, save to data/permit-html/
+ *   Phase 2 (--parse):  Parse saved HTML files and insert into DB
  *
- * Usage: npx tsx ingest/scrape-permit-details.ts [startId] [endId]
- * Example: npx tsx ingest/scrape-permit-details.ts 5166200 5166300
+ * This ensures we never lose fetched data — HTML is saved first, parsing is separate.
+ * Both phases are idempotent: re-running skips already-fetched/already-parsed records.
+ *
+ * Usage:
+ *   npx tsx ingest/scrape-permit-details.ts --fetch          # fetch HTML
+ *   npx tsx ingest/scrape-permit-details.ts --parse          # parse + insert
+ *   npx tsx ingest/scrape-permit-details.ts --fetch --parse  # both
+ *   npx tsx ingest/scrape-permit-details.ts --fetch --parse --start-id 5242709 --end-id 5259708
  */
 
 import fs from "node:fs";
@@ -15,371 +20,429 @@ import path from "node:path";
 import postgres from "postgres";
 import { requireDatabaseUrl } from "./lib/db-url";
 
+// Load .env.local for DATABASE_URL
+const envPath = path.resolve(import.meta.dirname ?? ".", "..", ".env.local");
+if (fs.existsSync(envPath)) {
+  for (const line of fs.readFileSync(envPath, "utf-8").split("\n")) {
+    const match = line.match(/^([A-Z_]+)=(.+)$/);
+    if (match && !process.env[match[1]]) process.env[match[1]] = match[2];
+  }
+}
+
 const DB_URL = requireDatabaseUrl();
-const sql = postgres(DB_URL);
-
-const SCRIPT_DIR = import.meta.dirname ?? path.dirname(new URL(import.meta.url).pathname);
-const DATA_DIR = path.resolve(SCRIPT_DIR, "..", "data", "permit-details");
-fs.mkdirSync(DATA_DIR, { recursive: true });
-
-const API_KEY = "7D700138A0EA40349E799EA216BF82F9";
-const BASE_URL = "https://www.portlandmaps.com/api/detail.cfm";
-const HEADERS = {
-  "User-Agent":
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  Referer: "https://www.portlandmaps.com/",
-  Accept: "text/html,application/xhtml+xml,*/*",
-};
-
-const DELAY_MS = 1000;
-
-// ── HTML entity decoder ─────────────────────────────────────────────────
-
-function decodeEntities(html: string): string {
-  return html
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, " ");
-}
-
-// ── Strip HTML tags ─────────────────────────────────────────────────────
-
-function stripTags(html: string): string {
-  return decodeEntities(html.replace(/<[^>]*>/g, "")).trim();
-}
-
-// ── Parse date from MM/DD/YYYY ──────────────────────────────────────────
-
-function parseDate(dateStr: string): string | null {
-  const cleaned = dateStr.trim();
-  if (!cleaned) return null;
-  const match = cleaned.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-  if (!match) return null;
-  const [, mm, dd, yyyy] = match;
-  return `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
-}
-
-// ── Compute days between two date strings ───────────────────────────────
-
-function daysBetween(
-  dateA: string | null,
-  dateB: string | null
-): number | null {
-  if (!dateA || !dateB) return null;
-  const a = new Date(dateA);
-  const b = new Date(dateB);
-  return Math.round((b.getTime() - a.getTime()) / (1000 * 60 * 60 * 24));
-}
-
-// ── Extract metadata from <dl> section ──────────────────────────────────
-
-interface PermitMetadata {
-  ivr_number: string | null;
-  permit_type: string | null;
-  work_description: string | null;
-  address: string | null;
-  setup_date: string | null;
-  under_review_date: string | null;
-  issue_date: string | null;
-  final_date: string | null;
-  status: string | null;
-}
-
-function extractMetadata(html: string): PermitMetadata {
-  const meta: PermitMetadata = {
-    ivr_number: null,
-    permit_type: null,
-    work_description: null,
-    address: null,
-    setup_date: null,
-    under_review_date: null,
-    issue_date: null,
-    final_date: null,
-    status: null,
-  };
-
-  // Extract address from the first <h4> link
-  const addressMatch = html.match(
-    /<a[^>]*detail-type="property"[^>]*>.*?<h4>([^<]+)<\/h4>/
+console.log(`DB: ${DB_URL.includes("supabase") ? "Supabase" : "Local"} (${DB_URL.substring(0, 40)}...)`);
+const isPooled = DB_URL.includes("pooler.supabase.com");
+/**
+ * Portland Maps API key.
+ *
+ * Required, with no built-in default. The key that used to sit here as a
+ * fallback was lifted from portlandmaps.com's own public JavaScript rather
+ * than issued to Civic Lab, so every clone of this repository carried a
+ * working key and any scraping it did arrived at the City under the City's
+ * own credential.
+ */
+const API_KEY = process.env.PORTLAND_MAPS_API_KEY?.trim();
+if (!API_KEY) {
+  throw new Error(
+    "PORTLAND_MAPS_API_KEY is not set. Request a key from Portland Maps and put it in .env.local, then run:\n" +
+      "  npx tsx --env-file=.env.local ingest/scrape-permit-details.ts --fetch --parse",
   );
-  if (addressMatch) {
-    meta.address = stripTags(addressMatch[1]);
+}
+const REFERER = "https://www.portlandmaps.com/advanced/?action=permits";
+
+const HTML_DIR = path.resolve("data/permit-html");
+const CSV_PATH = path.resolve("data/Permit-Search-Results.csv");
+const CONCURRENT = parseInt(process.env.PERMIT_DETAIL_CONCURRENT || "5", 10);
+const DELAY_MS = parseInt(process.env.PERMIT_DETAIL_DELAY_MS || "200", 10);
+
+const args = process.argv.slice(2);
+const doFetch = args.includes("--fetch");
+const doParse = args.includes("--parse");
+const limitArg = args.includes("--limit") ? parseInt(args[args.indexOf("--limit") + 1], 10) : Infinity;
+const startIdArg = args.includes("--start-id") ? parseInt(args[args.indexOf("--start-id") + 1], 10) : null;
+const endIdArg = args.includes("--end-id") ? parseInt(args[args.indexOf("--end-id") + 1], 10) : null;
+
+if (!doFetch && !doParse) {
+  console.error("Usage: --fetch, --parse, or both");
+  process.exit(1);
+}
+
+// ── CSV Parser ──
+
+function loadIVRNumbers(): number[] {
+  if (startIdArg !== null || endIdArg !== null) {
+    if (!startIdArg || !endIdArg || startIdArg > endIdArg) {
+      throw new Error("Range mode requires --start-id N --end-id N with start <= end");
+    }
+    const ids: number[] = [];
+    for (let id = startIdArg; id <= endIdArg; id++) ids.push(id);
+    return ids;
   }
 
-  // Extract <dt>...<dd> pairs
-  const dtddPattern = /<dt>([^<]*)<\/dt>\s*<dd[^>]*>([\s\S]*?)<\/dd>/gi;
-  let match;
-  while ((match = dtddPattern.exec(html)) !== null) {
-    const label = stripTags(match[1]).toLowerCase();
-    const rawValue = stripTags(match[2]);
+  const raw = fs.readFileSync(CSV_PATH, "utf-8");
+  const lines = raw.split("\n").filter((l) => l.trim());
+  const header = lines[0].split(",").map((h) => h.replace(/"/g, "").trim());
+  const ivrIdx = header.indexOf("IVR_NUMBER");
+  if (ivrIdx < 0) throw new Error("CSV missing IVR_NUMBER");
 
-    if (label.includes("ivr number")) {
-      meta.ivr_number = rawValue;
-    } else if (label.includes("permit/case type") || label.includes("permit type")) {
-      meta.permit_type = rawValue;
-    } else if (label.includes("work") || label.includes("description")) {
-      meta.work_description = rawValue;
-    } else if (label === "set up date") {
-      meta.setup_date = parseDate(rawValue);
-    } else if (label.includes("under review")) {
-      meta.under_review_date = parseDate(rawValue);
-    } else if (label === "issue date") {
-      meta.issue_date = parseDate(rawValue);
-    } else if (label === "final date") {
-      meta.final_date = parseDate(rawValue);
-    } else if (label === "status") {
-      meta.status = rawValue;
+  const ids: number[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const fields = lines[i].match(/(".*?"|[^",]+)/g)?.map((f) => f.replace(/^"|"$/g, "").trim()) ?? [];
+    const ivr = parseInt(fields[ivrIdx], 10);
+    if (!isNaN(ivr)) ids.push(ivr);
+  }
+  return ids;
+}
+
+// ── Phase 1: Fetch ──
+
+async function fetchHTML(detailId: number, retries = 2): Promise<string | null> {
+  const url = `https://www.portlandmaps.com/api/detail.cfm?format=html&detail_type=permit&sections=*&expand=1&expand_tables=1&detail_id=${detailId}&property_id=null&api_key=${API_KEY}`;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { Referer: REFERER },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!res.ok) {
+        if (attempt < retries) { await new Promise((r) => setTimeout(r, 2000)); continue; }
+        return null;
+      }
+      const text = await res.text();
+      if (text.length < 500 || text.includes("An error has occurred")) return null;
+      return text;
+    } catch {
+      if (attempt < retries) { await new Promise((r) => setTimeout(r, 2000)); continue; }
+      return null;
     }
   }
-
-  return meta;
+  return null;
 }
 
-// ── Extract activity rows from the first <tbody> ────────────────────────
+async function runFetch() {
+  fs.mkdirSync(HTML_DIR, { recursive: true });
 
-interface ActivityRow {
+  const allIds = loadIVRNumbers();
+  console.log(`${startIdArg !== null ? "Range" : "CSV"}: ${allIds.length} permits`);
+
+  // Skip already-fetched
+  const existing = new Set(
+    fs.readdirSync(HTML_DIR).filter((f) => f.endsWith(".html")).map((f) => parseInt(f.replace(".html", ""), 10))
+  );
+  const toFetch = allIds.filter((id) => !existing.has(id)).slice(0, limitArg);
+  console.log(`Already fetched: ${existing.size}, To fetch: ${toFetch.length}\n`);
+
+  let fetched = 0, errors = 0;
+  const startTime = Date.now();
+
+  for (let i = 0; i < toFetch.length; i += CONCURRENT) {
+    const batch = toFetch.slice(i, i + CONCURRENT);
+    const results = await Promise.allSettled(
+      batch.map(async (id) => {
+        const html = await fetchHTML(id);
+        if (html) {
+          fs.writeFileSync(path.join(HTML_DIR, `${id}.html`), html);
+          return true;
+        }
+        return false;
+      })
+    );
+
+    for (const r of results) {
+      if (r.status === "fulfilled" && r.value) fetched++;
+      else errors++;
+    }
+
+    const done = i + batch.length;
+    if (done % 100 === 0 || done >= toFetch.length) {
+      const elapsed = (Date.now() - startTime) / 1000;
+      const rate = fetched / Math.max(elapsed, 1);
+      const remaining = (toFetch.length - done) / Math.max(rate, 0.1);
+      console.log(`  Fetch: ${done}/${toFetch.length} (${fetched} saved, ${errors} errors) — ${rate.toFixed(1)}/s, ~${Math.round(remaining / 60)}m left`);
+    }
+    await new Promise((r) => setTimeout(r, DELAY_MS));
+  }
+
+  console.log(`\nFetch complete: ${fetched} saved, ${errors} errors`);
+  console.log(`Total HTML files: ${existing.size + fetched}`);
+}
+
+// ── Phase 2: Parse + Insert ──
+
+function parseDate(s: string | null | undefined): string | null {
+  if (!s || !s.trim()) return null;
+  const clean = s.trim().split(" ")[0];
+  const parts = clean.split("/");
+  if (parts.length === 3) {
+    const [m, d, y] = parts;
+    return `${y}-${m.padStart(2, "0")}-${d.padStart(2, "0")}`;
+  }
+  if (/^\d{4}-\d{2}-\d{2}/.test(clean)) return clean.slice(0, 10);
+  return null;
+}
+
+function extractText(html: string, after: string): string | null {
+  const idx = html.indexOf(after);
+  if (idx < 0) return null;
+  const rest = html.slice(idx + after.length);
+  const match = rest.match(/<(?:dd|td)[^>]*>([\s\S]*?)<\/(?:dd|td)>/i);
+  if (!match) return null;
+  return match[1].replace(/<[^>]+>/g, "").trim() || null;
+}
+
+interface Activity {
   activity_name: string;
   activity_type: string;
   must_check: string;
   activity_status: string;
   last_activity_date: string | null;
-  completed_date: string | null;
   goal_date: string | null;
-  staff_contact: string;
+  completed_date: string | null;
+  staff_contact: string | null;
 }
 
-function extractActivities(html: string): ActivityRow[] {
-  const activities: ActivityRow[] = [];
+function parsePermit(html: string, detailId: number) {
+  const setup = parseDate(extractText(html, "Set Up Date") ?? extractText(html, "Setup Date"));
+  const underReview = parseDate(extractText(html, "Under Review Date"));
+  const issue = parseDate(extractText(html, "Issue Date"));
+  const final = parseDate(extractText(html, "Final Date"));
+  const status = extractText(html, "Status");
 
-  // Find the first tbody (the main activity table, not the modal duplicate)
-  const tbodyMatch = html.match(/<tbody>([\s\S]*?)<\/tbody>/);
-  if (!tbodyMatch) return activities;
-
-  const tbody = tbodyMatch[1];
-
-  // Extract each <tr>...</tr>
-  const rowPattern = /<tr>([\s\S]*?)<\/tr>/gi;
-  let rowMatch;
-  while ((rowMatch = rowPattern.exec(tbody)) !== null) {
-    const rowHtml = rowMatch[1];
-
-    // Extract all <td>...</td> cells
-    const cellPattern = /<td>([\s\S]*?)<\/td>/gi;
-    const cells: string[] = [];
-    let cellMatch;
-    while ((cellMatch = cellPattern.exec(rowHtml)) !== null) {
-      cells.push(stripTags(cellMatch[1]));
-    }
-
-    if (cells.length >= 7) {
-      activities.push({
-        activity_name: cells[0],
-        activity_type: cells[1],
-        must_check: cells[2],
-        activity_status: cells[3],
-        last_activity_date: parseDate(cells[4]),
-        goal_date: parseDate(cells[5]),
-        completed_date: parseDate(cells[6]),
-        staff_contact: cells[7] ?? "",
-      });
-    }
-  }
-
-  return activities;
-}
-
-// ── Fetch a single permit ───────────────────────────────────────────────
-
-async function fetchPermit(detailId: number): Promise<{
-  metadata: PermitMetadata;
-  activities: ActivityRow[];
-  rawHtml: string;
-} | null> {
-  const url = `${BASE_URL}?format=html&detail_type=permit&sections=*&expand=1&expand_tables=1&detail_id=${detailId}&api_key=${API_KEY}`;
-
-  const res = await fetch(url, { headers: HEADERS });
-
-  if (!res.ok) {
-    return null;
-  }
-
-  const html = await res.text();
-
-  // Check if the response has actual permit content
-  if (
-    !html.includes("IVR Number") &&
-    !html.includes("detail-section") &&
-    !html.includes("activity-table")
-  ) {
-    return null;
-  }
-
-  const metadata = extractMetadata(html);
-  const activities = extractActivities(html);
-
-  // If no IVR number found, this isn't a valid permit page
-  if (!metadata.ivr_number && !metadata.permit_type) {
-    return null;
-  }
-
-  return { metadata, activities, rawHtml: html };
-}
-
-// ── Save to PostgreSQL ──────────────────────────────────────────────────
-
-async function saveToDb(
-  detailId: number,
-  meta: PermitMetadata,
-  activities: ActivityRow[]
-): Promise<void> {
-  const daysToIssue = daysBetween(meta.setup_date, meta.issue_date);
-  const daysInReview = daysBetween(meta.setup_date, meta.under_review_date);
-
-  await sql`
-    INSERT INTO housing.permit_details (
-      detail_id, ivr_number, permit_type, work_description, address,
-      setup_date, under_review_date, issue_date, final_date, status,
-      days_to_issue, days_in_review, fetched_at
-    ) VALUES (
-      ${detailId}, ${meta.ivr_number}, ${meta.permit_type}, ${meta.work_description}, ${meta.address},
-      ${meta.setup_date}, ${meta.under_review_date}, ${meta.issue_date}, ${meta.final_date}, ${meta.status},
-      ${daysToIssue}, ${daysInReview}, NOW()
-    )
-    ON CONFLICT (detail_id) DO UPDATE SET
-      ivr_number = EXCLUDED.ivr_number,
-      permit_type = EXCLUDED.permit_type,
-      work_description = EXCLUDED.work_description,
-      address = EXCLUDED.address,
-      setup_date = EXCLUDED.setup_date,
-      under_review_date = EXCLUDED.under_review_date,
-      issue_date = EXCLUDED.issue_date,
-      final_date = EXCLUDED.final_date,
-      status = EXCLUDED.status,
-      days_to_issue = EXCLUDED.days_to_issue,
-      days_in_review = EXCLUDED.days_in_review,
-      fetched_at = NOW()
-  `;
-
-  // Delete existing activities for this permit (to allow re-scrape)
-  await sql`DELETE FROM housing.permit_activities WHERE detail_id = ${detailId}`;
-
-  for (const act of activities) {
-    const daysFromSetup = daysBetween(meta.setup_date, act.completed_date);
-
-    await sql`
-      INSERT INTO housing.permit_activities (
-        detail_id, activity_name, activity_type, must_check, activity_status,
-        last_activity_date, completed_date, goal_date, staff_contact, days_from_setup
-      ) VALUES (
-        ${detailId}, ${act.activity_name}, ${act.activity_type}, ${act.must_check},
-        ${act.activity_status}, ${act.last_activity_date}, ${act.completed_date},
-        ${act.goal_date}, ${act.staff_contact}, ${daysFromSetup}
-      )
-    `;
-  }
-}
-
-// ── Main ────────────────────────────────────────────────────────────────
-
-async function main() {
-  const startId = parseInt(process.argv[2] || "5166200", 10);
-  const endId = parseInt(process.argv[3] || "5166300", 10);
-
-  console.log(`\n=== Portland Maps Permit Detail Scraper ===`);
-  console.log(`Range: ${startId} to ${endId} (${endId - startId + 1} permits)`);
-  console.log(`Delay: ${DELAY_MS}ms between requests\n`);
-
-  // Ensure tables exist
-  await sql`
-    CREATE TABLE IF NOT EXISTS housing.permit_details (
-      detail_id INTEGER PRIMARY KEY,
-      ivr_number TEXT,
-      permit_type TEXT,
-      work_description TEXT,
-      address TEXT,
-      setup_date DATE,
-      under_review_date DATE,
-      issue_date DATE,
-      final_date DATE,
-      status TEXT,
-      days_to_issue INTEGER,
-      days_in_review INTEGER,
-      fetched_at TIMESTAMPTZ DEFAULT NOW()
-    )
-  `;
-  await sql`
-    CREATE TABLE IF NOT EXISTS housing.permit_activities (
-      id SERIAL PRIMARY KEY,
-      detail_id INTEGER REFERENCES housing.permit_details(detail_id),
-      activity_name TEXT,
-      activity_type TEXT,
-      must_check TEXT,
-      activity_status TEXT,
-      last_activity_date DATE,
-      completed_date DATE,
-      goal_date DATE,
-      staff_contact TEXT,
-      days_from_setup INTEGER
-    )
-  `;
-
-  let fetched = 0;
-  let skipped = 0;
-  let errors = 0;
-
-  for (let id = startId; id <= endId; id++) {
-    const progress = `[${id - startId + 1}/${endId - startId + 1}]`;
-
-    try {
-      const result = await fetchPermit(id);
-
-      if (!result) {
-        skipped++;
-        console.log(`${progress} ${id} - skipped (no valid permit data)`);
-      } else {
-        const { metadata, activities, rawHtml } = result;
-
-        // Save raw JSON
-        const jsonPath = path.join(DATA_DIR, `${id}.json`);
-        fs.writeFileSync(
-          jsonPath,
-          JSON.stringify({ detail_id: id, metadata, activities }, null, 2)
+  const activities: Activity[] = [];
+  const tbodyMatch = html.match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/gi);
+  if (tbodyMatch) {
+    for (const tbody of tbodyMatch) {
+      const rows = tbody.match(/<tr[^>]*>([\s\S]*?)<\/tr>/gi) ?? [];
+      for (const row of rows) {
+        const cells = (row.match(/<td[^>]*>([\s\S]*?)<\/td>/gi) ?? []).map((c) =>
+          c.replace(/<[^>]+>/g, "").trim()
         );
-
-        // Save to DB
-        await saveToDb(id, metadata, activities);
-
-        fetched++;
-        console.log(
-          `${progress} ${id} - ${metadata.permit_type ?? "unknown type"} | ${activities.length} activities | ${metadata.status ?? "?"}`
-        );
+        if (cells.length >= 5) {
+          activities.push({
+            activity_name: cells[0] || "",
+            activity_type: cells[1] || "",
+            must_check: cells[2] || "",
+            activity_status: cells[3] || "",
+            last_activity_date: parseDate(cells[4]),
+            goal_date: parseDate(cells[5]),
+            completed_date: parseDate(cells[6]),
+            staff_contact: cells[7] || null,
+          });
+        }
       }
-    } catch (err) {
-      errors++;
-      console.error(
-        `${progress} ${id} - ERROR: ${err instanceof Error ? err.message : String(err)}`
-      );
-    }
-
-    // Polite delay
-    if (id < endId) {
-      await new Promise((r) => setTimeout(r, DELAY_MS));
     }
   }
 
-  console.log(`\n=== Summary ===`);
-  console.log(`Fetched: ${fetched}`);
-  console.log(`Skipped: ${skipped}`);
-  console.log(`Errors:  ${errors}`);
-  console.log(`Total:   ${endId - startId + 1}`);
+  return {
+    detail_id: detailId,
+    ivr_number: extractText(html, "IVR Number"),
+    permit_type: extractText(html, "Permit/Case Type") ?? extractText(html, "Permit Type"),
+    work_description: extractText(html, "Work/Case Description") ?? extractText(html, "Work Description"),
+    setup_date: setup,
+    under_review_date: underReview,
+    issue_date: issue,
+    final_date: final,
+    status,
+    days_to_issue: setup && issue ? Math.round((new Date(issue).getTime() - new Date(setup).getTime()) / 86400000) : null,
+    days_in_review: underReview && issue ? Math.round((new Date(issue).getTime() - new Date(underReview).getTime()) / 86400000) : null,
+    activities,
+  };
+}
+
+async function runParse() {
+  const sql = postgres(DB_URL, { max: 3, ...(isPooled ? { prepare: false } : {}), onnotice: () => {} });
+
+  const files = fs.readdirSync(HTML_DIR).filter((f) => f.endsWith(".html"));
+  console.log(`HTML files to parse: ${files.length}`);
+
+  // Check which are already in DB
+  const existingRows = await sql`SELECT detail_id FROM housing.permit_details`;
+  const existingIds = new Set(existingRows.map((r) => Number(r.detail_id)));
+  const toParse = files
+    .filter((f) => {
+      const id = parseInt(f, 10);
+      if (startIdArg !== null && endIdArg !== null) return id >= startIdArg && id <= endIdArg;
+      return !existingIds.has(id);
+    })
+    .sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
+    .slice(0, limitArg);
+  console.log(`Already in DB: ${existingIds.size}, To parse: ${toParse.length}\n`);
+
+  let parsed = 0, errors = 0, totalActivities = 0;
+  const startTime = Date.now();
+  const FILE_BATCH_SIZE = 500;
+  const ACTIVITY_BATCH_SIZE = 2000;
+
+  for (let i = 0; i < toParse.length; i += FILE_BATCH_SIZE) {
+    const batch = toParse.slice(i, i + FILE_BATCH_SIZE);
+    const detailRows: Array<{
+      detail_id: number;
+      ivr_number: string | null;
+      permit_type: string | null;
+      work_description: string | null;
+      address: string | null;
+      setup_date: string | null;
+      under_review_date: string | null;
+      issue_date: string | null;
+      final_date: string | null;
+      status: string | null;
+      days_to_issue: number | null;
+      days_in_review: number | null;
+    }> = [];
+    const activityRows: Array<{
+      detail_id: number;
+      activity_name: string;
+      activity_type: string;
+      must_check: string;
+      activity_status: string;
+      last_activity_date: string | null;
+      completed_date: string | null;
+      goal_date: string | null;
+      staff_contact: string | null;
+      days_from_setup: number | null;
+    }> = [];
+
+    for (const file of batch) {
+      const detailId = parseInt(file, 10);
+      try {
+        const html = fs.readFileSync(path.join(HTML_DIR, file), "utf-8");
+        const permit = parsePermit(html, detailId);
+
+        if (!permit.setup_date && !permit.status) {
+          errors++;
+          continue;
+        }
+
+        detailRows.push({
+          detail_id: permit.detail_id,
+          ivr_number: permit.ivr_number,
+          permit_type: permit.permit_type,
+          work_description: permit.work_description,
+          address: null,
+          setup_date: permit.setup_date,
+          under_review_date: permit.under_review_date,
+          issue_date: permit.issue_date,
+          final_date: permit.final_date,
+          status: permit.status,
+          days_to_issue: permit.days_to_issue,
+          days_in_review: permit.days_in_review,
+        });
+
+        for (const act of permit.activities) {
+          const daysFromSetup = permit.setup_date && act.completed_date
+            ? Math.round((new Date(act.completed_date).getTime() - new Date(permit.setup_date).getTime()) / 86400000)
+            : null;
+          activityRows.push({
+            detail_id: detailId,
+            activity_name: act.activity_name,
+            activity_type: act.activity_type,
+            must_check: act.must_check,
+            activity_status: act.activity_status,
+            last_activity_date: act.last_activity_date,
+            completed_date: act.completed_date,
+            goal_date: act.goal_date,
+            staff_contact: act.staff_contact,
+            days_from_setup: daysFromSetup,
+          });
+        }
+      } catch {
+        errors++;
+      }
+    }
+
+    if (detailRows.length > 0) {
+      await sql`
+        INSERT INTO housing.permit_details
+        ${sql(
+          detailRows,
+          "detail_id",
+          "ivr_number",
+          "permit_type",
+          "work_description",
+          "address",
+          "setup_date",
+          "under_review_date",
+          "issue_date",
+          "final_date",
+          "status",
+          "days_to_issue",
+          "days_in_review"
+        )}
+        ON CONFLICT (detail_id) DO UPDATE SET
+          ivr_number = EXCLUDED.ivr_number,
+          permit_type = EXCLUDED.permit_type,
+          work_description = EXCLUDED.work_description,
+          setup_date = EXCLUDED.setup_date,
+          under_review_date = EXCLUDED.under_review_date,
+          issue_date = EXCLUDED.issue_date,
+          status = EXCLUDED.status,
+          final_date = EXCLUDED.final_date,
+          days_to_issue = EXCLUDED.days_to_issue,
+          days_in_review = EXCLUDED.days_in_review
+      `;
+
+      const ids = detailRows.map((row) => row.detail_id);
+      await sql.unsafe(`DELETE FROM housing.permit_activities WHERE detail_id IN (${ids.join(",")})`);
+
+      for (let j = 0; j < activityRows.length; j += ACTIVITY_BATCH_SIZE) {
+        const activityBatch = activityRows.slice(j, j + ACTIVITY_BATCH_SIZE);
+        if (activityBatch.length === 0) continue;
+        await sql`
+          INSERT INTO housing.permit_activities
+          ${sql(
+            activityBatch,
+            "detail_id",
+            "activity_name",
+            "activity_type",
+            "must_check",
+            "activity_status",
+            "last_activity_date",
+            "completed_date",
+            "goal_date",
+            "staff_contact",
+            "days_from_setup"
+          )}
+        `;
+      }
+      parsed += detailRows.length;
+      totalActivities += activityRows.length;
+    }
+
+    const elapsed = (Date.now() - startTime) / 1000;
+    const rate = parsed / Math.max(elapsed, 1);
+    console.log(`  Parse: ${Math.min(i + FILE_BATCH_SIZE, toParse.length)}/${toParse.length} (${parsed} ok, ${errors} err, ${totalActivities} activities) — ${rate.toFixed(1)}/s`);
+  }
+
+  const finalDetails = await sql`SELECT count(*)::int as cnt FROM housing.permit_details`;
+  const finalActs = await sql`SELECT count(*)::int as cnt FROM housing.permit_activities`;
+  console.log(`\nParse complete: ${parsed} inserted, ${errors} errors, ${totalActivities} activities`);
+  console.log(`DB totals: ${finalDetails[0].cnt} details, ${finalActs[0].cnt} activities`);
+
+  await sql`
+    DELETE FROM public.dashboard_cache
+    WHERE question IN ('housing', 'housing_detail', 'housing_journey', 'housing_bottleneck')
+  `;
+  console.log("Cleared housing dashboard caches");
 
   await sql.end();
 }
 
-main().catch((err) => {
-  console.error("Fatal error:", err);
-  process.exit(1);
-});
+// ── Main ──
+
+async function main() {
+  console.log("Portland Permits — Two-Phase Detail Scraper");
+  console.log("============================================\n");
+
+  if (doFetch) {
+    console.log("=== Phase 1: Fetch HTML ===\n");
+    await runFetch();
+    console.log("");
+  }
+
+  if (doParse) {
+    console.log("=== Phase 2: Parse + Insert ===\n");
+    await runParse();
+  }
+}
+
+main().catch((err) => { console.error("Fatal:", err); process.exit(1); });

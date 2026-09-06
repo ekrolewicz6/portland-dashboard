@@ -21,7 +21,7 @@ import CannotKnow from "@/components/deep-dives/pps-budget/CannotKnow";
 import DoctrineCard from "@/components/deep-dives/pps-budget/DoctrineCard";
 import Tripwires from "@/components/deep-dives/pps-budget/Tripwires";
 import FieldKit from "@/components/deep-dives/pps-budget/FieldKit";
-import Debate from "@/components/deep-dives/pps-budget/Debate";
+import Debate from "@/components/deep-dives/Debate";
 import ReadingProgress from "@/components/deep-dives/venues/ReadingProgress";
 
 export const metadata: Metadata = pageMeta({

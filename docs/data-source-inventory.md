@@ -893,7 +893,13 @@ ORPCPI — Per Capita Personal Income: Portland MSA (if available)
 ## Portland Maps Detail API (CONFIRMED WORKING 2026-03-15)
 
 ### API Key
-`7D700138A0EA40349E799EA216BF82F9` (found in public portlandmaps.com JavaScript)
+Set `PORTLAND_MAPS_API_KEY`. The scraper requires it and has no default.
+
+The key this section used to print was read out of portlandmaps.com's own
+public JavaScript rather than issued to Civic Lab. Committing it meant every
+clone carried a working key, and any scraping done with it reached the City
+under the City's own credential. Request a key, or ask the Bureau of
+Development Services for bulk access to the same data.
 
 ### Required Headers
 ```

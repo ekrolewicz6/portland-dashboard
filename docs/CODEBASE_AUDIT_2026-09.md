@@ -4,6 +4,13 @@ Read-only review of the whole repository at commit `61fc87f` (branch
 `claude/codebase-audit-m6lg6n`). Every finding below was confirmed by reading
 the cited file and line; nothing is inferred from names or docs alone.
 
+> **Status: findings addressed.** Everything below has been fixed except the
+> items listed under "Deliberately not done" at the end of this document. Line
+> numbers and file paths describe the code **as audited**, not as it now
+> stands: several of the cited files have been deleted and others substantially
+> rewritten. Read this document as the record of what was wrong and why, and
+> `git log` for what was done about it.
+
 Scope: `src/` (app, API routes, cron, components, libs, db), `ingest/`,
 `drizzle/`, `e2e/`, `docs/`, root config and docs, `package.json`
 dependencies, git history.
@@ -513,3 +520,54 @@ Duplicated implementations:
    dashboard API; type-check `ingest/`.
 9. Reconcile `.env.example`, README, CONTRIBUTING, ARCHITECTURE and the
    migration journal with what the code actually does.
+
+## 10. Deliberately not done
+
+Four things in this document were judged, and left alone on purpose.
+
+**Next.js 16.** Two advisories remain in `npm audit --omit=dev`, both inside
+the PostCSS that Next vendors, and both fixable only by the Next 16 major.
+That upgrade changes the lint toolchain, the caching model and several APIs at
+once; it is its own piece of work with its own testing, not a line item in an
+audit fix. Next moved to 15.5.25 within its semver range, which carries the
+middleware-bypass fixes that actually mattered here. The audit's other eight
+advisories are resolved.
+
+**Research provenance files.** `research/` holds 19 MB of source workbooks and
+PDFs behind the PPS budget dive, and `research/pps-budget/README.md` documents
+committing them on purpose: every extracted row carries the document and page
+it came from, and the documents are the proof. Deleting them to satisfy a
+"never commit data files" rule would destroy the provenance the rule exists to
+protect. The rule is now written down accurately instead, and `.vercelignore`
+keeps the directory out of deploys. The genuinely redundant material — two
+duplicate 25-page PNG render sets of a PDF that is itself committed — is gone.
+
+**The `performance-dark-*` block outside Tailwind's layers.** Flagged as
+contradicting the layer guidance in `KNOWN_ISSUES.md`, but the code carries a
+comment explaining that it sits outside the layers deliberately, so generated
+utilities cannot be ordered ahead of it. That is a considered decision, and
+churning it would risk a visual regression to satisfy a lint-shaped rule.
+
+**Whole-page client components.** `apply`, `calculator`, `spaces/[listingId]`
+and `directory` ship their static copy as client JavaScript. Splitting each
+into a server shell around a client island is a real improvement and a real
+refactor of four pages; the client-side correctness problems in them — unabortable
+fetches, unguarded state writes, unassociated form labels — are fixed, which is
+the part that was actually breaking.
+
+## 11. What changed
+
+Six commits, in the order the work was done:
+
+1. `c799b63` — stop presenting unsourced numbers as measured data
+2. `a4912e6` — close authorization gaps and record what the site promises to record
+3. `a40cefa` — make failures visible, bound the expensive routes, patch dependencies
+4. `da35e75` — give CI a database, fix the type debt, and make the docs true
+5. `2215ddb` — fix races, bound the last unbounded surfaces, stop leaking what nobody reads
+6. this commit — remove the committed Portland Maps key, collapse the last duplicates
+
+Verification at each step: `npx tsc --noEmit`, `npx tsc -p ingest --noEmit`,
+`npm run lint`, `npm run build`, and the Playwright suite against a real
+Postgres. The suite grew from 17 tests to 42, and now covers every dashboard
+API and topic page, the cron auth boundary, the draft-report gate, and the
+absence of the two fabricated-data routes.
