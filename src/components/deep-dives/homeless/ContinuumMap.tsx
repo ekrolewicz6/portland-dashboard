@@ -120,8 +120,8 @@ export default function ContinuumMap() {
                 <th className="sticky left-0 z-10 w-[140px] 2xl:w-[180px] bg-white px-3 py-3 text-left font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-muted)] sm:px-6">Kind of person</th>
                 {CONTINUUM.map((s, i) => (
                   <th key={s.id} className="px-0.5 py-3 text-center align-bottom font-medium leading-tight text-[var(--color-ink-light)]" title={s.name}>
-                    <span className="block font-mono text-[9.5px] text-[var(--color-ink-muted)]">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="mt-0.5 block text-[10.5px] xl:text-[9.5px] 2xl:text-[11px]">{shortName(s)}</span>
+                    <span className="block font-mono text-[9.5px] text-[var(--color-ink-muted)] xl:hidden 2xl:block">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="mt-0.5 block text-[10.5px] xl:mx-auto xl:mt-1 xl:rotate-180 xl:whitespace-nowrap xl:text-[10.5px] xl:[writing-mode:vertical-rl] 2xl:mt-0.5 2xl:rotate-0 2xl:whitespace-normal 2xl:text-[11px] 2xl:[writing-mode:horizontal-tb]"><span className="hidden font-mono text-[9.5px] text-[var(--color-ink-muted)] xl:inline 2xl:hidden">{String(i + 1).padStart(2, "0")} · </span>{shortName(s)}</span>
                   </th>
                 ))}
                 <th className="w-[88px] 2xl:w-[110px] px-2 py-3 text-left align-bottom font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-muted)]">Evidence for the order</th>
