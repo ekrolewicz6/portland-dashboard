@@ -17,6 +17,10 @@ import CountLedger from "@/components/deep-dives/homeless/CountLedger";
 import HeadlineMetrics from "@/components/deep-dives/homeless/HeadlineMetrics";
 import GapDiagnostic from "@/components/deep-dives/homeless/GapDiagnostic";
 import Caveats from "@/components/deep-dives/homeless/Caveats";
+import WhoDoesWhat from "@/components/deep-dives/homeless/WhoDoesWhat";
+import WhenNo from "@/components/deep-dives/homeless/WhenNo";
+import FrontLine from "@/components/deep-dives/homeless/FrontLine";
+import MeasuresCompare from "@/components/deep-dives/homeless/MeasuresCompare";
 
 export const metadata: Metadata = pageMeta({
   title: "The Continuum — Every Step From Sidewalk to Lease, Defined and Counted",
@@ -36,6 +40,9 @@ const NAV = [
   { id: "count", label: "07 Counting" },
   { id: "gaps", label: "08 The gaps" },
   { id: "caveats", label: "09 Not covered" },
+  { id: "roles", label: "10 Who does what" },
+  { id: "saying-no", label: "11 Saying no" },
+  { id: "front-line", label: "12 Front line" },
   { id: "sources", label: "Sources" },
 ];
 
@@ -192,7 +199,7 @@ export default function ContinuumPage() {
       >
         <Lanes />
         <Note>
-          The three-lane structure and the per-lane volumes and costs are Meieran&apos;s (14,000–17,000 people at $5,000–6,000; 4,000–5,000 at $18,000–24,000; 900–1,200 at $45,000–65,000, on a flat budget). The observable criteria and the Housing First guardrail on Lane 3 are ours, from the trial evidence in section 06.
+          The three-lane structure and the per-lane volumes and costs (14,000–17,000 people at $5,000–6,000; 4,000–5,000 at $18,000–24,000; 900–1,200 at $45,000–65,000, on a flat budget) come from a 2026 county turnaround proposal by a candidate for county chair. They are budget assumptions, not measured outcomes, and are labeled that way wherever they appear. The observable criteria and the Housing First guardrail on Lane 3 are ours, from the trial evidence in section 06.
         </Note>
       </Section>
 
@@ -224,6 +231,10 @@ export default function ContinuumPage() {
           <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">The nine headline numbers</p>
           <HeadlineMetrics />
         </div>
+        <div className="mt-6">
+          <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">What the county and city publish today</p>
+          <MeasuresCompare />
+        </div>
         <Note>
           Three legal limits shape this: survivor records may not enter the shared identifier even hashed, substance-use treatment records need written patient consent, and hospital homelessness flags catch about a third of patients. Section 09 says what each does to the count.
         </Note>
@@ -252,6 +263,41 @@ export default function ContinuumPage() {
         <Caveats />
       </Section>
 
+      {/* 10 */}
+      <Section
+        layout="stacked"
+        id="roles"
+        tone="warm"
+        eyebrow="10 · Who does what"
+        title="One lead per person, the right people in the room, and police only where the law puts them"
+        lead="A continuum is only shared if everyone knows whose person this is at each stage and who writes the handoff. This table names the lead at every stage, who else belongs in the room, what police do and do not do there, and who records the arrival so the count can follow the person. The lead does not change at the door; that is the single habit that stops people falling between agencies."
+      >
+        <WhoDoesWhat />
+      </Section>
+
+      {/* 11 */}
+      <Section
+        layout="stacked"
+        id="saying-no"
+        eyebrow="11 · When someone says no"
+        title="A no is information about the offer, the person's state, or the door. Find out which."
+        lead="Most people who refuse are refusing a specific offer, or are not in a state to accept any offer tonight. The law draws two lines (danger to self or others, and incapacitation in public) and below them nobody can make anyone go anywhere. So the protocol for a no is an order of questions, a re-approach clock, a decline recorded against the offer rather than the person, and enforcement last, only after a real offer, on the record. Beside it, where police belong in all of this, and the honest sequence by which people actually get off the street."
+      >
+        <WhenNo />
+      </Section>
+
+      {/* 12 */}
+      <Section
+        layout="stacked"
+        id="front-line"
+        tone="warm"
+        eyebrow="12 · What the front line will say"
+        title="Forty objections from the people who would have to run this, and the answer to each"
+        lead="Before this was published, an outreach worker, a paramedic, a patrol officer, a jail release desk, an emergency-department social worker, an addiction clinician, and a lawyer were each asked what breaks at 2 a.m. Their objections are the ones any rollout will hear in the first week. We changed the design where they were right and kept the objection and the answer here, by role, so the people who will hear them next have the answer in hand."
+      >
+        <FrontLine />
+      </Section>
+
       {/* Sources */}
       <Section
         layout="stacked"
@@ -259,7 +305,7 @@ export default function ContinuumPage() {
         tone="warm"
         eyebrow="Sources & method"
         title="Where this comes from"
-        lead="Forty-six documents by Sharon Meieran, nineteen national frameworks, evidence graded for twelve cohorts, a stage-by-stage inventory of what exists in Portland after the FY2027 cuts, and the county's own data-quality scorecard. Three independent designs were drafted, scored by three judges, synthesized, then challenged claim by claim and read by a completeness critic. The full registry, with every citation, is in the research archive."
+        lead="The county's own reports, budgets, handbooks, scorecard, and shelter review; the city's audit, weekly street reports, and shelter figures; Oregon statutes and EMS protocols; nineteen national frameworks and data standards; the randomized and matched studies behind each pathway; and a 2026 county turnaround proposal by a candidate for county chair, used for stage targets and the three-lane model and labeled as a proposal wherever it appears. Three independent designs were drafted, scored, synthesized, challenged claim by claim, read by a completeness critic, and then by seven front-line, clinical, and legal reviewers. The full registry is in the research archive."
       >
         <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2 2xl:grid-cols-3">
           {CONTINUUM_SOURCES.map((s) => (
