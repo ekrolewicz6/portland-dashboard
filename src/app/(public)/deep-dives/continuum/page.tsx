@@ -4,49 +4,44 @@ import { ArrowRight } from "lucide-react";
 import { pageMeta } from "@/lib/page-meta";
 import { DIVE_CONTAINER, Section } from "@/components/deep-dives/shared";
 import ReadingProgress from "@/components/deep-dives/venues/ReadingProgress";
-import { CONTINUUM, CONTINUUM_SOURCES, PRINCIPLES, SCORECARD } from "@/lib/homeless/continuum";
+import { CONTINUUM, PRINCIPLES, SCORECARD } from "@/lib/homeless/continuum";
 import { STATS } from "@/lib/homeless/data";
 import { fmtNum } from "@/lib/homeless/engine";
-import ContinuumMap from "@/components/deep-dives/homeless/ContinuumMap";
-import StageDetail from "@/components/deep-dives/homeless/StageDetail";
-import FirstDoor from "@/components/deep-dives/homeless/FirstDoor";
-import Lanes from "@/components/deep-dives/homeless/Lanes";
 import PathwayExplorer from "@/components/deep-dives/homeless/PathwayExplorer";
-import HousingFirstRules from "@/components/deep-dives/homeless/HousingFirstRules";
+import StageExplorer from "@/components/deep-dives/homeless/StageExplorer";
+import LeakChart from "@/components/deep-dives/homeless/LeakChart";
+import TriageStepper from "@/components/deep-dives/homeless/TriageStepper";
+import DoorsOpen from "@/components/deep-dives/homeless/DoorsOpen";
+import WhenNo from "@/components/deep-dives/homeless/WhenNo";
+import LanesVisual from "@/components/deep-dives/homeless/LanesVisual";
+import HousingFirstBoard from "@/components/deep-dives/homeless/HousingFirstBoard";
 import CountLedger from "@/components/deep-dives/homeless/CountLedger";
 import HeadlineMetrics from "@/components/deep-dives/homeless/HeadlineMetrics";
-import GapDiagnostic from "@/components/deep-dives/homeless/GapDiagnostic";
-import Caveats from "@/components/deep-dives/homeless/Caveats";
-import WhoDoesWhat from "@/components/deep-dives/homeless/WhoDoesWhat";
-import WhenNo from "@/components/deep-dives/homeless/WhenNo";
+import PublishesMatrix from "@/components/deep-dives/homeless/PublishesMatrix";
+import CostChart from "@/components/deep-dives/homeless/CostChart";
+import FailureLadder from "@/components/deep-dives/homeless/FailureLadder";
+import CaveatsAccordion from "@/components/deep-dives/homeless/CaveatsAccordion";
 import FrontLine from "@/components/deep-dives/homeless/FrontLine";
-import MeasuresCompare from "@/components/deep-dives/homeless/MeasuresCompare";
-import Accountability from "@/components/deep-dives/homeless/Accountability";
-import StageCosts from "@/components/deep-dives/homeless/StageCosts";
-import ModesGrid from "@/components/deep-dives/homeless/ModesGrid";
+import SourcesList from "@/components/deep-dives/homeless/SourcesList";
 
 export const metadata: Metadata = pageMeta({
   title: "The Continuum — Every Step From Sidewalk to Lease, Defined and Counted",
   description:
-    "Fourteen stages, twelve pathways, one first-door protocol for outreach, police, EMS, hospitals, and jails. When Housing First works and when it doesn't, how to count each bucket, and where Portland's gaps are. Every claim sourced and adversarially checked.",
+    "Fourteen stages, twelve pathways, one first-door protocol for outreach, police, EMS, hospitals, and jails. What&apos;s open at 2 a.m. and when it doesn't, how to count each bucket, and where Portland's gaps are. Every claim sourced and adversarially checked.",
   path: "/deep-dives/continuum",
   type: "article",
 });
 
 const NAV = [
-  { id: "pathways", label: "01 Pick a person" },
-  { id: "map", label: "02 The map" },
-  { id: "stages", label: "03 Every stage" },
-  { id: "first-door", label: "04 First door" },
-  { id: "lanes", label: "05 Three lanes" },
-  { id: "housing-first", label: "06 Housing First" },
+  { id: "pathways", label: "01 People" },
+  { id: "stages", label: "02 Stages" },
+  { id: "breaks", label: "03 Where it breaks" },
+  { id: "tonight", label: "04 Tonight" },
+  { id: "saying-no", label: "05 Saying no" },
+  { id: "lanes", label: "06 Housing First" },
   { id: "count", label: "07 Counting" },
-  { id: "gaps", label: "08 The gaps" },
-  { id: "caveats", label: "09 Not covered" },
-  { id: "roles", label: "10 Who does what" },
-  { id: "saying-no", label: "11 Saying no" },
-  { id: "front-line", label: "12 Front line" },
-  { id: "accountable", label: "13 Who pays, who answers" },
+  { id: "money", label: "08 Money" },
+  { id: "risks", label: "09 Risks" },
   { id: "sources", label: "Sources" },
 ];
 
@@ -87,8 +82,8 @@ export default function ContinuumPage() {
                 <a href="#pathways" className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-ember)] px-5 py-3 text-[15px] font-semibold text-[var(--color-canopy)] transition-colors hover:bg-[var(--color-ember-bright)]">
                   Pick a person <ArrowRight className="h-4 w-4" />
                 </a>
-                <a href="#housing-first" className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-white/10">
-                  When Housing First works
+                <a href="#tonight" className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-white/10">
+                  What&apos;s open at 2 a.m.
                 </a>
               </div>
             </div>
@@ -144,95 +139,91 @@ export default function ContinuumPage() {
         </div>
       </nav>
 
-      {/* 05 */}
+      {/* 01 · Pick a person */}
       <Section
         layout="stacked"
         id="pathways"
         eyebrow="01 · Start here"
         title="Pick a person. See their path."
-        lead="Start here. Every person the system meets is one of twelve kinds, and each kind has an evidence-backed order of stages from the street to a lease. Pick one: the stages they pass through light up in order, the amber circle is the first door that has to exist, and the note below says why that order and how strong the evidence is. The rest of the page defines the stages, the questions that pick the first door, and how to count who is where."
+        lead="Everyone the system meets is one of twelve kinds of people, and each kind has an evidence-backed order of stages from the street to a lease. Pick one. The stages light up in order; the amber circle is the first door that has to exist for them."
       >
         <PathwayExplorer />
       </Section>
 
-      {/* 01 */}
-      <Section
-        layout="stacked"
-        id="map"
-        eyebrow="02 · The map"
-        title="Fourteen stages, and how many of them anyone can count"
-        lead="Two pictures. First, the fourteen stages a person can be in, grouped into six phases and numbered in the order most people pass through them, each with its clock, whether anyone can count who is there today, and the best number Portland has. Second, which kinds of people pass through which stages, and in what order, with the first door that has to exist for each."
-      >
-        <ContinuumMap />
-        <Note>
-          Stage definitions and counts are distilled from a three-draft, judged, and adversarially verified design; eleven of twelve load-bearing factual claims survived checking against primary documents and the twelfth was corrected. The full memo and source registry are in the Civic Lab research archive.
-        </Note>
-      </Section>
-
-      {/* 02 */}
+      {/* 02 · Pick a stage */}
       <Section
         layout="stacked"
         id="stages"
         tone="warm"
-        eyebrow="03 · Every stage, defined"
-        title="The shared vocabulary"
-        lead="A stage is defined by a number a worker can take this week, not by a program or a building: who enters, how they leave, how long they stay, who belongs, how to count it, and what Portland has and lacks there. First, for each stage, what it looks like from the person's side when it works and the ways it fails them; then the full definition. If police, outreach, the emergency department, and the jail use the same fourteen words, they can hand a person to each other."
+        eyebrow="02 · The fourteen stages"
+        title="Pick a stage. See everything about it."
+        lead="A stage is a place a person can physically be, defined by a number a worker can take this week. Six phases, fourteen stages, in order. Click any one: what it is, when it works and how it fails, who does what there (and what police do not), who answers for it and what it costs, and Portland's number today with the gap behind it."
       >
-        <ModesGrid />
-        <div className="mt-8">
-          <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">Every stage in full: entry, exit, clock, count, Portland today, gap</p>
-          <StageDetail />
-        </div>
+        <StageExplorer />
+        <Note>Stage definitions were drafted three ways, judged, synthesized, challenged claim by claim against primary documents, then read by seven front-line, clinical, and legal reviewers. The dot on each card says whether anyone in Portland can count who is in that stage right now: none fully, ten partly, four not at all.</Note>
       </Section>
 
-      {/* 03 */}
+      {/* 03 · Where it breaks */}
       <Section
         layout="stacked"
-        id="first-door"
-        eyebrow="04 · The first door"
-        title="Six questions any responder can answer at the scene"
-        lead="In order. Safety, then stabilization, then population, then history. Each yes names the first door, the stage it maps to, and what that door actually is in Portland tonight, including where there isn't one. The order matters: most failures are the wrong first door, not the wrong last one."
+        id="breaks"
+        eyebrow="03 · Where it breaks today"
+        title="What goes in, and what comes through"
+        lead="Portland publishes enough to see the leaks even though it cannot see the stages. Each pair of bars is one transition: how many went in, how many came out the other side. The grey bar is the whole; the green bar is what made it. Where no rate exists at all, the bar is hatched, and that is the finding."
       >
-        <FirstDoor />
+        <LeakChart />
       </Section>
 
-      {/* 04 */}
+      {/* 04 · Tonight */}
+      <Section
+        layout="stacked"
+        id="tonight"
+        tone="warm"
+        eyebrow="04 · Tonight, at the scene"
+        title="Six questions in order, then the doors that are actually open"
+        lead="Any responder can answer these from what they can see or ask, in order: safety, then stabilization, then population, then history. Each yes names the first door and what that door really is in Portland tonight. Below the questions, every door on a 24-hour clock, because most of the system is a daytime system and the hardest hour is 2 a.m."
+      >
+        <TriageStepper />
+        <div className="mt-6">
+          <DoorsOpen />
+        </div>
+        <Note>Door rules and hours are from the county sobering page and EMS protocols, Unity, Central City Concern, Janus, Call to Safety, 211, and the city, as read by a paramedic, a patrol officer, an outreach worker, and a hospital social worker in the review. Hours change; the stage explorer above and the memo carry the sources.</Note>
+      </Section>
+
+      {/* 05 · Saying no */}
+      <Section
+        layout="stacked"
+        id="saying-no"
+        eyebrow="05 · When someone says no"
+        title="A no is information. Find out what kind."
+        lead="Most people who refuse are refusing a specific offer, or are not in a state to accept any offer tonight. The law draws two lines, danger to self or others and incapacitation in public, and below them nobody can make anyone go anywhere. So a no gets an order of questions, a re-approach clock, a decline recorded against the offer rather than the person, and enforcement last."
+      >
+        <WhenNo />
+      </Section>
+
+      {/* 06 · Lanes and Housing First */}
       <Section
         layout="stacked"
         id="lanes"
         tone="warm"
-        eyebrow="05 · Three lanes"
-        title="Intensity follows acuity, and the highest-acuity group is small"
-        lead="Three lanes sort people by acuity. Lane 3 can be scored at the scene from what a responder can observe; Lane 2 is assigned from history at the first handoff, never on the street; a person impaired tonight is not laned until re-approached. The lane decides the first door and the intensity of support, never eligibility for a later door. The chronic tenth of shelter users consumes half of shelter nights; that is who Lane 3 is for."
+        eyebrow="06 · Three lanes, and when Housing First works"
+        title="Intensity follows acuity; the lease does not wait for treatment"
+        lead="Three lanes set how much support a person gets, never which doors they are eligible for. Lane 3 is a tenth of the people and half the shelter nights, and the only lane a responder can score at the scene. Underneath, the placement rule itself: thirteen cases where Housing First works, works with conditions, or is not enough by itself, with the trial behind each one a tap away."
       >
-        <Lanes />
-        <Note>
-          The three-lane structure and the per-lane volumes and costs (14,000–17,000 people at $5,000–6,000; 4,000–5,000 at $18,000–24,000; 900–1,200 at $45,000–65,000, on a flat budget) come from a 2026 county turnaround proposal by a candidate for county chair. They are budget assumptions, not measured outcomes, and are labeled that way wherever they appear. The observable criteria and the Housing First guardrail on Lane 3 are ours, from the trial evidence in section 06.
-        </Note>
+        <LanesVisual />
+        <div className="mt-6">
+          <HousingFirstBoard />
+        </div>
+        <Note>Lane volumes and costs are a 2026 county turnaround proposal&apos;s planning assumptions, labeled as such. Nine of the thirteen Housing First evidence strings were adversarially checked and corrected; the other four stand unrefuted rather than verified.</Note>
       </Section>
 
-      {/* 06 */}
-      <Section
-        layout="stacked"
-        id="housing-first"
-        tone="warm"
-        eyebrow="06 · When Housing First works, and when it doesn't"
-        title="A placement rule, not a religion"
-        lead="Housing First is the best-replicated result in this field for people with serious mental illness and long homelessness, and it is not a treatment for addiction, not a wound clinic, not a plan for a region with no units, and not a substitute for the hours of stabilization a person in psychosis or withdrawal needs before they can say yes. Thirteen cases, three verdicts, each with its evidence."
-      >
-        <HousingFirstRules />
-        <Note>
-          Where the evidence is a randomized trial we say so; where it is a matched or observational study, or a plan document, we say that. The compulsory-treatment verdict rests on a nine-study systematic review and Massachusetts overdose data; Oregon&apos;s civil-commitment standard widened on January 1, 2026 to reach foreseeable harm and basic needs, which makes the evidence point sharper: an order without a bed and a team produces a discharge, not a recovery.
-        </Note>
-      </Section>
-
-      {/* 07 */}
+      {/* 07 · Counting */}
       <Section
         layout="stacked"
         id="count"
         eyebrow="07 · Counting each bucket"
-        title="Seven fields a worker already enters, and nine numbers the system is judged on"
-        lead="The count has to survive workers who will not fill in forty fields, providers who report late, and people who move between jail, hospital, shelter, and street without telling anyone. So the stage count is one living-situation code, the funnel is one referral result, capacity comes with the bill, and silence degrades to unknown rather than to housed."
+        title="Seven fields a worker already enters, nine numbers the system is judged on, and who can say what today"
+        lead="The count has to survive workers who will not fill in forty fields, providers who report late, and people who move between jail, hospital, shelter, and street without telling anyone. So the stage count is one living-situation code, the funnel is one referral result, capacity comes with the bill, and silence degrades to unknown rather than to housed. The matrix at the end shows how little of this anyone can say now."
       >
         <CountLedger />
         <div className="mt-6">
@@ -240,87 +231,37 @@ export default function ContinuumPage() {
           <HeadlineMetrics />
         </div>
         <div className="mt-6">
-          <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">What the county and city publish today</p>
-          <MeasuresCompare />
+          <PublishesMatrix />
         </div>
-        <Note>
-          Three legal limits shape this: survivor records may not enter the shared identifier even hashed, substance-use treatment records need written patient consent, and hospital homelessness flags catch about a third of patients. Section 09 says what each does to the count.
-        </Note>
       </Section>
 
-      {/* 08 */}
+      {/* 08 · Money and blame */}
       <Section
         layout="stacked"
-        id="gaps"
+        id="money"
         tone="warm"
-        eyebrow="08 · Reading the gaps"
-        title="What the counts would tell you, and what Portland's say now"
-        lead="The point of counting each stage is diagnosis: the pattern in the numbers that says a gap is here, and what it usually means. For every stage, the signal, the likely cause, and the honest reading of Portland's numbers today, which is mostly that the count that would settle it does not exist."
+        eyebrow="08 · Who answers for it, and what it costs"
+        title="A price for every stage, and a consequence for every miss"
+        lead="The unit costs the region has published all point one way: a shelter bed costs about three times what supportive housing costs per person, and the cheap conversion steps between them were the ones cut. Most stage costs were never published at all. Below the chart, what happens when a stage fails, in order, and who has the authority to make it happen. The owner, the number, and the cost for any single stage are on its card in section 02."
       >
-        <GapDiagnostic />
-      </Section>
-
-      {/* 09 */}
-      <Section
-        layout="stacked"
-        id="caveats"
-        eyebrow="09 · What this does not yet cover"
-        title="The critique we could not answer, kept in view"
-        lead="Before this was published, a completeness critic read the design against the source record and listed what it misses. We kept the list rather than smoothing it over: people with no pathway yet, legal limits on a shared count, data that does not exist or already does, governance with no owner, and the ways the headline number could be gamed."
-      >
-        <Caveats />
-      </Section>
-
-      {/* 10 */}
-      <Section
-        layout="stacked"
-        id="roles"
-        tone="warm"
-        eyebrow="10 · Who does what"
-        title="One lead per person, the right people in the room, and police only where the law puts them"
-        lead="A continuum is only shared if everyone knows whose person this is at each stage and who writes the handoff. This table names the lead at every stage, who else belongs in the room, what police do and do not do there, and who records the arrival so the count can follow the person. The lead does not change at the door; that is the single habit that stops people falling between agencies."
-      >
-        <WhoDoesWhat />
-      </Section>
-
-      {/* 11 */}
-      <Section
-        layout="stacked"
-        id="saying-no"
-        eyebrow="11 · When someone says no"
-        title="A no is information about the offer, the person's state, or the door. Find out which."
-        lead="Most people who refuse are refusing a specific offer, or are not in a state to accept any offer tonight. The law draws two lines (danger to self or others, and incapacitation in public) and below them nobody can make anyone go anywhere. So the protocol for a no is an order of questions, a re-approach clock, a decline recorded against the offer rather than the person, and enforcement last, only after a real offer, on the record. Beside it, where police belong in all of this, and the honest sequence by which people actually get off the street."
-      >
-        <WhenNo />
-      </Section>
-
-      {/* 12 */}
-      <Section
-        layout="stacked"
-        id="front-line"
-        tone="warm"
-        eyebrow="12 · What the front line will say"
-        title="Forty objections from the people who would have to run this, and the answer to each"
-        lead="Before this was published, an outreach worker, a paramedic, a patrol officer, a jail release desk, an emergency-department social worker, an addiction clinician, and a lawyer were each asked what breaks at 2 a.m. Their objections are the ones any rollout will hear in the first week. We changed the design where they were right and kept the objection and the answer here, by role, so the people who will hear them next have the answer in hand."
-      >
-        <FrontLine />
-      </Section>
-
-      {/* 13 */}
-      <Section
-        layout="stacked"
-        id="accountable"
-        eyebrow="13 · Who answers for it, and what it costs"
-        title="An owner, a number, a consequence, and a price for every stage"
-        lead="A continuum nobody answers for is a diagram. So for each of the fourteen stages: who answers for it in public, the mechanism that ties money or authority to the number, the one figure they are judged on with its target, and what happens when they miss, on a five-step ladder that starts with publishing and ends with reassigning the stage. Then the money: what is spent today, the unit cost the region has actually published, what a funded stage needs in the next budget, and which way each line should move. Two stages have no owner today and eight have no published unit cost. Those are findings, not gaps in this page."
-      >
-        <Accountability />
-        <div className="mt-8">
-          <StageCosts />
+        <CostChart />
+        <div className="mt-6">
+          <FailureLadder />
         </div>
-        <Note>
-          Dollar figures are the county&apos;s (FY2025 shelter review, FY2026 and FY2027 budgets and quarterly reports), the state&apos;s (facility study, legislative appropriations), or a trial&apos;s. The 2026 turnaround proposal&apos;s lane budgets are a candidate&apos;s arithmetic on unmeasured unit costs and are labeled as an assumption. Unit costs for sobering, detox, residential treatment, respite, outreach, bridge housing, retention, and diversion have never been published locally; each is a records request in the memo.
-        </Note>
+      </Section>
+
+      {/* 09 · What could go wrong */}
+      <Section
+        layout="stacked"
+        id="risks"
+        eyebrow="09 · What could go wrong"
+        title="The critique we kept, and what the front line will say"
+        lead="A completeness critic listed what the design misses, and seven front-line, clinical, and legal readers said what breaks at 2 a.m. We changed the design where they were right and kept every objection here with its answer, so the people who will hear them next have it in hand."
+      >
+        <CaveatsAccordion />
+        <div className="mt-6">
+          <FrontLine />
+        </div>
       </Section>
 
       {/* Sources */}
@@ -332,17 +273,7 @@ export default function ContinuumPage() {
         title="Where this comes from"
         lead="The county's own reports, budgets, handbooks, scorecard, and shelter review; the city's audit, weekly street reports, and shelter figures; Oregon statutes and EMS protocols; nineteen national frameworks and data standards; the randomized and matched studies behind each pathway; and a 2026 county turnaround proposal by a candidate for county chair, used for stage targets and the three-lane model and labeled as a proposal wherever it appears. Three independent designs were drafted, scored, synthesized, challenged claim by claim, read by a completeness critic, and then by seven front-line, clinical, and legal reviewers. The full registry is in the research archive."
       >
-        <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2 2xl:grid-cols-3">
-          {CONTINUUM_SOURCES.map((s) => (
-            <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer" className="group -m-2 flex items-start gap-3 rounded-sm border border-transparent p-2 transition-colors hover:border-[var(--color-parchment)] hover:bg-white">
-              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-fern)]" />
-              <span>
-                <span className="block text-[13px] leading-snug text-[var(--color-ink)] group-hover:text-[var(--color-canopy)]">{s.title}</span>
-                <span className="mt-0.5 block font-mono text-[11px] uppercase tracking-wide text-[var(--color-ink-muted)]">{s.org} · {s.kind}</span>
-              </span>
-            </a>
-          ))}
-        </div>
+        <SourcesList />
       </Section>
     </div>
   );

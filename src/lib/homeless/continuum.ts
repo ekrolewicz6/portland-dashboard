@@ -496,6 +496,93 @@ export const STAGE_MODES: StageModes[] = [
   { stageId: "retention", success: ["Housed at 24 months, checked at 6, 12, and 24.", "A rent problem or crisis contact caught within 72 hours.", "Services step down as stability holds; returns are counted and falling."], failure: ["Sustained counts with no denominator.", "A return nobody responded to.", "Eviction filings against subsidized tenants.", "The return re-enters the count as a new person; success declared at move-in and never looked at again."] },
 ];
 
+// ── Data behind the visuals ──────────────────────────────────────
+
+export interface Bar { label: string; value: number; of: number; note?: string; unit?: string }
+/** Capacity or conversion against need, where both numbers are published. */
+export const STAGE_BARS: Record<string, Bar[]> = {
+  prevention: [{ label: "State prevention funding vs the request (statewide)", value: 33.6, of: 173, unit: "$M" }],
+  "unsheltered-active": [{ label: "Outreach contacts that became newly engaged people, one quarter", value: 212, of: 6327 }],
+  "institutional-exit": [{ label: "Jail releases with a published destination", value: 0, of: 100, note: "none published" }],
+  "intake-match": [{ label: "People assessed who were placed, FY2024", value: 484, of: 4853 }],
+  "crisis-sobering": [{ label: "Sobering stations today vs the 2027 center", value: 13, of: 47 }],
+  "withdrawal-management": [{ label: "Withdrawal beds in the region vs need", value: 139, of: 424 }, { label: "Of every 100 recommended for residential care, placed", value: 17, of: 100 }],
+  "residential-treatment": [{ label: "Residential beds vs need", value: 639, of: 1793 }, { label: "Inpatient psychiatric beds vs need", value: 311, of: 540 }, { label: "Secure residential beds vs need", value: 127, of: 220 }],
+  "medical-respite": [{ label: "Housing-insecure patients coded home or self-care at discharge", value: 73, of: 100, note: "vs 63% of all patients" }],
+  "emergency-shelter": [{ label: "Shelter exits that reached housing, FY2025", value: 834, of: 5213 }, { label: "Shelter exits with a recorded destination", value: 2413, of: 5213 }],
+  "rapid-rehousing": [{ label: "Planned placements delivered after the mid-year cut, FY2026", value: 938, of: 1670 }],
+  "permanent-supportive-housing": [{ label: "Frequent users of jail, Medicaid, and homeless services who were in supportive housing (2018 match)", value: 283, of: 1371 }],
+  retention: [{ label: "People 'sustained' in supportive housing with a published retention rate", value: 0, of: 1417, note: "no denominator" }],
+};
+
+export interface Leak { stageId: string; title: string; inLabel: string; inValue: number; outLabel: string; outValue: number | null; period: string; read: string }
+/** Where the continuum leaks today: what goes in, what comes through, from published counts. */
+export const LEAKS: Leak[] = [
+  { stageId: "unsheltered-active", title: "Outreach contact → newly engaged", inLabel: "contacts", inValue: 6327, outLabel: "newly engaged", outValue: 212, period: "one quarter, FY2026", read: "Coverage, conversion, and offer quality all fail, and today's numbers cannot say which dominates." },
+  { stageId: "unsheltered-active", title: "Camp visit → shelter placement", inLabel: "camps visited", inValue: 361, outLabel: "placements", outValue: 3, period: "one week, August 2026", read: "The city's street teams visit; almost nobody arrives anywhere." },
+  { stageId: "unsheltered-active", title: "Camping-ordinance offer → accepted", inLabel: "offered shelter", inValue: 728, outLabel: "accepted", outValue: 324, period: "to May 2026", read: "Nobody recorded what the 404 were offered or why they said no." },
+  { stageId: "crisis-sobering", title: "Deflection referral → completion", inLabel: "referrals", inValue: 606, outLabel: "completions", outValue: 113, period: "year one", read: "Police-only referral; sobering admissions by source and hour are unpublished." },
+  { stageId: "withdrawal-management", title: "Recommended for residential care → placed", inLabel: "recommended", inValue: 100, outLabel: "placed", outValue: 17, period: "Hooper, 2022", read: "Detox works; the bed after it does not exist." },
+  { stageId: "intake-match", title: "Assessed for housing → placed", inLabel: "assessed", inValue: 4853, outLabel: "placed", outValue: 484, period: "FY2024", read: "Then the county cut the targets to 1,500 and 200 with the funding." },
+  { stageId: "emergency-shelter", title: "Shelter exit → housing", inLabel: "exits", inValue: 5213, outLabel: "to housing", outValue: 834, period: "FY2025, 31 adult shelters", read: "Another 2,800 exits, 54%, have no recorded destination at all." },
+  { stageId: "permanent-supportive-housing", title: "Frequent users of three systems → in supportive housing", inLabel: "in jail, Medicaid, and homeless services at once", inValue: 1371, outLabel: "in supportive housing", outValue: 283, period: "2018 match, never repeated", read: "The people the whole system is judged on, mostly outside the stage built for them." },
+  { stageId: "retention", title: "Placed → known to be still housed", inLabel: "'sustained' in supportive housing", inValue: 1417, outLabel: "with a published rate", outValue: null, period: "Q1 FY2026", read: "No denominator, no target; the loop that would validate every other stage is open." },
+];
+
+export interface DoorHours { door: string; kind: "walk-in" | "referral" | "phone" | "none" | "unpublished"; segments: [number, number][]; days?: string; note: string }
+/** Which doors are open at what hour on a weeknight. Hours are 0–24; a segment past 24 wraps. */
+export const DOORS_HOURS: DoorHours[] = [
+  { door: "911 and any emergency department", kind: "walk-in", segments: [[0, 24]], note: "Medical, overdose, injury. The only door that is always open to everyone." },
+  { door: "Unity Center: psychiatric emergency and intoxication drop-off", kind: "walk-in", segments: [[0, 24]], note: "Adults 18–70, medically clear, voluntary or on a police hold. No adolescent walk-ins." },
+  { door: "Coordinated Care Pathway Center sobering", kind: "referral", segments: [[0, 24]], note: "Referral-only from twelve named partners who transport; must be intoxicated, able to agree, no medical or psychiatric emergency. No walk-in, no ED or jail-release path." },
+  { door: "Project Respond via the county crisis line", kind: "phone", segments: [[0, 24]], note: "503-988-4888. Mobile crisis by phone; contract target one hour. No hold authority." },
+  { door: "Portland Street Response", kind: "walk-in", segments: [[6, 24]], note: "911 or 503-823-7773. Closed midnight to 6 a.m." },
+  { door: "Call to Safety (survivors)", kind: "phone", segments: [[0, 24]], note: "503-235-5333, 24/7 advocacy. Shelter follows a safety assessment; beds checked at 9 a.m." },
+  { door: "Porch Light youth shelter (16–24)", kind: "walk-in", segments: [[20.75, 24], [0, 8.75]], note: "1635 SW Alder; self-referral at the door 9 p.m.–5 a.m., first come. Under 16: child welfare." },
+  { door: "City overnight shelters (single adults)", kind: "walk-in", segments: [[20, 24], [0, 8]], note: "Roughly 8 or 9 p.m. to 6:30 or 8 a.m., first come. The only night bed for a single adult." },
+  { door: "County adult shelters", kind: "none", segments: [], note: "Waitlist or referral only; no night walk-in intake anywhere." },
+  { door: "Hooper detox admission", kind: "walk-in", segments: [[6.75, 7.75]], days: "weekdays", note: "One hour, Monday to Friday. State ID and a ten-day medication supply required." },
+  { door: "Fire CHAT field buprenorphine", kind: "referral", segments: [[8, 17.5]], days: "Mon–Thu", note: "The only field induction program. Nothing after 5:30 p.m. outside an emergency department." },
+  { door: "211 (families)", kind: "phone", segments: [[8, 19]], days: "weekdays; 2–10 p.m. weekends", note: "Takes the name; a specialist calls back within 72 hours. County family shelter is reservation-based." },
+  { door: "Janus Youth Access Center", kind: "walk-in", segments: [[9, 17]], note: "Intake and services by day; the night door is Porch Light." },
+  { door: "Recuperative Care (medical respite) referrals", kind: "referral", segments: [[8, 17]], days: "weekdays", note: "By phone or fax from a hospital. Must be ambulatory and able to self-medicate." },
+  { door: "Coordinated Housing Access Team warmline", kind: "unpublished", segments: [], note: "844-765-9384 requests an assessment, not a bed. Hours unpublished." },
+];
+
+export type Knows = "yes" | "partial" | "no" | "na";
+export interface KnowledgeRow { question: string; county: Knows; city: Knows; sheriff: Knows; note: string }
+/** What the two governments and the Sheriff can currently say, from their own publications. */
+export const KNOWLEDGE_MATRIX: KnowledgeRow[] = [
+  { question: "How many people are at each stage right now", county: "no", city: "no", sheriff: "na", note: "The county list counts anyone who touched a service; the city counts camps." },
+  { question: "Whether a yes became an arrival", county: "no", city: "no", sheriff: "na", note: "Neither system has an arrival field." },
+  { question: "Where shelter leavers go", county: "partial", city: "partial", sheriff: "na", note: "County: 46% of exits have a destination. City: exits to housing only." },
+  { question: "What people who declined were offered, and why they said no", county: "no", city: "no", sheriff: "na", note: "404 camping-ordinance declines with no follow-up." },
+  { question: "Who is still housed a year after placement", county: "partial", city: "na", sheriff: "na", note: "Sustained counts, no rate, no target." },
+  { question: "Housing status at booking; destination at release", county: "na", city: "na", sheriff: "no", note: "Bookings, releases, and length of stay only." },
+  { question: "Which blocks outreach walks, and who owns each person", county: "no", city: "no", sheriff: "na", note: "Scorecard item 1A unmet; no named-lead field." },
+  { question: "Beds open tonight, and who can open them", county: "no", city: "partial", sheriff: "na", note: "The 2024 audit's open recommendation; the city publishes capacity, not openings." },
+  { question: "Sobering admissions by referral source and hour", county: "no", city: "na", sheriff: "na", note: "The deflection report counts police referrals only." },
+  { question: "First-time entries as a share of inflow", county: "partial", city: "no", sheriff: "na", note: "A biennial survey question (38% tri-county), not a monthly count." },
+];
+
+export interface UnitCost { label: string; stageId: string; value: number; high?: number; kind: "year" | "episode"; status: "published" | "derived" | "assumption" | "analog"; source: string }
+/** The unit costs the region has published, derived from its own arithmetic, assumed in a proposal, or borrowed from another city. */
+export const UNIT_COSTS: UnitCost[] = [
+  { label: "Behavioral Health Resource Center bed", stageId: "crisis-sobering", value: 111797, kind: "year", status: "published", source: "Adult Shelter Review FY25" },
+  { label: "Adult shelter bed", stageId: "emergency-shelter", value: 47000, kind: "year", status: "published", source: "Adult Shelter Review FY25" },
+  { label: "Lane 3 person, all-in", stageId: "permanent-supportive-housing", value: 45000, high: 65000, kind: "year", status: "assumption", source: "2026 turnaround proposal" },
+  { label: "Lane 2 person, all-in", stageId: "rapid-rehousing", value: 18000, high: 24000, kind: "year", status: "assumption", source: "2026 turnaround proposal" },
+  { label: "Supportive housing, per person", stageId: "permanent-supportive-housing", value: 16000, kind: "year", status: "published", source: "County shelter review release" },
+  { label: "Lane 1 person, all-in", stageId: "prevention", value: 5000, high: 6000, kind: "year", status: "assumption", source: "2026 turnaround proposal" },
+  { label: "Rapid-rehousing placement", stageId: "rapid-rehousing", value: 11900, kind: "episode", status: "derived", source: "$8.7M cut ÷ 732 placements" },
+  { label: "Prevention, per family (FY2027 add)", stageId: "prevention", value: 7000, kind: "episode", status: "derived", source: "$3.5M ÷ 500 families" },
+  { label: "Prevention payment, Santa Clara trial", stageId: "prevention", value: 4442, kind: "episode", status: "analog", source: "Phillips & Sullivan 2023" },
+  { label: "Housing assessment", stageId: "intake-match", value: 1900, kind: "episode", status: "derived", source: "$9.3M ÷ 4,853 assessments" },
+  { label: "Emergency visit for intoxication, San Francisco", stageId: "crisis-sobering", value: 649, kind: "episode", status: "analog", source: "San Francisco sobering center study" },
+  { label: "Sobering encounter, San Francisco", stageId: "crisis-sobering", value: 264, kind: "episode", status: "analog", source: "San Francisco sobering center study" },
+];
+export const UNPUBLISHED_COSTS: string[] = ["Outreach, per person newly engaged", "Sobering, per admission (Portland)", "Detox, per admission", "Residential treatment, per staffed bed", "Medical respite, per bed", "Bridge or recovery housing, per bed", "Tenancy support, per household", "Diversion, per household (no stage exists)"];
+
 // ── The three acuity lanes ────────────────────────────────────────
 
 export interface Lane {

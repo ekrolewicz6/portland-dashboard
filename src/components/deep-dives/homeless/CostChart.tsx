@@ -1,0 +1,70 @@
+import { COST_SUMMARY, UNIT_COSTS, UNPUBLISHED_COSTS } from "@/lib/homeless/continuum";
+
+const STATUS: Record<string, { label: string; cls: string }> = {
+  published: { label: "published", cls: "bg-[var(--color-fern)]" },
+  derived: { label: "derived from published figures", cls: "bg-[var(--color-river)]" },
+  assumption: { label: "a proposal's assumption", cls: "bg-[repeating-linear-gradient(135deg,var(--color-ember)_0_5px,#f4ebe0_5px_9px)]" },
+  analog: { label: "another city's figure", cls: "bg-[var(--color-sage)]" },
+};
+const money = (n: number) => `$${n.toLocaleString()}`;
+
+function Bars({ kind, title }: { kind: "year" | "episode"; title: string }) {
+  const rows = UNIT_COSTS.filter((c) => c.kind === kind);
+  const max = Math.max(...rows.map((r) => r.high ?? r.value));
+  return (
+    <div className="rounded-sm border border-[var(--color-parchment)] bg-white">
+      <p className="border-b border-[var(--color-parchment)] px-5 pt-4 pb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)] sm:px-6">{title}</p>
+      <ol className="space-y-3 px-5 py-4 sm:px-6">
+        {rows.map((r) => {
+          const w = ((r.high ?? r.value) / max) * 100;
+          const wl = (r.value / max) * 100;
+          return (
+            <li key={r.label} className="grid gap-x-4 gap-y-1 sm:grid-cols-[220px_minmax(0,1fr)] sm:items-center">
+              <div>
+                <p className="text-[13px] font-medium leading-snug text-[var(--color-ink)]">{r.label}</p>
+                <p className="font-mono text-[10px] text-[var(--color-ink-muted)]">{r.source}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="relative h-6 flex-1">
+                  <div className={`absolute inset-y-0 left-0 rounded-sm ${STATUS[r.status].cls}`} style={{ width: `${w}%` }} />
+                  {r.high ? <div className="absolute inset-y-0 left-0 rounded-sm bg-[var(--color-ember)]" style={{ width: `${wl}%`, opacity: 0.55 }} /> : null}
+                </div>
+                <span className="w-[130px] shrink-0 text-right font-mono text-[12px] font-semibold tabular-nums text-[var(--color-ink)]">{money(r.value)}{r.high ? `–${r.high.toLocaleString()}` : ""}</span>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
+/** What a year, or an episode, costs at each stage where anyone has published it; and the stages where nobody has. */
+export default function CostChart() {
+  return (
+    <div className="space-y-4">
+      <ul className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-ink-muted)]">
+        {Object.entries(STATUS).map(([k, v]) => <li key={k} className="flex items-center gap-1.5"><span className={`inline-block h-2.5 w-5 rounded-[2px] ${v.cls}`} />{v.label}</li>)}
+      </ul>
+      <div className="grid gap-4 xl:grid-cols-2 xl:items-start">
+        <Bars kind="year" title="What a year costs, per bed or per person" />
+        <Bars kind="episode" title="What one episode costs" />
+      </div>
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="rounded-sm border border-dashed border-[var(--color-clay)] bg-[var(--color-clay-tint)] px-5 py-4">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-clay)]">Never published: {UNPUBLISHED_COSTS.length} unit costs</p>
+          <ul className="mt-2 grid gap-1 text-[13px] leading-snug text-[var(--color-ink)] sm:grid-cols-2">{UNPUBLISHED_COSTS.map((u) => <li key={u}>{u}</li>)}</ul>
+          <p className="mt-2 text-[12px] text-[var(--color-ink-light)]">Capacity comes with the bill in this design, so for these stages the first deliverable is the unit cost, not a new appropriation.</p>
+        </div>
+        <ol className="grid gap-[1px] rounded-sm border border-[var(--color-parchment)] bg-[var(--color-parchment)] sm:grid-cols-2">
+          {COST_SUMMARY.slice(0, 4).map((t, i) => (
+            <li key={t.slice(0, 30)} className="bg-white px-4 py-3.5">
+              <span className="font-mono text-[12px] font-bold text-[var(--color-ember)]">{i + 1}</span>
+              <p className="mt-1 text-[13px] leading-relaxed text-[var(--color-ink-light)]">{t}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  );
+}
