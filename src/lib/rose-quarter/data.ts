@@ -525,8 +525,13 @@ export const WHATS_NEXT: NextEvent[] = [
     why: "About $400M is spent or committed; the remaining ~$3B is unfunded. The covers' federal grant — the largest its program ever made — was rescinded, and restoring it would take a different federal administration. The state decides whether to carry the project until that question is answered.",
   },
   {
+    when: "Ripe for decision",
+    what: "A ruling in the comprehensive-plan case (Multnomah County Circuit Court, No. 24CV23141)",
+    why: "The parties have filed their written closing arguments, so the case awaits the judge. A ruling for the plaintiffs could force a City Council vote on whether the project conforms to the city's plans. Flagged to the Lab by a reader on August 18, 2026; the docket is the source of record.",
+  },
+  {
     when: "Unscheduled",
-    what: "Rulings in both lawsuits",
-    why: "The comprehensive-plan case could force a City Council vote. The NEPA case could send the project back to environmental review.",
+    what: "A ruling in the NEPA case",
+    why: "The federal case could send the project back to environmental review.",
   },
 ];
