@@ -13,7 +13,7 @@ export default function FirstDoor() {
       <div className="rounded-sm border border-[var(--color-parchment)] bg-white">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-[var(--color-parchment)] px-5 pt-4 pb-3 sm:px-6">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">Six questions, in order, at the scene</p>
-          <p className="font-mono text-[11px] text-[var(--color-ink-muted)]">answerable with what you can see, no diagnosis needed</p>
+          <p className="font-mono text-[11px] text-[var(--color-ink-muted)]">answerable with what you can see or ask in one breath; no diagnosis needed</p>
         </div>
         <ol className="divide-y divide-[var(--color-parchment)]">
           {FIRST_DOOR.map((q) => (
@@ -21,7 +21,7 @@ export default function FirstDoor() {
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-canopy)] font-mono text-[15px] font-bold text-white">{q.n}</span>
               <div>
                 <h4 className="text-[16px] font-semibold leading-tight text-[var(--color-canopy)]">{q.ask}</h4>
-                <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">What you can observe</p>
+                <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">What you can see or ask</p>
                 <p className="text-[13px] leading-snug text-[var(--color-ink-light)]">{q.observe}</p>
               </div>
               <div>
@@ -39,8 +39,8 @@ export default function FirstDoor() {
         </ol>
       </div>
       <div className="rounded-sm border border-[var(--color-parchment)] bg-[var(--color-paper-warm)] px-5 py-4 sm:px-6">
-        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">The five rules every agency signs</p>
-        <ol className="mt-3 grid gap-x-8 gap-y-2.5 md:grid-cols-2 xl:grid-cols-5">
+        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">The six rules every agency signs</p>
+        <ol className="mt-3 grid gap-x-8 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
           {FIRST_DOOR_RULES.map((r, i) => (
             <li key={i} className="flex gap-2.5 text-[13px] leading-snug text-[var(--color-ink-light)]">
               <span className="shrink-0 font-mono text-[13px] font-bold text-[var(--color-ember)]">{i + 1}</span>

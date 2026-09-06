@@ -52,7 +52,7 @@ export interface Pathway {
   /** Why this order, in one or two sentences. */
   why: string;
   /** Strength of the best evidence for the sequence. */
-  evidence: "RCT" | "quasi-experimental" | "observational" | "practice";
+  evidence: "RCT" | "quasi-experimental" | "observational" | "practice" | "RCT, housing step only";
   evidenceSource?: string;
 }
 

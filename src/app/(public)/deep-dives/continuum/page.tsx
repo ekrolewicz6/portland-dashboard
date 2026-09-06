@@ -177,7 +177,7 @@ export default function ContinuumPage() {
         tone="warm"
         eyebrow="04 · Three lanes"
         title="Intensity follows acuity, and the highest-acuity group is small"
-        lead="Three lanes sort people by what a responder can observe, not by diagnosis. The lane decides the first door and the intensity of support, never eligibility for a later door. It is provisional at first contact and re-scored at every handoff. The chronic tenth of shelter users consumes half of shelter nights; that is who Lane 3 is for."
+        lead="Three lanes sort people by acuity. Lane 3 can be scored at the scene from what a responder can observe; Lane 2 is assigned from history at the first handoff, never on the street; a person impaired tonight is not laned until re-approached. The lane decides the first door and the intensity of support, never eligibility for a later door. The chronic tenth of shelter users consumes half of shelter nights; that is who Lane 3 is for."
       >
         <Lanes />
         <Note>
@@ -207,7 +207,7 @@ export default function ContinuumPage() {
       >
         <HousingFirstRules />
         <Note>
-          Where the evidence is a randomized trial we say so; where it is a matched or observational study, or a plan document, we say that. The compulsory-treatment verdict rests on a nine-study systematic review and Massachusetts overdose data; the region&apos;s civil-commitment standard changed in 2025 and belongs to a narrow legal test with intensive services attached.
+          Where the evidence is a randomized trial we say so; where it is a matched or observational study, or a plan document, we say that. The compulsory-treatment verdict rests on a nine-study systematic review and Massachusetts overdose data; Oregon&apos;s civil-commitment standard widened on January 1, 2026 to reach foreseeable harm and basic needs, which makes the evidence point sharper: an order without a bed and a team produces a discharge, not a recovery.
         </Note>
       </Section>
 
