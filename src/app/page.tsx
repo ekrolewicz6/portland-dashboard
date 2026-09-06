@@ -421,8 +421,8 @@ export default function HomePage() {
               >
                 Every decision Portland makes should start from facts anyone can check. We&apos;re
                 building the institution that makes that true: the public record opened, sourced,
-                and turned into tools for everyone. Free to use. Paid for by the work it makes
-                possible.
+                and turned into tools for everyone. Free to use. Funded by philanthropy and paid
+                work. Built to make Portland better.
               </p>
 
               <div
