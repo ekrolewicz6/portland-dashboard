@@ -21,6 +21,9 @@ import WhoDoesWhat from "@/components/deep-dives/homeless/WhoDoesWhat";
 import WhenNo from "@/components/deep-dives/homeless/WhenNo";
 import FrontLine from "@/components/deep-dives/homeless/FrontLine";
 import MeasuresCompare from "@/components/deep-dives/homeless/MeasuresCompare";
+import Accountability from "@/components/deep-dives/homeless/Accountability";
+import StageCosts from "@/components/deep-dives/homeless/StageCosts";
+import ModesGrid from "@/components/deep-dives/homeless/ModesGrid";
 
 export const metadata: Metadata = pageMeta({
   title: "The Continuum — Every Step From Sidewalk to Lease, Defined and Counted",
@@ -43,6 +46,7 @@ const NAV = [
   { id: "roles", label: "10 Who does what" },
   { id: "saying-no", label: "11 Saying no" },
   { id: "front-line", label: "12 Front line" },
+  { id: "accountable", label: "13 Who pays, who answers" },
   { id: "sources", label: "Sources" },
 ];
 
@@ -172,9 +176,13 @@ export default function ContinuumPage() {
         tone="warm"
         eyebrow="03 · Every stage, defined"
         title="The shared vocabulary"
-        lead="A stage is defined by a number a worker can take this week, not by a program or a building: who enters, how they leave, how long they stay, who belongs, how to count it, and what Portland has and lacks there. If police, outreach, the emergency department, and the jail use the same fourteen words, they can hand a person to each other."
+        lead="A stage is defined by a number a worker can take this week, not by a program or a building: who enters, how they leave, how long they stay, who belongs, how to count it, and what Portland has and lacks there. First, for each stage, what it looks like from the person's side when it works and the ways it fails them; then the full definition. If police, outreach, the emergency department, and the jail use the same fourteen words, they can hand a person to each other."
       >
-        <StageDetail />
+        <ModesGrid />
+        <div className="mt-8">
+          <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ember)]">Every stage in full: entry, exit, clock, count, Portland today, gap</p>
+          <StageDetail />
+        </div>
       </Section>
 
       {/* 03 */}
@@ -296,6 +304,23 @@ export default function ContinuumPage() {
         lead="Before this was published, an outreach worker, a paramedic, a patrol officer, a jail release desk, an emergency-department social worker, an addiction clinician, and a lawyer were each asked what breaks at 2 a.m. Their objections are the ones any rollout will hear in the first week. We changed the design where they were right and kept the objection and the answer here, by role, so the people who will hear them next have the answer in hand."
       >
         <FrontLine />
+      </Section>
+
+      {/* 13 */}
+      <Section
+        layout="stacked"
+        id="accountable"
+        eyebrow="13 · Who answers for it, and what it costs"
+        title="An owner, a number, a consequence, and a price for every stage"
+        lead="A continuum nobody answers for is a diagram. So for each of the fourteen stages: who answers for it in public, the mechanism that ties money or authority to the number, the one figure they are judged on with its target, and what happens when they miss, on a five-step ladder that starts with publishing and ends with reassigning the stage. Then the money: what is spent today, the unit cost the region has actually published, what a funded stage needs in the next budget, and which way each line should move. Two stages have no owner today and eight have no published unit cost. Those are findings, not gaps in this page."
+      >
+        <Accountability />
+        <div className="mt-8">
+          <StageCosts />
+        </div>
+        <Note>
+          Dollar figures are the county&apos;s (FY2025 shelter review, FY2026 and FY2027 budgets and quarterly reports), the state&apos;s (facility study, legislative appropriations), or a trial&apos;s. The 2026 turnaround proposal&apos;s lane budgets are a candidate&apos;s arithmetic on unmeasured unit costs and are labeled as an assumption. Unit costs for sobering, detox, residential treatment, respite, outreach, bridge housing, retention, and diversion have never been published locally; each is a records request in the memo.
+        </Note>
       </Section>
 
       {/* Sources */}
