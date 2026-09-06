@@ -203,9 +203,9 @@ function StudioDiagram({ names }: { names: { name: string; title: string }[] }) 
 
 function TopicRow({ t }: { t: Topic }) {
   return (
-    <li className="flex items-center justify-between gap-3 rounded-sm border border-[var(--color-parchment)] bg-white px-4 py-3">
-      <span className="min-w-0 text-[14px] font-medium leading-snug text-[var(--color-ink)]">{t.name}</span>
-      <span className="flex shrink-0 items-center gap-3">
+    <li className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-sm border border-[var(--color-parchment)] bg-white px-4 py-3">
+      <span className="min-w-[9rem] flex-1 text-[14px] font-medium leading-snug text-[var(--color-ink)]">{t.name}</span>
+      <span className="ml-auto flex shrink-0 items-center gap-3">
         {t.external ? (
           <a
             href={t.href}
@@ -411,7 +411,7 @@ export default function AboutPage() {
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-muted)]">
               Questions in progress
             </p>
-            <ul className="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <ul className="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
               {QUESTIONS.map((t) => (
                 <TopicRow key={t.name} t={t} />
               ))}

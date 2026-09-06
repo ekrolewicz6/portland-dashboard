@@ -108,11 +108,11 @@ const RULES = [
   },
   {
     title: "We don't publish on your building while you're a client",
-    body: "Our public downtown map and deep-dives keep running. Analysis of a property under engagement waits until the engagement ends, and the engagement is disclosed on any related public work afterward.",
+    body: "Our public downtown map and deep-dives keep running, and nothing already public comes down for a client. New analysis of a property under engagement waits until the engagement ends, and any later public work that touches it says we were paid on it.",
   },
   {
     title: "Every engagement is on the register",
-    body: "Private clients appear on our Independence page by client, scope, and dates, the same as public ones. If a client needs confidentiality, the property type and scope are listed and the fact of the engagement is disclosed.",
+    body: "Private clients appear on our Independence page by client, scope, and dates, the same as public ones. If a client needs their name kept confidential, the entry still appears with the property type, scope, and dates. The name is the only thing withheld.",
   },
   {
     title: "Public data is not our asset",

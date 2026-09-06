@@ -32,7 +32,7 @@ const RULES = [
   {
     icon: Building2,
     title: "Private clients are on the register too",
-    body: "Property owners, developers, and firms who hire us appear on this page by client, scope, and dates, the same as public bodies. We don't publish analysis on a property while its owner is paying us, and the engagement is disclosed on any related public work afterward.",
+    body: "Property owners, developers, and firms who hire us appear on this page by client, scope, and dates, the same as public bodies. We don't publish new analysis of a property while its owner is paying us, nothing already public comes down, and any later public work that touches that property says we were paid on it.",
   },
   {
     icon: Scale,
@@ -148,7 +148,7 @@ export default function IndependencePage() {
             },
             {
               label: "Private engagements",
-              note: "Client, scope, and dates. Where a client requires confidentiality, the property type and scope are listed and the fact of the engagement is disclosed.",
+              note: "Client, scope, and dates. If a client needs their name kept confidential, the entry still appears with the property type, scope, and dates. The name is the only thing withheld.",
             },
             {
               label: "Sponsored programs",
